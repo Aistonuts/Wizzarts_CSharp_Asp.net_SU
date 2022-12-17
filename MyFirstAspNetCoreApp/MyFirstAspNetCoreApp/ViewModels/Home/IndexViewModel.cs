@@ -10,5 +10,7 @@ namespace MyFirstAspNetCoreApp.ViewModels.Home
         public int Year { get; set; }
 
         public IEnumerable<string> Names { get; set; }
+
+        public string UpperMessage => this.Message.ToUpper();
     }
 }

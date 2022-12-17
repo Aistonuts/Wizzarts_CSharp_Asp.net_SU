@@ -27,11 +27,11 @@ namespace MyFirstAspNetCoreApp.Controllers
             var viewModel = new IndexViewModel
             {
                 Year = DateTime.UtcNow.Year,
-                Message = this.configuration["YouTube:ApiKey"],
+                Message = "<script>alert('hacked')</script>",
                 Names = new List<string> {"Niki","Stoyan" },
             };
             
-            return View(new List<string> { "Niki", "Stoyan" });
+            return View(viewModel);
         }
 
         public IActionResult Privacy()
