@@ -10,13 +10,13 @@
     <li>@i</li>
 }
 @if (DateTime.UtcNow.DayOfWeek == DayOfWeek.Monday)
-    { 
-            <p>Monday</p>
-    }
-            else
-            {
-                <p>@DateTime.UtcNow</p>
-            }
+{
+    <p>Monday</p>
+}
+else
+{
+    <p>@DateTime.UtcNow</p>
+}
 <div class="text-center">
     <h1 class="display-4">@Model.Message</h1>
     <h2>@Model.UpperMessage</h2>
@@ -32,10 +32,20 @@
     }
 </ul>
 
-@Html.TextArea("Message")
+<form class="form-check" asp-action="Index" asp-antiforgery="false">
 
-@section Links{ 
+</form>
+
+
+@using (Html.BeginForm("Index","Home", new { @class = "form-check" }))
+{
+
+}
+
+@Html.TextAreaFor(m => m.Message)
+
+@section Links{
     <li class="nav-item">
-    <a class="nav-link text-dark" href="https://google.com">Google @DateTime.UtcNow.Year</a>
-</li>
+        <a class="nav-link text-dark" href="https://google.com">Google @DateTime.UtcNow.Year</a>
+    </li>
 }
