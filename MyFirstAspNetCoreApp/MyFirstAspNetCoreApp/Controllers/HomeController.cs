@@ -28,7 +28,7 @@ namespace MyFirstAspNetCoreApp.Controllers
             var viewModel = new IndexViewModel
             {
                 Year = DateTime.UtcNow.Year,
-                Message = "<script>alert('hacked')</script>",
+                Message = "Hello!",
                 Names = new List<string> {"niki","stoyan" },
             };
             
