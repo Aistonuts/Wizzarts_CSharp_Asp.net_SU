@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MyFirstAspNetCoreApp.Models;
+using MyFirstAspNetCoreApp.Services;
 using MyFirstAspNetCoreApp.ViewModels.Home;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace MyFirstAspNetCoreApp.Controllers
             {
                 Year = DateTime.UtcNow.Year,
                 Message = "<script>alert('hacked')</script>",
-                Names = new List<string> {"Niki","Stoyan" },
+                Names = new List<string> {"niki","stoyan" },
             };
             
             return View(viewModel);

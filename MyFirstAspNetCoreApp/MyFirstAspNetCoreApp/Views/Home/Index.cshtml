@@ -1,8 +1,22 @@
 ﻿@model MyFirstAspNetCoreApp.ViewModels.Home.IndexViewModel
+@using MyFirstAspNetCoreApp.Services
+@inject IStringManipulation StringManipulation
 @{
     ViewData["Title"] = "Home Page";
 }
 
+@for (int i = 0; i < 10; i++)
+{
+    <li>@i</li>
+}
+@if (DateTime.UtcNow.DayOfWeek == DayOfWeek.Monday)
+    { 
+            <p>Monday</p>
+    }
+            else
+            {
+                <p>@DateTime.UtcNow</p>
+            }
 <div class="text-center">
     <h1 class="display-4">@Model.Message</h1>
     <h2>@Model.UpperMessage</h2>
@@ -14,6 +28,12 @@
 <ul>
     @foreach (var name in Model.Names)
     {
-        <li>@name</li>
+        <li>@StringManipulation.MakeFirstLetterUpper(name)</li>
     }
 </ul>
+
+@section Links{ 
+    <li class="nav-item">
+    <a class="nav-link text-dark" href="https://google.com">Google @DateTime.UtcNow.Year</a>
+</li>
+}
