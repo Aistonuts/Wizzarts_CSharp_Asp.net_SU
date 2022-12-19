@@ -30,28 +30,6 @@ using MyFirstAspNetCoreApp.Models;
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e2b02f7edd71088b781ad7f89707c1ad2f3e2b93", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("text-danger"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        #line hidden
-        #pragma warning disable 0649
-        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext __tagHelperExecutionContext;
-        #pragma warning restore 0649
-        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner __tagHelperRunner = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner();
-        #pragma warning disable 0169
-        private string __tagHelperStringValueBuffer;
-        #pragma warning restore 0169
-        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __backed__tagHelperScopeManager = null;
-        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __tagHelperScopeManager
-        {
-            get
-            {
-                if (__backed__tagHelperScopeManager == null)
-                {
-                    __backed__tagHelperScopeManager = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager(StartTagHelperWritingScope, EndTagHelperWritingScope);
-                }
-                return __backed__tagHelperScopeManager;
-            }
-        }
-        private global::MyFirstAspNetCoreApp.TagHelpers.GreetingHeaderTagHelper __MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -63,37 +41,7 @@ using MyFirstAspNetCoreApp.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("h1", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d6a5625cc8fb4476f348b0fe9041c550465d8bf93827", async() => {
-                WriteLiteral("Error.");
-            }
-            );
-            __MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper = CreateTagHelper<global::MyFirstAspNetCoreApp.TagHelpers.GreetingHeaderTagHelper>();
-            __tagHelperExecutionContext.Add(__MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("h2", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d6a5625cc8fb4476f348b0fe9041c550465d8bf94876", async() => {
-                WriteLiteral("An error occurred while processing your request.");
-            }
-            );
-            __MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper = CreateTagHelper<global::MyFirstAspNetCoreApp.TagHelpers.GreetingHeaderTagHelper>();
-            __tagHelperExecutionContext.Add(__MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n\r\n");
+            WriteLiteral("\r\n<h1 class=\"text-danger\">Error.</h1>\r\n<h2 class=\"text-danger\">An error occurred while processing your request.</h2>\r\n\r\n");
 #nullable restore
 #line 9 "C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MyFirstAspNetCoreApp\MyFirstAspNetCoreApp\Views\Shared\Error.cshtml"
  if (Model.ShowRequestId)
@@ -118,21 +66,8 @@ using MyFirstAspNetCoreApp.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("h3", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d6a5625cc8fb4476f348b0fe9041c550465d8bf96852", async() => {
-                WriteLiteral("Development Mode");
-            }
-            );
-            __MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper = CreateTagHelper<global::MyFirstAspNetCoreApp.TagHelpers.GreetingHeaderTagHelper>();
-            __tagHelperExecutionContext.Add(__MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(@"
+<h3>Development Mode</h3>
 <p>
     Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
 </p>

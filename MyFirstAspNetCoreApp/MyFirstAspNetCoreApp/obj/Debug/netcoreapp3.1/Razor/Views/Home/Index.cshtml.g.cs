@@ -37,11 +37,10 @@ using MyFirstAspNetCoreApp.Services;
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e2b02f7edd71088b781ad7f89707c1ad2f3e2b93", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<MyFirstAspNetCoreApp.ViewModels.Home.IndexViewModel>
     {
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("display-4"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("greeting-string", "Hello!!!!!!", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_2 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("form-check"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_3 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_4 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-route-id", "4", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("greeting-string", "Hello!!!!!!", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("form-check"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_2 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_3 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-route-id", "4", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         #line hidden
         #pragma warning disable 0649
         private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext __tagHelperExecutionContext;
@@ -135,8 +134,7 @@ else
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("<div class=\"text-center\">\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("h1", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18319fe7ec72e216ee38d4adcb48f38a88c044317470", async() => {
+            WriteLiteral("<div class=\"text-center\">\r\n    <h1 class=\"display-4\">");
 #nullable restore
 #line 21 "C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MyFirstAspNetCoreApp\MyFirstAspNetCoreApp\Views\Home\Index.cshtml"
                      Write(Model.Message);
@@ -144,20 +142,8 @@ else
 #line default
 #line hidden
 #nullable disable
-            }
-            );
-            __MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper = CreateTagHelper<global::MyFirstAspNetCoreApp.TagHelpers.GreetingHeaderTagHelper>();
-            __tagHelperExecutionContext.Add(__MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("h2", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18319fe7ec72e216ee38d4adcb48f38a88c044318728", async() => {
+            WriteLiteral("</h1>\r\n    ");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("h2", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18319fe7ec72e216ee38d4adcb48f38a88c044317435", async() => {
 #nullable restore
 #line 22 "C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MyFirstAspNetCoreApp\MyFirstAspNetCoreApp\Views\Home\Index.cshtml"
                                  Write(Model.UpperMessage);
@@ -169,8 +155,8 @@ else
             );
             __MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper = CreateTagHelper<global::MyFirstAspNetCoreApp.TagHelpers.GreetingHeaderTagHelper>();
             __tagHelperExecutionContext.Add(__MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper);
-            __MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper.GreetingString = (string)__tagHelperAttribute_1.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_1);
+            __MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper.GreetingString = (string)__tagHelperAttribute_0.Value;
+            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_0);
             await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
             if (!__tagHelperExecutionContext.Output.IsContentModified)
             {
@@ -178,8 +164,7 @@ else
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("h3", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18319fe7ec72e216ee38d4adcb48f38a88c0443110134", async() => {
+            WriteLiteral("\r\n    <h3>");
 #nullable restore
 #line 23 "C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MyFirstAspNetCoreApp\MyFirstAspNetCoreApp\Views\Home\Index.cshtml"
    Write(ViewData["name"]);
@@ -187,19 +172,7 @@ else
 #line default
 #line hidden
 #nullable disable
-            }
-            );
-            __MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper = CreateTagHelper<global::MyFirstAspNetCoreApp.TagHelpers.GreetingHeaderTagHelper>();
-            __tagHelperExecutionContext.Add(__MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("h4", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18319fe7ec72e216ee38d4adcb48f38a88c0443111295", async() => {
+            WriteLiteral("</h3>\r\n    <h4>");
 #nullable restore
 #line 24 "C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MyFirstAspNetCoreApp\MyFirstAspNetCoreApp\Views\Home\Index.cshtml"
    Write(this.User.Identity.Name);
@@ -207,18 +180,7 @@ else
 #line default
 #line hidden
 #nullable disable
-            }
-            );
-            __MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper = CreateTagHelper<global::MyFirstAspNetCoreApp.TagHelpers.GreetingHeaderTagHelper>();
-            __tagHelperExecutionContext.Add(__MyFirstAspNetCoreApp_TagHelpers_GreetingHeaderTagHelper);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n    <p>");
+            WriteLiteral("</h4>\r\n    <p>");
 #nullable restore
 #line 25 "C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MyFirstAspNetCoreApp\MyFirstAspNetCoreApp\Views\Home\Index.cshtml"
   Write(Model.Year);
@@ -260,7 +222,7 @@ else
 #line hidden
 #nullable disable
             WriteLiteral("</ul>\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18319fe7ec72e216ee38d4adcb48f38a88c0443113881", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18319fe7ec72e216ee38d4adcb48f38a88c0443110824", async() => {
                 WriteLiteral("\r\n\r\n");
             }
             );
@@ -268,15 +230,15 @@ else
             __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper);
             __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper>();
             __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_2);
-            __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper.Action = (string)__tagHelperAttribute_3.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_3);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_1);
+            __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper.Action = (string)__tagHelperAttribute_2.Value;
+            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
             if (__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper.RouteValues == null)
             {
                 throw new InvalidOperationException(InvalidTagHelperIndexerAssignment("asp-route-id", "Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper", "RouteValues"));
             }
-            __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper.RouteValues["id"] = (string)__tagHelperAttribute_4.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_4);
+            __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper.RouteValues["id"] = (string)__tagHelperAttribute_3.Value;
+            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_3);
             await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
             if (!__tagHelperExecutionContext.Output.IsContentModified)
             {

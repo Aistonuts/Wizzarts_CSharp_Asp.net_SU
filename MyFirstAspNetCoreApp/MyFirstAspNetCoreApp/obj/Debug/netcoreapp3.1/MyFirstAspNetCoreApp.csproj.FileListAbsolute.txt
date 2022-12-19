@@ -37,3 +37,4 @@ C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MyFirstAspNetCoreApp\MyFi
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MyFirstAspNetCoreApp\MyFirstAspNetCoreApp\obj\Debug\netcoreapp3.1\MyFirstAspNetCoreApp.genruntimeconfig.cache
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MyFirstAspNetCoreApp\MyFirstAspNetCoreApp\obj\Debug\netcoreapp3.1\MyFirstAspNetCoreApp.csproj.CopyComplete
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MyFirstAspNetCoreApp\MyFirstAspNetCoreApp\bin\Debug\netcoreapp3.1\appsettings.Production.json
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MyFirstAspNetCoreApp\MyFirstAspNetCoreApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\_CurrentYearPartial.cshtml.g.cs
