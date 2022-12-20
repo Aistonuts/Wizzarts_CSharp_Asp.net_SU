@@ -28,6 +28,7 @@ namespace MyFirstAspNetCoreApp
             services.AddControllersWithViews();
 
             services.AddTransient<IStringManipulation, StringManipulation>();
+            services.AddTransient<IYearsService, YearsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
