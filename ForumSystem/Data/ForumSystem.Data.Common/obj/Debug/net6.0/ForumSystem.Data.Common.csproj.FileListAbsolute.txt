@@ -1,0 +1,12 @@
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Data\ForumSystem.Data.Common\bin\Debug\net6.0\ForumSystem.Data.Common.deps.json
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Data\ForumSystem.Data.Common\bin\Debug\net6.0\ForumSystem.Data.Common.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Data\ForumSystem.Data.Common\bin\Debug\net6.0\ForumSystem.Data.Common.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Data\ForumSystem.Data.Common\obj\Debug\net6.0\ForumSystem.Data.Common.csproj.AssemblyReference.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Data\ForumSystem.Data.Common\obj\Debug\net6.0\ForumSystem.Data.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Data\ForumSystem.Data.Common\obj\Debug\net6.0\ForumSystem.Data.Common.AssemblyInfoInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Data\ForumSystem.Data.Common\obj\Debug\net6.0\ForumSystem.Data.Common.AssemblyInfo.cs
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Data\ForumSystem.Data.Common\obj\Debug\net6.0\ForumSystem.Data.Common.csproj.CoreCompileInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Data\ForumSystem.Data.Common\obj\Debug\net6.0\ForumSystem.Data.Common.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Data\ForumSystem.Data.Common\obj\Debug\net6.0\refint\ForumSystem.Data.Common.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Data\ForumSystem.Data.Common\obj\Debug\net6.0\ForumSystem.Data.Common.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Data\ForumSystem.Data.Common\obj\Debug\net6.0\ref\ForumSystem.Data.Common.dll

@@ -1,0 +1,13 @@
+{
+  "ForumSystem.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\ForumSystem.Common",
+  "ForumSystem.Data.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\Data\\ForumSystem.Data.Common",
+  "ForumSystem.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\Data\\ForumSystem.Data",
+  "ForumSystem.Data.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\Data\\ForumSystem.Data.Models",
+  "ForumSystem.Services.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\Services\\ForumSystem.Services.Data",
+  "ForumSystem.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\Services\\ForumSystem.Services",
+  "ForumSystem.Services.Mapping, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\Services\\ForumSystem.Services.Mapping",
+  "ForumSystem.Services.Messaging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\Services\\ForumSystem.Services.Messaging",
+  "ForumSystem.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\Web\\ForumSystem.Web",
+  "ForumSystem.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\Web\\ForumSystem.Web.Infrastructure",
+  "ForumSystem.Web.ViewModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\Web\\ForumSystem.Web.ViewModels"
+}
