@@ -16,7 +16,7 @@ namespace ForumSystem.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
-            this.Posts = new HashSet<Post>
+            this.Posts = new HashSet<Post>();
         }
 
         // Audit info

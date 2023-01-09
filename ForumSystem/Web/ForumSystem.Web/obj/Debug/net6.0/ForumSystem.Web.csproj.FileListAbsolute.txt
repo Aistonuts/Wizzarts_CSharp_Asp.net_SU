@@ -581,7 +581,6 @@ C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Web\ForumSyst
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Web\ForumSystem.Web\obj\Debug\net6.0\ForumSystem.Web.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Web\ForumSystem.Web\obj\Debug\net6.0\ForumSystem.Web.genruntimeconfig.cache
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Web\ForumSystem.Web\obj\Debug\net6.0\ref\ForumSystem.Web.dll
-C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Web\ForumSystem.Web\bin\Debug\net6.0\appsettings.Production.json
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Web\ForumSystem.Web\bin\Debug\net6.0\Microsoft.Build.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Web\ForumSystem.Web\bin\Debug\net6.0\Microsoft.Build.Framework.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Web\ForumSystem.Web\bin\Debug\net6.0\Microsoft.NET.StringTools.dll
