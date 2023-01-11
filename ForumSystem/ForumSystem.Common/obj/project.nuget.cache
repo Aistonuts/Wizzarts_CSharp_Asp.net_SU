@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "XzZO4udBMjGQz/d6k1d3Toep486jacRqvA6ksEL6tQVtyfXDZyw9m3b/y4yOM8hRnI8l1DLMFD3tmYSA7+Nq0Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\ForumSystem.Common\\ForumSystem.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.435\\stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.435\\stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512"
+  ],
+  "logs": []
+}

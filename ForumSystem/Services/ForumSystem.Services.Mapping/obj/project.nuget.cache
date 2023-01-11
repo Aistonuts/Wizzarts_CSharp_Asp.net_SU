@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "Zmps7P8VhnruTixobzLW6EDQFyngWrPMr19Inx0u3Re21HjbwnmcTvRCxnjLqyeBi5z85afQ0sZcZNf/AHC9tA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\ForumSystem\\Services\\ForumSystem.Services.Mapping\\ForumSystem.Services.Mapping.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cmpt\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.435\\stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.435\\stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512"
+  ],
+  "logs": []
+}

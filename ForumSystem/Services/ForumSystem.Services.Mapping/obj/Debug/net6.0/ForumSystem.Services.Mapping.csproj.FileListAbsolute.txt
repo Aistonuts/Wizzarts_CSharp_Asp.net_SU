@@ -1,0 +1,12 @@
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Services\ForumSystem.Services.Mapping\bin\Debug\net6.0\ForumSystem.Services.Mapping.deps.json
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Services\ForumSystem.Services.Mapping\bin\Debug\net6.0\ForumSystem.Services.Mapping.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Services\ForumSystem.Services.Mapping\bin\Debug\net6.0\ForumSystem.Services.Mapping.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Services\ForumSystem.Services.Mapping\obj\Debug\net6.0\ForumSystem.Services.Mapping.csproj.AssemblyReference.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Services\ForumSystem.Services.Mapping\obj\Debug\net6.0\ForumSystem.Services.Mapping.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Services\ForumSystem.Services.Mapping\obj\Debug\net6.0\ForumSystem.Services.Mapping.AssemblyInfoInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Services\ForumSystem.Services.Mapping\obj\Debug\net6.0\ForumSystem.Services.Mapping.AssemblyInfo.cs
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Services\ForumSystem.Services.Mapping\obj\Debug\net6.0\ForumSystem.Services.Mapping.csproj.CoreCompileInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Services\ForumSystem.Services.Mapping\obj\Debug\net6.0\ForumSystem.Services.Mapping.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Services\ForumSystem.Services.Mapping\obj\Debug\net6.0\refint\ForumSystem.Services.Mapping.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Services\ForumSystem.Services.Mapping\obj\Debug\net6.0\ForumSystem.Services.Mapping.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\ForumSystem\Services\ForumSystem.Services.Mapping\obj\Debug\net6.0\ref\ForumSystem.Services.Mapping.dll
