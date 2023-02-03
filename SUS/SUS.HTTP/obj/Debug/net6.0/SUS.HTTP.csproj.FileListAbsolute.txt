@@ -1,0 +1,12 @@
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\bin\Debug\net6.0\SUS.HTTP.deps.json
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\bin\Debug\net6.0\SUS.HTTP.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\bin\Debug\net6.0\SUS.HTTP.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\SUS.HTTP.csproj.AssemblyReference.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\SUS.HTTP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\SUS.HTTP.AssemblyInfoInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\SUS.HTTP.AssemblyInfo.cs
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\SUS.HTTP.csproj.CoreCompileInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\SUS.HTTP.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\refint\SUS.HTTP.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\SUS.HTTP.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\ref\SUS.HTTP.dll
