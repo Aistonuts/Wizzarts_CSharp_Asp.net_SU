@@ -73,27 +73,43 @@ namespace SUS.HTTP
                     var requestASstring = Encoding.UTF8.GetString(data.ToArray());
 
                     var request = new HttpRequest(requestASstring);
-                    Console.WriteLine(request.Method + " " + request.Path + " " + request.Headers.Count + " headers");                   
+                    Console.WriteLine(request.Method + " " + request.Path + " " + request.Headers.Count + " headers");
 
-                    //if(request.Headers.FirstOrDefault(x=>x.Name == "User-Agent"))
-                    var responseHtml = "<h1>Welcome!</h1>" +
-                    request.Headers.FirstOrDefault(x => x.Name == "User-Agent")?.Value;
-
-                    var responseBodyBytes = Encoding.UTF8.GetBytes(responseHtml);
-
-                    var response = new HttpResponse("text/html", responseBodyBytes);
-                    response.Headers.Add( new Header("Server", "SUS Server 1.0"));
-                    response.Cookies.Add(new ResponseCookie("sid", Guid.NewGuid().ToString()) 
-                    { HttpOnly= true, MaxAge = 60 * 24 * 60 *60});
+                    HttpResponse response;
                     
+                    if (this.routeTable.ContainsKey(request.Path))
+                    {
+                        var action = this.routeTable[request.Path];
+                        response = action(request);
+                    }
+                    else
+                    {
+                        // Not Found 404
+                        response = new HttpResponse("text/html", new byte[0], HttpStatusCode.NotFound);
+                    }
 
-                   
+                    response.Cookies.Add(new ResponseCookie("sid", Guid.NewGuid().ToString())
+                    { HttpOnly = true, MaxAge = 60 * 24 * 60 * 60 });
+                    response.Headers.Add(new Header("Server", "SUS Server 1.0"));
+                    //if(request.Headers.FirstOrDefault(x=>x.Name == "User-Agent"))
+                    //var responseHtml = "<h1>Welcome!</h1>" +
+                    //request.Headers.FirstOrDefault(x => x.Name == "User-Agent")?.Value;
+                    //
+                    //var responseBodyBytes = Encoding.UTF8.GetBytes(responseHtml);
+                    //
+                    //var response = new HttpResponse("text/html", responseBodyBytes);
+                    //response.Headers.Add( new Header("Server", "SUS Server 1.0"));
+                    //response.Cookies.Add(new ResponseCookie("sid", Guid.NewGuid().ToString()) 
+                    //{ HttpOnly= true, MaxAge = 60 * 24 * 60 * 60});
 
-                   //var responseHttp = "HTTP/1.1 200 OK" + HttpConstants.NewLine +
-                   //    "Server: SUS Server 1.0" + HttpConstants.NewLine +
-                   //    "Content-Type: text/html" + HttpConstants.NewLine +
-                   //    "Content-Lenght: " + responseBodyBytes.Length + HttpConstants.NewLine +
-                   //    HttpConstants.NewLine;
+
+
+
+                    //var responseHttp = "HTTP/1.1 200 OK" + HttpConstants.NewLine +
+                    //    "Server: SUS Server 1.0" + HttpConstants.NewLine +
+                    //    "Content-Type: text/html" + HttpConstants.NewLine +
+                    //    "Content-Lenght: " + responseBodyBytes.Length + HttpConstants.NewLine +
+                    //    HttpConstants.NewLine;
 
                     var responseHeaderBytes = Encoding.UTF8.GetBytes(response.ToString());
                    //responseHttp
