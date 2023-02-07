@@ -10,7 +10,7 @@ namespace MyFirstMvcApp
         {
             IHttpServer server = new HttpServer();
             server.AddRoute("/", HomePage);
-           // server.AddRoute("/favicon.ico", Favicon);
+            server.AddRoute("/favicon.ico", Favicon);
             server.AddRoute("/about", About);
             server.AddRoute("/users/login", Login);
 
@@ -30,7 +30,9 @@ namespace MyFirstMvcApp
 
         static HttpResponse Favicon(HttpRequest request)
         {
-            throw new NotImplementedException();
+            var fileBytes = File.ReadAllBytes("wwwroot/favicon.ico");
+            var response = new HttpResponse("image/vnd.microsoft.icon",fileBytes);
+            return response;
         }
 
         static HttpResponse About(HttpRequest request)
