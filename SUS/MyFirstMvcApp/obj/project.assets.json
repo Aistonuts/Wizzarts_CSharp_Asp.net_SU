@@ -1591,6 +1591,16 @@
         "runtime": {
           "bin/placeholder/SUS.HTTP.dll": {}
         }
+      },
+      "SUS.MvcFramework/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SUS.MvcFramework.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SUS.MvcFramework.dll": {}
+        }
       }
     }
   },
@@ -5445,12 +5455,18 @@
       "type": "project",
       "path": "../SUS.HTTP/SUS.HTTP.csproj",
       "msbuildProject": "../SUS.HTTP/SUS.HTTP.csproj"
+    },
+    "SUS.MvcFramework/1.0.0": {
+      "type": "project",
+      "path": "../SUS.MvcFramework/SUS.MvcFramework.csproj",
+      "msbuildProject": "../SUS.MvcFramework/SUS.MvcFramework.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.AspNet.WebApi.Core >= 5.2.9",
-      "SUS.HTTP >= 1.0.0"
+      "SUS.HTTP >= 1.0.0",
+      "SUS.MvcFramework >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5482,6 +5498,9 @@
           "projectReferences": {
             "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\SUS\\SUS.HTTP\\SUS.HTTP.csproj": {
               "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\SUS\\SUS.HTTP\\SUS.HTTP.csproj"
+            },
+            "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\SUS\\SUS.MvcFramework\\SUS.MvcFramework.csproj": {
+              "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\SUS\\SUS.MvcFramework\\SUS.MvcFramework.csproj"
             }
           }
         }
