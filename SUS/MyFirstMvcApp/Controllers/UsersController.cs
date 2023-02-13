@@ -10,26 +10,15 @@ namespace MyFirstMvcApp.Controllers
 {
     public class UsersController : Controller
     {
-        public HttpResponse Login(HttpRequest request)
+        public HttpResponse Login(HttpRequest request) //(string name, string password) add by Post
         {
-            var responseHtml = "<h1>Login...</h1>";
-
-            var responseBodyBytes = Encoding.UTF8.GetBytes(responseHtml);
-
-            var response = new HttpResponse("text/html", responseBodyBytes);
-
-            return response;
+            ///request.Headers.Add etc..cookies
+            return this.View();
         }
 
         public HttpResponse Register(HttpRequest request)
         {
-            var responseHtml = "<h1>Register...</h1>";
-
-            var responseBodyBytes = Encoding.UTF8.GetBytes(responseHtml);
-
-            var response = new HttpResponse("text/html", responseBodyBytes);
-
-            return response;
+            return this.View();
         }
     }
 }

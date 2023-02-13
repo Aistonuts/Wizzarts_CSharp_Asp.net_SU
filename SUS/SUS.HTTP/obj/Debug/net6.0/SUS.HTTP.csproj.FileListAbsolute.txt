@@ -10,3 +10,5 @@ C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\ne
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\refint\SUS.HTTP.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\SUS.HTTP.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\ref\SUS.HTTP.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\bin\Debug\net6.0\SUS.HTTP.runtimeconfig.json
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\SUS\SUS.HTTP\obj\Debug\net6.0\SUS.HTTP.genruntimeconfig.cache

@@ -57,9 +57,9 @@ namespace SUS.HTTP
                 x.Name == HttpConstants.RequestCookieHeader).Value;
                 var cookies = cookiesAsString.Split(new string[] { "; " },
                     StringSplitOptions.RemoveEmptyEntries);
-                foreach( var cookieAsString in cookies ) 
+                foreach( var cookie in cookies ) 
                 {
-                    this.Cookies.Add(new Cookie(cookiesAsString));
+                    this.Cookies.Add(new Cookie(cookie));
                 }
             }
 
