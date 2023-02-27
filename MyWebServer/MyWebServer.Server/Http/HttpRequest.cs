@@ -47,7 +47,7 @@ namespace MyWebServer.Server.Http
                 "POST" => HttpMethod.Post,
                 "PUT" => HttpMethod.Put,
                 "DELETE" => HttpMethod.Delete,
-                _ =>throw new InvalidOperationException($"Method '{method}' is not supported. ")
+                 _ => throw new InvalidOperationException($"Method '{method}' is not supported.")
             };
 
         private static HttpHeaderCollection parseHttpHeaders(IEnumerable<string> headerLines)
@@ -61,7 +61,7 @@ namespace MyWebServer.Server.Http
                     break;
                 }
 
-                var headerParts = headerLine.Split(":");
+                var headerParts = headerLine.Split(":", 2);
 
                 if (headerParts.Length != 2)
                 {

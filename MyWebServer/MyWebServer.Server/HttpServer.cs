@@ -51,12 +51,20 @@ namespace MyWebServer.Server
             var bufferLength = 1024;
             var buffer = new byte[bufferLength];
 
+            var totalBytes = 0;
+
             var requestBuilder = new StringBuilder();
             //var totalBytesRed = 0;
             while (networkStream.DataAvailable)
             {
                 var bytesRead = await networkStream.ReadAsync(buffer, 0, bufferLength);
 
+                totalBytes += bytesRead;
+
+                if (totalBytes > 10 * 1024)
+                {
+                    throw new InvalidOperationException("Request is too large.");
+                }
                 // totalBytesRed + = bytesRead;
                 // if (totalBytesRed > 10 * 1024)
                 // {
