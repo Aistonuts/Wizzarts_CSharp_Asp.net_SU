@@ -80,7 +80,15 @@ namespace MyWebServer.Server
 
         private async Task WriteResponse(NetworkStream networkStream)
         {
-            var content = "Здрасти!";
+            var content = @"
+<html>
+    <head>
+        <link rel=""icon"" href=""data:,"">
+    </head>
+    <body>
+        Hello from my server!
+    </html>
+</html>";
             var contentLength = Encoding.UTF8.GetByteCount(content);
 
             var response = $@"
