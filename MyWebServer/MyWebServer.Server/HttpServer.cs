@@ -38,7 +38,7 @@ namespace MyWebServer.Server
 
                 Console.WriteLine(requestText);
 
-                var request = HttpRequest.Parse(requestText);
+               // var request = HttpRequest.Parse(requestText);
 
                 await WriteResponse(networkStream);
 
@@ -55,7 +55,7 @@ namespace MyWebServer.Server
 
             var requestBuilder = new StringBuilder();
             //var totalBytesRed = 0;
-            while (networkStream.DataAvailable)
+            do
             {
                 var bytesRead = await networkStream.ReadAsync(buffer, 0, bufferLength);
 
@@ -73,8 +73,8 @@ namespace MyWebServer.Server
 
                 requestBuilder.Append(Encoding.UTF8.GetString(buffer, 0, bytesRead));
 
-            }
-
+            } 
+            while (networkStream.DataAvailable);
             return requestBuilder.ToString();
         }
 
@@ -87,16 +87,16 @@ namespace MyWebServer.Server
     </head>
     <body>
         Hello from my server!
-    </html>
+    </body>
 </html>";
             var contentLength = Encoding.UTF8.GetByteCount(content);
 
             var response = $@"
 HTTP/1.1 200 OK
 Server: My Web Server
-Date: {DateTime.UtcNow.ToString(("r"))}
+Date: {DateTime.UtcNow:r}
 Content-length: {contentLength}
-Content-type: text/plain; charset=UTF8
+Content-type: text/html; charset=UTF-8
 
 {content}";
 
