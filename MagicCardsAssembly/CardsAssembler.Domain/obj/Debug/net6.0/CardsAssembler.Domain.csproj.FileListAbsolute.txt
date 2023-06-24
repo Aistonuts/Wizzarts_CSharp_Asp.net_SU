@@ -1,0 +1,5 @@
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Domain\obj\Debug\net6.0\CardsAssembler.Domain.csproj.AssemblyReference.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Domain\obj\Debug\net6.0\CardsAssembler.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Domain\obj\Debug\net6.0\CardsAssembler.Domain.AssemblyInfoInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Domain\obj\Debug\net6.0\CardsAssembler.Domain.AssemblyInfo.cs
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Domain\obj\Debug\net6.0\CardsAssembler.Domain.csproj.CoreCompileInputs.cache

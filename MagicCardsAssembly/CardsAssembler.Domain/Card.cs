@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace CardsAssembler.Domain
 {
-    public class GameCard
+    public class Card
     {
         public string Id { get; set; } = Guid.NewGuid().ToString();        
     
         public string ProjectId { get; set; }
 
-        public GameProjectCard Project { get; set; }
+        public CardAssembly Project { get; set; }
 
         public string StatusId { get; set; }
 

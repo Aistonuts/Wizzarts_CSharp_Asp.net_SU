@@ -1,6 +1,4 @@
-﻿
-
-namespace CardsAssembler.Domain
+﻿namespace CardsAssembler.Domain
 {
     public class Art
     {
@@ -12,7 +10,11 @@ namespace CardsAssembler.Domain
 
         public string ArtIstId { get; set; }
 
-        public CardProjectUser Artist{ get; set; }
+        public CardCreator Artist{ get; set; }
+
+        public string GameCardId { get; set; }
+
+        public Card GameCard { get; set; }
 
     }
 }

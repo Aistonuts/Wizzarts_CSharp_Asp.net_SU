@@ -1,0 +1,8 @@
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler\obj\Debug\net6.0\CardsAssembler.csproj.AssemblyReference.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler\obj\Debug\net6.0\CardsAssembler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler\obj\Debug\net6.0\CardsAssembler.AssemblyInfoInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler\obj\Debug\net6.0\CardsAssembler.AssemblyInfo.cs
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler\obj\Debug\net6.0\CardsAssembler.csproj.CoreCompileInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler\obj\Debug\net6.0\CardsAssembler.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler\obj\Debug\net6.0\CardsAssembler.RazorAssemblyInfo.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler\obj\Debug\net6.0\CardsAssembler.RazorAssemblyInfo.cs
