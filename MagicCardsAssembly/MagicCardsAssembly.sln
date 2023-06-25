@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardsAssembler", "CardsAsse
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardsAssembler.Domain", "CardsAssembler.Domain\CardsAssembler.Domain.csproj", "{F8E74F3D-6D08-44EF-B2BB-DB4EB681AFA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardsAssembler.Data", "CardsAssembler.Data\CardsAssembler.Data.csproj", "{47A07179-EE6D-4216-8BBD-FDC18FEDEEC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardsAssembler.Data", "CardsAssembler.Data\CardsAssembler.Data.csproj", "{47A07179-EE6D-4216-8BBD-FDC18FEDEEC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

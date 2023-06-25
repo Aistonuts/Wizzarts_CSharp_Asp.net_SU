@@ -42,31 +42,33 @@ namespace CardsAssembler.Data
         {
             builder.Entity<CardCreator>()
                     .HasKey(user => user.Id);
+                    
 
             builder.Entity<CardCreator>()
-                      .HasMany(artist => artist.GameCardsArt)
+                      .HasMany(artist => artist.CardsArt)
                       .WithOne(art => art.Artist)
-                      .HasForeignKey(art => art.ArtIstId);
+                      .HasForeignKey(art => art.ArtIstId)
+                      .OnDelete(DeleteBehavior.Restrict);
+                     
 
             builder.Entity<CardCreator>()
-                     .HasMany(project => project.CardProjects)
+                     .HasMany(project => project.Cards)
                      .WithOne(card => card.ProjectManager)
-                     .HasForeignKey(card => card.ProjectManagerId);
+                     .HasForeignKey(card => card.ProjectManagerId)
+                     .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<CardAssembly>()
                      .HasMany(card => card.GameCard)
                      .WithOne(project => project.Project)
-                     .HasForeignKey(project => project.ProjectId);
+                     .HasForeignKey(project => project.ProjectId)
+                     .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<Art>()
-                   .HasOne(card => card.GameCard)
-                   .WithOne()
-                   .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<Card>()
-                   .HasOne(art => art.Art)
-                   .WithOne()
-                   .OnDelete(DeleteBehavior.Restrict);
+           builder.Entity<Card>()
+                  .HasOne(art => art.Art)
+                  .WithOne()
+                  .OnDelete(DeleteBehavior.Restrict);
+       
 
             base.OnModelCreating(builder);
 

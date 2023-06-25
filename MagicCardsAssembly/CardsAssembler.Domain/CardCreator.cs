@@ -6,13 +6,12 @@
     {
         public CardCreator()
         {             
-            this.CardProjects = new List<CardAssembly>();
-            this.GameCardsArt = new List<Art>();
-        }
-        public CardCreator UserRole { get; set; }
+            this.Cards = new List<CardAssembly>();
+            this.CardsArt = new List<Art>();
+        }       
 
-        public ICollection<CardAssembly> CardProjects { get; set; }  
-        public ICollection<Art> GameCardsArt { get; set; }
+        public ICollection<CardAssembly> Cards{ get; set; }  
+        public ICollection<Art> CardsArt { get; set; }
 
         
     }

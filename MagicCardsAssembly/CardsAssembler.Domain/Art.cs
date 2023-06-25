@@ -11,10 +11,7 @@
         public string ArtIstId { get; set; }
 
         public CardCreator Artist{ get; set; }
-
-        public string GameCardId { get; set; }
-
-        public Card GameCard { get; set; }
+  
 
     }
 }
