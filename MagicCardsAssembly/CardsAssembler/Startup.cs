@@ -57,7 +57,7 @@ namespace CardsAssembler.App
                    if (!context.Roles.Any())
                    {
                        context.Roles.Add(new CreatorRole { Name = "Admin", NormalizedName = "ADMIN" });
-                       context.Roles.Add(new CreatorRole { Name = "Artis", NormalizedName = "ARTIST" });
+                       context.Roles.Add(new CreatorRole { Name = "User", NormalizedName = "USER" });
                    }
  
                 //

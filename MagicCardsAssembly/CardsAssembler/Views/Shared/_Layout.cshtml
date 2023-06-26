@@ -4,32 +4,268 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CardsAssembler</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/CardsAssembler.styles.css" asp-append-version="true" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+    </environment>
+    <link rel="stylesheet" href="~/css/reset-css.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/keyrune.min.css" />
+
+
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CardsAssembler</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+<body data-base data-theme="dark" class="style">
+    <div class="wrapper">
+        <div class="w-100 ae-header sticky-menu-mobile-navbar d-print-none">
+            <div class="ae-menu-left-decor">
+                <picture>
+                    <source srcset="/images/navigation/menu_side.svg" media="(min-width: 768px)">
+                    <img src="/images/navigation/menu_side_mobile.svg">
+                </picture>
+            </div>
+            <div class="ae-menu-right-decor">
+                <picture>
+                    <source srcset="/images/navigation/menu_side.svg" media="(min-width: 768px)">
+                    <img src="/images/navigation/menu_side_mobile.svg">
+                </picture>
+            </div>
+            <div class="ae-menu-center">            
+                <div class="ae-menu-center">
+                    <div class="ae-menu">
+                        <div class="ae-menu-logo">
+                            <a href="/" class="d-none d-xl-block">
+                                <img src="/images/navigation/Section.gif" class="ae-header-logo" alt="AetherHub" width="200" height="44">
+                            </a>
+                            <div class="d-block d-lg-none ml-2 mr-1">
+                                <a id="sidebarCollapse" class="" aria-label="Menu"><i class="fas fa-bars"></i></a>
+                            </div>
+                        </div>
+                        <div class="ae-menu-wrapper d-none d-lg-flex">
+                            <ul class="d-flex justify-content-start">
+                                <li>
+                                    <div class="ae-nav-dropdown">
+                                        <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Decks</b></button>
+                                        <div class="ae-nav-dropdown-menu">
+
+                                            <div class="ae-nav-dropdown-menu-wrapper">
+                                                <div class="">
+                                                    <div class="ae-list-header">
+                                                        <a href="/Decks/">User Decks</a>
+                                                        <a href="/Decks/Writeups/">Deck Writeups</a>
+                                                        <a href="/Decks/Video/">Deck Videos</a>
+                                                        <hr>
+                                                        <a href="/Deck/Builder/">Deck Builder</a>
+                                                        <a href="/Deck/MyDecks/">My Decks</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ae-nav-dropdown">
+                                        <button type="button" class="ae-nav-dropdown-btn  pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Metagame</b></button>
+                                        <div id="metahub-dropdown" class="ae-nav-dropdown-menu">
+                                            <div class="ae-nav-dropdown-menu-wrapper">
+                                                <div class="">
+                                                    <div class="ae-list-header">
+                                                        <a href="/Metagame/">Metagame Overview</a>
+                                                        <a href="/Events/">Tournament Metagame</a>
+                                                        <a href="/MTGA-Decks/">Latest MTGA Winners</a>
+                                                        <hr>
+                                                        <a href="/Limited/">Limited Metagame</a>
+                                                        <a href="/Limited/Ratings/">Limited Ratings</a>
+                                                        <a href="/Limited/DraftSensei/">Draft Trainer</a>
+                                                        <a href="/Limited/Draftevents/">Latest Draft Winners</a>
+                                                        <hr>
+                                                        <a href="/MTGA/ConstructedRankingLadder/">MTGA Ranking Ladder</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ae-nav-dropdown">
+                                        <button type="button" class="ae-nav-dropdown-btn  pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Collection</b></button>
+                                        <div id="collection-dropdown" class="ae-nav-dropdown-menu">
+                                            <div class="ae-nav-dropdown-menu-wrapper">
+                                                <div class="">
+                                                    <div class="ae-list-header">
+                                                        <a href="/Collection/Manage/">Manage Collection</a>
+                                                        <a href="/Collection/CardScanner/">Card Scanner</a>
+                                                        <hr>
+                                                        <a href="/Collection/">My Collection</a>
+                                                        <a href="/Collection/Binder/">My Binders</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ae-nav-dropdown">
+                                        <button type="button" class="ae-nav-dropdown-btn  pl-1 pr-1 text-nowrap"><b>Tournaments</b></button>
+                                        <div class="ae-nav-dropdown-menu">
+                                            <div class="ae-nav-dropdown-menu-wrapper">
+                                                <div class="">
+                                                    <div class="ae-list-header">
+                                                        <a href="/Tourney/">Browse Tournaments</a>
+                                                        <a href="/Tourney/Leagues">Browse Leagues</a>
+                                                        <hr>
+                                                        <a href="/Tourney/MyTourneys">My Tournaments</a>
+                                                        <a href="/Tourney/MyLeagues">My Leagues</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ae-nav-dropdown">
+                                        <button type="button" class="ae-nav-dropdown-btn  pl-1 pr-1 text-nowrap"><b>Database</b></button>
+                                        <div class="ae-nav-dropdown-menu">
+                                            <div class="ae-nav-dropdown-menu-wrapper">
+                                                <div class="">
+                                                    <div class="ae-list-header">
+                                                        <a href="/Card/Search/">Card Search</a>
+                                                        <a href="/Card/Set/">Set List</a>
+                                                        <hr>
+                                                        <a href="/Banlist/">Card Banlist</a>
+                                                        <a href="/MTGACalendar/">MTGA Calendar</a>
+                                                        <a href="/MTGAGuides/">MTGA Guides</a>
+                                                        <hr>
+                                                        <a href="/Article/">Articles</a>
+                                                        <a href="/Video/">Videos</a>
+                                                        <a href="/Docs/">Documentation</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ae-nav-dropdown">
+                                        <button type="button" class="ae-nav-dropdown-btn  pl-1 pr-1 text-nowrap"><b>Apps</b></button>
+                                        <div class="ae-nav-dropdown-menu">
+                                            <div class="ae-nav-dropdown-menu-wrapper">
+                                                <div class="">
+                                                    <div class="ae-list-header">
+                                                        <a href="/Apps/MTGAAssistant/">MTGA Assistant</a>
+                                                        <a href="/Apps/DeckConverter/">Deck Converter</a>
+                                                        <a href="/Apps/MtgLife/">MTG Life</a>
+                                                        <a href="/Apps/HyperGeometric/">Hypergeometric Calculator</a>
+                                                        <a href="/Apps/TwitchExtensions/">Twitch Extensions</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="ae-icons d-flex justify-content-start">
+                            <div class="mr-2">
+                                <ul class="nav">
+                                    <li class="nav-item dropdown">
+                                        <a class="" data-toggle="modal" data-target="#siteSearchModal">
+                                            <i class="fas fa-search"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mr-2">
+                                <ul class="nav">
+                                    <li class="nav-item dropdown">
+                                        <a class="" data-toggle="dropdown">
+                                            <i class="far fa-star"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="/Premium"><b>Premium</b></a>
+                                            <a class="dropdown-item" href="/ContentCreators"><b>Content Creators</b></a>
+                                            <a class="dropdown-item" href="/TeamAether"><b>TeamAether</b></a>
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mr-1">
+                                <ul class="nav">
+                                    <li class="nav-item dropdown">
+                                        <a id="login-button" class="" data-toggle="dropdown" aria-label="Login">
+                                            <i class="fas fa-user"></i>
+                                        </a>
+                                        <div id="login-dp" class="dropdown-menu dropdown-menu-right">
+                                            <div class="row">
+                                                <div class="col-md-12 text-dark">
+                                                    Sign in with:
+                                                    <div class="social-buttons">
+                                                        <form action="/Account/ExternalLogin?ReturnUrl=%2F" method="post">
+                                                            <a href="/Account/Login?provider=Facebook" data-value="qFacebook" class="btn btn-fb"><i class="fab fa-facebook"></i> <b>Facebook</b></a>
+                                                            <a href="/Account/Login?provider=Google" data-value="qGoogle" id="customGoogleBtn"><span class="icon"></span><span class="buttonText">Google</span></a>
+                                                            <a href="/Account/Login?provider=Twitch" data-value="qTwitch" class="btn btn-twtch"><i class="fab fa-twitch"></i> <b>Twitch</b></a>
+                                                            <button type="submit" class="d-none" id="qFacebook" name="provider" value="Facebook">Facebook</button>
+                                                            <button type="submit" class="d-none" id="qGoogle" name="provider" value="Google">Google</button>
+                                                            <button type="submit" class="d-none" id="qTwitch" name="provider" value="Twitch">Twitch</button>
+                                                            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8LfsufsXVapJrq_N_TZp-jbXMTKAcGvs8pbxOl_MdHsHT8uSmirJpL43bEFWSwqpWd22kZz0YI9DePGB9MzI4UZk0fY8jFkO12lOStIpDOdyflBcF__4hVm0WOnHVRqG_K0VV0O0OLprXwFI5Z1lEr0">
+                                                        </form>
+                                                    </div>
+                                                    or
+                                                    <form action="/Account/Login?ReturnUrl=%2F" class="form" id="login-nav" method="post" role="form" novalidate="novalidate">
+                                                        <div class="form-group">
+                                                            <label class="sr-only" for="Email">Login</label>
+                                                            <input class="form-control" data-val="true" data-val-required="The Login field is required." id="qEmail" name="Email" placeholder="Username / Email" type="text" value="">
+                                                            <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="sr-only" for="Password">Password</label>
+                                                            <input class="form-control" data-val="true" data-val-required="The Password field is required." id="qPassword" name="Password" placeholder="Password" type="password">
+                                                            <span class="text-danger field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                                                            <div class="checkbox">
+                                                                <label for="qRememberMe">
+                                                                    <input data-val="true" data-val-required="The Remember me field is required." id="qRememberMe" name="RememberMe" type="checkbox" value="true">
+                                                                    Remember me
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-light btn-block"><i class="fas fa-sign-in-alt"></i> <b>Login</b></button>
+                                                        </div>
+                                                        <div class="help-block text-center"><a href="/Account/ForgotPassword">Forgot your password?</a></div>
+                                                        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8LfsufsXVapJrq_N_TZp-jbXMTKAcGvs8pbxOl_MdHsHT8uSmirJpL43bEFWSwqpWd22kZz0YI9DePGB9MzI4UZk0fY8jFkO12lOStIpDOdyflBcF__4hVm0WOnHVRqG_K0VV0O0OLprXwFI5Z1lEr0"><input name="RememberMe" type="hidden" value="false">
+                                                    </form>        <div class="bottom text-center mt-2">
+                                                        <a href="/Account/Register"><b>Create new e-mail user here</b></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ae-header-bottom-decoration d-flex">
+                        <div class="shadow"></div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>    
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
