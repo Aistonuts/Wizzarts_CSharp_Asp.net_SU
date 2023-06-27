@@ -13,12 +13,12 @@
       "PackagePath": "staticwebassets\\Images\\navigation\\Section.gif"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\Images\\navigation\\Selection.gif",
-      "PackagePath": "staticwebassets\\Images\\navigation\\Selection.gif"
-    },
-    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\Images\\navigation\\ah_logo.svg",
       "PackagePath": "staticwebassets\\Images\\navigation\\ah_logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\Images\\navigation\\clouds.png",
+      "PackagePath": "staticwebassets\\Images\\navigation\\clouds.png"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\Images\\navigation\\menu_side.svg",
@@ -31,10 +31,6 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\css\\keyrune.min.css",
-      "PackagePath": "staticwebassets\\css\\keyrune.min.css"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\css\\reset-css.css",

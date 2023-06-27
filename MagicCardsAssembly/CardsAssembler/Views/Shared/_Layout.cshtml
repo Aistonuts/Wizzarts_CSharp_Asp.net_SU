@@ -4,25 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CardsAssembler</title>
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
-    </environment>
-    <link rel="stylesheet" href="~/css/reset-css.css" />
-    <link rel="stylesheet" href="~/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/css/style.css" />
-    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/keyrune.min.css" />
+    
+    <script src="https://kit.fontawesome.com/e0f25cd0cd.js" crossorigin="anonymous"></script>
 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/reset-css.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+ 
 </head>
-<body data-base data-theme="dark" class="style">
+<body data-base ="" data-theme="dark">
     <div class="wrapper">
         <div class="w-100 ae-header sticky-menu-mobile-navbar d-print-none">
             <div class="ae-menu-left-decor">
@@ -177,8 +174,6 @@
 
 
 
-
-
                         <div class="ae-icons d-flex justify-content-start">
                             <div class="mr-2">
                                 <ul class="nav">
@@ -268,6 +263,15 @@
     </div>
     <div class="container">
         <main role="main" class="pb-3">
+
+            <div class="ae-inner-content-wrapper">
+                <div class="inner-content">
+                    
+                   
+
+
+                </div>
+            </div>
             @RenderBody()
         </main>
     </div>
@@ -277,9 +281,129 @@
             &copy; 2023 - CardsAssembler - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <div id="siteSearchModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Search AetherHub</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span class="fas fa-times text-dark"></span>
+                    </button>
+                </div>
+                <div class="modal-body ui-front d-flex flex-row justify-content-center">
+                    <div>
+                        <form method="get" action="/Market/CardInfo">
+                            <div class="input-group ae-card-search">
+                                <input type="text" id="searchM" name="CardName"
+                                       class="form-control d-print-none ui-autocomplete-input"
+                                       placeholder="Search magic cards" aria-label="Search magic cards"
+                                       autocomplete="off">
+                                <div class="input-group-append">
+                                    <button class="btn btn-light" type="submit" aria-label="Search">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <ul id="ui-id-1" tabindex="0"
+                        class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" unselectable="on"
+                        style="display: none;"></ul>
+                </div>
+                <div class="modal-footer mt-0">
+                    <div class="text-right">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">
+                            <i class="fas fa-times"></i> <b>Close</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popupMsg"></div>
+    </div>
+    <script type="text/javascript">
+        if (window.innerHeight > 1050 && window.innerWidth >= 1990 && window.innerWidth < 2300) {
+            window['nitroAds'].createAd('zone19-stickyrail-160', {
+                "refreshLimit": 10,
+                "refreshTime": 30,
+                "format": "rail",
+                "rail": "left",
+                "railOffsetTop": 0,
+                "railOffsetBottom": 0,
+                "railCollisionWhitelist": ["*"],
+                "sizes": [
+                    [
+                        "160",
+                        "600"
+                    ]
+                ],
+                "report": {
+                    "enabled": true,
+                    "icon": true,
+                    "wording": "Report Ad",
+                    "position": "bottom-left"
+                },
+                "mediaQuery": "(min-width: 1990px) and (min-height: 1050px)"
+            });
+        } else if (window.innerHeight > 1050 && window.innerWidth >= 2300) {
+            window['nitroAds'].createAd('zone19-stickyrail-300', {
+                "refreshLimit": 10,
+                "refreshTime": 30,
+                "format": "rail",
+                "rail": "left",
+                "railOffsetTop": 0,
+                "railOffsetBottom": 0,
+                "railCollisionWhitelist": ["*"],
+                "sizes": [
+                    [
+                        "300",
+                        "600"
+                    ]
+                ],
+                "report": {
+                    "enabled": true,
+                    "icon": true,
+                    "wording": "Report Ad",
+                    "position": "bottom-left"
+                },
+                "mediaQuery": "(min-width: 2300px) and (min-height: 1050px)"
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        window['nitroAds'].createAd('zone16-DesktopSticky', {
+            "refreshLimit": 10,
+            "refreshTime": 30,
+            "format": "anchor",
+            "anchor": "bottom",
+            "anchorPersistClose": true,
+            "report": {
+                "enabled": true,
+                "wording": "Report Ad",
+                "position": "top-right"
+            },
+            "mediaQuery": "(min-width: 1025px)"
+        });
+    </script>
+
+    <script type="text/javascript">
+        window['nitroAds'].createAd('zone09-MobileSticky', {
+            "refreshLimit": 10,
+            "refreshTime": 30,
+            "format": "anchor",
+            "anchor": "bottom",
+            "anchorPersistClose": true,
+            "mediaQuery": "(min-width: 320px) and (max-width: 767px)"
+        });
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/global.js" asp-append-version="true"></script>
+    <script src="~/js/datatables-metalist.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+y

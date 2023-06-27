@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JV9Y4JUgifcoHUtSgzhF4dncyia9LzrWUNF0gYNuHKo=",
+  "Hash": "k4eTfOn8TFxJzgzRofvxe55vLyYPM5aF4r4o/sXLgKw=",
   "Source": "CardsAssembler",
   "BasePath": "_content/CardsAssembler",
   "Mode": "Default",
@@ -83,23 +83,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\css\\keyrune.min.css",
-      "SourceId": "CardsAssembler",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\",
-      "BasePath": "_content/CardsAssembler",
-      "RelativePath": "css/keyrune.min.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\keyrune.min.css"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\css\\reset-css.css",
@@ -187,6 +170,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\navigation\\ah_logo.svg"
     },
     {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\Images\\navigation\\clouds.png",
+      "SourceId": "CardsAssembler",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\",
+      "BasePath": "_content/CardsAssembler",
+      "RelativePath": "Images/navigation/clouds.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\navigation\\clouds.png"
+    },
+    {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\Images\\navigation\\menu_side.svg",
       "SourceId": "CardsAssembler",
       "SourceType": "Discovered",
@@ -219,23 +219,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\navigation\\Section.gif"
-    },
-    {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\Images\\navigation\\Selection.gif",
-      "SourceId": "CardsAssembler",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\",
-      "BasePath": "_content/CardsAssembler",
-      "RelativePath": "Images/navigation/Selection.gif",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\navigation\\Selection.gif"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler\\wwwroot\\js\\site.js",
