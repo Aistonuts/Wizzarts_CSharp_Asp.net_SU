@@ -12069,8 +12069,8 @@ html {
             z-index: 1;
             left: 0;
             overflow: hidden;
-            width: 140px;
-            height: 75px
+            width: 200px;
+            height: 110px
         }
 
 @media (max-width:767px) {

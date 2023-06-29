@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CardsAssembler</title>
-    
+    <title>@ViewData["Title"] - MagicCardsHub</title>
+
+
     <script src="https://kit.fontawesome.com/e0f25cd0cd.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -16,10 +17,11 @@
     <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    
- 
+
+
 </head>
-<body data-base ="" data-theme="dark">
+
+<body data-base="" data-theme="dark">
     <div class="wrapper">
         <div class="w-100 ae-header sticky-menu-mobile-navbar d-print-none">
             <div class="ae-menu-left-decor">
@@ -34,7 +36,7 @@
                     <img src="/images/navigation/menu_side_mobile.svg">
                 </picture>
             </div>
-            <div class="ae-menu-center">            
+            <div class="ae-menu-center">
                 <div class="ae-menu-center">
                     <div class="ae-menu">
                         <div class="ae-menu-logo">
@@ -55,7 +57,7 @@
                                             <div class="ae-nav-dropdown-menu-wrapper">
                                                 <div class="">
                                                     <div class="ae-list-header">
-                                                        <a href="/Decks/">User Decks</a>
+                                                        <a href="/Account/Register">User Decks</a>
                                                         <a href="/Decks/Writeups/">Deck Writeups</a>
                                                         <a href="/Decks/Video/">Deck Videos</a>
                                                         <hr>
@@ -199,56 +201,16 @@
                                     </li>
                                 </ul>
                             </div>
+
                             <div class="mr-1">
                                 <ul class="nav">
                                     <li class="nav-item dropdown">
                                         <a id="login-button" class="" data-toggle="dropdown" aria-label="Login">
                                             <i class="fas fa-user"></i>
                                         </a>
-                                        <div id="login-dp" class="dropdown-menu dropdown-menu-right">
-                                            <div class="row">
-                                                <div class="col-md-12 text-dark">
-                                                    Sign in with:
-                                                    <div class="social-buttons">
-                                                        <form action="/Account/ExternalLogin?ReturnUrl=%2F" method="post">
-                                                            <a href="/Account/Login?provider=Facebook" data-value="qFacebook" class="btn btn-fb"><i class="fab fa-facebook"></i> <b>Facebook</b></a>
-                                                            <a href="/Account/Login?provider=Google" data-value="qGoogle" id="customGoogleBtn"><span class="icon"></span><span class="buttonText">Google</span></a>
-                                                            <a href="/Account/Login?provider=Twitch" data-value="qTwitch" class="btn btn-twtch"><i class="fab fa-twitch"></i> <b>Twitch</b></a>
-                                                            <button type="submit" class="d-none" id="qFacebook" name="provider" value="Facebook">Facebook</button>
-                                                            <button type="submit" class="d-none" id="qGoogle" name="provider" value="Google">Google</button>
-                                                            <button type="submit" class="d-none" id="qTwitch" name="provider" value="Twitch">Twitch</button>
-                                                            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8LfsufsXVapJrq_N_TZp-jbXMTKAcGvs8pbxOl_MdHsHT8uSmirJpL43bEFWSwqpWd22kZz0YI9DePGB9MzI4UZk0fY8jFkO12lOStIpDOdyflBcF__4hVm0WOnHVRqG_K0VV0O0OLprXwFI5Z1lEr0">
-                                                        </form>
-                                                    </div>
-                                                    or
-                                                    <form action="/Account/Login?ReturnUrl=%2F" class="form" id="login-nav" method="post" role="form" novalidate="novalidate">
-                                                        <div class="form-group">
-                                                            <label class="sr-only" for="Email">Login</label>
-                                                            <input class="form-control" data-val="true" data-val-required="The Login field is required." id="qEmail" name="Email" placeholder="Username / Email" type="text" value="">
-                                                            <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="sr-only" for="Password">Password</label>
-                                                            <input class="form-control" data-val="true" data-val-required="The Password field is required." id="qPassword" name="Password" placeholder="Password" type="password">
-                                                            <span class="text-danger field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
-                                                            <div class="checkbox">
-                                                                <label for="qRememberMe">
-                                                                    <input data-val="true" data-val-required="The Remember me field is required." id="qRememberMe" name="RememberMe" type="checkbox" value="true">
-                                                                    Remember me
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <button type="submit" class="btn btn-light btn-block"><i class="fas fa-sign-in-alt"></i> <b>Login</b></button>
-                                                        </div>
-                                                        <div class="help-block text-center"><a href="/Account/ForgotPassword">Forgot your password?</a></div>
-                                                        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8LfsufsXVapJrq_N_TZp-jbXMTKAcGvs8pbxOl_MdHsHT8uSmirJpL43bEFWSwqpWd22kZz0YI9DePGB9MzI4UZk0fY8jFkO12lOStIpDOdyflBcF__4hVm0WOnHVRqG_K0VV0O0OLprXwFI5Z1lEr0"><input name="RememberMe" type="hidden" value="false">
-                                                    </form>        <div class="bottom text-center mt-2">
-                                                        <a href="/Account/Register"><b>Create new e-mail user here</b></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @{
+                                            Html.RenderPartial("_LoginPartial");
+                                        }
                                     </li>
                                 </ul>
                             </div>
@@ -259,28 +221,46 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
     </div>
-    <div class="container">
-        <main role="main" class="pb-3">
 
-            <div class="ae-inner-content-wrapper">
-                <div class="inner-content">
-                    
-                   
+    <div class="ae-inner-content-wrapper">
+        <div class="inner-content">
+            <div class="row">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
 
 
+
+    <footer class="d-print-none">
+        <div class="row no-gutters pt-2 text-white bg-light">
+            <div class="col-sm-12 col-md-4 text-center">
+                <ul class="list-unstyled">
+                    <li class="my-2 my-md-0"><a href="/Help" class="text-white"><b>Help</b></a></li>
+                    <li class="my-2 my-md-0"><a href="/Contact" class="text-white"><b>Contact Us</b></a></li>
+                    <li class="my-2 my-md-0"><a href="/PrivacyPolicy" class="text-white"><b>Privacy Policy</b></a></li>
+                    <li class="my-2 my-md-0"><a href="/Premium/" class="text-white"><b>Premium Account</b></a></li>
+                    <li class="my-2 my-md-0"><a href="/TermsAndConditions" class="text-white"><b>Terms and Conditions</b></a></li>
+                    <li class="my-2 my-md-0"><a href="/Docs/" class="text-white"><b>Documentation</b></a></li>
+                    <li class="my-2 my-md-0"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=XQU3MEGZAWU36&amp;source=url" class="text-white" target="_blank" rel="nofollow noopener"><b>Donate</b></a></li>
+                </ul>
+            </div>
+            <div class="d-none d-md-block col-md-4 text-center">
+                <div class="d-flex flex-row justify-content-center">
+                    <div id="SponsoredFrame"><a href="https://twitch.tv/ThePunisher57925"><img class="d-block" alt="ThePunisher57925" src="https://static-cdn.jtvnw.net/previews-ttv/live_user_thepunisher57925-300x168.jpg" width="300" height="168"></a><div class="text-center"><a href="https://twitch.tv/ThePunisher57925"><b>ThePunisher57925</b></a></div></div>
                 </div>
             </div>
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - CardsAssembler - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+        <div class="footer-copyright mt-1 text-center small">
+            2023 - CardsAssembler copy of the following :
+            "All original content on this page is ©2023 AetherHub.com and may not be used or reproduced without consent. Wizards of the Coast, Magic: The Gathering, and their logos are trademarks of
+            Wizards of the Coast LLC. © Wizards. All rights reserved. AetherHub.com is not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC. Magic the Gathering and its
+            respective properties are copyright Wizards of the Coast. CCPA: <a href="/Home/PersonalInformation">Opt out of personal information sales"</a>
         </div>
     </footer>
+
     <div id="siteSearchModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -321,7 +301,7 @@
         </div>
     </div>
     <div id="popupMsg"></div>
-    </div>
+
     <script type="text/javascript">
         if (window.innerHeight > 1050 && window.innerWidth >= 1990 && window.innerWidth < 2300) {
             window['nitroAds'].createAd('zone19-stickyrail-160', {
@@ -406,4 +386,3 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-y

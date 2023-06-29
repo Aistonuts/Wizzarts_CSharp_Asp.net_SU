@@ -1,0 +1,17 @@
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\bin\Debug\net7.0\CardsAssembler.Data.deps.json
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\bin\Debug\net7.0\CardsAssembler.Data.runtimeconfig.json
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\bin\Debug\net7.0\CardsAssembler.Data.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\bin\Debug\net7.0\CardsAssembler.Data.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\bin\Debug\net7.0\CardsAssembler.Domain.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\bin\Debug\net7.0\CardsAssembler.Domain.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\obj\Debug\net7.0\CardsAssembler.Data.csproj.AssemblyReference.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\obj\Debug\net7.0\CardsAssembler.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\obj\Debug\net7.0\CardsAssembler.Data.AssemblyInfoInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\obj\Debug\net7.0\CardsAssembler.Data.AssemblyInfo.cs
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\obj\Debug\net7.0\CardsAssembler.Data.csproj.CoreCompileInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\obj\Debug\net7.0\CardsAssembler.Data.csproj.CopyComplete
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\obj\Debug\net7.0\CardsAssembler.Data.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\obj\Debug\net7.0\refint\CardsAssembler.Data.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\obj\Debug\net7.0\CardsAssembler.Data.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\obj\Debug\net7.0\CardsAssembler.Data.genruntimeconfig.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsAssembly\CardsAssembler.Data\obj\Debug\net7.0\ref\CardsAssembler.Data.dll

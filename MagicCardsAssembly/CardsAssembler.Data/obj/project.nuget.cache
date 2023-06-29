@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0UGyT7rjGyuBXt7/SrYuk4jgZ8QSadeSQKmtKOu/IJdN0B9CT6pmatke4ngfAtPzaEZWpFsqruGCfjkfvgtV4A==",
+  "dgSpecHash": "a9nNnwvq4ZnJIdd4TSx1GzueyZ3wddWytVrNH+xFsHZGuZOYGJI4+ImWrr/4QSwpVOjmIxuu07ONr2OfZL7ZAQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\MyRepos\\ASP.NET_try\\MagicCardsAssembly\\CardsAssembler.Data\\CardsAssembler.Data.csproj",
   "expectedPackageFiles": [
@@ -64,7 +64,6 @@
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.runtime.caching\\5.0.0\\system.runtime.caching.5.0.0.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.security.cryptography.cng\\5.0.0\\system.security.cryptography.cng.5.0.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.security.cryptography.protecteddata\\5.0.0\\system.security.cryptography.protecteddata.5.0.0.nupkg.sha512",
