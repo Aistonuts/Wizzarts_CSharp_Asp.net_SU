@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="~/css/reset-css.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
 
 
 </head>
@@ -302,87 +302,9 @@
     </div>
     <div id="popupMsg"></div>
 
-    <script type="text/javascript">
-        if (window.innerHeight > 1050 && window.innerWidth >= 1990 && window.innerWidth < 2300) {
-            window['nitroAds'].createAd('zone19-stickyrail-160', {
-                "refreshLimit": 10,
-                "refreshTime": 30,
-                "format": "rail",
-                "rail": "left",
-                "railOffsetTop": 0,
-                "railOffsetBottom": 0,
-                "railCollisionWhitelist": ["*"],
-                "sizes": [
-                    [
-                        "160",
-                        "600"
-                    ]
-                ],
-                "report": {
-                    "enabled": true,
-                    "icon": true,
-                    "wording": "Report Ad",
-                    "position": "bottom-left"
-                },
-                "mediaQuery": "(min-width: 1990px) and (min-height: 1050px)"
-            });
-        } else if (window.innerHeight > 1050 && window.innerWidth >= 2300) {
-            window['nitroAds'].createAd('zone19-stickyrail-300', {
-                "refreshLimit": 10,
-                "refreshTime": 30,
-                "format": "rail",
-                "rail": "left",
-                "railOffsetTop": 0,
-                "railOffsetBottom": 0,
-                "railCollisionWhitelist": ["*"],
-                "sizes": [
-                    [
-                        "300",
-                        "600"
-                    ]
-                ],
-                "report": {
-                    "enabled": true,
-                    "icon": true,
-                    "wording": "Report Ad",
-                    "position": "bottom-left"
-                },
-                "mediaQuery": "(min-width: 2300px) and (min-height: 1050px)"
-            });
-        }
-    </script>
-
-    <script type="text/javascript">
-        window['nitroAds'].createAd('zone16-DesktopSticky', {
-            "refreshLimit": 10,
-            "refreshTime": 30,
-            "format": "anchor",
-            "anchor": "bottom",
-            "anchorPersistClose": true,
-            "report": {
-                "enabled": true,
-                "wording": "Report Ad",
-                "position": "top-right"
-            },
-            "mediaQuery": "(min-width: 1025px)"
-        });
-    </script>
-
-    <script type="text/javascript">
-        window['nitroAds'].createAd('zone09-MobileSticky', {
-            "refreshLimit": 10,
-            "refreshTime": 30,
-            "format": "anchor",
-            "anchor": "bottom",
-            "anchorPersistClose": true,
-            "mediaQuery": "(min-width: 320px) and (max-width: 767px)"
-        });
-    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="~/js/global.js" asp-append-version="true"></script>
-    <script src="~/js/datatables-metalist.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
