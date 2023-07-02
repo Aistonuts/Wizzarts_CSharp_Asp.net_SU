@@ -10,3 +10,15 @@ C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsHub\MagicCardsH
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\obj\Debug\net7.0\refint\MagicCardsHub.Domain.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\obj\Debug\net7.0\MagicCardsHub.Domain.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\MyRepos\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\obj\Debug\net7.0\ref\MagicCardsHub.Domain.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\bin\Debug\net7.0\MagicCardsHub.Domain.deps.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\bin\Debug\net7.0\MagicCardsHub.Domain.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\bin\Debug\net7.0\MagicCardsHub.Domain.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\obj\Debug\net7.0\MagicCardsHub.Domain.csproj.AssemblyReference.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\obj\Debug\net7.0\MagicCardsHub.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\obj\Debug\net7.0\MagicCardsHub.Domain.AssemblyInfoInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\obj\Debug\net7.0\MagicCardsHub.Domain.AssemblyInfo.cs
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\obj\Debug\net7.0\MagicCardsHub.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\obj\Debug\net7.0\MagicCardsHub.Domain.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\obj\Debug\net7.0\refint\MagicCardsHub.Domain.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\obj\Debug\net7.0\MagicCardsHub.Domain.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\MagicCardsHub.Domain\obj\Debug\net7.0\ref\MagicCardsHub.Domain.dll
