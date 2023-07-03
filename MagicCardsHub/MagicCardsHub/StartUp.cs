@@ -1,17 +1,9 @@
-﻿using MagicCardsHub.Data;
-using MagicCardsHub.Domain;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-using System.Linq;
-
-namespace MagicCardsHub
+﻿namespace MagicCardsHub
 {
+    using MagicCardsHub.Data;
+    using MagicCardsHub.Domain;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -79,13 +71,9 @@ namespace MagicCardsHub
             app.UseRouting();
             app.UseDeveloperExceptionPage();
             app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
-            {
-
-                endpoints.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-
+            {             
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
             });

@@ -1,8 +1,7 @@
-using MagicCardsHub;
 using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
 
-namespace Panda.App
+
+namespace MagicCardsHub
 {
     public class Program
     {

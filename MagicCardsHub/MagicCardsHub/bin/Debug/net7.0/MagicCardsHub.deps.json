@@ -12,6 +12,7 @@
           "MagicCardsHub.Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.8",
           "Microsoft.EntityFrameworkCore": "7.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.8",
           "Microsoft.Extensions.Identity.Stores": "7.0.8",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.7"
@@ -2587,6 +2588,7 @@
       "MagicCardsHub.Data/1.0.0": {
         "dependencies": {
           "MagicCardsHub.Domain": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8"
         },
         "runtime": {
