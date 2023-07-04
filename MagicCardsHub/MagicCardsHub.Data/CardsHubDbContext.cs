@@ -38,23 +38,23 @@ namespace MagicCardsHub.Data
 
             builder
                 .Entity<Art>()
-                .HasOne(c => c.Artist)
-                .WithMany(c => c.ArtPieces)
-                .HasForeignKey(c => c.ArtIstId)
+                .HasOne(a => a.Artist)
+                .WithMany(p => p.ArtPieces)
+                .HasForeignKey(a => a.ArtIstId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .Entity<Card>()
                 .HasOne(c => c.GameSeason)
-                .WithMany(d => d.Cards)
+                .WithMany(g => g.Cards)
                 .HasForeignKey(c => c.GameSeasonId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .Entity<GameSeason>()
-                .HasOne<ProjectCreator>()
+                .HasOne(g => g.ProjectCreator)
                 .WithMany(d => d.GameSeasons)
-                .HasForeignKey(c => c.ProjectCreatorId)
+                .HasForeignKey(g => g.ProjectCreatorId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Art>()

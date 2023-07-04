@@ -51,6 +51,7 @@
                     {
                         context.Roles.Add(new CreatorRole { Name = "Admin", NormalizedName = "ADMIN" });
                         context.Roles.Add(new CreatorRole { Name = "User", NormalizedName = "USER" });
+                        context.Roles.Add(new CreatorRole { Name = "Artist", NormalizedName = "ARTIST" });
                     }
 
                   //

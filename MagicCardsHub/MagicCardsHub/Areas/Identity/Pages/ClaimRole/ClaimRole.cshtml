@@ -1,0 +1,23 @@
+﻿@page
+@using MagicCardsHub.Areas.Identity.Pages.Account;
+
+@model ClaimRole
+@{
+    ViewData["Title"] = "ClaimRole";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+<form class="form" method="post">
+        <button type="submit" class="btn btn-light btn-block">
+            <i class="fas fa-sign-in-alt"></i> <b>ChangeRole</b>
+        </button>
+    </div>
+</form>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+        }
