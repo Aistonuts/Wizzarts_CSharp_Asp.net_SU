@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Y9xK1kAGVZ36UVRuF0CpwuwVMfYJ9fOw6tcrD677gmGPbsaBI1Iyb5nBkNHbXmvFRCzSya+/G9t3sQVbcFXGFw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\MagicCardsHub.Common\\MagicCardsHub.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.435\\stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.435\\stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512"
+  ],
+  "logs": []
+}
