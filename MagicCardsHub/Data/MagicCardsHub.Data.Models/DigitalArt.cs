@@ -15,6 +15,8 @@
 
         public string ImageUrl { get; set; }
 
+        public string Extension { get; set; }
+
         public string ArtIstId { get; set; }
 
         public ApplicationUser Artist { get; set; }

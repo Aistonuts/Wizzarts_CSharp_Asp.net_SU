@@ -36,6 +36,8 @@
 
         public DbSet<PackageStatus> PackageStatuses { get; set; }
 
+        public DbSet<Image> Images { get; set; }
+
         public DbSet<Receipt> Receipts { get; set; }
 
         public DbSet<PlayCard> PlayCards { get; set; }
@@ -63,14 +65,6 @@
         {
             this.ApplyAuditInfoRules();
             return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-PJE8JOP\\SQLEXPRESS;Database=MagicCardsHub;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
-
-            base.OnConfiguring(optionsBuilder);
-
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

@@ -1,16 +1,27 @@
 ﻿namespace MagicCardsHub.Web.Controllers
 {
     using System.Diagnostics;
-
+    using MagicCardsHub.Services.Data;
     using MagicCardsHub.Web.ViewModels;
-
+    using MagicCardsHub.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
+        private readonly IArticlesService articlesService;
+
+        public HomeController(IArticlesService articlesService)
+        {
+            this.articlesService = articlesService;
+        }
+
         public IActionResult Index()
         {
-            return this.View();
+            var viewModel = new IndexViewModel
+            {
+                RandomArticles = this.articlesService.GetRandom<IndexPageArticleViewModel>(2),
+            };
+            return this.View(viewModel);
         }
 
         public IActionResult Privacy()

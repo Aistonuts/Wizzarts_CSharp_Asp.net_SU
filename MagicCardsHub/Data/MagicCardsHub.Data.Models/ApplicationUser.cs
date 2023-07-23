@@ -16,7 +16,9 @@ namespace MagicCardsHub.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
-            this.GameFormatProjects = new List<GameFormatProject>();
+            this.Images = new HashSet<Image>();
+            this.Articles = new HashSet<Article>();
+            this.GameFormatProjects = new HashSet<GameFormatProject>();
             this.Art = new HashSet<DigitalArt>();
             this.Stores = new HashSet<Store>();
             this.Tournaments = new HashSet<Tournament>();
@@ -39,6 +41,10 @@ namespace MagicCardsHub.Data.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        public virtual ICollection<Image> Images { get; set; }
+
+        public virtual ICollection<Article> Articles { get; set; }
 
         public virtual ICollection<GameFormatProject> GameFormatProjects { get; set; }
 

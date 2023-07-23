@@ -3,6 +3,7 @@
     using System;
 
     using MagicCardsHub.Data.Common.Models;
+    using Microsoft.EntityFrameworkCore;
 
     public class Receipt : BaseDeletableModel<string>
     {
@@ -11,6 +12,7 @@
             this.Id = Guid.NewGuid().ToString();
         }
 
+        [Precision(18, 2)]
         public decimal Fee { get; set; }
 
         public DateTime IssuedOn { get; set; } = DateTime.UtcNow;
