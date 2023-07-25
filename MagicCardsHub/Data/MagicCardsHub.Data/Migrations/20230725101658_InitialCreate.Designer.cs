@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicCardsHub.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230720112115_CardsHubDataAdded")]
-    partial class CardsHubDataAdded
+    [Migration("20230725101658_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -200,9 +200,6 @@ namespace MagicCardsHub.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Extension")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
@@ -284,20 +281,43 @@ namespace MagicCardsHub.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("DigitalArtId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Extension")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("ProjectIdImage")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProjectImageId")
+                        .HasColumnType("int");
+
                     b.Property<string>("RemoteImageUrl")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("StoreImageId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TournamentImageId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AddedByUserId");
 
                     b.HasIndex("ArticleId");
+
+                    b.HasIndex("DigitalArtId");
+
+                    b.HasIndex("ProjectImageId");
+
+                    b.HasIndex("StoreImageId");
+
+                    b.HasIndex("TournamentImageId");
 
                     b.ToTable("Images");
                 });
@@ -574,6 +594,12 @@ namespace MagicCardsHub.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("StoreId")
                         .HasColumnType("int");
 
@@ -776,11 +802,37 @@ namespace MagicCardsHub.Data.Migrations
                         .WithMany("Images")
                         .HasForeignKey("AddedByUserId");
 
-                    b.HasOne("MagicCardsHub.Data.Models.Article", null)
+                    b.HasOne("MagicCardsHub.Data.Models.Article", "Article")
                         .WithMany("Images")
                         .HasForeignKey("ArticleId");
 
+                    b.HasOne("MagicCardsHub.Data.Models.DigitalArt", "DigitalArt")
+                        .WithMany("Images")
+                        .HasForeignKey("DigitalArtId");
+
+                    b.HasOne("MagicCardsHub.Data.Models.GameFormatProject", "ProjectImage")
+                        .WithMany("Images")
+                        .HasForeignKey("ProjectImageId");
+
+                    b.HasOne("MagicCardsHub.Data.Models.Store", "StoreImage")
+                        .WithMany("Images")
+                        .HasForeignKey("StoreImageId");
+
+                    b.HasOne("MagicCardsHub.Data.Models.StoreTournament", "TournamentImage")
+                        .WithMany("Images")
+                        .HasForeignKey("TournamentImageId");
+
                     b.Navigation("AddedByUser");
+
+                    b.Navigation("Article");
+
+                    b.Navigation("DigitalArt");
+
+                    b.Navigation("ProjectImage");
+
+                    b.Navigation("StoreImage");
+
+                    b.Navigation("TournamentImage");
                 });
 
             modelBuilder.Entity("MagicCardsHub.Data.Models.Package", b =>
@@ -952,17 +1004,28 @@ namespace MagicCardsHub.Data.Migrations
 
             modelBuilder.Entity("MagicCardsHub.Data.Models.DigitalArt", b =>
                 {
+                    b.Navigation("Images");
+
                     b.Navigation("PlayCard");
                 });
 
             modelBuilder.Entity("MagicCardsHub.Data.Models.GameFormatProject", b =>
                 {
                     b.Navigation("Cards");
+
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("MagicCardsHub.Data.Models.Store", b =>
                 {
+                    b.Navigation("Images");
+
                     b.Navigation("Tournaments");
+                });
+
+            modelBuilder.Entity("MagicCardsHub.Data.Models.StoreTournament", b =>
+                {
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("MagicCardsHub.Data.Models.Tournament", b =>

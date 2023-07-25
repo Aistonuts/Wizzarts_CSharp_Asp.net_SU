@@ -66,6 +66,7 @@
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IArticlesService, ArticlesService>();
+            services.AddTransient<IDigitalArtService, DigitalArtService>();
         }
 
         private static void Configure(WebApplication app)

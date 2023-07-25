@@ -10,6 +10,7 @@
         public GameFormatProject()
         {
             this.Cards = new HashSet<PlayCard>();
+            this.Images = new HashSet<Image>();
         }
 
         public string Name { get; set; }
@@ -27,5 +28,7 @@
         public virtual ApplicationUser ProjectCreator { get; set; }
 
         public virtual ICollection<PlayCard> Cards { get; init; }
+
+        public virtual ICollection<Image> Images { get; set; }
     }
 }

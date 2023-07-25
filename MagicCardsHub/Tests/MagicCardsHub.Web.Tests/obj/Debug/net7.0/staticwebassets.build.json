@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wB4vB4c/O5gXLNIMvFZ7rzrPdEVYB0Fm2I3NWKkncCg=",
+  "Hash": "23DlPk4HGRqSkzxxUQ6dvjlF6WlsD6w+bkRl/tAd09s=",
   "Source": "MagicCardsHub.Web.Tests",
   "BasePath": "_content/MagicCardsHub.Web.Tests",
   "Mode": "Default",
@@ -165,12 +165,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\AetherhubLogo320.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\images\\0550fef8-1065-444a-aed8-d92d3ae3c406.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\digitalArt\\3cd885aa-0af7-453c-bc57-572d02fa43e2.png",
       "SourceId": "MagicCardsHub.Web",
       "SourceType": "Project",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsHub.Web",
-      "RelativePath": "Images/images/0550fef8-1065-444a-aed8-d92d3ae3c406.png",
+      "RelativePath": "Images/digitalArt/3cd885aa-0af7-453c-bc57-572d02fa43e2.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -179,24 +179,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\images\\0550fef8-1065-444a-aed8-d92d3ae3c406.png"
-    },
-    {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\images\\aa6b85cb-8d3f-4a45-a77b-b0cfa383d4a3.png",
-      "SourceId": "MagicCardsHub.Web",
-      "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
-      "BasePath": "_content/MagicCardsHub.Web",
-      "RelativePath": "Images/images/aa6b85cb-8d3f-4a45-a77b-b0cfa383d4a3.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\images\\aa6b85cb-8d3f-4a45-a77b-b0cfa383d4a3.png"
+      "OriginalItemSpec": "wwwroot\\Images\\digitalArt\\3cd885aa-0af7-453c-bc57-572d02fa43e2.png"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\ah_logo.svg",

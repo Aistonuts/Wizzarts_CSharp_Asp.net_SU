@@ -44,10 +44,4 @@
   <ItemGroup>
     <Folder Include="Areas\Identity\Pages\Account\" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="wwwroot\Images\images\0550fef8-1065-444a-aed8-d92d3ae3c406.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 </Project>
