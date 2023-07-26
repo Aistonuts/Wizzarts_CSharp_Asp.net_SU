@@ -67,6 +67,7 @@
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IArticlesService, ArticlesService>();
             services.AddTransient<IDigitalArtService, DigitalArtService>();
+            services.AddTransient<IGameProjectService, GameProjectService>();
         }
 
         private static void Configure(WebApplication app)

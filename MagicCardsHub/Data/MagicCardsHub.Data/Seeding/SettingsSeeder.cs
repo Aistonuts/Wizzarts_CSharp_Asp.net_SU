@@ -16,6 +16,7 @@
             }
 
             await dbContext.Settings.AddAsync(new Setting { Name = "Setting1", Value = "value1" });
+            await dbContext.Settings.AddAsync(new Setting { Name = "Setting2", Value = "value2" });
         }
     }
 }

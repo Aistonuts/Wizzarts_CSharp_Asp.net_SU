@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "23DlPk4HGRqSkzxxUQ6dvjlF6WlsD6w+bkRl/tAd09s=",
+  "Hash": "SxZ1TP9bJsjbzQIC+prnbdrcgeqaIutZ4E9F5E2FhaQ=",
   "Source": "MagicCardsHub.Web.Tests",
   "BasePath": "_content/MagicCardsHub.Web.Tests",
   "Mode": "Default",
@@ -163,23 +163,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\AetherhubLogo320.png"
-    },
-    {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\digitalArt\\3cd885aa-0af7-453c-bc57-572d02fa43e2.png",
-      "SourceId": "MagicCardsHub.Web",
-      "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
-      "BasePath": "_content/MagicCardsHub.Web",
-      "RelativePath": "Images/digitalArt/3cd885aa-0af7-453c-bc57-572d02fa43e2.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\digitalArt\\3cd885aa-0af7-453c-bc57-572d02fa43e2.png"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\ah_logo.svg",
