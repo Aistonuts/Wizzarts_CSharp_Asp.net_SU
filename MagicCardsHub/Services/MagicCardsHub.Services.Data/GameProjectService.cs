@@ -1,26 +1,27 @@
-﻿using MagicCardsHub.Data.Models;
-using System.Collections.Generic;
-
-namespace MagicCardsHub.Services.Data
+﻿namespace MagicCardsHub.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System;
     using System.Threading.Tasks;
 
+    using MagicCardsHub.Data;
     using MagicCardsHub.Data.Common.Repositories;
     using MagicCardsHub.Data.Models;
-    using MagicCardsHub.Web.ViewModels.DigitalArt;
     using MagicCardsHub.Web.ViewModels.GameProject;
 
     public class GameProjectService : IGameProjectService
     {
+
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<GameFormatProject> gameFormatRepository;
+        private readonly ApplicationDbContext db;
 
-        public GameProjectService(IDeletableEntityRepository<GameFormatProject> gameFormatRepository)
+        public GameProjectService(IDeletableEntityRepository<GameFormatProject> gameFormatRepository, ApplicationDbContext db)
         {
             this.gameFormatRepository = gameFormatRepository;
+            this.db = db;
         }
 
         public async Task CreateAsync(CreateGameProjectInputModel input, string userId, string imagePath)
@@ -31,7 +32,7 @@ namespace MagicCardsHub.Services.Data
                 Description = input.Description,
                 NumberOfCards = input.NumberOfCards,
                 ProjectCreatorId = userId,
-
+                ProjectStatus = this.db.ProjectStatuses.SingleOrDefault(status => status.Name == "Pending"),
             };
 
 

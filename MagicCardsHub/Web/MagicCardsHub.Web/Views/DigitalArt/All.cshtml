@@ -1,0 +1,25 @@
+﻿@model MagicCardsHub.Web.ViewModels.DigitalArt.DigitalArtListViewModel
+@{
+    this.ViewData["Title"] = "All Digital Art";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mt-2">
+    <div class="col-md-12">
+        <div id="DigitalArt" class="outer-container">
+            @foreach(var digitArt in this.Model.DigitalArt)
+            {
+                <div class="inner-container">
+                    <a asp-action="ById" asp-route-id="@digitArt.Id" class="item ae-card-link cardLink ">
+                        "@digitArt.Description"
+                        <img class="lazy" src="@digitArt.DigitalArt" alt="@digitArt.Description" style="">
+                        <div class="item-hidden-text">Bad Wolf Bay</div>
+                    </a>
+                    <div class="item-footer">
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,6 +1,4 @@
-﻿using MagicCardsHub.Data.Models;
-
-namespace MagicCardsHub.Services.Data
+﻿namespace MagicCardsHub.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -11,6 +9,7 @@ namespace MagicCardsHub.Services.Data
 
     using MagicCardsHub.Data.Common.Repositories;
     using MagicCardsHub.Data.Models;
+    using MagicCardsHub.Services.Mapping;
     using MagicCardsHub.Web.ViewModels.DigitalArt;
 
     public class DigitalArtService : IDigitalArtService
@@ -70,6 +69,15 @@ namespace MagicCardsHub.Services.Data
 
             await this.digitalArtRepository.AddAsync(digitalArt);
             await this.digitalArtRepository.SaveChangesAsync();
+        }
+
+        public IEnumerable<T> GetAll<T>()
+        {
+            var digitalArt = this.digitalArtRepository.AllAsNoTracking()
+                .OrderByDescending(x => x.Id)
+                .To<T>().ToList();
+
+            return digitalArt;
         }
     }
 }

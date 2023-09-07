@@ -7,10 +7,11 @@
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/css/reset-css.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+
 
 </head>
 <body data-base="" data-theme="dark">
@@ -94,7 +95,7 @@
                                                         <div class="ae-list-header">
                                                             <a href="/Account/Register">All Cards</a>
                                                             <a href="/Decks/Video/">All Decks</a>
-                                                            <a href="/Decks/Writeups/">All Art</a>
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="DigitalArt" asp-action="All">All Art</a>
                                                             <a href="/Decks/Video/">All Artists</a>
                                                             <hr>
                                                             <a href="/Deck/Builder/">Order Deck</a>

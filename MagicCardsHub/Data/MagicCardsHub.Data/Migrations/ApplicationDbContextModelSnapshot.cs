@@ -207,13 +207,17 @@ namespace MagicCardsHub.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PlayCardId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ArtIstId");
 
                     b.HasIndex("IsDeleted");
+
+                    b.HasIndex("PlayCardId")
+                        .IsUnique()
+                        .HasFilter("[PlayCardId] IS NOT NULL");
 
                     b.ToTable("DigitalArts");
                 });
@@ -394,16 +398,16 @@ namespace MagicCardsHub.Data.Migrations
 
             modelBuilder.Entity("MagicCardsHub.Data.Models.PlayCard", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ArtId")
+                    b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ArtId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CardType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Colorless")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
@@ -427,6 +431,9 @@ namespace MagicCardsHub.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("ManaColor")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
@@ -434,10 +441,6 @@ namespace MagicCardsHub.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ArtId")
-                        .IsUnique()
-                        .HasFilter("[ArtId] IS NOT NULL");
 
                     b.HasIndex("GameFormatId");
 
@@ -775,7 +778,13 @@ namespace MagicCardsHub.Data.Migrations
                         .WithMany("Art")
                         .HasForeignKey("ArtIstId");
 
+                    b.HasOne("MagicCardsHub.Data.Models.PlayCard", "PlayCard")
+                        .WithOne("Art")
+                        .HasForeignKey("MagicCardsHub.Data.Models.DigitalArt", "PlayCardId");
+
                     b.Navigation("Artist");
+
+                    b.Navigation("PlayCard");
                 });
 
             modelBuilder.Entity("MagicCardsHub.Data.Models.GameFormatProject", b =>
@@ -851,17 +860,11 @@ namespace MagicCardsHub.Data.Migrations
 
             modelBuilder.Entity("MagicCardsHub.Data.Models.PlayCard", b =>
                 {
-                    b.HasOne("MagicCardsHub.Data.Models.DigitalArt", "Art")
-                        .WithOne("PlayCard")
-                        .HasForeignKey("MagicCardsHub.Data.Models.PlayCard", "ArtId");
-
                     b.HasOne("MagicCardsHub.Data.Models.GameFormatProject", "GameFormat")
                         .WithMany("Cards")
                         .HasForeignKey("GameFormatId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("Art");
 
                     b.Navigation("GameFormat");
                 });
@@ -1002,8 +1005,6 @@ namespace MagicCardsHub.Data.Migrations
             modelBuilder.Entity("MagicCardsHub.Data.Models.DigitalArt", b =>
                 {
                     b.Navigation("Images");
-
-                    b.Navigation("PlayCard");
                 });
 
             modelBuilder.Entity("MagicCardsHub.Data.Models.GameFormatProject", b =>
@@ -1011,6 +1012,11 @@ namespace MagicCardsHub.Data.Migrations
                     b.Navigation("Cards");
 
                     b.Navigation("Images");
+                });
+
+            modelBuilder.Entity("MagicCardsHub.Data.Models.PlayCard", b =>
+                {
+                    b.Navigation("Art");
                 });
 
             modelBuilder.Entity("MagicCardsHub.Data.Models.Store", b =>

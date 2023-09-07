@@ -4,13 +4,22 @@
 
     using MagicCardsHub.Data.Common.Models;
 
-    public class PlayCard : BaseDeletableModel<int>
+    public class PlayCard : BaseDeletableModel<string>
     {
+        public PlayCard()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+
         public string Name { get; set; }
 
         public string Description { get; set; }
 
         public string CardType { get; set; }
+
+        public string ManaColor { get; set; }
+
+        public string Colorless { get; set; }
 
         public int Damage { get; set; }
 

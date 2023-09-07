@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+
     using MagicCardsHub.Data.Common.Models;
 
     public class DigitalArt : BaseDeletableModel<string>

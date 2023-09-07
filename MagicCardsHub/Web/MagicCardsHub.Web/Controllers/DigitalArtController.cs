@@ -61,5 +61,15 @@
             // TODO: Redirect to article info page
             return this.RedirectToAction("Home");
         }
+
+        public IActionResult All()
+        {
+            var viewModel = new DigitalArtListViewModel
+            {
+                DigitalArt = this.digitalArtService.GetAll<DigitArtInListModel>(),
+            };
+
+            return this.View(viewModel);
+        }
     }
 }

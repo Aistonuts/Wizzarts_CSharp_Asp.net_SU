@@ -5,6 +5,22 @@
       "PackagePath": "staticwebassets\\Images\\AetherhubLogo320.png"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\digitalArt\\1727c7e5-4b94-4b74-8681-e51c0fec4b90.jpg",
+      "PackagePath": "staticwebassets\\Images\\digitalArt\\1727c7e5-4b94-4b74-8681-e51c0fec4b90.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\digitalArt\\e98748c7-4c25-41df-a2fc-3bce64bb448b.jpg",
+      "PackagePath": "staticwebassets\\Images\\digitalArt\\e98748c7-4c25-41df-a2fc-3bce64bb448b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\digitalArt\\f54da352-d8cd-4de0-8081-942ed0acfb78.jpg",
+      "PackagePath": "staticwebassets\\Images\\digitalArt\\f54da352-d8cd-4de0-8081-942ed0acfb78.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\images\\d6965827-5c5c-4f97-9c4a-5020aec6cd41.jpg",
+      "PackagePath": "staticwebassets\\Images\\images\\d6965827-5c5c-4f97-9c4a-5020aec6cd41.jpg"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\Section.gif",
       "PackagePath": "staticwebassets\\Images\\navigation\\Section.gif"
     },
@@ -33,6 +49,30 @@
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\css\\css\\keyrune.css",
+      "PackagePath": "staticwebassets\\css\\css\\keyrune.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\css\\css\\keyrune.min.css",
+      "PackagePath": "staticwebassets\\css\\css\\keyrune.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\css\\css\\mana.css",
+      "PackagePath": "staticwebassets\\css\\css\\mana.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\css\\css\\mana.min.css",
+      "PackagePath": "staticwebassets\\css\\css\\mana.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\css\\css\\mtg.css",
+      "PackagePath": "staticwebassets\\css\\css\\mtg.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\css\\css\\mtg_custom.css",
+      "PackagePath": "staticwebassets\\css\\css\\mtg_custom.css"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\css\\reset-css.css",
       "PackagePath": "staticwebassets\\css\\reset-css.css"
     },
@@ -51,6 +91,62 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\keyrune.eot",
+      "PackagePath": "staticwebassets\\fonts\\keyrune.eot"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\keyrune.svg",
+      "PackagePath": "staticwebassets\\fonts\\keyrune.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\keyrune.ttf",
+      "PackagePath": "staticwebassets\\fonts\\keyrune.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\keyrune.woff",
+      "PackagePath": "staticwebassets\\fonts\\keyrune.woff"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\keyrune.woff2",
+      "PackagePath": "staticwebassets\\fonts\\keyrune.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\mana.eot",
+      "PackagePath": "staticwebassets\\fonts\\mana.eot"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\mana.svg",
+      "PackagePath": "staticwebassets\\fonts\\mana.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\mana.ttf",
+      "PackagePath": "staticwebassets\\fonts\\mana.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\mana.woff",
+      "PackagePath": "staticwebassets\\fonts\\mana.woff"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\mana.woff2",
+      "PackagePath": "staticwebassets\\fonts\\mana.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\mplantin.eot",
+      "PackagePath": "staticwebassets\\fonts\\mplantin.eot"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\mplantin.svg",
+      "PackagePath": "staticwebassets\\fonts\\mplantin.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\mplantin.ttf",
+      "PackagePath": "staticwebassets\\fonts\\mplantin.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\fonts\\mplantin.woff",
+      "PackagePath": "staticwebassets\\fonts\\mplantin.woff"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\js\\site.js",

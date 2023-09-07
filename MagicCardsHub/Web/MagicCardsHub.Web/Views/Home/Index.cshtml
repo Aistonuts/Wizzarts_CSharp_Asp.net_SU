@@ -13,7 +13,8 @@
             {
                 <div class="article-card card border-0">
                     <a href="" aria-label="article" class="image-wrapper">
-                        <img src="@article.Image" class="article-uimgheader" alt="@article.Title">
+                        <a asp-controller="Card" asp-action="ById" asp-route-id="@article.Id" class="article-uimgheader">
+                            <img src="@article.Image" class="article-uimgheader" alt="@article.Title"></a>
                         <div class="w-100 text-center text-white article-text-tags">
                             <span>Discussion</span>
                             <span>News</span>

@@ -19,7 +19,7 @@
         {
             var viewModel = new IndexViewModel
             {
-                RandomArticles = this.articlesService.GetRandom<IndexPageArticleViewModel>(2),
+                RandomArticles = this.articlesService.GetRandom<IndexPageArticleViewModel>(4),
             };
             return this.View(viewModel);
         }

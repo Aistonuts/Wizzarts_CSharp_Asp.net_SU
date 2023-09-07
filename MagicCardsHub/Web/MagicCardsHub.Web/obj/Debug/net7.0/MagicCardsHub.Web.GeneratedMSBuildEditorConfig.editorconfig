@@ -40,6 +40,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsHub/Web/MagicCardsHub.Web/Views/Card/ById.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZFxCeUlkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsHub/Web/MagicCardsHub.Web/Views/DigitalArt/All.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlnaXRhbEFydFxBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsHub/Web/MagicCardsHub.Web/Views/DigitalArt/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlnaXRhbEFydFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

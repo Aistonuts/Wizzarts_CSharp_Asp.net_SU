@@ -843,6 +843,7 @@
       },
       "MagicCardsHub.Services.Data/1.0.0": {
         "dependencies": {
+          "MagicCardsHub.Data": "1.0.0",
           "MagicCardsHub.Data.Common": "1.0.0",
           "MagicCardsHub.Data.Models": "1.0.0",
           "MagicCardsHub.Services.Mapping": "1.0.0",

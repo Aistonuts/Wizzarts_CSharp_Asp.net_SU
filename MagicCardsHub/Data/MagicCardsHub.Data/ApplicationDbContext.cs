@@ -1,8 +1,10 @@
 ﻿namespace MagicCardsHub.Data
 {
     using System;
+    using System.Diagnostics.Metrics;
     using System.Linq;
     using System.Reflection;
+    using System.Reflection.Emit;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -69,6 +71,11 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<PlayCard>()
+            .HasOne(a => a.Art)
+            .WithOne(a => a.PlayCard)
+            .HasForeignKey<DigitalArt>(c => c.PlayCardId);
+
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
 

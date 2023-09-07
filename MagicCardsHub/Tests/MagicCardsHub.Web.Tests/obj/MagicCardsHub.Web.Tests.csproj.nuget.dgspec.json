@@ -332,6 +332,9 @@
               "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Data\\MagicCardsHub.Data.Models\\MagicCardsHub.Data.Models.csproj": {
                 "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Data\\MagicCardsHub.Data.Models\\MagicCardsHub.Data.Models.csproj"
               },
+              "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Data\\MagicCardsHub.Data\\MagicCardsHub.Data.csproj": {
+                "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Data\\MagicCardsHub.Data\\MagicCardsHub.Data.csproj"
+              },
               "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Services\\MagicCardsHub.Services.Mapping\\MagicCardsHub.Services.Mapping.csproj": {
                 "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Services\\MagicCardsHub.Services.Mapping\\MagicCardsHub.Services.Mapping.csproj"
               },
@@ -888,7 +891,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.9, )"
             },
             "Microsoft.Web.LibraryManager.Build": {
               "target": "Package",
