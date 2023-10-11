@@ -79,5 +79,14 @@
 
             return digitalArt;
         }
+
+        public T GetById<T>(string id)
+        {
+            var digitArt = this.digitalArtRepository.AllAsNoTracking()
+                .Where(x => x.Id == id)
+                .To<T>().FirstOrDefault();
+
+            return digitArt;
+        }
     }
 }

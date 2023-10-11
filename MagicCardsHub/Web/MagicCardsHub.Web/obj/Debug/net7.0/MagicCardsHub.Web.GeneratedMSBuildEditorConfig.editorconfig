@@ -44,8 +44,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZFxCeUlkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsHub/Web/MagicCardsHub.Web/Views/Card/CardFactory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZFxDYXJkRmFjdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsHub/Web/MagicCardsHub.Web/Views/Card/deathroll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZFxkZWF0aHJvbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsHub/Web/MagicCardsHub.Web/Views/DigitalArt/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlnaXRhbEFydFxBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsHub/Web/MagicCardsHub.Web/Views/DigitalArt/ArtEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlnaXRhbEFydFxBcnRFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsHub/Web/MagicCardsHub.Web/Views/DigitalArt/ById.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlnaXRhbEFydFxCeUlkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsHub/Web/MagicCardsHub.Web/Views/DigitalArt/CardFactory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlnaXRhbEFydFxDYXJkRmFjdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsHub/Web/MagicCardsHub.Web/Views/DigitalArt/Create.cshtml]

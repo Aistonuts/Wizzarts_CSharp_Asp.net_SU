@@ -37,13 +37,6 @@
    //       await this.playCardRepository.SaveChangesAsync();
    //   }
 
-        public T GetById<T>(int id)
-        {
-            var art = this.articleRepository.AllAsNoTracking()
-                .Where(x => x.Id == id)
-                .To<T>().FirstOrDefault();
-
-            return art;
-        }
+        
     }
 }

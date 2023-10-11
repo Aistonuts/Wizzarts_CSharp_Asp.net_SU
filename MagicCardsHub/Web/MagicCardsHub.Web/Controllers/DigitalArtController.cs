@@ -71,5 +71,11 @@
 
             return this.View(viewModel);
         }
+
+        public IActionResult ById(string id)
+        {
+            var digitalArt = this.digitalArtService.GetById<SingleDigitalArtViewModel>(id);
+            return this.View(digitalArt);
+        }
     }
 }

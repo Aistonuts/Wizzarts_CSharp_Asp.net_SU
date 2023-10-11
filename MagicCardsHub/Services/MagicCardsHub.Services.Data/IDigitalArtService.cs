@@ -11,5 +11,7 @@
         Task CreateAsync(CreateDigitalArtInputModel input, string userId, string imagePath);
 
         IEnumerable<T> GetAll<T>();
+
+        T GetById<T>(string id);
     }
 }

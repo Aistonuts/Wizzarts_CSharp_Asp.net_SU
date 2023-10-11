@@ -8,6 +8,6 @@
     {
        // Task CreateAsync(CreatePlayCardInputModel input, string userId, string imagePath);
 
-        T GetById<T>(int id);
+        
     }
 }
