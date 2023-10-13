@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zU9MusZuK336bwGj4IlNnfGd8l5+r265LMV4XtZV55c=",
+  "Hash": "WxnxIvCrFnF32pirSiWSGvffBsy7q8oSIsoYUseP/bQ=",
   "Source": "MagicCardsHub.Web",
   "BasePath": "_content/MagicCardsHub.Web",
   "Mode": "Default",
@@ -1171,23 +1171,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\css\\mtg_custom.css"
-    },
-    {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\css\\cssMtg.css",
-      "SourceId": "MagicCardsHub.Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
-      "BasePath": "_content/MagicCardsHub.Web",
-      "RelativePath": "css/cssMtg.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\cssMtg.css"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\css\\MagicCard.css",

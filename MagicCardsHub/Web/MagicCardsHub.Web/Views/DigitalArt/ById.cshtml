@@ -3,44 +3,6 @@
     this.ViewData["Title"] = Model.Description;
 }
 
+   
 
 
-
-@section Scripts {
-
-    <script>
-        $('.insertSymbol').click(function () {
-            $('#cardtext').val($('#cardtext').val() + '{' + $(this).attr('id') + '}');
-            return false;
-        });
-
-
-
-
-        $(document).ready(function () {
-
-
-            var element = $("#cardHolder"); // global variable
-            var getCanvas; // global variable
-
-            $("#generate").on('click', function () {
-                html2canvas(element, {
-                    onrendered: function (canvas) {
-                        $("#previewImage").append(canvas);
-                        getCanvas = canvas;
-                    }
-                });
-            });
-            //
-            // $("#save1").on('click', function () {
-            //     var imgageData = getCanvas.toDataURL("image/png");
-            //     // Now browser starts downloading it instead of just showing it
-            //     var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-            //     $("#save1").attr("download", "your_pic_name.png").attr("href", newData);
-            // });
-
-           
-        });
-
-    </script>
-}

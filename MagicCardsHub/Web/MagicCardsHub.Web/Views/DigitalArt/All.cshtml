@@ -7,7 +7,7 @@
 <div class="row mt-2">
     <div class="col-md-12">
         <div id="DigitalArt" class="outer-container">
-            @foreach(var digitArt in this.Model.DigitalArt)
+            @foreach (var digitArt in this.Model.DigitalArt)
             {
                 <div class="inner-container">
                     <a asp-action="ById" asp-route-id="@digitArt.Id" class="item ae-card-link cardLink ">

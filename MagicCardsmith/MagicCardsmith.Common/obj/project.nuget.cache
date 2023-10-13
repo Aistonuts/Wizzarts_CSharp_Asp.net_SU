@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "NatBxFWuC9CTQti6hW0bvnPshmtCgixU5Vs7mcy3jN8WWZiXO4rYr7jSbwG2TISbB1Nn29LA8EzROMvXKjwTKw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\MagicCardsmith.Common\\MagicCardsmith.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.435\\stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.435\\stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512"
+  ],
+  "logs": []
+}

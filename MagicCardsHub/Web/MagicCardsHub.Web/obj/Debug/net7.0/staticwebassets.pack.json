@@ -149,10 +149,6 @@
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\css\\cssMtg.css",
-      "PackagePath": "staticwebassets\\css\\cssMtg.css"
-    },
-    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\css\\css\\keyrune.css",
       "PackagePath": "staticwebassets\\css\\css\\keyrune.css"
     },
