@@ -1,5 +1,6 @@
 ﻿namespace MagicCardsHub.Web
 {
+    using System.Net;
     using System.Reflection;
 
     using MagicCardsHub.Data;
@@ -65,10 +66,9 @@
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
-            services.AddTransient<IArticlesService, ArticlesService>();
-            services.AddTransient<IDigitalArtService, DigitalArtService>();
-            services.AddTransient<IGameProjectService, GameProjectService>();
-            services.AddTransient<IPlayCardService, PlayCardService>();
+            services.AddTransient<IArticleService, ArticleService>();
+            services.AddTransient<IArtService, ArtService>();
+            services.AddTransient<ICardService, CardService>();
         }
 
         private static void Configure(WebApplication app)
@@ -106,6 +106,7 @@
             app.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
             app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
+
         }
     }
 }

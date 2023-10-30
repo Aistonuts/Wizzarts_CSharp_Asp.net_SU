@@ -72,7 +72,7 @@
                 options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
                     .UseLoggerFactory(new LoggerFactory()));
 
-            services.AddDefaultIdentity<ApplicationUser>(IdentityOptionsProvider.GetIdentityOptions)
+            services.AddDefaultIdentity<Article>(IdentityOptionsProvider.GetIdentityOptions)
                 .AddRoles<ApplicationRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));

@@ -142,6 +142,47 @@ namespace MagicCardsHub.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("MagicCardsHub.Data.Models.Art", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ArtIstId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Extension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RemoteImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArtIstId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("Arts");
+                });
+
             modelBuilder.Entity("MagicCardsHub.Data.Models.Article", b =>
                 {
                     b.Property<int>("Id")
@@ -149,6 +190,9 @@ namespace MagicCardsHub.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ArtId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ArticleCreatorId")
                         .HasColumnType("nvarchar(450)");
@@ -168,24 +212,139 @@ namespace MagicCardsHub.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("RemoteImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ArtId");
+
                     b.HasIndex("ArticleCreatorId");
 
                     b.HasIndex("IsDeleted");
 
-                    b.ToTable("Article");
+                    b.ToTable("Articles");
                 });
 
-            modelBuilder.Entity("MagicCardsHub.Data.Models.DigitalArt", b =>
+            modelBuilder.Entity("MagicCardsHub.Data.Models.Card", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ArtIstId")
+                    b.Property<string>("AbilitiesAndFlavor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ArtId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CardType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ColorUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Power")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SetOfCardId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("SetOfCardsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SymbolUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Toughness")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArtId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("SetOfCardsId");
+
+                    b.ToTable("Cards");
+                });
+
+            modelBuilder.Entity("MagicCardsHub.Data.Models.ManaSymbol", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CardId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Extension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RemoteImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("SetOfCardsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CardId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("SetOfCardsId");
+
+                    b.ToTable("ManaSymbols");
+                });
+
+            modelBuilder.Entity("MagicCardsHub.Data.Models.SetOfCards", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CardSmithId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedOn")
@@ -206,315 +365,19 @@ namespace MagicCardsHub.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("PlayCardId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ArtIstId");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("PlayCardId")
-                        .IsUnique()
-                        .HasFilter("[PlayCardId] IS NOT NULL");
-
-                    b.ToTable("DigitalArts");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.GameFormatProject", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("NumberOfCards")
                         .HasColumnType("int");
 
-                    b.Property<string>("ProjectCreatorId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ProjectStatusId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CardSmithId");
 
                     b.HasIndex("IsDeleted");
 
-                    b.HasIndex("ProjectCreatorId");
-
-                    b.HasIndex("ProjectStatusId");
-
-                    b.ToTable("GameFormatProjects");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Image", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("AddedByUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("ArticleId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DigitalArtId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Extension")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ProjectIdImage")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProjectImageId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("RemoteImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("StoreImageId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TournamentImageId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AddedByUserId");
-
-                    b.HasIndex("ArticleId");
-
-                    b.HasIndex("DigitalArtId");
-
-                    b.HasIndex("ProjectImageId");
-
-                    b.HasIndex("StoreImageId");
-
-                    b.HasIndex("TournamentImageId");
-
-                    b.ToTable("Images");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Package", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("EstimatedDeliveryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("RecipientId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ShippingAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("RecipientId");
-
-                    b.HasIndex("StatusId");
-
-                    b.ToTable("Packages");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.PackageStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.ToTable("PackageStatuses");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.PlayCard", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ArtId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CardType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Colorless")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Damage")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Defence")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GameFormatId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ManaColor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GameFormatId");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.ToTable("PlayCards");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.ProjectStatus", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.ToTable("ProjectStatuses");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Receipt", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("Fee")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("IssuedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PackageId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("RecipientId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("PackageId");
-
-                    b.HasIndex("RecipientId");
-
-                    b.ToTable("Receipts");
+                    b.ToTable("CardSets");
                 });
 
             modelBuilder.Entity("MagicCardsHub.Data.Models.Setting", b =>
@@ -550,43 +413,7 @@ namespace MagicCardsHub.Data.Migrations
                     b.ToTable("Settings");
                 });
 
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Store", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StoreOwnerId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StoreOwnerId");
-
-                    b.ToTable("Stores");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.StoreTournament", b =>
+            modelBuilder.Entity("MagicCardsHub.Data.Models.VarSymbols", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -597,64 +424,34 @@ namespace MagicCardsHub.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("ModifiedOn")
+                    b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("StoreId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TournamentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StoreId");
-
-                    b.HasIndex("TournamentId");
-
-                    b.ToTable("StoreTournaments");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Tournament", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
+                    b.Property<string>("Extension")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("RemoteImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TournamentHostId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("SetOfCardsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TournamentHostId");
+                    b.HasIndex("IsDeleted");
 
-                    b.ToTable("Tournaments");
+                    b.HasIndex("SetOfCardsId");
+
+                    b.ToTable("VarSymbols");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -763,162 +560,70 @@ namespace MagicCardsHub.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Article", b =>
-                {
-                    b.HasOne("MagicCardsHub.Data.Models.ApplicationUser", "ArticleCreator")
-                        .WithMany("Articles")
-                        .HasForeignKey("ArticleCreatorId");
-
-                    b.Navigation("ArticleCreator");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.DigitalArt", b =>
+            modelBuilder.Entity("MagicCardsHub.Data.Models.Art", b =>
                 {
                     b.HasOne("MagicCardsHub.Data.Models.ApplicationUser", "Artist")
                         .WithMany("Art")
                         .HasForeignKey("ArtIstId");
 
-                    b.HasOne("MagicCardsHub.Data.Models.PlayCard", "PlayCard")
-                        .WithOne("Art")
-                        .HasForeignKey("MagicCardsHub.Data.Models.DigitalArt", "PlayCardId");
-
                     b.Navigation("Artist");
-
-                    b.Navigation("PlayCard");
                 });
 
-            modelBuilder.Entity("MagicCardsHub.Data.Models.GameFormatProject", b =>
+            modelBuilder.Entity("MagicCardsHub.Data.Models.Article", b =>
                 {
-                    b.HasOne("MagicCardsHub.Data.Models.ApplicationUser", "ProjectCreator")
-                        .WithMany("GameFormatProjects")
-                        .HasForeignKey("ProjectCreatorId");
-
-                    b.HasOne("MagicCardsHub.Data.Models.ProjectStatus", "ProjectStatus")
+                    b.HasOne("MagicCardsHub.Data.Models.Art", "Art")
                         .WithMany()
-                        .HasForeignKey("ProjectStatusId");
+                        .HasForeignKey("ArtId");
 
-                    b.Navigation("ProjectCreator");
+                    b.HasOne("MagicCardsHub.Data.Models.ApplicationUser", "ArticleCreator")
+                        .WithMany("Articles")
+                        .HasForeignKey("ArticleCreatorId");
 
-                    b.Navigation("ProjectStatus");
+                    b.Navigation("Art");
+
+                    b.Navigation("ArticleCreator");
                 });
 
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Image", b =>
+            modelBuilder.Entity("MagicCardsHub.Data.Models.Card", b =>
                 {
-                    b.HasOne("MagicCardsHub.Data.Models.ApplicationUser", "AddedByUser")
-                        .WithMany("Images")
-                        .HasForeignKey("AddedByUserId");
-
-                    b.HasOne("MagicCardsHub.Data.Models.Article", "Article")
-                        .WithMany("Images")
-                        .HasForeignKey("ArticleId");
-
-                    b.HasOne("MagicCardsHub.Data.Models.DigitalArt", "DigitalArt")
-                        .WithMany("Images")
-                        .HasForeignKey("DigitalArtId");
-
-                    b.HasOne("MagicCardsHub.Data.Models.GameFormatProject", "ProjectImage")
-                        .WithMany("Images")
-                        .HasForeignKey("ProjectImageId");
-
-                    b.HasOne("MagicCardsHub.Data.Models.Store", "StoreImage")
-                        .WithMany("Images")
-                        .HasForeignKey("StoreImageId");
-
-                    b.HasOne("MagicCardsHub.Data.Models.StoreTournament", "TournamentImage")
-                        .WithMany("Images")
-                        .HasForeignKey("TournamentImageId");
-
-                    b.Navigation("AddedByUser");
-
-                    b.Navigation("Article");
-
-                    b.Navigation("DigitalArt");
-
-                    b.Navigation("ProjectImage");
-
-                    b.Navigation("StoreImage");
-
-                    b.Navigation("TournamentImage");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Package", b =>
-                {
-                    b.HasOne("MagicCardsHub.Data.Models.ApplicationUser", "Recipient")
-                        .WithMany("Packages")
-                        .HasForeignKey("RecipientId");
-
-                    b.HasOne("MagicCardsHub.Data.Models.PackageStatus", "Status")
+                    b.HasOne("MagicCardsHub.Data.Models.Art", "Art")
                         .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("ArtId");
 
-                    b.Navigation("Recipient");
-
-                    b.Navigation("Status");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.PlayCard", b =>
-                {
-                    b.HasOne("MagicCardsHub.Data.Models.GameFormatProject", "GameFormat")
+                    b.HasOne("MagicCardsHub.Data.Models.SetOfCards", "SetOfCards")
                         .WithMany("Cards")
-                        .HasForeignKey("GameFormatId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("SetOfCardsId");
 
-                    b.Navigation("GameFormat");
+                    b.Navigation("Art");
+
+                    b.Navigation("SetOfCards");
                 });
 
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Receipt", b =>
+            modelBuilder.Entity("MagicCardsHub.Data.Models.ManaSymbol", b =>
                 {
-                    b.HasOne("MagicCardsHub.Data.Models.Package", "Package")
-                        .WithMany()
-                        .HasForeignKey("PackageId");
+                    b.HasOne("MagicCardsHub.Data.Models.Card", null)
+                        .WithMany("ManaSymbols")
+                        .HasForeignKey("CardId");
 
-                    b.HasOne("MagicCardsHub.Data.Models.ApplicationUser", "Recipient")
-                        .WithMany("Receipts")
-                        .HasForeignKey("RecipientId");
-
-                    b.Navigation("Package");
-
-                    b.Navigation("Recipient");
+                    b.HasOne("MagicCardsHub.Data.Models.SetOfCards", null)
+                        .WithMany("ManaSymbols")
+                        .HasForeignKey("SetOfCardsId");
                 });
 
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Store", b =>
+            modelBuilder.Entity("MagicCardsHub.Data.Models.SetOfCards", b =>
                 {
-                    b.HasOne("MagicCardsHub.Data.Models.ApplicationUser", "StoreOwner")
-                        .WithMany("Stores")
-                        .HasForeignKey("StoreOwnerId");
+                    b.HasOne("MagicCardsHub.Data.Models.ApplicationUser", "CardSmith")
+                        .WithMany("CardSet")
+                        .HasForeignKey("CardSmithId");
 
-                    b.Navigation("StoreOwner");
+                    b.Navigation("CardSmith");
                 });
 
-            modelBuilder.Entity("MagicCardsHub.Data.Models.StoreTournament", b =>
+            modelBuilder.Entity("MagicCardsHub.Data.Models.VarSymbols", b =>
                 {
-                    b.HasOne("MagicCardsHub.Data.Models.Store", "Store")
-                        .WithMany("Tournaments")
-                        .HasForeignKey("StoreId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("MagicCardsHub.Data.Models.Tournament", "Tournament")
-                        .WithMany("Stores")
-                        .HasForeignKey("TournamentId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Store");
-
-                    b.Navigation("Tournament");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Tournament", b =>
-                {
-                    b.HasOne("MagicCardsHub.Data.Models.ApplicationUser", "TournamentHost")
-                        .WithMany("Tournaments")
-                        .HasForeignKey("TournamentHostId");
-
-                    b.Navigation("TournamentHost");
+                    b.HasOne("MagicCardsHub.Data.Models.SetOfCards", null)
+                        .WithMany("VariousSymbols")
+                        .HasForeignKey("SetOfCardsId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -978,62 +683,27 @@ namespace MagicCardsHub.Data.Migrations
 
                     b.Navigation("Articles");
 
+                    b.Navigation("CardSet");
+
                     b.Navigation("Claims");
-
-                    b.Navigation("GameFormatProjects");
-
-                    b.Navigation("Images");
 
                     b.Navigation("Logins");
 
-                    b.Navigation("Packages");
-
-                    b.Navigation("Receipts");
-
                     b.Navigation("Roles");
-
-                    b.Navigation("Stores");
-
-                    b.Navigation("Tournaments");
                 });
 
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Article", b =>
+            modelBuilder.Entity("MagicCardsHub.Data.Models.Card", b =>
                 {
-                    b.Navigation("Images");
+                    b.Navigation("ManaSymbols");
                 });
 
-            modelBuilder.Entity("MagicCardsHub.Data.Models.DigitalArt", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.GameFormatProject", b =>
+            modelBuilder.Entity("MagicCardsHub.Data.Models.SetOfCards", b =>
                 {
                     b.Navigation("Cards");
 
-                    b.Navigation("Images");
-                });
+                    b.Navigation("ManaSymbols");
 
-            modelBuilder.Entity("MagicCardsHub.Data.Models.PlayCard", b =>
-                {
-                    b.Navigation("Art");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Store", b =>
-                {
-                    b.Navigation("Images");
-
-                    b.Navigation("Tournaments");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.StoreTournament", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("MagicCardsHub.Data.Models.Tournament", b =>
-                {
-                    b.Navigation("Stores");
+                    b.Navigation("VariousSymbols");
                 });
 #pragma warning restore 612, 618
         }

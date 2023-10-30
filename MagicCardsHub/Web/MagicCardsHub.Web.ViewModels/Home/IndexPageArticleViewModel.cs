@@ -15,16 +15,16 @@
 
         public string Description { get; set; }
 
-        public string Image { get; set; }
+        public string ImageUrl { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Article, IndexPageArticleViewModel>()
-                .ForMember(x => x.Image, opt =>
+                .ForMember(x => x.ImageUrl, opt =>
                     opt.MapFrom(x =>
-                        x.Images.FirstOrDefault().RemoteImageUrl != null ?
-                        x.Images.FirstOrDefault().RemoteImageUrl :
-                        "/Images/images/" + x.Images.FirstOrDefault().Id + "." + x.Images.FirstOrDefault().Extension));
+                        x.Art.RemoteImageUrl != null ?
+                        x.Art.RemoteImageUrl :
+                        "/images/art/" + x.Art.Id + "." + x.Art.Extension));
         }
     }
 }

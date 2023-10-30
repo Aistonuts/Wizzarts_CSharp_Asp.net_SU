@@ -8,9 +8,9 @@
 
     public class HomeController : BaseController
     {
-        private readonly IArticlesService articlesService;
+        private readonly IArticleService articlesService;
 
-        public HomeController(IArticlesService articlesService)
+        public HomeController(IArticleService articlesService)
         {
             this.articlesService = articlesService;
         }

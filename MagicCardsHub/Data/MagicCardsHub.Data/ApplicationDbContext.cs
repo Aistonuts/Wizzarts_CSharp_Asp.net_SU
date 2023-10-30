@@ -28,27 +28,15 @@
 
         public DbSet<Setting> Settings { get; set; }
 
-        public DbSet<DigitalArt> DigitalArts { get; set; }
+        public DbSet<Art> Arts { get; set; }
 
-        public DbSet<GameFormatProject> GameFormatProjects { get; set; }
+        public DbSet<Article> Articles { get; set; }
 
-        public DbSet<ProjectStatus> ProjectStatuses { get; set; }
+        public DbSet<ManaSymbol> ManaSymbols { get; set; }
 
-        public DbSet<Package> Packages { get; set; }
+        public DbSet<SetOfCards> CardSets { get; set; }
 
-        public DbSet<PackageStatus> PackageStatuses { get; set; }
-
-        public DbSet<Image> Images { get; set; }
-
-        public DbSet<Receipt> Receipts { get; set; }
-
-        public DbSet<PlayCard> PlayCards { get; set; }
-
-        public DbSet<Store> Stores { get; set; }
-
-        public DbSet<StoreTournament> StoreTournaments { get; set; }
-
-        public DbSet<Tournament> Tournaments { get; set; }
+        public DbSet<Card> Cards { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -71,11 +59,6 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<PlayCard>()
-            .HasOne(a => a.Art)
-            .WithOne(a => a.PlayCard)
-            .HasForeignKey<DigitalArt>(c => c.PlayCardId);
-
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
 

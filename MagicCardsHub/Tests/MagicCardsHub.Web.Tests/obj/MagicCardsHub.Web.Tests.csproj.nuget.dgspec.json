@@ -897,11 +897,23 @@
               "target": "Package",
               "version": "[2.1.175, )"
             },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.14.1, )"
+            },
+            "Selenium.WebDriver.ChromeDriver": {
+              "target": "Package",
+              "version": "[118.0.5993.7000, )"
+            },
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
               "version": "[1.2.0-beta.435, )"
+            },
+            "WebDriverManager": {
+              "target": "Package",
+              "version": "[2.17.1, )"
             }
           },
           "imports": [

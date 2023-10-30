@@ -19,17 +19,17 @@
 </head>
 <body data-base="" data-theme="dark">
     <header>
-        <div class="wrapper">
+        <div class="wrapper" id="wrapper">
             <div class="w-100 ae-header sticky-menu-mobile-navbar d-print-none">
                 <div class="ae-menu-left-decor">
                     <picture>
-                        <source srcset="/images/navigation/menu_side.svg" media="(min-width: 768px)">
+                        <source srcset="/images/navigation/menu_side.svg" media="">
                         <img src="/images/navigation/menu_side_mobile.svg">
                     </picture>
                 </div>
                 <div class="ae-menu-right-decor">
                     <picture>
-                        <source srcset="/images/navigation/menu_side.svg" media="(min-width: 768px)">
+                        <source srcset="/images/navigation/menu_side.svg" media="">
                         <img src="/images/navigation/menu_side_mobile.svg">
                     </picture>
                 </div>
@@ -55,7 +55,7 @@
                                                     <div class="">
                                                         <div class="ae-list-header">
                                                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                                                            <a href="/Account/Register">My Art</a>
+                                                            <a href="/Account/Register">Art</a>
                                                             <a href="/Decks/Writeups/">My Decks</a>
                                                             <a href="/Decks/Video/">My Orders</a>
                                                             <hr>
@@ -75,7 +75,7 @@
                                                 <div class="ae-nav-dropdown-menu-wrapper">
                                                     <div class="">
                                                         <div class="ae-list-header">
-                                                            <a class="nav-link text-dark" asp-area="" asp-controller="DigitalArt" asp-action="Create">Create DigitalArt</a>
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="Create">Create Art</a>
                                                             <a href="/Decks/Writeups/">Current Project</a>
                                                             <a href="/Decks/Video/">Become Artist</a>
                                                             <hr>
@@ -334,7 +334,8 @@
         </div>
     </div>
     <div id="popupMsg"></div>
-
+    <script src="_framework/blazor.server.js"></script>
+    <script type="text/javascript" src="~/js/html2canvas.js" asp-append-version="true"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
@@ -342,11 +343,11 @@
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
     <script src="~/js/site.min.js" asp-append-version="true"></script>
-    <script type="text/javascript" src="~/js/html2canvas.js" asp-append-version="true"></script>
+  
     <script src="https://kit.fontawesome.com/e0f25cd0cd.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
 
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>

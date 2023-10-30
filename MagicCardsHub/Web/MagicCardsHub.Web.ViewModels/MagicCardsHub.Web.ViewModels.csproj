@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="PlayCard\" />
+    <Folder Include="Card\" />
   </ItemGroup>
 
 </Project>
