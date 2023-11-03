@@ -29,7 +29,9 @@
                     opt.MapFrom(x =>
                         x.RemoteImageUrl != null ?
                         x.RemoteImageUrl :
-                        "/Images/art/" + x.Id + "." + x.Extension));
+                        "/Images/art/" + x.Id + "." + x.Extension))
+                .ForMember(x => x.AddedByArtistName, opt =>
+                    opt.MapFrom(x => x.Artist.UserName));
         }
     }
 }

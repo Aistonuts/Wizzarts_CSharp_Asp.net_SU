@@ -63,7 +63,7 @@ body* > {
     height: 700px;
     margin: 0 auto;
     margin-top: 0px;
-    margin-bottom:100px;
+    margin-bottom:50px;
     border-radius: 25px;
     box-sizing: border-box;
     box-shadow: -8px 9px 16px -3px gray;
@@ -214,7 +214,7 @@ body* > {
     justify-content: space-around;
     padding: 60px 7px;
     font-size: 1.2em;
-    margin-top: -642px;
+    margin-top: -600px;
     margin-left: 45px;
     margin-right: 42px;
     color:black;

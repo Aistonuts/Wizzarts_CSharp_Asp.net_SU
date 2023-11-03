@@ -47,5 +47,6 @@
   <ItemGroup>
     <Folder Include="Areas\Identity\Pages\Account\" />
     <Folder Include="wwwroot\Images\art\" />
+    <Folder Include="wwwroot\Images\CardSmith\" />
   </ItemGroup>
 </Project>

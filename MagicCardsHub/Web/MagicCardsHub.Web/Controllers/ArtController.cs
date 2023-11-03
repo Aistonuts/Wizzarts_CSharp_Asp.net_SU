@@ -88,7 +88,7 @@
             return this.View(digitalArt);
         }
 
-        public void Screenshot()
+        public IActionResult Screenshot(string id)
         {
             // Download the same version of chromedriver
             var chromeDriverPath = new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
@@ -96,25 +96,33 @@
             // Get a path of chromedriver
             string chromeDirectoryPath = System.IO.Path.GetDirectoryName(chromeDriverPath);
 
+            var options = new ChromeOptions();
+            options.AddArgument("--window-size=2560,1340");
+            options.AddArgument("--headless=new");
+
+
             // Create instance by passing the path of the chromedriver directory
-            IWebDriver driver = new ChromeDriver(chromeDirectoryPath);
+            IWebDriver driver = new ChromeDriver(chromeDirectoryPath, options);
 
             // Navigate to URL
-            driver.Navigate().GoToUrl("https://localhost:5001/");
+            driver.Navigate().GoToUrl("https://localhost:5001/Art/ById/" + id);
 
             // Find the element where the screenshot should be taken
-            var element = driver.FindElement(By.Id("wrapper"));
+            var element = driver.FindElement(By.Id("second"));
+            var elementScreenshot = (element as ITakesScreenshot).GetScreenshot();
 
+            elementScreenshot.SaveAsFile(AppDomain.CurrentDomain.BaseDirectory + "//Screenshot1.png");
             //Take the screenshot
-            Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
-
-            var img = (Bitmap)Image.FromStream(new MemoryStream(screenshot.AsByteArray));
-
-            // Crop the element to be captured
-            var image = img.Clone(new Rectangle(element.Location, element.Size), img.PixelFormat);
-
-            //Save the screenshot
-            image.Save(AppDomain.CurrentDomain.BaseDirectory + "//Screenshot.png");
+            // Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshotA();
+            //
+            // var img = (Bitmap)Image.FromStream(new MemoryStream(screenshot.AsByteArray));
+            //
+            // // Crop the element to be captured
+            // var image = img.Clone(new Rectangle(element.Location, element.Size), img.PixelFormat);
+            //
+            // //Save the screenshot
+            // image.Save(AppDomain.CurrentDomain.BaseDirectory + "//Screenshot.png");
+            return this.RedirectToAction("ById", new { id });
         }
     }
 }
