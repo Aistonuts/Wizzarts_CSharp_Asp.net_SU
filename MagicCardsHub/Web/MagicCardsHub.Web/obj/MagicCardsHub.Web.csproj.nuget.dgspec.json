@@ -810,11 +810,11 @@
             },
             "Selenium.WebDriver": {
               "target": "Package",
-              "version": "[4.14.1, )"
+              "version": "[4.15.0, )"
             },
             "Selenium.WebDriver.ChromeDriver": {
               "target": "Package",
-              "version": "[118.0.5993.7000, )"
+              "version": "[119.0.6045.10500, )"
             },
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",

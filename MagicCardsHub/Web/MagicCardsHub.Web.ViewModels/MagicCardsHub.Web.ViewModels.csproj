@@ -24,8 +24,4 @@
     <ProjectReference Include="..\..\Services\MagicCardsHub.Services.Mapping\MagicCardsHub.Services.Mapping.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Card\" />
-  </ItemGroup>
-
 </Project>

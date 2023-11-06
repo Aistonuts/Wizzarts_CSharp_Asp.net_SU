@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YUtPOOOnzdwuERFYuBtFaObV2oCCckvTI5XbtpaNJriBUY5pgW/g9ZJhhQjpinc7GOk29YGEPJiHlbA5QQaoBQ==",
+  "dgSpecHash": "6yQR7oEXuz3XkHYoeqyorqzEpzK37GtAkzBercnYoh9AY9brIhy1BZSAtzNvH7OQEeWogkic3U8XzuPPScwCng==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Tests\\MagicCardsHub.Web.Tests\\MagicCardsHub.Web.Tests.csproj",
   "expectedPackageFiles": [
@@ -179,8 +179,8 @@
     "C:\\Users\\Cmpt\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\selenium.webdriver\\4.14.1\\selenium.webdriver.4.14.1.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\selenium.webdriver.chromedriver\\118.0.5993.7000\\selenium.webdriver.chromedriver.118.0.5993.7000.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\selenium.webdriver\\4.15.0\\selenium.webdriver.4.15.0.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\selenium.webdriver.chromedriver\\119.0.6045.10500\\selenium.webdriver.chromedriver.119.0.6045.10500.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\sendgrid\\9.28.1\\sendgrid.9.28.1.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\sharpziplib\\1.4.2\\sharpziplib.1.4.2.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\starkbank-ecdsa\\1.3.3\\starkbank-ecdsa.1.3.3.nupkg.sha512",

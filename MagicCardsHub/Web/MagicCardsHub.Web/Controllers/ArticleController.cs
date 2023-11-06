@@ -41,8 +41,7 @@
             return this.View(viewModel);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(CreateArticleInputModel input,string id)
+        public async Task<IActionResult> Create(CreateArticleInputModel input, string id)
         {
             var art = this.articleService.GetArtById<SingleArtViewModel>(id);
 

@@ -36,12 +36,14 @@
             this.environment = environment;
         }
 
+        [Authorize]
         public IActionResult Create()
         {
             return this.View();
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create(CreateArtInputModel input)
         {
             if (!this.ModelState.IsValid)
@@ -82,11 +84,11 @@
             return this.View(viewModel);
         }
 
-        public IActionResult ById(string id)
-        {
-            var digitalArt = this.artService.GetById<SingleArtViewModel>(id);
-            return this.View(digitalArt);
-        }
+      // public IActionResult ById(string id)
+      // {
+      //     var digitalArt = this.artService.GetById<SingleArtViewModel>(id);
+      //     return this.View(digitalArt);
+      // }
 
         public IActionResult Screenshot(string id)
         {

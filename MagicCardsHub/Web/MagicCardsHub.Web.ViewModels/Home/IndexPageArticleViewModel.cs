@@ -24,7 +24,7 @@
                     opt.MapFrom(x =>
                         x.Art.RemoteImageUrl != null ?
                         x.Art.RemoteImageUrl :
-                        "/images/art/" + x.Art.Id + "." + x.Art.Extension));
+                        "/Images/art/" + x.Art.Id + "." + x.Art.Extension));
         }
     }
 }

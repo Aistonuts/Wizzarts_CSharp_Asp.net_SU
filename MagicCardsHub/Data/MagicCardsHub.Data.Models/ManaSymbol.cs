@@ -6,10 +6,14 @@
     {
         public string Color { get; set; }
 
-        public int Quantity { get; set; }
+        public string Quantity { get; set; }
 
         public string RemoteImageUrl { get; set; }
 
         public string Extension { get; set; }
+
+        public string CardId { get; set; }
+
+        public Card Card { get; set; }
     }
 }

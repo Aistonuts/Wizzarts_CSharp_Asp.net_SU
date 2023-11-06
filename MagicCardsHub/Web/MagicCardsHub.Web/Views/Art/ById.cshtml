@@ -1,5 +1,4 @@
-﻿@model MagicCardsHub.Web.ViewModels.Art.SingleArtViewModel
-@{
+﻿@model MagicCardsHub.Web.ViewModels.Card.CreateCardByArtIdInputModel
     this.ViewData["Title"] = Model.Description;
 }
 
@@ -44,15 +43,19 @@
                             <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
                                 <tbody>
                                     <tr class="row1">
-                                        <td style="width:30%">Name:</td>
+                                        <td  style="width:30%">
+                                        <label asp-for="Name">Name:</label>
+                                        </td>
                                         <td>
-                                            <input type="text" class="input_text" name="name" id="name">
+                                            <input asp-for="Name" type="text" class="input_text" name="name" id="name">
                                         </td>
                                     </tr>
                                     <tr class="row2">
-                                        <td>Color:</td>
                                         <td>
-                                            <select name="color" id="color" onchange="frameSelectFunc(event)">
+                                            <label asp-for="Frame">Frame:</label>
+                                        </td>
+                                        <td>
+                                            <select asp-for="Frame" name="color" id="color" onchange="frameSelectFunc(event)">
                                                 <option value="White">
                                                     White
                                                 </option>
@@ -91,7 +94,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <select name="mana_r" id="mana_r" onchange="colorSelectFunc(event)">
+                                                            <select asp-for ="ManaRedCost" name="mana_r" id="mana_r" onchange="colorSelectFunc(event)">
                                                                 <option value="0" selected="true">
                                                                     0
                                                                 </option>
@@ -113,7 +116,7 @@
                                                             </select>
                                                         </td>
                                                         <td>
-                                                            <select name="mana_u" id="mana_u" onchange="colorSelectFunc(event)">
+                                                            <select asp-for="ManaBlueCost" name="mana_u" id="mana_u" onchange="colorSelectFunc(event)">
                                                                 <option value="0" selected="true">
                                                                     0
                                                                 </option>
@@ -135,7 +138,7 @@
                                                             </select>
                                                         </td>
                                                         <td>
-                                                            <select name="mana_g" id="mana_g" onchange="colorSelectFunc(event)">
+                                                            <select asp-for="ManaGreenCost" name="mana_g" id="mana_g" onchange="colorSelectFunc(event)">
                                                                 <option value="0" selected="true">
                                                                     0
                                                                 </option>
@@ -157,7 +160,7 @@
                                                             </select>
                                                         </td>
                                                         <td>
-                                                            <select name="mana_b" id="mana_b" onchange="colorSelectFunc(event)">
+                                                            <select asp-for="ManaBlackCost" name="mana_b" id="mana_b" onchange="colorSelectFunc(event)">
                                                                 <option value="0" selected="true">
                                                                     0
                                                                 </option>
@@ -179,7 +182,7 @@
                                                             </select>
                                                         </td>
                                                         <td>
-                                                            <select name="mana_w" id="mana_w" onchange="colorSelectFunc(event)">
+                                                            <select asp-for="ManaWhiteCost" name="mana_w" id="mana_w" onchange="colorSelectFunc(event)">
                                                                 <option value="0" selected="true">
                                                                     0
                                                                 </option>
@@ -201,7 +204,7 @@
                                                             </select>
                                                         </td>
                                                         <td>
-                                                            <select name="mana_colorless" id="mana_colorless" onchange="colorSelectFunc(event)">
+                                                            <select asp-for="ManaColorelessCost" name="mana_colorless" id="mana_colorless" onchange="colorSelectFunc(event)">
                                                                 <option value="0" selected="true">
                                                                     0
                                                                 </option>
@@ -250,9 +253,11 @@
                                         </td>
                                     </tr>
                                     <tr class="row1">
-                                        <td>Type:</td>
+                                        <td> 
+                                            <label asp-for="CardType">Type:</label>
+                                        </td>
                                         <td>                                           
-                                            <select name="cardtype" id="newtype" onchange="cardTypeFunc(event)">
+                                            <select asp-for ="CardType" name="cardtype" id="newtype" onchange="cardTypeFunc(event)">
                                                 <option value="" selected="true">
                                                 </option>                                               
                                                 <option value="Artifact">
@@ -280,9 +285,11 @@
                                         </td>
                                     </tr>              
                                     <tr class="row2">
-                                        <td>Expansion Symbol:</td>
+                                        <td> 
+                                            <label asp-for="CardExpansion">Expansion Symbol:</label>
+                                        </td>
                                         <td>
-                                            <select name="expansion" id="expansion" onchange="expansionSymbolFunc(event)">
+                                            <select asp-for="CardExpansion" name="expansion" id="expansion" onchange="expansionSymbolFunc(event)">
                                                 <option value="" selected="true">
                                                 </option>
                                                 <option value="Alpha">
@@ -295,7 +302,7 @@
                                                     Unlimited
                                                 </option>                                            
                                             </select>
-                                            <select name="rarity" id="rarity" onchange="raritySymbolFunc(event)">
+                                            <select asp-for="CardRarity" name="rarity" id="rarity" onchange="raritySymbolFunc(event)">
                                                 <option value="Common">
                                                     Common
                                                 </option>
@@ -309,9 +316,11 @@
                                         </td>
                                     </tr>
                                     <tr class="row1">
-                                        <td>Abilities &amp; Flavor:</td>
                                         <td>
-                                            <textarea name="cardtext" id="cardtext" style="height:60px;font-size: 10px" cols="60" rows="10">                                    </textarea>
+                                            <label asp-for="CardAbilitiesFlavor">Abilities &amp; Flavor:</label>
+                                        </td>
+                                        <td>
+                                            <textarea asp-for="CardAbilitiesFlavor" name="cardtext" id="cardtext" style="height:60px;font-size: 10px" cols="60" rows="10"></textarea>
                                             <br>
                                             <div style="padding:2px;font-size:10px">
                                                 <b>Insert:</b>
@@ -334,6 +343,10 @@
                                                 <br />
                                                 <b>Clear:</b>
                                                 <a href="#" class="clearText" id="t"><img src="~/Images/mana/t.png"></a>
+                                                <br />
+                                                <br />
+                                                <b>Clear from card:</b>
+                                                <a href="#" class="clearTextFromCard" id="t"><img src="~/Images/mana/t.png"></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -342,8 +355,8 @@
                                     <tr class="row2">
                                         <td>Power / Toughness:</td>
                                         <td>
-                                            <input type="text" class="input_text" name="power" id="power" size="2" maxlength="2">
-                                            <input type="text" class="input_text" name="toughness" id="toughness" size="2" maxlength="2">
+                                            <input asp-for="CardPower" type="text" class="input_text" name="power" id="power" size="2" maxlength="2">
+                                            <input asp-for="CardToughness" type="text" class="input_text" name="toughness" id="toughness" size="2" maxlength="2">
                                         </td>
                                     </tr>
                                     <tr class="row1">
@@ -355,10 +368,10 @@
                                     <tr class="row1">
                                         <td>Set Name:</td>
                                         <td>
-                                            <input type="text" class="input_text" name="setname" id="setname" size="20" maxlength="30" default="Set name">
+                                            <input  type="text" class="input_text" name="setname" id="setname" size="20" maxlength="30" default="Set name">
                                         </td>
                                     </tr>
-                                    <input type="submit" value="Submit">
+                                    <input type="submit" value="Submit" class="btn btn-warning">
                                 </tbody>
                             </table>
                         </form>
@@ -373,15 +386,14 @@
                         <div id="isurl"></div>
                     </td>
                 </tr>
+
                 <tr>
                     <td>
-                        <input name="generate" class="ipsButton" id="generate" type="button" value="Generate" style="font-size:16px;min-width:0px">
-                        <input name="save" class="ipsButton" id="save" type="button" value="Save" style="font-size:16px;min-width:0px">
-                        <br/>                     
+                        <input name="generate" class="btn btn-warning" id="generate" type="button" value="Generate" style="font-size:16px;min-width:0px">
                     </td>
                     <td>
-                        <form method="post" asp-action="Screenshot" asp-route-id="@Model.Id" name="screenshot" class="ipsButton" id="screenshot" type="button" value="Forge" style="font-size:16px;min-width:0px">
-                            <button>Forge</button>
+                        <form method="post" asp-action="Screenshot" asp-route-id="@Model.ArtId" name="screenshot" class="ipsButton" id="screenshot" type="button" value="Forge" style="font-size:16px;min-width:0px">
+                            <button class="btn btn-info">Forge</button>
                         </form>
                     </td>
                 </tr>
@@ -410,7 +422,7 @@
                         </div>
                     </div>
                     <div class="frame-text-box">
-                        <p class="description">
+                        <p class="description" id="description">
                             You may spend mana as though it were mana of any color to cast planeswalker spells.
                         </p>
                     </div>
@@ -512,6 +524,14 @@
             $('#cardtext').val('');
             return false;
         });
+
+        $('.clearTextFromCard').click(function () {
+
+            document.getElementById("description").innerHTML = '';
+
+        });
+
+       
     </script>
     <script>
 

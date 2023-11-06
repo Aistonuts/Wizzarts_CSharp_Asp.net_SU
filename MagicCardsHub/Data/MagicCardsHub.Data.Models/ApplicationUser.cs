@@ -17,7 +17,7 @@ namespace MagicCardsHub.Data.Models
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
             this.Articles = new HashSet<Article>();
-            this.CardSet = new HashSet<SetOfCards>();
+            this.Cards = new HashSet<Card>();
             this.Art = new HashSet<Art>();
 
         }
@@ -40,8 +40,12 @@ namespace MagicCardsHub.Data.Models
 
         public virtual ICollection<Article> Articles { get; set; }
 
-        public virtual ICollection<SetOfCards> CardSet { get; set; }
+        public virtual ICollection<Card> Cards { get; set; }
 
         public virtual ICollection<Art> Art { get; set; }
+
+        public virtual ICollection<ExpansionCardDeck> ExpansionCardDecks { get; set; }
+
+
     }
 }

@@ -1,7 +1,4 @@
-﻿using MagicCardsHub.Data.Models;
-using System.Collections.Generic;
-
-namespace MagicCardsHub.Services.Data
+﻿namespace MagicCardsHub.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -12,22 +9,19 @@ namespace MagicCardsHub.Services.Data
     using MagicCardsHub.Data.Common.Repositories;
     using MagicCardsHub.Data.Models;
     using MagicCardsHub.Web.ViewModels.CardSet;
+
     using static System.Net.Mime.MediaTypeNames;
 
     public class SetOfCardsService 
     {
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
-        private readonly IDeletableEntityRepository<SetOfCards> setOfCardsRepository;
-
+        private readonly IDeletableEntityRepository<ExpansionCardDeck> expansionCardDeckRepository;
 
         public SetOfCardsService(
-            IDeletableEntityRepository<SetOfCards> setOfCardsRepository)
+            IDeletableEntityRepository<ExpansionCardDeck> expansionCardDeckRepository)
         {
-            this.setOfCardsRepository = setOfCardsRepository;
+            this.expansionCardDeckRepository = expansionCardDeckRepository;
         }
-
-       
-
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12)
         {

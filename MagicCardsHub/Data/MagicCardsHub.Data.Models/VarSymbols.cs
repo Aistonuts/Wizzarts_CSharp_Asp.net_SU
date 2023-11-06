@@ -9,5 +9,9 @@
         public string RemoteImageUrl { get; set; }
 
         public string Extension { get; set; }
+
+        public string CardId { get; set; }
+
+        public Card Card { get; set; }
     }
 }

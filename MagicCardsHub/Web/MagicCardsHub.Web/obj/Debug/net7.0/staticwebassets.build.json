@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oqfsrxsE4xiSwXOte8qwBwiZtoCclCzeORFSFMbkqBI=",
+  "Hash": "ivIiBbIETdYwLr7WlAK6tvT/Uv5DWvb0CJmmr3oymss=",
   "Source": "MagicCardsHub.Web",
   "BasePath": "_content/MagicCardsHub.Web",
   "Mode": "Default",
@@ -1530,12 +1530,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\AetherhubLogo320.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\art\\a4a1bf70-ddd2-41b1-9c37-b2391161370f.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\art\\ef7a5d5b-04d5-499b-b90a-0d159540f0a9.jpg",
       "SourceId": "MagicCardsHub.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsHub.Web",
-      "RelativePath": "Images/art/a4a1bf70-ddd2-41b1-9c37-b2391161370f.png",
+      "RelativePath": "Images/art/ef7a5d5b-04d5-499b-b90a-0d159540f0a9.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1544,15 +1544,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\art\\a4a1bf70-ddd2-41b1-9c37-b2391161370f.png"
+      "OriginalItemSpec": "wwwroot\\Images\\art\\ef7a5d5b-04d5-499b-b90a-0d159540f0a9.jpg"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\art\\e57b084e-f75d-4092-82e2-afb5da2a5034.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\acard.jpg",
       "SourceId": "MagicCardsHub.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsHub.Web",
-      "RelativePath": "Images/art/e57b084e-f75d-4092-82e2-afb5da2a5034.png",
+      "RelativePath": "Images/frames/acard.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1561,7 +1561,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\art\\e57b084e-f75d-4092-82e2-afb5da2a5034.png"
+      "OriginalItemSpec": "wwwroot\\Images\\frames\\acard.jpg"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\black.png",
@@ -1581,6 +1581,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\frames\\black.png"
     },
     {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\blackValue.png",
+      "SourceId": "MagicCardsHub.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsHub.Web",
+      "RelativePath": "Images/frames/blackValue.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\frames\\blackValue.png"
+    },
+    {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\blue.png",
       "SourceId": "MagicCardsHub.Web",
       "SourceType": "Discovered",
@@ -1596,6 +1613,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\frames\\blue.png"
+    },
+    {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\blueValue.png",
+      "SourceId": "MagicCardsHub.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsHub.Web",
+      "RelativePath": "Images/frames/blueValue.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\frames\\blueValue.png"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\clpt.png",
@@ -1649,6 +1683,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\frames\\gold.png"
     },
     {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\goldValue.png",
+      "SourceId": "MagicCardsHub.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsHub.Web",
+      "RelativePath": "Images/frames/goldValue.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\frames\\goldValue.png"
+    },
+    {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\green.png",
       "SourceId": "MagicCardsHub.Web",
       "SourceType": "Discovered",
@@ -1666,6 +1717,57 @@
       "OriginalItemSpec": "wwwroot\\Images\\frames\\green.png"
     },
     {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\greenValue.png",
+      "SourceId": "MagicCardsHub.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsHub.Web",
+      "RelativePath": "Images/frames/greenValue.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\frames\\greenValue.png"
+    },
+    {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\red.png",
+      "SourceId": "MagicCardsHub.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsHub.Web",
+      "RelativePath": "Images/frames/red.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\frames\\red.png"
+    },
+    {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\redValue.png",
+      "SourceId": "MagicCardsHub.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsHub.Web",
+      "RelativePath": "Images/frames/redValue.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\frames\\redValue.png"
+    },
+    {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\white.png",
       "SourceId": "MagicCardsHub.Web",
       "SourceType": "Discovered",
@@ -1681,6 +1783,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\frames\\white.png"
+    },
+    {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\whiteValue.png",
+      "SourceId": "MagicCardsHub.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsHub.Web",
+      "RelativePath": "Images/frames/whiteValue.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\frames\\whiteValue.png"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\mana\\1.png",
@@ -2021,6 +2140,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\navigation\\Section.gif"
+    },
+    {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\t.png",
+      "SourceId": "MagicCardsHub.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsHub.Web",
+      "RelativePath": "Images/navigation/t.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\navigation\\t.png"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\js\\html2canvas.js",

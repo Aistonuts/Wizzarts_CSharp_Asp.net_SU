@@ -24,17 +24,21 @@
 
         public string AbilitiesAndFlavor { get; set; }
 
-        public int Power { get; set; }
+        public string Power { get; set; }
 
-        public int Toughness { get; set; }
+        public string Toughness { get; set; }
+
+        public string CardExpansion { get; set; }
+
+        public string CardRarity { get; set; }
 
         public string ArtId { get; set; }
 
         public virtual Art Art { get; set; }
 
-        public string ExpansionId { get; set; }
+        public string CardSmithId { get; set; }
 
-        public SetOfCards Expansion { get; set; }
+        public virtual ApplicationUser CardSmith { get; set; }
 
         public virtual ICollection<ManaSymbol> ManaSymbols { get; set; }
 
