@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\Images\\AetherhubLogo320.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\art\\ef7a5d5b-04d5-499b-b90a-0d159540f0a9.jpg",
-      "PackagePath": "staticwebassets\\Images\\art\\ef7a5d5b-04d5-499b-b90a-0d159540f0a9.jpg"
-    },
-    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\frames\\acard.jpg",
       "PackagePath": "staticwebassets\\Images\\frames\\acard.jpg"
     },
@@ -129,8 +125,24 @@
       "PackagePath": "staticwebassets\\Images\\mana\\w.png"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\MagicCardsmith.gif",
+      "PackagePath": "staticwebassets\\Images\\navigation\\MagicCardsmith.gif"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\NotYet.png",
+      "PackagePath": "staticwebassets\\Images\\navigation\\NotYet.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\Opened.png",
+      "PackagePath": "staticwebassets\\Images\\navigation\\Opened.png"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\Section.gif",
       "PackagePath": "staticwebassets\\Images\\navigation\\Section.gif"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\Sword.gif",
+      "PackagePath": "staticwebassets\\Images\\navigation\\Sword.gif"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\ah_logo.svg",
@@ -147,6 +159,10 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\menu_side.svg",
       "PackagePath": "staticwebassets\\Images\\navigation\\menu_side.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\menu_side_mobile.svg",
+      "PackagePath": "staticwebassets\\Images\\navigation\\menu_side_mobile.svg"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\Images\\navigation\\t.png",
@@ -315,6 +331,18 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\symbols\\expansions\\Alpha.png",
+      "PackagePath": "staticwebassets\\symbols\\expansions\\Alpha.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\symbols\\expansions\\Beta.png",
+      "PackagePath": "staticwebassets\\symbols\\expansions\\Beta.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\symbols\\expansions\\Unlimited.png",
+      "PackagePath": "staticwebassets\\symbols\\expansions\\Unlimited.png"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Web\\MagicCardsHub.Web\\wwwroot\\symbols\\mana\\1.png",

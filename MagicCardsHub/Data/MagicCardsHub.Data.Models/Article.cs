@@ -10,9 +10,9 @@
 
         public string RemoteImageUrl { get; set; }
 
-        public string ArtId { get; set; }
+        public string? ArtId { get; set; }
 
-        public Art Art { get; set; }
+        public Art? Art { get; set; }
 
         public string ArticleCreatorId { get; set; }
 

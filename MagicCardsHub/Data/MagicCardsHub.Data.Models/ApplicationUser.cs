@@ -19,7 +19,6 @@ namespace MagicCardsHub.Data.Models
             this.Articles = new HashSet<Article>();
             this.Cards = new HashSet<Card>();
             this.Art = new HashSet<Art>();
-
         }
 
         // Audit info
@@ -43,9 +42,5 @@ namespace MagicCardsHub.Data.Models
         public virtual ICollection<Card> Cards { get; set; }
 
         public virtual ICollection<Art> Art { get; set; }
-
-        public virtual ICollection<ExpansionCardDeck> ExpansionCardDecks { get; set; }
-
-
     }
 }

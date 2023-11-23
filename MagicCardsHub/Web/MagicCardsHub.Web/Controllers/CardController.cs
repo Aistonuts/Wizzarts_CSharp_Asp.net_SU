@@ -12,6 +12,11 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using OpenQA.Selenium.Chrome;
+    using OpenQA.Selenium;
+    using WebDriverManager.DriverConfigs.Impl;
+    using WebDriverManager.Helpers;
+    using WebDriverManager;
 
     public class CardController : Controller
     {
@@ -33,6 +38,7 @@
          public IActionResult Create(string id)
         {
             var digitalArt = this.cardService.GetArtById<CreateCardByArtIdInputModel>(id);
+
             return this.View(digitalArt);
         }
 

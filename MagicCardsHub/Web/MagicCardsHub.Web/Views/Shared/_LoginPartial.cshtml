@@ -1,8 +1,8 @@
 ﻿@using MagicCardsHub.Common
 @using MagicCardsHub.Data.Models
 @using Microsoft.AspNetCore.Identity
-@inject SignInManager<Article> SignInManager
-@inject UserManager<Article> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 <ul class="navbar-nav">
     @if (this.SignInManager.IsSignedIn(this.User))

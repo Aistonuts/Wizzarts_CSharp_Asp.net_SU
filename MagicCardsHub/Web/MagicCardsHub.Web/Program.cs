@@ -1,5 +1,7 @@
 ﻿namespace MagicCardsHub.Web
 {
+    using System;
+    using System.IO;
     using System.Net;
     using System.Reflection;
 
@@ -20,6 +22,7 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.FileProviders;
     using Microsoft.Extensions.Hosting;
 
     public class Program

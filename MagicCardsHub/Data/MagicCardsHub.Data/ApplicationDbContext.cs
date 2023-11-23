@@ -34,7 +34,7 @@
 
         public DbSet<ManaSymbol> ManaSymbols { get; set; }
 
-        public DbSet<ExpansionCardDeck> ExpansionCardDecks { get; set; }
+        public DbSet<GameExpansion> GameExpansions { get; set; }
 
         public DbSet<Card> Cards { get; set; }
 
@@ -61,21 +61,6 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-         //  builder.Entity<SetOfCards>()
-         //      .HasMany(card => card.Cards)
-         //      .WithOne(set => set.Expansion)
-         //      .HasForeignKey(set => set.ExpansionId);
-         //
-         //  builder.Entity<Card>()
-         //      .HasMany(mana => mana.ManaSymbols)
-         //      .WithOne(card=> card.Card)
-         //      .HasForeignKey(card => card.CardId);
-         //
-         //  builder.Entity<Card>()
-         //   .HasMany(mana => mana.VariousSymbols)
-         //   .WithOne(card => card.Card)
-         //   .HasForeignKey(card => card.CardId);
-
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
 

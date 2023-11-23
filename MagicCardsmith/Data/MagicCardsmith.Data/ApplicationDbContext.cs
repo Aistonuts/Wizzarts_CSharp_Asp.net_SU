@@ -26,6 +26,18 @@
 
         public DbSet<Setting> Settings { get; set; }
 
+        public DbSet<Art> Arts { get; set; }
+
+        public DbSet<Article> Articles { get; set; }
+
+        public DbSet<ManaSymbol> ManaSymbols { get; set; }
+
+        public DbSet<GameExpansion> GameExpansions { get; set; }
+
+        public DbSet<Card> Cards { get; set; }
+
+        public DbSet<VariousSymbol> VarSymbols { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

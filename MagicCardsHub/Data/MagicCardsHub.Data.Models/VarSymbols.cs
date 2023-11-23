@@ -4,7 +4,9 @@
 
     public class VarSymbols : BaseDeletableModel<int>
     {
-        public string Title { get; set; }
+        public string CardExpansion { get; set; }
+
+        public string CardRarity { get; set; }
 
         public string RemoteImageUrl { get; set; }
 

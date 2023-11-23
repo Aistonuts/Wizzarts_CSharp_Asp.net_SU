@@ -16,6 +16,10 @@
 
         public string Name { get; set; }
 
+        public string ForgedCard { get; set; }
+
+        public string CardRemoteURL { get; set; }
+
         public string FrameColorUrl { get; set; }
 
         public string SymbolUrl { get; set; }
@@ -39,6 +43,10 @@
         public string CardSmithId { get; set; }
 
         public virtual ApplicationUser CardSmith { get; set; }
+
+        public virtual int GameExpansionId { get; set; }
+
+        public GameExpansion GameExpansion { get; set; }
 
         public virtual ICollection<ManaSymbol> ManaSymbols { get; set; }
 

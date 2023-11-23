@@ -24,3 +24,6 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Services\MagicCards
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Services\MagicCardsHub.Services.Data\bin\Debug\net7.0\MagicCardsHub.Data.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Services\MagicCardsHub.Services.Data\bin\Debug\net7.0\MagicCardsHub.Data.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Services\MagicCardsHub.Services.Data\bin\Debug\net7.0\MagicCardsHub.Common.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Services\MagicCardsHub.Services.Data\bin\Debug\net7.0\selenium-manager\linux\selenium-manager
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Services\MagicCardsHub.Services.Data\bin\Debug\net7.0\selenium-manager\macos\selenium-manager
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Services\MagicCardsHub.Services.Data\bin\Debug\net7.0\selenium-manager\windows\selenium-manager.exe

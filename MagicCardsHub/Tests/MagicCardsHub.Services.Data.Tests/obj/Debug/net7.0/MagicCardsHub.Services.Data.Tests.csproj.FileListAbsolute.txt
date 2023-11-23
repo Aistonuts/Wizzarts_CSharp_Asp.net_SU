@@ -145,11 +145,8 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll
-C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
@@ -180,3 +177,12 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\System.IO.Pipelines.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\MagicCardsHub.Web.ViewModels.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\MagicCardsHub.Web.ViewModels.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\selenium-manager\linux\selenium-manager
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\selenium-manager\macos\selenium-manager
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\selenium-manager\windows\selenium-manager.exe
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\AngleSharp.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\WebDriver.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\ICSharpCode.SharpZipLib.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\WebDriverManager.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsHub\Tests\MagicCardsHub.Services.Data.Tests\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll

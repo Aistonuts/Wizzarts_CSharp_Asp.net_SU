@@ -5103,7 +5103,10 @@
           "MagicCardsHub.Data.Models": "1.0.0",
           "MagicCardsHub.Services.Mapping": "1.0.0",
           "MagicCardsHub.Web.ViewModels": "1.0.0",
-          "Microsoft.AspNetCore.Http.Features": "5.0.17"
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
+          "Selenium.WebDriver": "4.15.0",
+          "Selenium.WebDriver.ChromeDriver": "119.0.6045.10500",
+          "WebDriverManager": "2.17.1"
         },
         "compile": {
           "bin/placeholder/MagicCardsHub.Services.Data.dll": {}

@@ -40,4 +40,11 @@
     <ProjectReference Include="..\MagicCardsmith.Web.Infrastructure\MagicCardsmith.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\MagicCardsmith.Web.ViewModels\MagicCardsmith.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\art\Beta\" />
+    <Folder Include="wwwroot\images\art\Unlimited\" />
+    <Folder Include="wwwroot\images\art\userArt\" />
+    <Folder Include="wwwroot\images\cardsByExpansion\" />
+  </ItemGroup>
 </Project>
