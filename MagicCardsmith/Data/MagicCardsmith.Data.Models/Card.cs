@@ -5,32 +5,40 @@
 
     using MagicCardsmith.Data.Common.Models;
 
-    public class Card : BaseDeletableModel<string>
+    public class Card : BaseDeletableModel<int>
     {
-        public Card()
-        {
-            this.Id = Guid.NewGuid().ToString();
-            this.ManaColors = new HashSet<ManaColor>();
- 
-        }
 
-        public string Name { get; set; } 
+        public string Name { get; set; }
+
+        public int RedManaCost { get; set; }
+
+        public int GreenManaCost { get; set; }
+
+        public int BlueManaCost { get; set; }
+
+        public int BlackManaCost { get; set; }
+
+        public int WhiteManaCost { get; set; }
+
+        public int ColorlessManaCost { get; set; }
 
         public string CardRemoteUrl { get; set; }
 
-        public string FrameColorUrl { get; set; }
+        public string FrameColor { get; set; }
 
         public string CardType { get; set; }
 
         public string AbilitiesAndFlavor { get; set; }
 
-        public string Power { get; set; }
+        public string? Power { get; set; }
 
-        public string Toughness { get; set; }
+        public string? Toughness { get; set; }
 
         public string CardExpansion { get; set; }
 
         public string CardRarity { get; set; }
+
+        public bool IsEventCard { get; set; } = false;
 
         public string ArtId { get; set; }
 
@@ -44,6 +52,6 @@
 
         public GameExpansion GameExpansion { get; set; }
 
-        public virtual ICollection<ManaColor> ManaColors { get; set; }
+
     }
 }

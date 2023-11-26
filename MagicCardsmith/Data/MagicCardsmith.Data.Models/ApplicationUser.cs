@@ -16,6 +16,12 @@ namespace MagicCardsmith.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+            this.Articles = new HashSet<Article>();
+            this.Cards = new HashSet<Card>();
+            this.Art = new HashSet<Art>();
+            this.Events = new HashSet<Event>();
+            this.Stores = new HashSet<Store>();
+            this.Votes = new HashSet<Vote>();
         }
 
         // Audit info
@@ -34,6 +40,16 @@ namespace MagicCardsmith.Data.Models
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
 
+        public virtual ICollection<Article> Articles { get; set; }
 
-    }
+        public virtual ICollection<Card> Cards { get; set; }
+
+        public virtual ICollection<Art> Art { get; set; }
+
+        public virtual ICollection<Event> Events { get; set; }
+
+        public ICollection<Store> Stores { get; set; }
+
+        public virtual ICollection<Vote> Votes { get; set; }
+   }
 }

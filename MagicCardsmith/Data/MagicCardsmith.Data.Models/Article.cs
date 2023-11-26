@@ -15,5 +15,9 @@
         public string ArticleCreatorId { get; set; }
 
         public ApplicationUser ArticleCreator { get; set; }
+
+        public int? EventId { get; set; }
+
+        public Event? Event { get; set; }
     }
 }

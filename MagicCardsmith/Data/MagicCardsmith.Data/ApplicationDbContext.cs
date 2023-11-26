@@ -30,13 +30,21 @@
 
         public DbSet<Article> Articles { get; set; }
 
-        public DbSet<ManaSymbol> ManaSymbols { get; set; }
+        public DbSet<Artist> Artists { get; set; }
+
+        public DbSet<ManaColor> ManaColors { get; set; }
 
         public DbSet<GameExpansion> GameExpansions { get; set; }
 
         public DbSet<Card> Cards { get; set; }
 
-        public DbSet<VariousSymbol> VarSymbols { get; set; }
+        public DbSet<Event> Events { get; set; }
+
+        public DbSet<EventMilestone> EventMilestones { get; set; }
+
+        public DbSet<Store> Stores { get; set; }
+
+        public DbSet<Vote> Votes { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

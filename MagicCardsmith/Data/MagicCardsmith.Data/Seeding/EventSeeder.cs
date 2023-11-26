@@ -1,0 +1,43 @@
+﻿using MagicCardsmith.Data.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MagicCardsmith.Data.Seeding
+{
+    public class EventSeeder : ISeeder
+    {
+        public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
+        {
+            if (dbContext.Events.Any())
+            {
+                return;
+            }
+
+            await dbContext.Events.AddAsync(new Event
+            {
+                Title = "Call to arms",
+                EventDescription = "In celebration of the launch of the Alpha deck," +
+                " we will allow few of you to contribute with the creation of our incomming game expansion." +
+                "There are few art pieces in need of your help, use your imagination and provide them with special abilities and we will test them for you." +
+                "The winners will be announced and their ideas will be included in our next deck",
+                EventCreatorId = " ",
+
+            });
+
+            await dbContext.Events.AddAsync(new Event
+            {
+                Title = "Add some abilities and flavor",
+                EventDescription = "In celebration of the launch of the Alpha deck," +
+               " we will allow few of you to contribute with the creation of our incomming game expansion." +
+               "There are assosiate the abilites and flavour we provide with one of our artists new art pieces." +
+               "Bonus rewards for those ",
+                EventCreatorId = " ",
+
+            });
+        }
+    }
+}
+ 
