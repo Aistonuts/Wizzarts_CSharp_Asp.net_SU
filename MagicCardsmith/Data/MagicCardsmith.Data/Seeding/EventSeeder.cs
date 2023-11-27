@@ -18,7 +18,7 @@ namespace MagicCardsmith.Data.Seeding
 
             await dbContext.Events.AddAsync(new Event
             {
-                Title = "Call to arms",
+                Title = "Add some flavor",
                 EventDescription = "In celebration of the launch of the Alpha deck," +
                 " we will allow few of you to contribute with the creation of our incomming game expansion." +
                 "There are few art pieces in need of your help, use your imagination and provide them with special abilities and we will test them for you." +
@@ -29,11 +29,11 @@ namespace MagicCardsmith.Data.Seeding
 
             await dbContext.Events.AddAsync(new Event
             {
-                Title = "Add some abilities and flavor",
+                Title = "Call to arms",
                 EventDescription = "In celebration of the launch of the Alpha deck," +
                " we will allow few of you to contribute with the creation of our incomming game expansion." +
-               "There are assosiate the abilites and flavour we provide with one of our artists new art pieces." +
-               "Bonus rewards for those ",
+               "This will ook easy at first glance for some of you however you will have to compete with other artists." +
+               "Bonus rewards for those who help us bring to life a new type of card,The planeswalker.Mighty commander with special abilities.",
                 EventCreatorId = " ",
 
             });

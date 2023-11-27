@@ -28,11 +28,11 @@
 
         public DbSet<Art> Arts { get; set; }
 
+        public DbSet<Avatar> Avatars { get; set; }
+
         public DbSet<Article> Articles { get; set; }
 
         public DbSet<Artist> Artists { get; set; }
-
-        public DbSet<ManaColor> ManaColors { get; set; }
 
         public DbSet<GameExpansion> GameExpansions { get; set; }
 

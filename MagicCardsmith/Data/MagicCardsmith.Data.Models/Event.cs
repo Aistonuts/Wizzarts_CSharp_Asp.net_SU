@@ -10,7 +10,6 @@
         public Event()
         {
             this.EventMilestones = new HashSet<EventMilestone>();
-            this.Articles = new HashSet<Article>();
         }
 
         public string Title { get; set; }
@@ -22,7 +21,5 @@
         public ApplicationUser EventCreator { get; set; }
 
         public ICollection<EventMilestone> EventMilestones { get; set; }
-
-        public ICollection<Article> Articles { get; set; }
     }
 }

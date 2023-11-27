@@ -4,7 +4,7 @@
 
     public class Article : BaseDeletableModel<int>
     {
-        public string TItle { get; set; }
+        public string Title { get; set; }
 
         public string Description { get; set; }
 
@@ -15,9 +15,5 @@
         public string ArticleCreatorId { get; set; }
 
         public ApplicationUser ArticleCreator { get; set; }
-
-        public int? EventId { get; set; }
-
-        public Event? Event { get; set; }
     }
 }
