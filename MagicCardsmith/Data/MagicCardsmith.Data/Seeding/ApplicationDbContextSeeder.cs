@@ -27,6 +27,11 @@
                           {
                               new RolesSeeder(),
                               new SettingsSeeder(),
+                              new ArtistSeeder(),
+                              new AlphaCardArtSeeder(),
+                              new GameExpansionSeeder(),
+                              new AlphaCardSeeder(),
+                              new UserSeeder(),
                           };
 
             foreach (var seeder in seeders)

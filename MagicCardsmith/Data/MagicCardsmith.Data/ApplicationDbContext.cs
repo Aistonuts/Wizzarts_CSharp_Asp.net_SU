@@ -67,6 +67,11 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<Card>()
+            .HasOne(a => a.Art)
+            .WithOne(a => a.Card)
+            .HasForeignKey<Art>(a => a.CardId);
+
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
 

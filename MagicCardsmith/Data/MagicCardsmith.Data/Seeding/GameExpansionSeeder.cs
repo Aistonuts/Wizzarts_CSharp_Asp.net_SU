@@ -19,7 +19,7 @@
             {
               Title = "Alpha",
               Description = "Our first game expansion.",
-              CardsCount = "23",
+              CardsCount = "15",
               ExpansionSymbolUrl = "images/symbols/expansions/Alpha.png",
             });
             await dbContext.GameExpansions.AddAsync(new GameExpansion
@@ -33,7 +33,7 @@
             {
              Title = "Unlimited",
              Description = "Revised cards from Alpha and Beta, also many new cards",
-             CardsCount = "33",
+             CardsCount = "30",
              ExpansionSymbolUrl = "images/symbols/expansions/Unlimited.png",
             });
 

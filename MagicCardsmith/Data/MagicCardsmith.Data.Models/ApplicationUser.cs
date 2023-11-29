@@ -3,7 +3,6 @@ namespace MagicCardsmith.Data.Models
 {
     using System;
     using System.Collections.Generic;
-
     using MagicCardsmith.Data.Common.Models;
 
     using Microsoft.AspNetCore.Identity;
@@ -18,11 +17,14 @@ namespace MagicCardsmith.Data.Models
             this.Logins = new HashSet<IdentityUserLogin<string>>();
             this.Articles = new HashSet<Article>();
             this.Cards = new HashSet<Card>();
-            this.Art = new HashSet<Art>();
             this.Events = new HashSet<Event>();
             this.Stores = new HashSet<Store>();
             this.Votes = new HashSet<Vote>();
         }
+
+        public string Nickname { get; set; }
+
+        public string AvatarUrl { get; set; }
 
         // Audit info
         public DateTime CreatedOn { get; set; }
@@ -44,11 +46,9 @@ namespace MagicCardsmith.Data.Models
 
         public virtual ICollection<Card> Cards { get; set; }
 
-        public virtual ICollection<Art> Art { get; set; }
-
         public virtual ICollection<Event> Events { get; set; }
 
-        public ICollection<Store> Stores { get; set; }
+        public virtual ICollection<Store> Stores { get; set; }
 
         public virtual ICollection<Vote> Votes { get; set; }
    }

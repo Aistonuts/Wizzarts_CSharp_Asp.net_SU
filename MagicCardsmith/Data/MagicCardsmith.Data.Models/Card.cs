@@ -7,7 +7,6 @@
 
     public class Card : BaseDeletableModel<int>
     {
-
         public string Name { get; set; }
 
         public int RedManaCost { get; set; }
@@ -48,10 +47,8 @@
 
         public virtual ApplicationUser CardSmith { get; set; }
 
-        public virtual int GameExpansionId { get; set; }
+        public int GameExpansionId { get; set; }
 
         public GameExpansion GameExpansion { get; set; }
-
-
     }
 }

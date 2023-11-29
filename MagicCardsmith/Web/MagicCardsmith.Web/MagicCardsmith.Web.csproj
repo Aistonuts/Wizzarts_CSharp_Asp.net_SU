@@ -47,5 +47,6 @@
     <Folder Include="wwwroot\images\art\userArt\" />
     <Folder Include="wwwroot\images\cardsByExpansion\" />
     <Folder Include="wwwroot\images\avatars\" />
+    <Folder Include="wwwroot\images\Stores\" />
   </ItemGroup>
 </Project>

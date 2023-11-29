@@ -2,31 +2,25 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    using MagicCardsmith.Data.Common.Models;
 
-    public class Artist
+    public class Artist : BaseDeletableModel<int>
     {
         public Artist()
         {
-            this.Id = Guid.NewGuid();
-            this.Art = new HashSet<Art>();
+            this.ArtPieces = new HashSet<Art>();
         }
-
-        [Key]
-        public Guid Id { get; set; }
 
         public string Nickname { get; set; }
 
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
-
         public string AvatarUrl { get; set; }
 
-        public Guid? UserId { get; set; }
+        public string Email { get; set; }
 
-        public virtual ApplicationUser? User { get; set; } = null!;
+        public string UserId { get; set; }
 
-        public virtual ICollection<Art> Art { get; set; }
+        public ApplicationUser User { get; set; }
+
+        public virtual ICollection<Art> ArtPieces { get; set; }
     }
 }
