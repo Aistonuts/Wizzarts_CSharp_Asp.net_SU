@@ -20,7 +20,7 @@
 
         public string Extension { get; set; }
 
-        public string ArtIstId { get; set; }
+        public int ArtIstId { get; set; }
 
         public Artist Artist { get; set; }
 

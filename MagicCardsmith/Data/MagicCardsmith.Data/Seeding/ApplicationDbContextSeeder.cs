@@ -27,11 +27,18 @@
                           {
                               new RolesSeeder(),
                               new SettingsSeeder(),
+                              new UserSeeder(),
+                              new PreAssignedRoleSeeder(),
+                              new GameExpansionSeeder(),
                               new ArtistSeeder(),
                               new AlphaCardArtSeeder(),
-                              new GameExpansionSeeder(),
                               new AlphaCardSeeder(),
-                              new UserSeeder(),
+                              new ArticleSeeder(),
+                              new AvatarSeeder(),
+                              new EventSeeder(),
+                              new EventMileStonesSeeder(),
+                              new StoreSeeder(),
+                              new ArticleSeeder(),
                           };
 
             foreach (var seeder in seeders)

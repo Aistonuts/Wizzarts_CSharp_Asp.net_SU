@@ -7,16 +7,235 @@
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/cardsmith.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/MagicCard.css" asp-append-version="true" />
 </head>
 <body data-theme="dark">
     <header>
-        <div class="wrapper" id="wrapper"></div>
+        <div class="wrapper" id="wrapper">
+            <div class="w-100 ae-header sticky-menu-mobile-navbar d-print-none">
+                <div class="ae-menu-left-decor">
+                    <picture>
+                        <source srcset="/images/navigation/menu_side.svg" media="">
+                        <img src="/images/navigation/menu_side_mobile.svg">
+                    </picture>
+                </div>
+                <div class="ae-menu-right-decor">
+                    <picture>
+                        <source srcset="/images/navigation/menu_side.svg" media="">
+                        <img src="/images/navigation/menu_side_mobile.svg">
+                    </picture>
+                </div>
+                <div class="ae-menu-center">
+                    <div class="ae-menu-center">
+                        <div class="ae-menu">
+                            <div class="ae-menu-logo">
+                                <a class="d-none d-xl-block" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <img src="/images/navigation/MagicCardsmith.gif" class="ae-header-logo" alt="AetherHub" width="200" height="44">
+                                </a>
+                                <div class="d-block d-lg-none ml-2 mr-1">
+                                    <a id="sidebarCollapse" class="" aria-label="Menu"><i class="fas fa-bars"></i></a>
+                                </div>
+                            </div>
+                            <div class="ae-menu-wrapper d-none d-lg-flex">
+                                <ul class="d-flex justify-content-start">
+                                    <li>
+                                        <div class="ae-nav-dropdown">
+                                            <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Home</b></button>
+                                            <div class="ae-nav-dropdown-menu">
+
+                                                <div class="ae-nav-dropdown-menu-wrapper">
+                                                    <div class="">
+                                                        <div class="ae-list-header">
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Cardsmith" asp-action="Create">Cardsmith</a>
+                                                            <hr>
+                                                            <a href="/Account/Register">Articles</a>
+                                                            <a href="/Decks/Writeups/">Events</a>
+                                                            <hr>
+                                                            <a href="/Decks/Video/">Add Store</a>
+                                                            <a href="/Deck/Builder/">My Store </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>                                                             
+                                    <li>
+                                        <div class="ae-nav-dropdown">
+                                            <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Art</b></button>
+                                            <div class="ae-nav-dropdown-menu">
+                                                <div class="ae-nav-dropdown-menu-wrapper">
+                                                    <div class="">
+                                                        <div class="ae-list-header">
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="Create">Art pieces</a>
+                                                            <a href="/Decks/Writeups/">Artists</a>
+                                                            <hr>
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Artists" asp-action="All">How to Become Artist</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="ae-nav-dropdown">
+                                            <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Magic cards</b></button>
+                                            <div class="ae-nav-dropdown-menu">
+
+                                                <div class="ae-nav-dropdown-menu-wrapper">
+                                                    <div class="">
+                                                        <div class="ae-list-header">
+                                                            <a href="/Account/Register">All Cards</a>
+                                                            <a href="/Decks/Video/">Expansions</a>
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="DigitalArt" asp-action="Create">Cardsmither</a>
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Cardsmith" asp-action="All">Stores</a>
+                                                            <a href="/Decks/Video/">All Artists</a>
+                                                            <hr>
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Cardsmith" asp-action="All">Stores</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                                    {
+                                        <li>
+                                            <div class="ae-nav-dropdown">
+
+                                                <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Admin</b></button>
+                                                <div class="ae-nav-dropdown-menu">
+
+                                                    <div class="ae-nav-dropdown-menu-wrapper">
+                                                        <div class="">
+                                                            <div class="ae-list-header">
+                                                                <a class="nav-link text-dark" asp-area="Administration" asp-controller="Dashboard" asp-action="Index" title="Admin">Admin</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                            
+                             <div class="ae-icons d-flex justify-content-start">
+                                
+                                <div class="mr-2">
+                                    <ul class="nav">
+                                        <li class="nav-item dropdown">
+                                            <a class="" data-toggle="modal" data-target="#siteSearchModal">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="mr-2">
+                                    <ul class="nav">
+                                        <li class="nav-item dropdown">
+                                            <a class="" data-toggle="dropdown">
+                                                <i class="far fa-star"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="/Premium"><b>Premium</b></a>
+                                                <a class="dropdown-item" href="/Artists"><b>Content Creators</b></a>
+                                                <a class="dropdown-item" href="/Team"><b>Team</b></a>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="mr-1">
+                                    <ul class="nav">
+                                        <li class="nav-item dropdown">
+                                            <a id="login-button" class="" data-toggle="dropdown" aria-label="Login">
+                                                <i class="fas fa-user"></i>
+                                            </a>
+                                            <partial name="_LoginPartial" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ae-header-bottom-decoration d-flex">
+                            <div class="shadow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
+    <div class="ae-inner-content-wrapper">
+        <div class="inner-content">
+            <div class="container">
+                <div class="row pt-2">
+                    <partial name="_CookieConsentPartial" />
+                    <main role="main" class="pb-3">
+                        @this.RenderBody()
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
 
 
 
 
 
+
+
+    <div id="siteSearchModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Search MagicCardsnith</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span class="fas fa-times text-dark"></span>
+                    </button>
+                </div>
+                <div class="modal-body ui-front d-flex flex-row justify-content-center">
+                    <div>
+                        <form method="get" action="/Market/CardInfo">
+                            <div class="input-group ae-card-search">
+                                <input type="text" id="searchM" name="CardName"
+                                       class="form-control d-print-none ui-autocomplete-input"
+                                       placeholder="Search magic cards" aria-label="Search magic cards"
+                                       autocomplete="off">
+                                <div class="input-group-append">
+                                    <button class="btn btn-light" type="submit" aria-label="Search">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <ul id="ui-id-1" tabindex="0"
+                        class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" unselectable="on"
+                        style="display: none;"></ul>
+                </div>
+                <div class="modal-footer mt-0">
+                    <div class="text-right">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">
+                            <i class="fas fa-times"></i> <b>Close</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popupMsg"></div>
 
 
 
@@ -67,19 +286,10 @@
     </nav>
     </header>*@
 
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @this.RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/e0f25cd0cd.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>

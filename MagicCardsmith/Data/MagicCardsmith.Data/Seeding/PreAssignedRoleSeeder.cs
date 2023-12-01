@@ -22,7 +22,7 @@
              RoleId = "c3233260-ea67-47fe-a8f0-7785bb31c136",
              UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
             });
-            
+
             await dbContext.UserRoles.AddAsync(new IdentityUserRole<string>
             {
                 RoleId = "c3233260-ea67-47fe-a8f0-7785bb31c136",
@@ -56,12 +56,6 @@
             await dbContext.UserRoles.AddAsync(new IdentityUserRole<string>
             {
                 RoleId = "f4355efe-61d9-4add-ae62-e4c25603e2be",
-                UserId = "",
-            });
-
-            await dbContext.UserRoles.AddAsync(new IdentityUserRole<string>
-            {
-                RoleId = "f4355efe-61d9-4add-ae62-e4c25603e2be",
                 UserId = "f6f94be8-49e0-4a28-9e7f-797c40e7e169",
             });
 
@@ -86,7 +80,7 @@
             await dbContext.UserRoles.AddAsync(new IdentityUserRole<string>
             {
                 RoleId = "f4355efe-61d9-4add-ae62-e4c25603e2be",
-                UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                UserId = "799d728e-0c16-4e4a-81b3-48a113a88cf1",
             });
 
             await dbContext.UserRoles.AddAsync(new IdentityUserRole<string>
@@ -123,8 +117,10 @@
             await dbContext.UserRoles.AddAsync(new IdentityUserRole<string>
             {
                 RoleId = "8c26a0fe-fec9-45aa-b1ec-a2c43675e6a5",
-                UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                UserId = "799d728e-0c16-4e4a-81b3-48a113a88cf1",
             });
+
+            await dbContext.SaveChangesAsync();
         }
     }
 }

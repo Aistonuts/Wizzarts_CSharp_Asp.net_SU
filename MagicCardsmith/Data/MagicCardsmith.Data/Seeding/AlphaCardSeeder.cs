@@ -187,6 +187,8 @@
 
                 GameExpansionId = 1,
             });
+
+            await dbContext.SaveChangesAsync();
         }
     }
 }

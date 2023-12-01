@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\Services\MagicCardsmith.Services.Mapping\MagicCardsmith.Services.Mapping.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Art\" />
+  </ItemGroup>
+
 </Project>

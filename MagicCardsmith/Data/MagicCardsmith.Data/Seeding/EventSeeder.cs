@@ -34,9 +34,9 @@ namespace MagicCardsmith.Data.Seeding
                " we will allow few of you to contribute with the creation of our incomming game expansion." +
                "This will ook easy at first glance for some of you however you will have to compete with other artists." +
                "Bonus rewards for those who help us bring to life a new type of card,The planeswalker.Mighty commander with special abilities.",
-
             });
+
+            await dbContext.SaveChangesAsync();
         }
     }
 }
- 

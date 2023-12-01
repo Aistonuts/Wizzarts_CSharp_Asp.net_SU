@@ -12,7 +12,7 @@
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
 
-            if (dbContext.Users.Any())
+            if (dbContext.Artists.Any())
             {
                 return;
             }
@@ -88,6 +88,8 @@
                 AvatarUrl = "/images/avatar/Portrait_Twincruiser.png",
                 UserId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
             });
+
+            await dbContext.SaveChangesAsync();
         }
     }
 }

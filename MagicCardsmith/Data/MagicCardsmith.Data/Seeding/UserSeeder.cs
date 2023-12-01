@@ -97,7 +97,7 @@
 
             await dbContext.Users.AddAsync(new ApplicationUser
             {
-                Id = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                Id = "799d728e-0c16-4e4a-81b3-48a113a88cf1",
                 CreatedOn = DateTime.UtcNow,
                 UserName = "Thammer",
                 NormalizedUserName = "THAMMER",
@@ -116,6 +116,8 @@
                 NormalizedEmail = "TWINCRUISER",
                 PasswordHash = hasher.HashPassword(null, "Pa$$w0rd8"),
             });
+
+            await dbContext.SaveChangesAsync();
         }
     }
 }

@@ -1,5 +1,6 @@
-﻿namespace MagicCardsmith.Web
+namespace MagicCardsmith.Web
 {
+    using System;
     using System.Reflection;
 
     using MagicCardsmith.Data;
@@ -12,9 +13,9 @@
     using MagicCardsmith.Services.Mapping;
     using MagicCardsmith.Services.Messaging;
     using MagicCardsmith.Web.ViewModels;
-
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;

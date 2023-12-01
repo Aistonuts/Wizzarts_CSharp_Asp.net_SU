@@ -64,6 +64,8 @@
                 ImageUrl = " ",
                 EventId = 2,
             });
+
+            await dbContext.SaveChangesAsync();
         }
     }
 }

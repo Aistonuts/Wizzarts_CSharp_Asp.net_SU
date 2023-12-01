@@ -153,8 +153,8 @@ namespace MagicCardsmith.Data.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ArtIstId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ArtIstId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("CardId")
                         .HasColumnType("int");
@@ -219,6 +219,9 @@ namespace MagicCardsmith.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -241,8 +244,11 @@ namespace MagicCardsmith.Data.Migrations
 
             modelBuilder.Entity("MagicCardsmith.Data.Models.Artist", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AvatarUrl")
                         .HasColumnType("nvarchar(max)");
@@ -584,6 +590,9 @@ namespace MagicCardsmith.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("StoreOwnerId")
                         .HasColumnType("nvarchar(450)");
 
@@ -733,7 +742,9 @@ namespace MagicCardsmith.Data.Migrations
                 {
                     b.HasOne("MagicCardsmith.Data.Models.Artist", "Artist")
                         .WithMany("ArtPieces")
-                        .HasForeignKey("ArtIstId");
+                        .HasForeignKey("ArtIstId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("MagicCardsmith.Data.Models.Card", "Card")
                         .WithOne("Art")

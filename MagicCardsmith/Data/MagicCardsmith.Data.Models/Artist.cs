@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+
     using MagicCardsmith.Data.Common.Models;
 
     public class Artist : BaseDeletableModel<int>

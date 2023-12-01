@@ -80,7 +80,7 @@
                 Image = "/images/Stores/Yokohama.jpg",
                 StoreOwnerId = "5823bbf1-993c-416b-9bf1-c358fedf38a6",
             });
-
+            await dbContext.SaveChangesAsync();
         }
     }
 }

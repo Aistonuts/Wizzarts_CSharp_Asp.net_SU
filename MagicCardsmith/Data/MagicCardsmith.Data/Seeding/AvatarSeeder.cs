@@ -50,6 +50,8 @@
                 Name = "Marvel Six",
                 AvatarUrl = "/images/avatar/Marvel_Six.png",
             });
+
+            await dbContext.SaveChangesAsync();
         }
     }
 }

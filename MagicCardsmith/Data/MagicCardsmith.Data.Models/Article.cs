@@ -8,6 +8,8 @@
 
         public string Description { get; set; }
 
+        public string ImageUrl { get; set; }
+
         public string? ArtId { get; set; }
 
         public Art? Art { get; set; }
