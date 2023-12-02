@@ -2,15 +2,27 @@
 {
     using System.Diagnostics;
 
+    using MagicCardsmith.Services.Data;
     using MagicCardsmith.Web.ViewModels;
-
+    using MagicCardsmith.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
+        private readonly IArticleService articlesService;
+
+        public HomeController(IArticleService articlesService)
+        {
+            this.articlesService = articlesService;
+        }
+
         public IActionResult Index()
         {
-            return this.View();
+            var viewModel = new IndexViewModel
+            {
+                Articles = this.articlesService.GetRandom<IndexPageArticleViewModel>(3),
+            };
+            return this.View(viewModel);
         }
 
         public IActionResult Privacy()

@@ -43,7 +43,7 @@ namespace MagicCardsmith.Data.Seeding
                 "We are prepared, we have the full set of cards ready but we decided to encourage our games creativity." +
                 "Check the event page.Complete the milesstores.There might be a winner.It depends on how motivated you are.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
-                ImageUrl = "/images/navigation/AlphaBox1.jpg",
+                ImageUrl = "/images/navigation/AlphaBox.jpg",
             });
 
             await dbContext.SaveChangesAsync();

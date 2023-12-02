@@ -176,3 +176,7 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmi
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\obj\Debug\net7.0\MagicCardsmith.Services.Data.Tests.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\obj\Debug\net7.0\MagicCardsmith.Services.Data.Tests.genruntimeconfig.cache
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\obj\Debug\net7.0\ref\MagicCardsmith.Services.Data.Tests.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\bin\Debug\net7.0\System.IO.Pipelines.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\bin\Debug\net7.0\MagicCardsmith.Web.ViewModels.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\bin\Debug\net7.0\MagicCardsmith.Web.ViewModels.pdb

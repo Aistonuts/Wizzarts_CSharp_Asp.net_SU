@@ -74,7 +74,7 @@
           "Microsoft.AspNetCore.Http.Connections": "7.0.0.0",
           "Microsoft.AspNetCore.Http": "7.0.0.0",
           "Microsoft.AspNetCore.Http.Extensions": "7.0.0.0",
-          "Microsoft.AspNetCore.Http.Features": "7.0.0.0",
+          "Microsoft.AspNetCore.Http.Features.Reference": "7.0.0.0",
           "Microsoft.AspNetCore.Http.Results": "7.0.0.0",
           "Microsoft.AspNetCore.HttpLogging": "7.0.0.0",
           "Microsoft.AspNetCore.HttpOverrides": "7.0.0.0",
@@ -975,6 +975,12 @@
         },
         "compile": {
           "lib/net7.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/5.0.17": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "7.0.0",
+          "System.IO.Pipelines": "7.0.0"
         }
       },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.12": {
@@ -3791,7 +3797,8 @@
         "dependencies": {
           "MagicCardsmith.Data.Common": "1.0.0",
           "MagicCardsmith.Data.Models": "1.0.0",
-          "MagicCardsmith.Services.Mapping": "1.0.0"
+          "MagicCardsmith.Services.Mapping": "1.0.0",
+          "MagicCardsmith.Web.ViewModels": "1.0.0"
         },
         "runtime": {
           "MagicCardsmith.Services.Data.dll": {}
@@ -3860,7 +3867,8 @@
       "MagicCardsmith.Web.ViewModels/1.0.0": {
         "dependencies": {
           "MagicCardsmith.Data.Models": "1.0.0",
-          "MagicCardsmith.Services.Mapping": "1.0.0"
+          "MagicCardsmith.Services.Mapping": "1.0.0",
+          "Microsoft.AspNetCore.Http.Features": "5.0.17"
         },
         "runtime": {
           "MagicCardsmith.Web.ViewModels.dll": {}
@@ -4067,7 +4075,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Http.Features/7.0.0.0": {
+      "Microsoft.AspNetCore.Http.Features.Reference/7.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Http.Features.dll": {}
         },
@@ -6022,6 +6030,13 @@
       "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/7.0.3",
       "hashPath": "microsoft.aspnetcore.diagnostics.entityframeworkcore.7.0.3.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Http.Features/5.0.17": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3jG2xS+dx8DDCGV/F+STdPTg89lX3ao3dF/VEPvJaz3wzBIjuadipTtYNEXDIVuOPZwb6jdmhrX9jkzOIBm5cw==",
+      "path": "microsoft.aspnetcore.http.features/5.0.17",
+      "hashPath": "microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.12": {
       "type": "package",
       "serviceable": true,
@@ -7733,7 +7748,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Http.Features/7.0.0.0": {
+    "Microsoft.AspNetCore.Http.Features.Reference/7.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

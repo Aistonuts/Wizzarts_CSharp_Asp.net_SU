@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SaXzRF6gLAguL/Q7sK9IkMj1Ygkkk0+Gu2pBvQs9qdfac93/lwnzXTbOAR2PFRsPy0jdaL/iN/QxB1rTLb6vIQ==",
+  "dgSpecHash": "a6MZgvzKpjnV2KlvYccwjh56/26aHEhfldDHZ9uFNAYN/2QivLrU710Lv4plIGfHpxlBHEnX7L8Vi1ZW/7IYtw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Tests\\MagicCardsmith.Services.Data.Tests\\MagicCardsmith.Services.Data.Tests.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Cmpt\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.3\\microsoft.aspnetcore.cryptography.internal.7.0.3.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.3\\microsoft.aspnetcore.cryptography.keyderivation.7.0.3.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.3\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.3.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",
@@ -102,6 +103,7 @@
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",

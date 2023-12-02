@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OYG2Hgpr9ZxiMslCvpc3F2yApqGmdAaVKQg98qEY4qRfiWF899V+O0zhQ+x3mmTC9SVZDzX7TJPcg6yFV5SYxw==",
+  "dgSpecHash": "Ro7Ox2mPzzle7TlXgXpTR4YBcStgi6e6gR872Z7/n2N5LywFH8OTKMlaq7YE+VSPMGBewQJkNN3+jnez7ydmkA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj",
   "expectedPackageFiles": [
@@ -61,6 +61,7 @@
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.12\\microsoft.aspnetcore.cryptography.internal.7.0.12.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.12\\microsoft.aspnetcore.cryptography.keyderivation.7.0.12.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\7.0.3\\microsoft.aspnetcore.diagnostics.entityframeworkcore.7.0.3.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.12\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.12.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\microsoft.aspnetcore.identity.ui.7.0.12.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\6.0.0\\microsoft.aspnetcore.mvc.razor.extensions.6.0.0.nupkg.sha512",

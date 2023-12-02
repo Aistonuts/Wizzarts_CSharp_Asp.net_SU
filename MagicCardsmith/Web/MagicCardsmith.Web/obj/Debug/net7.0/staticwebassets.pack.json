@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\AetherhubLogo320.png",
+      "PackagePath": "staticwebassets\\images\\AetherhubLogo320.png"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Stores\\Bright.jpg",
       "PackagePath": "staticwebassets\\images\\Stores\\Bright.jpg"
     },
@@ -461,10 +465,6 @@
       "PackagePath": "staticwebassets\\images\\mana\\w.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\AlphaBox.jpg",
-      "PackagePath": "staticwebassets\\images\\navigation\\AlphaBox.jpg"
-    },
-    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\AlphaBox1.png",
       "PackagePath": "staticwebassets\\images\\navigation\\AlphaBox1.png"
     },
@@ -479,22 +479,6 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\SonsOfTheStorm.jpg",
       "PackagePath": "staticwebassets\\images\\navigation\\SonsOfTheStorm.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\Sword.gif",
-      "PackagePath": "staticwebassets\\images\\navigation\\Sword.gif"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\Untitled1.png",
-      "PackagePath": "staticwebassets\\images\\navigation\\Untitled1.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\Untitled2.png",
-      "PackagePath": "staticwebassets\\images\\navigation\\Untitled2.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\Untitled3.png",
-      "PackagePath": "staticwebassets\\images\\navigation\\Untitled3.png"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\ah_logo.svg",

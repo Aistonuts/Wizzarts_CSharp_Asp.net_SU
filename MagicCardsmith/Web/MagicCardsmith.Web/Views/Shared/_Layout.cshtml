@@ -16,17 +16,174 @@
 <body data-theme="dark">
     <header>
         <div class="wrapper" id="wrapper">
+            <nav id="sidebar" class="mCustomScrollbar _mCS_1 mCS-autoHide active mCS_no_scrollbar" >
+                <div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: 1534px;" tabindex="0">
+                    <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; top: 0px; left: 0px;" dir="ltr">
+                        <div class="w-100 text-center mb-1 mt-1">
+                            <a href="/">
+                                <img src="/images/AetherhubLogo320.png" loading="lazy" width="150" height="64" alt="AetherHub.com" class="mCS_img_loaded">
+                            </a>
+                            <button id="dismiss" class="btn btn-sm text-dark" aria-label="Close menu">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <ul class="list-unstyled components mobile-menu">
+                            <li>
+                                <a href="#DeckHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>Decks</b></a>
+                                <ul class="list-unstyled collapse show" id="DeckHubSubmenu" style="">
+                                    <li>
+                                        <a href="/Decks/" class="pl-5 pt-1 pb-2 nav-link">User Decks</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Decks/Writeups/" class="pl-5 pt-1 pb-2 nav-link"> Deck Writeups</a>
+                                    </li>
+                                    <li>
+                                        <hr class="mt-2 mb-2">
+                                    </li>
+                                    <li>
+                                        <a href="/Deck/Builder/" class="pl-5 pt-1 pb-2 nav-link">Deck Builder</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Deck/MyDecks/" class="pl-5 pt-1 pb-2 nav-link">My Decks</a>
+                                    </li>
+                                </ul>
+                                <a href="#MetaHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>Metagame</b></a>
+                                <ul class="list-unstyled collapse show" id="MetaHubSubmenu" style="">
+                                    <li>
+                                        <a href="/Metagame/" class="pl-5 pt-1 pb-2 nav-link">Metagame Overview</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Events/" class="pl-5 pt-1 pb-2 nav-link">Tournament Metagame</a>
+                                    </li>
+                                    <li>
+                                        <a href="/MTGA-Decks/" class="pl-5 pt-1 pb-2 nav-link">Latest MTGA Decks</a>
+                                    </li>
+                                    <li>
+                                        <hr class="mt-2 mb-2">
+                                    </li>
+                                    <li>
+                                        <a href="/Limited/" class="pl-5 pt-1 pb-2 nav-link">Limited Metagame</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Limited/Ratings/" class="pl-5 pt-1 pb-2 nav-link">Limited Ratings</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Limited/DraftSensei/" class="pl-5 pt-1 pb-2 nav-link">Draft Trainer</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Limited/Draftevents/" class="pl-5 pt-1 pb-2 nav-link">Latest Draft Winners</a>
+                                    </li>
+                                    <li>
+                                        <hr class="mt-2 mb-2">
+                                    </li>
+                                    <li>
+                                        <a href="/MTGA/ConstructedRankingLadder/" class="pl-5 pt-1 pb-2 nav-link">MTGA Ranking Ladder</a>
+                                    </li>
+                                </ul>
+                                <a href="#CollectionSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Collection</b></a>
+                                <ul class="collapse list-unstyled" id="CollectionSubmenu">
+                                    <li>
+                                        <a href="/Collection/" class="pl-5 pt-1 pb-2 nav-link">Collection</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/Collection/Binder" class="pl-5 pt-1 pb-2 nav-link">My binder</a>
+                                    </li>
+                                    <li>
+                                        <hr class="mt-2 mb-2">
+                                    </li>
+                                    <li>
+                                        <a href="/Collection/Manage" class="pl-5 pt-1 pb-2 nav-link">Manage Collections</a>
+                                    </li>
+                                </ul>
+                                <a href="#TourneySubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Tourney</b></a>
+                                <ul class="collapse list-unstyled" id="TourneySubmenu">
+                                    <li>
+                                        <a href="/Tourney/" class="pl-5 pt-1 pb-2 nav-link">Browse Tournaments</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Tourney/Leagues" class="pl-5 pt-1 pb-2 nav-link">Browse Leagues</a>
+                                    </li>
+                                    <li>
+                                        <hr class="mt-2 mb-2">
+                                    </li>
+                                    <li>
+                                        <a href="/Tourney/MyTourneys" class="pl-5 pt-1 pb-2 nav-link">My Tournaments</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Tourney/MyLeagues" class="pl-5 pt-1 pb-2 nav-link">My Leagues</a>
+                                    </li>
+                                </ul>
+                                <a href="#DatabaseSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Database</b></a>
+                                <ul class="collapse list-unstyled" id="DatabaseSubmenu">
+                                    <li>
+                                        <a href="/Card/Search/" class="pl-5 pt-1 pb-2 nav-link">Card Search</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Card/Set" class="pl-5 pt-1 pb-2 nav-link">Set List</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Spoilers/" class="pl-5 pt-1 pb-2 nav-link">Spoilers</a>
+                                    </li>
+                                    <li>
+                                        <hr class="mt-2 mb-2">
+                                    </li>
+                                    <li>
+                                        <a href="/Banlist" class="pl-5 pt-1 pb-2 nav-link">Card Banlist</a>
+                                    </li>
+                                    <li>
+                                        <a href="/MTGACalendar/" class="pl-5 pt-1 pb-2 nav-link">MTGA Calendar</a>
+                                    </li>
+                                    <li>
+                                        <a href="/MTGAGuides" class="pl-5 pt-1 pb-2 nav-link">MTGA Guides</a>
+                                    </li>
+                                    <li>
+                                        <hr class="mt-2 mb-2">
+                                    </li>
+                                    <li>
+                                        <a href="/Article/" class="pl-5 pt-1 pb-2 nav-link">Articles</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Video/" class="pl-5 pt-1 pb-2 nav-link">Videos</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Docs/" class="pl-5 pt-1 pb-2 nav-link">Documentation</a>
+                                    </li>
+                                </ul>
+                                <a href="#AppsSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Apps</b></a>
+                                <ul class="collapse list-unstyled" id="AppsSubmenu">
+                                    <li>
+                                        <a href="/Apps/MTGAAssistant" class="pl-5 pt-1 pb-2 nav-link">MTGA Assistant</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Apps/DeckConverter" class="pl-5 pt-1 pb-2 nav-link">Deck Converter</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Apps/MtgLife" class="pl-5 pt-1 pb-2 nav-link">MTG Life</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Apps/HyperGeometric" class="pl-5 pt-1 pb-2 nav-link">Hypergeometric Calculator</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Apps/TwitchExtensions" class="pl-5 pt-1 pb-2 nav-link">Twitch Extensions</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px; display: block; max-height: 836.578px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div><div class="mCSB_draggerRail"></div></div></div></div>
+            </nav>
             <div class="w-100 ae-header sticky-menu-mobile-navbar d-print-none">
                 <div class="ae-menu-left-decor">
                     <picture>
-                        <source srcset="/images/navigation/menu_side.svg" media="">
-                        <img src="/images/navigation/menu_side_mobile.svg">
+                        <source srcset="/images/navigation/menu_side.svg" media="(min-width: 768px)">
+                        <img src="/images/navigation/menu_side_mobile.svg" alt="">
                     </picture>
                 </div>
                 <div class="ae-menu-right-decor">
                     <picture>
-                        <source srcset="/images/navigation/menu_side.svg" media="">
-                        <img src="/images/navigation/menu_side_mobile.svg">
+                        <source srcset="/images/navigation/menu_side.svg" media="(min-width: 768px)">
+                        <img src="/images/navigation/menu_side_mobile.svg" alt="">
                     </picture>
                 </div>
                 <div class="ae-menu-center">
@@ -71,7 +228,7 @@
                                                 <div class="ae-nav-dropdown-menu-wrapper">
                                                     <div class="">
                                                         <div class="ae-list-header">
-                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="Create">Art pieces</a>
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="All">Art pieces</a>
                                                             <a href="/Decks/Writeups/">Artists</a>
                                                             <hr>
                                                             <a class="nav-link text-dark" asp-area="" asp-controller="Artists" asp-action="All">How to Become Artist</a>
@@ -250,16 +407,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
     @*<header>
     <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container">
@@ -290,11 +437,12 @@
     <script src="https://kit.fontawesome.com/e0f25cd0cd.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
-    <script src="~/js/site.min.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

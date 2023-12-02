@@ -82,3 +82,5 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\Sandbox\obj\
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\Sandbox\obj\Debug\net7.0\Sandbox.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\Sandbox\obj\Debug\net7.0\Sandbox.genruntimeconfig.cache
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\Sandbox\obj\Debug\net7.0\ref\Sandbox.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\Sandbox\bin\Debug\net7.0\MagicCardsmith.Web.ViewModels.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\Sandbox\bin\Debug\net7.0\MagicCardsmith.Web.ViewModels.pdb
