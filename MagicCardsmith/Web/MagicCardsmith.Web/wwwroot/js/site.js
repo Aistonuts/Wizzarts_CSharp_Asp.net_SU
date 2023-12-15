@@ -557,7 +557,7 @@ $(document).ready(function () {
    //         $(this).children().children().children().unveil();
    //     });
    // });
-    $('.ae-nav-dropdown-lazy').one('mouseenter', function () {
-        $(this).parent().find('img.lazy-header-img').lazy({ visibleOnly: true });
-    });
+   // $('.ae-nav-dropdown-lazy').one('mouseenter', function () {
+   //     $(this).parent().find('img.lazy-header-img').lazy({ visibleOnly: true });
+   // });
 });

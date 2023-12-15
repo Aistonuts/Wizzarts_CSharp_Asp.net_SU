@@ -1,0 +1,241 @@
+﻿@using MagicCardsmith.Common;
+@model MagicCardsmith.Web.ViewModels.Article.SingleArticleViewModel
+@{
+    this.ViewData["Title"] = "Article";
+}
+
+<div class="col-sm-12 col-md-12 col-lg-8 pl-0 pr-0 pr-lg-3">
+    <div class="card p-lg-3">
+        <div>
+            <div id="zone01-flex" class="mx-auto"></div>
+        </div>
+        <article id="article-body">
+            <div class="h-oneKpx pl-0 pr-0">
+                <div class="mt-3 mb-3 d-sm-flex justify-content-between align-items-end">
+                    <div class="col-12 col-sm-7 col-md-6">
+                        <h1 class="ff-display">@Model.Title</h1>
+                       @*<div class="w-100 text-center text-white article-text-tags">
+                            <span>Commander</span>
+                            <span>Discussion</span>
+                        </div>*@
+                        <div class="w-100 d-flex justify-content-start mb-1 mt-3">
+                            <div class="yellow-line w-100 mb-0">
+                                <img src="@Model.ArticleCreatorAvatar" width="50" height="50" class="rounded-circle">
+                                <a href="">@Model.ArticleCreatorName</a>
+                                <span class="text-muted">@Model.CreatedOn</span>
+                                <span class="text-muted"><i class="far fa-clock"></i> 4 min</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-12 col-sm-5 col-md-6">
+                        <img class="article-uimgheader-preview" src="@Model.ImageUrl" alt="@Model.Title">
+                    </div>
+                </div>
+
+
+
+                <div class="row mt-2 mb-2">
+                    <div id="article-text" class="col-md-12">
+                        <div class="card-text d-none d-md-flex m-1">@Model.Description</div>
+                        @*<p>The <a href="https://aetherhub.com/Article/The-Lost-Caverns-of-Ixalan-Set-Information-Latest-Updates-and-Spoilers">Lost Caverns of Ixalan</a> is MTG's most recent set, and it's been out for a little while. Long enough for players to figure out what's good and what isn't; the same can be said about the commander precons. Usually, one or two of the preconstructed decks are a bit more potent than the rest, and these are no different. That said, today, we are looking at which&nbsp;<strong>Lost Caverns of Ixalan precon is the best.&nbsp;</strong>So, if you're looking for the best that LCI has to offer, you're in the right place.</p>
+                        <p>I'll be ranking the&nbsp;Lost Caverns of Ixalan precons from best to worst and giving my thoughts on what caused each deck to land where it did in the rankings. So, without further ado, let's get started with the worst of the four decks.</p>
+                        <p></p><p class="text-center"><a title="magicarenacodes" href="https://magicarenacodes.com?utm_source=aetherhub&amp;utm_medium=article&amp;utm_campaign=article" target="_blank" rel="noopener"><img class="d-block mx-auto" src="https://aetherhub.b-cdn.net/images/zones/magicarenacodes04.jpg" alt="MagicArenaCodes" width="728" height="90"></a></p><p></p>
+                        <h2 style="text-align: center">Lost Caverns Of Ixalan Precons Ranked</h2>
+                        <h3>4. Ahoy Mateys</h3>
+                        <h3><img src="https://aetherhub.b-cdn.net/articles/10786_ahoy%20mateys%20precon.png" alt="Ahoy Mateys Precon" width="300" height="463"></h3>
+                        <p>Kicking things off with number four, we have the pirate deck, Ahoy Mateys. This is probably the deck that I've played with the most. That said, I can confidently say it's the worst of the bunch here. The deck wants to get pirates into the graveyard, make token copies of them with the commander, and generate value from the ETB effects.</p>
+                        <p><a href="/Card/LCC/Admiral-Brass-Unsinkable/121" class="cardLink" data-card-id="78668" data-card-name="Admiral Brass, Unsinkable" data-price="" data-buylink="https://tcgplayer.pxf.io/c/4945535/1830156/21018?subId1=card-detail&amp;subId2=buy-fallback&amp;u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fmagic%2Fproduct%3FproductLineName%3Dmagic%26q%3DAdmiral Brass, Unsinkable" data-mcmprice="" data-mcmbuylink="https://www.cardmarket.com/en/Magic/Cards/Admiral-Brass-Unsinkable/Versions?referrer=aetherhub&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=aetherhub" data-chprice="" data-chlink="https://www.cardhoarder.com/cards?affiliate_id=aetherhub&amp;data%5Bsearch%5D=Admiral+Brass+Unsinkable&amp;utm_campaign=affiliate&amp;utm_medium=card&amp;utm_source=aetherhub" data-toggle="modal" data-target="#cardInfo"><img class="note-card-image" src="https://aetherhub.b-cdn.net/images/cards/mtg-LCC/Admiral%20Brass,%20Unsinkable.121.jpg" loading="lazy" alt="image" height="311" width="223" onerror="this.onerror=null;this.src='/images/cardDeadLink3.jpg';" title="Admiral Brass, Unsinkable"></a></p>
+                        <p>So, where does it all go wrong? First, there aren't enough ways to get pirates into the graveyard, a crucial part of the puzzle. The precon more-or-less riles all on its commander to fill the yard, and it commonly falls short. There is a fair amount of times where you'll cast <span class="hover-imglink"><a href="/Card/LCC/Admiral-Brass-Unsinkable/121" class="cardLink" data-card-id="78668" data-card-name="Admiral Brass, Unsinkable" data-price="" data-buylink="https://tcgplayer.pxf.io/c/4945535/1830156/21018?subId1=card-detail&amp;subId2=buy-fallback&amp;u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fmagic%2Fproduct%3FproductLineName%3Dmagic%26q%3DAdmiral Brass, Unsinkable" data-mcmprice="" data-mcmbuylink="https://www.cardmarket.com/en/Magic/Cards/Admiral-Brass-Unsinkable/Versions?referrer=aetherhub&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=aetherhub" data-chprice="" data-chlink="https://www.cardhoarder.com/cards?affiliate_id=aetherhub&amp;data%5Bsearch%5D=Admiral+Brass+Unsinkable&amp;utm_campaign=affiliate&amp;utm_medium=card&amp;utm_source=aetherhub" data-toggle="modal" data-target="#cardInfo">Admiral Brass, Unsinkable<span><img src="/images/loading.svg" data-src="https://aetherhub.b-cdn.net/images/cards/mtg-LCC/Admiral%20Brass,%20Unsinkable.121.jpg" class="ae-card-hover-img" alt="image" height="311" width="223" onerror="this.onerror=null;this.src='/images/cardDeadLink3.jpg';"></span></a></span>, mill four cards that aren't pirates and have nothing to do.</p>
+                        <p><strong>You May Also Like:&nbsp;</strong><a href="https://aetherhub.com/Article/Ahoy-Mateys-Upgrade-Guide---Lost-Caverns-of-Ixalan-Precons">Ahoy Mateys Upgrade Guide</a></p>
+                        <p>Next, if everything goes according to plan, and you mill some pirates, it can be pretty underwhelming for all the hoops you've jumped through. Overall, this comes from the fact that pirates aren't the most supported tribe, and some of the creatures aren't that impactful.</p>
+                        <h3>3. Voloci-Ramp-Tor</h3>
+                        <p><img src="https://aetherhub.b-cdn.net/articles/10786_velociramptor.png" alt="voloci-ramp-tor precon" width="300" height="463"></p>
+                        <p>Voloci-Ramp-Tor is my number three pick. When the commander, <span class="hover-imglink"><a href="/Card/LCC/Pantlaza-Sun-Favored/124" class="cardLink" data-card-id="78887" data-card-name="Pantlaza, Sun-Favored" data-price="" data-buylink="https://tcgplayer.pxf.io/c/4945535/1830156/21018?subId1=card-detail&amp;subId2=buy-fallback&amp;u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fmagic%2Fproduct%3FproductLineName%3Dmagic%26q%3DPantlaza, Sun-Favored" data-mcmprice="" data-mcmbuylink="https://www.cardmarket.com/en/Magic/Cards/Pantlaza-Sun-Favored/Versions?referrer=aetherhub&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=aetherhub" data-chprice="" data-chlink="https://www.cardhoarder.com/cards?affiliate_id=aetherhub&amp;data%5Bsearch%5D=Pantlaza+Sun-Favored&amp;utm_campaign=affiliate&amp;utm_medium=card&amp;utm_source=aetherhub" data-toggle="modal" data-target="#cardInfo">Pantlaza, Sun-Favored<span><img src="/images/loading.svg" data-src="https://aetherhub.b-cdn.net/images/cards/mtg-LCC/Pantlaza,%20Sun-Favored.124.jpg" class="ae-card-hover-img" alt="image" height="311" width="223" onerror="this.onerror=null;this.src='/images/cardDeadLink3.jpg';"></span></a></span>, or another dinosaur enters the battlefield under your control, you discover X, where X is that creature's toughness. You can only trigger this once each turn, so casting multiple dinos won't get you numerous triggers.</p>
+                        <p><a href="/Card/LCC/Pantlaza-Sun-Favored/124" class="cardLink" data-card-id="78887" data-card-name="Pantlaza, Sun-Favored" data-price="" data-buylink="https://tcgplayer.pxf.io/c/4945535/1830156/21018?subId1=card-detail&amp;subId2=buy-fallback&amp;u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fmagic%2Fproduct%3FproductLineName%3Dmagic%26q%3DPantlaza, Sun-Favored" data-mcmprice="" data-mcmbuylink="https://www.cardmarket.com/en/Magic/Cards/Pantlaza-Sun-Favored/Versions?referrer=aetherhub&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=aetherhub" data-chprice="" data-chlink="https://www.cardhoarder.com/cards?affiliate_id=aetherhub&amp;data%5Bsearch%5D=Pantlaza+Sun-Favored&amp;utm_campaign=affiliate&amp;utm_medium=card&amp;utm_source=aetherhub" data-toggle="modal" data-target="#cardInfo"><img class="note-card-image" src="https://aetherhub.b-cdn.net/images/cards/mtg-LCC/Pantlaza,%20Sun-Favored.124.jpg" loading="lazy" alt="image" height="311" width="223" onerror="this.onerror=null;this.src='/images/cardDeadLink3.jpg';" title="Pantlaza, Sun-Favored"></a></p>
+                        <p>To discover, you exile cards from the top of your library until you exile a nonland card with that mana value or less and cast it without paying its mana cost. Or put it into your hand. Then, put the rest on the bottom in a random order. This is similar to cascade and can get you some excellent value.</p>
+                        <p>My issue is that the deck, despite its name, lacks in the "ramp" department and is quite clunky. Further adding to this issue is a high mana curve with seven cards of a CMC of seven or higher, which is close to the number of four drops in the deck. You can almost count on having things stuck in your hand that you can't cast.</p>
+                        <p><br></p><div><div id="article-zone01-728x90" class="mx-auto"></div></div><p></p>
+                        <h3>2. Explorers of the Deep</h3>
+                        <p><img src="https://aetherhub.b-cdn.net/articles/10786_explorers%20of%20the%20deep.png" alt="explorers of the deep precon" width="300" height="463"></p>
+                        <p>At number two, we have&nbsp;Explorers of the Deep, which has more playability than&nbsp;Voloci-Ramp-Tor or Ahoy Matey. The main reason is that the commander, <span class="hover-imglink"><a href="/Card/LCC/Hakbal-of-the-Surging-Soul/123" class="cardLink" data-card-id="78822" data-card-name="Hakbal of the Surging Soul" data-price="" data-buylink="https://tcgplayer.pxf.io/c/4945535/1830156/21018?subId1=card-detail&amp;subId2=buy-fallback&amp;u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fmagic%2Fproduct%3FproductLineName%3Dmagic%26q%3DHakbal of the Surging Soul" data-mcmprice="" data-mcmbuylink="https://www.cardmarket.com/en/Magic/Cards/Hakbal-of-the-Surging-Soul/Versions?referrer=aetherhub&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=aetherhub" data-chprice="" data-chlink="https://www.cardhoarder.com/cards?affiliate_id=aetherhub&amp;data%5Bsearch%5D=Hakbal+of+the+Surging+Soul&amp;utm_campaign=affiliate&amp;utm_medium=card&amp;utm_source=aetherhub" data-toggle="modal" data-target="#cardInfo">Hakbal of the Surging Soul<span><img src="/images/loading.svg" data-src="https://aetherhub.b-cdn.net/images/cards/mtg-LCC/Hakbal%20of%20the%20Surging%20Soul.123.jpg" class="ae-card-hover-img" alt="image" height="311" width="223" onerror="this.onerror=null;this.src='/images/cardDeadLink3.jpg';"></span></a></span>, is a card advantage machine! And it triggers at the start of combat before you even attack.</p>
+                        <p><a href="/Card/LCC/Hakbal-of-the-Surging-Soul/123" class="cardLink" data-card-id="78822" data-card-name="Hakbal of the Surging Soul" data-price="" data-buylink="https://tcgplayer.pxf.io/c/4945535/1830156/21018?subId1=card-detail&amp;subId2=buy-fallback&amp;u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fmagic%2Fproduct%3FproductLineName%3Dmagic%26q%3DHakbal of the Surging Soul" data-mcmprice="" data-mcmbuylink="https://www.cardmarket.com/en/Magic/Cards/Hakbal-of-the-Surging-Soul/Versions?referrer=aetherhub&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=aetherhub" data-chprice="" data-chlink="https://www.cardhoarder.com/cards?affiliate_id=aetherhub&amp;data%5Bsearch%5D=Hakbal+of+the+Surging+Soul&amp;utm_campaign=affiliate&amp;utm_medium=card&amp;utm_source=aetherhub" data-toggle="modal" data-target="#cardInfo"><img class="note-card-image" src="https://aetherhub.b-cdn.net/images/cards/mtg-LCC/Hakbal%20of%20the%20Surging%20Soul.123.jpg" loading="lazy" alt="image" height="311" width="223" onerror="this.onerror=null;this.src='/images/cardDeadLink3.jpg';" title="Hakbal of the Surging Soul"></a></p>
+                        <p>At the beginning of combat on your turn, each merfolk you control explores. Unlike the pirate deck, there really isn't much you need to do to get this rolling. Playing out a few merfolk isn't hard. Then you cast Hakbal, go to combat, and explore. In my experience, getting three or four triggers with this (remember, Hakbal counts itself) is fairly easy.</p>
+                        <p><strong>You May Also Like:</strong> <a href="https://aetherhub.com/Article/Top-10-Best-Explorer-Cards-In-Magic-The-Gathering">Top 10 Best Explorer Cards In Magic: The Gathering</a></p>
+                        <p>Not only does this pepper your board with +1/+1 counters. You also have great control over your draws and quickly fill your hand with lands. And considering when Hakbal attacks, you can drop a land into play, which gives the deck a built-in safety to drawing into a bunch of lands and having no way to use them.</p>
+                        <p>The main downside for the deck is that it relies pretty heavily on having the commander in play. However, this isn't the end of the world because you can get value from it the same turn you play it. Other than that, the only complaint is some underwhelming merfolk. But again, they can generate value and get big even if they are somewhat vanilla.</p>
+                        <h3>1. Blood Rites</h3>
+                        <p><img src="https://aetherhub.b-cdn.net/articles/10786_blood%20rites.png" alt="blood rites precon" width="300" height="463"></p>
+                        <p>My pick for the best <strong>Lost Caverns of Ixalan precon</strong> is Blood Rites. And most of the greatness comes from the power of the commander, <span class="hover-imglink"><a href="/Card/LCC/Clavileo-First-of-the-Blessed/122" class="cardLink" data-card-id="78729" data-card-name="Clavileño, First of the Blessed" data-price="" data-buylink="https://tcgplayer.pxf.io/c/4945535/1830156/21018?subId1=card-detail&amp;subId2=buy-fallback&amp;u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fmagic%2Fproduct%3FproductLineName%3Dmagic%26q%3DClavileño, First of the Blessed" data-mcmprice="" data-mcmbuylink="https://www.cardmarket.com/en/Magic/Cards/Clavile%C3%B1o-First-of-the-Blessed/Versions?referrer=aetherhub&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=aetherhub" data-chprice="" data-chlink="https://www.cardhoarder.com/cards?affiliate_id=aetherhub&amp;data%5Bsearch%5D=Clavile%C3%B1o+First+of+the+Blessed&amp;utm_campaign=affiliate&amp;utm_medium=card&amp;utm_source=aetherhub" data-toggle="modal" data-target="#cardInfo">Clavileño, First of the Blessed<span><img src="/images/loading.svg" data-src="https://aetherhub.b-cdn.net/images/cards/mtg-LCC/Clavile%C3%B1o,%20First%20of%20the%20Blessed.122.jpg" class="ae-card-hover-img" alt="image" height="311" width="223" onerror="this.onerror=null;this.src='/images/cardDeadLink3.jpg';"></span></a></span>. There's a lot of text to keep up with, but once you start playing it, it runs smoothly.&nbsp;Whenever you attack, target attacking Vampire that <em>isn’t</em> a Demon <em>becomes</em> a Demon in addition to its other types. And gains “When this creature dies, draw a card and create a tapped 4/3 white and black Vampire Demon creature token with flying.”</p>
+                        <p><a href="/Card/LCC/Clavileo-First-of-the-Blessed/122" class="cardLink" data-card-id="78729" data-card-name="Clavileño, First of the Blessed" data-price="" data-buylink="https://tcgplayer.pxf.io/c/4945535/1830156/21018?subId1=card-detail&amp;subId2=buy-fallback&amp;u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fmagic%2Fproduct%3FproductLineName%3Dmagic%26q%3DClavileño, First of the Blessed" data-mcmprice="" data-mcmbuylink="https://www.cardmarket.com/en/Magic/Cards/Clavile%C3%B1o-First-of-the-Blessed/Versions?referrer=aetherhub&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=aetherhub" data-chprice="" data-chlink="https://www.cardhoarder.com/cards?affiliate_id=aetherhub&amp;data%5Bsearch%5D=Clavile%C3%B1o+First+of+the+Blessed&amp;utm_campaign=affiliate&amp;utm_medium=card&amp;utm_source=aetherhub" data-toggle="modal" data-target="#cardInfo"><img class="note-card-image" src="https://aetherhub.b-cdn.net/images/cards/mtg-LCC/Clavile%C3%B1o,%20First%20of%20the%20Blessed.122.jpg" loading="lazy" alt="image" height="311" width="223" onerror="this.onerror=null;this.src='/images/cardDeadLink3.jpg';" title="Clavileño, First of the Blessed"></a></p>
+                        <p>First, the words "draw a card" are in there, which is lovely. Having card draw in the commander zone is always strong. So,&nbsp;Clavileño is already off to a great start. Next, he gives you a 4/3 body when your creatures die. This provides the deck with some nice resiliency against board wipes. It also means you have some wicked sacrifice synergies and they're made even better because your commander doesn't have to attack.</p>
+                        <p>Playing any two-drop vampire and casting&nbsp;Clavileño on the next turn sets the precon up quite well. Getting a 4/3 body with evasion makes it hard for opponents to justify blocking your smaller creatures, and I find it quite easy to get in for damage that would usually be chump-blocked. Creatures that you really don't mind dying, like <span class="hover-imglink"><a href="/Card/SLD/Bloodghast/6" class="cardLink" data-card-id="47287" data-card-name="Bloodghast" data-price="14.53" data-buylink="https://tcgplayer.pxf.io/c/4945535/1830156/21018?subId1=card-detail&amp;subId2=buy-fallback&amp;u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fmagic%2Fproduct%3FproductLineName%3Dmagic%26q%3DBloodghast" data-mcmprice="16.73" data-mcmbuylink="https://www.cardmarket.com/en/Magic/Cards/Bloodghast/Versions?referrer=aetherhub&amp;utm_campaign=card_prices&amp;utm_medium=text&amp;utm_source=aetherhub" data-chprice="0.49" data-chlink="https://www.cardhoarder.com/cards/79082?affiliate_id=aetherhub&amp;utm_campaign=affiliate&amp;utm_medium=card&amp;utm_source=aetherhub" data-toggle="modal" data-target="#cardInfo">Bloodghast<span><img src="/images/loading.svg" data-src="https://aetherhub.b-cdn.net/images/cards/mtg-SLD/Bloodghast.jpg" class="ae-card-hover-img" alt="image" height="311" width="223" onerror="this.onerror=null;this.src='/images/cardDeadLink3.jpg';"></span></a></span>, can really take the value from each creature through the roof.</p>
+                        <p>I've pretty much only talked about&nbsp;Clavileño so far but in my experience, he carries the precon quite a bit. Some vampire/sacrifice synergies work with or without him, but the deck generally wants him in play early and often. The deck is slowed down if you can't keep him in play. Aside from that, my only complaint is that the deck is a little light when it comes to single-target removal.</p>
+                        <h2>Conclusion</h2>
+                        <p>I've enjoyed playing with the LCI precons. Overall, I think they're a fun batch with some great reprints. Of course, some are better than others and Blood Rites seems to stand out above the rest. That said, the Explorers of the Deep deck is a close second. I'd love to hear from everyone which of these decks you've played and which you like best. So, comment and let me know. Until next time, take care.</p>
+                        *@
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-12">
+                <ul class="entry-meta">
+                    @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                    {
+                        <li class="single-meta">
+                            <a asp-controller="Article" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary">Edit</a>
+                        </li>
+                        <li class="single-meta">
+                            <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
+                            </form>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </article>
+        @* <div class="card mt-2 border-0">
+        <div class="card-header bg-light p-0 text-center">
+        <b>Comments</b>
+        </div>
+        <div class="card-body">
+        <div class="w-100 text-center">
+        <h4><a href="/Account/Login/?ReturnUrl=/Article/Lost-Caverns-Of-Ixalan-Precons-Ranked" rel="nofollow">Login</a> to comment</h4>
+        </div>
+        <div id="commentMessage" class="alert alert-danger" role="alert"></div>
+        <p><span id="commentCount">0</span> comments</p>
+        <div id="comments" data-id="10786" data-type="article">
+        </div>
+        </div>
+        </div>*@
+    </div>
+
+</div>
+
+<div class="col-sm-12 col-md-12 col-lg-4 pl-0 pr-0 mt-2 mt-lg-0">
+    @*<div class="card mb-2 card-usd-price">
+    <div class="ae-border-bottom-light p-0 text-center">
+    <b>Search Articles</b>
+    </div>
+    <div class="card-body pt-2 pb-1 pr-0 pl-0">
+    <form action="/Article/Search" method="get">
+    <div class="row">
+    <div class="col-md-12 mb-2">
+    <input type="text" name="name" class="form-control btn-outline-dark" placeholder="Title or content">
+    </div>
+    <div class="col-md-12 mb-2">
+    <div class="dropdown bootstrap-select form-control">
+    <select class="selectpicker form-control" data-live-search="true" name="type" title="All Categories" data-style="btn-outline-dark" tabindex="-98">
+    <option class="bs-title-option" value=""></option>
+    <option value="">All Categories</option>
+    <option value="AetherHub">AetherHub</option>
+    <option value="Arena Standard">Arena Standard</option>
+    <option value="Banlist">Banlist</option>
+    <option value="Beginner">Beginner</option>
+    <option value="Brawl">Brawl</option>
+    <option value="Brew">Brew</option>
+    <option value="Brews">Brews</option>
+    <option value="Calendar">Calendar</option>
+    <option value="Commander">Commander</option>
+    <option value="Community">Community</option>
+    <option value="Competitive">Competitive</option>
+    <option value="Content Creator">Content Creator</option>
+    <option value="Deck">Deck</option>
+    <option value="deck tracker">deck tracker</option>
+    <option value="Decklists">Decklists</option>
+    <option value="Discussion">Discussion</option>
+    <option value="Economy">Economy</option>
+    <option value="Event">Event</option>
+    <option value="Explorer">Explorer</option>
+    <option value="Gameplay">Gameplay</option>
+    <option value="Guide">Guide</option>
+    <option value="Historic">Historic</option>
+    <option value="Information">Information</option>
+    <option value="Interview">Interview</option>
+    <option value="Legacy">Legacy</option>
+    <option value="Limited">Limited</option>
+    <option value="Meta">Meta</option>
+    <option value="Metagame">Metagame</option>
+    <option value="Modern">Modern</option>
+    <option value="Mothership">Mothership</option>
+    <option value="MTGA">MTGA</option>
+    <option value="MTGA Events">MTGA Events</option>
+    <option value="MTGAAssistant">MTGAAssistant</option>
+    <option value="News">News</option>
+    <option value="Oathbreaker">Oathbreaker</option>
+    <option value="Pauper">Pauper</option>
+    <option value="Pioneer">Pioneer</option>
+    <option value="Podcast">Podcast</option>
+    <option value="Prerelease">Prerelease</option>
+    <option value="Release">Release</option>
+    <option value="Secret Lair">Secret Lair</option>
+    <option value="Singleton">Singleton</option>
+    <option value="Spoilers">Spoilers</option>
+    <option value="Sponsorship">Sponsorship</option>
+    <option value="Standard">Standard</option>
+    <option value="Streaming">Streaming</option>
+    <option value="TeamAether">TeamAether</option>
+    <option value="Tournament">Tournament</option>
+    <option value="Twitch">Twitch</option>
+    <option value="Updates">Updates</option>
+    <option value="Vintage">Vintage</option>
+    <option value="Wizards">Wizards</option>
+    <option value="Wotc">Wotc</option>
+    <option value="Youtube">Youtube</option>
+    </select><button type="button" class="btn dropdown-toggle btn-outline-dark bs-placeholder" data-toggle="dropdown" role="button" title="All Categories"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">All Categories</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="bs-searchbox"><input type="text" class="form-control" autocomplete="off" role="textbox" aria-label="Search"></div><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
+    </div>
+    </div>
+    <div class="col-md-12 text-center">
+    <button type="submit" class="btn btn-light btn-outline-dark mr-2"><span class="fas fa-search"></span> <b>Search</b></button>
+    </div>
+    </div>
+    </form>
+    </div>
+    </div>*@
+
+
+    <div class="text-center"><h4>Latest Articles</h4></div>
+    @foreach (var article in this.Model.Articles)
+    {
+        <div class="card mt-2 mr-2 mb-2">
+            <div class="w-100 d-flex justify-content-start">
+                <div class="mr-1">
+                    <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id">
+                        <div class="article-imgheader-xs lazy uimg" style="background-image: url(@article.ImageUrl);">
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <h6 class="card-title">
+                        <b><a href="">"@article.Title"</a></b>
+                    </h6>
+                    <h6 class="card-subtitle text-muted">
+                        Decklists&nbsp;Discussion&nbsp;
+                    </h6>
+                    <p>
+                        <span class="text-muted">
+                            "@article.CreatedOn" + "by"
+                        </span>
+                        <a href="">@article.ArticleCreatorName</a>
+                    </p>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <p class="card-text m-1">@article.ShortDescription</p>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Do you want to delete this article?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>

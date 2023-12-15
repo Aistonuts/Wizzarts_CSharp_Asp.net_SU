@@ -10,7 +10,7 @@
             @foreach (var art in this.Model.Art)
             {
                 <div class="inner-container">
-                    <a asp-controller="Card" asp-action="ById" asp-route-id="@art.Id" class="item ae-card-link cardLink ">
+                    <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" class="item ae-card-link cardLink ">
                         "@art.Description"
                         <img class="lazy" src="@art.ImageUrl" alt="@art.Title" style="">
                         <div class="item-hidden-text">@art.Title</div>
@@ -22,4 +22,6 @@
         </div>
     </div>
 </div>
-
+<hr />
+<hr />
+<partial name="_PagingPartial" model="@Model" />

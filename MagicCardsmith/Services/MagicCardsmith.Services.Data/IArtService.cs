@@ -12,5 +12,11 @@
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12);
 
         T GetById<T>(string id);
+
+        int GetCount();
+
+        IEnumerable<T> GetAllByArtistId<T>(int id);
+
+        IEnumerable<T> GetRandom<T>(int count);
     }
 }

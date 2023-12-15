@@ -1,0 +1,76 @@
+﻿@using MagicCardsmith.Common
+@model MagicCardsmith.Web.ViewModels.Art.SingleArtViewModel
+@{
+    this.ViewData["Title"] = Model.Title;
+}
+
+<div class="col-sm-12 col-lg-8 pl-0 pr-0 pr-lg-2 h-oneKpx">
+    <div class="card">
+        <div class="card-header bg-light pt-0">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a href="/Card" class="nav-link ">
+                        <span class="fas fa-search" title="Advanced Search"></span> <b>Advanced Search</b>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Card/Set" class="nav-link ">
+                        <span class="ss ss-xmods" title="Browse by Set"></span> <b>MTG Set List</b>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Card/Set/PIP" class="nav-link ">
+                        <b><i class="ss ss-pip"></i> Fallout</b>
+                    </a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a role="link" aria-disabled="true" class="nav-link active">
+                        <b>Card details</b>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 pl-0 pr-0">
+                    <div id="cardInfo" class="row mb-4">
+                        <div class="col-sm-12 col-md-6 cardModal">
+                            <div class="card-image-front text-center"><img id="previewCardModal" class="card-image" src="@Model.ImageUrl" alt="Card" onerror="this.onerror=null;this.src='@Model.ImageUrl';"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
+                            <h2>@Model.Title</h2> <span class="pull-right"><i class="ms ms-4 ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i></span>
+                            <p>Creature — Lizard Mutant</p>
+                            <hr>
+                            <p>Menace, trample<br>When Alpha Deathclaw enters the battlefield or becomes monstrous, destroy target permanent.<br><i class="ms ms-5 ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i>: Monstrosity 4. (If this creature isn't monstrous, put four +1/+1 counters on it and it becomes monstrous.)</p>
+                            <p><i></i></p>
+                            <hr>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td valign="top">
+                                            <i class="ss ss-2x ss-fw ss-pip ss-rare"></i>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <a href="/Card/Set/PIP">Fallout (PIP)</a>
+                                            <br>
+                                            <small>
+                                                <span>#91, </span>
+                                                Rare
+                                            </small>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr>
+                            <p>
+                                <i>Illustrated by: Daarken</i><br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

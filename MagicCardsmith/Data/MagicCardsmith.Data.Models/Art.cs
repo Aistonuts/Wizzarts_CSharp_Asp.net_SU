@@ -27,5 +27,9 @@
         public int? CardId { get; set; }
 
         public Card? Card { get; set; }
+
+        public string? ApplicationUserId { get; set; }
+
+        public ApplicationUser? ApplicationUser { get; set; }
     }
 }

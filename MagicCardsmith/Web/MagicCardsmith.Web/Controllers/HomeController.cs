@@ -4,16 +4,26 @@
 
     using MagicCardsmith.Services.Data;
     using MagicCardsmith.Web.ViewModels;
+    using MagicCardsmith.Web.ViewModels.Art;
+    using MagicCardsmith.Web.ViewModels.Artist;
     using MagicCardsmith.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
         private readonly IArticleService articlesService;
+        private readonly IArtService artService;
+        private readonly IArtistService artistService;
 
-        public HomeController(IArticleService articlesService)
+        public HomeController(
+            IArticleService articlesService,
+            IArtService artService,
+            IArtistService artistService)
         {
             this.articlesService = articlesService;
+            this.artService = artService;
+            this.artistService = artistService;
+
         }
 
         public IActionResult Index()
@@ -21,6 +31,8 @@
             var viewModel = new IndexViewModel
             {
                 Articles = this.articlesService.GetRandom<IndexPageArticleViewModel>(3),
+                Arts = this.artService.GetRandom<ArtInListViewModel>(3),
+                Artists = this.artistService.GetRandom<ArtistInListViewModel>(4),
             };
             return this.View(viewModel);
         }

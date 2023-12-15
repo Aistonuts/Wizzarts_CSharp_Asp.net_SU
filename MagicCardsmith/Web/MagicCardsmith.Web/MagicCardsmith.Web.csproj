@@ -53,7 +53,8 @@
     <Folder Include="wwwroot\images\art\Unlimited\" />
     <Folder Include="wwwroot\images\art\userArt\" />
     <Folder Include="wwwroot\images\cardsByExpansion\" />
-    <Folder Include="wwwroot\images\avatars\" />
+    <Folder Include="wwwroot\images\avatar\" />
     <Folder Include="wwwroot\images\Stores\" />
+    <Folder Include="wwwroot\fonts\" />
   </ItemGroup>
 </Project>

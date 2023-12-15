@@ -153,6 +153,9 @@ namespace MagicCardsmith.Data.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("ArtIstId")
                         .HasColumnType("int");
 
@@ -184,6 +187,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("ArtIstId");
 
@@ -228,6 +233,9 @@ namespace MagicCardsmith.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ShortDescription")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -251,6 +259,9 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AvatarUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Bio")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
@@ -740,6 +751,10 @@ namespace MagicCardsmith.Data.Migrations
 
             modelBuilder.Entity("MagicCardsmith.Data.Models.Art", b =>
                 {
+                    b.HasOne("MagicCardsmith.Data.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Art")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("MagicCardsmith.Data.Models.Artist", "Artist")
                         .WithMany("ArtPieces")
                         .HasForeignKey("ArtIstId")
@@ -749,6 +764,8 @@ namespace MagicCardsmith.Data.Migrations
                     b.HasOne("MagicCardsmith.Data.Models.Card", "Card")
                         .WithOne("Art")
                         .HasForeignKey("MagicCardsmith.Data.Models.Art", "CardId");
+
+                    b.Navigation("ApplicationUser");
 
                     b.Navigation("Artist");
 
@@ -887,6 +904,8 @@ namespace MagicCardsmith.Data.Migrations
 
             modelBuilder.Entity("MagicCardsmith.Data.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("Art");
+
                     b.Navigation("Articles");
 
                     b.Navigation("Cards");

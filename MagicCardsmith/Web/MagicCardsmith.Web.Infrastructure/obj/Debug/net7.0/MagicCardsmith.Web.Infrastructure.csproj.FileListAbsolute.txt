@@ -10,3 +10,6 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.Infrastructure\obj\Debug\net7.0\refint\MagicCardsmith.Web.Infrastructure.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.Infrastructure\obj\Debug\net7.0\MagicCardsmith.Web.Infrastructure.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.Infrastructure\obj\Debug\net7.0\ref\MagicCardsmith.Web.Infrastructure.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.Infrastructure\bin\Debug\net7.0\MagicCardsmith.Common.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.Infrastructure\bin\Debug\net7.0\MagicCardsmith.Common.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.Infrastructure\obj\Debug\net7.0\MagicCardsmith.Web.Infrastructure.csproj.CopyComplete

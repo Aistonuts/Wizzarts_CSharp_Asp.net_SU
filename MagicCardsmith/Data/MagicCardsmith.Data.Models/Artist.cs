@@ -16,6 +16,8 @@
 
         public string AvatarUrl { get; set; }
 
+        public string Bio { get; set; }
+
         public string Email { get; set; }
 
         public string UserId { get; set; }

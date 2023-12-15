@@ -1,18 +1,19 @@
-﻿using MagicCardsmith.Data.Models;
-using MagicCardsmith.Data;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using MagicCardsmith.Services.Data;
-using MagicCardsmith.Web.ViewModels.Art;
-using Microsoft.AspNetCore.Authorization;
-using System.Threading.Tasks;
-using System;
-using MagicCardsmith.Data.Common.Repositories;
-using Microsoft.EntityFrameworkCore;
-
-namespace MagicCardsmith.Web.Controllers
+﻿namespace MagicCardsmith.Web.Controllers
 {
+    using System;
+    using System.Threading.Tasks;
+
+    using MagicCardsmith.Data;
+    using MagicCardsmith.Data.Common.Repositories;
+    using MagicCardsmith.Data.Models;
+    using MagicCardsmith.Services.Data;
+    using MagicCardsmith.Web.ViewModels.Art;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+
     public class ArtController : Controller
     {
         private readonly ApplicationDbContext db;
@@ -73,13 +74,22 @@ namespace MagicCardsmith.Web.Controllers
             {
                 return this.NotFound();
             }
-
+            const int ItemsPerPage = 5;
             var viewModel = new ArtListViewModel
             {
-                Art = this.artService.GetAll<ArtInListViewModel>(id, 3),
+                ItemsPerPage = ItemsPerPage,
+                PageNumber = id,
+                Count = this.artService.GetCount(),
+                Art = this.artService.GetAll<ArtInListViewModel>(id, ItemsPerPage),
             };
 
             return this.View(viewModel);
+        }
+
+        public IActionResult ById(string id)
+        {
+            var art = this.artService.GetById<SingleArtViewModel>(id);
+            return this.View(art);
         }
     }
 }

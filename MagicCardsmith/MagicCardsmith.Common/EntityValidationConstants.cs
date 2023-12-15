@@ -1,4 +1,4 @@
-﻿namespace HouseRentingSystem.Common
+﻿namespace MagicCardsmith.Common
 {
     public static class EntityValidationConstants
     {

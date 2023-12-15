@@ -63,6 +63,15 @@
             return art;
         }
 
+        public IEnumerable<T> GetAllByArtistId<T>(int id)
+        {
+            var art = this.artRepository.AllAsNoTracking()
+                .Where(x => x.ArtIstId == id)
+                .To<T>().ToList();
+
+            return art;
+        }
+
         public T GetById<T>(string id)
         {
             var art = this.artRepository.AllAsNoTracking()
@@ -70,6 +79,19 @@
                 .To<T>().FirstOrDefault();
 
             return art;
+        }
+
+        public int GetCount()
+        {
+            return this.artRepository.All().Count();
+        }
+
+        public IEnumerable<T> GetRandom<T>(int count)
+        {
+            return this.artRepository.All()
+               .OrderBy(x => Guid.NewGuid())
+               .Take(count)
+               .To<T>().ToList();
         }
     }
 }

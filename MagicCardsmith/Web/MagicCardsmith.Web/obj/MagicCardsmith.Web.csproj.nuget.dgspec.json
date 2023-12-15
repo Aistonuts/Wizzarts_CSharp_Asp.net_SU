@@ -332,6 +332,9 @@
               "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data.Models\\MagicCardsmith.Data.Models.csproj": {
                 "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data.Models\\MagicCardsmith.Data.Models.csproj"
               },
+              "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data\\MagicCardsmith.Data.csproj": {
+                "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data\\MagicCardsmith.Data.csproj"
+              },
               "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Services\\MagicCardsmith.Services.Mapping\\MagicCardsmith.Services.Mapping.csproj": {
                 "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Services\\MagicCardsmith.Services.Mapping\\MagicCardsmith.Services.Mapping.csproj"
               },
@@ -598,7 +601,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\MagicCardsmith.Common\\MagicCardsmith.Common.csproj": {
+                "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\MagicCardsmith.Common\\MagicCardsmith.Common.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -611,6 +618,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",

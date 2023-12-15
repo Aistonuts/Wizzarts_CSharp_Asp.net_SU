@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\css\\style.min.css",
+      "PackagePath": "staticwebassets\\css\\style.min.css"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -145,64 +149,64 @@
       "PackagePath": "staticwebassets\\images\\art\\Alpha\\Swamp.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Marvel_Five.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Marvel_Five.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_Five.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Marvel_Five.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Marvel_Four.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Marvel_Four.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_Four.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Marvel_Four.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Marvel_One.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Marvel_One.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_One.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Marvel_One.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Marvel_Six.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Marvel_Six.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_Six.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Marvel_Six.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Marvel_Three.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Marvel_Three.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_Three.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Marvel_Three.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Marvel_Two.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Marvel_Two.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_Two.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Marvel_Two.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Drawgoon.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Portrait_Drawgoon.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Drawgoon.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Drawgoon.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Glowei.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Portrait_Glowei.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Glowei.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Glowei.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Metzen.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Portrait_Metzen.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Metzen.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Metzen.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_MrJack.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Portrait_MrJack.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_MrJack.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_MrJack.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Raneman.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Portrait_Raneman.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Raneman.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Raneman.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_RedKnuckle.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Portrait_RedKnuckle.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_RedKnuckle.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_RedKnuckle.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Samwise.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Portrait_Samwise.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Samwise.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Samwise.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Thammer.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Portrait_Thammer.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Thammer.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Thammer.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Twincruiser.png",
-      "PackagePath": "staticwebassets\\images\\avatars\\Portrait_Twincruiser.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Twincruiser.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Twincruiser.png"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\ancestral_recall.jpg",
@@ -465,8 +469,8 @@
       "PackagePath": "staticwebassets\\images\\mana\\w.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\AlphaBox1.png",
-      "PackagePath": "staticwebassets\\images\\navigation\\AlphaBox1.png"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\AlphaBox.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\AlphaBox.png"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\MagicCardsmith.gif",

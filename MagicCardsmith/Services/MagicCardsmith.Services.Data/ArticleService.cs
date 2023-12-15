@@ -44,12 +44,36 @@
             return articles;
         }
 
+        public T GetById<T>(int id)
+        {
+            var article = this.articleRepository.AllAsNoTracking()
+                .Where(x => x.Id == id)
+                .To<T>().FirstOrDefault();
+
+            return article;
+        }
+
+        public int GetCount()
+        {
+            return this.articleRepository.All().Count();
+        }
+
         public IEnumerable<T> GetRandom<T>(int count)
         {
             return this.articleRepository.All()
                 .OrderBy(x => Guid.NewGuid())
                 .Take(count)
                 .To<T>().ToList();
+        }
+
+        public async Task UpdateAsync(int id, EditArticleInputModel input)
+        {
+            var articles = this.articleRepository.All().FirstOrDefault(x => x.Id == id);
+            articles.Title = input.Title;
+            articles.Description = input.Description;
+            articles.ImageUrl = input.ImageUrl;
+
+            await this.articleRepository.SaveChangesAsync();
         }
     }
 }

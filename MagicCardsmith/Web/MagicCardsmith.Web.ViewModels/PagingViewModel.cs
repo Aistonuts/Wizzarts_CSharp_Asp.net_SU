@@ -1,4 +1,4 @@
-﻿namespace MagicCardsHub.Web.ViewModels
+﻿namespace MagicCardsmith.Web.ViewModels
 {
     using System;
 
@@ -14,9 +14,9 @@
 
         public int NextPageNumber => this.PageNumber + 1;
 
-        public int PagesCount => (int)Math.Ceiling((double)this.ArtCount / this.ItemsPerPage);
+        public int PagesCount => (int)Math.Ceiling((double)this.Count / this.ItemsPerPage);
 
-        public int ArtCount { get; set; }
+        public int Count { get; set; }
 
         public int ItemsPerPage { get; set; }
     }

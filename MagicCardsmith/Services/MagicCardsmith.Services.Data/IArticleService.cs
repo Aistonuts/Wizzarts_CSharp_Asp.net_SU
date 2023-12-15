@@ -12,5 +12,11 @@
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 3);
 
         IEnumerable<T> GetRandom<T>(int count);
+
+        Task UpdateAsync(int id, EditArticleInputModel input);
+
+        T GetById<T>(int id);
+
+        int GetCount();
     }
 }

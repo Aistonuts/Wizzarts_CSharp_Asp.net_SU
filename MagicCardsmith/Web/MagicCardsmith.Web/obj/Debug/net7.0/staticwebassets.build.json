@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "46Y/Px+sQpBBVvu3G1LQdD74V7EZ6BIuRppnsNhxRRg=",
+  "Hash": "lP2ahHe/9hrjOgSRIQTSSlH302lVL+6wJPyhWJU5O00=",
   "Source": "MagicCardsmith.Web",
   "BasePath": "_content/MagicCardsmith.Web",
   "Mode": "Default",
@@ -1156,6 +1156,23 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\css\\style.min.css",
+      "SourceId": "MagicCardsmith.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsmith.Web",
+      "RelativePath": "css/style.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.min.css"
+    },
+    {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\favicon.ico",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
@@ -1564,12 +1581,12 @@
       "OriginalItemSpec": "wwwroot\\images\\art\\Alpha\\Swamp.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Marvel_Five.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_Five.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Marvel_Five.png",
+      "RelativePath": "images/avatar/Marvel_Five.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1578,15 +1595,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Marvel_Five.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Marvel_Five.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Marvel_Four.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_Four.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Marvel_Four.png",
+      "RelativePath": "images/avatar/Marvel_Four.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1595,15 +1612,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Marvel_Four.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Marvel_Four.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Marvel_One.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_One.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Marvel_One.png",
+      "RelativePath": "images/avatar/Marvel_One.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1612,15 +1629,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Marvel_One.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Marvel_One.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Marvel_Six.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_Six.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Marvel_Six.png",
+      "RelativePath": "images/avatar/Marvel_Six.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1629,15 +1646,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Marvel_Six.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Marvel_Six.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Marvel_Three.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_Three.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Marvel_Three.png",
+      "RelativePath": "images/avatar/Marvel_Three.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1646,15 +1663,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Marvel_Three.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Marvel_Three.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Marvel_Two.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_Two.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Marvel_Two.png",
+      "RelativePath": "images/avatar/Marvel_Two.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1663,15 +1680,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Marvel_Two.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Marvel_Two.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Drawgoon.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Drawgoon.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Portrait_Drawgoon.png",
+      "RelativePath": "images/avatar/Portrait_Drawgoon.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1680,15 +1697,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Portrait_Drawgoon.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Portrait_Drawgoon.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Glowei.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Glowei.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Portrait_Glowei.png",
+      "RelativePath": "images/avatar/Portrait_Glowei.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1697,15 +1714,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Portrait_Glowei.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Portrait_Glowei.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Metzen.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Metzen.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Portrait_Metzen.png",
+      "RelativePath": "images/avatar/Portrait_Metzen.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1714,15 +1731,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Portrait_Metzen.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Portrait_Metzen.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_MrJack.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_MrJack.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Portrait_MrJack.png",
+      "RelativePath": "images/avatar/Portrait_MrJack.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1731,15 +1748,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Portrait_MrJack.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Portrait_MrJack.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Raneman.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Raneman.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Portrait_Raneman.png",
+      "RelativePath": "images/avatar/Portrait_Raneman.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1748,15 +1765,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Portrait_Raneman.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Portrait_Raneman.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_RedKnuckle.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_RedKnuckle.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Portrait_RedKnuckle.png",
+      "RelativePath": "images/avatar/Portrait_RedKnuckle.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1765,15 +1782,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Portrait_RedKnuckle.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Portrait_RedKnuckle.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Samwise.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Samwise.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Portrait_Samwise.png",
+      "RelativePath": "images/avatar/Portrait_Samwise.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1782,15 +1799,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Portrait_Samwise.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Portrait_Samwise.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Thammer.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Thammer.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Portrait_Thammer.png",
+      "RelativePath": "images/avatar/Portrait_Thammer.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1799,15 +1816,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Portrait_Thammer.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Portrait_Thammer.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatars\\Portrait_Twincruiser.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Portrait_Twincruiser.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/avatars/Portrait_Twincruiser.png",
+      "RelativePath": "images/avatar/Portrait_Twincruiser.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1816,7 +1833,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\avatars\\Portrait_Twincruiser.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\Portrait_Twincruiser.png"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\ancestral_recall.jpg",
@@ -2941,12 +2958,12 @@
       "OriginalItemSpec": "wwwroot\\images\\navigation\\ah_logo.svg"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\AlphaBox1.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\AlphaBox.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/navigation/AlphaBox1.png",
+      "RelativePath": "images/navigation/AlphaBox.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2955,7 +2972,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\navigation\\AlphaBox1.png"
+      "OriginalItemSpec": "wwwroot\\images\\navigation\\AlphaBox.png"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\navigation\\clouds.png",

@@ -60,7 +60,7 @@
             {
                 Title = "Forest",
                 Description = "The old forest",
-                RemoteImageUrl = "/images/art/Forest.png",
+                RemoteImageUrl = "/images/art/Alpha/Forest.png",
                 Extension = ".png",
                 ArtIstId = 5,
 

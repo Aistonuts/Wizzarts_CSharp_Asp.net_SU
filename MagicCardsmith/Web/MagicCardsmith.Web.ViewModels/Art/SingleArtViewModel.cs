@@ -20,7 +20,11 @@
 
         public string ImageUrl { get; set; }
 
+        public int ArtistId { get; set; }
+
         public string ArtistName { get; set; }
+
+        public string ArtistBio { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
         {
@@ -29,7 +33,11 @@
                     opt.MapFrom(x =>
                        x.RemoteImageUrl))
                 .ForMember(x => x.ArtistName, opt =>
-                    opt.MapFrom(x => x.Artist.Nickname));
+                    opt.MapFrom(x => x.Artist.Nickname))
+                .ForMember(x => x.ArtistBio, opt =>
+                    opt.MapFrom(x => x.Artist.Bio))
+                .ForMember(x => x.ArtistId, opt =>
+                    opt.MapFrom(x => x.Artist.Id));
         }
     }
 }
