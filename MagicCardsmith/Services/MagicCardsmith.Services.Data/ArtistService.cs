@@ -27,9 +27,9 @@
 
         public async Task<bool> ArtistExistsByUserIdAsync(string userId)
         {
-            bool result = await this.dbContext
-                .Artists
-                .AnyAsync(a => a.UserId.ToString() == userId);
+            bool result = await this.artistRepository.AllAsNoTracking().AnyAsync(a => a.UserId == userId);
+
+
 
             return result;
         }

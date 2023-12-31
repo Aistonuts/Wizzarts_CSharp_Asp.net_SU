@@ -49,11 +49,9 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Data\" />
-    <Folder Include="wwwroot\images\art\Beta\" />
-    <Folder Include="wwwroot\images\art\Unlimited\" />
     <Folder Include="wwwroot\images\art\userArt\" />
-    <Folder Include="wwwroot\images\cardsByExpansion\" />
     <Folder Include="wwwroot\images\avatar\" />
+    <Folder Include="wwwroot\images\Event\Milestones\EventOneMilestones\" />
     <Folder Include="wwwroot\images\Stores\" />
     <Folder Include="wwwroot\fonts\" />
   </ItemGroup>

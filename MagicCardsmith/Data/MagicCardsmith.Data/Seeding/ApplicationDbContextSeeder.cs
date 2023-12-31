@@ -35,10 +35,14 @@
                               new AlphaCardSeeder(),
                               new ArticleSeeder(),
                               new AvatarSeeder(),
+                              new EventStatusSeeder(),
                               new EventSeeder(),
                               new EventMileStonesSeeder(),
                               new StoreSeeder(),
                               new ArticleSeeder(),
+                              new CardManaSeeder(),
+                              new GameRulesSeeder(),
+                              new GameRulesComponentsSeeder(),
                           };
 
             foreach (var seeder in seeders)

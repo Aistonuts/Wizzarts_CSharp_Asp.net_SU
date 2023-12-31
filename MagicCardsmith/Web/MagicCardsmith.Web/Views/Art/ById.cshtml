@@ -73,6 +73,18 @@
                     </div>
                 </div>
             </div>
+            <div class="col-xl-9 col-12">
+                <ul class="entry-meta">
+                    @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                    {
+                        <li class="single-meta">
+                            <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
+                            </form>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                        </li>
+                    }
+                </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -100,6 +112,20 @@
                         <i class="fas fa-times"></i> <b>Close</b>
                     </button>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Do you want to delete "@Model.Title"?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
             </div>
         </div>
     </div>

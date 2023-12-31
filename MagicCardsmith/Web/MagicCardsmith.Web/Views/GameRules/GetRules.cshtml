@@ -1,0 +1,222 @@
+﻿@using MagicCardsmith.Common;
+@model MagicCardsmith.Web.ViewModels.GameRules.GameRulesViewModel
+@{
+    this.ViewData["Title"] = "Magic Cardsmith Rules";
+}
+
+<div class="col-sm-12 col-md-12 col-lg-8 pl-0 pr-0 pr-lg-3">
+    <div class="card p-lg-3">
+        <div>
+            <div id="zone01-flex" class="mx-auto"></div>
+        </div>
+        <article id="article-body">
+            <div class="h-oneKpx pl-0 pr-0">
+                <div class="mt-3 mb-3 d-sm-flex justify-content-between align-items-end">
+                    <div class="col-12 col-sm-7 col-md-6">
+                        <h1 class="ff-display">@Model.Title</h1>
+                        <div class="w-100 d-flex justify-content-start mb-1 mt-3">
+                            <div class="yellow-line w-100 mb-0">
+                                <img src="@Model.PublisherAvatarUrl" width="50" height="50" class="rounded-circle">
+                                <a href="">@Model.Publisher</a>
+                                <span class="text-muted">@Model.CreatedOn</span>
+                                <span class="text-muted"><i class="far fa-clock"></i> 4 min</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-sm-5 col-md-6">
+                        <img class="article-uimgheader-preview" src="@Model.GameRulesIntroUrl" alt="@Model.Title">
+                    </div>
+                </div>
+
+
+
+                <div class="row mt-2 mb-2">
+                    <div id="article-text" class="col-md-12">
+                        <div class="card-text d-none d-md-flex m-1">@Model.Description</div>
+                        <br />
+                        <br />
+                        <h3>Card Reading</h3>
+                        <br />
+                        <p>@Model.CardReading</p>
+                        <br />
+                        <p></p><p class="text-center"><a><img class="d-block mx-auto" src="@Model.CardReadingIntroUrl" width="728" height="90"></a></p><p></p>
+                        @* <h2 style="text-align: center"></h2>*@
+
+                        <br />
+                        <h3>Card Name Reading</h3>
+
+                        <h3><img src="@Model.CardNameUrl" width="300" height="463"></h3>
+                        <br />
+                        <p>@Model.CardNameReading</p>
+
+                        <br />
+                        <h3>Card Mana Reading</h3>
+
+                        <h3><img src="@Model.ManaCostUrl" width="300" height="463"></h3>
+                        <br />
+                        <p>@Model.ManaCostReading</p>
+
+                        <br />
+                        <h3>Card Type Reading</h3>
+
+                        <h3><img src="@Model.CardTypeUrl" width="300" height="463"></h3>
+                        <br />
+                        <p>@Model.CardTypeReading</p>
+
+                        <br />
+                        <h3>Card Symbol Reading</h3>
+
+                        <h3><img src="@Model.SetSymbolUrl" width="300" height="463"></h3>
+                        <br />
+                        <p>@Model.SetSymbolReading</p>
+
+                        <br />
+                        <h3>Card Text box reading</h3>
+
+                        <h3><img src="@Model.CardTextBoxUrl" width="300" height="463"></h3>
+                        <br />
+                        <p>@Model.CardTextBoxReading</p>
+
+                        <br />
+                        <h3>Card Power and Toughness Reading</h3>
+
+                        <h3><img src="@Model.CardPowToughUrl" width="300" height="463"></h3>
+                        <br />
+                        <p>@Model.CardPowerToughnessReading</p>
+
+
+                        <br />
+                        <h3>Battlefield SetUp</h3>
+                        <div class="col-sm-12 col-md-6 cardModal">
+                        <h3>
+                            <a class="" data-toggle="modal" data-target="#imageModal">
+                                <img id="previewCardModal" class="card-image" src="@Model.BattleFieldIntroUrl" width="300" height="463">
+                            </a>
+                        </h3>
+                        </div>
+                        <p>@Model.BattleFieldSetUp</p>
+
+                        <br />
+                        <h3>Creatures on the battlefield</h3>
+                        <p>@Model.CreaturesInBattle</p>
+
+                        <br />
+                        <h3>Libriary</h3>
+                        <p>@Model.LibraryInBattle</p>
+
+                        <br />
+                        <h3>Lands</h3>
+                        <p>@Model.LandsInBattle</p>
+
+                        <br />
+                        <h3>Graveyard</h3>
+                        <p>@Model.GraveyardInBattle</p>
+
+                        <br />
+                        <h3>Hand</h3>
+                        <p>@Model.HandInBattle</p>
+
+                        <br />
+                        <h3>Game Actions</h3>
+                        <p>@Model.GameActions</p>
+                        <p></p><p class="text-center"><a><img class="d-block mx-auto" src="@Model.OutroUrl" width="728" height="90"></a></p><p></p>
+
+                        <br />
+                        <h3>Tapping and Untapping</h3>
+                        <p>@Model.TappingUntapping</p>
+
+                        <br />
+                        <h3>Casting spells</h3>
+                        <p>@Model.CastingSpells</p>
+
+                        <br />
+                        <h3>Attacking and Blocking</h3>
+                        <p>@Model.AttackingAndBlocking</p>
+
+
+                        <br />
+                        <h3>Parts of the turn</h3>
+                        <p>@Model.PartsOfTheTurn</p>
+
+                        <br />
+                        <h3>Beginning Phase</h3>
+                        <p>@Model.PartsOfTheTurn</p>
+
+                        <br />
+                        <h3>First Main Phase</h3>
+                        <p>@Model.FirstMainPhase</p>
+
+                        <br />
+                        <h3>Second Main Phase</h3>
+                        <p>@Model.SecondMainPhase</p>
+
+                        <br />
+                        <h3>Ending Phase</h3>
+                        <p>@Model.SecondMainPhase</p>
+
+                        <br />
+                        <h3>Outro</h3>
+                        <p>@Model.Outro</p>
+
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+</div>
+
+<div class="col-sm-12 col-md-12 col-lg-4 pl-0 pr-0 mt-2 mt-lg-0">
+    <div class="text-center"><h4>Cards Overview</h4></div>
+    @foreach (var rules in this.Model.GameRulesComponents)
+    {
+        <div class="card mt-2 mr-2 mb-2">
+            <div class="w-100 d-flex justify-content-start">
+                <div class="mr-1">
+                    <a>
+                        <div class="article-imgheader-xsrules lazy uimg" style="background-image: url(@rules.ImageUrl);">
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <h6 class="card-title">
+                        <b><a href="">"@rules.Title"</a></b>
+                    </h6>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <p class="card-text m-1">@rules.Description</p>
+            </div>
+        </div>
+    }
+</div>
+
+
+<div id="imageModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@Model.Title</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="fas fa-times text-dark"></span>
+                </button>
+            </div>
+            <div class="modal-body ui-front d-flex flex-row justify-content-center">
+                <div>
+                    <div class="ae-img-byid"><img id="previewCardModal" class="ae-img-byid" src="@Model.BattleFieldIntroUrl" alt="Card" onerror="this.onerror=null;this.src='@Model.BattleFieldIntroUrl';"></div>
+                </div>
+                <ul id="ui-id-1" tabindex="0"
+                    class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" unselectable="on"
+                    style="display: none;"></ul>
+            </div>
+            <div class="modal-footer mt-0">
+                <div class="text-right">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">
+                        <i class="fas fa-times"></i> <b>Close</b>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

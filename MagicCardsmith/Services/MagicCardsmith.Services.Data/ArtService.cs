@@ -49,9 +49,11 @@
             await this.artRepository.SaveChangesAsync();
         }
 
-        public Task CreateAsync(CreateArtInputModel input, string userId, string imagePath)
+        public async Task DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            var art = this.artRepository.All().FirstOrDefault(x => x.Id == id);
+            this.artRepository.Delete(art);
+            await this.artRepository.SaveChangesAsync();
         }
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 3)

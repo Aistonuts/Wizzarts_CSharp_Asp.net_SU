@@ -2,7 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
-
+    using MagicCardsmith.Common;
     using MagicCardsmith.Data;
     using MagicCardsmith.Data.Common.Repositories;
     using MagicCardsmith.Data.Models;
@@ -90,6 +90,15 @@
         {
             var art = this.artService.GetById<SingleArtViewModel>(id);
             return this.View(art);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            await this.artService.DeleteAsync(id);
+            return this.RedirectToAction(nameof(this.All));
         }
     }
 }

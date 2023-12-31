@@ -38,13 +38,21 @@
 
         public DbSet<Card> Cards { get; set; }
 
+        public DbSet<EventStatus> EventStatuses { get; set; }
+
         public DbSet<Event> Events { get; set; }
 
         public DbSet<EventMilestone> EventMilestones { get; set; }
 
         public DbSet<Store> Stores { get; set; }
 
+        public DbSet<CardMana> CardsMana { get; set; }
+
         public DbSet<Vote> Votes { get; set; }
+
+        public DbSet<MagicCardsmithGameRules> GameRules { get; set; }
+
+        public DbSet<GameRulesComponents> GameRulesComponents { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -71,6 +79,11 @@
             .HasOne(a => a.Art)
             .WithOne(a => a.Card)
             .HasForeignKey<Art>(a => a.CardId);
+
+            builder.Entity<ApplicationUser>()
+                .HasOne(a => a.GameRules)
+                .WithOne(a => a.PublishedBy)
+                .HasForeignKey<MagicCardsmithGameRules>(a => a.PublishedById);
 
             // Needed for Identity models configuration
             base.OnModelCreating(builder);

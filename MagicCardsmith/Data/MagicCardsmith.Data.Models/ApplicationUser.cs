@@ -27,6 +27,10 @@ namespace MagicCardsmith.Data.Models
 
         public string AvatarUrl { get; set; }
 
+        public string GameRulesId { get; set; }
+
+        public MagicCardsmithGameRules GameRules { get; set; }
+
         // Audit info
         public DateTime CreatedOn { get; set; }
 

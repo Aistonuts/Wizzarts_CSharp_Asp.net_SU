@@ -36,7 +36,7 @@
                     </div>
                 }
             </div>
-            <hr />
+            @*  <hr />
             <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Art</h4>
             <div class="firstfeed-flexbox">
             @foreach (var art in this.Model.Arts)
@@ -52,7 +52,21 @@
             }
             </div>
             <hr />
-            <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Artists</h4>
+            <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Cards</h4>
+            <div class="firstfeed-flexbox">
+                @foreach (var card in this.Model.Cards)
+                {
+                    <div class="inner-container">
+                        <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
+                            <img class="lazy" src="@card.ImageUrl" alt="@card.Name" style="">
+                            <div class="item-hidden-text">@card.CardExpansion</div>
+                        </a>
+                        <div class="item-footer">
+                        </div>
+                    </div>
+                }
+            </div> *@
+           @* <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Artists</h4>
             <div class="firstfeed-flexbox">
                 @foreach (var artist in this.Model.Artists)
                 {
@@ -102,19 +116,14 @@
                         </div>
                     </div>
                 }
-            </div>
+            </div>*@
+
         </div>
     </div>
 </div>
 
 <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
-
-
-
-
-
-
-    <div class="card mb-2 ">
+    @*<div class="card mb-2 ">
         <div class="ae-border-bottom-light p-0 text-center">
             <b><i class="ss ss-bcore"></i> DeckHub</b>
         </div>
@@ -168,55 +177,68 @@
             </p>
         </div>
     </div>
+   
+    <div class="card mb-2 ">
+    <div class="ae-border-bottom-light  p-0 text-center">
+    <b><i class="fas fa-tools"></i> Apps</b>
+    </div>
+    <div class="card-body p-2">
+    <p class="card-text">
+    Delve into the latest spoilers on the <a href="/Spoilers/">AetherHub Spoiler page</a>. Visual overview of all new and upcoming cards in Magic: The Gathering.
+    Practice with the AetherHub <a href="/Apps/DraftSensei">Draft Sensei</a>. The <a href="/Apps/HyperGeometric">Hypergeometric Calculator</a> lets you get into the details of your
+    deck while the <a href="/Apps/DeckConverter">DeckConverter</a> lets you easily convert decks from normal text lists to MTG Arena format.
+    Use our <a href="/Apps/TwitchExtensions/">Twitch Extensions</a> to display your mtg decks to your Twitch audience.
+    </p>
+    </div>
+    </div>*@
     <div class="card mb-2 ">
         <div class="ae-border-bottom-light  p-0 text-center">
-            <b><i class="fas fa-database"></i> Database</b>
+            <b><i class="fas fa-database"></i>Game Expansions</b>
         </div>
-        <div class="card-body p-2">
-            <p class="card-text">
-                The AetherHub database contains a full list of <a href="/Card/Set">all Sets</a> in MTG, a card <a href="/Card">search engine</a>,
-                <a href="/Apps/LimitedRatings">limited ratings</a>, <a href="/Article/">article archive</a>, <a href="/MTGAGuides">MTG Arena Guides</a> and
-                detailed <a href="/Docs/">documentation</a> of the website.
-            </p>
-        </div>
+        <p class="card-text">
+            The MagicCardsmith database contains a full list of <a href="/Card/Set">all card sets</a> in MTG,ordered by  <a href="/Card/Set">expansions</a> a card <a href="/Card">creation tool for all approved artists</a>,
+            <a href="/Apps/LimitedRatings">limited ratings</a>, <a href="/Article/">article archive</a>, <a href="/MTGAGuides">MTG Arena Guides</a> and
+            detailed <a href="/Docs/">documentation</a> of the website.
+        </p>
+        @foreach (var gameExpansion in this.Model.GameExpansions)
+        {
+            <div class="card-body p-2">
+                <p class="card-text">
+                    The @gameExpansion.Title @gameExpansion.Description .
+                </p>
+            </div>
+        }
+       
     </div>
     <div class="card mb-2 ">
         <div class="ae-border-bottom-light  p-0 text-center">
-            <b><i class="fas fa-calendar"></i> MTG Spoilers</b>
+            <b><i class="fas fa-users"></i> Our Stores</b>
         </div>
-        <div class="card-body p-2">
-            <p class="card-text">
-                Delve into the latest spoilers on the <a href="/Spoilers/">AetherHub Spoiler page</a>. Visual overview of all new and upcoming cards in Magic: The Gathering.
-            </p>
-        </div>
+        @foreach(var store in this.Model.Stores)
+        {
+            <div class="card-body p-2">
+                <p class="card-text">
+                    The @store.Name is a @store.Country based store.It is located in the city of @store.City .
+                </p>
+            </div>
+        }
     </div>
     <div class="card mb-2 ">
         <div class="ae-border-bottom-light  p-0 text-center">
-            <b><i class="fas fa-tools"></i> Apps</b>
+            <b><i class="fas fa-calendar"></i> Events</b>
         </div>
-        <div class="card-body p-2">
-            <p class="card-text">
-                Practice with the AetherHub <a href="/Apps/DraftSensei">Draft Sensei</a>. The <a href="/Apps/HyperGeometric">Hypergeometric Calculator</a> lets you get into the details of your
-                deck while the <a href="/Apps/DeckConverter">DeckConverter</a> lets you easily convert decks from normal text lists to MTG Arena format.
-                Use our <a href="/Apps/TwitchExtensions/">Twitch Extensions</a> to display your mtg decks to your Twitch audience.
-            </p>
-        </div>
-    </div>
-    <div class="card mb-2 ">
-        <div class="ae-border-bottom-light  p-0 text-center">
-            <b><i class="fas fa-users"></i> Community</b>
-        </div>
-        <div class="card-body p-2">
-            <p class="card-text">
-                Leverage our platform as content creators to engage with new viewers and also earn extra income from sharing decklists with our <a href="/ContentCreators/">TCGplayer Partnership</a>.
-            </p>
-        </div>
+        @foreach (var gameEvent in this.Model.Events)
+        {
+            <div class="card-body p-2">
+                <p class="card-text">
+                    @gameEvent.Title is part of our latest campaign for helping artists and content creators. By completing all of the milestones in  <a href="/ContentCreators/">@gameEvent.Title</a> you will help our developement and us as community.
+                </p>
+            </div>
+        }
     </div>
     <div id="zone18-300x600-card" class="mb-2 pt-1">
         <div>
             <div id="zone18-300x600" class="mx-auto"></div>
         </div>
     </div>
-
-
 </div>

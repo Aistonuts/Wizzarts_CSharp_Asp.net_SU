@@ -27,8 +27,6 @@
             this.artistService = artistService;
             this.userManager = userManager;
         }
-
-
         [HttpGet]
         public async Task<IActionResult> Become()
         {

@@ -13031,7 +13031,7 @@ span.archetype-tag {
 }
 
 .firstfeed-flexbox {
-    display: flex;
+    display: grid;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -13064,7 +13064,13 @@ span.archetype-tag {
     background-position: top -82px left 50%;
     background-size: 403px 552px;
 }
-
+.article-imgheader-xsrules {
+    width: 357px;
+    height: 110px;
+    padding-top: 146.2%;
+    background-position: top 0px left 45%;
+    background-size: 374px 534px;
+}
     .article-imgheader-xs.uimg {
         background-position: center;
         background-repeat: no-repeat;

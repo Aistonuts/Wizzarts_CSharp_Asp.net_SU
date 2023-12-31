@@ -7,6 +7,11 @@
 
     public class Card : BaseDeletableModel<int>
     {
+        public Card()
+        {
+            this.CardMana = new HashSet<CardMana>();
+        }
+
         public string Name { get; set; }
 
         public int RedManaCost { get; set; }
@@ -50,5 +55,7 @@
         public int GameExpansionId { get; set; }
 
         public GameExpansion GameExpansion { get; set; }
+
+        public virtual ICollection<CardMana> CardMana { get; set; }
     }
 }

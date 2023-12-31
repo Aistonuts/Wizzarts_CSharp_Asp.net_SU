@@ -231,7 +231,7 @@
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="All">Art pieces</a>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Artist" asp-action="All">Artists</a>
                                                         <hr>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Artist" asp-action="Become">Become Artist</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="GameRules" asp-action="GetRules">Magic Cardsmith Rules</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -252,6 +252,7 @@
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Cardsmith" asp-action="All">Stores</a>
                                                         <a href="/Decks/Video/">All Artists</a>
                                                         <hr>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Cardsmith" asp-action="All">Stores</a>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Cardsmith" asp-action="All">Stores</a>
                                                     </div>
                                                 </div>
@@ -299,7 +300,7 @@
                                             <i class="far fa-star"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="/Premium"><b>Premium</b></a>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Artist" asp-action="Become"><b>Premium</b></a>
                                             <a class="dropdown-item" href="/Artists"><b>Content Creators</b></a>
                                             <a class="dropdown-item" href="/Team"><b>Team</b></a>
 

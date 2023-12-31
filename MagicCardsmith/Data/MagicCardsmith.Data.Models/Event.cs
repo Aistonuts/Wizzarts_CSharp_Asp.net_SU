@@ -18,6 +18,12 @@
 
         public string EventCreatorId { get; set; }
 
+        public string RemoteImageUrl { get; set; }
+
+        public int EventStatusId { get; set; }
+
+        public EventStatus Status { get; set; }
+
         public ApplicationUser EventCreator { get; set; }
 
         public ICollection<EventMilestone> EventMilestones { get; set; }
