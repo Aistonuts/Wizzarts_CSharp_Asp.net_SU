@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xyvjx/T+jfj87XYRKU9szOX2sUk5RGQxR30a4Q+/QjY=",
+  "Hash": "TT74+CdacAtSHj0pzcs42krip28Vg9eynhu4IhG9Dhk=",
   "Source": "MagicCardsmith.Web",
   "BasePath": "_content/MagicCardsmith.Web",
   "Mode": "Default",
@@ -2516,12 +2516,12 @@
       "OriginalItemSpec": "wwwroot\\images\\cardsByExpansion\\Unlimited\\Wheel_of_Fortune.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\ArenaMaster.jpg",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\ArenaMaster.jpg",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/ArenaMaster.jpg",
+      "RelativePath": "images/event/ArenaMaster.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2530,15 +2530,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\ArenaMaster.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\event\\ArenaMaster.jpg"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Call_to_arts.jpg",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\Call_to_arts.jpg",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Call_to_arts.jpg",
+      "RelativePath": "images/event/Call_to_arts.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2547,15 +2547,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Call_to_arts.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\event\\Call_to_arts.jpg"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Flavorless.jpg",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\Flavorless.jpg",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Flavorless.jpg",
+      "RelativePath": "images/event/Flavorless.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2564,15 +2564,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Flavorless.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\event\\Flavorless.jpg"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Game_tester.jpg",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\Game_tester.jpg",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Game_tester.jpg",
+      "RelativePath": "images/event/Game_tester.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2581,15 +2581,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Game_tester.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\event\\Game_tester.jpg"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Abandoned_Mire.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Abandoned_Mire.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventOneMilestones/Abandoned_Mire.png",
+      "RelativePath": "images/event/milestones/EventOneMilestones/Abandoned_Mire.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2598,15 +2598,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Abandoned_Mire.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventOneMilestones\\Abandoned_Mire.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Adeline.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Adeline.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventOneMilestones/Adeline.png",
+      "RelativePath": "images/event/milestones/EventOneMilestones/Adeline.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2615,15 +2615,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Adeline.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventOneMilestones\\Adeline.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Black_Market.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Black_Market.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventOneMilestones/Black_Market.png",
+      "RelativePath": "images/event/milestones/EventOneMilestones/Black_Market.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2632,15 +2632,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Black_Market.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventOneMilestones\\Black_Market.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Empire.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Empire.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventOneMilestones/Empire.png",
+      "RelativePath": "images/event/milestones/EventOneMilestones/Empire.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2649,15 +2649,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Empire.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventOneMilestones\\Empire.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Ghast.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Ghast.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventOneMilestones/Ghast.png",
+      "RelativePath": "images/event/milestones/EventOneMilestones/Ghast.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2666,15 +2666,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Ghast.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventOneMilestones\\Ghast.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\InfernalGrasp.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\InfernalGrasp.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventOneMilestones/InfernalGrasp.png",
+      "RelativePath": "images/event/milestones/EventOneMilestones/InfernalGrasp.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2683,15 +2683,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\InfernalGrasp.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventOneMilestones\\InfernalGrasp.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Scavengers.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Scavengers.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventOneMilestones/Scavengers.png",
+      "RelativePath": "images/event/milestones/EventOneMilestones/Scavengers.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2700,15 +2700,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Scavengers.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventOneMilestones\\Scavengers.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Ankh_Of_Mishra.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Ankh_Of_Mishra.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventTwoMilestones/Ankh_Of_Mishra.png",
+      "RelativePath": "images/event/milestones/EventTwoMilestones/Ankh_Of_Mishra.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2717,15 +2717,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Ankh_Of_Mishra.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Ankh_Of_Mishra.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Ankh_Of_Mishra_Event.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Ankh_Of_Mishra_Event.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventTwoMilestones/Ankh_Of_Mishra_Event.png",
+      "RelativePath": "images/event/milestones/EventTwoMilestones/Ankh_Of_Mishra_Event.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2734,15 +2734,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Ankh_Of_Mishra_Event.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Ankh_Of_Mishra_Event.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Demonic_Tutor.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Demonic_Tutor.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventTwoMilestones/Demonic_Tutor.png",
+      "RelativePath": "images/event/milestones/EventTwoMilestones/Demonic_Tutor.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2751,15 +2751,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Demonic_Tutor.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Demonic_Tutor.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Demonic_Tutor_Event.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Demonic_Tutor_Event.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventTwoMilestones/Demonic_Tutor_Event.png",
+      "RelativePath": "images/event/milestones/EventTwoMilestones/Demonic_Tutor_Event.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2768,15 +2768,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Demonic_Tutor_Event.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Demonic_Tutor_Event.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Timetwister.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Timetwister.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventTwoMilestones/Timetwister.png",
+      "RelativePath": "images/event/milestones/EventTwoMilestones/Timetwister.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2785,15 +2785,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Timetwister.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Timetwister.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Timetwister_Event.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Timetwister_Event.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventTwoMilestones/Timetwister_Event.png",
+      "RelativePath": "images/event/milestones/EventTwoMilestones/Timetwister_Event.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2802,15 +2802,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Timetwister_Event.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Timetwister_Event.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Wrath_of_God.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Wrath_of_God.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventTwoMilestones/Wrath_of_God.png",
+      "RelativePath": "images/event/milestones/EventTwoMilestones/Wrath_of_God.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2819,15 +2819,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Wrath_of_God.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Wrath_of_God.png"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Wrath_of_God_Event.png",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Wrath_of_God_Event.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/Event/Milestones/EventTwoMilestones/Wrath_of_God_Event.png",
+      "RelativePath": "images/event/milestones/EventTwoMilestones/Wrath_of_God_Event.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2836,7 +2836,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Wrath_of_God_Event.png"
+      "OriginalItemSpec": "wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Wrath_of_God_Event.png"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\frames\\acard.jpg",

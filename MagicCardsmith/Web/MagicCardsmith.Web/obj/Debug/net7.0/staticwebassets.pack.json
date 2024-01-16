@@ -41,82 +41,6 @@
       "PackagePath": "staticwebassets\\images\\AetherhubLogo320.png"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\ArenaMaster.jpg",
-      "PackagePath": "staticwebassets\\images\\Event\\ArenaMaster.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Call_to_arts.jpg",
-      "PackagePath": "staticwebassets\\images\\Event\\Call_to_arts.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Flavorless.jpg",
-      "PackagePath": "staticwebassets\\images\\Event\\Flavorless.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Game_tester.jpg",
-      "PackagePath": "staticwebassets\\images\\Event\\Game_tester.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Abandoned_Mire.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventOneMilestones\\Abandoned_Mire.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Adeline.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventOneMilestones\\Adeline.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Black_Market.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventOneMilestones\\Black_Market.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Empire.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventOneMilestones\\Empire.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Ghast.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventOneMilestones\\Ghast.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\InfernalGrasp.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventOneMilestones\\InfernalGrasp.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventOneMilestones\\Scavengers.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventOneMilestones\\Scavengers.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Ankh_Of_Mishra.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventTwoMilestones\\Ankh_Of_Mishra.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Ankh_Of_Mishra_Event.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventTwoMilestones\\Ankh_Of_Mishra_Event.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Demonic_Tutor.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventTwoMilestones\\Demonic_Tutor.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Demonic_Tutor_Event.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventTwoMilestones\\Demonic_Tutor_Event.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Timetwister.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventTwoMilestones\\Timetwister.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Timetwister_Event.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventTwoMilestones\\Timetwister_Event.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Wrath_of_God.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventTwoMilestones\\Wrath_of_God.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Event\\Milestones\\EventTwoMilestones\\Wrath_of_God_Event.png",
-      "PackagePath": "staticwebassets\\images\\Event\\Milestones\\EventTwoMilestones\\Wrath_of_God_Event.png"
-    },
-    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\Stores\\Bright.jpg",
       "PackagePath": "staticwebassets\\images\\Stores\\Bright.jpg"
     },
@@ -443,6 +367,82 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Wheel_of_Fortune.png",
       "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\Wheel_of_Fortune.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\ArenaMaster.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\ArenaMaster.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\Call_to_arts.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\Call_to_arts.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\Flavorless.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\Flavorless.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\Game_tester.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\Game_tester.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Abandoned_Mire.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Abandoned_Mire.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Adeline.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Adeline.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Black_Market.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Black_Market.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Empire.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Empire.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Ghast.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Ghast.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\InfernalGrasp.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\InfernalGrasp.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Scavengers.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Scavengers.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Ankh_Of_Mishra.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Ankh_Of_Mishra.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Ankh_Of_Mishra_Event.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Ankh_Of_Mishra_Event.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Demonic_Tutor.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Demonic_Tutor.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Demonic_Tutor_Event.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Demonic_Tutor_Event.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Timetwister.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Timetwister.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Timetwister_Event.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Timetwister_Event.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Wrath_of_God.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Wrath_of_God.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Wrath_of_God_Event.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Wrath_of_God_Event.png"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\frames\\acard.jpg",

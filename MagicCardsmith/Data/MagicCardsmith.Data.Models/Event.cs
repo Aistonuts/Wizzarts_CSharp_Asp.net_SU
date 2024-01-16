@@ -27,5 +27,7 @@
         public ApplicationUser EventCreator { get; set; }
 
         public ICollection<EventMilestone> EventMilestones { get; set; }
+
+        public ICollection<Card> Cards { get; set; }
     }
 }

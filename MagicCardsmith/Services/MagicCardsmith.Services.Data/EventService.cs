@@ -11,11 +11,14 @@
     public class EventService : IEventService
     {
         private readonly IDeletableEntityRepository<Event> eventRepository;
+        private readonly IDeletableEntityRepository<EventMilestone> milestonesepository;
 
         public EventService(
-            IDeletableEntityRepository<Event> eventRepository)
+            IDeletableEntityRepository<Event> eventRepository,
+            IDeletableEntityRepository<EventMilestone> milestonesepository)
         {
             this.eventRepository = eventRepository;
+            this.milestonesepository = milestonesepository;
         }
 
         public IEnumerable<T> GetAll<T>()
@@ -25,6 +28,33 @@
                 .To<T>().ToList();
 
             return events;
+        }
+
+
+        public IEnumerable<T> GetAllMilestones<T>(int id)
+        {
+            var events = this.milestonesepository.AllAsNoTracking()
+                .Where(x => x.EventId == id)
+                .OrderByDescending(x => x.Id)
+                .To<T>().ToList();
+
+            return events;
+        }
+
+        public T GetById<T>(int id)
+        {
+            var newEvent = this.eventRepository.AllAsNoTracking()
+                .Where(x => x.Id == id)
+                .To<T>().FirstOrDefault();
+            return newEvent;
+        }
+
+        public T GetMilestoneById<T>(int id)
+        {
+            var mileStone = this.milestonesepository.AllAsNoTracking()
+                .Where(x => x.Id == id)
+                .To<T>().FirstOrDefault();
+            return mileStone;
         }
     }
 }

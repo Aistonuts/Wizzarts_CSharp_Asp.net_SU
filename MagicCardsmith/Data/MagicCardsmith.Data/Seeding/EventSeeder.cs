@@ -20,7 +20,7 @@
             await dbContext.Events.AddAsync(new Event
             {
                 Title = "Flavorless cards",
-                EventDescription = "There is a set of art pieces without abilities.To complete this milestone you need to add flavour to them such as card type " +
+                EventDescription = "There is a set of art pieces without abilities, type or name.To complete this milestone you need to add flavour to them such as card type " +
                 "such as land type, instant card spell type, enchantment type of card, creature type of card with power and toughness." +
                 "We will provide you with special tool for creating a new play card.",
                 RemoteImageUrl = "/images/event/Flavorless.jpg",

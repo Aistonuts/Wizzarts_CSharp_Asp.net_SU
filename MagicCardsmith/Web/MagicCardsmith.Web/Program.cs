@@ -74,6 +74,7 @@ namespace MagicCardsmith.Web
             services.AddTransient<IEventService, EventService>();
             services.AddTransient<IExpansionService, ExpansionService>();
             services.AddTransient<IGameRulesService, GameRulesService>();
+            services.AddTransient<ICategoryService, CategoryService>();
         }
 
         private static void Configure(WebApplication app)

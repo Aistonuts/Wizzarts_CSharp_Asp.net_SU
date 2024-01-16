@@ -1,0 +1,12 @@
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Common\bin\Debug\net6.0\MagicCardsmith.Data.Common.deps.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Common\bin\Debug\net6.0\MagicCardsmith.Data.Common.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Common\bin\Debug\net6.0\MagicCardsmith.Data.Common.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Common\obj\Debug\net6.0\MagicCardsmith.Data.Common.csproj.AssemblyReference.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Common\obj\Debug\net6.0\MagicCardsmith.Data.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Common\obj\Debug\net6.0\MagicCardsmith.Data.Common.AssemblyInfoInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Common\obj\Debug\net6.0\MagicCardsmith.Data.Common.AssemblyInfo.cs
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Common\obj\Debug\net6.0\MagicCardsmith.Data.Common.csproj.CoreCompileInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Common\obj\Debug\net6.0\MagicCardsmith.Data.Common.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Common\obj\Debug\net6.0\refint\MagicCardsmith.Data.Common.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Common\obj\Debug\net6.0\MagicCardsmith.Data.Common.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Common\obj\Debug\net6.0\ref\MagicCardsmith.Data.Common.dll

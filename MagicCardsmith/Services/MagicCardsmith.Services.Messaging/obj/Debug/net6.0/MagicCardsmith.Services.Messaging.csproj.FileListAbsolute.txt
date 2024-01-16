@@ -1,0 +1,12 @@
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Messaging\bin\Debug\net6.0\MagicCardsmith.Services.Messaging.deps.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Messaging\bin\Debug\net6.0\MagicCardsmith.Services.Messaging.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Messaging\bin\Debug\net6.0\MagicCardsmith.Services.Messaging.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Messaging\obj\Debug\net6.0\MagicCardsmith.Services.Messaging.csproj.AssemblyReference.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Messaging\obj\Debug\net6.0\MagicCardsmith.Services.Messaging.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Messaging\obj\Debug\net6.0\MagicCardsmith.Services.Messaging.AssemblyInfoInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Messaging\obj\Debug\net6.0\MagicCardsmith.Services.Messaging.AssemblyInfo.cs
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Messaging\obj\Debug\net6.0\MagicCardsmith.Services.Messaging.csproj.CoreCompileInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Messaging\obj\Debug\net6.0\MagicCardsmith.Services.Messaging.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Messaging\obj\Debug\net6.0\refint\MagicCardsmith.Services.Messaging.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Messaging\obj\Debug\net6.0\MagicCardsmith.Services.Messaging.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Messaging\obj\Debug\net6.0\ref\MagicCardsmith.Services.Messaging.dll

@@ -14,21 +14,9 @@
 
         public string Name { get; set; }
 
-        public int RedManaCost { get; set; }
-
-        public int GreenManaCost { get; set; }
-
-        public int BlueManaCost { get; set; }
-
-        public int BlackManaCost { get; set; }
-
-        public int WhiteManaCost { get; set; }
-
-        public int ColorlessManaCost { get; set; }
+        public string CardFrameColor { get; set; }
 
         public string CardRemoteUrl { get; set; }
-
-        public string FrameColor { get; set; }
 
         public string CardType { get; set; }
 
@@ -38,11 +26,11 @@
 
         public string? Toughness { get; set; }
 
-        public string CardExpansion { get; set; }
+        public int GameExpansionId { get; set; }
 
-        public string CardRarity { get; set; }
+        public GameExpansion GameExpansion { get; set; }
 
-        public bool IsEventCard { get; set; } = false;
+        public bool IsEventCard { get; set; }
 
         public string ArtId { get; set; }
 
@@ -52,10 +40,14 @@
 
         public virtual ApplicationUser CardSmith { get; set; }
 
-        public int GameExpansionId { get; set; }
-
-        public GameExpansion GameExpansion { get; set; }
-
         public virtual ICollection<CardMana> CardMana { get; set; }
+
+        public int EventId { get; set; }
+
+        public Event Event { get; set; }
+
+        public int CardReviewId { get; set; }
+
+        public CardReview CardReview { get; set; }
     }
 }

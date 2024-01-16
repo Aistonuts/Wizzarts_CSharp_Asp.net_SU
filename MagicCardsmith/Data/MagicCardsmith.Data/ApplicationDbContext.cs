@@ -38,6 +38,24 @@
 
         public DbSet<Card> Cards { get; set; }
 
+        public DbSet<CardReview> CardReviews { get; set; }
+
+        public DbSet<BlueMana> BlueManas { get; set; }
+
+        public DbSet<BlackMana> BlackManas { get; set; }
+
+        public DbSet<RedMana> RedManas { get; set; }
+
+        public DbSet<GreenMana> GreenManas { get; set; }
+
+        public DbSet<WhiteMana> WhiteManas { get; set; }
+
+        public DbSet<ColorlessMana> ColorlessManas { get; set; }
+
+        public DbSet<CardFrameColor> CardFrameColors { get; set; }
+
+        public DbSet<CardType> CardTypes { get; set; }
+
         public DbSet<EventStatus> EventStatuses { get; set; }
 
         public DbSet<Event> Events { get; set; }
