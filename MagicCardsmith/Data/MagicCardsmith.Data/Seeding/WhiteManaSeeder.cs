@@ -16,6 +16,11 @@
 
             await dbContext.WhiteManas.AddAsync(new WhiteMana
             {
+                Cost = 0,
+            });
+
+            await dbContext.WhiteManas.AddAsync(new WhiteMana
+            {
                 Cost = 1,
                 ColorName = "White",
                 ImageUrl = "/images/mana/w.png",

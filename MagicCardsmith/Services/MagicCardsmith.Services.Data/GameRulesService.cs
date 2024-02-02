@@ -26,7 +26,7 @@ namespace MagicCardsmith.Services.Data
         public T Get<T>(int id = 1)
         {
             var rules = this.gameRulesRepository.AllAsNoTracking()
-                .Where(x=>x.Id == id)
+                .Where(x => x.Id == id)
                 .To<T>().FirstOrDefault();
 
             return rules;

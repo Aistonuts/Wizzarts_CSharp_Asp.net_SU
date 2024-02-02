@@ -7,10 +7,17 @@
 
     public class RedMana : BaseDeletableModel<int>
     {
+        public RedMana()
+        {
+            this.Cards = new HashSet<Card>();
+        }
+
         public int Cost { get; set; }
 
         public string ColorName { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public ICollection<Card> Cards { get; set; }
     }
 }

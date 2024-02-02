@@ -12,7 +12,8 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-
+    using System;
+    using System.Threading.Tasks;
 
     public class CardController : Controller
     {
@@ -59,8 +60,32 @@
             viewModel.EventMilestoneImage = milestone.ImageUrl;
             viewModel.EventMilestoneDescription = milestone.Description;
             viewModel.EventDescription = currentEvent.EventDescription;
-
+            viewModel.EventId = milestone.EventId;
             return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateCardInputModel input, int id)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            try
+            {
+                await this.cardService.CreateAsync(input, user.Id, id, $"{this.environment.WebRootPath}/Images");
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+                return this.View(input);
+            }
+
+            this.TempData["Message"] = "Card added successfully.";
+            return this.RedirectToAction("All","Event");
         }
 
         public IActionResult All(int id = 1)

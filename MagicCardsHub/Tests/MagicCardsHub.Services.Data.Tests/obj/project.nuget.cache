@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "FsUCAoKiZO5nleiLHjkviRjt8OnPfo7GdgK4qHK7lMv/phmpZ1H7x83dwjjqQuN1ShIz5hlk3l+c7X5j+arMbQ==",
+  "dgSpecHash": "txlMWvb3umW+HIcXy7rUEzCuXFOKZgK+Y3/QU5tKn1rH0VDRLSiCJUekY4/8GWoRz4So1SizLzytOSkLLVGgkw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsHub\\Tests\\MagicCardsHub.Services.Data.Tests\\MagicCardsHub.Services.Data.Tests.csproj",
   "expectedPackageFiles": [

@@ -1,0 +1,956 @@
+﻿@model MagicCardsmith.Web.ViewModels.SearchCard.CardSearchResultViewModel
+@{
+    ViewData["Title"] = "Advanced Search";
+}
+
+<div class="col-md-12 col-lg-12 pl-0 pr-0">
+    <div class="card h-oneKpx">
+        <div class="card-header bg-light pt-0">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a href="/Card" class="nav-link active">
+                        <span class="fas fa-search" title="Advanced Search"></span> <b>Advanced Search</b>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Card/Set" class="nav-link ">
+                        <span class="ss ss-xmods" title="Browse by Set"></span> <b>MTG Set List</b>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body pt-1">
+            <form id="searchform" class="form-horizontal" action="/Card/Search" method="get">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
+                        <div class="input-group">
+                            <input id="searchCards" type="text" name="name" class="form-control btn-outline-dark ui-autocomplete-input" placeholder="Card name" autocomplete="off">
+                            <div class="input-group-append">
+                                <button type="button" id="reset-searchCards" class="btn btn-sm btn-light margin-right">
+                                    <span class="fas fa-times"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
+                        <div class="input-group">
+                            <input id="adv-CardType" type="text" name="type" class="form-control btn-outline-dark" placeholder="Card type line">
+                            <div class="input-group-prepend">
+                                <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item ae-btn-type" href="#" data-type="artifact">Artifact</a>
+                                    <a class="dropdown-item ae-btn-type" href="#" data-type="creature">Creature</a>
+                                    <a class="dropdown-item ae-btn-type" href="#" data-type="enchantment">Enchantment</a>
+                                    <a class="dropdown-item ae-btn-type" href="#" data-type="instant">Instant</a>
+                                    <a class="dropdown-item ae-btn-type" href="#" data-type="land">Land</a>
+                                    <a class="dropdown-item ae-btn-type" href="#" data-type="planeswalker">Planeswalker</a>
+                                    <a class="dropdown-item ae-btn-type" href="#" data-type="sorcery">Sorcery</a>
+                                    <a class="dropdown-item ae-btn-type" href="#" data-type="token">Token</a>
+                                </div>
+                            </div>
+                            <div class="input-group-append">
+                                <button type="button" id="reset-adv-CardType" class="btn btn-sm btn-light margin-right">
+                                    <span class="fas fa-times"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
+                        <div class="input-group">
+                            <input id="adv-CardText" type="text" name="text" class="form-control btn-outline-dark" placeholder="Card text">
+                            <div class="input-group-prepend">
+                                <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="deathtouch">Deathtouch</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="defender">Defender</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="double strike">Double strike</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="first strike">First strike</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="flash">Flash</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="flying">Flying</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="haste">Haste</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="hexproof">Hexproof</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="indestructible">Indestructible</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="lifelink">Lifelink</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="menace">Menace</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="reach">Reach</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="trample">Trample</a>
+                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="vigilance">Vigilance</a>
+                                </div>
+                            </div>
+                            <div class="input-group-append">
+                                <button type="button" id="reset-adv-CardText" class="btn btn-sm btn-light margin-right">
+                                    <span class="fas fa-times"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
+                        <div class="input-group">
+                            <div class="dropdown bootstrap-select form-control">
+                                <select id="adv-setSelector" class="selectpicker form-control" data-live-search="true" name="set" title="All Sets" data-style="btn-outline-dark" tabindex="-98">
+                                    <option class="bs-title-option" value=""></option>
+                                    <option value="">All Sets</option>
+                                    <option value="PIP" data-icon="ss ss-pip">Fallout</option>
+                                    <option value="TPIP" data-icon="ss ss-pip">Fallout Tokens</option>
+                                    <option value="MKM" data-icon="ss ss-mkm">Murders at Karlov Manor</option>
+                                    <option value="PL24" data-icon="ss ss-pmei">Year of the Dragon 2024</option>
+                                    <option value="TRVR" data-icon="ss ss-rvr">Ravnica Remastered Tokens</option>
+                                    <option value="RVR" data-icon="ss ss-rvr">Ravnica Remastered</option>
+                                    <option value="PW24" data-icon="ss ss-pmei">Wizards Play Network 2024</option>
+                                    <option value="PF24" data-icon="ss ss-pmei">MagicFest 2024</option>
+                                    <option value="YLCI" data-icon="ss ss-y24">Alchemy: Ixalan</option>
+                                    <option value="LCI" data-icon="ss ss-lci">Lost Caverns of Ixalan</option>
+                                    <option value="TLCI" data-icon="ss ss-lci">The Lost Caverns of Ixalan Tokens</option>
+                                    <option value="SPG" data-icon="ss ss-spg">Special Guests</option>
+                                    <option value="REX" data-icon="ss ss-rex">Jurassic World Collection</option>
+                                    <option value="LCC" data-icon="ss ss-lcc">Lost Caverns of Ixalan Commander</option>
+                                    <option value="TREX" data-icon="ss ss-rex">Jurassic World Collection Tokens</option>
+                                    <option value="PLCI" data-icon="ss ss-lci">The Lost Caverns of Ixalan Promos</option>
+                                    <option value="WHO" data-icon="ss ss-who">Universes Beyond: Doctor Who</option>
+                                    <option value="TWHO" data-icon="ss ss-who">Doctor Who Tokens</option>
+                                    <option value="YWOE" data-icon="ss ss-woe">Alchemy: Wilds of Eldraine</option>
+                                    <option value="WOE" data-icon="ss ss-woe">Wilds of Eldraine</option>
+                                    <option value="WOT" data-icon="ss ss-woe">Wilds of Eldraine: Enchanting Tales</option>
+                                    <option value="WOC" data-icon="ss ss-woc">Wilds of Eldraine Commander</option>
+                                    <option value="TWOC" data-icon="ss ss-woc">Wilds of Eldraine Commander Tokens</option>
+                                    <option value="PWOE" data-icon="ss ss-pwoe">Wilds of Eldraine Promos</option>
+                                    <option value="PMDA" data-icon="ss ss-pmda">Magic × Duel Masters Promos</option>
+                                    <option value="CMM" data-icon="ss ss-cmm">Commander Masters</option>
+                                    <option value="TCMM" data-icon="ss ss-cmm">Commander Masters Tokens</option>
+                                    <option value="HA7" data-icon="ss ss-ha1">Historic Anthology 7</option>
+                                    <option value="EA3" data-icon="ss ss-ea3">Explorer Anthology 3</option>
+                                    <option value="PF23" data-icon="ss ss-pmei">MagicFest 2023</option>
+                                    <option value="LTR" data-icon="ss ss-ltr">Lord of the Rings: Tales of Middle-Earth</option>
+                                    <option value="TLTR" data-icon="ss ss-ltr">Tales of Middle-earth Tokens</option>
+                                    <option value="LTC" data-icon="ss ss-ltc">Tales of Middle-earth Commander</option>
+                                    <option value="MAT" data-icon="ss ss-mat">March of the Machine: The Aftermath</option>
+                                    <option value="MOM" data-icon="ss ss-mom">March of the Machine</option>
+                                    <option value="MUL" data-icon="ss ss-mul">Multiverse Legends</option>
+                                    <option value="MOC" data-icon="ss ss-moc">March of the Machine Commander</option>
+                                    <option value="TMOM" data-icon="ss ss-mom">March of the Machine Tokens</option>
+                                    <option value="PMOM" data-icon="ss ss-mom">March of the Machine Promos</option>
+                                    <option value="TMUL" data-icon="ss ss-mul">Multiverse Legends Tokens</option>
+                                    <option value="DMR" data-icon="ss ss-dmr">Dominaria Remastered</option>
+                                    <option value="SIR" data-icon="ss ss-soi">Shadows Over Innistrad Remastered</option>
+                                    <option value="SIS" data-icon="ss ss-soi">Shadows of the Past</option>
+                                    <option value="YONE" data-icon="ss ss-one">Alchemy: Phyrexia</option>
+                                    <option value="SLP" data-icon="ss ss-pmei">Secret Lair Showdown</option>
+                                    <option value="PL23" data-icon="ss ss-pmei">Year of the Rabbit 2023</option>
+                                    <option value="ONE" data-icon="ss ss-one">Phyrexia: All Will Be One</option>
+                                    <option value="PONE" data-icon="ss ss-one">Phyrexia: All Will Be One Promos</option>
+                                    <option value="TONE" data-icon="ss ss-one">Phyrexia: All Will Be One Tokens</option>
+                                    <option value="ONC" data-icon="ss ss-onc">Phyrexia: All Will Be One Commander</option>
+                                    <option value="TONC" data-icon="ss ss-onc">Phyrexia: All Will Be One Commander Tokens</option>
+                                    <option value="WONE" data-icon="ss ss-one">Phyrexia: All Will Be One Japanese Promo Tokens</option>
+                                    <option value="PR23" data-icon="ss ss-pmei">Regional Championship Qualifiers 2023</option>
+                                    <option value="PW23" data-icon="ss ss-pmei">Wizards Play Network 2023</option>
+                                    <option value="P23" data-icon="ss ss-j20">Judge Gift Cards 2023</option>
+                                    <option value="YBRO" data-icon="ss ss-ydmu">Alchemy: The Brothers' War</option>
+                                    <option value="J22" data-icon="ss ss-j22">Jumpstart 2022</option>
+                                    <option value="30A" data-icon="ss ss-30a">30th Anniversary Edition</option>
+                                    <option value="T30A" data-icon="ss ss-30a">30th Anniversary Tokens</option>
+                                    <option value="PEWK" data-icon="ss ss-pmei">Eternal Weekend 2022</option>
+                                    <option value="BRO" data-icon="ss ss-bro">The Brothers' War</option>
+                                    <option value="BOT" data-icon="ss ss-bot">Transformers</option>
+                                    <option value="BRR" data-icon="ss ss-brr">The Brothers' War Retro Artifacts</option>
+                                    <option value="BRC" data-icon="ss ss-brc">The Brothers' War Commander</option>
+                                    <option value="GN3" data-icon="ss ss-gn3">Game Night: Free-for-All</option>
+                                    <option value="TGN3" data-icon="ss ss-gn3">Game Night: Free-for-All Tokens</option>
+                                    <option value="40K" data-icon="ss ss-40k">Warhammer 40,000</option>
+                                    <option value="UNF" data-icon="ss ss-unf">Unfinity</option>
+                                    <option value="T40K" data-icon="ss ss-40k">Warhammer 40,000 Tokens</option>
+                                    <option value="TUNF" data-icon="ss ss-unf">Unfinity Tokens</option>
+                                    <option value="SUNF" data-icon="ss ss-unf">Unfinity Sticker Sheets</option>
+                                    <option value="Y23" data-icon="ss ss-ydmu">Alchemy 2023</option>
+                                    <option value="YDMU" data-icon="ss ss-dmu">Alchemy: Dominaria</option>
+                                    <option value="DMU" data-icon="ss ss-dmu">Dominaria United</option>
+                                    <option value="DMC" data-icon="ss ss-dmc">Dominaria United Commander</option>
+                                    <option value="PDMU" data-icon="ss ss-dmu">Dominaria United Promos</option>
+                                    <option value="P30H" data-icon="ss ss-pmei">30th Anniversary History Promos</option>
+                                    <option value="P30A" data-icon="ss ss-pmei">30th Anniversary Play Promos</option>
+                                    <option value="2X2" data-icon="ss ss-2x2">Double Masters 2022</option>
+                                    <option value="HBG" data-icon="ss ss-hbg">Alchemy Horizons: Baldur's Gate</option>
+                                    <option value="CLB" data-icon="ss ss-clb">Commander Legends: Battle for Baldur's Gate</option>
+                                    <option value="PCLB" data-icon="ss ss-clb">Commander Legends: Battle for Baldur's Gate Promos</option>
+                                    <option value="YSNC" data-icon="ss ss-y22">Alchemy: New Capenna</option>
+                                    <option value="PSNC" data-icon="ss ss-snc">Streets of New Capenna Promos</option>
+                                    <option value="SNC" data-icon="ss ss-snc">Streets of New Capenna</option>
+                                    <option value="NCC" data-icon="ss ss-ncc">New Capenna Commander</option>
+                                    <option value="TSNC" data-icon="ss ss-snc">Streets of New Capenna Tokens</option>
+                                    <option value="TNCC" data-icon="ss ss-ncc">New Capenna Commander Tokens</option>
+                                    <option value="PNCC" data-icon="ss ss-ncc">New Capenna Commander Promos</option>
+                                    <option value="PW22" data-icon="ss ss-pmei">Wizards Play Network 2022</option>
+                                    <option value="PL22" data-icon="ss ss-pmei">Year of the Tiger 2022</option>
+                                    <option value="NEO" data-icon="ss ss-neo">Kamigawa: Neon Dynasty</option>
+                                    <option value="NEC" data-icon="ss ss-nec">Neon Dynasty Commander</option>
+                                    <option value="PNEO" data-icon="ss ss-neo">Kamigawa: Neon Dynasty Promos</option>
+                                    <option value="TNEO" data-icon="ss ss-neo">Kamigawa: Neon Dynasty Tokens</option>
+                                    <option value="TNEC" data-icon="ss ss-nec">Neon Dynasty Commander Tokens</option>
+                                    <option value="DBL" data-icon="ss ss-dbl">Innistrad: Double Feature</option>
+                                    <option value="CC2" data-icon="ss ss-cc2">Commander Collection: Black</option>
+                                    <option value="P22" data-icon="ss ss-j20">Judge Gift Cards 2022</option>
+                                    <option value="Y22" data-icon="ss ss-y22">Alchemy 2022</option>
+                                    <option value="VOW" data-icon="ss ss-vow">Innistrad: Crimson Vow</option>
+                                    <option value="VOC" data-icon="ss ss-voc">Crimson Vow Commander</option>
+                                    <option value="TVOW" data-icon="ss ss-vow">Innistrad: Crimson Vow Tokens</option>
+                                    <option value="PVOW" data-icon="ss ss-vow">Innistrad: Crimson Vow Promos</option>
+                                    <option value="MID" data-icon="ss ss-mid">Innistrad: Midnight Hunt</option>
+                                    <option value="Q06" data-icon="ss ss-pmei">Pioneer Challenge Decks 2021</option>
+                                    <option value="MIC" data-icon="ss ss-mic">Midnight Hunt Commander</option>
+                                    <option value="TMIC" data-icon="ss ss-mic">Midnight Hunt Commander Tokens</option>
+                                    <option value="TMID" data-icon="ss ss-mid">Innistrad: Midnight Hunt Tokens</option>
+                                    <option value="PMID" data-icon="ss ss-mid">Innistrad: Midnight Hunt Promos</option>
+                                    <option value="J21" data-icon="ss ss-j21">Jumpstart: Historic Horizons</option>
+                                    <option value="AFR" data-icon="ss ss-xdnd">Adventures in the Forgotten Realms</option>
+                                    <option value="TAFR" data-icon="ss ss-xdnd">Adventures in the Forgotten Realms Tokens</option>
+                                    <option value="AFC" data-icon="ss ss-xdnd">Forgotten Realms Commander</option>
+                                    <option value="PAFR" data-icon="ss ss-afr">Adventures in the Forgotten Realms Promos</option>
+                                    <option value="PLG21" data-icon="ss ss-pmei">Love Your LGS 2021</option>
+                                    <option value="H1R" data-icon="ss ss-mh1">Modern Horizons 1 Timeshifts</option>
+                                    <option value="MH2" data-icon="ss ss-mh2">Modern Horizons 2</option>
+                                    <option value="PWP21" data-icon="ss ss-pmei">Wizards Play Network 2021</option>
+                                    <option value="PMH2" data-icon="ss ss-mh2">Modern Horizons 2 Promos</option>
+                                    <option value="TMH2" data-icon="ss ss-mh2">Modern Horizons 2 Tokens</option>
+                                    <option value="HA5" data-icon="ss ss-ha1">Historic Anthology 5</option>
+                                    <option value="TSTX" data-icon="ss ss-stx">Strixhaven: School of Mages Tokens</option>
+                                    <option value="STX" data-icon="ss ss-stx">Strixhaven: School of Mages</option>
+                                    <option value="STA" data-icon="ss ss-sta">Strixhaven Mystical Archive</option>
+                                    <option value="C21" data-icon="ss ss-c21">Commander 2021</option>
+                                    <option value="TC21" data-icon="ss ss-c21">Commander 2021 Tokens</option>
+                                    <option value="TTSR" data-icon="ss ss-tsr">Time Spiral Remastered Tokens</option>
+                                    <option value="TSR" data-icon="ss ss-tsr">Time Spiral Remastered</option>
+                                    <option value="HA4" data-icon="ss ss-ha1">Historic Anthology 4</option>
+                                    <option value="TKHM" data-icon="ss ss-khm">Kaldheim Tokens</option>
+                                    <option value="PKHM" data-icon="ss ss-khm">Kaldheim Promos</option>
+                                    <option value="KHM" data-icon="ss ss-khm">Kaldheim</option>
+                                    <option value="KHC" data-icon="ss ss-khc">Kaldheim Commander</option>
+                                    <option value="PJ21" data-icon="ss ss-j20">Judge Gift Cards 2021</option>
+                                    <option value="CC1" data-icon="ss ss-cc1">Commander Collection: Green</option>
+                                    <option value="KLR" data-icon="ss ss-klr">Kaladesh Remastered</option>
+                                    <option value="TCMR" data-icon="ss ss-cmr">Commander Legends Tokens</option>
+                                    <option value="CMR" data-icon="ss ss-cmr">Commander Legends</option>
+                                    <option value="PLIST" data-icon="ss ss-plist">The List</option>
+                                    <option value="TZNR" data-icon="ss ss-znr">Zendikar Rising Tokens</option>
+                                    <option value="ZNC" data-icon="ss ss-znc">Zendikar Rising Commander</option>
+                                    <option value="ZNR" data-icon="ss ss-znr">Zendikar Rising</option>
+                                    <option value="ZNE" data-icon="ss ss-zne">Zendikar Rising Expeditions</option>
+                                    <option value="PZNR" data-icon="ss ss-znr">Zendikar Rising Promos</option>
+                                    <option value="AKR" data-icon="ss ss-hou">Amonkhet Remastered</option>
+                                    <option value="ANB" data-icon="ss ss-parl3">Arena Beginner Set</option>
+                                    <option value="2XM" data-icon="ss ss-2xm">Double Masters</option>
+                                    <option value="HTR19" data-icon="ss ss-htr">2019 Heroes of the Realm</option>
+                                    <option value="AJMP" data-icon="ss ss-jmp">Jumpstart Arena Exclusives</option>
+                                    <option value="JMP" data-icon="ss ss-jmp">Jumpstart</option>
+                                    <option value="TM21" data-icon="ss ss-m21">Core Set 2021 Tokens</option>
+                                    <option value="PM21" data-icon="ss ss-m21">Core Set 2021 Promos</option>
+                                    <option value="M21" data-icon="ss ss-m21">Core Set 2021</option>
+                                    <option value="SS3" data-icon="ss ss-ss3">Signature Spellbook: Chandra</option>
+                                    <option value="SLU" data-icon="ss ss-pmei">Secret Lair: Ultimate Edition</option>
+                                    <option value="PLGS" data-icon="ss ss-pmei">Love Your LGS</option>
+                                    <option value="C20" data-icon="ss ss-c20">Commander 2020</option>
+                                    <option value="TIKO" data-icon="ss ss-iko">Ikoria: Lair of Behemoths Tokens</option>
+                                    <option value="PIKO" data-icon="ss ss-iko">Ikoria: Lair of Behemoths Promos</option>
+                                    <option value="IKO" data-icon="ss ss-iko">Ikoria: Lair of Behemoths</option>
+                                    <option value="FMB1" data-icon="ss ss-pmei">Mystery Booster Retail Edition Foils</option>
+                                    <option value="MB1" data-icon="ss ss-pmei">Mystery Booster</option>
+                                    <option value="TUND" data-icon="ss ss-und">Unsanctioned Tokens</option>
+                                    <option value="UND" data-icon="ss ss-und">Unsanctioned</option>
+                                    <option value="TTHB" data-icon="ss ss-thb">Theros: Beyond Death Tokens</option>
+                                    <option value="PTHB" data-icon="ss ss-thb">Theros Beyond Death Promos</option>
+                                    <option value="THB" data-icon="ss ss-thb">Theros: Beyond Death</option>
+                                    <option value="PF20" data-icon="ss ss-pmei">MagicFest 2020</option>
+                                    <option value="J20" data-icon="ss ss-j20">Judge Gift Cards 2020</option>
+                                    <option value="SLD" data-icon="ss ss-pmei">Secret Lair Drop Series</option>
+                                    <option value="PSLD" data-icon="ss ss-pmei">Secret Lair Promos</option>
+                                    <option value="TGN2" data-icon="ss ss-gn2">Game Night 2019 Tokens</option>
+                                    <option value="GN2" data-icon="ss ss-gn2">Game Night 2019</option>
+                                    <option value="CMB1" data-icon="ss ss-cmb1">Mystery Booster Playtest Cards</option>
+                                    <option value="PTG" data-icon="ss ss-ptg">Ponies: The Galloping</option>
+                                    <option value="ELD" data-icon="ss ss-eld">Throne of Eldraine</option>
+                                    <option value="CELD" data-icon="ss ss-eld">ELD Collector Boosters</option>
+                                    <option value="PELD" data-icon="ss ss-eld">Throne of Eldraine Promos</option>
+                                    <option value="TELD" data-icon="ss ss-eld">Throne of Eldraine Tokens</option>
+                                    <option value="C19" data-icon="ss ss-c19">Commander 2019</option>
+                                    <option value="TC19" data-icon="ss ss-c19">Commander 2019 Tokens</option>
+                                    <option value="HTR18" data-icon="ss ss-htr">2018 Heroes of the Realm</option>
+                                    <option value="PS19" data-icon="ss ss-war">San Diego Comic-Con 2019</option>
+                                    <option value="M20" data-icon="ss ss-m20">Core Set 2020</option>
+                                    <option value="PPP1" data-icon="ss ss-pmei">M20 Promo Packs</option>
+                                    <option value="TM20" data-icon="ss ss-m20">Core Set 2020 Tokens</option>
+                                    <option value="PM20" data-icon="ss ss-m20">Core Set 2020 Promos</option>
+                                    <option value="SS2" data-icon="ss ss-ss2">Signature Spellbook: Gideon</option>
+                                    <option value="MH1" data-icon="ss ss-mh1">Modern Horizons</option>
+                                    <option value="TMH1" data-icon="ss ss-mh1">Modern Horizons Tokens</option>
+                                    <option value="WAR" data-icon="ss ss-war">War of the Spark</option>
+                                    <option value="TWAR" data-icon="ss ss-war">War of the Spark Tokens</option>
+                                    <option value="J19" data-icon="ss ss-pmei">Judge Gift Cards 2019</option>
+                                    <option value="PWAR" data-icon="ss ss-war">War of the Spark Promos</option>
+                                    <option value="PRW2" data-icon="ss ss-rna">RNA Ravnica Weekend</option>
+                                    <option value="GK2" data-icon="ss ss-gk2">RNA Guild Kit</option>
+                                    <option value="TGK2" data-icon="ss ss-rna">RNA Guild Kit Tokens</option>
+                                    <option value="RNA" data-icon="ss ss-rna">Ravnica Allegiance</option>
+                                    <option value="PRNA" data-icon="ss ss-rna">Ravnica Allegiance Promos</option>
+                                    <option value="TRNA" data-icon="ss ss-rna">Ravnica Allegiance Tokens</option>
+                                    <option value="PF19" data-icon="ss ss-pmei">MagicFest 2019</option>
+                                    <option value="UMA" data-icon="ss ss-uma">Ultimate Masters</option>
+                                    <option value="PUMA" data-icon="ss ss-uma">Ultimate Box Topper</option>
+                                    <option value="GNT" data-icon="ss ss-gnt">Game Night</option>
+                                    <option value="PRWK" data-icon="ss ss-grn">Ravnica Weekend</option>
+                                    <option value="TGK1" data-icon="ss ss-grn">Guilds of Ravnica Guild Kit Tokens</option>
+                                    <option value="GK1" data-icon="ss ss-grn">Guilds of Ravnica Guild Kit</option>
+                                    <option value="GRN" data-icon="ss ss-grn">Guilds of Ravnica</option>
+                                    <option value="PGRN" data-icon="ss ss-grn">Guilds of Ravnica Promos</option>
+                                    <option value="TGRN" data-icon="ss ss-grn">Guilds of Ravnica Tokens</option>
+                                    <option value="MED" data-icon="ss ss-med">Mythic Edition</option>
+                                    <option value="TMED" data-icon="ss ss-med">Mythic Edition Tokens</option>
+                                    <option value="C18" data-icon="ss ss-c18">Commander 2018</option>
+                                    <option value="tC18" data-icon="ss ss-c18">Commander 2018 Tokens</option>
+                                    <option value="HTR17" data-icon="ss ss-htr">Heroes of the Realm 2017</option>
+                                    <option value="PS18" data-icon="ss ss-ps18">San Diego Comic-Con 2018</option>
+                                    <option value="M19" data-icon="ss ss-m19">Core Set 2019</option>
+                                    <option value="PSS3" data-icon="ss ss-pmei">M19 Standard Showdown</option>
+                                    <option value="pM19" data-icon="ss ss-m19">Core Set 2019 Promos</option>
+                                    <option value="tM19" data-icon="ss ss-m19">Core Set 2019 Tokens</option>
+                                    <option value="G18" data-icon="ss ss-m19">M19 Gift Pack</option>
+                                    <option value="ANA" data-icon="ss ss-parl3">Arena New Player Experience</option>
+                                    <option value="GS1" data-icon="ss ss-gs1">Global Series Jiang Yanggu &amp; Mu Yanling</option>
+                                    <option value="SS1" data-icon="ss ss-ss1">Signature Spellbook: Jace</option>
+                                    <option value="CM2" data-icon="ss ss-cm2">Commander Anthology Volume II</option>
+                                    <option value="BBD" data-icon="ss ss-bbd">Battlebond</option>
+                                    <option value="tBBD" data-icon="ss ss-bbd">Battlebond Tokens</option>
+                                    <option value="PBBD" data-icon="ss ss-bbd">Battlebond Promos</option>
+                                    <option value="DOM" data-icon="ss ss-dom">Dominaria</option>
+                                    <option value="tDOM" data-icon="ss ss-dom">Dominaria Tokens</option>
+                                    <option value="pDOM" data-icon="ss ss-dom">Dominaria Promos</option>
+                                    <option value="DDU" data-icon="ss ss-ddu">Duel Decks: Elves vs. Inventors</option>
+                                    <option value="tDDU" data-icon="ss ss-ddu">Duel Decks: Elves vs. Inventors tokens</option>
+                                    <option value="tA25" data-icon="ss ss-a25">Masters 25 Tokens</option>
+                                    <option value="A25" data-icon="ss ss-a25">Masters 25</option>
+                                    <option value="RIX" data-icon="ss ss-rix">Rivals of Ixalan</option>
+                                    <option value="pRIX" data-icon="ss ss-rix">Rivals of Ixalan Promo</option>
+                                    <option value="tRIX" data-icon="ss ss-rix">Rivals of Ixalan Tokens</option>
+                                    <option value="F18" data-icon="ss ss-pmei">Friday Night Magic 2018</option>
+                                    <option value="pNAT" data-icon="ss ss-pmei">Nationals Promos</option>
+                                    <option value="UST" data-icon="ss ss-ust">Unstable</option>
+                                    <option value="pUST" data-icon="ss ss-ust">Unstable Promos</option>
+                                    <option value="tUST" data-icon="ss ss-ust">Unstable Tokens</option>
+                                    <option value="V17" data-icon="ss ss-v17">From the Vault: Transform</option>
+                                    <option value="E02" data-icon="ss ss-e02">Explorers of Ixalan</option>
+                                    <option value="IMA" data-icon="ss ss-ima">Iconic Masters</option>
+                                    <option value="tIMA" data-icon="ss ss-ima">Iconic Masters Tokens</option>
+                                    <option value="DDT" data-icon="ss ss-ddt">Duel Decks: Merfolk vs. Goblins</option>
+                                    <option value="tDDT" data-icon="ss ss-ddt">Duel Decks: Merfolk vs. Goblins Tokens</option>
+                                    <option value="pGP17" data-icon="ss ss-pmei">2017 Gift Pack</option>
+                                    <option value="XLN" data-icon="ss ss-xln">Ixalan</option>
+                                    <option value="tXLN" data-icon="ss ss-xln">Ixalan Tokens</option>
+                                    <option value="pXLN" data-icon="ss ss-xln">Ixalan Promo</option>
+                                    <option value="PSS2" data-icon="ss ss-pmei">Ixalan Standard Showdown</option>
+                                    <option value="pXTC" data-icon="ss ss-xln">Ixalan Treasure Chest</option>
+                                    <option value="H17" data-icon="ss ss-h17">HasCon 2017</option>
+                                    <option value="HTR" data-icon="ss ss-htr">Heroes of the Realm 2016</option>
+                                    <option value="C17" data-icon="ss ss-c17">Commander 2017</option>
+                                    <option value="tC17" data-icon="ss ss-c17">Commander 2017 Tokens</option>
+                                    <option value="J17" data-icon="ss ss-pmei">Judge Gift Cards 2017</option>
+                                    <option value="PS17" data-icon="ss ss-ps17">San Diego Comic-Con 2017</option>
+                                    <option value="HOU" data-icon="ss ss-hou">Hour of Devastation</option>
+                                    <option value="pHOU" data-icon="ss ss-hou">Hour of Devastation Promo</option>
+                                    <option value="tHOU" data-icon="ss ss-hou">Hour of Devastation Tokens</option>
+                                    <option value="E01" data-icon="ss ss-e01">Archenemy: Nicol Bolas</option>
+                                    <option value="tE01" data-icon="ss ss-e01">Archenemy: Nicol Bolas Tokens</option>
+                                    <option value="CMA" data-icon="ss ss-cma">Commander Anthology</option>
+                                    <option value="tCMA" data-icon="ss ss-cma">Commander Anthology Tokens</option>
+                                    <option value="MPS_AKH" data-icon="ss ss-mp2">Masterpiece Series: Amonkhet Invocations</option>
+                                    <option value="AKH" data-icon="ss ss-akh">Amonkhet</option>
+                                    <option value="pAKH" data-icon="ss ss-akh">Amonkhet Promo</option>
+                                    <option value="tAKH" data-icon="ss ss-akh">Amonkhet Tokens</option>
+                                    <option value="W17" data-icon="ss ss-w17">Welcome Deck 2017</option>
+                                    <option value="DDS" data-icon="ss ss-dds">Duel Decks: Mind vs. Might</option>
+                                    <option value="tDDS" data-icon="ss ss-dds">Duel Decks: Mind vs. Might Tokens</option>
+                                    <option value="MM3" data-icon="ss ss-mm3">Modern Masters 2017 Edition</option>
+                                    <option value="tMM3" data-icon="ss ss-mm3">Modern Masters 2017 Tokens</option>
+                                    <option value="AER" data-icon="ss ss-aer">Aether Revolt</option>
+                                    <option value="tAER" data-icon="ss ss-aer">Aether Revolt Tokens</option>
+                                    <option value="pAER" data-icon="ss ss-aer">Aether Revolt Promo</option>
+                                    <option value="F17" data-icon="ss ss-pmei">Friday Night Magic 2017</option>
+                                    <option value="L17" data-icon="ss ss-l17">League Tokens 2017</option>
+                                    <option value="PCA" data-icon="ss ss-pca">Planechase Anthology</option>
+                                    <option value="C16" data-icon="ss ss-c16">Commander 2016</option>
+                                    <option value="tC16" data-icon="ss ss-c16">Commander 2016 Tokens</option>
+                                    <option value="KLD" data-icon="ss ss-kld">Kaladesh</option>
+                                    <option value="tKLD" data-icon="ss ss-kld">Kaladesh Tokens</option>
+                                    <option value="MPS" data-icon="ss ss-mps">Masterpiece Series: Kaladesh Inventions</option>
+                                    <option value="pKLD" data-icon="ss ss-kld">Kaladesh Promo</option>
+                                    <option value="DDR" data-icon="ss ss-ddr">Duel Decks: Nissa vs. Ob Nixilis</option>
+                                    <option value="CN2" data-icon="ss ss-cn2">Conspiracy: Take the Crown</option>
+                                    <option value="tCN2" data-icon="ss ss-cn2">Conspiracy: Take the Crown Tokens</option>
+                                    <option value="V16" data-icon="ss ss-v16">From the Vault: Lore</option>
+                                    <option value="EMN" data-icon="ss ss-emn">Eldritch Moon</option>
+                                    <option value="pEMN" data-icon="ss ss-emn">Eldritch Moon Promo</option>
+                                    <option value="tEMN" data-icon="ss ss-emn">Eldritch Moon Tokens</option>
+                                    <option value="PS16" data-icon="ss ss-ps16">San Diego Comic-Con 2016</option>
+                                    <option value="EMA" data-icon="ss ss-ema">Eternal Masters</option>
+                                    <option value="tEMA" data-icon="ss ss-ema">Eternal Masters Tokens</option>
+                                    <option value="SOI" data-icon="ss ss-soi">Shadows over Innistrad</option>
+                                    <option value="W16" data-icon="ss ss-w16">Welcome Deck 2016</option>
+                                    <option value="pSOI" data-icon="ss ss-soi">Shadows over Innistrad Promo</option>
+                                    <option value="tSOI" data-icon="ss ss-soi">Shadows over Innistrad Tokens</option>
+                                    <option value="DDQ" data-icon="ss ss-ddq">Duel Decks: Blessed vs. Cursed</option>
+                                    <option value="OGW" data-icon="ss ss-ogw">Oath of the Gatewatch</option>
+                                    <option value="pOGW" data-icon="ss ss-ogw">Oath of the Gatewatch Promo</option>
+                                    <option value="tOGW" data-icon="ss ss-ogw">Oath of the Gatewatch Tokens</option>
+                                    <option value="F16" data-icon="ss ss-pmei">Friday Night Magic 2016</option>
+                                    <option value="J16" data-icon="ss ss-pmei">Judge Gift Cards 2016</option>
+                                    <option value="L16" data-icon="ss ss-l16">League Tokens 2016</option>
+                                    <option value="C15" data-icon="ss ss-c15">Commander 2015</option>
+                                    <option value="tC15" data-icon="ss ss-c15">Commander 2015 Tokens</option>
+                                    <option value="BFZ" data-icon="ss ss-bfz">Battle for Zendikar</option>
+                                    <option value="tBFZ" data-icon="ss ss-bfz">Battle for Zendikar Tokens</option>
+                                    <option value="EXP" data-icon="ss ss-exp">Zendikar Expeditions</option>
+                                    <option value="pBFZ" data-icon="ss ss-bfz">Battle for Zendikar Promo</option>
+                                    <option value="PSS1" data-icon="ss ss-bfz">Battle for Zendikar Standard Series</option>
+                                    <option value="DDP" data-icon="ss ss-ddp">Duel Decks: Zendikar vs. Eldrazi</option>
+                                    <option value="V15" data-icon="ss ss-v15">From the Vault: Angels</option>
+                                    <option value="ORI" data-icon="ss ss-ori">Magic Origins</option>
+                                    <option value="tORI" data-icon="ss ss-ori">Magic Origins Tokens</option>
+                                    <option value="CP3" data-icon="ss ss-pmei">Magic Origins Clash Pack</option>
+                                    <option value="pORI" data-icon="ss ss-ori">Magic Origins Promo</option>
+                                    <option value="PS15" data-icon="ss ss-ori">San Diego Comic-Con 2015</option>
+                                    <option value="MM2" data-icon="ss ss-mm2">Modern Masters 2015 Edition</option>
+                                    <option value="tMM2" data-icon="ss ss-mm2">Modern Masters 2015 Tokens</option>
+                                    <option value="TPR" data-icon="ss ss-tpr">Tempest Remastered</option>
+                                    <option value="DTK" data-icon="ss ss-dtk">Dragons of Tarkir</option>
+                                    <option value="pDTK" data-icon="ss ss-dtk">Dragons of Tarkir Promo</option>
+                                    <option value="pTKDF" data-icon="ss ss-dtk">Tarkir Dragonfury</option>
+                                    <option value="tDTK" data-icon="ss ss-dtk">Dragons of Tarkir Tokens</option>
+                                    <option value="DDO" data-icon="ss ss-ddo">Duel Decks: Elspeth vs. Kiora</option>
+                                    <option value="FRF" data-icon="ss ss-frf">Fate Reforged</option>
+                                    <option value="CP2" data-icon="ss ss-pmei">Fate Reforged Clash Pack</option>
+                                    <option value="pFRF" data-icon="ss ss-frf">Fate Reforged Promo</option>
+                                    <option value="tFRF" data-icon="ss ss-frf">Fate Reforged Tokens</option>
+                                    <option value="UGIN" data-icon="ss ss-frf">Ugin's Fate promos</option>
+                                    <option value="J15" data-icon="ss ss-pmei">Judge Gift Cards 2015</option>
+                                    <option value="L15" data-icon="ss ss-l15">League Tokens 2015</option>
+                                    <option value="JVC" data-icon="ss ss-dd2">Duel Decks Anthology: Jace vs. Chandra</option>
+                                    <option value="GVL" data-icon="ss ss-ddd">Duel Decks Anthology: Garruk vs. Liliana</option>
+                                    <option value="EVG" data-icon="ss ss-evg">Duel Decks Anthology: Elves vs. Goblins</option>
+                                    <option value="DVD" data-icon="ss ss-ddc">Duel Decks Anthology: Divine vs. Demonic</option>
+                                    <option value="tDVD" data-icon="ss ss-ddc">Duel Decks Anthology: Divine vs. Demonic Tokens</option>
+                                    <option value="tGVL" data-icon="ss ss-ddd">Duel Decks Anthology: Garruk vs. Liliana Tokens</option>
+                                    <option value="tJVC" data-icon="ss ss-dd2">Duel Decks Anthology: Jace vs. Chandra Tokens</option>
+                                    <option value="C14" data-icon="ss ss-c14">Commander 2014</option>
+                                    <option value="tC14" data-icon="ss ss-c14">Commander 2014 Tokens</option>
+                                    <option value="KTK" data-icon="ss ss-ktk">Khans of Tarkir</option>
+                                    <option value="tKTK" data-icon="ss ss-ktk">Khans of Tarkir Tokens</option>
+                                    <option value="pKTK" data-icon="ss ss-ktk">Khans of Tarkir Promos</option>
+                                    <option value="DDN" data-icon="ss ss-ddn">Duel Decks: Speed vs. Cunning</option>
+                                    <option value="tDDN" data-icon="ss ss-ddn">Duel Decks: Speed vs. Cunning Tokens</option>
+                                    <option value="V14" data-icon="ss ss-v14">From the Vault: Annihilation (2014)</option>
+                                    <option value="PS14" data-icon="ss ss-m15">San Diego Comic-Con 2014</option>
+                                    <option value="M15" data-icon="ss ss-m15">Magic 2015 Core Set</option>
+                                    <option value="tM15" data-icon="ss ss-m15">Magic 2015 Tokens</option>
+                                    <option value="CP1" data-icon="ss ss-pmei">Magic 2015 Clash Pack</option>
+                                    <option value="F15" data-icon="ss ss-pmei">Friday Night Magic 2015</option>
+                                    <option value="PM15" data-icon="ss ss-m15">Magic 2015 Promos</option>
+                                    <option value="VMA" data-icon="ss ss-vma">Vintage Masters</option>
+                                    <option value="CNS" data-icon="ss ss-cns">Magic: The Gathering—Conspiracy</option>
+                                    <option value="tCNS" data-icon="ss ss-cns">Conspiracy Tokens</option>
+                                    <option value="MD1" data-icon="ss ss-md1">Modern Event Deck 2014</option>
+                                    <option value="tMD1" data-icon="ss ss-md1">Modern Event Deck 2014 Tokens</option>
+                                    <option value="JOU" data-icon="ss ss-jou">Journey into Nyx</option>
+                                    <option value="pJOU" data-icon="ss ss-jou">Journey into Nyx Promos</option>
+                                    <option value="THP3" data-icon="ss ss-jou">Journey into Nyx Hero's Path</option>
+                                    <option value="tJOU" data-icon="ss ss-jou">Journey into Nyx Tokens</option>
+                                    <option value="TDAG" data-icon="ss ss-jou">Defeat a God </option>
+                                    <option value="DDM" data-icon="ss ss-ddm">Duel Decks: Jace vs. Vraska</option>
+                                    <option value="tDDM" data-icon="ss ss-ddm">Duel Decks: Jace vs. Vraska Tokens</option>
+                                    <option value="BNG" data-icon="ss ss-bng">Born of the Gods</option>
+                                    <option value="tBNG" data-icon="ss ss-bng">Born of the Gods Tokens</option>
+                                    <option value="pBNG" data-icon="ss ss-bng">Born of the Gods Promos</option>
+                                    <option value="TBTH" data-icon="ss ss-bng">Battle the Horde</option>
+                                    <option value="THP2" data-icon="ss ss-bng">Born of the Gods Hero's Path</option>
+                                    <option value="J14" data-icon="ss ss-pmei">Judge Gift Cards 2014</option>
+                                    <option value="F14" data-icon="ss ss-pmei">Friday Night Magic 2014</option>
+                                    <option value="PI14" data-icon="ss ss-pidw">IDW Comics 2014</option>
+                                    <option value="L14" data-icon="ss ss-l14">League Tokens 2014</option>
+                                    <option value="C13" data-icon="ss ss-c13">Commander 2013 Edition</option>
+                                    <option value="THS" data-icon="ss ss-ths">Theros</option>
+                                    <option value="tTHS" data-icon="ss ss-ths">Theros Tokens</option>
+                                    <option value="pTHS" data-icon="ss ss-ths">Theros Promos</option>
+                                    <option value="TFTH" data-icon="ss ss-ths">Face the Hydra</option>
+                                    <option value="THP1" data-icon="ss ss-ths">Theros Hero's Path</option>
+                                    <option value="DDL" data-icon="ss ss-ddl">Duel Decks: Heroes vs. Monsters</option>
+                                    <option value="tDDL" data-icon="ss ss-ddl">Duel Decks: Heroes vs. Monsters Tokens</option>
+                                    <option value="V13" data-icon="ss ss-v13">From the Vault: Twenty</option>
+                                    <option value="M14" data-icon="ss ss-m14">Magic 2014 Core Set</option>
+                                    <option value="pM14" data-icon="ss ss-m14">Magic 2014 Promos</option>
+                                    <option value="tM14" data-icon="ss ss-m14">Magic 2014 Tokens</option>
+                                    <option value="PSDC" data-icon="ss ss-m14">San Diego Comic-Con 2013</option>
+                                    <option value="PDP14" data-icon="ss ss-m15">Duels of the Planeswalkers Promos 2014</option>
+                                    <option value="MMA" data-icon="ss ss-mma">Modern Masters</option>
+                                    <option value="tMMA" data-icon="ss ss-mma">Modern Masters Tokens</option>
+                                    <option value="DGM" data-icon="ss ss-dgm">Dragon's Maze</option>
+                                    <option value="pDGM" data-icon="ss ss-dgm">Dragon's Maze Promos</option>
+                                    <option value="tDGM" data-icon="ss ss-dgm">Dragon's Maze Tokens</option>
+                                    <option value="pWCQ" data-icon="ss ss-pmei">World Magic Cup Qualifiers</option>
+                                    <option value="DDK" data-icon="ss ss-ddk">Duel Decks: Sorin vs. Tibalt</option>
+                                    <option value="tDDK" data-icon="ss ss-ddk">Duel Decks: Sorin vs. Tibalt Tokens</option>
+                                    <option value="GTC" data-icon="ss ss-gtc">Gatecrash</option>
+                                    <option value="pGTC" data-icon="ss ss-gtc">Gatecrash Promos</option>
+                                    <option value="tGTC" data-icon="ss ss-gtc">Gatecrash Tokens</option>
+                                    <option value="J13" data-icon="ss ss-pmei">Judge Gift Cards 2013</option>
+                                    <option value="F13" data-icon="ss ss-pmei">Friday Night Magic 2013</option>
+                                    <option value="PI13" data-icon="ss ss-pidw">IDW Comics 2013</option>
+                                    <option value="L13" data-icon="ss ss-l13">League Tokens 2013</option>
+                                    <option value="CM1" data-icon="ss ss-cm1">Commander's Arsenal</option>
+                                    <option value="RTR" data-icon="ss ss-rtr">Return to Ravnica</option>
+                                    <option value="pRTR" data-icon="ss ss-rtr">Return to Ravnica Promos</option>
+                                    <option value="tRTR" data-icon="ss ss-rtr">Return to Ravnica Tokens</option>
+                                    <option value="DDJ" data-icon="ss ss-ddj">Duel Decks: Izzet vs. Golgari</option>
+                                    <option value="tDDJ" data-icon="ss ss-ddj">Duel Decks: Izzet vs. Golgari Tokens</option>
+                                    <option value="V12" data-icon="ss ss-v12">From the Vault: Realms</option>
+                                    <option value="pDP13" data-icon="ss ss-m14">Duels of the Planeswalkers Promos 2013</option>
+                                    <option value="M13" data-icon="ss ss-m13">Magic 2013</option>
+                                    <option value="pM13" data-icon="ss ss-m13">Magic 2013 Promos</option>
+                                    <option value="tM13" data-icon="ss ss-m13">Magic 2013 Tokens</option>
+                                    <option value="PC2" data-icon="ss ss-pc2">Planechase 2012 Edition</option>
+                                    <option value="AVR" data-icon="ss ss-avr">Avacyn Restored</option>
+                                    <option value="pAVR" data-icon="ss ss-avr">Avacyn Restored Promos</option>
+                                    <option value="tAVR" data-icon="ss ss-avr">Avacyn Restored Tokens</option>
+                                    <option value="DDI" data-icon="ss ss-ddi">Duel Decks: Venser vs. Koth</option>
+                                    <option value="tDDI" data-icon="ss ss-ddi">Duel Decks: Venser vs. Koth Tokens</option>
+                                    <option value="DKA" data-icon="ss ss-dka">Dark Ascension</option>
+                                    <option value="tDKA" data-icon="ss ss-dka">Dark Ascension Tokens</option>
+                                    <option value="pDKA" data-icon="ss ss-dka">Dark Ascension Promos</option>
+                                    <option value="J12" data-icon="ss ss-pmei">Judge Gift Cards 2012</option>
+                                    <option value="F12" data-icon="ss ss-pmei">Friday Night Magic 2012</option>
+                                    <option value="pWP12" data-icon="ss ss-pmei">Wizards Play Network 2012</option>
+                                    <option value="pIDW" data-icon="ss ss-pidw">IDW Comics 2012</option>
+                                    <option value="L12" data-icon="ss ss-l12">League Tokens 2012</option>
+                                    <option value="pDP11" data-icon="ss ss-dpa">Duels of the Planeswalkers Promos 2011</option>
+                                    <option value="PD3" data-icon="ss ss-pd3">Premium Deck Series: Graveborn</option>
+                                    <option value="pDD2" data-icon="ss ss-dd2">Duel Decks: Jace vs. Chandra Japanese Promos</option>
+                                    <option value="ISD" data-icon="ss ss-isd">Innistrad</option>
+                                    <option value="pISD" data-icon="ss ss-isd">Innistrad Promos</option>
+                                    <option value="tISD" data-icon="ss ss-isd">Innistrad Tokens</option>
+                                    <option value="DDH" data-icon="ss ss-ddh">Duel Decks: Ajani vs. Nicol Bolas</option>
+                                    <option value="tDDH" data-icon="ss ss-ddh">Duel Decks: Ajani vs. Nicol Bolas Tokens</option>
+                                    <option value="V11" data-icon="ss ss-v11">From the Vault: Legends</option>
+                                    <option value="M12" data-icon="ss ss-m12">Magic 2012</option>
+                                    <option value="pM12" data-icon="ss ss-m12">Magic 2012 Promos</option>
+                                    <option value="tM12" data-icon="ss ss-m12">Magic 2012 Tokens</option>
+                                    <option value="CMD" data-icon="ss ss-cmd">Magic: The Gathering-Commander</option>
+                                    <option value="pCMD" data-icon="ss ss-cmd">Commander 2011 Launch Party</option>
+                                    <option value="NPH" data-icon="ss ss-nph">New Phyrexia</option>
+                                    <option value="tNPH" data-icon="ss ss-nph">New Phyrexia Tokens</option>
+                                    <option value="pNPH" data-icon="ss ss-nph">New Phyrexia Promos</option>
+                                    <option value="DDG" data-icon="ss ss-ddg">Duel Decks: Knights vs. Dragons</option>
+                                    <option value="tDDG" data-icon="ss ss-ddg">Duel Decks: Knights vs. Dragons Tokens</option>
+                                    <option value="pDP12" data-icon="ss ss-m13">Duels of the Planeswalkers Promos 2012</option>
+                                    <option value="MBS" data-icon="ss ss-mbs">Mirrodin Besieged</option>
+                                    <option value="pMBS" data-icon="ss ss-mbs">Mirrodin Besieged Promos</option>
+                                    <option value="tMBS" data-icon="ss ss-mbs">Mirrodin Besieged Tokens</option>
+                                    <option value="ME4" data-icon="ss ss-me4">Masters Edition IV</option>
+                                    <option value="F11" data-icon="ss ss-pmei">Friday Night Magic 2011</option>
+                                    <option value="pWP11" data-icon="ss ss-pmei">Wizards Play Network 2011</option>
+                                    <option value="P11" data-icon="ss ss-pmtg1">Magic Player Rewards 2011</option>
+                                    <option value="G11" data-icon="ss ss-parl">Judge Gift Cards 2011</option>
+                                    <option value="pMPS11" data-icon="ss ss-pmps">Magic Premiere Shop 2011 </option>
+                                    <option value="pDP10" data-icon="ss ss-dpa">Duels of the Planeswalkers Promos 2010</option>
+                                    <option value="PD2" data-icon="ss ss-pd2">Premium Deck Series: Fire and Lightning</option>
+                                    <option value="SOM" data-icon="ss ss-som">Scars of Mirrodin</option>
+                                    <option value="tSOM" data-icon="ss ss-som">Scars of Mirrodin Tokens</option>
+                                    <option value="pSOM" data-icon="ss ss-som">Scars of Mirrodin Promos</option>
+                                    <option value="DDF" data-icon="ss ss-ddf">Duel Decks: Elspeth vs. Tezzeret</option>
+                                    <option value="tDDF" data-icon="ss ss-ddf">Duel Decks: Elspeth vs. Tezzeret Tokens</option>
+                                    <option value="V10" data-icon="ss ss-v10">From the Vault: Relics</option>
+                                    <option value="M11" data-icon="ss ss-m11">Magic 2011</option>
+                                    <option value="tM11" data-icon="ss ss-m11">Magic 2011 Tokens</option>
+                                    <option value="pM11" data-icon="ss ss-m11">Magic 2011 Promos</option>
+                                    <option value="ARC" data-icon="ss ss-arc">Archenemy</option>
+                                    <option value="pARC" data-icon="ss ss-parl">Promotional Schemes</option>
+                                    <option value="DPA" data-icon="ss ss-dpa">Duels of the Planeswalkers</option>
+                                    <option value="ROE" data-icon="ss ss-roe">Rise of the Eldrazi</option>
+                                    <option value="tROE" data-icon="ss ss-roe">Rise of the Eldrazi Tokens</option>
+                                    <option value="pROE" data-icon="ss ss-roe">Rise of the Eldrazi Promos</option>
+                                    <option value="DDE" data-icon="ss ss-dde">Duel Decks: Phyrexia vs. the Coalition</option>
+                                    <option value="tDDE" data-icon="ss ss-dde">Duel Decks: Phyrexia vs. the Coalition Tokens</option>
+                                    <option value="WWK" data-icon="ss ss-wwk">Worldwake</option>
+                                    <option value="tWWK" data-icon="ss ss-wwk">Worldwake Tokens</option>
+                                    <option value="pWWK" data-icon="ss ss-wwk">Worldwake Promos</option>
+                                    <option value="G10" data-icon="ss ss-parl">Judge Gift Cards 2010</option>
+                                    <option value="pWP10" data-icon="ss ss-pmei">Wizards Play Network 2010</option>
+                                    <option value="P10" data-icon="ss ss-pmtg1">Magic Player Rewards 2010</option>
+                                    <option value="pMPS10" data-icon="ss ss-pmps">Magic Premiere Shop 2010</option>
+                                    <option value="F10" data-icon="ss ss-pmei">Friday Night Magic 2010</option>
+                                    <option value="H09" data-icon="ss ss-h09">Premium Deck Series: Slivers</option>
+                                    <option value="DDD" data-icon="ss ss-ddd">Duel Decks: Garruk vs. Liliana</option>
+                                    <option value="tDDD" data-icon="ss ss-ddd">Duel Decks: Garruk vs. Liliana Tokens</option>
+                                    <option value="ZEN" data-icon="ss ss-zen">Zendikar</option>
+                                    <option value="tZEN" data-icon="ss ss-zen">Zendikar Tokens</option>
+                                    <option value="pZEN" data-icon="ss ss-zen">Zendikar Promos</option>
+                                    <option value="ME3" data-icon="ss ss-me3">Masters Edition III</option>
+                                    <option value="HOP" data-icon="ss ss-hop">Planechase</option>
+                                    <option value="pHOP" data-icon="ss ss-parl">Promotional Planes</option>
+                                    <option value="V09" data-icon="ss ss-v09">From the Vault: Exiled</option>
+                                    <option value="M10" data-icon="ss ss-m10">Magic 2010</option>
+                                    <option value="tM10" data-icon="ss ss-m10">Magic 2010 Tokens</option>
+                                    <option value="pM10" data-icon="ss ss-m10">Magic 2010 Promos</option>
+                                    <option value="pDTP" data-icon="ss ss-pxbox">Duels of the Planeswalkers Promos 2009</option>
+                                    <option value="ARB" data-icon="ss ss-arb">Alara Reborn</option>
+                                    <option value="tARB" data-icon="ss ss-arb">Alara Reborn Tokens</option>
+                                    <option value="DDC" data-icon="ss ss-ddc">Duel Decks: Divine vs. Demonic</option>
+                                    <option value="tDDC" data-icon="ss ss-ddc">Duel Decks: Divine vs. Demonic Tokens</option>
+                                    <option value="pURL" data-icon="ss ss-pmei">URL/Convention Promos</option>
+                                    <option value="CON" data-icon="ss ss-con">Conflux</option>
+                                    <option value="tCON" data-icon="ss ss-con">Conflux Tokens</option>
+                                    <option value="pBOK" data-icon="ss ss-pbook">Miscellaneous Book Promos</option>
+                                    <option value="G09" data-icon="ss ss-parl">Judge Gift Cards 2009</option>
+                                    <option value="F09" data-icon="ss ss-pmei">Friday Night Magic 2009</option>
+                                    <option value="pWP09" data-icon="ss ss-parl">Wizards Play Network 2009</option>
+                                    <option value="pMPS09" data-icon="ss ss-pmps">Magic Premiere Shop 2009</option>
+                                    <option value="P09" data-icon="ss ss-pmtg1">Magic Player Rewards 2009</option>
+                                    <option value="DD2" data-icon="ss ss-dd2">Duel Decks: Jace vs. Chandra</option>
+                                    <option value="tDD2" data-icon="ss ss-dd2">Duel Decks: Jace vs. Chandra Tokens</option>
+                                    <option value="ALA" data-icon="ss ss-ala">Shards of Alara</option>
+                                    <option value="tALA" data-icon="ss ss-ala">Shards of Alara Tokens</option>
+                                    <option value="pWPN" data-icon="ss ss-parl">Wizards Play Network 2008</option>
+                                    <option value="ME2" data-icon="ss ss-me2">Masters Edition II</option>
+                                    <option value="DRB" data-icon="ss ss-drb">From the Vault: Dragons</option>
+                                    <option value="EVE" data-icon="ss ss-eve">Eventide</option>
+                                    <option value="tEVE" data-icon="ss ss-eve">Eventide Tokens</option>
+                                    <option value="SHM" data-icon="ss ss-shm">Shadowmoor</option>
+                                    <option value="tSHM" data-icon="ss ss-shm">Shadowmoor Tokens</option>
+                                    <option value="p15A" data-icon="ss ss-p15a">15th Anniversary</option>
+                                    <option value="pLPA" data-icon="ss ss-plpa">Launch Parties</option>
+                                    <option value="MOR" data-icon="ss ss-mor">Morningtide</option>
+                                    <option value="tMOR" data-icon="ss ss-mor">Morningtide Tokens</option>
+                                    <option value="G08" data-icon="ss ss-pmei">Judge Gift Cards 2008</option>
+                                    <option value="F08" data-icon="ss ss-pmei">Friday Night Magic 2008</option>
+                                    <option value="pMPS08" data-icon="ss ss-pmps">Magic Premiere Shop 2008</option>
+                                    <option value="pG08" data-icon="ss ss-parl">Gateway 2008</option>
+                                    <option value="P08" data-icon="ss ss-pmtg1">Magic Player Rewards 2008</option>
+                                    <option value="DD1" data-icon="ss ss-evg">Duel Decks: Elves vs. Goblins</option>
+                                    <option value="tEVG" data-icon="ss ss-evg">Duel Decks: Elves vs. Goblins Tokens</option>
+                                    <option value="LRW" data-icon="ss ss-lrw">Lorwyn</option>
+                                    <option value="tLRW" data-icon="ss ss-lrw">Lorwyn Tokens</option>
+                                    <option value="ME1" data-icon="ss ss-me1">Masters Edition</option>
+                                    <option value="pSUM" data-icon="ss ss-psum">Summer of Magic</option>
+                                    <option value="10E" data-icon="ss ss-10e">Tenth Edition</option>
+                                    <option value="t10E" data-icon="ss ss-10e">Tenth Edition Tokens</option>
+                                    <option value="p10E" data-icon="ss ss-10e">Tenth Edition Promos</option>
+                                    <option value="FUT" data-icon="ss ss-fut">Future Sight</option>
+                                    <option value="pGPX" data-icon="ss ss-pgpx">Grand Prix</option>
+                                    <option value="pPRO" data-icon="ss ss-pmei">Pro Tour</option>
+                                    <option value="PLC" data-icon="ss ss-plc">Planar Chaos</option>
+                                    <option value="G07" data-icon="ss ss-parl">Judge Gift Cards 2007</option>
+                                    <option value="F07" data-icon="ss ss-parl">Friday Night Magic 2007</option>
+                                    <option value="pMPS07" data-icon="ss ss-pmps">Magic Premiere Shop 2007</option>
+                                    <option value="pRES" data-icon="ss ss-pmei">Resale Promos</option>
+                                    <option value="pG07" data-icon="ss ss-parl">Gateway 2007</option>
+                                    <option value="P07" data-icon="ss ss-pmtg1">Magic Player Rewards 2007</option>
+                                    <option value="HHO" data-icon="ss ss-pmei">Happy Holidays</option>
+                                    <option value="TSP" data-icon="ss ss-tsp">Time Spiral</option>
+                                    <option value="TSB" data-icon="ss ss-tsp">Time Spiral "Timeshifted"</option>
+                                    <option value="CST" data-icon="ss ss-csp">Coldsnap Theme Decks</option>
+                                    <option value="CSP" data-icon="ss ss-csp">Coldsnap</option>
+                                    <option value="tCSP" data-icon="ss ss-csp">Coldsnap Tokens</option>
+                                    <option value="DIS" data-icon="ss ss-dis">Dissension</option>
+                                    <option value="pCMP" data-icon="ss ss-pcmp">Champs and States</option>
+                                    <option value="GPT" data-icon="ss ss-gpt">Guildpact</option>
+                                    <option value="G06" data-icon="ss ss-parl">Judge Gift Cards 2006</option>
+                                    <option value="F06" data-icon="ss ss-parl">Friday Night Magic 2006</option>
+                                    <option value="pMPS06" data-icon="ss ss-pmps">Magic Premiere Shop 2006</option>
+                                    <option value="pAL06" data-icon="ss ss-parl">Arena League 2006</option>
+                                    <option value="pGTW" data-icon="ss ss-parl">Gateway 2006</option>
+                                    <option value="P06" data-icon="ss ss-pmtg1">Magic Player Rewards 2006</option>
+                                    <option value="p2HG" data-icon="ss ss-parl">Two-Headed Giant Tournament</option>
+                                    <option value="RAV" data-icon="ss ss-rav">Ravnica: City of Guilds</option>
+                                    <option value="9ED" data-icon="ss ss-9ed">Ninth Edition</option>
+                                    <option value="SOK" data-icon="ss ss-sok">Saviors of Kamigawa</option>
+                                    <option value="BOK" data-icon="ss ss-bok">Betrayers of Kamigawa</option>
+                                    <option value="G05" data-icon="ss ss-parl">Judge Gift Cards 2005</option>
+                                    <option value="F05" data-icon="ss ss-parl">Friday Night Magic 2005</option>
+                                    <option value="pAL05" data-icon="ss ss-parl">Arena League 2005</option>
+                                    <option value="P05" data-icon="ss ss-pmtg1">Magic Player Rewards 2005</option>
+                                    <option value="UNH" data-icon="ss ss-unh">Unhinged</option>
+                                    <option value="CHK" data-icon="ss ss-chk">Champions of Kamigawa</option>
+                                    <option value="5DN" data-icon="ss ss-5dn">Fifth Dawn</option>
+                                    <option value="DST" data-icon="ss ss-dst">Darksteel</option>
+                                    <option value="G04" data-icon="ss ss-parl">Judge Gift Cards 2004</option>
+                                    <option value="F04" data-icon="ss ss-parl">Friday Night Magic 2004</option>
+                                    <option value="P04" data-icon="ss ss-pmtg1">Magic Player Rewards 2004</option>
+                                    <option value="pAL04" data-icon="ss ss-parl">Arena League 2004</option>
+                                    <option value="MRD" data-icon="ss ss-mrd">Mirrodin</option>
+                                    <option value="8ED" data-icon="ss ss-8ed">Eighth Edition</option>
+                                    <option value="pREL" data-icon="ss ss-prel">Release Events</option>
+                                    <option value="SCG" data-icon="ss ss-scg">Scourge</option>
+                                    <option value="LGN" data-icon="ss ss-lgn">Legions</option>
+                                    <option value="G03" data-icon="ss ss-parl">Judge Gift Cards 2003</option>
+                                    <option value="F03" data-icon="ss ss-parl">Friday Night Magic 2003</option>
+                                    <option value="P03" data-icon="ss ss-pmtg1">Magic Player Rewards 2003</option>
+                                    <option value="pAL03" data-icon="ss ss-parl">Arena League 2003</option>
+                                    <option value="ONS" data-icon="ss ss-ons">Onslaught</option>
+                                    <option value="JUD" data-icon="ss ss-jud">Judgment</option>
+                                    <option value="TOR" data-icon="ss ss-tor">Torment</option>
+                                    <option value="G02" data-icon="ss ss-parl">Judge Gift Cards 2002</option>
+                                    <option value="F02" data-icon="ss ss-parl">Friday Night Magic 2002</option>
+                                    <option value="PR2" data-icon="ss ss-pmtg1">Magic Player Rewards 2002</option>
+                                    <option value="pAL02" data-icon="ss ss-parl">Arena League 2002</option>
+                                    <option value="DKM" data-icon="ss ss-dkm">Deckmasters</option>
+                                    <option value="ODY" data-icon="ss ss-ody">Odyssey</option>
+                                    <option value="APC" data-icon="ss ss-apc">Apocalypse</option>
+                                    <option value="7ED" data-icon="ss ss-7ed">Seventh Edition</option>
+                                    <option value="PLS" data-icon="ss ss-pls">Planeshift</option>
+                                    <option value="G01" data-icon="ss ss-parl">Judge Gift Cards 2001</option>
+                                    <option value="F01" data-icon="ss ss-parl">Friday Night Magic 2001</option>
+                                    <option value="MPR" data-icon="ss ss-pmtg1">Magic Player Rewards 2001</option>
+                                    <option value="pAL01" data-icon="ss ss-parl">Arena League 2001</option>
+                                    <option value="INV" data-icon="ss ss-inv">Invasion</option>
+                                    <option value="BTD" data-icon="ss ss-btd">Beatdown Box Set</option>
+                                    <option value="WC00" data-icon="ss ss-pmtg1">World Championship Decks 2000</option>
+                                    <option value="PCY" data-icon="ss ss-pcy">Prophecy</option>
+                                    <option value="S00" data-icon="ss ss-s00">Starter 2000</option>
+                                    <option value="NEM" data-icon="ss ss-nms">Nemesis</option>
+                                    <option value="pELP" data-icon="ss ss-peuro">European Land Program</option>
+                                    <option value="FNM" data-icon="ss ss-pmei">Friday Night Magic 2000</option>
+                                    <option value="G00" data-icon="ss ss-parl">Judge Gift Cards 2000</option>
+                                    <option value="pAL00" data-icon="ss ss-parl">Arena League 2000</option>
+                                    <option value="pSUS" data-icon="ss ss-parl">Super Series</option>
+                                    <option value="BRB" data-icon="ss ss-brb">Battle Royale Box Set</option>
+                                    <option value="MMQ" data-icon="ss ss-mmq">Mercadian Masques</option>
+                                    <option value="pWOS" data-icon="ss ss-pmei">Wizards of the Coast Online Store</option>
+                                    <option value="pWOR" data-icon="ss ss-pwor">Worlds</option>
+                                    <option value="pGRU" data-icon="ss ss-pgru">Guru</option>
+                                    <option value="S99" data-icon="ss ss-s99">Starter 1999</option>
+                                    <option value="UDS" data-icon="ss ss-uds">Urza's Destiny</option>
+                                    <option value="PTK" data-icon="ss ss-ptk">Portal Three Kingdoms</option>
+                                    <option value="6ED" data-icon="ss ss-6ed">Classic Sixth Edition</option>
+                                    <option value="ULG" data-icon="ss ss-ulg">Urza's Legacy</option>
+                                    <option value="G99" data-icon="ss ss-parl">Judge Gift Cards 1999</option>
+                                    <option value="pAL99" data-icon="ss ss-parl">Arena League 1999</option>
+                                    <option value="ATH" data-icon="ss ss-ath">Anthologies</option>
+                                    <option value="USG" data-icon="ss ss-usg">Urza's Saga</option>
+                                    <option value="pALP" data-icon="ss ss-papac">Asia Pacific Land Program</option>
+                                    <option value="UGL" data-icon="ss ss-ugl">Unglued</option>
+                                    <option value="tUGL" data-icon="ss ss-ugl">Unglued Tokens</option>
+                                    <option value="P02" data-icon="ss ss-po2">Portal Second Age</option>
+                                    <option value="EXO" data-icon="ss ss-exo">Exodus</option>
+                                    <option value="JGP" data-icon="ss ss-pmei">Judge Gift Cards 1998</option>
+                                    <option value="STH" data-icon="ss ss-sth">Stronghold</option>
+                                    <option value="TMP" data-icon="ss ss-tmp">Tempest</option>
+                                    <option value="pPRE" data-icon="ss ss-ppre">Prerelease Events</option>
+                                    <option value="WTH" data-icon="ss ss-wth">Weatherlight</option>
+                                    <option value="pPOD" data-icon="ss ss-por">Portal Demo Game</option>
+                                    <option value="POR" data-icon="ss ss-por">Portal</option>
+                                    <option value="VAN" data-icon="ss ss-van">Vanguard</option>
+                                    <option value="5ED" data-icon="ss ss-5ed">Fifth Edition</option>
+                                    <option value="VIS" data-icon="ss ss-vis">Visions</option>
+                                    <option value="ITP" data-icon="ss ss-x2ps">Introductory Two-Player Set</option>
+                                    <option value="MGB" data-icon="ss ss-vis">Multiverse Gift Box</option>
+                                    <option value="MIR" data-icon="ss ss-mir">Mirage</option>
+                                    <option value="pCEL" data-icon="ss ss-pcel">Celebration</option>
+                                    <option value="pARL" data-icon="ss ss-parl">Arena League 1996</option>
+                                    <option value="RQS" data-icon="ss ss-rqs">Rivals Quick Start Set</option>
+                                    <option value="ALL" data-icon="ss ss-all">Alliances</option>
+                                    <option value="HML" data-icon="ss ss-hml">Homelands</option>
+                                    <option value="CHR" data-icon="ss ss-chr">Chronicles</option>
+                                    <option value="ICE" data-icon="ss ss-ice">Ice Age</option>
+                                    <option value="4ED" data-icon="ss ss-4ed">Fourth Edition</option>
+                                    <option value="pMEI" data-icon="ss ss-pmei">Magazine Inserts</option>
+                                    <option value="pLGM" data-icon="ss ss-plgm">Legend Membership</option>
+                                    <option value="FEM" data-icon="ss ss-fem">Fallen Empires</option>
+                                    <option value="DRK" data-icon="ss ss-drk">The Dark</option>
+                                    <option value="LEG" data-icon="ss ss-leg">Legends</option>
+                                    <option value="3ED" data-icon="ss ss-3ed">Revised Edition</option>
+                                    <option value="ATQ" data-icon="ss ss-atq">Antiquities</option>
+                                    <option value="pDRC" data-icon="ss ss-pdrc">Dragon Con</option>
+                                    <option value="pHPR" data-icon="ss ss-pbook">HarperPrism Book Promos</option>
+                                    <option value="ARN" data-icon="ss ss-arn">Arabian Nights</option>
+                                    <option value="CEI" data-icon="ss ss-xice">International Collector's Edition</option>
+                                    <option value="CED" data-icon="ss ss-xcle">Collector's Edition</option>
+                                    <option value="2ED" data-icon="ss ss-2ed">Unlimited Edition</option>
+                                    <option value="LEB" data-icon="ss ss-leb">Limited Edition Beta</option>
+                                    <option value="LEA" data-icon="ss ss-lea">Limited Edition Alpha</option>
+                                </select><button type="button" class="btn dropdown-toggle btn-outline-dark bs-placeholder" data-toggle="dropdown" role="button" data-id="adv-setSelector" title="All Sets"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">All Sets</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="bs-searchbox"><input type="text" class="form-control" autocomplete="off" role="textbox" aria-label="Search"></div><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
+                            </div>
+                            <div class="input-group-append">
+                                <button type="button" id="reset-adv-setSelector" class="btn btn-sm btn-light margin-right">
+                                    <span class="fas fa-times"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
+                        <div class="input-group">
+                            <div class="dropdown bootstrap-select form-control">
+                                <select id="adv-formatSelector" class="selectpicker form-control" name="format" data-style="btn-outline-dark" tabindex="-98">
+                                    <option value="">All Formats</option>
+                                    <option value="Brawl">Brawl</option>
+                                    <option value="Commander">Commander</option>
+                                    <option value="MTGA Events">Historic</option>
+                                    <option value="Legacy">Legacy</option>
+                                    <option value="Modern">Modern</option>
+                                    <option value="Standard">Standard</option>
+                                    <option value="Pauper">Pauper</option>
+                                    <option value="Pioneer">Pioneer</option>
+                                    <option value="Vintage">Vintage</option>
+                                </select><button type="button" class="btn dropdown-toggle btn-outline-dark bs-placeholder" data-toggle="dropdown" role="button" data-id="adv-formatSelector" title="All Formats"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">All Formats</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
+                            </div>
+                            <div class="input-group-append">
+                                <button type="button" id="reset-adv-formatSelector" class="btn btn-sm btn-light margin-right">
+                                    <span class="fas fa-times"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
+                        <div class="input-group">
+                            <div class="dropdown bootstrap-select form-control">
+                                <select id="adv-raritySelector" class="selectpicker form-control" name="rarity" title="All Rarities" data-style="btn-outline-dark" tabindex="-98">
+                                    <option class="bs-title-option" value=""></option>
+                                    <option value="">All Rarities</option>
+                                    <option value="Common" data-icon="ss ss-dpa ss-common">Common</option>
+                                    <option value="Uncommon" data-icon="ss ss-dpa ss-uncommon">Uncommon</option>
+                                    <option value="Rare" data-icon="ss ss-dpa ss-rare">Rare</option>
+                                    <option value="Mythic Rare" data-icon="ss ss-dpa ss-mythic">Mythic Rare</option>
+                                    <option value="Basic Land" data-icon="ss ss-dpa ss-common">Basic Land</option>
+                                    <option value="Special" data-icon="ss ss-dpa ss-timeshifted">Special</option>
+                                </select><button type="button" class="btn dropdown-toggle btn-outline-dark bs-placeholder" data-toggle="dropdown" role="button" data-id="adv-raritySelector" title="All Rarities"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">All Rarities</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
+                            </div>
+                            <div class="input-group-append">
+                                <button type="button" id="reset-adv-raritySelector" class="btn btn-sm btn-light margin-right">
+                                    <span class="fas fa-times"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
+                        <div class="input-group">
+                            <input id="adv-ArtistText" type="text" name="artist" class="form-control btn-outline-dark" placeholder="Artist">
+                            <div class="input-group-append">
+                                <button type="button" id="reset-adv-ArtistText" class="btn btn-sm btn-light margin-right">
+                                    <span class="fas fa-times"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="dropdown bootstrap-select fit-width">
+                                    <select id="adv-CardAttr" class="selectpicker" name="stat" data-width="fit" data-style="btn-outline-dark" tabindex="-98">
+                                        <option value="cmc">CMC</option>
+                                        <option value="power">Power</option>
+                                        <option value="toughness">Toughness</option>
+                                        <option value="loyalty">Loyalty</option>
+                                    </select><button type="button" class="btn dropdown-toggle btn-outline-dark" data-toggle="dropdown" role="button" data-id="adv-CardAttr" title="CMC"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">CMC</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
+                                </div>
+                            </div>
+                            <div class="dropdown bootstrap-select fit-width">
+                                <select id="adv-CardOperator" class="selectpicker" data-width="fit" name="op" data-style="btn-outline-dark" tabindex="-98">
+                                    <option value="=">equals</option>
+                                    <option value="<">greater than</option>
+                                    <option value=">">less than</option>
+                                </select><button type="button" class="btn dropdown-toggle btn-outline-dark" data-toggle="dropdown" role="button" data-id="adv-CardOperator" title="equals"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">equals</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
+                            </div>
+                            <div class="input-group-append">
+                                <input id="adv-CardVal" type="number" class="form-control btn-outline-dark" placeholder="value" name="val" style="width:100px;">
+                                <button type="button" id="reset-adv-CardVal" class="btn btn-sm btn-light margin-right">
+                                    <span class="fas fa-times"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
+                        <input id="colorString" type="hidden" name="color">
+                        <input type="hidden" id="color-only" value="false" name="conly">
+                        <input type="hidden" id="color-and" value="and" name="cop">
+                        <div class="input-group">
+                            <div class="dropdown bootstrap-select fit-width">
+                                <select id="colorOperator" class="selectpicker" data-width="fit" data-style="btn-outline-dark" tabindex="-98">
+                                    <option value="false-and" data-subtext="cards with X and Y" selected="">Has</option>
+                                    <option value="false-or" data-subtext="cards with X or Y">Has some or all</option>
+                                    <option value="true-and" data-subtext="cards with X and Y">Only has</option>
+                                    <option value="true-or" data-subtext="cards with X or Y">Only has some or all</option>
+                                </select><button type="button" class="btn dropdown-toggle btn-outline-dark" data-toggle="dropdown" role="button" data-id="colorOperator" title="Has"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Has</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
+                            </div>
+                            <div class="input-group-append">
+                                <div class="dropdown bootstrap-select show-tick form-control">
+                                    <select id="colorSelector" class="selectpicker form-control" data-style="btn-outline-dark" multiple="" title="Color" tabindex="-98">
+                                        <option value="W" data-icon="ms ms-w ms-cost"></option>
+                                        <option value="U" data-icon="ms ms-u ms-cost"></option>
+                                        <option value="B" data-icon="ms ms-b ms-cost"></option>
+                                        <option value="R" data-icon="ms ms-r ms-cost"></option>
+                                        <option value="G" data-icon="ms ms-g ms-cost"></option>
+                                        <option value="C" data-icon="ms ms-c ms-cost"></option>
+                                    </select><button type="button" class="btn dropdown-toggle btn-outline-dark bs-placeholder" data-toggle="dropdown" role="button" data-id="colorSelector" title="Color"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Color</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
+                                </div>
+                                <button type="button" id="reset-adv-colorString" class="btn btn-sm btn-light margin-right">
+                                    <span class="fas fa-times"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mt-2 d-flex justify-content-center">
+                    <div>
+                        <div class="input-group">
+                            <button type="button" onclick="cardSearch()" class="btn btn-light mr-2"><span class="fas fa-search"></span> <b>Search</b></button>
+                            <div class="btn-group-toggle mr-2" data-toggle="buttons" title="Hides cards with same name and only shows the latest">
+                                <input type="hidden" id="adv-unique" value="false" name="uniq">
+                                <label id="adv-unique-btn" class="btn btn-light">
+                                    <b><i class="fas fa-low-vision"></i></b>
+                                </label>
+                            </div>
+                            <button type="button" id="resetFilter" class="btn btn-sm btn-light btn-outline-danger margin-right">
+                                <span class="fas fa-filter"></span> <b>Reset filters</b>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div id="cardSearchToggles" class="row pr-2 pl-2 d-none">
+                <div class="col-xs-6 col-md-6">
+                </div>
+                <div class="col-xs-6 col-md-6 text-right">
+                    <button type="button" data-sort="descending" id="searchSortName" class="btn btn-light btn-outline-dark"><b><i class="fas fa-sort-amount-up"></i> Name</b></button>
+                    <button type="button" data-sort="ascending" id="searchSortNumber" class="btn btn-light btn-outline-dark"><b>Number</b></button>
+                    <button type="button" id="ae-price-sort" class="btn btn-light btn-outline-dark" data-sort="descending"><b>Price</b></button>
+                    <button type="button" id="ae-price-toggle" class="btn btn-light btn-outline-dark" data-url="search" data-toggle="usd-eur" data-nexttoggle="eur"><b>$ / €</b></button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <div id="cards" class="outer-container">
+                        @if (!Model.SearchedCards.Any())
+                        {
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="font-weight-bold mt-5" style="max-width: 500px;">
+                                    AetherHub has catalogued every Magic: The Gathering card and token into a comprehensive database. <br>Search through the entire Magic history for additions to your deck, detailed information about ruling, format legalities or different prints of a card.
+                                </div>
+                            </div>
+                        }
+                        else
+                            @foreach (var card in this.Model.SearchedCards)
+                            {
+                                <div class="inner-container">
+                                    <div class="item-hidden-text">@card.Name</div>
+                                    <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" data-name="@card.Name" data-number="@card.Id" data-img="@card.ImageUrl class="item ae-card-link cardLink">
+                                        <img class="lazy" src="@card.ImageUrl" alt="@card.Name" style="">
+                                    </a>
+                                    <div class="item-footer">
+                                    </div>
+                                </div>
+                            }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

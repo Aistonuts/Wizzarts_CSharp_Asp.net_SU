@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -21,16 +22,26 @@
             this.articleRepository = articleRepository;
         }
 
-        public async Task CreateAsync(CreateArticleInputModel input, string userId)
+        public async Task CreateAsync(CreateArticleInputModel input, string userId, string imagePath)
         {
             var article = new Article
             {
                 Title = input.Title,
                 Description = input.Description,
+                ShortDescription = input.ShortDescription,
                 ArticleCreatorId = userId,
-                ImageUrl = input.ImageUrl,
             };
+            Directory.CreateDirectory($"{imagePath}/navigation/");
+            var extension = Path.GetExtension(input.ImageUrl.FileName).TrimStart('.');
+            if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
+            {
+                throw new Exception($"Invalid image extension {extension}");
+            }
 
+            var physicalPath = $"{imagePath}/navigation/articles/{article.Id}.{extension}";
+            article.ImageUrl = $"/images/navigation/articles/{article.Id}.{extension}";
+            using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            await input.ImageUrl.CopyToAsync(fileStream);
             await this.articleRepository.AddAsync(article);
             await this.articleRepository.SaveChangesAsync();
         }

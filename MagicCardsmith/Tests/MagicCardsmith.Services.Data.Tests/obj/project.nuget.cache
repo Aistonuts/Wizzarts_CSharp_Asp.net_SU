@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uSLLYqenU40ed8/1EYQaVmTElN/q9aerP9XFhFrj3uIHn+6JGlKJAD/NY3BkfP8JjM/3XtfR1Mt5AhzdCsZmcA==",
+  "dgSpecHash": "ExG1bbAr/B37eq4OSszoYF1O72ptBZL73x3rCTgNYKQ+2uPYh2hA4nCbqo4dbyLhWt4g/8E/Odmhb0preZ3jlA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Tests\\MagicCardsmith.Services.Data.Tests\\MagicCardsmith.Services.Data.Tests.csproj",
   "expectedPackageFiles": [

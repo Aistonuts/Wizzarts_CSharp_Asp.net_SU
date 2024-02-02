@@ -1,7 +1,9 @@
 ﻿namespace MagicCardsmith.Web.ViewModels.Article
 {
+    using Microsoft.AspNetCore.Http;
+
     public class CreateArticleInputModel : BaseCreateArticleInputModel
     {
-        public string ImageUrl { get; set; }
+        public IFormFile ImageUrl { get; set; }
     }
 }

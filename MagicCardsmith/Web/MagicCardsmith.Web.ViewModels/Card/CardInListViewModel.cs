@@ -21,12 +21,15 @@
 
         public string CardExpansion { get; set; }
 
+        public string CardTypeId { get; set; }
+
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Card, CardInListViewModel>()
                .ForMember(x => x.ImageUrl, opt =>
                    opt.MapFrom(x =>
                       x.CardRemoteUrl));
+
         }
     }
 }

@@ -40,8 +40,6 @@
 
         public string? Toughness { get; set; }
 
-        public bool IsEventCard { get; set; }
-
         public string ArtId { get; set; }
 
         public string CardSmithId { get; set; }

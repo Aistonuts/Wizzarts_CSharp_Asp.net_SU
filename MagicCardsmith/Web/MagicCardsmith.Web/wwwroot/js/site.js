@@ -246,7 +246,7 @@ function formSubmit() {
             if (!Cookies.set('ah_timestamp_', Date.now())) {
                 alert('Your browser does not support this action');
                 return false;
-            } 
+            }
             return true;
         } else {
             alert('Database not ready, please try again in a couple of seconds');
@@ -286,9 +286,9 @@ $(document).ready(function () {
         $('#ae-logout-return').val(window.location.pathname);
         document.getElementById('logoutForm').submit();
     });
-   // $("#sidebar").mCustomScrollbar({
-   //     theme: "minimal"
-   // });
+    // $("#sidebar").mCustomScrollbar({
+    //     theme: "minimal"
+    // });
     window.addEventListener("resize", onresize);
 
     $('#sidebarCollapse').on('click', function () {
@@ -411,7 +411,7 @@ $(document).ready(function () {
         var notifications = $('#myNotifications');
         if (notifications.length) {
             var unread = self.children().attr('data-count');
-            if (unread > 0) {      
+            if (unread > 0) {
                 self.children().removeAttr('data-count');
                 if (typeof Storage !== "undefined") {
                     var count = 0;
@@ -435,106 +435,106 @@ $(document).ready(function () {
                     }
                     if (count > 0) {
                         $.ajax
-                        ({
-                            url: "/Home/ReadNotifications",
-                            type: "POST",
-                            dataType: "json",
-                            success: function() {
-                            }
-                        });
+                            ({
+                                url: "/Home/ReadNotifications",
+                                type: "POST",
+                                dataType: "json",
+                                success: function () {
+                                }
+                            });
                     }
                 }
             }
         }
     });
 
-  //
-  // if (visAPI() === true && $(window).width() > 767) {
-  //     $.ajax({
-  //         url: '/Home/GetSponsored',
-  //         type: 'POST',
-  //         success: function (data) {
-  //             var sponsored = '';
-  //             if (typeof data.sponsored !== 'undefined' && data.sponsored.length > 0) {
-  //                 var rand = data.sponsored[Math.floor(Math.random() * data.sponsored.length)];
-  //                 sponsored = rand;
-  //             }
-  //             var frameExist = document.getElementById('SponsoredFrame');
-  //             if (sponsored.name && frameExist) {
-  //                 let streamImg = sponsored.image.replace('{width}', '300').replace('{height}', '168');
-  //                 frameExist.innerHTML = `<a href="${sponsored.url}"><img class="d-block" alt="${sponsored.name}" src="${streamImg}" width="300" height="168" /></a><div class="text-center"><a href="${sponsored.url}"><b>${sponsored.name}</b></a></div>`;
-  //
-  //                 setTimeout(function () {
-  //                     var options = {
-  //                         width: 300,
-  //                         height: 250,
-  //                         autoplay: true,
-  //                         channel: sponsored.name,
-  //                         muted: true
-  //
-  //                     };
-  //                     Twitchplayer = new Twitch.Player("SponsoredFrame", options);
-  //                     //Twitchplayer.setQuality("160p30");
-  //                     Twitchplayer.setMuted(true);
-  //                     if (frameExist.getAttribute('data-play') === 'true') {
-  //                         Twitchplayer.play();
-  //                     }
-  //                 }, 1000);
-  //             }
-  //             else {
-  //                 $('#SponsoredStream').removeClass('d-md-block');
-  //             }
-  //             $(window).on("blur focus", function (e) {
-  //                 var prevType = $(this).data("prevType");
-  //                 if (Twitchplayer && prevType != e.type) { //reduce double fire issues
-  //                     switch (e.type) {
-  //                         case "blur":
-  //                                 setTimeout(function () {
-  //                                     Twitchplayer.pause();
-  //                                     window.PauseSponsorHandle = null;
-  //                                 }, 5000);
-  //                             break;
-  //                         case "focus":
-  //                             Twitchplayer.play();
-  //                     }
-  //                 }
-  //                 $(this).data("prevType", e.type);
-  //             });
-  //         }
-  //     });
-  // } else {
-  //     $('#SponsoredStream').removeClass('d-md-block');
-  // }
-  //
- // //Autocomplete function
- // var autocompleteInput = document.getElementById("searchM");
- // if (autocompleteInput) {
- //     $("#searchM").autocomplete({
- //         autoFocus: true,
- //         select: function (event, ui) {
- //             $("#searchM").val(ui.item.value);
- //             $(this).closest("form").submit();
- //         },
- //         source: function (request, response) {
- //             $.ajax({
- //                 url: $('body').data('base') + "/Market/Autocomplete",
- //                 type: "POST",
- //                 dataType: "json",
- //                 data: { cardName: request.term },
- //                 autoFocus: true,
- //                 success: function (data) {
- //                     response($.map(data, function (item) {
- //                         return { label: item.combinedName, value: item.cardName, text: item.text };
- //                     }));
- //                 }
- //             });
- //         }
- //     }).autocomplete("instance")._renderItem = function (ul, item) {
- //         return $("<li>")
- //             .append("<div><b>" + item.label + (item.text !== undefined && item.text !== null ? "</b><br><small class='autocomplete-desc'><i>" + globalJS.mtgSymbolConverter(item.text, false) + "</i></small>" : "") + "</div>")
- //             .appendTo(ul);
- //         };
- // }
+    //
+    // if (visAPI() === true && $(window).width() > 767) {
+    //     $.ajax({
+    //         url: '/Home/GetSponsored',
+    //         type: 'POST',
+    //         success: function (data) {
+    //             var sponsored = '';
+    //             if (typeof data.sponsored !== 'undefined' && data.sponsored.length > 0) {
+    //                 var rand = data.sponsored[Math.floor(Math.random() * data.sponsored.length)];
+    //                 sponsored = rand;
+    //             }
+    //             var frameExist = document.getElementById('SponsoredFrame');
+    //             if (sponsored.name && frameExist) {
+    //                 let streamImg = sponsored.image.replace('{width}', '300').replace('{height}', '168');
+    //                 frameExist.innerHTML = `<a href="${sponsored.url}"><img class="d-block" alt="${sponsored.name}" src="${streamImg}" width="300" height="168" /></a><div class="text-center"><a href="${sponsored.url}"><b>${sponsored.name}</b></a></div>`;
+    //
+    //                 setTimeout(function () {
+    //                     var options = {
+    //                         width: 300,
+    //                         height: 250,
+    //                         autoplay: true,
+    //                         channel: sponsored.name,
+    //                         muted: true
+    //
+    //                     };
+    //                     Twitchplayer = new Twitch.Player("SponsoredFrame", options);
+    //                     //Twitchplayer.setQuality("160p30");
+    //                     Twitchplayer.setMuted(true);
+    //                     if (frameExist.getAttribute('data-play') === 'true') {
+    //                         Twitchplayer.play();
+    //                     }
+    //                 }, 1000);
+    //             }
+    //             else {
+    //                 $('#SponsoredStream').removeClass('d-md-block');
+    //             }
+    //             $(window).on("blur focus", function (e) {
+    //                 var prevType = $(this).data("prevType");
+    //                 if (Twitchplayer && prevType != e.type) { //reduce double fire issues
+    //                     switch (e.type) {
+    //                         case "blur":
+    //                                 setTimeout(function () {
+    //                                     Twitchplayer.pause();
+    //                                     window.PauseSponsorHandle = null;
+    //                                 }, 5000);
+    //                             break;
+    //                         case "focus":
+    //                             Twitchplayer.play();
+    //                     }
+    //                 }
+    //                 $(this).data("prevType", e.type);
+    //             });
+    //         }
+    //     });
+    // } else {
+    //     $('#SponsoredStream').removeClass('d-md-block');
+    // }
+    //
+    // //Autocomplete function
+    // var autocompleteInput = document.getElementById("searchM");
+    // if (autocompleteInput) {
+    //     $("#searchM").autocomplete({
+    //         autoFocus: true,
+    //         select: function (event, ui) {
+    //             $("#searchM").val(ui.item.value);
+    //             $(this).closest("form").submit();
+    //         },
+    //         source: function (request, response) {
+    //             $.ajax({
+    //                 url: $('body').data('base') + "/Market/Autocomplete",
+    //                 type: "POST",
+    //                 dataType: "json",
+    //                 data: { cardName: request.term },
+    //                 autoFocus: true,
+    //                 success: function (data) {
+    //                     response($.map(data, function (item) {
+    //                         return { label: item.combinedName, value: item.cardName, text: item.text };
+    //                     }));
+    //                 }
+    //             });
+    //         }
+    //     }).autocomplete("instance")._renderItem = function (ul, item) {
+    //         return $("<li>")
+    //             .append("<div><b>" + item.label + (item.text !== undefined && item.text !== null ? "</b><br><small class='autocomplete-desc'><i>" + globalJS.mtgSymbolConverter(item.text, false) + "</i></small>" : "") + "</div>")
+    //             .appendTo(ul);
+    //         };
+    // }
     $('#login-dp .social-buttons a').on('click', function (e) {
         var provider = $(this).data('value');
         $('#' + provider).click();
@@ -546,18 +546,369 @@ $(document).ready(function () {
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
     });
-   // $(function () {
-   //     $('img.lazy,div.lazy').lazy({ visibleOnly: true });
-   //     $('div.lazytab').lazy({
-   //         tabLoad: function (element) {
-   //             element.find('img.lazytab').lazy();
-   //         }
-   //     });
-   //     $('body').on("mouseover", ".hover-imglink", function () {
-   //         $(this).children().children().children().unveil();
-   //     });
-   // });
-   // $('.ae-nav-dropdown-lazy').one('mouseenter', function () {
-   //     $(this).parent().find('img.lazy-header-img').lazy({ visibleOnly: true });
-   // });
+    // $(function () {
+    //     $('img.lazy,div.lazy').lazy({ visibleOnly: true });
+    //     $('div.lazytab').lazy({
+    //         tabLoad: function (element) {
+    //             element.find('img.lazytab').lazy();
+    //         }
+    //     });
+    //     $('body').on("mouseover", ".hover-imglink", function () {
+    //         $(this).children().children().children().unveil();
+    //     });
+    // });
+    // $('.ae-nav-dropdown-lazy').one('mouseenter', function () {
+    //     $(this).parent().find('img.lazy-header-img').lazy({ visibleOnly: true });
+    // });
+});
+function statistics() {
+    $('#statistics_btn').on('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // hasClass('d-none') -> Statistics are hidden
+        if ($('#statistics_box').hasClass('d-none')) {
+            $.get('https://localhost:7038/api/statistics', function (data) {
+                $('#total_houses').text(data.totalCards + " Houses");
+                $('#total_rents').text(data.totalArt + " Rents");
+                $('#total_names').text(data.names + " Rents");
+
+                $('#statistics_box').removeClass('d-none');
+
+                $('#statistics_btn').text('Hide Statistics');
+                $('#statistics_btn').removeClass('btn-primary');
+                $('#statistics_btn').addClass('btn-danger');
+            });
+        } else {
+            $('#statistics_box').addClass('d-none');
+
+            $('#statistics_btn').text('Show Statistics');
+            $('#statistics_btn').removeClass('btn-danger');
+            $('#statistics_btn').addClass('btn-primary');
+        }
+    });
+}
+function search() {
+    var autocompleteInput = document.getElementById("searchM");
+    if (autocompleteInput) {
+        $("#searchM").autocomplete({
+            autoFocus: true,
+            select: function (event, ui) {
+                $("#searchM").val(ui.item.value);
+                $(this).closest("form").submit();
+            },
+            source: function (request, response) {
+                $.ajax({
+                    url: 'https://localhost:7038/api/searchCard/',
+                    type: "GET",
+                    dataType: "json",
+                    data: { cardName: request.term },
+                    autoFocus: true,
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.combinedName, value: item.cardName, text: item.text };
+                        }));
+                    }
+                });
+            }
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li>")
+                .append("<div><b>" + item.label + (item.text !== undefined && item.text !== null ? "</b><br><small class='autocomplete-desc'><i>" + globalJS.mtgSymbolConverter(item.text, false) + "</i></small>" : "") + "</div>")
+                .appendTo(ul);
+        };
+    }
+}
+//Card Index
+
+
+//function cardSearch() {
+//    document.getElementById("cards").innerHTML = '<div class="w-100 text-center"><h2>Searching...</h3><br/><img src="/images/loading.svg" alt="Loading" height="156" width="143" /></div>';
+//    var form = $('#searchform').serializeArray();
+//    var JSONform = objectifyForm(form);
+//    $('#searchSortName').html('<b><i class="fas fa-sort-amount-up"></i> Name</b>');
+//    $('#searchSortNumber').html('<b>Number</b>');
+//    $('#ae-price-sort').html('<b>Price</b>');
+//    $.ajax({
+//        url: "/Card/Search",
+//        type: "POST",
+//        dataType: "json",
+//        data: JSONform,
+//        success: function (data) {
+//            if (data.success === true) {
+//                var output = '';
+//                Object.keys(data.cards).forEach(function (item) {
+//                    output += '<div class="inner-container"><div class="item-hidden-text">' + data.cards[item].name + '</div>';
+//                    output += '<a href="/Card/' + data.cards[item].set + "/" + formatUrlName(data.cards[item].name) + '/' + data.cards[item].number + '" data-name="' + data.cards[item].name + '" data-number="' + data.cards[item].number + '" data-img="' + data.cards[item].img + '	?quality=60" data-tcgprice="' + data.cards[item].usd + '" data-mcmprice="' + data.cards[item].eur + '" class="item ae-card-link cardLink">';
+//                    output += ' <img class="lazy" src="/images/cardDeadLink3.jpg" data-src="' + data.cards[item].img + '?quality=60" alt="' + data.cards[item].name + '" />';
+//                    output += '</a> <div class="item-footer">';
+//                    if (data.cards[item].usd > 0) {
+//                        output += '<span class="item-price ae-price-usd">$' + data.cards[item].usd + '</span>';
+//                    }
+//                    if (data.cards[item].eur > 0) {
+//                        output += '<span class="item-price ae-price-eur">&euro;' + data.cards[item].eur + '</span>';
+//                    }
+//                    if (data.cards[item].tix > 0) {
+//                        output += '<span class="item-price ae-price-tix">' + data.cards[item].tix + '</span>';
+//                    }
+//                    output += '</div></div>';
+//                });
+//                document.getElementById("cardSearchToggles").classList.remove("d-none");
+//                document.getElementById("cards").innerHTML = output;
+//                $(function () {
+//                    $('.lazy').lazy();
+//                });
+//                var url = '?name=' + JSONform.name + '&format=' + JSONform.format + '&color=' + JSONform.color + '&conly=' + JSONform.conly + '&cop=' + JSONform.cop + '&artist=' + JSONform.artist + '&rarity=' + JSONform.rarity + '&text=' + JSONform.text + '&set=' + JSONform.set + '&stat=' + JSONform.stat + '&op=' + JSONform.op + '&uniq=' + JSONform.uniq + '&val=' + JSONform.val + '&type=' + JSONform.type;
+//                window.history.pushState(JSONform, 'MTG Card Search', url);
+//            }
+//            else {
+//                document.getElementById("cardSearchToggles").classList.add("d-none");
+//                document.getElementById("cards").innerHTML = '<h3>No cards found with the current parameters. Search might be too wide</h3>';
+//            }
+//        },
+//        error: function () {
+//            document.getElementById("cards").innerHTML = '<h2>An Error occurred</h2>';
+//        }
+//    });
+//}
+
+function loadInputs() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var conly = '';
+    var cop = '';
+    var uniq = '';
+    for (entry of urlParams.entries()) {
+        switch (entry[0]) {
+            case 'name':
+                $('#searchCards').val(entry[1]);
+                break;
+            case 'format':
+                $('#adv-formatSelector').val(entry[1]);
+                break;
+            case 'color':
+                $('#colorString').val(entry[1]);
+                var colors = entry[1].split('|');
+                $('#colorSelector').val(colors);
+                break;
+            case 'conly':
+                conly = entry[1];
+                break;
+            case 'cop':
+                cop = entry[1];
+                break;
+            case 'artist':
+                $('#adv-ArtistText').val(entry[1]);
+                break;
+            case 'rarity':
+                $('#adv-raritySelector').val(entry[1]);
+                break;
+            case 'text':
+                $('#adv-CardText').val(entry[1]);
+                break;
+            case 'set':
+                $('#adv-setSelector').val(entry[1]);
+                break;
+            case 'stat':
+                $('#adv-CardAttr').val(entry[1]);
+                break;
+            case 'op':
+                $('#adv-CardOperator').val(entry[1]);
+                break;
+            case 'uniq':
+                uniq = entry[1];
+                break;
+            case 'val':
+                $('#adv-CardVal').val(entry[1]);
+                break;
+            case 'type':
+                $('#adv-CardType').val(entry[1]);
+                break;
+            default:
+                break;
+        }
+        if (conly === 'false' && cop === 'and') {
+            $('#color-only').val('false');
+            $('#color-and').val('and');
+            $('#colorOperator').val('false-and');
+        } else if (conly === 'true' && cop === 'and') {
+            $('#color-only').val('true');
+            $('#color-and').val('and');
+            $('#colorOperator').val('true-and');
+        } else if (conly === 'true' && cop === 'or') {
+            $('#color-only').val('true');
+            $('#color-and').val('or');
+            $('#colorOperator').val('true-or');
+        } else if (conly === 'false' && cop === 'or') {
+            $('#color-only').val('false');
+            $('#color-and').val('or');
+            $('#colorOperator').val('false-or');
+        }
+        $('#colorOperator').selectpicker('refresh');
+        if (uniq === 'true') {
+            $('#adv-unique').val('true');
+            $('#adv-unique-btn').addClass('active').attr('aria-pressed', 'true');
+        } else {
+            $('#adv-unique').val('false');
+            $('#adv-unique-btn').removeClass('active').attr('aria-pressed', 'false');
+        }
+        $('#adv-raritySelector').selectpicker('refresh');
+        $('#adv-formatSelector').selectpicker('refresh');
+        $('#adv-CardAttr').selectpicker('refresh');
+        $('#adv-CardOperator').selectpicker('refresh');
+        $('#adv-setSelector').selectpicker('refresh');
+        $('#colorSelector').selectpicker('refresh');
+    }
+}
+
+$(document).ready(function () {
+    loadInputs();
+    $('#colorOperator').on('change', function () {
+        switch ($(this).val()) {
+            case 'false-and':
+                $('#color-only').val('false');
+                $('#color-and').val('and');
+                break;
+            case 'true-and':
+                $('#color-only').val('true');
+                $('#color-and').val('and');
+                break;
+            case 'true-or':
+                $('#color-only').val('true');
+                $('#color-and').val('or');
+                break;
+            case 'false-or':
+                $('#color-only').val('false');
+                $('#color-and').val('or');
+                break;
+            default:
+                break;
+        }
+    });
+
+    $('#colorSelector').on('change', function () {
+        string = $(this).val().join('|');
+        $('#colorString').val(string);
+    });
+
+    $('.ae-btn-type').click(function () {
+        $('#adv-CardType').val($(this).attr('data-type'));
+    });
+
+    $('.ae-btn-keyword').click(function () {
+        $('#adv-CardText').val($(this).attr('data-keyword'));
+    });
+
+    $('#adv-unique-btn').click(function () {
+        if ($('#adv-unique').val() === 'true') {
+            $('#adv-unique').val('false');
+            popupMessage('<b>Unique card filter off</b>', 3000, true);
+        } else {
+            $('#adv-unique').val('true');
+            popupMessage('<b>Unique card filter on</b>', 3000, false);
+        }
+    });
+
+    $('#searchCards').on('keyup', function (e) {
+        if (e.keyCode === 13) {
+            cardSearch();
+        }
+    });
+
+    $('#adv-CardType').on('keyup', function (e) {
+        if (e.keyCode === 13) {
+            cardSearch();
+        }
+    });
+    $('#adv-CardText').on('keyup', function (e) {
+        if (e.keyCode === 13) {
+            cardSearch();
+        }
+    });
+    $('#adv-ArtistText').on('keyup', function (e) {
+        if (e.keyCode === 13) {
+            cardSearch();
+        }
+    });
+
+    $('#resetFilter').click(function () {
+        $('#searchCards').val('');
+        $('#adv-CardType').val('');
+        $('#adv-CardText').val('');
+        $('#adv-ArtistText').val('');
+        $('#adv-setSelector').val('');
+        $('#adv-setSelector').selectpicker('refresh');
+        $('#adv-raritySelector').val('');
+        $('#adv-raritySelector').selectpicker('refresh');
+        $('#adv-formatSelector').val('');
+        $('#adv-formatSelector').selectpicker('refresh');
+        $('#adv-CardAttr').val('cmc');
+        $('#adv-CardAttr').selectpicker('refresh');
+        $('#adv-CardOperator').val('=');
+        $('#adv-CardOperator').selectpicker('refresh');
+        $('#adv-CardVal').val('');
+        $('#colorString').val('');
+        $('#colorSelector').val('');
+        $('#colorSelector').selectpicker('refresh');
+        $('#colorOperator').val('false-and');
+        $('#colorOperator').selectpicker('refresh');
+        $('#searchSortName').html('<b>Name</b>').attr('data-method', 'asc');
+        $('#searchSortNumber').html('<b>Number</b>').attr('data-method', 'asc');
+        $('#ae-price-sort').html('<b>Price</b>').attr('data-method', 'asc');
+        $('#ae-price-toggle').html('<b>$ / €</b>').attr('data-toggle', 'usd-eur').attr('data-nexttoggle', 'eur');
+        $('#adv-unique').val('false');
+        $('#adv-unique-btn').removeClass('active').attr('aria-pressed', 'false');
+    });
+
+    $('#reset-searchCards').click(function () {
+        $('#searchCards').val('');
+    });
+
+    $('#reset-adv-CardType').click(function () {
+        $('#adv-CardType').val('');
+    });
+
+    $('#reset-adv-CardText').click(function () {
+        $('#adv-CardText').val('');
+    });
+
+    $('#reset-adv-setSelector').click(function () {
+        $('#adv-setSelector').val('');
+        $('#adv-setSelector').selectpicker('refresh');
+    });
+
+    $('#reset-adv-formatSelector').click(function () {
+        $('#adv-formatSelector').val('');
+        $('#adv-formatSelector').selectpicker('refresh');
+    });
+
+    $('#reset-adv-raritySelector').click(function () {
+        $('#adv-raritySelector').val('');
+        $('#adv-raritySelector').selectpicker('refresh');
+    });
+
+    $('#reset-adv-ArtistText').click(function () {
+        $('#adv-ArtistText').val('');
+    });
+
+    $('#reset-adv-CardVal').click(function () {
+        $('#adv-CardAttr').val('cmc');
+        $('#adv-CardAttr').selectpicker('refresh');
+        $('#adv-CardOperator').val('=');
+        $('#adv-CardOperator').selectpicker('refresh');
+        $('#adv-CardVal').val('');
+        $('#colorString').val('');
+    });
+
+    $('#reset-adv-colorString').click(function () {
+        $('#colorString').val('');
+        $('#colorSelector').val('');
+        $('#colorSelector').selectpicker('refresh');
+        $('#colorOperator').val('false-and');
+        $('#colorOperator').selectpicker('refresh');
+    });
+    var hasSetBeenSelected = $('#selectedSetCode');
+    if (hasSetBeenSelected && hasSetBeenSelected.val()) {
+        console.log(hasSetBeenSelected);
+        $('#adv-setSelector').val(hasSetBeenSelected.val());
+        $('#adv-setSelector').selectpicker('refresh');
+    }
 });

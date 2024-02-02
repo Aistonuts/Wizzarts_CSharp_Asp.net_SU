@@ -737,6 +737,9 @@
         }
       },
       "MagicCardsmith.Services/1.0.0": {
+        "dependencies": {
+          "MagicCardsmith.Web.ViewModels": "1.0.0"
+        },
         "runtime": {
           "MagicCardsmith.Services.dll": {}
         }
@@ -746,6 +749,7 @@
           "MagicCardsmith.Data": "1.0.0",
           "MagicCardsmith.Data.Common": "1.0.0",
           "MagicCardsmith.Data.Models": "1.0.0",
+          "MagicCardsmith.Services": "1.0.0",
           "MagicCardsmith.Services.Mapping": "1.0.0",
           "MagicCardsmith.Web.ViewModels": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "5.0.17",

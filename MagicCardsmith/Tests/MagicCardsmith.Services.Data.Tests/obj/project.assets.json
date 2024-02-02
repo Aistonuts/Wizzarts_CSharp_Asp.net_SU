@@ -2866,6 +2866,19 @@
           "bin/placeholder/MagicCardsmith.Data.Models.dll": {}
         }
       },
+      "MagicCardsmith.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MagicCardsmith.Web.ViewModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MagicCardsmith.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MagicCardsmith.Services.dll": {}
+        }
+      },
       "MagicCardsmith.Services.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2873,6 +2886,7 @@
           "MagicCardsmith.Data": "1.0.0",
           "MagicCardsmith.Data.Common": "1.0.0",
           "MagicCardsmith.Data.Models": "1.0.0",
+          "MagicCardsmith.Services": "1.0.0",
           "MagicCardsmith.Services.Mapping": "1.0.0",
           "MagicCardsmith.Web.ViewModels": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
@@ -8414,6 +8428,11 @@
       "path": "../../Data/MagicCardsmith.Data.Models/MagicCardsmith.Data.Models.csproj",
       "msbuildProject": "../../Data/MagicCardsmith.Data.Models/MagicCardsmith.Data.Models.csproj"
     },
+    "MagicCardsmith.Services/1.0.0": {
+      "type": "project",
+      "path": "../../Services/MagicCardsmith.Services/MagicCardsmith.Services.csproj",
+      "msbuildProject": "../../Services/MagicCardsmith.Services/MagicCardsmith.Services.csproj"
+    },
     "MagicCardsmith.Services.Data/1.0.0": {
       "type": "project",
       "path": "../../Services/MagicCardsmith.Services.Data/MagicCardsmith.Services.Data.csproj",
@@ -8533,7 +8552,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

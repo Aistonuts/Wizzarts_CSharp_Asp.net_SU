@@ -1162,6 +1162,19 @@
           "bin/placeholder/MagicCardsmith.Data.Models.dll": {}
         }
       },
+      "MagicCardsmith.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MagicCardsmith.Web.ViewModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MagicCardsmith.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MagicCardsmith.Services.dll": {}
+        }
+      },
       "MagicCardsmith.Services.Mapping/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2956,6 +2969,11 @@
       "path": "../../Data/MagicCardsmith.Data.Models/MagicCardsmith.Data.Models.csproj",
       "msbuildProject": "../../Data/MagicCardsmith.Data.Models/MagicCardsmith.Data.Models.csproj"
     },
+    "MagicCardsmith.Services/1.0.0": {
+      "type": "project",
+      "path": "../MagicCardsmith.Services/MagicCardsmith.Services.csproj",
+      "msbuildProject": "../MagicCardsmith.Services/MagicCardsmith.Services.csproj"
+    },
     "MagicCardsmith.Services.Mapping/1.0.0": {
       "type": "project",
       "path": "../MagicCardsmith.Services.Mapping/MagicCardsmith.Services.Mapping.csproj",
@@ -2972,6 +2990,7 @@
       "MagicCardsmith.Data >= 1.0.0",
       "MagicCardsmith.Data.Common >= 1.0.0",
       "MagicCardsmith.Data.Models >= 1.0.0",
+      "MagicCardsmith.Services >= 1.0.0",
       "MagicCardsmith.Services.Mapping >= 1.0.0",
       "MagicCardsmith.Web.ViewModels >= 1.0.0",
       "Microsoft.AspNetCore.Http.Features >= 5.0.17",
@@ -3018,6 +3037,9 @@
             },
             "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Services\\MagicCardsmith.Services.Mapping\\MagicCardsmith.Services.Mapping.csproj": {
               "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Services\\MagicCardsmith.Services.Mapping\\MagicCardsmith.Services.Mapping.csproj"
+            },
+            "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Services\\MagicCardsmith.Services\\MagicCardsmith.Services.csproj": {
+              "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Services\\MagicCardsmith.Services\\MagicCardsmith.Services.csproj"
             },
             "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web.ViewModels\\MagicCardsmith.Web.ViewModels.csproj": {
               "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web.ViewModels\\MagicCardsmith.Web.ViewModels.csproj"
@@ -3070,7 +3092,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

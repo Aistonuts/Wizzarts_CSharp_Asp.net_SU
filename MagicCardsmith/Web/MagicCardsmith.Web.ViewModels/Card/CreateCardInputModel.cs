@@ -10,6 +10,10 @@
     {
         public IFormFile Images { get; set; }
 
+        public bool IsEventCard { get; set; }
+
+        public int EventId { get; set; }
+
         public IEnumerable<BlackManaCostViewModel> BlackMana { get; set; } = new List<BlackManaCostViewModel>();
 
         public IEnumerable<BlueManCostViewModel> BlueMana { get; set; } = new List<BlueManCostViewModel>();

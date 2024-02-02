@@ -19,6 +19,11 @@
 
             await dbContext.GreenManas.AddAsync(new GreenMana
             {
+                Cost = 0,
+            });
+
+            await dbContext.GreenManas.AddAsync(new GreenMana
+            {
                 Cost = 1,
                 ColorName = "Green",
                 ImageUrl = "/images/mana/g.png",

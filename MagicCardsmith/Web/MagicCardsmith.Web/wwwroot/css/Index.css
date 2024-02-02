@@ -1,0 +1,310 @@
+﻿@font-face {
+    font-family: 'AetherHub';
+    src: url('../fonts/Aetherhub.woff2') format('woff2');
+}
+
+@keyframes animateBar {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.home-meta-card {
+    width: 300px;
+    font-family: Philosopher,serif;
+}
+
+.home-meta-card-headline {
+    width: 280px;
+    height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #E7CF6D;
+}
+
+#SponsoredStream {
+    height: 225px;
+}
+
+p.card-text a {
+    font-weight: bold;
+}
+
+.yt-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+    .yt-img a {
+        width: 100%;
+        height: 100%;
+        display: block;
+        transition: all 0.4s ease-in-out;
+        overflow: hidden;
+    }
+
+        .yt-img a:after {
+            position: absolute;
+            content: "";
+            display: block;
+            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1) 0%, #000000 100%);
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .yt-img a:hover:after {
+            opacity: 0.4;
+        }
+
+        .yt-img a:hover .play-btn-svg circle {
+            stroke: var(--color-6);
+            stroke-width: 4;
+            fill: transparent;
+        }
+
+        .yt-img a:hover .play-btn-svg polygon {
+            opacity: 1;
+            fill: var(--color-7);
+        }
+
+        .yt-img a:hover img {
+            transform: scale3d(1.1, 1.1, 1);
+        }
+
+        .yt-img a img {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .yt-img a .far.fa-play-circle,
+        .yt-img a .play-btn-svg {
+            position: absolute;
+            z-index: 10;
+            top: 50%;
+            left: 50%;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 6rem;
+            width: 5rem;
+            transition: all 0.4s ease-in-out;
+            transform: translate3d(-50%, -50%, 0);
+        }
+
+            .yt-img a .far.fa-play-circle circle,
+            .yt-img a .play-btn-svg circle {
+                fill: var(--color-3);
+                stroke: var(--color-7);
+                stroke-width: 2;
+                transition: all 0.4s ease-in-out;
+            }
+
+            .yt-img a .far.fa-play-circle polygon,
+            .yt-img a .play-btn-svg polygon {
+                opacity: 0.5;
+                fill: var(--color-7);
+                /*stroke: var(--color-2);
+            stroke-width: 3;*/
+                transition: all 0.4s ease-in-out;
+            }
+
+.video-card {
+    width: 100%;
+}
+
+.progress .progress-bar {
+    animation-name: animateBar;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 2s;
+}
+
+span.archetype-tag {
+    width: 120px;
+    height: 25px;
+    border-radius: 3px;
+    border: 1px solid #212529;
+    display: inline-block;
+    text-align: center;
+    user-select: none;
+}
+
+.article-card {
+    width: 100%;
+    overflow:hidden;
+}
+/*1fr 1fr 1fr 1fr;*/
+.firstfeed-flexbox {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--padding);
+}
+
+@media (max-width: 767px) {
+    .firstfeed-flexbox {
+        grid-template-columns: 1fr;
+    }
+}
+/*283*/
+.article-uimgheader {
+    width: 383px;
+    height: 159px;
+    max-height: 159px;
+    object-fit: cover;
+}
+
+@media (max-width: 767px) {
+    .article-uimgheader {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.article-imgheader {
+    width: 283px;
+    height: 159px;
+    background-position: top -70px left 50%;
+    background-size: 380px 521px;
+}
+
+@media (max-width: 767px) {
+    .article-imgheader {
+        margin: auto;
+    }
+}
+
+.deck-writeup-card {
+    width: 258px;
+}
+
+.metagame-flexbox {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.img-spoiler-cardimg {
+    width: 146px;
+    height: 204px;
+    border-radius: 8px;
+}
+
+.article-text-tags {
+    font-size: 0.6875rem;
+    text-transform: lowercase;
+}
+
+.font-size-18 {
+    font-size: 1.125rem;
+}
+
+.metagroup-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding-bottom: .5rem;
+}
+
+.meta-cardimg {
+    width: 80px;
+    height: 50px;
+    background-position: top -40px left -50px;
+    background-size: 180px 250px;
+    border-radius: 6px;
+}
+
+.meta-frontpage-header-img {
+    width: 250px;
+    height: 140px;
+    position: relative;
+    background-position: top -55px left -40px;
+    background-size: 320px 444px;
+    border-radius: 4px;
+    border: 1px solid #808080;
+    color: #fff;
+}
+
+    .meta-frontpage-header-img:hover .frontpage-header-text {
+        color: #337ab7;
+    }
+
+.frontpage-header-text {
+    font-family: 'AetherHub';
+    font-weight: bold;
+    color: #000;
+    font-size: 1.625rem;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+    text-shadow: 1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff;
+}
+
+.featured-creator-cards {
+    gap: var(--padding);
+}
+
+@media only screen and (min-width: 804px) and (max-width: 1693px) {
+    .firstfeed-flexbox {
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 1694px) {
+    .firstfeed-flexbox {
+        justify-content: flex-start;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .metagame-flexbox .meta-card:nth-of-type(1) {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .metagame-flexbox .meta-card:nth-of-type(3) {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1020px) {
+    .metagame-flexbox .meta-card:nth-of-type(2) {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .metagame-flexbox .limited-card {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .featured-creator-cards .video-card:nth-child(3) {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .featured-creator-cards .video-card:nth-child(2) {
+        display: none;
+    }
+}

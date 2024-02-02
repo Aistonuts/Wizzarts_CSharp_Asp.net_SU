@@ -42,6 +42,7 @@
 
             art.Extension = extension;
             var physicalPath = $"{imagePath}/art/{art.Id}.{extension}";
+            art.RemoteImageUrl = $"/images/art/{art.Id}.{extension}";
             using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.Image.CopyToAsync(fileStream);
 

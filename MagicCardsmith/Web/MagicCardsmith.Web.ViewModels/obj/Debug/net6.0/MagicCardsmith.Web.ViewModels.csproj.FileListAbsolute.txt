@@ -17,3 +17,4 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\refint\MagicCardsmith.Web.ViewModels.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\MagicCardsmith.Web.ViewModels.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\ref\MagicCardsmith.Web.ViewModels.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\MagicCardsmith.Web.ViewModels.sourcelink.json

@@ -15,5 +15,7 @@
         T GetById<T>(int id);
 
         T GetMilestoneById<T>(int Id);
+
+        IEnumerable<T> GetAllEventCards<T>();
     }
 }

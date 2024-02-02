@@ -664,3 +664,9 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmi
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\MagicCardsmith.Web.Tests.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\MagicCardsmith.Web.Tests.genruntimeconfig.cache
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\ref\MagicCardsmith.Web.Tests.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\MagicCardsmith.Web.Tests.sourcelink.json

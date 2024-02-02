@@ -7,7 +7,7 @@
 
     public interface IArticleService
     {
-        Task CreateAsync(CreateArticleInputModel input, string artistId);
+        Task CreateAsync(CreateArticleInputModel input, string artistId, string imagePath);
 
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 3);
 

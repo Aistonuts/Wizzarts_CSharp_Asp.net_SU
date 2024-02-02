@@ -27,6 +27,7 @@
     <ProjectReference Include="..\..\Data\MagicCardsmith.Data\MagicCardsmith.Data.csproj" />
     <ProjectReference Include="..\..\Web\MagicCardsmith.Web.ViewModels\MagicCardsmith.Web.ViewModels.csproj" />
     <ProjectReference Include="..\MagicCardsmith.Services.Mapping\MagicCardsmith.Services.Mapping.csproj" />
+    <ProjectReference Include="..\MagicCardsmith.Services\MagicCardsmith.Services.csproj" />
   </ItemGroup>
 
 </Project>

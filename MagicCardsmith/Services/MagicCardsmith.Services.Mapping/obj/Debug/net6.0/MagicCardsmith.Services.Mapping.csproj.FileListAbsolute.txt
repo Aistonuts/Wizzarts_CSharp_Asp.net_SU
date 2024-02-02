@@ -10,3 +10,4 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCard
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Mapping\obj\Debug\net6.0\refint\MagicCardsmith.Services.Mapping.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Mapping\obj\Debug\net6.0\MagicCardsmith.Services.Mapping.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Mapping\obj\Debug\net6.0\ref\MagicCardsmith.Services.Mapping.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services.Mapping\obj\Debug\net6.0\MagicCardsmith.Services.Mapping.sourcelink.json

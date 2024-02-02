@@ -20,16 +20,16 @@
 
         public string Extension { get; set; }
 
-        public int ArtIstId { get; set; }
+        public int? ArtIstId { get; set; }
 
         public Artist Artist { get; set; }
 
         public int? CardId { get; set; }
 
-        public Card? Card { get; set; }
+        public Card Card { get; set; }
 
-        public string? ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
 
-        public ApplicationUser? ApplicationUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

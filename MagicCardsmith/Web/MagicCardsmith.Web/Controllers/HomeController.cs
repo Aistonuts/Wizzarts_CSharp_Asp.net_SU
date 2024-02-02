@@ -1,7 +1,7 @@
 ﻿namespace MagicCardsmith.Web.Controllers
 {
     using System.Diagnostics;
-
+    using System.Linq;
     using MagicCardsmith.Services.Data;
     using MagicCardsmith.Web.ViewModels;
     using MagicCardsmith.Web.ViewModels.Art;
@@ -10,8 +10,10 @@
     using MagicCardsmith.Web.ViewModels.Event;
     using MagicCardsmith.Web.ViewModels.Expansion;
     using MagicCardsmith.Web.ViewModels.Home;
+    using MagicCardsmith.Web.ViewModels.SearchCard;
     using MagicCardsmith.Web.ViewModels.Stores;
     using Microsoft.AspNetCore.Mvc;
+    using System.Web;
 
     public class HomeController : BaseController
     {
@@ -43,6 +45,7 @@
 
         public IActionResult Index()
         {
+
             var viewModel = new IndexViewModel
             {
                 Articles = this.articlesService.GetRandom<IndexPageArticleViewModel>(6),
@@ -52,6 +55,7 @@
                 Stores = this.storeService.GetAll<StoresInListViewModel>(),
                 Events = this.eventService.GetAll<EventInListViewModel>(),
                 GameExpansions = this.expansionService.GetAll<ExpansionInListViewModel>(),
+                //CardTypes = this.cardService.GetAllTypes<CardTypeIdViewModel>(),
             };
             return this.View(viewModel);
         }

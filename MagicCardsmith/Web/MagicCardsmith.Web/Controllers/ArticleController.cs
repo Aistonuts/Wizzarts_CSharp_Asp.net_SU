@@ -9,6 +9,7 @@
     using MagicCardsmith.Web.ViewModels.Article;
     using MagicCardsmith.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
@@ -16,13 +17,16 @@
     {
         private readonly IArticleService articleService;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IWebHostEnvironment environment;
 
         public ArticleController(
             IArticleService articleService,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,
+            IWebHostEnvironment environment)
         {
             this.articleService = articleService;
             this.userManager = userManager;
+            this.environment = environment;
         }
 
        // [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
@@ -62,7 +66,7 @@
 
             try
             {
-                await this.articleService.CreateAsync(input, user.Id);
+                await this.articleService.CreateAsync(input, user.Id, $"{this.environment.WebRootPath}/images");
             }
             catch (Exception ex)
             {

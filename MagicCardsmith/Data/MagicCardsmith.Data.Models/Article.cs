@@ -12,10 +12,6 @@
 
         public string ImageUrl { get; set; }
 
-        public string? ArtId { get; set; }
-
-        public Art? Art { get; set; }
-
         public string ArticleCreatorId { get; set; }
 
         public ApplicationUser ArticleCreator { get; set; }

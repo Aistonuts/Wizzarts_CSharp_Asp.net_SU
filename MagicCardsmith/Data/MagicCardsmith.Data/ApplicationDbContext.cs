@@ -98,6 +98,46 @@
             .WithOne(a => a.Card)
             .HasForeignKey<Art>(a => a.CardId);
 
+            //builder.Entity<Card>()
+            //.HasOne(a => a.BlackMana)
+            //.WithOne(a => a.Card)
+            //.HasForeignKey<BlackMana>(a => a.CardId);
+
+            //builder.Entity<Card>()
+            //.HasOne(a => a.BlueMana)
+            //.WithOne(a => a.Card)
+            //.HasForeignKey<BlueMana>(a => a.CardId);
+
+            //builder.Entity<Card>()
+            //.HasOne(a => a.WhiteMana)
+            //.WithOne(a => a.Card)
+            //.HasForeignKey<WhiteMana>(a => a.CardId);
+
+            //builder.Entity<Card>()
+            //.HasOne(a => a.RedMana)
+            //.WithOne(a => a.Card)
+            //.HasForeignKey<RedMana>(a => a.CardId);
+
+            //builder.Entity<Card>()
+            //.HasOne(a => a.GreenMana)
+            //.WithOne(a => a.Card)
+            //.HasForeignKey<GreenMana>(a => a.CardId);
+
+            //builder.Entity<Card>()
+            //.HasOne(a => a.ColorlessMana)
+            //.WithOne(a => a.Card)
+            //.HasForeignKey<ColorlessMana>(a => a.CardId);
+
+            //builder.Entity<Card>()
+            //.HasOne(a => a.CardType)
+            //.WithOne(a => a.Card)
+            //.HasForeignKey<CardType>(a => a.CardId);
+
+            //builder.Entity<Card>()
+            //.HasOne(a => a.CardFrameColor)
+            //.WithOne(a => a.Card)
+            //.HasForeignKey<CardFrameColor>(a => a.CardId);
+
             builder.Entity<ApplicationUser>()
                 .HasOne(a => a.GameRules)
                 .WithOne(a => a.PublishedBy)

@@ -12,13 +12,17 @@
     {
         private readonly IDeletableEntityRepository<Event> eventRepository;
         private readonly IDeletableEntityRepository<EventMilestone> milestonesepository;
+        private readonly IDeletableEntityRepository<Card> cardsRepository;
 
         public EventService(
             IDeletableEntityRepository<Event> eventRepository,
-            IDeletableEntityRepository<EventMilestone> milestonesepository)
+            IDeletableEntityRepository<EventMilestone> milestonesepository,
+            IDeletableEntityRepository<Card> cardsRepository)
         {
             this.eventRepository = eventRepository;
             this.milestonesepository = milestonesepository;
+            this.cardsRepository = cardsRepository;
+
         }
 
         public IEnumerable<T> GetAll<T>()
@@ -30,6 +34,14 @@
             return events;
         }
 
+        public IEnumerable<T> GetAllEventCards<T>()
+        {
+            var eventCards = this.cardsRepository.AllAsNoTracking()
+                .Where(x => x.IsEventCard == true)
+                .To<T>().ToList();
+
+            return eventCards;
+        }
 
         public IEnumerable<T> GetAllMilestones<T>(int id)
         {

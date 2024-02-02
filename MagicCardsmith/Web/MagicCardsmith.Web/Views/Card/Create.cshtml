@@ -40,221 +40,280 @@
             <tbody>
                 <tr style="width:100%">
                     <td style="padding:0px;text-align:left;vertical-align:top;">
-                        <form method="post" id="cardinfo" enctype="multipart/form-data">
-                            <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
-                                <tbody>
-                                    <tr class="row1">
-                                        <td style="width:30%">
-                                            <label asp-for="Name">Name:</label>
-                                        </td>
-                                        <td>
-                                            <input asp-for="Name" name="name" id="name">
-                                        </td>
-                                    </tr>
-                                    <tr class="row2">
-                                        <td>
-                                            <label asp-for="CardFrameId">Frame:</label>
-                                        </td>
-                                        <td>
-                                            <select asp-for="CardFrameId" id="color" onchange="frameSelectFunc(event)">
-                                               @foreach(var type in Model.SelectFrameColor)
-                                                {
-                                                    <option value="@type.Id">@type.Name</option>
-                                                }
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="row1">
-                                        <td>
-                                            Mana Cost:
-                                        </td>
-                                        <td>
-                                            <table class="manatable" style="border-spacing:0px;font-size:10px;text-align: center;width:50%">
-                                                <tbody>
-                                                    <tr>
-                                                        <td><b>Red</b></td>
-                                                        <td><b>Blue</b></td>
-                                                        <td><b>Green</b></td>
-                                                        <td><b>Black</b></td>
-                                                        <td><b>White</b></td>
-                                                        <td><b>Colorless</b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <select asp-for="RedManaId" id="mana_r" onchange="colorSelectFunc(event)">
-                                                                <option value="0" selected="true">
-                                                                    0
-                                                                </option>
-                                                                @foreach (var type in Model.RedMana)
-                                                                {
-                                                                    <option value="@type.Id">@type.Cost</option>
-                                                                }
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <select asp-for="BlueManaId" id="mana_u" onchange="colorSelectFunc(event)">
-                                                                <option value="0" selected="true">
-                                                                    0
-                                                                </option>
-                                                                @foreach (var type in Model.BlueMana)
-                                                                {
-                                                                    <option value="@type.Id">@type.Cost</option>
-                                                                }
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <select asp-for="GreenManaId" id="mana_g" onchange="colorSelectFunc(event)">
-                                                                <option value="0" selected="true">
-                                                                    0
-                                                                </option>
-                                                                @foreach (var type in Model.GreenMana)
-                                                                {
-                                                                    <option value="@type.Id">@type.Cost</option>
-                                                                }
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <select asp-for="BlackManaId" id="mana_b" onchange="colorSelectFunc(event)">
-                                                                <option value="0" selected="true">
-                                                                    0
-                                                                </option>
-                                                                @foreach (var type in Model.BlackMana)
-                                                                {
-                                                                    <option value="@type.Id">@type.Cost</option>
-                                                                }
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <select asp-for="WhiteManaId" id="mana_w" onchange="colorSelectFunc(event)">
-                                                                <option value="0" selected="true">
-                                                                    0
-                                                                </option>
-                                                                @foreach (var type in Model.WhiteMana)
-                                                                {
-                                                                    <option value="@type.Id">@type.Cost</option>
-                                                                }
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <select asp-for="ColorlessManaId" id="mana_colorless" onchange="colorSelectFunc(event)">
-                                                                <option value="0" selected="true">
-                                                                    0
-                                                                </option>
-                                                                @foreach (var type in Model.ColorlessMana)
-                                                                {
-                                                                    <option value="@type.Id">@type.Cost</option>
-                                                                }
-                                                            </select>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr class="row1">
-                                        <td>Picture URL:</td>
-                                        <td>
-                                            <input type="text" class="input_text" name="picture" id="picture" style="width:50%">
-                                            <input type="button" id="upload" class="ipsButton_secondary" value="Upload">
-                                        </td>
-                                    </tr>
-                                    <tr class="row1">
-                                        <td>
-                                            <label asp-for="CardTypeId">Type:</label>
-                                        </td>
-                                        <td>
-                                            <select asp-for="CardTypeId" id="newtype" onchange="cardTypeFunc(event)">
-                                                @foreach (var type in Model.SelectType)
-                                                {
-                                                    <option value="@type.Id">@type.Name</option>
-                                                }
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr class="row2">
-                                        <td>
-                                            <label asp-for="GameExpansionId">Expansion Symbol:</label>
-                                        </td>
-                                        <td>
-                                            <select asp-for="GameExpansionId" id="expansion" onchange="expansionSymbolFunc(event)">
-                                                @foreach (var type in Model.SelectExpansion)
-                                                {
-                                                    <option value="@type.Id">@type.Title</option>
-                                                }
-                                            </select>                                         
-                                        </td>
-                                    </tr>
-                                    <tr class="row1">
-                                        <td>
-                                            <label asp-for="AbilitiesAndFlavor">Abilities &amp; Flavor:</label>
-                                        </td>
-                                        <td>
-                                            <textarea asp-for="AbilitiesAndFlavor" id="cardtext" style="height:60px;font-size: 10px" cols="60" rows="10"></textarea>
-                                            <br>
-                                            <div style="padding:2px;font-size:10px">
-                                                <b>Insert:</b>
-                                                <a href="#" class="insertSymbol" id="r"><img src="~/images/mana/r.png"></a>
-                                                <a href="#" class="insertSymbol" id="u"><img src="~/images/mana/u.png"></a>
-                                                <a href="#" class="insertSymbol" id="g"><img src="~/images/mana/g.png"></a>
-                                                <a href="#" class="insertSymbol" id="b"><img src="~/images/mana/b.png"></a>
-                                                <a href="#" class="insertSymbol" id="w"><img src="~/images/mana/w.png"></a>
-                                                <a href="#" class="insertSymbol" id="t"><img src="~/images/mana/t.png"></a>
-                                                <a href="#" class="insertSymbol" id="1"><img src="~/images/mana/1.png"></a>
-                                                <a href="#" class="insertSymbol" id="2"><img src="~/images/mana/2.png"></a>
-                                                <a href="#" class="insertSymbol" id="3"><img src="~/images/mana/3.png"></a>
-                                                <a href="#" class="insertSymbol" id="4"><img src="~/images/mana/4.png"></a>
-                                                <a href="#" class="insertSymbol" id="5"><img src="~/images/mana/5.png"></a>
-                                                <a href="#" class="insertSymbol" id="6"><img src="~/images/mana/6.png"></a>
-                                                <a href="#" class="insertSymbol" id="7"><img src="~/images/mana/7.png"></a>
-                                                <a href="#" class="insertSymbol" id="8"><img src="~/images/mana/8.png"></a>
-                                                <a href="#" class="insertSymbol" id="9"><img src="~/images/mana/9.png"></a>
-                                                <br />
-                                                <br />
-                                                <b>Clear:</b>
-                                                <a href="#" class="clearText" id="t"><img src="~/images/mana/t.png"></a>
-                                                <br />
-                                                <br />
-                                                <b>Clear from card:</b>
-                                                <a href="#" class="clearTextFromCard" id="t"><img src="~/images/mana/t.png"></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="row1">
-                                    </tr>
-                                    <tr class="row2">
-                                        <td>Power / Toughness:</td>
-                                        <td>
-                                            <input asp-for="Power" id="power" size="2" maxlength="2">
-                                            <input asp-for="Toughness" id="toughness" size="2" maxlength="2">
-                                        </td>
-                                    </tr>
-                                    <tr class="row1">
-                                        <td>Artist:</td>
-                                        <td>
-                                            <input type="text" class="input_text" name="artist" id="artist">
-                                        </td>
-                                    </tr>
-                                    <tr class="row1">
-                                        <td>Set Name:</td>
-                                        <td>
-                                            <input type="text" class="input_text" name="setname" id="setname" size="20" maxlength="30" default="Set name">
-                                        </td>
-                                    </tr>
-                                    <input type="submit" value="Submit" class="btn btn-warning">
-                                </tbody>
-                            </table>
-                        </form>
+                        @if(Model.EventId == 1)
+                        {
+                            <form method="post" id="cardinfo" enctype="multipart/form-data">
+                                <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
+                                    <tbody>
+                                        <tr class="row1">
+                                            <td style="width:30%">
+                                                <label asp-for="Name">Name:</label>
+                                            </td>
+                                            <td>
+                                                <input asp-for="Name" name="name" id="name" placeholder="@Model.EventMilestoneDescription">
+                                            </td>
+                                        </tr>
+                                        <tr class="row2">
+                                            <td>
+                                                <label asp-for="CardFrameId">Frame:</label>
+                                            </td>
+                                            <td>
+                                                <select asp-for="CardFrameId" id="color" onchange="frameSelectFunc(event)">
+                                                    @foreach (var type in Model.SelectFrameColor)
+                                                    {
+                                                        <option value="@type.Id">@type.Name</option>
+                                                    }
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="row1">
+                                            <td>
+                                                Mana Cost:
+                                            </td>
+                                            <td>
+                                                <table class="manatable" style="border-spacing:0px;font-size:10px;text-align: center;width:50%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><b>Red</b></td>
+                                                            <td><b>Blue</b></td>
+                                                            <td><b>Green</b></td>
+                                                            <td><b>Black</b></td>
+                                                            <td><b>White</b></td>
+                                                            <td><b>Colorless</b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <select asp-for="RedManaId" id="mana_r" onchange="colorSelectFunc(event)">
+                                                                    <option value="1" selected="true" >
+                                                                        0
+                                                                    </option>
+                                                                    @foreach (var type in Model.RedMana)
+                                                                    {
+                                                                        <option value="@type.Id">@type.Cost</option>
+                                                                    }
+                                                                </select>
+                                                            </td>
+                                                            <td>
+                                                                <select asp-for="BlueManaId" id="mana_u" onchange="colorSelectFunc(event)">
+                                                                    <option value="1" selected="true">
+                                                                        0
+                                                                    </option>
+                                                                    @foreach (var type in Model.BlueMana)
+                                                                    {
+                                                                        <option value="@type.Id">@type.Cost</option>
+                                                                    }
+                                                                </select>
+                                                            </td>
+                                                            <td>
+                                                                <select asp-for="GreenManaId" id="mana_g" onchange="colorSelectFunc(event)">
+                                                                    <option value="1" selected="true">
+                                                                        0
+                                                                    </option>
+                                                                    @foreach (var type in Model.GreenMana)
+                                                                    {
+                                                                        <option value="@type.Id">@type.Cost</option>
+                                                                    }
+                                                                </select>
+                                                            </td>
+                                                            <td>
+                                                                <select asp-for="BlackManaId" id="mana_b" onchange="colorSelectFunc(event)">
+                                                                    <option value="1" selected="true">
+                                                                        0
+                                                                    </option>
+                                                                    @foreach (var type in Model.BlackMana)
+                                                                    {
+                                                                        <option value="@type.Id">@type.Cost</option>
+                                                                    }
+                                                                </select>
+                                                            </td>
+                                                            <td>
+                                                                <select asp-for="WhiteManaId" id="mana_w" onchange="colorSelectFunc(event)">
+                                                                    <option value="1" selected="true">
+                                                                        0
+                                                                    </option>
+                                                                    @foreach (var type in Model.WhiteMana)
+                                                                    {
+                                                                        <option value="@type.Id">@type.Cost</option>
+                                                                    }
+                                                                </select>
+                                                            </td>
+                                                            <td>
+                                                                <select asp-for="ColorlessManaId" id="mana_colorless" onchange="colorSelectFunc(event)">
+                                                                    <option value="1" selected="true">
+                                                                        Clear
+                                                                    </option>
+                                                                    @foreach (var type in Model.ColorlessMana)
+                                                                    {
+                                                                        <option value="@type.Id">@type.Cost</option>
+                                                                    }
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        @*<tr class="row1">
+                                            <td>Picture URL:</td>
+                                            <td>
+                                                <input type="text" class="input_text" name="picture" id="picture" style="width:50%">
+                                                <input type="button" id="upload" class="ipsButton_secondary" value="Upload">
+                                            </td>
+                                        </tr>*@
+                                        <tr class="row1">
+                                            <td>
+                                                <label asp-for="CardTypeId">Type:</label>
+                                            </td>
+                                            <td>
+                                                <select asp-for="CardTypeId" id="newtype" onchange="cardTypeFunc(event)">
+                                                    <option value="1" selected="true">
+                                                    </option>
+                                                    @foreach (var type in Model.SelectType)
+                                                    {
+                                                        <option value="@type.Id">@type.Name</option>
+                                                    }
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="row2">
+                                            <td>
+                                                <label asp-for="GameExpansionId">Expansion Symbol:</label>
+                                            </td>
+                                            <td>
+                                                <select asp-for="GameExpansionId" id="expansion" onchange="expansionSymbolFunc(event)">
+                                                    <option value="1" selected="true">
+                                                    </option>
+                                                    @foreach (var type in Model.SelectExpansion)
+                                                    {
+                                                        <option value="@type.Id">@type.Title</option>
+                                                    }
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="row1">
+                                            <td>
+                                                <label asp-for="AbilitiesAndFlavor">Abilities &amp; Flavor:</label>
+                                            </td>
+                                            <td>
+                                                <textarea asp-for="AbilitiesAndFlavor" id="cardtext" style="height:60px;font-size: 10px" cols="60" rows="10" runat="server" placeholder="@Model.EventDescription"></textarea>
+                                                <br>
+                                                <div style="padding:2px;font-size:10px">
+                                                    <b>Insert:</b>
+                                                    <a href="#" class="insertSymbol" id="r"><img src="~/images/mana/r.png"></a>
+                                                    <a href="#" class="insertSymbol" id="u"><img src="~/images/mana/u.png"></a>
+                                                    <a href="#" class="insertSymbol" id="g"><img src="~/images/mana/g.png"></a>
+                                                    <a href="#" class="insertSymbol" id="b"><img src="~/images/mana/b.png"></a>
+                                                    <a href="#" class="insertSymbol" id="w"><img src="~/images/mana/w.png"></a>
+                                                    <a href="#" class="insertSymbol" id="t"><img src="~/images/mana/t.png"></a>
+                                                    <a href="#" class="insertSymbol" id="1"><img src="~/images/mana/1.png"></a>
+                                                    <a href="#" class="insertSymbol" id="2"><img src="~/images/mana/2.png"></a>
+                                                    <a href="#" class="insertSymbol" id="3"><img src="~/images/mana/3.png"></a>
+                                                    <a href="#" class="insertSymbol" id="4"><img src="~/images/mana/4.png"></a>
+                                                    <a href="#" class="insertSymbol" id="5"><img src="~/images/mana/5.png"></a>
+                                                    <a href="#" class="insertSymbol" id="6"><img src="~/images/mana/6.png"></a>
+                                                    <a href="#" class="insertSymbol" id="7"><img src="~/images/mana/7.png"></a>
+                                                    <a href="#" class="insertSymbol" id="8"><img src="~/images/mana/8.png"></a>
+                                                    <a href="#" class="insertSymbol" id="9"><img src="~/images/mana/9.png"></a>
+                                                    <br />
+                                                    <br />
+                                                    <b>Clear:</b>
+                                                    <a href="#" class="clearText" id="t"><img src="~/images/mana/t.png"></a>
+                                                    <br />
+                                                    <br />
+                                                    <b>Clear from card:</b>
+                                                    <a href="#" class="clearTextFromCard" id="t"><img src="~/images/mana/t.png"></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="row1">
+                                        </tr>
+                                        <tr class="row2">
+                                            <td>Power / Toughness:</td>
+                                            <td>
+                                                <input asp-for="Power" id="power" size="2" maxlength="2">
+                                                <input asp-for="Toughness" id="toughness" size="2" maxlength="2">
+                                            </td>
+                                        </tr>
+                                        <tr class="row1">
+                                            <td>Artist:</td>
+                                            <td>
+                                                <input type="text" class="input_text" name="artist" id="artist">
+                                            </td>
+                                        </tr>
+                                        @* <tr class="row1">*@
+                                        @*     <td>Set Name:</td>*@
+                                        @*     <td>*@
+                                        @*         <input type="text" class="input_text" name="setname" id="setname" size="20" maxlength="30" default="Set name">*@
+                                        @*     </td>*@
+                                        @* </tr>*@
+                                        <input type="submit" value="Submit" class="btn btn-warning">
+                                    </tbody>
+                                </table>
+                            </form>
+                        }
+                       @if(Model.EventId == 2)
+                        {
+                            <form method="post" id="cardinfo" enctype="multipart/form-data">
+                                <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
+                                    <tbody>
+                                        <tr class="row1">
+                                            <td>Picture URL:</td>
+                                            <td>
+                                                <input type="text" class="input_text" name="picture" id="picture" style="width:50%">
+                                                <input type="button" id="upload" class="ipsButton_secondary" value="Upload">
+                                            </td>
+                                        </tr>
+                                        <tr class="row1">
+                                            <td>
+                                                <label asp-for="AbilitiesAndFlavor">Abilities &amp; Flavor:</label>
+                                            </td>
+                                            <td>
+                                                <textarea asp-for="AbilitiesAndFlavor" id="cardtext" style="height:60px;font-size: 10px" cols="60" rows="10" runat="server" placeholder="@Model.EventDescription"></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr class="row2">
+                                            <td>
+                                                <label asp-for="GameExpansionId">Expansion Symbol:</label>
+                                            </td>
+                                            <td>
+                                                <select asp-for="GameExpansionId" id="expansion" onchange="expansionSymbolFunc(event)">
+                                                    <option value="0" selected="true">
+                                                    </option>
+                                                    @foreach (var type in Model.SelectExpansion)
+                                                    {
+                                                        <option value="@type.Id">@type.Title</option>
+                                                    }
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="row1">
+                                            <td>Artist:</td>
+                                            <td>
+                                                <input type="text" class="input_text" name="artist" id="artist">
+                                            </td>
+                                        </tr>
+                                        @* <tr class="row1">*@
+                                        @*     <td>Set Name:</td>*@
+                                        @*     <td>*@
+                                        @*         <input type="text" class="input_text" name="setname" id="setname" size="20" maxlength="30" default="Set name">*@
+                                        @*     </td>*@
+                                        @* </tr>*@
+                                        <input type="submit" value="Submit" class="btn btn-warning">
+                                    </tbody>
+                                </table>
+                            </form>
+                        }
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                         <a href="javascript:uploadtoimageshack();"><img style="width:333px" id="card" src="mcmaker/createcard.php?name=&amp;color=Red&amp;mana_r=1&amp;mana_u=2&amp;mana_g=2&amp;mana_b=0&amp;mana_w=0&amp;mana_colorless=0&amp;picture=&amp;supertype=&amp;cardtype=&amp;subtype=&amp;expansion=&amp;rarity=Common&amp;cardtext=++++++++++++++++++++++++++++++++++++&amp;power=&amp;toughness=&amp;artist=&amp;bottom=%E2%84%A2+%26+%C2%A9+1993-2013+Wizards+of+the+Coast+LLC&amp;set1=&amp;set2=&amp;setname=" alt="Magic Card" onload="updateGenerate();"></a>
-                        <center>
-                            <input type="text" name="url" id="url" style="width:98%;display:none" onclick="javascript:select();">
-                        </center>
-                        <div id="isurl"></div>
-                    </td>
-                </tr>
+                @*<tr>*@
+                @*    <td>*@
+                @*         <a href="javascript:uploadtoimageshack();"><img style="width:333px" id="card" src="mcmaker/createcard.php?name=&amp;color=Red&amp;mana_r=1&amp;mana_u=2&amp;mana_g=2&amp;mana_b=0&amp;mana_w=0&amp;mana_colorless=0&amp;picture=&amp;supertype=&amp;cardtype=&amp;subtype=&amp;expansion=&amp;rarity=Common&amp;cardtext=++++++++++++++++++++++++++++++++++++&amp;power=&amp;toughness=&amp;artist=&amp;bottom=%E2%84%A2+%26+%C2%A9+1993-2013+Wizards+of+the+Coast+LLC&amp;set1=&amp;set2=&amp;setname=" alt="Magic Card" onload="updateGenerate();"></a>*@
+                @*        <center>*@
+                @*            <input type="text" name="url" id="url" style="width:98%;display:none" onclick="javascript:select();">*@
+                @*        </center>*@
+                @*        <div id="isurl"></div>*@
+                @*    </td>*@
+                @*</tr>*@
 
                 <tr>
                     <td>
@@ -274,32 +333,55 @@
 
     <div class="second" id="second">
         <div class="card-container">
+            @if(Model.EventId == 1)
+            {
+                <div class="card-background" id="background" style="background-image: url('/images/frames/createcard.jpg')">
+                    <div class="card-frame">
+                        <div class="frame-header">
+                            <h1 class="name" id="cardName"></h1>
+                            <div id="imgHeader" class="card-imageframe">
+                            </div>
 
-            <div class="card-background" id="background" style="background-image: url('/images/frames/createcard.jpg')">
-                <div class="card-frame">
-                    <div class="frame-header">
-                        <h1 class="name" id="cardName"></h1>
-                        <div id="imgHeader">
                         </div>
+                        <img class="frame-art" src="@Model.EventMilestoneImage" alt="Nature">
 
-                    </div>
-                    <img class="frame-art" src="@Model.EventMilestoneImage" alt="Nature">
-
-                    <div class="frame-type-line" id="frame-type-line">
-                        <h1 class="type" id="cardtype"></h1>
-                        <div id="symbolHeader">
+                        <div class="frame-type-line" id="frame-type-line">
+                            <h1 class="type" id="cardtype"></h1>
+                            <div id="symbolHeader">
+                            </div>
                         </div>
-                    </div>
-                    <div class="frame-text-box">
-                        <p class="description" id="description">
-                            @Model.EventMilestoneDescription 
-                        </p>
+                        <div class="frame-text-box">
+                            <p class="description" id="description">
+                            </p>
+                        </div>
                     </div>
                 </div>
+            }
+            @if (Model.EventId == 2)
+            {
+                <div class="card-background" id="background" style="background-image: url('@Model.EventMilestoneImage')">
+                    <div class="card-frame">
+                        <div class="frame-header">
+                            <h1 class="name" id="cardName"></h1>
+                            <div id="imgHeader" class="card-imageframe">
+                            </div>
 
+                        </div>
+                        <img class="frame-art" src="" alt="Nature">
 
-
-            </div>
+                        <div class="frame-type-line" id="frame-type-line">
+                            <h1 class="type" id="cardtype"></h1>
+                            <div id="symbolHeader">
+                            </div>
+                        </div>
+                        <div class="frame-text-box">
+                            <p class="description" id="description">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+          
 
             <div class="frame-bottom-info inner-margin">
                 <div class="fbi-left">
@@ -358,7 +440,7 @@
             document.getElementById('cardtype').textContent = '';
 
             var currentSelection = e.target.id;
-            let selectedValue = $("#" + currentSelection + " option:selected").val();
+            let selectedValue = $("#" + currentSelection + " option:selected").html();
 
             if (selectedValue) {
                 $('#cardtype').append(selectedValue)
@@ -425,7 +507,7 @@
             }
             else {
                 var count = parseInt(selectedValue, 10);
-                for (let i = 0; i < count - 1; i++) {
+                for (let i = 0; i < count; i++) {
                     $('#imgHeader').append("<img src= /Images/mana/" + currentColor + ".png class=mana-icon  id= mana-icon-" + currentColor + " /> ")
 
                 }
@@ -439,31 +521,31 @@
             document.getElementById('symbolHeader').textContent = '';
 
             var currentSelection = e.target.id;
-            let selectedValue = $("#" + currentSelection + " option:selected").val();
+            let selectedValue = $("#" + currentSelection + " option:selected").html();
             if (selectedValue) {
-                let currentRarity = $("#rarity" + " option:selected").val();
-                $('#symbolHeader').append("<img src= /symbols/various/" + selectedValue + '_' + currentRarity + ".png id=set - icon alt=OGW - icon />")
+                let currentRarity = $("#rarity" + " option:selected").html();
+                $('#symbolHeader').append("<img src= /images/symbols/expansions/" + selectedValue + ".png id=set - icon alt=OGW - icon />")
             } else {
                 return false;
             }
         }
 
-        function raritySymbolFunc(e) {
-            document.getElementById('symbolHeader').textContent = '';
+        //function raritySymbolFunc(e) {
+        //    document.getElementById('symbolHeader').textContent = '';
 
-            var currentSelection = e.target.id;
-            let selectedValue = $("#" + currentSelection + " option:selected").val();
+        //    var currentSelection = e.target.id;
+        //    let selectedValue = $("#" + currentSelection + " option:selected").val();
 
-            let currentExpansion = $("#expansion" + " option:selected").val();
-            if (currentExpansion) {
-                $('#symbolHeader').append("<img src= /symbols/various/" + currentExpansion + '_' + selectedValue + ".png id=set - icon alt=OGW - icon />")
-            } else {
-                return false;
-            }
-        }
+        //    let currentExpansion = $("#expansion" + " option:selected").val();
+        //    if (currentExpansion) {
+        //        $('#symbolHeader').append("<img src= /symbols/various/" + currentExpansion + '_' + selectedValue + ".png id=set - icon alt=OGW - icon />")
+        //    } else {
+        //        return false;
+        //    }
+        //}
         function frameSelectFunc(e) {
             var currentSelection = e.target.id;
-            let selectedValue = $("#" + currentSelection + " option:selected").val();
+            let selectedValue = $("#" + currentSelection + " option:selected").html();
 
             document.getElementById("background").style["background-image"] = "url(" + '/Images/frames/' + selectedValue + ".png" + ")"
 

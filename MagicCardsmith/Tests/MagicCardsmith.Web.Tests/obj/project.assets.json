@@ -5709,6 +5709,9 @@
       "MagicCardsmith.Services/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MagicCardsmith.Web.ViewModels": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/MagicCardsmith.Services.dll": {}
         },
@@ -5723,6 +5726,7 @@
           "MagicCardsmith.Data": "1.0.0",
           "MagicCardsmith.Data.Common": "1.0.0",
           "MagicCardsmith.Data.Models": "1.0.0",
+          "MagicCardsmith.Services": "1.0.0",
           "MagicCardsmith.Services.Mapping": "1.0.0",
           "MagicCardsmith.Web.ViewModels": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
@@ -5800,7 +5804,8 @@
         "dependencies": {
           "MagicCardsmith.Common": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Identity.Core": "6.0.25"
         },
         "compile": {
           "bin/placeholder/MagicCardsmith.Web.Infrastructure.dll": {}
@@ -14969,7 +14974,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "c:\\program files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -15036,7 +15040,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

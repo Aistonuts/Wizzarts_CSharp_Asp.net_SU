@@ -54,7 +54,7 @@
 
             try
             {
-                await this.artService.CreateAsync(input, artist.Id, $"{this.environment.WebRootPath}/Images");
+                await this.artService.CreateAsync(input, artist.Id, $"{this.environment.WebRootPath}/images");
             }
             catch (Exception ex)
             {

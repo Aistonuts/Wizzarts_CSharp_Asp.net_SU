@@ -6,6 +6,13 @@
 
     public class CardType : BaseDeletableModel<int>
     {
+        public CardType()
+        {
+            this.Cards = new HashSet<Card>();
+        }
+
         public string Name { get; set; }
+
+        public ICollection<Card> Cards { get; set; }
     }
 }

@@ -13,3 +13,4 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.Infrastructure\obj\Debug\net6.0\refint\MagicCardsmith.Web.Infrastructure.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.Infrastructure\obj\Debug\net6.0\MagicCardsmith.Web.Infrastructure.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.Infrastructure\obj\Debug\net6.0\ref\MagicCardsmith.Web.Infrastructure.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.Infrastructure\obj\Debug\net6.0\MagicCardsmith.Web.Infrastructure.sourcelink.json

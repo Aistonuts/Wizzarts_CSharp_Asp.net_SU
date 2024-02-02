@@ -1,11 +1,8 @@
 ﻿namespace MagicCardsmith.Services.Data
 {
-    using System;
+    using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
-
     using MagicCardsmith.Web.ViewModels.Card;
 
     public interface ICardService
@@ -20,6 +17,12 @@
 
         IEnumerable<T> GetAllByCardId<T>(int id);
 
-        Task CreateAsync(CreateCardInputModel input, string userId, string id, string path);
+        Task CreateAsync(CreateCardInputModel input, string userId, int id, string path);
+
+        IEnumerable<T> GetByTypeCards<T>(IEnumerable<int> cardTypeId);
+
+        IEnumerable<T> GetAllTypes<T>();
+
+        IEnumerable<T> GetByName<T>(string name);
     }
 }

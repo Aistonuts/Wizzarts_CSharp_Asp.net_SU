@@ -13,3 +13,4 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmit
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Models\obj\Debug\net6.0\refint\MagicCardsmith.Data.Models.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Models\obj\Debug\net6.0\MagicCardsmith.Data.Models.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Models\obj\Debug\net6.0\ref\MagicCardsmith.Data.Models.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Data\MagicCardsmith.Data.Models\obj\Debug\net6.0\MagicCardsmith.Data.Models.sourcelink.json

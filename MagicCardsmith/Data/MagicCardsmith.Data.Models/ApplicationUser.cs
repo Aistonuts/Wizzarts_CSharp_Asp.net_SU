@@ -27,6 +27,10 @@ namespace MagicCardsmith.Data.Models
 
         public string AvatarUrl { get; set; }
 
+        public int? AvatarId { get; set; }
+
+        public Avatar Avatar { get; set; }
+
         public string GameRulesId { get; set; }
 
         public MagicCardsmithGameRules GameRules { get; set; }

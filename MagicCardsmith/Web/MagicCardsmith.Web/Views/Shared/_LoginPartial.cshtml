@@ -10,9 +10,18 @@
     <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; transform: translate3d(-155px, 22px, 0px); top: 0px; left: 0px; will-change: transform;">
         <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="fas fa-user fa-fw"></i> <b>Hello @this.User.Identity.Name!</b></a>
         <hr class="m-0">
-        <a class="dropdown-item" asp-area="" asp-controller="Article" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Article</b></a>
-        <a class="dropdown-item" asp-area="" asp-controller="Art" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
-        <a class="dropdown-item" asp-area="" asp-controller="Artists" asp-action="All"><i class="fa fa-handshake-o" aria-hidden="true"></i> <b>Become Artist</b></a>
+        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+        {
+            <a class="dropdown-item" asp-area="" asp-controller="Card" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
+            <a class="dropdown-item" asp-area="" asp-controller="Article" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Article</b></a>
+            <a class="dropdown-item" asp-area="" asp-controller="Event" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Event</b></a>
+        }
+        @if (this.User.IsInRole(GlobalConstants.ArtistRoleName) && this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+        {
+            <a class="dropdown-item" asp-area="" asp-controller="Art" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
+        }
+       
+        <a class="dropdown-item" asp-area="" asp-controller="Artist" asp-action="Become"><i class="fa fa-handshake-o" aria-hidden="true"></i> <b>Become Artist</b></a>
         <a class="dropdown-item" href="/Identity/ClaimRole/ClaimRole"><i class="fas fa-star"></i> <b>Premium</b></a>
         <hr class="m-0">
         <a class="dropdown-item" href="/Manage/Orders"><i class="fas fa-shopping-basket fa-fw"></i> <b>My Orders</b></a>

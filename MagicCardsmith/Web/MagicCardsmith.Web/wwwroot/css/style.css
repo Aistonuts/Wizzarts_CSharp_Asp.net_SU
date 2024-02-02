@@ -1044,6 +1044,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index:1001 !important;
     cursor: default
 }
 
@@ -13248,4 +13249,135 @@ span.archetype-tag {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/*market*/
+
+.table-eur .price-usd {
+    display: none;
+}
+
+.table-usd .price-eur {
+    display: none;
+}
+
+#ae-price-toggle {
+    width: 75px;
+}
+
+.item-hidden-text {
+    font-weight: bold;
+    color: transparent;
+    text-align: left;
+    padding-left: 20px;
+    z-index: 100;
+    position: absolute;
+    top: 12px;
+    width: 100%;
+    pointer-events: none;
+}
+
+@media (min-width: 578px) {
+    .card-image {
+        position: relative;
+        min-width: 50px;
+        display: block;
+        max-width: 100%;
+        width: 280px;
+        z-index: 0;
+        pointer-events: none;
+        border-radius: 15px;
+    }
+
+    .card-container .column-wrapper > div {
+        display: inline-block;
+        margin-top: -127%;
+    }
+}
+
+.card-image {
+    position: relative;
+    min-width: 99px;
+    display: block;
+    max-width: 100%;
+    width: 280px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.outer-container {
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .inner-container {
+        display: inline-block;
+        position: relative;
+        margin-top: 1px;
+        margin-right: 1px;
+        margin-bottom: 12px;
+        min-width: 50px;
+        max-width: 100%;
+        width: 279px;
+        height: 389px;
+    }
+
+        .inner-container img {
+            width: 279px;
+            height: 389px;
+            border-radius: 14px;
+        }
+
+    .item-footer {
+        z-index: 89;
+        position: absolute;
+        bottom: -11px;
+        width: 100%;
+        text-align: center;
+        pointer-events: none;
+        font-size: 12px;
+        color: white;
+    }
+
+    .item-price {
+        background-color: #000000;
+        border-radius: 3px;
+        padding: 0px 2px 0px;
+    }
+}
+
+@media (min-width: 768px) {
+    .inner-container {
+        display: inline-block;
+        position: relative;
+        margin-top: 3px;
+        margin-right: 1px;
+        min-width: 50px;
+        max-width: 100%;
+        width: 279px;
+        height: 389px;
+    }
+
+        .inner-container img {
+            width: 279px;
+            height: 389px;
+            border-radius: 14px;
+        }
+
+    .item-footer {
+        z-index: 89;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        text-align: center;
+        pointer-events: none;
+        font-size: 16px;
+        color: white;
+    }
+
+    .item-price {
+        background-color: #000000;
+        border-radius: 6px;
+        padding: 0px 4px 2px;
+    }
 }

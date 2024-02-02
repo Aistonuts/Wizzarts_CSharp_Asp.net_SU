@@ -7,6 +7,7 @@
     using MagicCardsmith.Web.ViewModels.Card;
     using MagicCardsmith.Web.ViewModels.Event;
     using MagicCardsmith.Web.ViewModels.Expansion;
+    using MagicCardsmith.Web.ViewModels.SearchCard;
     using MagicCardsmith.Web.ViewModels.Stores;
 
     public class IndexViewModel
@@ -24,5 +25,9 @@
         public IEnumerable<StoresInListViewModel> Stores { get; set; }
 
         public IEnumerable<ExpansionInListViewModel> GameExpansions { get; set; }
+
+        //public IEnumerable<CardTypeIdViewModel> CardTypes { get; set; }
+
+        //public IEnumerable<CardByTypeListViewModel> CardByType { get; set; }
     }
 }

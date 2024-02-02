@@ -1,7 +1,6 @@
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Services.deps.json
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Services.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Services.pdb
-C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\obj\Debug\net6.0\MagicCardsmith.Services.csproj.AssemblyReference.cache
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\obj\Debug\net6.0\MagicCardsmith.Services.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\obj\Debug\net6.0\MagicCardsmith.Services.AssemblyInfoInputs.cache
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\obj\Debug\net6.0\MagicCardsmith.Services.AssemblyInfo.cs
@@ -10,3 +9,14 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCard
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\obj\Debug\net6.0\refint\MagicCardsmith.Services.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\obj\Debug\net6.0\MagicCardsmith.Services.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\obj\Debug\net6.0\ref\MagicCardsmith.Services.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\obj\Debug\net6.0\MagicCardsmith.Services.sourcelink.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Data.Common.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Data.Models.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Services.Mapping.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Web.ViewModels.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Web.ViewModels.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Data.Common.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Data.Models.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Services.Mapping.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\obj\Debug\net6.0\MagicCardsmith.Services.csproj.AssemblyReference.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\obj\Debug\net6.0\MagicCardsmith.Services.csproj.CopyComplete

@@ -1,4 +1,5 @@
-﻿@using MagicCardsmith.Common
+﻿
+@using MagicCardsmith.Common
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/style.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/MagicCard.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
 </head>
 <body data-theme="dark">
     <div class="wrapper" id="wrapper">
@@ -208,13 +210,8 @@
                                                 <div class="">
                                                     <div class="ae-list-header">
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Cardsmith" asp-action="Create">Cardsmith</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="All">Events</a>
                                                         <hr>
-                                                        <a href="/Account/Register">Articles</a>
-                                                        <a href="/Decks/Writeups/">Events</a>
-                                                        <hr>
-                                                        <a href="/Decks/Video/">Add Store</a>
-                                                        <a href="/Deck/Builder/">My Store </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -228,10 +225,8 @@
                                             <div class="ae-nav-dropdown-menu-wrapper">
                                                 <div class="">
                                                     <div class="ae-list-header">
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="All">Art pieces</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="All">Art</a>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Artist" asp-action="All">Artists</a>
-                                                        <hr>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="GameRules" asp-action="GetRules">Magic Cardsmith Rules</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -246,14 +241,11 @@
                                             <div class="ae-nav-dropdown-menu-wrapper">
                                                 <div class="">
                                                     <div class="ae-list-header">
-                                                        <a href="/Account/Register">All Cards</a>
-                                                        <a href="/Decks/Video/">Expansions</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="DigitalArt" asp-action="Create">Cardsmither</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Cardsmith" asp-action="All">Stores</a>
-                                                        <a href="/Decks/Video/">All Artists</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Card" asp-action="All">Magic Cards</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Expansion" asp-action="All">Game Expansions</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Cardsmith" asp-action="All">Magic Game Stores</a>
                                                         <hr>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Cardsmith" asp-action="All">Stores</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Cardsmith" asp-action="All">Stores</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="GameRules" asp-action="GetRules">Magic Cardsmith Rules</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -301,7 +293,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" asp-area="" asp-controller="Artist" asp-action="Become"><b>Premium</b></a>
-                                            <a class="dropdown-item" href="/Artists"><b>Content Creators</b></a>
+                                            <a class="dropdown-item" href="/Artist"><b>Content Creators</b></a>
                                             <a class="dropdown-item" href="/Team"><b>Team</b></a>
 
                                         </div>
@@ -329,7 +321,7 @@
         </div>
         <div class="ae-inner-content-wrapper">
             <div class="inner-content">
-                <div class="row row ae-break-word">
+                <div class="row row pt-2">
                         <partial name="_CookieConsentPartial" />
                             @this.RenderBody()
                 </div>
@@ -338,10 +330,43 @@
     </div>
 
 
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="d-print-none">
+        <div class="footer-decor">
+            <svg version="1.1" x="0px" y="0px" viewBox="0 0 120 40" xml:space="preserve">
+            <path d="M0,0c0,0,41.3,8.5,62.7,17.8C84,36,120,40,120,40H0V0z"></path>
+                </svg>
+            <div>
+                <hr class="lb-fade">
+            </div>
+            <svg version="1.1" x="0px" y="0px" viewBox="0 0 120 40" xml:space="preserve">
+            <path d="M120,0c0,0-41.3,8.5-62.7,17.8C36,36,0,40,0,40h120V0z"></path>
+                </svg>
+        </div>
+        <div class="row no-gutters pt-2 text-white footer-bg d-block d-md-flex align-items-center ff-display">
+            <div class="d-none d-md-block col-md-4 text-center">
+                <div id="zone05-300x250" class="mx-auto mb-3" data-request-id="018d31c7-f4a0-7000-843a-675e82eeaadc" data-bidder="house" data-creative-id="187" style="min-height: 250px; text-align: center; font-size: 0px;"><iframe width="300px" height="250px" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" title="advertisement" style="width: 300px; border: none; margin: 0px auto; display: block;"></iframe></div>
+            </div>
+            <div class="col-sm-12 col-md-4 text-center pb-3">
+                <ul class="list-unstyled d-block d-md-flex gap-1 justify-content-center">
+                    <li class="my-2 my-md-0"><a href="/Help" class="text-white"><b>Help</b></a></li>
+                    <li class="my-2 my-md-0"><a href="/Contact" class="text-white"><b>Contact Us</b></a></li>
+                    <li class="my-2 my-md-0"><a href="/PrivacyPolicy" class="text-white"><b>Privacy Policy</b></a></li>
+                </ul>
+                <ul class="list-unstyled d-block d-md-flex gap-1 justify-content-center">
+                    <li class="my-2 my-md-0"><a href="/Premium/" class="text-white"><b>Premium Account</b></a></li>
+                    <li class="my-2 my-md-0"><a href="/TermsAndConditions" class="text-white"><b>Terms and Conditions</b></a></li>
+                    <li class="my-2 my-md-0"><a href="/Docs/" class="text-white"><b>Documentation</b></a></li>
+                </ul>
+               
+            </div>
+            <div class="d-none d-md-block col-md-4 text-center">
+            </div>
+        </div>
+        <div class="bg-5 footer-copyright">
+            <hr class="gold-fade">
+            <div class="text-center small pl-3 pr-3">
+                &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
         </div>
     </footer>
 
@@ -349,58 +374,42 @@
 
 
 
+@* 
 
-
-    <div id="siteSearchModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Search MagicCardsnith</h4>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span class="fas fa-times text-dark"></span>
-                    </button>
-                </div>
-                <div class="modal-body ui-front d-flex flex-row justify-content-center">
-                    <div>
-                        <form method="get" action="/Market/CardInfo">
-                            <div class="input-group ae-card-search">
-                                <input type="text" id="searchM" name="CardName"
-                                       class="form-control d-print-none ui-autocomplete-input"
-                                       placeholder="Search magic cards" aria-label="Search magic cards"
-                                       autocomplete="off">
-                                <div class="input-group-append">
-                                    <button class="btn btn-light" type="submit" aria-label="Search">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+    <div id="login-dp" class="dropdown-menu dropdown-menu-right show" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-230px, 22px, 0px);">
+        <div class="row">
+            <div class="col-md-12 text-dark">
+                <form action="/Account/Login?ReturnUrl=%2F" class="form" id="login-nav" method="post" role="form" novalidate="novalidate">
+                    <div class="form-group">
+                        <label class="sr-only" for="Email">Login</label>
+                        <input class="form-control" data-val="true" data-val-required="The Login field is required." id="qEmail" name="Email" placeholder="Username / Email" type="text" value="">
+                        <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
                     </div>
-                    <ul id="ui-id-1" tabindex="0"
-                        class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" unselectable="on"
-                        style="display: none;"></ul>
-                </div>
-                <div class="modal-footer mt-0">
-                    <div class="text-right">
-                        <button type="button" class="btn btn-light" data-dismiss="modal">
-                            <i class="fas fa-times"></i> <b>Close</b>
-                        </button>
+                    <div class="form-group">
+                        <label class="sr-only" for="Password">Password</label>
+                        <input class="form-control" data-val="true" data-val-required="The Password field is required." id="qPassword" name="Password" placeholder="Password" type="password">
+                        <span class="text-danger field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                        <div class="checkbox">
+                            <label for="qRememberMe">
+                                <input data-val="true" data-val-required="The Remember me field is required." id="qRememberMe" name="RememberMe" type="checkbox" value="true">
+                                Remember me
+                            </label>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-light btn-block"><i class="fas fa-sign-in-alt"></i> <b>Login</b></button>
+                    </div>
+                    <div class="help-block text-center"><a href="/Account/ForgotPassword">Forgot your password?</a></div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8NFDIfUfB0BLuAQDCyJzwcgV4p8BqkovbD15TiIom86C03kcsbm8shQjRPr4IXTMhHB4LCtopbF5D6p0-YuWQxB0bktwO-QGL83NMeArshhlR9rwfgFxgV-p8c1SD9sf_7aGoGC8wSiev7TZDwFbm50"><input name="RememberMe" type="hidden" value="false">
+                </form>        <div class="bottom text-center mt-2">
+                    <a href="/Account/Register"><b>Create new e-mail user here</b></a>
                 </div>
             </div>
         </div>
     </div>
-    <div id="popupMsg"></div>
 
 
-
-
-
-
-
-
-
-
+ *@
 
 
 

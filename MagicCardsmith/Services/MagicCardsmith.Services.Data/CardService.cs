@@ -4,17 +4,20 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using MagicCardsmith.Data;
     using MagicCardsmith.Data.Common.Repositories;
     using MagicCardsmith.Data.Models;
+    using MagicCardsmith.Services;
     using MagicCardsmith.Services.Mapping;
     using MagicCardsmith.Web.ViewModels.Card;
+    using Microsoft.EntityFrameworkCore;
 
     public class CardService : ICardService
     {
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
 
         private readonly IDeletableEntityRepository<Card> cardRepository;
+        private readonly IDeletableEntityRepository<Art> artRepository;
         private readonly IDeletableEntityRepository<CardMana> cardManaRepository;
         private readonly IDeletableEntityRepository<BlackMana> blackManaRepository;
         private readonly IDeletableEntityRepository<BlueMana> blueManaRepository;
@@ -24,9 +27,11 @@
         private readonly IDeletableEntityRepository<ColorlessMana> colorlessManaRepository;
         private readonly IDeletableEntityRepository<CardFrameColor> cardFrameColorRepository;
         private readonly IDeletableEntityRepository<CardType> cardTypeRepository;
+        private readonly ApplicationDbContext dbContext;
 
         public CardService(
             IDeletableEntityRepository<Card> cardRepository,
+            IDeletableEntityRepository<Art> artRepository,
             IDeletableEntityRepository<CardMana> cardManaRepository,
             IDeletableEntityRepository<BlackMana> blackManaRepository,
             IDeletableEntityRepository<BlueMana> blueManaRepository,
@@ -35,9 +40,11 @@
             IDeletableEntityRepository<GreenMana> greenManaRepository,
             IDeletableEntityRepository<ColorlessMana> colorlessManaRepository,
             IDeletableEntityRepository<CardFrameColor> cardFrameColorRepository,
-            IDeletableEntityRepository<CardType> cardTypeRepository)
+            IDeletableEntityRepository<CardType> cardTypeRepository,
+            ApplicationDbContext dbContext)
         {
             this.cardRepository = cardRepository;
+            this.artRepository = artRepository;
             this.cardManaRepository = cardManaRepository;
             this.blackManaRepository = blackManaRepository;
             this.blueManaRepository = blueManaRepository;
@@ -47,99 +54,130 @@
             this.colorlessManaRepository = colorlessManaRepository;
             this.cardFrameColorRepository = cardFrameColorRepository;
             this.cardTypeRepository = cardTypeRepository;
+            this.dbContext = dbContext;
         }
 
-        public async Task CreateAsync(CreateCardInputModel input, string userId, string id, string path)
+        public async Task CreateAsync(CreateCardInputModel input, string userId, int id, string path)
         {
             var card = new Card
             {
                 Name = input.Name,
+                BlackManaId = input.BlackManaId,
+                BlueManaId = input.BlueManaId,
+                RedManaId = input.RedManaId,
+                WhiteManaId = input.WhiteManaId,
+                GreenManaId = input.GreenManaId,
+                ColorlessManaId = input.ColorlessManaId,
+                CardFrameColorId = input.CardFrameColorId,
+                CardTypeId = input.CardTypeId,
                 AbilitiesAndFlavor = input.AbilitiesAndFlavor,
                 Power = input.Power,
                 Toughness = input.Toughness,
                 GameExpansionId = input.GameExpansionId,
                 IsEventCard = input.IsEventCard,
-                ArtId = input.ArtId,
-                CardSmithId = input.CardSmithId,
+                CardSmithId = userId,
             };
 
             var manaBlack = this.blackManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.BlackManaId);
 
-            for (var i = 0; i < manaBlack.Cost; i++)
+            if (manaBlack != null)
             {
-                card.CardMana.Add(new CardMana()
+                for (var i = 0; i < manaBlack.Cost; i++)
                 {
-                    Color = manaBlack.ColorName,
-                    RemoteImageUrl = manaBlack.ImageUrl,
-                });
+                    card.CardMana.Add(new CardMana()
+                    {
+                        Color = manaBlack.ColorName,
+                        RemoteImageUrl = manaBlack.ImageUrl,
+                    });
+                }
             }
 
             var manaBlue = this.blueManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.BlueManaId);
 
-            for (var i = 0; i < manaBlue.Cost; i++)
+            if (manaBlue != null)
             {
-                card.CardMana.Add(new CardMana()
+                for (var i = 0; i < manaBlue.Cost; i++)
                 {
-                    Color = manaBlue.ColorName,
-                    RemoteImageUrl = manaBlue.ImageUrl,
-                });
+                    card.CardMana.Add(new CardMana()
+                    {
+                        Color = manaBlue.ColorName,
+                        RemoteImageUrl = manaBlue.ImageUrl,
+                    });
+                }
             }
 
             var manaGreen = this.greenManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.GreenManaId);
 
-            for (var i = 0; i < manaGreen.Cost; i++)
+            if (manaGreen != null)
             {
-                card.CardMana.Add(new CardMana()
+                for (var i = 0; i < manaGreen.Cost; i++)
                 {
-                    Color = manaGreen.ColorName,
-                    RemoteImageUrl = manaGreen.ImageUrl,
-                });
+                    card.CardMana.Add(new CardMana()
+                    {
+                        Color = manaGreen.ColorName,
+                        RemoteImageUrl = manaGreen.ImageUrl,
+                    });
+                }
             }
 
             var manaRed = this.redManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.RedManaId);
 
-            for (var i = 0; i < manaRed.Cost; i++)
+            if (manaRed != null)
             {
-                card.CardMana.Add(new CardMana()
+                for (var i = 0; i < manaRed.Cost; i++)
                 {
-                    Color = manaRed.ColorName,
-                    RemoteImageUrl = manaRed.ImageUrl,
-                });
+                    card.CardMana.Add(new CardMana()
+                    {
+                        Color = manaRed.ColorName,
+                        RemoteImageUrl = manaRed.ImageUrl,
+                    });
+                }
             }
 
             var colorlessMana = this.colorlessManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.ColorlessManaId);
 
-            for (var i = 0; i < colorlessMana.Cost; i++)
+            if (colorlessMana != null)
             {
-                card.CardMana.Add(new CardMana()
+                for (var i = 0; i < colorlessMana.Cost; i++)
                 {
-                    Color = colorlessMana.ColorName,
-                    RemoteImageUrl = colorlessMana.ImageUrl,
-                });
+                    card.CardMana.Add(new CardMana()
+                    {
+                        Color = colorlessMana.ColorName,
+                        RemoteImageUrl = colorlessMana.ImageUrl,
+                    });
+                }
             }
 
             var manaWhite = this.whiteManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.WhiteManaId);
 
-            for (var i = 0; i < manaWhite.Cost; i++)
+            if (manaWhite != null)
             {
-                card.CardMana.Add(new CardMana()
+                for (var i = 0; i < manaWhite.Cost; i++)
                 {
-                    Color = manaWhite.ColorName,
-                    RemoteImageUrl = manaWhite.ImageUrl,
-                });
+                    card.CardMana.Add(new CardMana()
+                    {
+                        Color = manaWhite.ColorName,
+                        RemoteImageUrl = manaWhite.ImageUrl,
+                    });
+                }
             }
 
             var cardType = this.cardTypeRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.CardTypeId);
 
-            card.CardType = cardType.Name;
+            if (cardType != null)
+            {
+                card.CardTypeId = cardType.Id;
+            }
 
             var cardFrame = this.cardFrameColorRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.CardFrameId);
 
-            card.CardFrameColor = cardFrame.Name;
+            if (cardFrame != null)
+            {
+                card.CardFrameColorId = cardFrame.Id;
+            }
 
             await this.cardRepository.AddAsync(card);
             await this.cardRepository.SaveChangesAsync();
-
         }
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12)
@@ -162,11 +200,11 @@
 
         public T GetById<T>(int id)
         {
-            var art = this.cardRepository.AllAsNoTracking()
+            var card = this.cardRepository.AllAsNoTracking()
                 .Where(x => x.Id == id)
                 .To<T>().FirstOrDefault();
 
-            return art;
+            return card;
         }
 
         public int GetCount()
@@ -177,9 +215,30 @@
         public IEnumerable<T> GetRandom<T>(int count)
         {
             return this.cardRepository.All()
-               .OrderBy(x => Guid.NewGuid())
+               .OrderBy(x => x.Id)
                .Take(count)
                .To<T>().ToList();
+        }
+
+        public IEnumerable<T> GetByTypeCards<T>(IEnumerable<int> cardTypeIds)
+        {
+            var query = this.cardRepository.All().AsQueryable();
+            query = query.Where(x => cardTypeIds.Contains((int)x.CardTypeId));
+
+            return query.To<T>().ToList();
+        }
+
+        public IEnumerable<T> GetAllTypes<T>()
+        {
+            return this.cardTypeRepository.All()
+                .To<T>().ToList();
+        }
+
+        public IEnumerable<T> GetByName<T>(string name)
+        {
+            return this.cardRepository.AllAsNoTracking()
+                .Where(x => x.Name == name)
+                .To<T>().ToList();
         }
     }
 }
