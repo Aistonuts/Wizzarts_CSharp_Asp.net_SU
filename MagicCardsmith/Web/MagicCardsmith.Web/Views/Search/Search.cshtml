@@ -5,26 +5,15 @@
 
 <div class="col-md-12 col-lg-12 pl-0 pr-0">
     <div class="card h-oneKpx">
-        <div class="card-header bg-light pt-0">
-            <ul class="nav nav-tabs card-header-tabs">
-                <li class="nav-item">
-                    <a href="/Card" class="nav-link active">
-                        <span class="fas fa-search" title="Advanced Search"></span> <b>Advanced Search</b>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/Card/Set" class="nav-link ">
-                        <span class="ss ss-xmods" title="Browse by Set"></span> <b>MTG Set List</b>
-                    </a>
-                </li>
-            </ul>
-        </div>
         <div class="card-body pt-1">
-            <form asp-controller="Search" asp-action="Search" method="get" id="searchform" class="form-horizontal">
+@*             <form asp-controller="Search" asp-action="Search" method="get" id="searchform" class="form-horizontal">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
                         <div class="input-group">
-                            <input id="searchCards" type="text" name="name" class="form-control btn-outline-dark ui-autocomplete-input" placeholder="Card name" autocomplete="off">
+                            <input type="text" id="searchCards" name="CardName"
+                                   class="form-control d-print-none ui-autocomplete-input"
+                                   placeholder="Search magic cards" aria-label="Search magic cards"
+                                   autocomplete="off">
                             <div class="input-group-append">
                                 <button type="button" id="reset-searchCards" class="btn btn-sm btn-light margin-right">
                                     <span class="fas fa-times"></span>
@@ -45,9 +34,8 @@
                                     <a class="dropdown-item ae-btn-type" href="#" data-type="enchantment">Enchantment</a>
                                     <a class="dropdown-item ae-btn-type" href="#" data-type="instant">Instant</a>
                                     <a class="dropdown-item ae-btn-type" href="#" data-type="land">Land</a>
-                                    <a class="dropdown-item ae-btn-type" href="#" data-type="planeswalker">Planeswalker</a>
                                     <a class="dropdown-item ae-btn-type" href="#" data-type="sorcery">Sorcery</a>
-                                    <a class="dropdown-item ae-btn-type" href="#" data-type="token">Token</a>
+
                                 </div>
                             </div>
                             <div class="input-group-append">
@@ -57,91 +45,6 @@
                             </div>
                         </div>
                     </div>
-                   @*  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
-                        <div class="input-group">
-                            <input id="adv-CardText" type="text" name="text" class="form-control btn-outline-dark" placeholder="Card text">
-                            <div class="input-group-prepend">
-                                <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="deathtouch">Deathtouch</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="defender">Defender</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="double strike">Double strike</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="first strike">First strike</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="flash">Flash</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="flying">Flying</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="haste">Haste</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="hexproof">Hexproof</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="indestructible">Indestructible</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="lifelink">Lifelink</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="menace">Menace</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="reach">Reach</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="trample">Trample</a>
-                                    <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="vigilance">Vigilance</a>
-                                </div>
-                            </div>
-                            <div class="input-group-append">
-                                <button type="button" id="reset-adv-CardText" class="btn btn-sm btn-light margin-right">
-                                    <span class="fas fa-times"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div> *@
-                  @*   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
-                        <div class="input-group">
-                            <div class="dropdown bootstrap-select form-control">
-                                <select id="adv-setSelector" class="selectpicker form-control" data-live-search="true" name="set" title="All Sets" data-style="btn-outline-dark" tabindex="-98">
-                                    <option class="bs-title-option" value=""></option>
-                                    <option value="">All Sets</option>
-                                    <option value="PIP" data-icon="ss ss-pip">Fallout</option>
-                                   
-                                </select><button type="button" class="btn dropdown-toggle btn-outline-dark bs-placeholder" data-toggle="dropdown" role="button" data-id="adv-setSelector" title="All Sets"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">All Sets</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="bs-searchbox"><input type="text" class="form-control" autocomplete="off" role="textbox" aria-label="Search"></div><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
-                            </div>
-                            <div class="input-group-append">
-                                <button type="button" id="reset-adv-setSelector" class="btn btn-sm btn-light margin-right">
-                                    <span class="fas fa-times"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div> *@
-                   @*  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
-                        <div class="input-group">
-                            <div class="dropdown bootstrap-select form-control">
-                                <select id="adv-formatSelector" class="selectpicker form-control" name="format" data-style="btn-outline-dark" tabindex="-98">
-                                    <option value="">All Formats</option>
-                                    <option value="Brawl">Brawl</option>
-                                   
-                                </select><button type="button" class="btn dropdown-toggle btn-outline-dark bs-placeholder" data-toggle="dropdown" role="button" data-id="adv-formatSelector" title="All Formats"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">All Formats</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
-                            </div>
-                            <div class="input-group-append">
-                                <button type="button" id="reset-adv-formatSelector" class="btn btn-sm btn-light margin-right">
-                                    <span class="fas fa-times"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div> *@
-                   @*  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
-                        <div class="input-group">
-                            <div class="dropdown bootstrap-select form-control">
-                                <select id="adv-raritySelector" class="selectpicker form-control" name="rarity" title="All Rarities" data-style="btn-outline-dark" tabindex="-98">
-                                    <option class="bs-title-option" value=""></option>
-                                    <option value="">All Rarities</option>
-                                    <option value="Common" data-icon="ss ss-dpa ss-common">Common</option>
-                                    <option value="Uncommon" data-icon="ss ss-dpa ss-uncommon">Uncommon</option>
-                                    <option value="Rare" data-icon="ss ss-dpa ss-rare">Rare</option>
-                                    <option value="Mythic Rare" data-icon="ss ss-dpa ss-mythic">Mythic Rare</option>
-                                    <option value="Basic Land" data-icon="ss ss-dpa ss-common">Basic Land</option>
-                                    <option value="Special" data-icon="ss ss-dpa ss-timeshifted">Special</option>
-                                </select><button type="button" class="btn dropdown-toggle btn-outline-dark bs-placeholder" data-toggle="dropdown" role="button" data-id="adv-raritySelector" title="All Rarities"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">All Rarities</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
-                            </div>
-                            <div class="input-group-append">
-                                <button type="button" id="reset-adv-raritySelector" class="btn btn-sm btn-light margin-right">
-                                    <span class="fas fa-times"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div> *@
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
                         <div class="input-group">
                             <input id="adv-ArtistText" type="text" name="artist" class="form-control btn-outline-dark" placeholder="Artist">
@@ -152,89 +55,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="dropdown bootstrap-select fit-width">
-                                    <select id="adv-CardAttr" class="selectpicker" name="stat" data-width="fit" data-style="btn-outline-dark" tabindex="-98">
-                                        <option value="power">Power</option>
-                                        <option value="toughness">Toughness</option>                                     
-                                    </select><button type="button" class="btn dropdown-toggle btn-outline-dark" data-toggle="dropdown" role="button" data-id="adv-CardAttr" title="CMC"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">CMC</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
-                                </div>
-                            </div>
-                            <div class="dropdown bootstrap-select fit-width">
-                                <select id="adv-CardOperator" class="selectpicker" data-width="fit" name="op" data-style="btn-outline-dark" tabindex="-98">
-                                    <option value="=">equals</option>
-                                    <option value="<">greater than</option>
-                                    <option value=">">less than</option>
-                                </select><button type="button" class="btn dropdown-toggle btn-outline-dark" data-toggle="dropdown" role="button" data-id="adv-CardOperator" title="equals"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">equals</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
-                            </div>
-                            <div class="input-group-append">
-                                <input id="adv-CardVal" type="number" class="form-control btn-outline-dark" placeholder="value" name="val" style="width:100px;">
-                                <button type="button" id="reset-adv-CardVal" class="btn btn-sm btn-light margin-right">
-                                    <span class="fas fa-times"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
-                        <input id="colorString" type="hidden" name="color">
-                        <input type="hidden" id="color-only" value="false" name="conly">
-                        <input type="hidden" id="color-and" value="and" name="cop">
-                        <div class="input-group">
-                            <div class="dropdown bootstrap-select fit-width">
-                                <select id="colorOperator" class="selectpicker" data-width="fit" data-style="btn-outline-dark" tabindex="-98">
-                                    <option value="false-and" data-subtext="cards with X and Y" selected="">Has</option>
-                                    <option value="false-or" data-subtext="cards with X or Y">Has some or all</option>
-                                    <option value="true-and" data-subtext="cards with X and Y">Only has</option>
-                                    <option value="true-or" data-subtext="cards with X or Y">Only has some or all</option>
-                                </select><button type="button" class="btn dropdown-toggle btn-outline-dark" data-toggle="dropdown" role="button" data-id="colorOperator" title="Has"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Has</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
-                            </div>
-                            <div class="input-group-append">
-                                <div class="dropdown bootstrap-select show-tick form-control">
-                                    <select id="colorSelector" class="selectpicker form-control" data-style="btn-outline-dark" multiple="" title="Color" tabindex="-98">
-                                        <option value="W" data-icon="ms ms-w ms-cost"></option>
-                                        <option value="U" data-icon="ms ms-u ms-cost"></option>
-                                        <option value="B" data-icon="ms ms-b ms-cost"></option>
-                                        <option value="R" data-icon="ms ms-r ms-cost"></option>
-                                        <option value="G" data-icon="ms ms-g ms-cost"></option>
-                                        <option value="C" data-icon="ms ms-c ms-cost"></option>
-                                    </select><button type="button" class="btn dropdown-toggle btn-outline-dark bs-placeholder" data-toggle="dropdown" role="button" data-id="colorSelector" title="Color"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Color</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
-                                </div>
-                                <button type="button" id="reset-adv-colorString" class="btn btn-sm btn-light margin-right">
-                                    <span class="fas fa-times"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="form-group mt-2 d-flex justify-content-center">
                     <div>
                         <div class="input-group">
-                            <button type="button" onclick="cardSearch()" class="btn btn-light mr-2"><span class="fas fa-search"></span> <b>Search</b></button>
-                            <div class="btn-group-toggle mr-2" data-toggle="buttons" title="Hides cards with same name and only shows the latest">
-                                <input type="hidden" id="adv-unique" value="false" name="uniq">
-                                <label id="adv-unique-btn" class="btn btn-light">
-                                    <b><i class="fas fa-low-vision"></i></b>
-                                </label>
-                            </div>
+                            <button type="button" class="btn btn-light mr-2"><span class="fas fa-search"></span> <b>Search</b></button>
                             <button type="button" id="resetFilter" class="btn btn-sm btn-light btn-outline-danger margin-right">
                                 <span class="fas fa-filter"></span> <b>Reset filters</b>
                             </button>
                         </div>
                     </div>
                 </div>
-            </form>
-            <div id="cardSearchToggles" class="row pr-2 pl-2 d-none">
-                <div class="col-xs-6 col-md-6">
-                </div>
-                <div class="col-xs-6 col-md-6 text-right">
-                    <button type="button" data-sort="descending" id="searchSortName" class="btn btn-light btn-outline-dark"><b><i class="fas fa-sort-amount-up"></i> Name</b></button>
-                    <button type="button" data-sort="ascending" id="searchSortNumber" class="btn btn-light btn-outline-dark"><b>Number</b></button>
-                    <button type="button" id="ae-price-sort" class="btn btn-light btn-outline-dark" data-sort="descending"><b>Price</b></button>
-                    <button type="button" id="ae-price-toggle" class="btn btn-light btn-outline-dark" data-url="search" data-toggle="usd-eur" data-nexttoggle="eur"><b>$ / €</b></button>
-                </div>
-            </div>
+            </form> *@
             <div class="row mt-2">
                 <div class="col-md-12">
                     <div id="cards" class="outer-container">
@@ -267,104 +99,106 @@
 
 @section Scripts
 {
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <script>
-        $('.ae-btn-type').click(function () {
-            $('#adv-CardType').val($(this).attr('data-type'));
-        });
-
-    </script>
 
     <script>
 
-        $('#resetFilter').click(function () {
-            $('#searchCards').val('');
-            $('#adv-CardType').val('');
-            $('#adv-CardText').val('');
-            $('#adv-ArtistText').val('');
-            $('#adv-setSelector').val('');
-            $('#adv-setSelector').selectpicker('refresh');
-            $('#adv-raritySelector').val('');
-            $('#adv-raritySelector').selectpicker('refresh');
-            $('#adv-formatSelector').val('');
-            $('#adv-formatSelector').selectpicker('refresh');
-            $('#adv-CardAttr').val('cmc');
-            $('#adv-CardAttr').selectpicker('refresh');
-            $('#adv-CardOperator').val('=');
-            $('#adv-CardOperator').selectpicker('refresh');
-            $('#adv-CardVal').val('');
-            $('#colorString').val('');
-            $('#colorSelector').val('');
-            $('#colorSelector').selectpicker('refresh');
-            $('#colorOperator').val('false-and');
-            $('#colorOperator').selectpicker('refresh');
-            $('#searchSortName').html('<b>Name</b>').attr('data-method', 'asc');
-            $('#searchSortNumber').html('<b>Number</b>').attr('data-method', 'asc');
-            $('#ae-price-sort').html('<b>Price</b>').attr('data-method', 'asc');
-            $('#ae-price-toggle').html('<b>$ / €</b>').attr('data-toggle', 'usd-eur').attr('data-nexttoggle', 'eur');
-            $('#adv-unique').val('false');
-            $('#adv-unique-btn').removeClass('active').attr('aria-pressed', 'false');
-        });
+        function loadInputs() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var conly = '';
+            var cop = '';
+            var uniq = '';
+            for (entry of urlParams.entries()) {
+                switch (entry[0]) {
+                    case 'name':
+                        $('#searchCards').val(entry[1]);
+                        break;
+                    case 'format':
+                        $('#adv-formatSelector').val(entry[1]);
+                        break;
+                    case 'color':
+                        $('#colorString').val(entry[1]);
+                        var colors = entry[1].split('|');
+                        $('#colorSelector').val(colors);
+                        break;
+                    case 'artist':
+                        $('#adv-ArtistText').val(entry[1]);
+                        break;
+              
+                    case 'text':
+                        $('#adv-CardText').val(entry[1]);
+                    case 'op':
+                        $('#adv-CardOperator').val(entry[1]);
+                        break;
+                    case 'uniq':
+                        uniq = entry[1];
+                        break;
+                    case 'val':
+                        $('#adv-CardVal').val(entry[1]);
+                        break;
+                    case 'type':
+                        $('#adv-CardType').val(entry[1]);
+                        break;
+                    default:
+                        break;
+                }
 
-    </script>
-
-    <script>
-        $('#reset-searchCards').click(function () {
-            $('#searchCards').val('');
-        });
-
-        $('#reset-adv-CardType').click(function () {
-            $('#adv-CardType').val('');
-        });
-
-        $('#reset-adv-CardText').click(function () {
-            $('#adv-CardText').val('');
-        });
-
-        $('#reset-adv-setSelector').click(function () {
-            $('#adv-setSelector').val('');
-            $('#adv-setSelector').selectpicker('refresh');
-        });
-
-        $('#reset-adv-formatSelector').click(function () {
-            $('#adv-formatSelector').val('');
-            $('#adv-formatSelector').selectpicker('refresh');
-        });
-
-        $('#reset-adv-raritySelector').click(function () {
-            $('#adv-raritySelector').val('');
-            $('#adv-raritySelector').selectpicker('refresh');
-        });
-
-        $('#reset-adv-ArtistText').click(function () {
-            $('#adv-ArtistText').val('');
-        });
-
-        $('#reset-adv-CardVal').click(function () {
-            $('#adv-CardAttr').val('cmc');
-            $('#adv-CardAttr').selectpicker('refresh');
-            $('#adv-CardOperator').val('=');
-            $('#adv-CardOperator').selectpicker('refresh');
-            $('#adv-CardVal').val('');
-            $('#colorString').val('');
-        });
-
-        $('#reset-adv-colorString').click(function () {
-            $('#colorString').val('');
-            $('#colorSelector').val('');
-            $('#colorSelector').selectpicker('refresh');
-            $('#colorOperator').val('false-and');
-            $('#colorOperator').selectpicker('refresh');
-        });
-        var hasSetBeenSelected = $('#selectedSetCode');
-        if (hasSetBeenSelected && hasSetBeenSelected.val()) {
-            console.log(hasSetBeenSelected);
-            $('#adv-setSelector').val(hasSetBeenSelected.val());
-            $('#adv-setSelector').selectpicker('refresh');
+            }
         }
-    </script>
 
+        $(document).ready(function () {
+            loadInputs();
+            $('.ae-btn-type').click(function () {
+                $('#adv-CardType').val($(this).attr('data-type'));
+            });
+
+            $('.ae-btn-keyword').click(function () {
+                $('#adv-CardText').val($(this).attr('data-keyword'));
+            });
+
+            $('#searchCards').on('keyup', function (e) {
+                if (e.keyCode === 13) {
+                    cardSearch();
+                }
+            });
+
+            $('#adv-CardType').on('keyup', function (e) {
+                if (e.keyCode === 13) {
+                    cardSearch();
+                }
+            });
+            $('#adv-CardText').on('keyup', function (e) {
+                if (e.keyCode === 13) {
+                    cardSearch();
+                }
+            });
+            $('#adv-ArtistText').on('keyup', function (e) {
+                if (e.keyCode === 13) {
+                    cardSearch();
+                }
+            });
+
+            $('#resetFilter').click(function () {
+                $('#searchCards').val('');
+                $('#adv-CardType').val('');
+                $('#adv-CardText').val('');
+                $('#adv-ArtistText').val('');          
+            });
+
+            $('#reset-searchCards').click(function () {
+                $('#searchCards').val('');
+            });
+
+            $('#reset-adv-CardType').click(function () {
+                $('#adv-CardType').val('');
+            });
+
+            $('#reset-adv-CardText').click(function () {
+                $('#adv-CardText').val('');
+            });
+
+            $('#reset-adv-ArtistText').click(function () {
+                $('#adv-ArtistText').val('');
+            });
+        });
+    </script>
 }

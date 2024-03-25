@@ -13,11 +13,9 @@
 
     using Moq;
 
-    using Xunit;
-
     public class SettingsServiceTests
     {
-        [Fact]
+        [Test]
         public void GetCountShouldReturnCorrectNumber()
         {
             var repository = new Mock<IDeletableEntityRepository<Setting>>();
@@ -28,11 +26,11 @@
                                                             new Setting(),
                                                         }.AsQueryable());
             var service = new SettingsService(repository.Object);
-            Assert.Equal(3, service.GetCount());
+            Assert.AreEqual(3, service.GetCount());
             repository.Verify(x => x.AllAsNoTracking(), Times.Once);
         }
 
-        [Fact]
+        [Test]
         public async Task GetCountShouldReturnCorrectNumberUsingDbContext()
         {
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
@@ -45,7 +43,9 @@
 
             using var repository = new EfDeletableEntityRepository<Setting>(dbContext);
             var service = new SettingsService(repository);
-            Assert.Equal(3, service.GetCount());
+            Assert.AreEqual(3, service.GetCount());
         }
     }
+
+
 }

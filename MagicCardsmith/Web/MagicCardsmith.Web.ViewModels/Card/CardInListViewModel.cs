@@ -13,7 +13,7 @@
 
     public class CardInListViewModel : IMapFrom<Card>, IHaveCustomMappings
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
@@ -23,13 +23,13 @@
 
         public string CardTypeId { get; set; }
 
+        public string AbilitiesAndFlavor { get; set; }
+
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Card, CardInListViewModel>()
                .ForMember(x => x.ImageUrl, opt =>
-                   opt.MapFrom(x =>
-                      x.CardRemoteUrl));
-
+                opt.MapFrom(x => x.CardRemoteUrl));
         }
     }
 }

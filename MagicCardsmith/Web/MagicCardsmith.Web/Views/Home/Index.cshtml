@@ -257,68 +257,7 @@
     </div>
 </div>
 
-<div id="siteSearchModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Search MagicCardsnith</h4>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span class="fas fa-times text-dark"></span>
-                </button>
-            </div>
-            <div class="modal-body ui-front d-flex flex-row justify-content-center">
-                <div>
-                    @*                    <form asp-controller="Search" asp-action="AdvancedSearch" method="get">
 
-
-                    @foreach (var types in Model.CardTypes)
-                    {
-                    <div class="form-check form-check-inline">
-                    <div class="col-1 text-center">
-                    <input class="form-check-input" name="TypeOfCards" type="checkbox" id="types_@types.Id" value="@types.Id" />
-                    <label asp-for="@types.Id" class="form-check-input">@types.Name</label>
-
-                    </div>
-                    </div>
-                    }
-
-
-                    <div class="input-group-append">
-                    <button class="btn btn-light" type="submit" aria-label="Search">
-                    <i class="fas fa-search"></i>
-                    </button>
-                    </div>
-                    </form>*@
-
-                    <form asp-controller="Search" asp-action="Search" method="get">
-                        <div class="input-group ae-card-search">
-                            <input  type="text" id="searchM" name="CardName"
-                                   class="form-control d-print-none ui-autocomplete-input"
-                                   placeholder="Search magic cards" aria-label="Search magic cards"
-                                   autocomplete="off">
-                            <div class="input-group-append">
-                                <button class="btn btn-light" type="submit" aria-label="Search">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <ul id="ui-id-1" tabindex="0"
-                    class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" unselectable="on"
-                    style="display: none;"></ul>
-            </div>
-            <div class="modal-footer mt-0">
-                <div class="text-right">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">
-                        <i class="fas fa-times"></i> <b>Close</b>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="popupMsg"></div>
 
 
 @section Scripts

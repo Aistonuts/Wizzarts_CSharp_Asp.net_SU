@@ -6,31 +6,31 @@
 
 <div class="col-sm-12 col-lg-8 pl-0 pr-0 pr-lg-2 h-oneKpx">
     <div class="card">
-        <div class="card-header bg-light pt-0">
-            <ul class="nav nav-tabs card-header-tabs">
-                <li class="nav-item">
-                    <a href="/Card" class="nav-link ">
-                        <span class="fas fa-search" title="Advanced Search"></span> <b>Advanced Search</b>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/Card/Set" class="nav-link ">
-                        <span class="ss ss-xmods" title="Browse by Set"></span> <b>MTG Set List</b>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/Card/Set/PIP" class="nav-link ">
-                        <b><i class="ss ss-pip"></i> Fallout</b>
-                    </a>
-                </li>
-                </li>
-                <li class="nav-item">
-                    <a role="link" aria-disabled="true" class="nav-link active">
-                        <b>Card details</b>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        @*         <div class="card-header bg-light pt-0">
+        <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+        <a href="/Card" class="nav-link ">
+        <span class="fas fa-search" title="Advanced Search"></span> <b>Advanced Search</b>
+        </a>
+        </li>
+        <li class="nav-item">
+        <a href="/Card/Set" class="nav-link ">
+        <span class="ss ss-xmods" title="Browse by Set"></span> <b>MTG Set List</b>
+        </a>
+        </li>
+        <li class="nav-item">
+        <a href="/Card/Set/PIP" class="nav-link ">
+        <b><i class="ss ss-pip"></i> Fallout</b>
+        </a>
+        </li>
+        </li>
+        <li class="nav-item">
+        <a role="link" aria-disabled="true" class="nav-link active">
+        <b>Card details</b>
+        </a>
+        </li>
+        </ul>
+        </div> *@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12 pl-0 pr-0">
@@ -39,41 +39,91 @@
                             <div class="card-image-front text-center"><img id="previewCardModal" class="card-image" src="@Model.CardRemoteUrl" alt="Card" onerror="this.onerror=null;this.src='@Model.CardRemoteUrl';"></div>
                         </div>
                         <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
-                            <h2>@Model.Name </h2> 
+                            <h2>@Model.Name </h2>
                             <span class="pull-right">
+
                                 @foreach (var manaColor in this.Model.Mana)
                                 {
                                     <img src="@manaColor.ImageUrl">
                                 }
-                               
+
                             </span>
-                            <p>Creature — Lizard Mutant</p>
+                            <p>@Model.CardType.ToString()</p>
                             <hr>
-                            <p>Menace, trample<br>When Alpha Deathclaw enters the battlefield or becomes monstrous, destroy target permanent.<br><i class="ms ms-5 ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i>: Monstrosity 4. (If this creature isn't monstrous, put four +1/+1 counters on it and it becomes monstrous.)</p>
-                            <p><i></i></p>
+                            <p>@Model.AbilitiesAndFlavor</p>
+
+                            <div class="card mb-2">
+                                <div id="comment" class="card-header bg-light p-0 text-center">
+                                    <b>Comments</b>
+                                </div>
+                                <div class="entry-meta">
+                                    <div class="single-meta">
+                                        <div value="@Model.Id" class="single-meta">
+                                            <div class="item-rating">
+                                                <span class="star-fill" data-vote="1"><i class="fas fa-star"></i></span>
+                                                <span class="star-fill" data-vote="2"><i class="fas fa-star"></i></span>
+                                                <span class="star-fill" data-vote="3"><i class="fas fa-star"></i></span>
+                                                <span class="star-fill" data-vote="4"><i class="fas fa-star"></i></span>
+                                                <span class="star-fill" data-vote="5"><i class="fas fa-star"></i></span>
+                                                <span id="averageVoteValue">@Model.AverageVote.ToString("0.0")</span><span> / 5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form asp-action="Comment" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
+                                    <div class="card-body">
+                                        <textarea asp-for="@Model.Review" id="commentText" placeholder="Type a comment" class="form-control" rows="3" maxlength="500"></textarea>
+                                        <hr>
+                                        <textarea asp-for="@Model.Suggestions" id="suggestionText" placeholder="Type a suggestion" class="form-control" rows="3" maxlength="500"></textarea>
+                                        <div class="text-center"><button id="btnComment" data-type="deck" class="btn btn-light mt-1"><b>Post</b></button></div>
+                                        <div id="commentMessage" class="alert alert-danger" role="alert"></div>
+                                        <p><span id="commentCount">@Model.CardReviews.Count()</span> comments</p>
+                                        <div id="comments" data-id="1021562" data-type="deck">
+                                            <div class="firstfeed-flexbox">
+                                                @foreach (var review in this.Model.CardReviews.Where(x => x.CardId == Model.Id))
+                                                {
+                                                    <div class="article-card card border-0">
+                                                        <div class="card-body pt-0">
+                                                            <small class="yellow-line">
+                                                                <a href=""><i class="far fa-star"></i>@review.PostedByUser</a>
+                                                            </small>
+                                                            <div class="ff-display font-size-18">
+                                                                <b><a href="">@review.Review</a></b>
+                                                            </div>
+                                                            <div class="card-text d-none d-md-flex m-1">@review.Suggestions</div>
+                                                        </div>
+                                                    </div>
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            @*   <p><i></i></p>
                             <hr>
                             <table>
-                                <tbody>
-                                    <tr>
-                                        <td valign="top">
-                                            <i class="ss ss-2x ss-fw ss-pip ss-rare"></i>
-                                        </td>
-                                        <td>&nbsp;</td>
-                                        <td>
-                                            <a href="/Card/Set/PIP">Fallout (PIP)</a>
-                                            <br>
-                                            <small>
-                                                <span>#91, </span>
-                                                Rare
-                                            </small>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                            <tbody>
+                            <tr>
+                            <td valign="top">
+                            <i class="ss ss-2x ss-fw ss-pip ss-rare"></i>
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                            <a href="/Card/Set/PIP">Fallout (PIP)</a>
+                            <br>
+                            <small>
+                            <span>#91, </span>
+                            Rare
+                            </small>
+                            </td>
+                            </tr>
+                            </tbody>
                             </table>
                             <hr>
                             <p>
-                                <i>Illustrated by: Daarken</i><br>
-                            </p>
+                            <i>Illustrated by: Daarken</i><br>
+                            </p> *@
                         </div>
                     </div>
                 </div>
@@ -81,3 +131,31 @@
         </div>
     </div>
 </div>
+
+
+<form method="post" id="antiForgeryForm"></form>
+@section Scripts {
+    <script>
+        $("span[data-vote]").each(function (el) {
+            $(this).click(function (u) {
+                var value = $(this).attr("data-vote");
+                var cardId = @Model.Id;
+                var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
+                var data = { cardId: cardId, value: value };
+                $.ajax({
+                    type: "POST",
+                    url: "/api/Votes",
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': antiForgeryToken
+                    },
+                    success: function (data) {
+                        $('#averageVoteValue').html(data.averageVote.toFixed(1));
+                    },
+                    contentType: 'application/json',
+                });
+                location.reload();
+            })
+        });
+    </script>
+}

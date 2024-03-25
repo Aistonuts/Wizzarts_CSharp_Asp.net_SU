@@ -72,7 +72,7 @@
         public IEnumerable<T> GetRandom<T>(int count)
         {
             return this.articleRepository.All()
-                .OrderBy(x => Guid.NewGuid())
+                .OrderBy(x => x.Id)
                 .Take(count)
                 .To<T>().ToList();
         }

@@ -11,6 +11,7 @@
         {
             this.CardMana = new HashSet<CardMana>();
             this.CardReviews = new HashSet<CardReview>();
+            this.Votes = new HashSet<Vote>();
         }
 
         public string Name { get; set; }
@@ -61,6 +62,8 @@
 
         public bool IsEventCard { get; set; }
 
+        public bool IsBanned { get; set; }
+
         public string ArtId { get; set; }
 
         public virtual Art Art { get; set; }
@@ -76,5 +79,7 @@
         public Event Event { get; set; }
 
         public virtual ICollection<CardReview> CardReviews { get; set; }
+
+        public virtual ICollection<Vote> Votes { get; set; }
     }
 }

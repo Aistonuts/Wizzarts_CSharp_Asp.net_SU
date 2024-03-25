@@ -22,12 +22,12 @@
                         <img class="article-uimgheader-preview" src="@Model.ImageUrl" alt="@Model.Title">
                     </div>
                 </div>
-                @if(Model.EventId == 4)
+                @if (Model.EventId == 4)
                 {
                     <div class="row mt-2">
                         <div class="col-md-12">
                             <div id="DigitalArt" class="outer-container">
-                                @foreach (var card in this.Model.EventCards)
+                                @foreach (var card in this.Model.Cards)
                                 {
                                     <div class="inner-container">
                                         <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
@@ -45,91 +45,90 @@
                 }
                 @if (Model.EventId == 3)
                 {
-                    <div class="container-create">
-                        <table id="html-content-holder" border="0" cellspacing="0" cellpadding="0" style="clear: both;">
-                            <tbody>
-                                <tr style="width:100%">
-                                    <td style="padding:0px;text-align:left;vertical-align:top;">
-                                        <form method="post" id="cardinfo" enctype="multipart/form-data">
-                                            <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
-                                                <tbody>
-                                                    <tr class="row1">
-                                                        <td style="width:30%">
-                                                            <label asp-for="StoreName">Store name:</label>
-                                                        </td>
-                                                        <td>
-                                                            <input asp-for="StoreName" name="name" id="name" placeholder="Your store name...">
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row1">
-                                                        <td>Picture URL:</td>
-                                                        <td>
-                                                            <input type="text" class="input_text" name="picture" id="picture" style="width:50%">
-                                                            <input type="button" id="upload" class="ipsButton_secondary" value="Upload">
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row1">
-                                                        <td>
-                                                            <label asp-for="StoreAddress">Store address:</label>
-                                                        </td>
-                                                        <td>
-                                                            <textarea asp-for="StoreAddress" id="cardtext" style="height:60px;font-size: 10px" cols="60" rows="10" runat="server" placeholder="@Model.EventDescription"></textarea>
-                                                            <br>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row1">
-                                                        <td>City:</td>
-                                                        <td>
-                                                            <input type="text" class="input_text" name="artist" id="artist">
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row1">
-                                                        <td>Country:</td>
-                                                        <td>
-                                                            <input type="text" class="input_text" name="artist" id="artist">
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row1">
-                                                        <td>Phone number:</td>
-                                                        <td>
-                                                            <input type="text" class="input_text" name="artist" id="artist">
-                                                        </td>
-                                                    </tr>
-                                                    <input type="submit" value="Submit" class="btn btn-warning">
-                                                </tbody>
-                                            </table>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="col-md-12 col-lg-8 pl-0 pr-0 order-1 order-lg-1">
+                        <div class="card" s="">
+                            <div class="card-body pt-2 pb-1">
+                                <form method="post" asp-action="CreateStore" enctype="multipart/form-data">
+                                    <div class="form-group row mb-1">
+                                        <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreName"></label>
+                                        <div class="col-sm-8 col-lg-6">
+                                            <input asp-for="StoreName" class="form-control" placeholder="Store Name">
+                                        </div>
+                                        <span asp-validation-for="StoreName" class="small text-danger"></span>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StorePhoneNumber"></label>
+                                        <div class="col-sm-8 col-lg-6">
+                                            <input asp-for="StorePhoneNumber" class="form-control" placeholder="Store Phone Number">
+                                        </div>
+                                        <span asp-validation-for="StorePhoneNumber" class="small text-danger"></span>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreAddress"></label>
+                                        <div class="col-sm-8 col-lg-6">
+                                            <input asp-for="StoreAddress" class="form-control" placeholder="Store Address">
+                                        </div>
+                                        <span asp-validation-for="StoreAddress" class="small text-danger"></span>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreCity"></label>
+                                        <div class="col-sm-8 col-lg-6">
+                                            <input asp-for="StoreCity" class="form-control" placeholder="City">
+                                        </div>
+                                        <span asp-validation-for="StoreCity" class="small text-danger"></span>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreCountry"></label>
+                                        <div class="col-sm-8 col-lg-6">
+                                            <input asp-for="StoreCountry" class="form-control" placeholder="Country">
+                                        </div>
+                                        <span asp-validation-for="StoreCountry" class="small text-danger"></span>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreImage"></label>
+                                        <div class="col-sm-8 col-lg-6">
+                                            <input asp-for="StoreImage" class="form-control" placeholder="Image of your store">
+                                        </div>
+                                        <span asp-validation-for="StoreImage" class="small text-danger"></span>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label class="col-sm-2 col-form-label"></label>
+                                        <div class="col-sm-8">
+                                            <button type="submit" class="btn btn-light">
+                                                <span class="fas fa-plus"></span> <b>Add your store</b>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 }
                 @*  @if (Model.EventId != 3 && Model.EventId != 4)
                 {
-                    <div class="row mt-2 mb-2">
-                        <div id="article-text" class="col-md-12">
-                            <div class="card-text d-none d-md-flex m-1">@Model.EventDescription</div>
-                            <div class="col-sm-12 col-md-12 col-lg-4 pl-0 pr-0 mt-2 mt-lg-0">
-                                @foreach (var milestone in this.Model.EventMilestones)
-                                {
-                                    <div class="card mt-2 mr-2 mb-2">
-                                        <div class="w-100 d-flex justify-content-start">
-                                            <div class="mr-1">
-                                                <a asp-controller="Card" asp-action="Create" asp-route-id="@milestone.Id">
-                                                    <div class="article-imgheader-xs lazy uimg" style="background-image: url(@milestone.ImageUrl);">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="card-body p-0">
-                                            <p class="card-text m-1">@milestone.Description</p>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                    </div>
+                <div class="row mt-2 mb-2">
+                <div id="article-text" class="col-md-12">
+                <div class="card-text d-none d-md-flex m-1">@Model.EventDescription</div>
+                <div class="col-sm-12 col-md-12 col-lg-4 pl-0 pr-0 mt-2 mt-lg-0">
+                @foreach (var milestone in this.Model.EventMilestones)
+                {
+                <div class="card mt-2 mr-2 mb-2">
+                <div class="w-100 d-flex justify-content-start">
+                <div class="mr-1">
+                <a asp-controller="Card" asp-action="Create" asp-route-id="@milestone.Id">
+                <div class="article-imgheader-xs lazy uimg" style="background-image: url(@milestone.ImageUrl);">
+                </div>
+                </a>
+                </div>
+                </div>
+                <div class="card-body p-0">
+                <p class="card-text m-1">@milestone.Description</p>
+                </div>
+                </div>
+                }
+                </div>
+                </div>
+                </div>
                 }*@
                 @if (Model.EventId != 3 && Model.EventId != 4)
                 {
@@ -150,10 +149,11 @@
                                         </div>
                                     }
                                 </div>
+                            </div>
+                        </div>
                     </div>
-                </div>   
+                }
             </div>
-            }
             <hr />
             <hr />
         </article>

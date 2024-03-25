@@ -18,6 +18,11 @@ namespace MagicCardsmith.Data.Seeding
 
             await dbContext.RedManas.AddAsync(new RedMana
             {
+                Cost = 0,
+            });
+
+            await dbContext.RedManas.AddAsync(new RedMana
+            {
                 Cost = 1,
                 ColorName = "Red",
                 ImageUrl = "/images/mana/r.png",

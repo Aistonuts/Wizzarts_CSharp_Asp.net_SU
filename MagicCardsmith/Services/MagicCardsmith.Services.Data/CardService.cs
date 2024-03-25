@@ -57,7 +57,7 @@
             this.dbContext = dbContext;
         }
 
-        public async Task CreateAsync(CreateCardInputModel input, string userId, int id, string path)
+        public async Task CreateAsync(CreateCardInputModel input, string userId, int id, string path, bool isEventCard)
         {
             var card = new Card
             {
@@ -74,8 +74,9 @@
                 Power = input.Power,
                 Toughness = input.Toughness,
                 GameExpansionId = input.GameExpansionId,
-                IsEventCard = input.IsEventCard,
                 CardSmithId = userId,
+                EventId = id,
+                IsEventCard = isEventCard,
             };
 
             var manaBlack = this.blackManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.BlackManaId);
@@ -176,6 +177,9 @@
                 card.CardFrameColorId = cardFrame.Id;
             }
 
+
+
+
             await this.cardRepository.AddAsync(card);
             await this.cardRepository.SaveChangesAsync();
         }
@@ -239,6 +243,15 @@
             return this.cardRepository.AllAsNoTracking()
                 .Where(x => x.Name == name)
                 .To<T>().ToList();
+        }
+
+        public IEnumerable<T> GetAllCardsByExpansionId<T>(int id)
+        {
+            var cardsByExpansion = this.cardRepository.AllAsNoTracking()
+              .Where(x => x.GameExpansionId == id)
+              .To<T>().ToList();
+
+            return cardsByExpansion;
         }
     }
 }

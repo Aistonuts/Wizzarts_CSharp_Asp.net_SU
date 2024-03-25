@@ -17,12 +17,14 @@
 
         IEnumerable<T> GetAllByCardId<T>(int id);
 
-        Task CreateAsync(CreateCardInputModel input, string userId, int id, string path);
+        Task CreateAsync(CreateCardInputModel input, string userId, int id, string path, bool isEventCard);
 
         IEnumerable<T> GetByTypeCards<T>(IEnumerable<int> cardTypeId);
 
         IEnumerable<T> GetAllTypes<T>();
 
         IEnumerable<T> GetByName<T>(string name);
+
+        IEnumerable<T> GetAllCardsByExpansionId<T>(int id);
     }
 }

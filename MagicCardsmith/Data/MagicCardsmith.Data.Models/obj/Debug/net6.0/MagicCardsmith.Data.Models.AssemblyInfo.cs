@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MagicCardsmith.Data.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3d4c6445abe46877607c5502ad84117d916ca8e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27fe8436f2322e538d57ca2aec01fdc76929c910")]
 [assembly: System.Reflection.AssemblyProductAttribute("MagicCardsmith.Data.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MagicCardsmith.Data.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

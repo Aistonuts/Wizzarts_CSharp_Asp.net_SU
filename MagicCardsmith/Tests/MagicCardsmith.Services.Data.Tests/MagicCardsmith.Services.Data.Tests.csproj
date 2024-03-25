@@ -13,14 +13,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.25" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="Moq" Version="4.18.4" />
-    <PackageReference Include="xunit" Version="2.4.2" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+    <PackageReference Include="MyTested.AspNetCore.Mvc.Universe" Version="6.0.0" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="4.1.0">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435" PrivateAssets="all">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
@@ -29,6 +32,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\MagicCardsmith.Data\MagicCardsmith.Data.csproj" />
     <ProjectReference Include="..\..\Services\MagicCardsmith.Services.Data\MagicCardsmith.Services.Data.csproj" />
+    <ProjectReference Include="..\..\Web\MagicCardsmith.Web\MagicCardsmith.Web.csproj" />
   </ItemGroup>
 
 </Project>

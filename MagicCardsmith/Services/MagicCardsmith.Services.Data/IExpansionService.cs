@@ -5,5 +5,7 @@
     public interface IExpansionService
     {
         IEnumerable<T> GetAll<T>();
+
+        T GetById<T>(int id);
     }
 }

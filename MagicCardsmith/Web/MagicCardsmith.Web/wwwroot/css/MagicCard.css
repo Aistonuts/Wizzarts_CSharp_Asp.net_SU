@@ -93,6 +93,7 @@
     top: 21%;
     display: flex;
     flex-direction: column;
+    width: 457px
 }
 
 .card-imageframe {
@@ -102,6 +103,7 @@
     align-self: baseline;
     font-weight: 600;
     color: black;
+    text-align: right;
 }
 
 .frame-header,
@@ -125,7 +127,9 @@
     margin-left: 12px;
     align-self: baseline;
     font-weight: 600;
-    color:black;
+    color: black;
+    text-align: left;
+    overflow:hidden;
 }
 
 #mana-icon {

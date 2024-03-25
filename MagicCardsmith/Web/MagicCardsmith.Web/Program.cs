@@ -55,6 +55,10 @@ namespace MagicCardsmith.Web
                 }).AddRazorRuntimeCompilation();
             services.AddRazorPages();
             services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddAntiforgery(options =>
+            {
+                options.HeaderName = "X-CSRF-TOKEN";
+            });
 
             services.AddSingleton(configuration);
 
@@ -75,6 +79,8 @@ namespace MagicCardsmith.Web
             services.AddTransient<IExpansionService, ExpansionService>();
             services.AddTransient<IGameRulesService, GameRulesService>();
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IReviewService, ReviewService>();
+            services.AddTransient<IVoteService, VoteService>();
         }
 
         private static void Configure(WebApplication app)
@@ -83,7 +89,14 @@ namespace MagicCardsmith.Web
             using (var serviceScope = app.Services.CreateScope())
             {
                 var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                dbContext.Database.Migrate();
+                if(dbContext.Database.IsRelational())
+                {
+                    dbContext.Database.Migrate();
+                }
+                else
+                {
+                    dbContext.Database.EnsureCreated();
+                }
                 new ApplicationDbContextSeeder().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
             }
 

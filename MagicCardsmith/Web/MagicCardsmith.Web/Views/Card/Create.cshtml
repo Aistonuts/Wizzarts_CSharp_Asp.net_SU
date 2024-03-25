@@ -84,20 +84,14 @@
                                                         <tr>
                                                             <td>
                                                                 <select asp-for="RedManaId" id="mana_r" onchange="colorSelectFunc(event)">
-                                                                    <option value="1" selected="true" >
-                                                                        0
-                                                                    </option>
                                                                     @foreach (var type in Model.RedMana)
                                                                     {
-                                                                        <option value="@type.Id">@type.Cost</option>
+                                                                        <option value="@type.Id">@type.Cost </option>
                                                                     }
                                                                 </select>
                                                             </td>
                                                             <td>
                                                                 <select asp-for="BlueManaId" id="mana_u" onchange="colorSelectFunc(event)">
-                                                                    <option value="1" selected="true">
-                                                                        0
-                                                                    </option>
                                                                     @foreach (var type in Model.BlueMana)
                                                                     {
                                                                         <option value="@type.Id">@type.Cost</option>
@@ -106,9 +100,6 @@
                                                             </td>
                                                             <td>
                                                                 <select asp-for="GreenManaId" id="mana_g" onchange="colorSelectFunc(event)">
-                                                                    <option value="1" selected="true">
-                                                                        0
-                                                                    </option>
                                                                     @foreach (var type in Model.GreenMana)
                                                                     {
                                                                         <option value="@type.Id">@type.Cost</option>
@@ -117,9 +108,6 @@
                                                             </td>
                                                             <td>
                                                                 <select asp-for="BlackManaId" id="mana_b" onchange="colorSelectFunc(event)">
-                                                                    <option value="1" selected="true">
-                                                                        0
-                                                                    </option>
                                                                     @foreach (var type in Model.BlackMana)
                                                                     {
                                                                         <option value="@type.Id">@type.Cost</option>
@@ -128,9 +116,7 @@
                                                             </td>
                                                             <td>
                                                                 <select asp-for="WhiteManaId" id="mana_w" onchange="colorSelectFunc(event)">
-                                                                    <option value="1" selected="true">
-                                                                        0
-                                                                    </option>
+
                                                                     @foreach (var type in Model.WhiteMana)
                                                                     {
                                                                         <option value="@type.Id">@type.Cost</option>
@@ -139,9 +125,6 @@
                                                             </td>
                                                             <td>
                                                                 <select asp-for="ColorlessManaId" id="mana_colorless" onchange="colorSelectFunc(event)">
-                                                                    <option value="1" selected="true">
-                                                                        Clear
-                                                                    </option>
                                                                     @foreach (var type in Model.ColorlessMana)
                                                                     {
                                                                         <option value="@type.Id">@type.Cost</option>
@@ -234,12 +217,12 @@
                                                 <input asp-for="Toughness" id="toughness" size="2" maxlength="2">
                                             </td>
                                         </tr>
-                                        <tr class="row1">
+                                      @*   <tr class="row1">
                                             <td>Artist:</td>
                                             <td>
                                                 <input type="text" class="input_text" name="artist" id="artist">
                                             </td>
-                                        </tr>
+                                        </tr> *@
                                         @* <tr class="row1">*@
                                         @*     <td>Set Name:</td>*@
                                         @*     <td>*@
@@ -263,14 +246,14 @@
                                                 <input type="button" id="upload" class="ipsButton_secondary" value="Upload">
                                             </td>
                                         </tr>
-                                        <tr class="row1">
+@*                                         <tr class="row1">
                                             <td>
                                                 <label asp-for="AbilitiesAndFlavor">Abilities &amp; Flavor:</label>
                                             </td>
                                             <td>
                                                 <textarea asp-for="AbilitiesAndFlavor" id="cardtext" style="height:60px;font-size: 10px" cols="60" rows="10" runat="server" placeholder="@Model.EventDescription"></textarea>
                                             </td>
-                                        </tr>
+                                        </tr> *@
                                         <tr class="row2">
                                             <td>
                                                 <label asp-for="GameExpansionId">Expansion Symbol:</label>
@@ -338,7 +321,7 @@
                 <div class="card-background" id="background" style="background-image: url('/images/frames/createcard.jpg')">
                     <div class="card-frame">
                         <div class="frame-header">
-                            <h1 class="name" id="cardName"></h1>
+                            <div class="name"  id="cardName"></div>
                             <div id="imgHeader" class="card-imageframe">
                             </div>
 
@@ -355,6 +338,17 @@
                             </p>
                         </div>
                     </div>
+                </div>
+                <div class="frame-bottom-info inner-margin">
+                    <div class="fbi-left">
+                    </div>
+                    <div class="fbi-center"></div>
+                    <div class="fbi-right">
+                    </div>
+                </div>
+                <div class="container-power" id="container-power">
+                    <img id="power-frame" src="~/images/frames/whiteValue.png" alt="Nature">
+                    <div class="centered-power"></div>
                 </div>
             }
             @if (Model.EventId == 2)
@@ -381,25 +375,6 @@
                     </div>
                 </div>
             }
-          
-
-            <div class="frame-bottom-info inner-margin">
-                <div class="fbi-left">
-                    <p>140/184 R</p>
-                    <p>OGW &#x2022; EN <!--   <img class="paintbrush" src="https://image.ibb.co/e2VxAS/paintbrush_white.png" alt="paintbrush icon">--> @Model.CardSmithId</p>
-                </div>
-
-                <div class="fbi-center"></div>
-
-                <div class="fbi-right">
-                    &#x99; &amp; &#169; 2016 Wizards of the Coast
-                </div>
-            </div>
-            <div class="container-power" id="container-power">
-                <img id="power-frame" src="~/images/frames/whiteValue.png" alt="Nature">
-                <div class="centered-power"></div>
-            </div>
-
         </div>
     </div>
 </div>
@@ -491,22 +466,23 @@
 
             let currentColor = currentSelection.substring(currentSelection.indexOf('_') + 1);
             let selectedValue = $("#" + currentSelection + " option:selected").val();
-
-            if (selectedValue == 0) {
+            console.log(selectedValue)
+            if (selectedValue == "1") {
 
                 document.querySelectorAll("#mana-icon-" + currentColor).forEach(e => e.remove());
                 document.querySelectorAll("#colorless").forEach(e => e.remove());
             }
             if (currentColor == "colorless") {
-                if (selectedValue != 0) {
-                    $('#imgHeader').append("<img src= /Images/mana/" + selectedValue + ".png class=mana-icon  id=colorless /> ")
+                document.querySelectorAll("#colorless").forEach(e => e.remove());
+                if (selectedValue != 1) {
+                    $('#imgHeader').append("<img src= /Images/mana/" + (selectedValue - 1) + ".png class=mana-icon  id=colorless /> ")
                 } else {
                     return false;
                 }
 
             }
             else {
-                var count = parseInt(selectedValue, 10);
+                var count = parseInt(selectedValue - 1, 10);
                 for (let i = 0; i < count; i++) {
                     $('#imgHeader').append("<img src= /Images/mana/" + currentColor + ".png class=mana-icon  id= mana-icon-" + currentColor + " /> ")
 
@@ -522,11 +498,13 @@
 
             var currentSelection = e.target.id;
             let selectedValue = $("#" + currentSelection + " option:selected").html();
-            if (selectedValue) {
+
+            if (selectedValue == 0) {
+                return false;
+               
+            } else {
                 let currentRarity = $("#rarity" + " option:selected").html();
                 $('#symbolHeader').append("<img src= /images/symbols/expansions/" + selectedValue + ".png id=set - icon alt=OGW - icon />")
-            } else {
-                return false;
             }
         }
 

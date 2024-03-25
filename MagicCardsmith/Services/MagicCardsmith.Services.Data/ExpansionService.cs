@@ -1,11 +1,12 @@
-﻿using MagicCardsmith.Data.Common.Repositories;
-using MagicCardsmith.Data.Models;
-using MagicCardsmith.Services.Mapping;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace MagicCardsmith.Services.Data
+﻿namespace MagicCardsmith.Services.Data
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using MagicCardsmith.Data.Common.Repositories;
+    using MagicCardsmith.Data.Models;
+    using MagicCardsmith.Services.Mapping;
+
     public class ExpansionService : IExpansionService
     {
         private readonly IDeletableEntityRepository<GameExpansion> gameExpansionRepository;
@@ -19,10 +20,18 @@ namespace MagicCardsmith.Services.Data
         public IEnumerable<T> GetAll<T>()
         {
             var expansions = this.gameExpansionRepository.AllAsNoTracking()
-                 .OrderByDescending(x => x.Id)
+                 .OrderBy(x => x.Id)
                  .To<T>().ToList();
 
             return expansions;
+        }
+
+        public T GetById<T>(int id)
+        {
+            var expansion = this.gameExpansionRepository.AllAsNoTracking()
+                    .Where(x => x.Id == id)
+                    .To<T>().FirstOrDefault();
+            return expansion;
         }
     }
 }

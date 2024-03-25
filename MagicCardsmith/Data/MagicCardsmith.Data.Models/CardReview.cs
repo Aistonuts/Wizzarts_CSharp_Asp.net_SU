@@ -18,5 +18,9 @@
         public int? CardId { get; set; }
 
         public Card Card { get; set; }
+
+        public string PostedByUserId { get; set; }
+
+        public virtual ApplicationUser PostedByUser { get; set; }
     }
 }

@@ -452,6 +452,9 @@ namespace MagicCardsmith.Data.Migrations
                     b.Property<int?>("GreenManaId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsBanned")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -602,6 +605,9 @@ namespace MagicCardsmith.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("PostedByUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Review")
                         .HasColumnType("nvarchar(max)");
 
@@ -616,6 +622,8 @@ namespace MagicCardsmith.Data.Migrations
                     b.HasIndex("CardId");
 
                     b.HasIndex("IsDeleted");
+
+                    b.HasIndex("PostedByUserId");
 
                     b.ToTable("CardReviews");
                 });
@@ -1194,6 +1202,9 @@ namespace MagicCardsmith.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("CardId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -1207,6 +1218,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("tinyint");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CardId");
 
                     b.HasIndex("UserId");
 
@@ -1489,7 +1502,13 @@ namespace MagicCardsmith.Data.Migrations
                         .WithMany("CardReviews")
                         .HasForeignKey("CardId");
 
+                    b.HasOne("MagicCardsmith.Data.Models.ApplicationUser", "PostedByUser")
+                        .WithMany("Reviews")
+                        .HasForeignKey("PostedByUserId");
+
                     b.Navigation("Card");
+
+                    b.Navigation("PostedByUser");
                 });
 
             modelBuilder.Entity("MagicCardsmith.Data.Models.Event", b =>
@@ -1551,9 +1570,17 @@ namespace MagicCardsmith.Data.Migrations
 
             modelBuilder.Entity("MagicCardsmith.Data.Models.Vote", b =>
                 {
+                    b.HasOne("MagicCardsmith.Data.Models.Card", "Card")
+                        .WithMany("Votes")
+                        .HasForeignKey("CardId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("MagicCardsmith.Data.Models.ApplicationUser", "User")
                         .WithMany("Votes")
                         .HasForeignKey("UserId");
+
+                    b.Navigation("Card");
 
                     b.Navigation("User");
                 });
@@ -1625,6 +1652,8 @@ namespace MagicCardsmith.Data.Migrations
 
                     b.Navigation("Logins");
 
+                    b.Navigation("Reviews");
+
                     b.Navigation("Roles");
 
                     b.Navigation("Stores");
@@ -1659,6 +1688,8 @@ namespace MagicCardsmith.Data.Migrations
                     b.Navigation("CardMana");
 
                     b.Navigation("CardReviews");
+
+                    b.Navigation("Votes");
                 });
 
             modelBuilder.Entity("MagicCardsmith.Data.Models.CardFrameColor", b =>

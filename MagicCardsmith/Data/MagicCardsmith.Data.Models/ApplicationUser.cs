@@ -21,6 +21,7 @@ namespace MagicCardsmith.Data.Models
             this.Stores = new HashSet<Store>();
             this.Votes = new HashSet<Vote>();
             this.Art = new HashSet<Art>();
+            this.Reviews = new HashSet<CardReview>();
         }
 
         public string Nickname { get; set; }
@@ -62,5 +63,7 @@ namespace MagicCardsmith.Data.Models
         public virtual ICollection<Vote> Votes { get; set; }
 
         public virtual ICollection<Art> Art { get; set; }
+
+        public virtual ICollection<CardReview> Reviews { get; set; }
     }
 }

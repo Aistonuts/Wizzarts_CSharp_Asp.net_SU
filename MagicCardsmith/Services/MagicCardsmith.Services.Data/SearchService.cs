@@ -1,18 +1,10 @@
-﻿using MagicCardsmith.Web.ViewModels.Card;
-using System.Net.Http;
-
-namespace MagicCardsmith.Services.Data
+﻿namespace MagicCardsmith.Services.Data
 {
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
     using MagicCardsmith.Data;
-    using MagicCardsmith.Data.Common.Repositories;
-    using MagicCardsmith.Data.Models;
-    using MagicCardsmith.Services.Mapping;
-    using MagicCardsmith.Web.ViewModels.Card;
     using MagicCardsmith.Web.ViewModels.SearchCard;
     using Microsoft.EntityFrameworkCore;
 
