@@ -63,7 +63,7 @@
         {
             Artist? agent = await this.dbContext
                 .Artists
-                .FirstOrDefaultAsync(a => a.UserId.ToString() == userId);
+                .FirstOrDefaultAsync(a => a.UserId == userId);
             if (agent == null)
             {
                 return null;

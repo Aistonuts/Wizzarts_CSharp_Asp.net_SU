@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Lqen9RXd+4cD7r9S48CBshkxwxv0XCUhEcjaqFvK48c=",
+  "Hash": "aQtIPID2gGgcilB+zKXhiNcAVANLg3nM98VMJ97KHRg=",
   "Source": "MagicCardsmith.Web",
   "BasePath": "_content/MagicCardsmith.Web",
   "Mode": "Default",
@@ -3741,6 +3741,25 @@
       "OriginalItemSpec": "wwwroot\\images\\frames\\greenValue.png"
     },
     {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\frames\\holofoil-texture-2.jpg",
+      "SourceId": "MagicCardsmith.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsmith.Web",
+      "RelativePath": "images/frames/holofoil-texture-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\frames\\holofoil-texture-2.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\frames\\red.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
@@ -5259,6 +5278,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\symbols\\various\\green.png"
+    },
+    {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\html2canvas.js",
+      "SourceId": "MagicCardsmith.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsmith.Web",
+      "RelativePath": "js/html2canvas.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\html2canvas.js"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\popper.min.js",

@@ -157,6 +157,13 @@ span.archetype-tag {
     gap: var(--padding);
 }
 
+.firstfeed-flexbox-events {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--padding);
+}
 @media (max-width: 767px) {
     .firstfeed-flexbox {
         grid-template-columns: 1fr;

@@ -47,7 +47,7 @@ namespace MagicCardsmith.Web
                     options.CheckConsentNeeded = context => true;
                     options.MinimumSameSitePolicy = SameSiteMode.None;
                 });
-
+            services.AddMemoryCache();
             services.AddControllersWithViews(
                 options =>
                 {

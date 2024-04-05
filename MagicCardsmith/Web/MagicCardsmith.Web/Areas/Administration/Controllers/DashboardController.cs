@@ -1,5 +1,6 @@
 ﻿namespace MagicCardsmith.Web.Areas.Administration.Controllers
 {
+    using MagicCardsmith.Common;
     using MagicCardsmith.Services.Data;
     using MagicCardsmith.Web.ViewModels.Administration.Dashboard;
 

@@ -20,6 +20,8 @@
 
         public const string StoreOwnerRoleGuid = "8c26a0fe-fec9-45aa-b1ec-a2c43675e6a5";
 
+        public const string UsersCacheKey = "UsersCacheKey";
 
+        public const string CardsCacheKey = "CardsCacheKey";
     }
 }

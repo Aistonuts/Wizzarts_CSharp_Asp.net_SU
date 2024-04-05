@@ -17,6 +17,7 @@
 
         IEnumerable<T> GetAllByArtistId<T>(int id);
 
+
         IEnumerable<T> GetRandom<T>(int count);
 
         Task DeleteAsync(string id);

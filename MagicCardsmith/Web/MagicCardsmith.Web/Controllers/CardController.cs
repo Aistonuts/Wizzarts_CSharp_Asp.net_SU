@@ -3,7 +3,7 @@ using NuGet.Packaging.Signing;
 
 namespace MagicCardsmith.Web.Controllers
 {
-
+    using EllipticCurve.Utils;
     using MagicCardsmith.Data.Common.Repositories;
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Data;
@@ -22,9 +22,11 @@ namespace MagicCardsmith.Web.Controllers
     public class CardController : Controller
     {
         private readonly ICardService cardService;
+        private readonly IArtistService artistService;
         private readonly ICategoryService categoryService;
         private readonly IEventService eventService;
         private readonly IReviewService reviewService;
+        private readonly IArtService artService;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IWebHostEnvironment environment;
         private readonly IDeletableEntityRepository<Card> cardRepository;
@@ -32,23 +34,27 @@ namespace MagicCardsmith.Web.Controllers
 
         public CardController(
             ICardService cardService,
+            IArtistService artistService,
             ICategoryService categoryService,
             IEventService eventService,
             IReviewService reviewService,
+            IArtService artService,
             UserManager<ApplicationUser> userManager,
             IWebHostEnvironment environment,
             IDeletableEntityRepository<Card> cardRepository)
         {
             this.cardService = cardService;
+            this.artistService = artistService;
             this.categoryService = categoryService;
             this.eventService = eventService;
             this.reviewService = reviewService;
+            this.artService = artService;
             this.userManager = userManager;
             this.environment = environment;
             this.cardRepository = cardRepository;
         }
 
-        public IActionResult Create(int id)
+        public async Task<IActionResult> Create(int id)
         {
             var viewModel = new CreateCardInputModel();
             viewModel.RedMana = this.categoryService.GetAllRedMana();
@@ -63,7 +69,10 @@ namespace MagicCardsmith.Web.Controllers
 
             var milestone = this.eventService.GetMilestoneById<MilestonesInListViewModel>(id);
             var currentEvent = this.eventService.GetById<EventInListViewModel>(milestone.EventId);
+            var user = await this.userManager.GetUserAsync(this.User);
+            var idOfArtist = await this.artistService.GetArtistIdByUserIdAsync(user.Id);
 
+            viewModel.ArtByUserId = this.artService.GetAllByArtistId<ArtInListViewModel>(int.Parse(idOfArtist));
             viewModel.EventMilestoneImage = milestone.ImageUrl;
             viewModel.EventMilestoneDescription = milestone.Description;
             viewModel.EventDescription = currentEvent.EventDescription;

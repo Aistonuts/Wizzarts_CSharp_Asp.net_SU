@@ -1,7 +1,7 @@
 ﻿namespace MagicCardsmith.Web.ViewModels.Card
 {
     using System.Collections.Generic;
-
+    using MagicCardsmith.Web.ViewModels.Art;
     using MagicCardsmith.Web.ViewModels.Expansion;
     using MagicCardsmith.Web.ViewModels.SelectCategoriesViewModel;
     using Microsoft.AspNetCore.Http;
@@ -13,6 +13,8 @@
         public bool IsEventCard { get; set; }
 
         public int EventId { get; set; }
+
+        public IEnumerable<ArtInListViewModel> ArtByUserId { get; set; }
 
         public IEnumerable<BlackManaCostViewModel> BlackMana { get; set; } = new List<BlackManaCostViewModel>();
 

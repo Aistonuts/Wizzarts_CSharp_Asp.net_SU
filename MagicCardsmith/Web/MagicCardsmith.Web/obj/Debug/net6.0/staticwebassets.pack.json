@@ -569,6 +569,10 @@
       "PackagePath": "staticwebassets\\images\\frames\\greenValue.png"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\frames\\holofoil-texture-2.jpg",
+      "PackagePath": "staticwebassets\\images\\frames\\holofoil-texture-2.jpg"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\frames\\red.png",
       "PackagePath": "staticwebassets\\images\\frames\\red.png"
     },
@@ -863,6 +867,10 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\various\\green.png",
       "PackagePath": "staticwebassets\\images\\symbols\\various\\green.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\html2canvas.js",
+      "PackagePath": "staticwebassets\\js\\html2canvas.js"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\popper.min.js",

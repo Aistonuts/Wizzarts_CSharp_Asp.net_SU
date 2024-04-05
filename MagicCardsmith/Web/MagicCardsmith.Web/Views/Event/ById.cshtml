@@ -4,7 +4,7 @@
     this.ViewData["Title"] = "Event Milestones";
 }
 
-<div class="col-sm-12 col-md-12 col-lg-8 pl-0 pr-0 pr-lg-3">
+<div class="col-sm-12 col-md-12 pl-0 pr-0">
     <div class="card p-lg-3">
         <div>
             <div id="zone01-flex" class="mx-auto"></div>
@@ -15,6 +15,7 @@
                     <div class="col-12 col-sm-7 col-md-6">
                         <h1 class="ff-display">@Model.Title</h1>
                         <div class="w-100 d-flex justify-content-start mb-1 mt-3">
+                            <div class="card-text d-none d-md-flex m-1">@Model.EventDescription</div>
                         </div>
 
                     </div>
@@ -24,24 +25,28 @@
                 </div>
                 @if (Model.EventId == 4)
                 {
-                    <div class="row mt-2">
-                        <div class="col-md-12">
-                            <div id="DigitalArt" class="outer-container">
-                                @foreach (var card in this.Model.Cards)
-                                {
-                                    <div class="inner-container">
-                                        <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
-                                            <img class="lazy" src="@card.ImageUrl" alt="@card.Name" style="">
-                                            <div class="item-hidden-text">@card.Name</div>
-                                        </a>
-                                        <div class="item-footer">
+                    <div class="col-sm-12 col-md-12 pl-0 pr-0">
+                        <div class="row">
+
+                            <div class="col-sm-12 col-md-12 pl-0 pr-0">
+                                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Events</h4>
+
+                                <div class="firstfeed-flexbox-events">
+                                    @foreach (var card in this.Model.Cards)
+                                    {
+                                        <div class="inner-container">
+                                            <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
+                                                <img class="lazy" src="@card.ImageUrl" alt="@card.Name" style="">
+                                                <div class="item-hidden-text">@card.Name</div>
+                                            </a>
+                                            <div class="item-footer">
+                                            </div>
                                         </div>
-                                    </div>
-                                }
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 }
                 @if (Model.EventId == 3)
                 {
@@ -104,39 +109,15 @@
                         </div>
                     </div>
                 }
-                @*  @if (Model.EventId != 3 && Model.EventId != 4)
-                {
-                <div class="row mt-2 mb-2">
-                <div id="article-text" class="col-md-12">
-                <div class="card-text d-none d-md-flex m-1">@Model.EventDescription</div>
-                <div class="col-sm-12 col-md-12 col-lg-4 pl-0 pr-0 mt-2 mt-lg-0">
-                @foreach (var milestone in this.Model.EventMilestones)
-                {
-                <div class="card mt-2 mr-2 mb-2">
-                <div class="w-100 d-flex justify-content-start">
-                <div class="mr-1">
-                <a asp-controller="Card" asp-action="Create" asp-route-id="@milestone.Id">
-                <div class="article-imgheader-xs lazy uimg" style="background-image: url(@milestone.ImageUrl);">
-                </div>
-                </a>
-                </div>
-                </div>
-                <div class="card-body p-0">
-                <p class="card-text m-1">@milestone.Description</p>
-                </div>
-                </div>
-                }
-                </div>
-                </div>
-                </div>
-                }*@
                 @if (Model.EventId != 3 && Model.EventId != 4)
                 {
-                    <div class="card-text d-none d-md-flex m-1">@Model.EventDescription</div>
-                    <div class="col-sm-12 col-md-12 col-lg-4 pl-0 pr-0 mt-2 mt-lg-0">
-                        <div class="row mt-2">
-                            <div class="col-md-12">
-                                <div id="DigitalArt" class="outer-container">
+                    <div class="col-sm-12 col-md-12 pl-0 pr-0">
+                        <div class="row">
+
+                            <div class="col-sm-12 col-md-12 pl-0 pr-0">
+                                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Events</h4>
+
+                                <div class="firstfeed-flexbox-events">
                                     @foreach (var milestone in this.Model.EventMilestones)
                                     {
                                         <div class="inner-container">
