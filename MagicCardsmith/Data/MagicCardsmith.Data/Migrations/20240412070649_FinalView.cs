@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MagicCardsmith.Data.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class FinalView : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -665,6 +665,7 @@ namespace MagicCardsmith.Data.Migrations
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EventId = table.Column<int>(type: "int", nullable: false),
                     IsCompleted = table.Column<bool>(type: "bit", nullable: false),
+                    RequireArtInput = table.Column<bool>(type: "bit", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),

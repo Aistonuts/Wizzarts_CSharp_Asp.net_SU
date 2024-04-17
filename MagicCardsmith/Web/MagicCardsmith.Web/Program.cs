@@ -81,6 +81,7 @@ namespace MagicCardsmith.Web
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IReviewService, ReviewService>();
             services.AddTransient<IVoteService, VoteService>();
+            services.AddTransient<IUserService, UserService>();
         }
 
         private static void Configure(WebApplication app)

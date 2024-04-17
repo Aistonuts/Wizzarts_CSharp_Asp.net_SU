@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicCardsmith.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240307180805_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240412070649_FinalView")]
+    partial class FinalView
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -776,6 +776,9 @@ namespace MagicCardsmith.Data.Migrations
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("RequireArtInput")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");

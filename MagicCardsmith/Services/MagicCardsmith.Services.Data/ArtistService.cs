@@ -9,7 +9,7 @@
     using MagicCardsmith.Data.Common.Repositories;
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Mapping;
-    using MagicCardsmith.Web.ViewModels.Artist;
+    using MagicCardsmith.Web.ViewModels.ElevatedRights;
     using Microsoft.EntityFrameworkCore;
 
     public class ArtistService : IArtistService

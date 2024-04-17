@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aQtIPID2gGgcilB+zKXhiNcAVANLg3nM98VMJ97KHRg=",
+  "Hash": "bI3UprfqkfSEytW++UOEfn4hVctvpPjDYrZP2E3G6UI=",
   "Source": "MagicCardsmith.Web",
   "BasePath": "_content/MagicCardsmith.Web",
   "Mode": "Default",
@@ -2827,6 +2827,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\cardsByExpansion\\Alpha\\swamp.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\asdasd.png",
+      "SourceId": "MagicCardsmith.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsmith.Web",
+      "RelativePath": "images/cardsByExpansion/EventCards/Flavorless/asdasd.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\asdasd.png"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Bayou.png",

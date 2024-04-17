@@ -161,8 +161,8 @@
                 Id = "b1996137-e6f5-45b9-bf5b-96c406560cf0",
                 Title = "Black Lotus",
                 Description = "All mighty lotus",
-                RemoteImageUrl = "/images/art/Unlimited/Black_lotus.png",
-                Extension = ".png",
+                RemoteImageUrl = "/images/art/Unlimited/Black_lotus.jpg",
+                Extension = ".jpg",
                 ArtIstId = 1,
             });
 

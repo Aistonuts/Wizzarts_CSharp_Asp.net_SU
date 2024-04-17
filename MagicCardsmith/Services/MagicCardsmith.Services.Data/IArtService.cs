@@ -21,5 +21,7 @@
         IEnumerable<T> GetRandom<T>(int count);
 
         Task DeleteAsync(string id);
+
+        bool IsBase64String(string base64);
     }
 }

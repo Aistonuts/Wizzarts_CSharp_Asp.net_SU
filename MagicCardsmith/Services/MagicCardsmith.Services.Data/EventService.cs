@@ -37,7 +37,7 @@
         public IEnumerable<T> GetAllEventCards<T>()
         {
             var eventCards = this.cardsRepository.AllAsNoTracking()
-                .Where(x => x.IsEventCard == true)
+                .Where(x => x.IsEventCard == true && x.EventId == 1)
                 .To<T>().ToList();
 
             return eventCards;

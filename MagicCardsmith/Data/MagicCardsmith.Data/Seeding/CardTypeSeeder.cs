@@ -17,6 +17,11 @@
 
             await dbContext.CardTypes.AddAsync(new CardType
             {
+                Name = "Not Defined Yet!!!",
+            });
+
+            await dbContext.CardTypes.AddAsync(new CardType
+            {
                 Name = "Artifact",
             });
 

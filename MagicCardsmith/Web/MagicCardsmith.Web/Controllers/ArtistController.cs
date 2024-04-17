@@ -9,6 +9,7 @@
     using MagicCardsmith.Web.ViewModels.Art;
     using MagicCardsmith.Web.ViewModels.Article;
     using MagicCardsmith.Web.ViewModels.Artist;
+    using MagicCardsmith.Web.ViewModels.ElevatedRights;
     using MagicCardsmith.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;

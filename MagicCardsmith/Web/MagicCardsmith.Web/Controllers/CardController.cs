@@ -74,6 +74,7 @@ namespace MagicCardsmith.Web.Controllers
 
             viewModel.ArtByUserId = this.artService.GetAllByArtistId<ArtInListViewModel>(int.Parse(idOfArtist));
             viewModel.EventMilestoneImage = milestone.ImageUrl;
+            viewModel.EventMilestoneTitle = milestone.Title;
             viewModel.EventMilestoneDescription = milestone.Description;
             viewModel.EventDescription = currentEvent.EventDescription;
             viewModel.EventId = milestone.EventId;
@@ -81,11 +82,16 @@ namespace MagicCardsmith.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateCardInputModel input, int id)
+        public async Task<IActionResult> Create(CreateCardInputModel input, int id, string canvasCapture)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
+            }
+
+            if (!this.artService.IsBase64String(canvasCapture))
+            {
+                throw new Exception($"Invalid Base64String {canvasCapture}");
             }
 
             var user = await this.userManager.GetUserAsync(this.User);
@@ -98,9 +104,17 @@ namespace MagicCardsmith.Web.Controllers
                 isEventCard = true;
             }
 
+            if(milestone != null && milestone.RequireArtInput)
+            {
+                var cardTitle = milestone.Title;
+                var cardDescription = milestone.Description;
+                input.Name = cardTitle;
+                input.AbilitiesAndFlavor = cardDescription;
+            }
+
             try
             {
-                await this.cardService.CreateAsync(input, user.Id, milestone.EventId, $"{this.environment.WebRootPath}/Images", isEventCard);
+                await this.cardService.CreateAsync(input, user.Id, milestone.EventId, $"{this.environment.WebRootPath}/Images", isEventCard, milestone.RequireArtInput, canvasCapture);
             }
             catch (Exception ex)
             {
@@ -112,7 +126,7 @@ namespace MagicCardsmith.Web.Controllers
             return this.RedirectToAction("All","Event");
         }
 
-        public IActionResult All(int id = 1)
+        public IActionResult All( int id = 1)
         {
             if (id <= 0)
             {

@@ -38,46 +38,43 @@
     <div class="first">
        
         <table id="html-content-holder" border="0" cellspacing="0" cellpadding="0" style="clear: both;">
-            <form method="post"  enctype="multipart/form-data">
-
-             <div id="submitCard" hidden>
-                <div class="form-group row mb-1">
-                    <input type="submit" value="Submit" class="btn btn-warning">
-                </div>
-                <div class="form-group row mb-1">
-                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="@Model.Images"></label>
-                    <div >
-                        <input asp-for="@Model.Images" class="form-control" placeholder="Play Card Image">
-                    </div>
-                    <span asp-validation-for="@Model.Images" class="small text-danger"></span>
-                </div>
-            </div>
-            </form>
-            <br />
-            <br />
-            <div id="startOver" class="row1" hidden>
-
-                    <div  style="font-size:16px;min-width:0px">
-                        <button class="btn btn-info">Start Over Again</button>
-                    </div>
-
-            </div>
             <tbody>
                 <tr style="width:100%">
                     <td style="padding:0px;text-align:left;vertical-align:top;">
                         @if (Model.EventId == 1)
                         {
-                           <div id="cardinfo">
-                                <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
-                                    <tbody>
+                            <form method="post" enctype="multipart/form-data">
+                                <table border="0" cellspacing="1" cellpadding="5" style="width:100%;">
+                                   <tbody>
+                                        <tr class="row1" id="submitCardImage" hidden>
+                                            <td>
+                                                <div>
+                                                    <input asp-for="@Model.Images" type="hidden" id="imageDataEventOne" name="canvasCapture" class="form-control" placeholder="Play Card Image">
+                                                </div>
+                                            </td>
+                                            <span asp-validation-for="@Model.Images" class="small text-danger"></span>
+                                        </tr>
+                                        <tr class="row1" id="submitButton" hidden>
+
+                                            <td class="form-group row mb-1">
+                                                <div>
+                                                    <input type="submit" value="Submit" class="btn btn-warning">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                                                              
+                                   </tbody>
+                               </table>
+                                <table id="cardData" border="0" cellspacing="0" cellpadding="2" style="width:100%;">
+                                    <tbody>                                      
                                         <tr class="row1">
                                             <td style="width:30%">
                                                 <label asp-for="Name">Name:</label>
                                             </td>
                                             <td>
-                                                <input asp-for="Name" name="name" id="name" placeholder="@Model.EventMilestoneDescription" maxlength="20">
+                                                <input asp-for="Name" name="name" id="name" placeholder="@Model.CardDefaultName" maxlength="20">
                                             </td>
-                                        </tr>
+                                        </tr>                                      
                                         <tr class="row2">
                                             <td>
                                                 <label asp-for="CardFrameId">Frame:</label>
@@ -161,13 +158,6 @@
                                                 </table>
                                             </td>
                                         </tr>
-                                        @*<tr class="row1">
-                                    <td>Picture URL:</td>
-                                    <td>
-                                    <input type="text" class="input_text" name="picture" id="picture" style="width:50%">
-                                    <input type="button" id="upload" class="ipsButton_secondary" value="Upload">
-                                    </td>
-                                    </tr>*@
                                         <tr class="row1">
                                             <td>
                                                 <label asp-for="CardTypeId">Type:</label>
@@ -242,21 +232,27 @@
                                                 <input asp-for="Toughness" id="toughness" size="2" maxlength="2">
                                             </td>
                                         </tr>
-                                        <tr class="row1">
-                                            <td>
-                                                <input name="generate" class="btn btn-warning" id="generate" type="button" value="Preview" style="font-size:16px;min-width:0px">
-                                            </td>
-                                        </tr>
-                                        <tr class="row1">
-                                            <td>
-                                                <div id="screenshot" style="font-size:16px;min-width:0px">
-                                                    <button class="btn btn-info">Download</button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                       
                                     </tbody>
                                 </table>
-                            </div>
+                            </form>
+
+                            <table border="0" cellspacing="0" cellpadding="2" style="width:100%;" id="cardTools">
+                                <tbody>
+                                    <tr class="row1">
+                                        <td>
+                                            <input name="generate" class="btn btn-warning" id="generate" type="button" value="Preview" style="font-size:16px;min-width:0px">
+                                        </td>
+                                    </tr>
+                                    <tr class="row1">
+                                        <td>
+                                            <div id="screenshot" style="font-size:16px;min-width:0px">
+                                                <button class="btn btn-info">Confirm</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         }
                         @if (Model.EventId == 2)
                         {
@@ -265,19 +261,28 @@
                                     <tbody>
                                         <tr class="row2">
                                             <td>
-                                                <label asp-for="ArtId">Art:</label>
+                                                <label asp-for="EventMilestoneDescription">Art:</label>
                                             </td>
                                             <td>
-                                                <select asp-for="ArtId" id="artByArtist" onchange="artByArtistFunc(event)">
+
+                                                <select asp-for="ArtId" id="artByArtist" onchange="artByArtistFunc(event);">
                                                     <option value="0" selected="true">
                                                     </option>
-                                                    @foreach (var type in Model.ArtByUserId)
+                                                    @foreach (var art in Model.ArtByUserId)
                                                     {
-                                                        <option value="@type.ImageUrl">@type.Title</option>
+                                                        <option data-container="@art.ImageUrl" value="@art.Id">@art.Title</option>
                                                     }
                                                 </select>
                                             </td>
                                         </tr>
+                                        <div class="form-group row mb-1" hidden>
+                                            <label class="col-sm-2 col-lg-2 col-form-label" asp-for="@Model.Images"></label>
+                                            <div class="col-sm-8 col-lg-6">
+                                                <input asp-for="@Model.Images" type="hidden" value="" name="canvasCapture" class="form-control" id="imageData">
+                                            </div>
+                                            <span asp-validation-for="@Model.Images" class="small text-danger"></span>
+                                        </div>
+
                                         <tr class="row2">
                                             <td>
                                                 <label asp-for="GameExpansionId">Expansion Symbol:</label>
@@ -293,12 +298,35 @@
                                                 </select>
                                             </td>
                                         </tr>
-                                        <input type="submit" value="Submit" class="btn btn-warning">
+                                       
+                                        <input type="submit" id="submitEventTwo"value="Submit" class="btn btn-warning" hidden>
                                     </tbody>
                                 </table>
+
                             </form>
+
+
+                            <table border="0" cellspacing="0" cellpadding="2" style="width:100%;" >
+                                <tbody>
+  
+                                    <tr class="row1">
+                                        <td>
+                                            <div id="previewEventTwo" style="font-size:16px;min-width:0px">
+                                                <button class="btn btn-info">Preview</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         }
                     </td>
+                </tr>
+                <tr id="startOver" class="row1" hidden>
+
+                    <td style="font-size:16px;min-width:0px">
+                        <button class="btn btn-info">Start Over Again</button>
+                    </td>
+
                 </tr>
             </tbody>
         </table>
@@ -312,11 +340,12 @@
             @if (Model.EventId == 1)
             {
 
-                <div class="card-background" id="background" style="background-image: url('/images/frames/createcard.jpg')">
+                <div class="card-background" id="background" style="background-image: url('@Model.CardFrameDefaultUrl')">
                     <div class="card-frame">
                         <div class="frame-header">
                             <div class="name">
                                 <p id="cardName">
+                                    @Model.CardDefaultName
                                 </p>
                             </div>
                             <div id="imgHeader" class="card-imageframe">
@@ -326,12 +355,14 @@
                         <img class="frame-art" src="@Model.EventMilestoneImage" alt="Nature">
 
                         <div class="frame-type-line" id="frame-type-line">
-                            <h1 class="type" id="cardtype"></h1>
+                            <h1 class="type" id="cardtype">@Model.CardDefaultType </h1>
                             <div id="symbolHeader">
+                                <img src=@Model.CardExpansionSymbolDefaultUrl id=set - icon alt=OGW - icon />
                             </div>
                         </div>
                         <div class="frame-text-box">
                             <div class="description" id="description">
+                                @Model.EventDescription
                             </div>
                         </div>
                     </div>
@@ -351,7 +382,7 @@
             }
             @if (Model.EventId == 2)
             {
-                <div class="card-background" id="background" style="background-image: url('@Model.EventMilestoneImage')">
+                <div class="card-background" id="backgroundTwo" style="background-image: url('@Model.EventMilestoneImage')">
                     <div class="card-frame">
                         <img id="imageInput" class="frame-art" src="">
                         <div class="frame-header-v2">
@@ -369,7 +400,40 @@
 
 
 @section Scripts {
+
     <script>
+        document.getElementById("previewEventTwo").addEventListener("click", function () {
+            html2canvas(document.getElementById("backgroundTwo")).then(function (canvas) {
+                var anchorTag = document.createElement("a");
+                var dataURL = canvas.toDataURL("image/png", 1.0);
+                dataURL = dataURL.replace('data:image/png;base64,', '');
+                $("#imageData").val(dataURL);
+                document.getElementById("previewEventTwo").hidden = true;
+                document.getElementById("submitEventTwo").hidden = false;
+                document.getElementById("startOver").hidden = false;
+                
+            });
+        });
+    </script>
+
+    <script>
+        document.getElementById("screenshot").addEventListener("click", function () {
+            html2canvas(document.getElementById("background")).then(function (canvas) {
+                var anchorTag = document.createElement("a");
+                var dataURL = canvas.toDataURL("image/png", 1.0);
+                dataURL = dataURL.replace('data:image/png;base64,', '');
+                $("#imageDataEventOne").val(dataURL);
+                document.getElementById("submitButton").hidden = false;
+                document.getElementById("submitCardImage").hidden = false;
+                document.getElementById("cardData").hidden = true;
+                document.getElementById("startOver").hidden = false;
+                document.getElementById("cardTools").hidden = true;
+
+            });
+        });
+    </script>
+
+   @*  <script>
 
         document.getElementById("screenshot").addEventListener("click", function () {
             html2canvas(document.getElementById("background")).then(function (canvas) {
@@ -377,26 +441,28 @@
                 document.body.appendChild(anchorTag);
                 document.getElementById("second").innerHTML = '';
                 document.getElementById("second").appendChild(canvas);
+                var name = document.getElementById("name").value;
+          
 
+                var dataURL = canvas.toDataURL("image/jpg", 1.0);
 
-                var dataURL = canvas.toDataURL("image/jpeg", 1.0);
-
-                downloadImage(dataURL, 'my-canvas.jpeg');
+                downloadImage(dataURL, name + '.jpg');
             });
         });
 
-        function downloadImage(data, filename = 'untitled.jpeg') {
+        function downloadImage(data, filename = 'untitled.jpg') {
             var a = document.createElement('a');
             a.href = data;
             a.download = filename;
             document.body.appendChild(a);
             a.click();
-            document.getElementById("cardinfo").hidden = true;
-            document.getElementById("submitCard").hidden = false;
-            document.getElementById("startOver").hidden = false;
 
-            document.getElementById("submitImage").hidden = false;
-        }
+            document.getElementById("submitButton").hidden = false;
+            document.getElementById("submitCardImage").hidden = false;
+            document.getElementById("cardData").hidden = true;
+            document.getElementById("startOver").hidden = false;
+            document.getElementById("cardTools").hidden = true;           
+        } *@
         
        
     </script>
@@ -530,7 +596,8 @@
             document.getElementById('imageInput').src = '';
 
             var currentSelection = e.target.id;
-            let selectedValue = $("#" + currentSelection + " option:selected").val()
+            let selectedValue = $("#" + currentSelection + " option:selected").data('container');
+
             if (selectedValue == 0) {
                 return false;
 

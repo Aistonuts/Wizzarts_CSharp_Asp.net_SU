@@ -16,6 +16,10 @@
 
         public int EventId { get; set; }
 
+        public bool IsCompleted { get; set; }
+
+        public bool RequireArtInput { get; set; }
+
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<EventMilestone, MilestonesInListViewModel>()

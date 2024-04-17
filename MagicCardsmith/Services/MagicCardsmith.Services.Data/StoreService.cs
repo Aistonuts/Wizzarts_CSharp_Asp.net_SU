@@ -55,5 +55,28 @@
 
             return stores;
         }
+
+        public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12)
+        {
+            var store = this.storeRepository.AllAsNoTracking()
+                .OrderByDescending(x => x.Id)
+                .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+                .To<T>().ToList();
+            return store;
+        }
+
+        public T GetById<T>(int id)
+        {
+            var store = this.storeRepository.AllAsNoTracking()
+                .Where(x => x.Id == id)
+                .To<T>().FirstOrDefault();
+
+            return store;
+        }
+
+        public int GetCount()
+        {
+            return this.storeRepository.All().Count();
+        }
     }
 }

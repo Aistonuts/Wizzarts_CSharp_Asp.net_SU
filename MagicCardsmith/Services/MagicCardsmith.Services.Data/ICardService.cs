@@ -17,7 +17,7 @@
 
         IEnumerable<T> GetAllByCardId<T>(int id);
 
-        Task CreateAsync(CreateCardInputModel input, string userId, int id, string path, bool isEventCard);
+        Task CreateAsync(CreateCardInputModel input, string userId, int id, string path, bool isEventCard, bool requireArtInput,string canvasCapture);
 
         IEnumerable<T> GetByTypeCards<T>(IEnumerable<int> cardTypeId);
 

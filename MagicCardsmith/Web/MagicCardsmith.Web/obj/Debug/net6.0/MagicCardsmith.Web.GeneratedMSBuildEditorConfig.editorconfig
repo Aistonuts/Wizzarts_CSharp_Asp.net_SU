@@ -82,10 +82,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0XEFsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsmith/Web/MagicCardsmith.Web/Views/Artist/Become.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0XEJlY29tZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsmith/Web/MagicCardsmith.Web/Views/Artist/ById.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0XEJ5SWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -132,10 +128,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsmith/Web/MagicCardsmith.Web/Views/Event/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsmith/Web/MagicCardsmith.Web/Views/Expansion/Add.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwYW5zaW9uXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsmith/Web/MagicCardsmith.Web/Views/Expansion/All.cshtml]
@@ -216,6 +208,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsmith/Web/MagicCardsmith.Web/Views/Store/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsmith/Web/MagicCardsmith.Web/Views/UserElevatedRights/Claim.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckVsZXZhdGVkUmlnaHRzXENsYWltLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/MagicCardsmith/Web/MagicCardsmith.Web/Views/_ViewImports.cshtml]

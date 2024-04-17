@@ -1,4 +1,4 @@
-﻿namespace MagicCardsmith.Web.ViewModels.Artist
+﻿namespace MagicCardsmith.Web.ViewModels.ElevatedRights
 {
     using System;
     using System.Collections.Generic;

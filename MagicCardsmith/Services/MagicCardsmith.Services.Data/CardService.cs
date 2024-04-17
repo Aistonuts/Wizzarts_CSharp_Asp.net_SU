@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
     using MagicCardsmith.Data;
@@ -57,7 +58,7 @@
             this.dbContext = dbContext;
         }
 
-        public async Task CreateAsync(CreateCardInputModel input, string userId, int id, string path, bool isEventCard)
+        public async Task CreateAsync(CreateCardInputModel input, string userId, int id, string path, bool isEventCard, bool requireArtInput, string canvasCapture)
         {
             var card = new Card
             {
@@ -77,6 +78,7 @@
                 CardSmithId = userId,
                 EventId = id,
                 IsEventCard = isEventCard,
+                ArtId = input.ArtId,
             };
 
             var manaBlack = this.blackManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.BlackManaId);
@@ -176,10 +178,42 @@
             {
                 card.CardFrameColorId = cardFrame.Id;
             }
+            var physicalPath = " ";
+            if (requireArtInput)
+            {
+                physicalPath = $"{path}/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
+            }
+            else
+            {
+                physicalPath = $"{path}/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
+            }
+
+            //string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
+
+            using (FileStream fs = new FileStream(physicalPath, FileMode.Create))
+            {
+                using (BinaryWriter bw = new BinaryWriter(fs))
+                {
+                    byte[] data = Convert.FromBase64String(canvasCapture);
+                    MemoryStream ms = new MemoryStream(data, 0, data.Length);
+
+                    bw.Write(data);
+                    bw.Close();
+                }
+            }
+            //var extension = Path.GetExtension(input.Images.FileName).TrimStart('.');
 
 
+            //if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
+            //{
+            //    throw new Exception($"Invalid image extension {extension}");
+            //}
 
+            //var physicalPath = $"{path}/cardsByExpansion/EventCards/{input.Name}.{extension}";
 
+            //using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            //await input.Images.CopyToAsync(fileStream);
+            card.CardRemoteUrl = physicalPath;
             await this.cardRepository.AddAsync(card);
             await this.cardRepository.SaveChangesAsync();
         }

@@ -11,6 +11,7 @@
     using MagicCardsmith.Web.ViewModels.Expansion;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.RazorPages;
 
     public class ExpansionController : Controller
     {
@@ -29,6 +30,16 @@
             this.cardService = cardService;
             this.reviewService = reviewService;
             this.userManager = userManager;
+        }
+
+
+        public IActionResult All()
+        {
+            var viewModel = new ExpansionListViewModel
+            {
+                Expansions = this.expansionService.GetAll<ExpansionInListViewModel>(),
+            };
+            return this.View(viewModel);
         }
 
         public IActionResult ById(int id)

@@ -4,52 +4,20 @@
     this.ViewData["Title"] = Model.Title;
 }
 
-<div class="col-sm-12 col-lg-8 pl-0 pr-0 pr-lg-2 h-oneKpx">
-
-    @*         <div class="card-header bg-light pt-0">
-    <ul class="nav nav-tabs card-header-tabs">
-    <li class="nav-item">
-    <a href="/Card" class="nav-link ">
-    <span class="fas fa-search" title="Advanced Search"></span> <b>Advanced Search</b>
-    </a>
-    </li>
-    <li class="nav-item">
-    <a href="/Card/Set" class="nav-link ">
-    <span class="ss ss-xmods" title="Browse by Set"></span> <b>MTG Set List</b>
-    </a>
-    </li>
-    <li class="nav-item">
-    <a href="/Card/Set/PIP" class="nav-link ">
-    <b><i class="ss ss-pip"></i> Fallout</b>
-    </a>
-    </li>
-    </li>
-    <li class="nav-item">
-    <a role="link" aria-disabled="true" class="nav-link active">
-    <b>Card details</b>
-    </a>
-    </li>
-    </ul>
-    </div> *@
-    @foreach (var card in this.Model.Cards)
-    {
-        <div class="card mb-4">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12 pl-0 pr-0">
-                        <div id="cardInfo" class="row mb-4">
-                            <div class="col-sm-12 col-md-6 cardModal">
-                                <div class="card-image-front text-center"><img id="previewCardModal" class="card-image" src="@card.ImageUrl" alt="Card" onerror="this.onerror=null;this.src='@card.ImageUrl';"></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
-                                <h2>@card.Name</h2>
-                                <p>@card.AbilitiesAndFlavor</p>
-                                
-                            </div>
-                        </div>
+<div class="row mt-2">
+    <div class="col-md-12">
+        <div id="Card" class="outer-container">
+            @foreach (var card in this.Model.Cards)
+            {
+                <div class="inner-container">
+                    <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
+                        <img class="lazy" src="@card.ImageUrl" alt="@card.Name" style="">
+                        <div class="item-hidden-text">@card.Name</div>
+                    </a>
+                    <div class="item-footer">
                     </div>
                 </div>
-            </div>
+            }
         </div>
-    }
+    </div>
 </div>

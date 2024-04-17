@@ -48,8 +48,9 @@
     <Folder Include="Areas\Identity\Data\" />
     <Folder Include="wwwroot\images\art\userArt\" />
     <Folder Include="wwwroot\images\avatar\" />
-    <Folder Include="wwwroot\images\cardsByExpansion\EventCards\" />
     <Folder Include="wwwroot\images\cardsByExpansion\Beta\" />
+    <Folder Include="wwwroot\images\cardsByExpansion\EventCards\Flavor\" />
+    <Folder Include="wwwroot\images\cardsByExpansion\EventCards\Flavorless\" />
     <Folder Include="wwwroot\images\navigation\articles\" />
     <Folder Include="wwwroot\images\Stores\" />
   </ItemGroup>

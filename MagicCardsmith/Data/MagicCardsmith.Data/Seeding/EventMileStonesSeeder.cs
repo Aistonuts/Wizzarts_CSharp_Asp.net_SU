@@ -22,6 +22,7 @@
                 ImageUrl = "/images/event/milestones/EventOneMilestones/Abandoned_Mire.png",
                 EventId = 1,
                 IsCompleted = false,
+                RequireArtInput = false,
             });
             await dbContext.EventMilestones.AddAsync(new EventMilestone
             {
@@ -30,6 +31,7 @@
                 ImageUrl = "/images/event/milestones/EventOneMilestones/Adeline.png",
                 EventId = 1,
                 IsCompleted = false,
+                RequireArtInput = false,
             });
             await dbContext.EventMilestones.AddAsync(new EventMilestone
             {
@@ -38,6 +40,7 @@
                 ImageUrl = "/images/event/milestones/EventOneMilestones/Black_Market.png",
                 EventId = 1,
                 IsCompleted = false,
+                RequireArtInput = false,
             });
             await dbContext.EventMilestones.AddAsync(new EventMilestone
             {
@@ -46,6 +49,7 @@
                 ImageUrl = "/images/event/milestones/EventOneMilestones/Empire.png",
                 EventId = 1,
                 IsCompleted = false,
+                RequireArtInput = false,
             });
             await dbContext.EventMilestones.AddAsync(new EventMilestone
             {
@@ -54,6 +58,7 @@
                 ImageUrl = "/images/event/milestones/EventOneMilestones/Ghast.png",
                 EventId = 1,
                 IsCompleted = false,
+                RequireArtInput = false,
             });
             await dbContext.EventMilestones.AddAsync(new EventMilestone
             {
@@ -62,6 +67,7 @@
                 ImageUrl = "/images/event/milestones/EventOneMilestones/InfernalGrasp.png",
                 EventId = 1,
                 IsCompleted = false,
+                RequireArtInput = false,
             });
             await dbContext.EventMilestones.AddAsync(new EventMilestone
             {
@@ -70,6 +76,7 @@
                 ImageUrl = "/images/event/milestones/EventOneMilestones/Scavengers.png",
                 EventId = 1,
                 IsCompleted = false,
+                RequireArtInput = false,
             });
             await dbContext.EventMilestones.AddAsync(new EventMilestone
             {
@@ -78,6 +85,7 @@
                 ImageUrl = "/images/event/milestones/EventTwoMilestones/Demonic_Tutor.png",
                 EventId = 2,
                 IsCompleted = false,
+                RequireArtInput = true,
             });
             await dbContext.EventMilestones.AddAsync(new EventMilestone
             {
@@ -86,6 +94,7 @@
                 ImageUrl = "/images/event/milestones/EventTwoMilestones/Wrath_of_God.png",
                 EventId = 2,
                 IsCompleted = false,
+                RequireArtInput = true,
             });
 
             await dbContext.EventMilestones.AddAsync(new EventMilestone
@@ -95,6 +104,7 @@
                 ImageUrl = "/images/event/milestones/EventTwoMilestones/Timetwister.png",
                 EventId = 2,
                 IsCompleted = false,
+                RequireArtInput = true,
             });
 
             await dbContext.EventMilestones.AddAsync(new EventMilestone
@@ -104,6 +114,7 @@
                 ImageUrl = "/images/event/milestones/EventTwoMilestones/Ankh_Of_Mishra.png",
                 EventId = 2,
                 IsCompleted = false,
+                RequireArtInput = true,
             });
 
             await dbContext.EventMilestones.AddAsync(new EventMilestone

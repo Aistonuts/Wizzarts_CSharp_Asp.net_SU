@@ -50,7 +50,7 @@
             return this.View(viewModel);
         }
 
-        public IActionResult ById(int id, int pageId = 1)
+        public IActionResult ById(int id)
         {
             var newEvent = this.eventService.GetById<SingleEventViewModel>(id);
             newEvent.EventMilestones = this.eventService.GetAllMilestones<MilestonesInListViewModel>(id);

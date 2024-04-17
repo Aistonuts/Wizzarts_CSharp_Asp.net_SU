@@ -17,5 +17,7 @@
         public Event Event { get; set; }
 
         public bool IsCompleted { get; set; }
+
+        public bool RequireArtInput { get; set; }
     }
 }

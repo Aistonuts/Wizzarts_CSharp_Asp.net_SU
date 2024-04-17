@@ -1,4 +1,8 @@
-﻿namespace MagicCardsmith.Web.ViewModels.CardTesting
+﻿using MagicCardsmith.Data.Models;
+using MagicCardsmith.Web.ViewModels.Card;
+using Microsoft.Extensions.Configuration;
+
+namespace MagicCardsmith.Web.ViewModels.CardTesting
 {
     using AutoMapper;
     using MagicCardsmith.Data.Models;

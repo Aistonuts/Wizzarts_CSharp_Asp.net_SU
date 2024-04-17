@@ -32,10 +32,10 @@
                                 <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Events</h4>
 
                                 <div class="firstfeed-flexbox-events">
-                                    @foreach (var card in this.Model.Cards)
+                                    @foreach (var card in this.Model.EventCards)
                                     {
                                         <div class="inner-container">
-                                            <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
+                                            <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id"  class="item ae-card-link cardLink ">
                                                 <img class="lazy" src="@card.ImageUrl" alt="@card.Name" style="">
                                                 <div class="item-hidden-text">@card.Name</div>
                                             </a>
