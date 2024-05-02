@@ -1,8 +1,11 @@
 ﻿namespace MagicCardsmith.Web.Controllers
 {
+    using MagicCardsmith.Common;
     using MagicCardsmith.Services.Data;
     using MagicCardsmith.Web.ViewModels.Stores;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using System.Threading.Tasks;
 
     public class StoreController : Controller
     {
@@ -30,6 +33,14 @@
             };
 
             return this.View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> ApproveStore(int id)
+        {
+            await this.storeService.ApproveStore(id);
+            return this.RedirectToAction(nameof(this.All));
         }
 
         //public IActionResult ById(string id)

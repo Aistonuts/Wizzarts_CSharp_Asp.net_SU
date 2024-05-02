@@ -11,7 +11,7 @@ namespace MagicCardsmith.Services.Data.Tests.Artist
     using MagicCardsmith.Services.Mapping;
     using MagicCardsmith.Web.ViewModels;
     using MagicCardsmith.Web.ViewModels.Artist;
-    using MagicCardsmith.Web.ViewModels.Home;
+    using MagicCardsmith.Web.ViewModels.Premium;
     using Microsoft.EntityFrameworkCore;
     using Moq;
     using System.Collections.Generic;

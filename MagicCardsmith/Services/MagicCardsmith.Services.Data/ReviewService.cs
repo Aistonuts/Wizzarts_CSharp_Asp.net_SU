@@ -37,6 +37,16 @@ namespace MagicCardsmith.Services.Data
             await this.reviewRepository.SaveChangesAsync();
         }
 
+        public IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 3)
+        {
+            var art = this.reviewRepository.AllAsNoTracking()
+              .Where(x => x.PostedByUserId == id)
+              .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+              .To<T>().ToList();
+
+            return art;
+        }
+
         public IEnumerable<T> GetAllReviews<T>()
         {
             var reviews = this.reviewRepository.AllAsNoTracking()

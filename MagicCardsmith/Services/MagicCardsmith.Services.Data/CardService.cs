@@ -214,8 +214,10 @@
             //using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             //await input.Images.CopyToAsync(fileStream);
             card.CardRemoteUrl = physicalPath;
+
             await this.cardRepository.AddAsync(card);
             await this.cardRepository.SaveChangesAsync();
+
         }
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12)
@@ -286,6 +288,28 @@
               .To<T>().ToList();
 
             return cardsByExpansion;
+        }
+
+        public IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 3)
+        {
+            var card = this.cardRepository.AllAsNoTracking()
+             .Where(x => x.CardSmithId == id)
+             .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+             .To<T>().ToList();
+
+            return card;
+        }
+
+        public Task UpdateAsync(int id, BaseCreateCardInputModel input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task ApproveCard(int id)
+        {
+            var card = this.cardRepository.All().FirstOrDefault(x => x.Id == id);
+            card.ApprovedByAdmin = true;
+            await this.cardRepository.SaveChangesAsync();
         }
     }
 }

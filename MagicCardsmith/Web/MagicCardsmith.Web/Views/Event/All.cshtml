@@ -12,7 +12,7 @@
             <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Events</h4>
 
             <div class="firstfeed-flexbox-events">
-                @foreach (var eventNow in this.Model.Events)
+                @foreach (var eventNow in this.Model.Events.Where(x => x.ApprovedByAdmin == true))
                 {
                     <div class="article-card card border-0">
                         <a href="" aria-label="article" class="image-wrapper">

@@ -7,7 +7,7 @@
 
     public interface IArtService
     {
-        Task CreateAsync(CreateArtInputModel input, int artistId, string imagePath);
+        Task CreateAsync(CreateArtInputModel input, string userId, string imagePath);
 
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12);
 
@@ -17,11 +17,16 @@
 
         IEnumerable<T> GetAllByArtistId<T>(int id);
 
+        IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 3);
 
         IEnumerable<T> GetRandom<T>(int count);
 
         Task DeleteAsync(string id);
 
         bool IsBase64String(string base64);
+
+        Task UpdateAsync(string id, BaseCreateArtInputModel input);
+
+        Task ApproveArt(string id);
     }
 }

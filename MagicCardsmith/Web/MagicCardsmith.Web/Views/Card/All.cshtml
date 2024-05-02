@@ -7,7 +7,7 @@
 <div class="row mt-2">
     <div class="col-md-12">
         <div id="DigitalArt" class="outer-container">
-            @foreach (var card in this.Model.Cards)
+            @foreach (var card in this.Model.Cards.Where(x => x.ApprovedByAdmin == true))
             {
                 <div class="inner-container">
                     <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">

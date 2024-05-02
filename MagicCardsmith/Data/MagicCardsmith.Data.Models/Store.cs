@@ -16,6 +16,8 @@
 
         public string Image { get; set; }
 
+        public bool ApprovedByAdmin { get; set; }
+
         public string StoreOwnerId { get; set; }
 
         public ApplicationUser StoreOwner { get; set; }

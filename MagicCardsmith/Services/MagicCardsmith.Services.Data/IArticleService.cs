@@ -18,5 +18,9 @@
         T GetById<T>(int id);
 
         int GetCount();
+
+        IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 3);
+
+        Task ApproveArticle(int id);
     }
 }

@@ -12,7 +12,7 @@ namespace MagicCardsmith.Web.Areas.Identity.Pages.Account
     using System.Text.Encodings.Web;
     using System.Threading;
     using System.Threading.Tasks;
-
+    using MagicCardsmith.Common;
     using MagicCardsmith.Data.Models;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authorization;
@@ -37,7 +37,7 @@ namespace MagicCardsmith.Web.Areas.Identity.Pages.Account
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             RoleManager<ApplicationRole> roleManager,
-        SignInManager<ApplicationUser> signInManager,
+            SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -113,7 +113,7 @@ namespace MagicCardsmith.Web.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/");
+            returnUrl ??= Url.Content("~/User/Avatar");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
@@ -123,7 +123,7 @@ namespace MagicCardsmith.Web.Areas.Identity.Pages.Account
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
-                await _userManager.AddToRoleAsync(user, "User");
+                await _userManager.AddToRoleAsync(user, GlobalConstants.UserRoleName);
 
                 if (result.Succeeded)
                 {

@@ -11,5 +11,7 @@ namespace MagicCardsmith.Services.Data
         Task CreateAsync(SingleCardViewModel input, string userId, int id);
 
         IEnumerable<T> GetAllReviews<T>();
+
+        IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 3);
     }
 }

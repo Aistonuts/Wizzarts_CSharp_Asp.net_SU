@@ -18,5 +18,8 @@
 
         IEnumerable<T> GetAllEventCards<T>();
 
+        IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 3);
+
+        Task ApproveEvent(int id);
     }
 }

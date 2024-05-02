@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class CardReviewListViewModel
+    public class CardReviewListViewModel : PagingViewModel
     {
         public IEnumerable<CardReviewInListViewModel> CardReviews { get; set; }
     }

@@ -16,6 +16,8 @@
 
         public string ArtistName { get; set; }
 
+        public bool ApprovedByAdmin { get; set; }
+
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Art, ArtInListViewModel>()

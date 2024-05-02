@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MagicCardsmith.Data.Migrations
 {
-    public partial class FinalView : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -319,6 +319,7 @@ namespace MagicCardsmith.Data.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ArticleCreatorId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    ApprovedByAdmin = table.Column<bool>(type: "bit", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -345,6 +346,7 @@ namespace MagicCardsmith.Data.Migrations
                     Bio = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    ApprovedByAdmin = table.Column<bool>(type: "bit", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -456,6 +458,7 @@ namespace MagicCardsmith.Data.Migrations
                     EventCreatorId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     RemoteImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EventStatusId = table.Column<int>(type: "int", nullable: false),
+                    ApprovedByAdmin = table.Column<bool>(type: "bit", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -547,6 +550,7 @@ namespace MagicCardsmith.Data.Migrations
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ApprovedByAdmin = table.Column<bool>(type: "bit", nullable: false),
                     StoreOwnerId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -587,6 +591,7 @@ namespace MagicCardsmith.Data.Migrations
                     IsBanned = table.Column<bool>(type: "bit", nullable: false),
                     ArtId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CardSmithId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    ApprovedByAdmin = table.Column<bool>(type: "bit", nullable: false),
                     EventId = table.Column<int>(type: "int", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -719,6 +724,8 @@ namespace MagicCardsmith.Data.Migrations
                     Extension = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ArtIstId = table.Column<int>(type: "int", nullable: true),
                     CardId = table.Column<int>(type: "int", nullable: true),
+                    IsEventArt = table.Column<bool>(type: "bit", nullable: false),
+                    ApprovedByAdmin = table.Column<bool>(type: "bit", nullable: false),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),

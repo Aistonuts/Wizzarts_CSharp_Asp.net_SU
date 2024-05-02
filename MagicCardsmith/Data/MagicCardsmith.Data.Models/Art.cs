@@ -28,6 +28,10 @@
 
         public Card Card { get; set; }
 
+        public bool IsEventArt { get; set; }
+
+        public bool ApprovedByAdmin { get; set; }
+
         public string ApplicationUserId { get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }

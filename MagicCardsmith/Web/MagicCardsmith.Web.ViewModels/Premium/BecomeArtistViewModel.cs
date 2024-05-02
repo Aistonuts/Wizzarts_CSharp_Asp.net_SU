@@ -1,4 +1,4 @@
-﻿namespace MagicCardsmith.Web.ViewModels.ElevatedRights
+﻿namespace MagicCardsmith.Web.ViewModels.Premium
 {
     using System;
     using System.Collections.Generic;
@@ -15,5 +15,11 @@
         public string AvatarUrl { get; set; }
 
         public string Email { get; set; }
+
+        public string UserId { get; set; }
+
+        public string Bio { get; set; }
+
+
     }
 }

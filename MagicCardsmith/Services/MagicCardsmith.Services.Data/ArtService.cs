@@ -24,16 +24,24 @@
             this.artRepository = artRepository;
         }
 
-        public async Task CreateAsync(CreateArtInputModel input, int artistId, string imagePath)
+        public async Task ApproveArt(string id)
+        {
+            var art = this.artRepository.All().FirstOrDefault(x => x.Id == id);
+            art.ApprovedByAdmin = true;
+            await this.artRepository.SaveChangesAsync();
+        }
+
+        public async Task CreateAsync(CreateArtInputModel input, string userId, string imagePath)
         {
             var art = new Art
             {
                 Title = input.Title,
                 Description = input.Description,
-                ArtIstId = artistId,
+                ApplicationUserId = userId,
+
             };
 
-            Directory.CreateDirectory($"{imagePath}/art/");
+            Directory.CreateDirectory($"{imagePath}/art/userArt/");
             var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
             {
@@ -41,8 +49,8 @@
             }
 
             art.Extension = extension;
-            var physicalPath = $"{imagePath}/art/{art.Id}.{extension}";
-            art.RemoteImageUrl = $"/images/art/{art.Id}.{extension}";
+            var physicalPath = $"{imagePath}/art/userArt/{art.Id}.{extension}";
+            art.RemoteImageUrl = $"/images/art/userArt/{art.Id}.{extension}";
             using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.Image.CopyToAsync(fileStream);
 
@@ -75,6 +83,16 @@
             return art;
         }
 
+        public IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 3)
+        {
+            var art = this.artRepository.AllAsNoTracking()
+               .Where(x => x.ApplicationUserId == id)
+               .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+               .To<T>().ToList();
+
+            return art;
+        }
+
         public T GetById<T>(string id)
         {
             var art = this.artRepository.AllAsNoTracking()
@@ -101,6 +119,16 @@
         {
             Span<byte> buffer = new Span<byte>(new byte[base64.Length]);
             return Convert.TryFromBase64String(base64, buffer, out int bytesParsed);
+        }
+
+        public async Task UpdateAsync(string id, BaseCreateArtInputModel input)
+        {
+            var articles = this.artRepository.All().FirstOrDefault(x => x.Id == id);
+            articles.Title = input.Title;
+            articles.Description = input.Description;
+            articles.RemoteImageUrl = input.RemoteImageUrl;
+
+            await this.artRepository.SaveChangesAsync();
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using MagicCardsmith.Web.ViewModels.ElevatedRights;
+    using MagicCardsmith.Web.ViewModels.Premium;
 
     public interface IArtistService
     {

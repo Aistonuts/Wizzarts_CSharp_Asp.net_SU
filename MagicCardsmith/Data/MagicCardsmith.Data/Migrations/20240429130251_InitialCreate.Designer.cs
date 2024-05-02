@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicCardsmith.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240412070649_FinalView")]
-    partial class FinalView
+    [Migration("20240429130251_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -166,6 +166,9 @@ namespace MagicCardsmith.Data.Migrations
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("ApprovedByAdmin")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("ArtIstId")
                         .HasColumnType("int");
 
@@ -185,6 +188,9 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsEventArt")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedOn")
@@ -218,6 +224,9 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("ApprovedByAdmin")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ArticleCreatorId")
                         .HasColumnType("nvarchar(450)");
@@ -262,6 +271,9 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("ApprovedByAdmin")
+                        .HasColumnType("bit");
 
                     b.Property<string>("AvatarUrl")
                         .HasColumnType("nvarchar(max)");
@@ -414,6 +426,9 @@ namespace MagicCardsmith.Data.Migrations
 
                     b.Property<string>("AbilitiesAndFlavor")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("ApprovedByAdmin")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ArtId")
                         .HasColumnType("nvarchar(max)");
@@ -703,6 +718,9 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("ApprovedByAdmin")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -1159,6 +1177,9 @@ namespace MagicCardsmith.Data.Migrations
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("ApprovedByAdmin")
+                        .HasColumnType("bit");
 
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");

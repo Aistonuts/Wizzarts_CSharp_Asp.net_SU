@@ -20,6 +20,8 @@
 
         public string CreatorId { get; set; }
 
+        public bool ApprovedByAdmin { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)

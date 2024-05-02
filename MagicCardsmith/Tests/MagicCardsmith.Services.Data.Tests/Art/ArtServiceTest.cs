@@ -41,7 +41,7 @@ namespace MagicCardsmith.Services.Data.Tests.Art
             using var repository = new EfDeletableEntityRepository<Art>(data);
             var service = new ArtService(repository);
 
-            int UserId = 1;
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot" + "/images";
 
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");

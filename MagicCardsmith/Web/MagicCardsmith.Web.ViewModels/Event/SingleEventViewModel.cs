@@ -49,6 +49,8 @@
 
         public string StoreOwnerId { get; set; }
 
+        public bool ApprovedByAdmin { get; set; }
+
         // end
         public IEnumerable<CardInListViewModel> Cards { get; set; }
 

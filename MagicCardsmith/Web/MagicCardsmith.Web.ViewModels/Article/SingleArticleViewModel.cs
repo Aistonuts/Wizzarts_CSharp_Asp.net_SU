@@ -22,6 +22,8 @@
 
         public string ArticleCreatorAvatar { get; set; }
 
+        public bool ApprovedByAdmin { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public IEnumerable<IndexPageArticleViewModel> Articles { get; set; }

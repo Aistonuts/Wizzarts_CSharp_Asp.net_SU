@@ -14,6 +14,8 @@
 
         public string ArticleCreatorId { get; set; }
 
+        public bool ApprovedByAdmin { get; set; }
+
         public ApplicationUser ArticleCreator { get; set; }
     }
 }

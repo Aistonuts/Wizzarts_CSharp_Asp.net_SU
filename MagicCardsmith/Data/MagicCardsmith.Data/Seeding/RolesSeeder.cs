@@ -20,6 +20,7 @@
             await SeedRoleAsync(roleManager, GlobalConstants.UserRoleName, GlobalConstants.UserRoleGuid);
             await SeedRoleAsync(roleManager, GlobalConstants.ArtistRoleName, GlobalConstants.ArtistRoleGuid);
             await SeedRoleAsync(roleManager, GlobalConstants.StoreOwnerRoleName, GlobalConstants.StoreOwnerRoleGuid);
+            await SeedRoleAsync(roleManager, GlobalConstants.PremiumAccountRoleName, GlobalConstants.PremiumAccountRoleGuid);
         }
 
         private static async Task SeedRoleAsync(RoleManager<ApplicationRole> roleManager, string roleName, string id)

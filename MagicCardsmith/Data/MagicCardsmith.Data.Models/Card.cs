@@ -72,11 +72,13 @@
 
         public virtual ApplicationUser CardSmith { get; set; }
 
-        public virtual ICollection<CardMana> CardMana { get; set; }
+        public bool ApprovedByAdmin { get; set; }
 
         public int? EventId { get; set; }
 
         public Event Event { get; set; }
+
+        public virtual ICollection<CardMana> CardMana { get; set; }
 
         public virtual ICollection<CardReview> CardReviews { get; set; }
 

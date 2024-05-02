@@ -129,6 +129,26 @@
                 </div>
             </div>
         </div>
+        <div class="col-xl-9 col-12">
+            <ul class="entry-meta">
+                @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                {
+                    <li class="single-meta">
+                        <a asp-controller="Card" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary">Edit</a>
+                    </li>
+                  @*   <li class="single-meta">
+                        <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
+                        </form>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                    </li> *@
+                    <li class="single-meta">
+                        <form asp-controller="Card" method="post" asp-action="ApproveCard" asp-route-id="@Model.Id">
+                        </form>
+                        <button class="btn btn-danger">Approve</button>
+                    </li>
+                }
+            </ul>
+        </div>
     </div>
 </div>
 

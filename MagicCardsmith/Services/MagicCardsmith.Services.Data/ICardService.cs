@@ -1,6 +1,5 @@
 ﻿namespace MagicCardsmith.Services.Data
 {
-    using System.Collections;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using MagicCardsmith.Web.ViewModels.Card;
@@ -26,5 +25,11 @@
         IEnumerable<T> GetByName<T>(string name);
 
         IEnumerable<T> GetAllCardsByExpansionId<T>(int id);
+
+        IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 12);
+
+        Task UpdateAsync(int id, BaseCreateCardInputModel input);
+
+        Task ApproveCard(int id);
     }
 }

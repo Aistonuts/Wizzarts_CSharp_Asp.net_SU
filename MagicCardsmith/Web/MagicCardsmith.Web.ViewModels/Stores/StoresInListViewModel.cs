@@ -20,5 +20,7 @@
         public string Image { get; set; }
 
         public string StoreOwnerId { get; set; }
+
+        public bool ApprovedByAdmin { get; set; }
     }
 }

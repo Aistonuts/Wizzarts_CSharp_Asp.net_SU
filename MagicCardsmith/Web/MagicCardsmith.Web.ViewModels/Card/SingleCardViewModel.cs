@@ -41,6 +41,8 @@ namespace MagicCardsmith.Web.ViewModels.Card
 
         public string PostedByUserId { get; set; }
 
+        public bool ApprovedByAdmin { get; set; }
+
         public IEnumerable<CardReviewInListViewModel> CardReviews { get; set; }
 
         public IEnumerable<ManaListViewModel> Mana { get; set; }

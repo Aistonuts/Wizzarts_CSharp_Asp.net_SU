@@ -25,6 +25,7 @@
                 "We will provide you with special tool for creating a new play card.",
                 RemoteImageUrl = "/images/event/Flavorless.jpg",
                 EventStatusId = 1,
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Events.AddAsync(new Event
@@ -35,6 +36,7 @@
                 "We will provide you with special tool for creating a new play card.",
                 RemoteImageUrl = "/images/event/Call_to_arts.jpg",
                 EventStatusId = 1,
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Events.AddAsync(new Event
@@ -43,6 +45,7 @@
                 EventDescription = "This event is for those of you interested in becoming arena masters. To become an arena master you need to own a store where tournaments can be holded in future.",
                 RemoteImageUrl = "/images/event/ArenaMaster.jpg",
                 EventStatusId = 1,
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Events.AddAsync(new Event
@@ -52,6 +55,7 @@
                 "access to cards to work with. You will be given access to each one of the newly created cards. All you will have to do is to download each one of the newly created cards, test its mechanics and playstyle during a game and submit your feedback.",
                 RemoteImageUrl = "/images/event/Game_tester.jpg",
                 EventStatusId = 1,
+                ApprovedByAdmin = true,
             });
 
             await dbContext.SaveChangesAsync();

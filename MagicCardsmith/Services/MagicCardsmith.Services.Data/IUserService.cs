@@ -1,5 +1,7 @@
 ﻿namespace MagicCardsmith.Services.Data
 {
+    using MagicCardsmith.Web.ViewModels.Article;
+    using MagicCardsmith.Web.ViewModels.Premium;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -22,5 +24,13 @@
         bool HasPublishedContent(string userId);
 
         bool HasEventParticipation(string userId);
+
+        T GetAvatarById<T>(int id);
+
+        IEnumerable<T> GetAllAsync<T>(int page, int itemsPerPage = 12);
+
+        T GetById<T>(string id);
+
+        Task UpdateAsync(string id, CreateProfileViewModel input);
     }
 }

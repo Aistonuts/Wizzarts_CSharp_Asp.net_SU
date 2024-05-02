@@ -1,5 +1,6 @@
 ﻿namespace MagicCardsmith.Web.Controllers
 {
+    using MagicCardsmith.Common;
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Data;
     using MagicCardsmith.Web.ViewModels.Card;
@@ -88,6 +89,14 @@
 
             // TODO: Redirect to article info page
             return this.RedirectToAction("All");
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> ApproveEvent(int id)
+        {
+            await this.eventService.ApproveEvent(id);
+            return this.RedirectToAction(nameof(this.All));
         }
     }
 }

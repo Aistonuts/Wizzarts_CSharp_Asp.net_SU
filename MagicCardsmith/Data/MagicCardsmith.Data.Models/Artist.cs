@@ -24,6 +24,8 @@
 
         public ApplicationUser User { get; set; }
 
+        public bool ApprovedByAdmin { get; set; }
+
         public virtual ICollection<Art> ArtPieces { get; set; }
     }
 }

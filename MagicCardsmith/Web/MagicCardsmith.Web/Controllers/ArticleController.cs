@@ -86,5 +86,13 @@
             article.Articles = this.articleService.GetRandom<IndexPageArticleViewModel>(3);
             return this.View(article);
         }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> ApproveArticle(int id)
+        {
+            await this.articleService.ApproveArticle(id);
+            return this.RedirectToAction("Index", "Home");
+        }
     }
 }

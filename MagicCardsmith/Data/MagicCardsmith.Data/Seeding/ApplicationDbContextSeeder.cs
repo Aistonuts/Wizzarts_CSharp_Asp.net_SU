@@ -31,7 +31,7 @@
                               new PreAssignedRoleSeeder(),
                               new GameExpansionSeeder(),
                               new ArtistSeeder(),
-                              new CardArtSeeder(),
+
                               new BlueManaSeeder(),
                               new BlackManaSeeder(),
                               new RedManaSeeder(),
@@ -41,6 +41,7 @@
                               new CardFrameSeeder(),
                               new CardTypeSeeder(),
                               new CardSeeder(),
+                              new CardArtSeeder(),
                               new ArticleSeeder(),
                               new AvatarSeeder(),
                               new EventStatusSeeder(),

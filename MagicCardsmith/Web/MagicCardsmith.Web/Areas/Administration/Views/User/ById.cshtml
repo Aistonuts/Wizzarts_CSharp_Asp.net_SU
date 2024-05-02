@@ -1,0 +1,205 @@
+﻿@model MagicCardsmith.Web.Areas.Administration.Models.Users.SingleUserViewModel
+@{
+    this.ViewData["Title"] = "Users";
+}
+
+
+<div class="col-sm-12 col-md-12 pl-0 pr-0">
+    <div class="card p-lg-3">
+        <div>
+            <div id="zone01-flex" class="mx-auto"></div>
+        </div>
+        <article id="article-body">
+            <div class="h-oneKpx pl-0 pr-0">
+                <div class="mt-3 mb-3 d-sm-flex justify-content-between align-items-end">
+                    <div class="col-12 col-sm-7 col-md-6">
+                        <h1 class="ff-display">@Model.Email</h1>
+                        <div class="w-100 d-flex justify-content-start mb-1 mt-3">
+                            <div class="card-text d-none d-md-flex m-1">@Model.Nickname</div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-sm-5 col-md-6">
+                        <img class="article-uimgheader-preview" src="@Model.AvatarUrl" alt="@Model.Email">
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-3">
+                    <div class="row">
+
+                        <div class="col-sm-12 col-md-12 pl-0 pr-0">
+                            @if (Model.Articles.Any())
+                            {
+                                @*                             <h1 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Welcome to @GlobalConstants.SystemName!</h1> *@
+                                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Newest Articles</h4>
+
+                                <div class="firstfeed-flexbox">
+                                    @foreach (var article in this.Model.Articles)
+                                    {
+                                        <div class="article-card card border-0">
+                                            <a href="" aria-label="article" class="image-wrapper">
+                                                <a asp-area="" asp-controller="Article" asp-action="ById" asp-route-id="@article.Id">
+                                                    <img src="@article.ImageUrl" class="article-uimgheader" alt="@article.Title">
+                                                </a>
+                                            </a>
+                                            <div class="card-body pt-0">
+                                                <small class="yellow-line">
+                                                    <a href=""><i class="far fa-star"></i>@article.ArticleCreatorName</a>
+                                                    <span>@article.CreatedOn</span>
+                                                </small>
+                                                <div class="ff-display font-size-18">
+                                                    <b><a href="">@article.Title</a></b>
+                                                </div>
+                                                <div class="card-text d-none d-md-flex m-1">@article.ShortDescription</div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <partial name="_PagingPartial" model="@Model" />
+                            }
+
+                            <hr />
+                            @if (Model.Arts.Any())
+                            {
+                                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Art</h4>
+                                <div class="firstfeed-flexbox">
+                                    @foreach (var art in this.Model.Arts)
+                                    {
+                                        <div class="inner-container">
+                                            <a asp-area="" asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" class="item ae-card-link cardLink ">
+                                                <img class="lazy" src="@art.ImageUrl" alt="@art.Title" style="">
+                                                <div class="item-hidden-text">@art.Title</div>
+                                            </a>
+                                            <div class="item-footer">
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <partial name="_PagingPartial" model="@Model" />
+                            }
+                            <hr />
+                            @if (Model.Cards.Any())
+                            {
+                                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Cards</h4>
+                                <div class="firstfeed-flexbox">
+                                    @foreach (var card in this.Model.Cards)
+                                    {
+                                        <div class="inner-container">
+                                            <a asp-area="" asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
+                                                <img class="lazy" src="@card.ImageUrl" alt="@card.Name" style="">
+                                                <div class="item-hidden-text">@card.CardExpansion</div>
+                                            </a>
+                                            <div class="item-footer">
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <partial name="_PagingPartial" model="@Model" />
+                            }
+                            <hr />
+                            @if (Model.Events.Any())
+                            {
+                                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Events</h4>
+                                @foreach (var eventNow in this.Model.Events)
+                                {
+                                    <div class="article-card card border-0">
+                                        <a href="" aria-label="article" class="image-wrapper">
+                                            <a asp-area="" asp-controller="Event" asp-action="ById" asp-route-id="@eventNow.Id" class="article-uimgheader">
+                                                <img src="@eventNow.ImageUrl" class="article-uimgheader" alt="@eventNow.Title">
+                                            </a>
+                                        </a>
+                                        <div class="card-body pt-0">
+                                            <small class="yellow-line">
+                                                <a href=""><i class="far fa-star"></i></a>
+                                                <span>@eventNow.CreatedOn</span>
+                                            </small>
+                                            <div class="ff-display font-size-18">
+                                                <b><a href="">@eventNow.Title</a></b>
+                                            </div>
+                                            <div class="card-text d-none d-md-flex m-1">@eventNow.EventDescription</div>
+                                        </div>
+                                    </div>
+                                }
+                                <partial name="_PagingPartial" model="@Model" />
+                            }
+                            <hr />
+                            @if (Model.Stores.Any())
+                            {
+                                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Stores</h4>
+                                <div class="firstfeed-flexbox">
+                                    @foreach (var store in this.Model.Stores)
+                                    {
+                                        <div class="article-card card border-0">
+                                            <a href="" aria-label="article" class="image-wrapper" data-toggle="modal" data-target="#imageModal">
+
+                                                <div class="article-uimgheader"><img id="previewCardModal" class="article-uimgheader" src="@store.Image" alt="Card" onerror="this.onerror=null;this.src='@store.Image';"></div>
+
+                                            </a>
+                                            <div class="card-body pt-0">
+                                                <small class="yellow-line">
+                                                    <a href=""><i class="far fa-star"></i></a>
+                                                </small>
+                                                <div class="ff-display font-size-18">
+                                                    <b><a href="">@store.Name</a></b>
+                                                </div>
+                                                <div class="text-right">
+                                                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#imageModal">
+                                                        <i class="fas fa-times"></i> <b>Location</b>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div id="imageModal" class="modal fade" role="dialog">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">@store.Name</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">
+                                                            <span class="fas fa-times text-dark"></span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body ui-front d-flex flex-row justify-content-center">
+                                                        <div>
+                                                            <div class="ae-img-byid"><img id="previewCardModal" class="ae-img-byid" src="@store.Image" alt="Store" onerror="this.onerror=null;this.src='@store.Image';"></div>
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
+                                                            <h2>@store.Name</h2> @* <span class="pull-right"><i class="ms ms-4 ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i></span> *@
+                                                            <p>@store.Address</p>
+                                                            <hr>
+                                                            <p>@store.PhoneNumber</p>
+                                                            <p>@store.City</p>
+                                                            <p>@store.Country</p>
+                                                            <p><i></i></p>
+                                                            <hr>
+                                                            <p>
+                                                                <i>Owned by: @store.StoreOwnerId</i><br>
+                                                            </p>
+                                                        </div>
+                                                        <ul id="ui-id-1" tabindex="0"
+                                                            class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" unselectable="on"
+                                                            style="display: none;"></ul>
+                                                    </div>
+                                                    <div class="modal-footer mt-0">
+                                                        <div class="text-right">
+                                                            <button type="button" class="btn btn-light" data-dismiss="modal">
+                                                                <i class="fas fa-times"></i> <b>Close</b>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <partial name="_PagingPartial" model="@Model" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <hr />
+        </article>
+    </div>
+</div>

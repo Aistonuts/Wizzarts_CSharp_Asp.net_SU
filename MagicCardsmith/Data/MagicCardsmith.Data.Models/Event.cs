@@ -24,6 +24,8 @@
 
         public EventStatus Status { get; set; }
 
+        public bool ApprovedByAdmin { get; set; }
+
         public ApplicationUser EventCreator { get; set; }
 
         public ICollection<EventMilestone> EventMilestones { get; set; }

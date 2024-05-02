@@ -19,10 +19,11 @@ namespace MagicCardsmith.Data.Seeding
             await dbContext.Articles.AddAsync(new Article
             {
                 Title = "The Magic Cardsmith platform has arrived.",
-                ShortDescription= "The Magic cardsmith is a platform for creating tabletop and digita collectible card games.",
+                ShortDescription = "The Magic cardsmith is a platform for creating tabletop and digita collectible card games.",
                 Description = "Our current project is the Alpha Magic cardsmith. The Alpha deck has been just released. It is already avaialble in our stores.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/MagicTheGathering.jpg",
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
@@ -32,6 +33,7 @@ namespace MagicCardsmith.Data.Seeding
                 Description = "Common interest for art tabletob games and collectible card games was the main reason for creating this platform were we can exchange our ideas with anyone interested.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/SonsOfTheStorm.jpg",
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
@@ -43,6 +45,7 @@ namespace MagicCardsmith.Data.Seeding
                 "join our team for assisting us with creating the Unlimited deck. For more information check the events board.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/AlphaBox.png",
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
@@ -57,6 +60,7 @@ namespace MagicCardsmith.Data.Seeding
                 "All you have to do is to participate in the vent, complete the milestones and  get enough votes from our community and we will pick those of you with the higher number of votes.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/Champion.png",
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
@@ -67,6 +71,7 @@ namespace MagicCardsmith.Data.Seeding
                 "submit a picture of your store and fill your address, phone number and exact location.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/Arena.jpg",
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
@@ -79,6 +84,7 @@ namespace MagicCardsmith.Data.Seeding
                 "Becoming a card flavour creator or a game tester is not an easy job, it needs teamwork. Teaming up is allowed.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/WrenchMan.jpg",
+                ApprovedByAdmin = true,
             });
             await dbContext.SaveChangesAsync();
         }

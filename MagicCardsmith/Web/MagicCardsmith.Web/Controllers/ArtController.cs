@@ -50,11 +50,11 @@
             }
 
             var user = await this.userManager.GetUserAsync(this.User);
-            var artist = await this.artistRepository.All().FirstOrDefaultAsync(x=> x.UserId == user.Id);
+            var artist = await this.artistRepository.All().FirstOrDefaultAsync( x => x.UserId == user.Id);
 
             try
             {
-                await this.artService.CreateAsync(input, artist.Id, $"{this.environment.WebRootPath}/images");
+                await this.artService.CreateAsync(input, user.Id, $"{this.environment.WebRootPath}/images");
             }
             catch (Exception ex)
             {
@@ -98,6 +98,14 @@
         public async Task<IActionResult> Delete(string id)
         {
             await this.artService.DeleteAsync(id);
+            return this.RedirectToAction(nameof(this.All));
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> ApproveArt(string id)
+        {
+            await this.artService.ApproveArt(id);
             return this.RedirectToAction(nameof(this.All));
         }
     }

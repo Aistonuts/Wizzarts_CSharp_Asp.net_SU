@@ -9,7 +9,7 @@
     using MagicCardsmith.Data.Common.Repositories;
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Mapping;
-    using MagicCardsmith.Web.ViewModels.ElevatedRights;
+    using MagicCardsmith.Web.ViewModels.Premium;
     using Microsoft.EntityFrameworkCore;
 
     public class ArtistService : IArtistService
@@ -48,6 +48,7 @@
                 await this.artistRepository.SaveChangesAsync();
 
         }
+
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12)
         {

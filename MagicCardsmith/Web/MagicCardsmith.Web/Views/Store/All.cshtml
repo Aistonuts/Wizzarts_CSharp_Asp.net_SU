@@ -1,4 +1,5 @@
 ﻿@model MagicCardsmith.Web.ViewModels.Stores.StoresListViewModel
+@using MagicCardsmith.Common;
 @{
     this.ViewData["Title"] = "All Stores";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,7 +12,7 @@
             <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Events</h4>
 
             <div class="firstfeed-flexbox-events">
-                @foreach (var store in this.Model.Stores)
+                @foreach (var store in this.Model.Stores.Where(x => x.ApprovedByAdmin == true))
                 {
                     <div class="article-card card border-0">
                         <a href="" aria-label="article" class="image-wrapper" data-toggle="modal" data-target="#imageModal">
@@ -71,6 +72,26 @@
                                             <i class="fas fa-times"></i> <b>Close</b>
                                         </button>
                                     </div>
+                                </div>
+                                <div class="col-xl-9 col-12">
+                                    <ul class="entry-meta">
+                                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                                        {
+                                            <li class="single-meta">
+                                                <a asp-controller="Store" asp-action="Edit" asp-route-id="@store.Id" class="btn btn-secondary">Edit</a>
+                                            </li>
+                                            <li class="single-meta">
+                                                <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@@store.Id">
+                                                </form>
+                                                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                                            </li>
+                                            <li class="single-meta">
+                                                <form asp-controller="Store" method="post" asp-action="ApproveStore" asp-route-id="@store.Id">
+                                                </form>
+                                                <button class="btn btn-danger">Approve</button>
+                                            </li>
+                                        }
+                                    </ul>
                                 </div>
                             </div>
                         </div>

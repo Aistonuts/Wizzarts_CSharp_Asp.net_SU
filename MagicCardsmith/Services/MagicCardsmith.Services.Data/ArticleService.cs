@@ -22,6 +22,13 @@
             this.articleRepository = articleRepository;
         }
 
+        public async Task ApproveArticle(int id)
+        {
+            var article = this.articleRepository.All().FirstOrDefault(x => x.Id == id);
+            article.ApprovedByAdmin = true;
+            await this.articleRepository.SaveChangesAsync();
+        }
+
         public async Task CreateAsync(CreateArticleInputModel input, string userId, string imagePath)
         {
             var article = new Article
@@ -55,6 +62,16 @@
             return articles;
         }
 
+        public IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 3)
+        {
+            var article = this.articleRepository.AllAsNoTracking()
+               .Where(x => x.ArticleCreatorId == id)
+               .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+               .To<T>().ToList();
+
+            return article;
+        }
+
         public T GetById<T>(int id)
         {
             var article = this.articleRepository.AllAsNoTracking()
@@ -86,5 +103,7 @@
 
             await this.articleRepository.SaveChangesAsync();
         }
+
+
     }
 }

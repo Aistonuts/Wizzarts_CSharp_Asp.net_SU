@@ -101,6 +101,11 @@
             .WithOne(a => a.Card)
             .HasForeignKey<Art>(a => a.CardId);
 
+            builder.Entity<Card>()
+            .HasMany(vote => vote.Votes)
+            .WithOne(card => card.Card)
+            .HasForeignKey(c => c.CardId);
+
             builder.Entity<ApplicationUser>()
                 .HasOne(a => a.GameRules)
                 .WithOne(a => a.PublishedBy)

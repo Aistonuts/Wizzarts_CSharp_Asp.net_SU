@@ -4,6 +4,7 @@ using NuGet.Packaging.Signing;
 namespace MagicCardsmith.Web.Controllers
 {
     using EllipticCurve.Utils;
+    using MagicCardsmith.Common;
     using MagicCardsmith.Data.Common.Repositories;
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Data;
@@ -13,6 +14,7 @@ namespace MagicCardsmith.Web.Controllers
     using MagicCardsmith.Web.ViewModels.Expansion;
     using MagicCardsmith.Web.ViewModels.Home;
     using MagicCardsmith.Web.ViewModels.Mana;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -104,7 +106,7 @@ namespace MagicCardsmith.Web.Controllers
                 isEventCard = true;
             }
 
-            if(milestone != null && milestone.RequireArtInput)
+            if (milestone != null && milestone.RequireArtInput)
             {
                 var cardTitle = milestone.Title;
                 var cardDescription = milestone.Description;
@@ -178,6 +180,15 @@ namespace MagicCardsmith.Web.Controllers
             this.TempData["Message"] = "Review added successfully.";
 
             return this.RedirectToAction("Index", "Home");
+        }
+
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> ApproveCard(int id)
+        {
+            await this.cardService.ApproveCard(id);
+            return this.RedirectToAction(nameof(this.All));
         }
     }
 }

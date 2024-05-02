@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-
+    using System.Threading.Tasks;
     using MagicCardsmith.Data.Common.Repositories;
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Mapping;
@@ -25,6 +25,13 @@
 
         }
 
+        public async Task ApproveEvent(int id)
+        {
+            var currentEvent = this.eventRepository.All().FirstOrDefault(x => x.Id == id);
+            currentEvent.ApprovedByAdmin = true;
+            await this.eventRepository.SaveChangesAsync();
+        }
+
         public IEnumerable<T> GetAll<T>()
         {
             var events = this.eventRepository.AllAsNoTracking()
@@ -32,6 +39,16 @@
                 .To<T>().ToList();
 
             return events;
+        }
+
+        public IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 3)
+        {
+            var article = this.eventRepository.AllAsNoTracking()
+            .Where(x => x.EventCreatorId == id)
+            .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+            .To<T>().ToList();
+
+            return article;
         }
 
         public IEnumerable<T> GetAllEventCards<T>()
@@ -68,5 +85,7 @@
                 .To<T>().FirstOrDefault();
             return mileStone;
         }
+
+
     }
 }

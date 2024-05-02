@@ -25,6 +25,8 @@
 
         public string AbilitiesAndFlavor { get; set; }
 
+        public bool ApprovedByAdmin { get; set; }
+
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Card, CardInListViewModel>()

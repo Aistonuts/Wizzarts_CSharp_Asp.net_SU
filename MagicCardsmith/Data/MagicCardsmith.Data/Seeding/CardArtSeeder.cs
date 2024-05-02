@@ -24,6 +24,8 @@
                 RemoteImageUrl = "/images/art/Alpha/Ancestral_Recall.png",
                 Extension = ".png",
                 ArtIstId = 1,
+                CardId = 1,
+                ApprovedByAdmin = true,
 
             });
 
@@ -35,6 +37,8 @@
                 RemoteImageUrl = "/images/art/Alpha/Bad_Moon.png",
                 Extension = ".png",
                 ArtIstId = 2,
+                CardId = 2,
+                ApprovedByAdmin = true,
 
             });
 
@@ -46,6 +50,8 @@
                 RemoteImageUrl = "/images/art/Alpha/Crusade.png",
                 Extension = ".png",
                 ArtIstId = 3,
+                CardId = 3,
+                ApprovedByAdmin = true,
 
             });
 
@@ -57,6 +63,8 @@
                 RemoteImageUrl = "/images/art/Alpha/Dark_Ritual.png",
                 Extension = ".png",
                 ArtIstId = 4,
+                CardId = 4,
+                ApprovedByAdmin = true,
 
             });
 
@@ -68,60 +76,8 @@
                 RemoteImageUrl = "/images/art/Alpha/Forest.png",
                 Extension = ".png",
                 ArtIstId = 5,
-
-            });
-
-            await dbContext.Arts.AddAsync(new Art
-            {
-                Id = "57a28e90-5212-4aac-adca-8501223e4329",
-                Title = "Giant Growth",
-                Description = "One's garbage is other rat treasure",
-                RemoteImageUrl = "/images/art/Alpha/Giant_Growth.png",
-                Extension = ".png",
-                ArtIstId = 6,
-
-            });
-
-            await dbContext.Arts.AddAsync(new Art
-            {
-                Id = "4ecbc030-6746-4799-a7c3-6dc9da062150",
-                Title = "Goblin King",
-                Description = "Only a fool will lead those golbins",
-                RemoteImageUrl = "/images/art/Alpha/Goblin_King.png",
-                Extension = ".png",
-                ArtIstId = 7,
-
-            });
-
-            await dbContext.Arts.AddAsync(new Art
-            {
-                Id = "b89e9be9-59c8-427c-a6dd-2f49f87f86d3",
-                Title = "Healing Salve",
-                Description = "Where is my pocket healer?",
-                RemoteImageUrl = "/images/art/Alpha/Healing_Salve.png",
-                Extension = ".png",
-                ArtIstId = 8,
-
-            });
-
-            await dbContext.Arts.AddAsync(new Art
-            {
-                Id = "593ea234-4739-4ca2-8fde-9bda0b72bb58",
-                Title = "Island",
-                Description = "Island of your mind",
-                RemoteImageUrl = "/images/art/Alpha/Island.png",
-                Extension = ".png",
-                ArtIstId = 9,
-            });
-
-            await dbContext.Arts.AddAsync(new Art
-            {
-                Id = "e1866515-5f21-4289-82fa-c6b1b6c3b9ea",
-                Title = "Lightning Bolt",
-                Description = "And if lightning could strike more than once at the same spot...",
-                RemoteImageUrl = "/images/art/Alpha/Lightning_Bolt.png",
-                Extension = ".png",
-                ArtIstId = 1,
+                CardId = 5,
+                ApprovedByAdmin = true,
 
             });
 
@@ -133,16 +89,8 @@
                 RemoteImageUrl = "/images/art/Alpha/Plains.png",
                 Extension = ".png",
                 ArtIstId = 9,
-            });
-
-            await dbContext.Arts.AddAsync(new Art
-            {
-                Id = "dbf24d21-5ed1-4fdc-bee3-eca4666e9a08",
-                Title = "Swamp",
-                Description = "Swamp of sorrow",
-                RemoteImageUrl = "/images/art/Alpha/Swamp.png",
-                Extension = ".png",
-                ArtIstId = 9,
+                CardId = 6,
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -153,8 +101,83 @@
                 RemoteImageUrl = "/images/art/Alpha/Mountain.png",
                 Extension = ".png",
                 ArtIstId = 9,
+                CardId = 7,
+                ApprovedByAdmin = true,
             });
 
+            await dbContext.Arts.AddAsync(new Art
+            {
+                Id = "dbf24d21-5ed1-4fdc-bee3-eca4666e9a08",
+                Title = "Swamp",
+                Description = "Swamp of sorrow",
+                RemoteImageUrl = "/images/art/Alpha/Swamp.png",
+                Extension = ".png",
+                ArtIstId = 9,
+                CardId = 8,
+                ApprovedByAdmin = true,
+            });
+            await dbContext.Arts.AddAsync(new Art
+            {
+                Id = "57a28e90-5212-4aac-adca-8501223e4329",
+                Title = "Giant Growth",
+                Description = "One's garbage is other rat treasure",
+                RemoteImageUrl = "/images/art/Alpha/Giant_Growth.png",
+                Extension = ".png",
+                ArtIstId = 6,
+                CardId = 9,
+                ApprovedByAdmin = true,
+
+            });
+
+            await dbContext.Arts.AddAsync(new Art
+            {
+                Id = "4ecbc030-6746-4799-a7c3-6dc9da062150",
+                Title = "Goblin King",
+                Description = "Only a fool will lead those golbins",
+                RemoteImageUrl = "/images/art/Alpha/Goblin_King.png",
+                Extension = ".png",
+                ArtIstId = 7,
+                CardId = 10,
+                ApprovedByAdmin = true,
+
+            });
+
+            await dbContext.Arts.AddAsync(new Art
+            {
+                Id = "b89e9be9-59c8-427c-a6dd-2f49f87f86d3",
+                Title = "Healing Salve",
+                Description = "Where is my pocket healer?",
+                RemoteImageUrl = "/images/art/Alpha/Healing_Salve.png",
+                Extension = ".png",
+                ArtIstId = 8,
+                CardId = 11,
+                ApprovedByAdmin = true,
+
+            });
+
+            await dbContext.Arts.AddAsync(new Art
+            {
+                Id = "593ea234-4739-4ca2-8fde-9bda0b72bb58",
+                Title = "Island",
+                Description = "Island of your mind",
+                RemoteImageUrl = "/images/art/Alpha/Island.png",
+                Extension = ".png",
+                ArtIstId = 9,
+                CardId = 12,
+                ApprovedByAdmin = true,
+            });
+
+            await dbContext.Arts.AddAsync(new Art
+            {
+                Id = "e1866515-5f21-4289-82fa-c6b1b6c3b9ea",
+                Title = "Lightning Bolt",
+                Description = "And if lightning could strike more than once at the same spot...",
+                RemoteImageUrl = "/images/art/Alpha/Lightning_Bolt.png",
+                Extension = ".png",
+                ArtIstId = 1,
+                CardId = 13,
+                ApprovedByAdmin = true,
+            });
 
             await dbContext.Arts.AddAsync(new Art
             {
@@ -164,6 +187,8 @@
                 RemoteImageUrl = "/images/art/Unlimited/Black_lotus.jpg",
                 Extension = ".jpg",
                 ArtIstId = 1,
+                CardId = 14,
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -174,6 +199,8 @@
                 RemoteImageUrl = "/images/art/Unlimited/Mox_Emerald.png",
                 Extension = ".png",
                 ArtIstId = 1,
+                CardId = 15,
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -184,6 +211,8 @@
                 RemoteImageUrl = "/images/art/Unlimited/Mox_Jet.png",
                 Extension = ".png",
                 ArtIstId = 1,
+                CardId = 16,
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -194,6 +223,8 @@
                 RemoteImageUrl = "/images/art/Unlimited/Mox_Pearl.png",
                 Extension = ".png",
                 ArtIstId = 1,
+                CardId = 17,
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -204,6 +235,8 @@
                 RemoteImageUrl = "/images/art/Unlimited/Mox_Ruby.png",
                 Extension = ".png",
                 ArtIstId = 1,
+                CardId = 18,
+                ApprovedByAdmin = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -214,6 +247,8 @@
                 RemoteImageUrl = "/images/art/Unlimited/Mox_Sapphire.png",
                 Extension = ".png",
                 ArtIstId = 1,
+                CardId = 19,
+                ApprovedByAdmin = true,
             });
             await dbContext.SaveChangesAsync();
         }
