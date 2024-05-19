@@ -10,16 +10,22 @@
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Mapping;
     using MagicCardsmith.Web.ViewModels.Article;
+    using Microsoft.Extensions.Caching.Memory;
+    using static MagicCardsmith.Common.GlobalConstants;
 
     public class ArticleService : IArticleService
     {
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<Article> articleRepository;
+        private readonly IMemoryCache cache;
 
-
-        public ArticleService(IDeletableEntityRepository<Article> articleRepository)
+        public ArticleService(
+            IDeletableEntityRepository<Article> articleRepository,
+            IMemoryCache cache)
         {
             this.articleRepository = articleRepository;
+            this.cache = cache;
+
         }
 
         public async Task ApproveArticle(int id)
@@ -27,6 +33,7 @@
             var article = this.articleRepository.All().FirstOrDefault(x => x.Id == id);
             article.ApprovedByAdmin = true;
             await this.articleRepository.SaveChangesAsync();
+            this.cache.Remove(ArticlesCacheKey);
         }
 
         public async Task CreateAsync(CreateArticleInputModel input, string userId, string imagePath)
@@ -51,14 +58,14 @@
             await input.ImageUrl.CopyToAsync(fileStream);
             await this.articleRepository.AddAsync(article);
             await this.articleRepository.SaveChangesAsync();
+            this.cache.Remove(ArticlesCacheKey);
         }
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 3)
         {
-            var articles = this.articleRepository.AllAsNoTracking()
-                .OrderByDescending(x => x.Id)
+            var articles = this.GetCachedData<T>()
                 .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
-                .To<T>().ToList();
+                .ToList();
             return articles;
         }
 
@@ -88,10 +95,9 @@
 
         public IEnumerable<T> GetRandom<T>(int count)
         {
-            return this.articleRepository.All()
-                .OrderBy(x => x.Id)
+            return this.GetCachedData<T>()
                 .Take(count)
-                .To<T>().ToList();
+                .ToList();
         }
 
         public async Task UpdateAsync(int id, EditArticleInputModel input)
@@ -102,8 +108,25 @@
             articles.ImageUrl = input.ImageUrl;
 
             await this.articleRepository.SaveChangesAsync();
+            this.cache.Remove(ArticlesCacheKey);
         }
 
+        public IEnumerable<T> GetCachedData<T>()
+        {
+
+            var cachedArticles = this.cache.Get<IEnumerable<T>>(ArticlesCacheKey);
+
+            if (cachedArticles == null)
+            {
+                cachedArticles = this.articleRepository.AllAsNoTracking().OrderByDescending(x => x.Id).To<T>().ToList();
+
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+                this.cache.Set(ArticlesCacheKey, cachedArticles, cacheOptions);
+            }
+
+            return cachedArticles;
+        }
 
     }
 }

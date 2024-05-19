@@ -573,7 +573,6 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\obj\D
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\obj\Debug\net6.0\scopedcss\bundle\SearchWebApi.styles.css
-C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\obj\Debug\net6.0\SearchWebApi.csproj.CopyComplete
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\obj\Debug\net6.0\SearchWebApi.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\obj\Debug\net6.0\refint\SearchWebApi.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\obj\Debug\net6.0\SearchWebApi.pdb
@@ -585,3 +584,4 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\bin\D
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\obj\Debug\net6.0\SearchWebApi.sourcelink.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\SearchWebApi\obj\Debug\net6.0\SearchWe.DA6FA578.Up2Date

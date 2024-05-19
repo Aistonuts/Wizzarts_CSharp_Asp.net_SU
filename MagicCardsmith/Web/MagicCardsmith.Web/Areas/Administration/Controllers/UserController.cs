@@ -14,8 +14,12 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore.Metadata.Internal;
+    using Microsoft.Extensions.Caching.Memory;
+    using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using static MagicCardsmith.Common.AdminConstants;
 
 
     public class UserController : AdministrationController
@@ -29,6 +33,7 @@
         private readonly IStoreService storeService;
         private readonly IReviewService reviewService;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IMemoryCache cache;
 
         public UserController(
             IArtistService artistService,
@@ -39,7 +44,8 @@
             ICardService cardService,
             IStoreService storeService,
             IReviewService reviewService,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,
+            IMemoryCache cache)
         {
             this.artistService = artistService;
             this.artService = artService;
@@ -50,6 +56,7 @@
             this.storeService = storeService;
             this.reviewService = reviewService;
             this.userManager = userManager;
+            this.cache = cache;
         }
 
         [Route("User/All")]
@@ -61,11 +68,67 @@
             }
 
             const int ItemsPerPage = 12;
-            var users = this.userManager.GetUsersInRoleAsync(GlobalConstants.UserRoleName).Result;
-            var storeOwners = this.userManager.GetUsersInRoleAsync(GlobalConstants.StoreOwnerRoleName).Result;
-            var admins = this.userManager.GetUsersInRoleAsync(GlobalConstants.AdministratorRoleName).Result;
-            var premium = this.userManager.GetUsersInRoleAsync(GlobalConstants.PremiumAccountRoleName).Result;
-            var artists = this.userManager.GetUsersInRoleAsync(GlobalConstants.ArtistRoleName).Result;
+
+            var users = this.cache
+                .Get<IEnumerable<ApplicationUser>>(UsersCacheKey);
+
+            if (users == null)
+            {
+                users = this.userManager.GetUsersInRoleAsync(GlobalConstants.UserRoleName).Result;
+
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+                this.cache.Set(UsersCacheKey, users, cacheOptions);
+            }
+
+            var storeOwners = this.cache
+               .Get<IEnumerable<ApplicationUser>>(StoreOwnersCacheKey);
+
+            if (storeOwners == null)
+            {
+                storeOwners = this.userManager.GetUsersInRoleAsync(GlobalConstants.StoreOwnerRoleName).Result;
+
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+                this.cache.Set(StoreOwnersCacheKey, storeOwners, cacheOptions);
+            }
+
+            var admins = this.cache
+               .Get<IEnumerable<ApplicationUser>>(AdminsCacheKey);
+
+            if (admins == null)
+            {
+                admins = this.userManager.GetUsersInRoleAsync(GlobalConstants.AdministratorRoleName).Result;
+
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+                this.cache.Set(AdminsCacheKey, admins, cacheOptions);
+            }
+
+            var premium = this.cache
+              .Get<IEnumerable<ApplicationUser>>(PremiumCacheKey);
+
+            if (premium == null)
+            {
+                premium = this.userManager.GetUsersInRoleAsync(GlobalConstants.PremiumAccountRoleName).Result;
+
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+                this.cache.Set(PremiumCacheKey, premium, cacheOptions);
+            }
+
+            var artists = this.cache
+              .Get<IEnumerable<ApplicationUser>>(ArtistsCacheKey);
+
+            if (artists == null)
+            {
+                artists = this.userManager.GetUsersInRoleAsync(GlobalConstants.ArtistRoleName).Result;
+
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+                this.cache.Set(ArtistsCacheKey, artists, cacheOptions);
+            }
+
             var viewModel = new UserServiceListModel
             {
                 ItemsPerPage = ItemsPerPage,

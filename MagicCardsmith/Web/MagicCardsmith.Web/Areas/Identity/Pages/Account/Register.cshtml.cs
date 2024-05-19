@@ -21,6 +21,7 @@ namespace MagicCardsmith.Web.Areas.Identity.Pages.Account
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.AspNetCore.WebUtilities;
+    using Microsoft.Extensions.Caching.Memory;
     using Microsoft.Extensions.Logging;
 
     public class RegisterModel : PageModel
@@ -32,6 +33,7 @@ namespace MagicCardsmith.Web.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IMemoryCache cache;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
@@ -39,7 +41,8 @@ namespace MagicCardsmith.Web.Areas.Identity.Pages.Account
             RoleManager<ApplicationRole> roleManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IMemoryCache cache)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -48,6 +51,7 @@ namespace MagicCardsmith.Web.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            this.cache = cache;
         }
 
         /// <summary>
@@ -148,6 +152,11 @@ namespace MagicCardsmith.Web.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
+                        this.cache.Remove(AdminConstants.UsersCacheKey);
+                        this.cache.Remove(AdminConstants.StoreOwnersCacheKey);
+                        this.cache.Remove(AdminConstants.AdminsCacheKey);
+                        this.cache.Remove(AdminConstants.PremiumCacheKey);
+                        this.cache.Remove(AdminConstants.ArtistsCacheKey);
                         return LocalRedirect(returnUrl);
                     }
                 }

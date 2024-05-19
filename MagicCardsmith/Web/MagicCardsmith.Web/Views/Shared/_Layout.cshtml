@@ -26,7 +26,7 @@
                 <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; top: 0px; left: 0px;" dir="ltr">
                     <div class="w-100 text-center mb-1 mt-1">
                         <a href="/">
-                            <img src="/images/AetherhubLogo320.png" loading="lazy" width="150" height="64" alt="AetherHub.com" class="mCS_img_loaded">
+                            <img src="/images/navigation/Premium.png" loading="lazy" width="150" height="64" alt="AetherHub.com" class="mCS_img_loaded">
                         </a>
                         <button id="dismiss" class="btn btn-sm text-dark" aria-label="Close menu">
                             <i class="fas fa-times"></i>
@@ -34,92 +34,74 @@
                     </div>
                     <ul class="list-unstyled components mobile-menu">
                         <li>
-                            <a href="#DeckHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>Decks</b></a>
+                            <a href="#DeckHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>General</b></a>
                             <ul class="list-unstyled collapse show" id="DeckHubSubmenu" style="">
                                 <li>
-                                    <a href="/Decks/" class="pl-5 pt-1 pb-2 nav-link">User Decks</a>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
                                 <li>
-                                    <a href="/Decks/Writeups/" class="pl-5 pt-1 pb-2 nav-link"> Deck Writeups</a>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="All">Events</a>
                                 </li>
                                 <li>
                                     <hr class="mt-2 mb-2">
                                 </li>
                                 <li>
-                                    <a href="/Deck/Builder/" class="pl-5 pt-1 pb-2 nav-link">Deck Builder</a>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Art" asp-action="All">Art</a>
                                 </li>
                                 <li>
-                                    <a href="/Deck/MyDecks/" class="pl-5 pt-1 pb-2 nav-link">My Decks</a>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Artist" asp-action="All">Artists</a>
                                 </li>
                             </ul>
-                            <a href="#MetaHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>Metagame</b></a>
+                            <a href="#MetaHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>Magic cards</b></a>
                             <ul class="list-unstyled collapse show" id="MetaHubSubmenu" style="">
                                 <li>
-                                    <a href="/Metagame/" class="pl-5 pt-1 pb-2 nav-link">Metagame Overview</a>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Card" asp-action="All">Magic Cards</a>
+                                </li>                                                                                                                              
+                                <li>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Expansion" asp-action="All">Game Expansions</a>
                                 </li>
                                 <li>
-                                    <a href="/Events/" class="pl-5 pt-1 pb-2 nav-link">Tournament Metagame</a>
-                                </li>
-                                <li>
-                                    <a href="/MTGA-Decks/" class="pl-5 pt-1 pb-2 nav-link">Latest MTGA Decks</a>
-                                </li>
-                                <li>
-                                    <hr class="mt-2 mb-2">
-                                </li>
-                                <li>
-                                    <a href="/Limited/" class="pl-5 pt-1 pb-2 nav-link">Limited Metagame</a>
-                                </li>
-                                <li>
-                                    <a href="/Limited/Ratings/" class="pl-5 pt-1 pb-2 nav-link">Limited Ratings</a>
-                                </li>
-                                <li>
-                                    <a href="/Limited/DraftSensei/" class="pl-5 pt-1 pb-2 nav-link">Draft Trainer</a>
-                                </li>
-                                <li>
-                                    <a href="/Limited/Draftevents/" class="pl-5 pt-1 pb-2 nav-link">Latest Draft Winners</a>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Store" asp-action="All">Magic Game Stores</a>
                                 </li>
                                 <li>
                                     <hr class="mt-2 mb-2">
                                 </li>
                                 <li>
-                                    <a href="/MTGA/ConstructedRankingLadder/" class="pl-5 pt-1 pb-2 nav-link">MTGA Ranking Ladder</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="GameRules" asp-action="GetRules">Magic Cardsmith Rules</a>
                                 </li>
                             </ul>
-                            <a href="#CollectionSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Collection</b></a>
+                            <a href="#CollectionSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>My area</b></a>
                             <ul class="collapse list-unstyled" id="CollectionSubmenu">
                                 <li>
-                                    <a href="/Collection/" class="pl-5 pt-1 pb-2 nav-link">Collection</a>
-                                </li>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="User" asp-action="Mine"><i class="fas fa-archive fa-fw"></i> <b>My Content</b></a>
+                                </li>                               
 
                                 <li>
-                                    <a href="/Collection/Binder" class="pl-5 pt-1 pb-2 nav-link">My binder</a>
-                                </li>
-                                <li>
                                     <hr class="mt-2 mb-2">
                                 </li>
                                 <li>
-                                    <a href="/Collection/Manage" class="pl-5 pt-1 pb-2 nav-link">Manage Collections</a>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Premium" asp-action="Membership"><i class="fa fa-handshake-o" aria-hidden="true"></i> <b>Contribute</b></a>
                                 </li>
                             </ul>
-                            <a href="#TourneySubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Tourney</b></a>
+                            <a href="#TourneySubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Magic Cardsmither</b></a>
                             <ul class="collapse list-unstyled" id="TourneySubmenu">
                                 <li>
-                                    <a href="/Tourney/" class="pl-5 pt-1 pb-2 nav-link">Browse Tournaments</a>
-                                </li>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Card" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
+                                </li>                                                                                                                        
                                 <li>
-                                    <a href="/Tourney/Leagues" class="pl-5 pt-1 pb-2 nav-link">Browse Leagues</a>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Article" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Article</b></a>
                                 </li>
                                 <li>
                                     <hr class="mt-2 mb-2">
                                 </li>
                                 <li>
-                                    <a href="/Tourney/MyTourneys" class="pl-5 pt-1 pb-2 nav-link">My Tournaments</a>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Event</b></a>
                                 </li>
                                 <li>
-                                    <a href="/Tourney/MyLeagues" class="pl-5 pt-1 pb-2 nav-link">My Leagues</a>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Art" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
                                 </li>
                             </ul>
-                            <a href="#DatabaseSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Database</b></a>
+                          @*   <a href="#DatabaseSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Database</b></a>
                             <ul class="collapse list-unstyled" id="DatabaseSubmenu">
                                 <li>
                                     <a href="/Card/Search/" class="pl-5 pt-1 pb-2 nav-link">Card Search</a>
@@ -172,7 +154,7 @@
                                 <li>
                                     <a href="/Apps/TwitchExtensions" class="pl-5 pt-1 pb-2 nav-link">Twitch Extensions</a>
                                 </li>
-                            </ul>
+                            </ul> *@
                         </li>
                     </ul>
                 </div>

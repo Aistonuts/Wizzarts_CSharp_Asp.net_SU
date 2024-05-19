@@ -24,7 +24,10 @@
 
         public const string PremiumAccountRoleGuid = "113f8bb9-3112-45f3-aaea-7230efa9e737";
 
-        public const string UsersCacheKey = "UsersCacheKey";
+        // Cache Keys
+        public const string ArtsCacheKey = "ArtsCacheKey";
+
+        public const string ArticlesCacheKey = "ArticlesCacheKey";
 
         public const string CardsCacheKey = "CardsCacheKey";
     }

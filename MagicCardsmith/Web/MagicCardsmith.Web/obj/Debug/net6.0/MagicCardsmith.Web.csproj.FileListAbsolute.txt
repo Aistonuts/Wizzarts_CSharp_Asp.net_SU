@@ -565,7 +565,6 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web\obj\Debug\net6.0\scopedcss\bundle\MagicCardsmith.Web.styles.css
-C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web\obj\Debug\net6.0\MagicCardsmith.Web.csproj.CopyComplete
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web\obj\Debug\net6.0\MagicCardsmith.Web.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web\obj\Debug\net6.0\refint\MagicCardsmith.Web.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web\obj\Debug\net6.0\MagicCardsmith.Web.pdb
@@ -577,3 +576,4 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web\obj\Debug\net6.0\MagicCardsmith.Web.sourcelink.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web\obj\Debug\net6.0\MagicCar.291DF24C.Up2Date

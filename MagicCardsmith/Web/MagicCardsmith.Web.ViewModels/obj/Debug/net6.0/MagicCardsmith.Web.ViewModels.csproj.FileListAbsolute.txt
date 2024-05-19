@@ -12,9 +12,9 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\MagicCardsmith.Web.ViewModels.AssemblyInfoInputs.cache
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\MagicCardsmith.Web.ViewModels.AssemblyInfo.cs
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\MagicCardsmith.Web.ViewModels.csproj.CoreCompileInputs.cache
-C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\MagicCardsmith.Web.ViewModels.csproj.CopyComplete
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\MagicCardsmith.Web.ViewModels.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\refint\MagicCardsmith.Web.ViewModels.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\MagicCardsmith.Web.ViewModels.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\ref\MagicCardsmith.Web.ViewModels.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\MagicCardsmith.Web.ViewModels.sourcelink.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\MagicCar.04FAC62C.Up2Date

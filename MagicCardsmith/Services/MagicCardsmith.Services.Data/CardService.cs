@@ -12,6 +12,9 @@
     using MagicCardsmith.Services.Mapping;
     using MagicCardsmith.Web.ViewModels.Card;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Caching.Memory;
+
+    using static MagicCardsmith.Common.GlobalConstants;
 
     public class CardService : ICardService
     {
@@ -29,6 +32,7 @@
         private readonly IDeletableEntityRepository<CardFrameColor> cardFrameColorRepository;
         private readonly IDeletableEntityRepository<CardType> cardTypeRepository;
         private readonly ApplicationDbContext dbContext;
+        private readonly IMemoryCache cache;
 
         public CardService(
             IDeletableEntityRepository<Card> cardRepository,
@@ -42,7 +46,8 @@
             IDeletableEntityRepository<ColorlessMana> colorlessManaRepository,
             IDeletableEntityRepository<CardFrameColor> cardFrameColorRepository,
             IDeletableEntityRepository<CardType> cardTypeRepository,
-            ApplicationDbContext dbContext)
+            ApplicationDbContext dbContext,
+            IMemoryCache cache)
         {
             this.cardRepository = cardRepository;
             this.artRepository = artRepository;
@@ -56,6 +61,8 @@
             this.cardFrameColorRepository = cardFrameColorRepository;
             this.cardTypeRepository = cardTypeRepository;
             this.dbContext = dbContext;
+            this.cache = cache;
+
         }
 
         public async Task CreateAsync(CreateCardInputModel input, string userId, int id, string path, bool isEventCard, bool requireArtInput, string canvasCapture)
@@ -217,15 +224,14 @@
 
             await this.cardRepository.AddAsync(card);
             await this.cardRepository.SaveChangesAsync();
-
+            this.cache.Remove(CardsCacheKey);
         }
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12)
         {
-            var card = this.cardRepository.AllAsNoTracking()
-                .OrderByDescending(x => x.Id)
+            var card = this.GetCachedData<T>()
                 .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
-                .To<T>().ToList();
+                .ToList();
             return card;
         }
 
@@ -254,10 +260,9 @@
 
         public IEnumerable<T> GetRandom<T>(int count)
         {
-            return this.cardRepository.All()
-               .OrderBy(x => x.Id)
+            return this.GetCachedData<T>()
                .Take(count)
-               .To<T>().ToList();
+               .ToList();
         }
 
         public IEnumerable<T> GetByTypeCards<T>(IEnumerable<int> cardTypeIds)
@@ -310,6 +315,24 @@
             var card = this.cardRepository.All().FirstOrDefault(x => x.Id == id);
             card.ApprovedByAdmin = true;
             await this.cardRepository.SaveChangesAsync();
+            this.cache.Remove(CardsCacheKey);
+        }
+
+        public IEnumerable<T> GetCachedData<T>()
+        {
+
+            var cachedCards = this.cache.Get<IEnumerable<T>>(CardsCacheKey);
+
+            if (cachedCards == null)
+            {
+                cachedCards = this.artRepository.AllAsNoTracking().OrderByDescending(x => x.Id).To<T>().ToList();
+
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+                this.cache.Set(CardsCacheKey, cachedCards, cacheOptions);
+            }
+
+            return cachedCards;
         }
     }
 }

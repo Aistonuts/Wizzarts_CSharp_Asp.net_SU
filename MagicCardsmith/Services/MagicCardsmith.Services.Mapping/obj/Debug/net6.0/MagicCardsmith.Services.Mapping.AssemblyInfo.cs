@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MagicCardsmith.Services.Mapping")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27fe8436f2322e538d57ca2aec01fdc76929c910")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a1cd779dc353d0761bb3900b4beff25fc6d4377")]
 [assembly: System.Reflection.AssemblyProductAttribute("MagicCardsmith.Services.Mapping")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MagicCardsmith.Services.Mapping")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

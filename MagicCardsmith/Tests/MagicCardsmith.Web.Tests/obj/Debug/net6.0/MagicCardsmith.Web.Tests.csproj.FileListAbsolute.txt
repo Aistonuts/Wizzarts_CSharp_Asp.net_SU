@@ -658,7 +658,6 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmi
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\scopedcss\bundle\MagicCardsmith.Web.Tests.styles.css
-C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\MagicCardsmith.Web.Tests.csproj.CopyComplete
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\MagicCardsmith.Web.Tests.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\refint\MagicCardsmith.Web.Tests.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\MagicCardsmith.Web.Tests.pdb
@@ -670,3 +669,4 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmi
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\MagicCardsmith.Web.Tests.sourcelink.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Web.Tests\obj\Debug\net6.0\MagicCar.D800841F.Up2Date

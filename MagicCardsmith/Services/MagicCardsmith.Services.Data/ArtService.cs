@@ -10,24 +10,30 @@
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Mapping;
     using MagicCardsmith.Web.ViewModels.Art;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Caching.Memory;
 
-    using static System.Net.Mime.MediaTypeNames;
+    using static MagicCardsmith.Common.GlobalConstants;
 
     public class ArtService : IArtService
     {
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<Art> artRepository;
+        private readonly IMemoryCache cache;
 
         public ArtService(
-            IDeletableEntityRepository<Art> artRepository)
+            IDeletableEntityRepository<Art> artRepository,
+            IMemoryCache cache)
         {
             this.artRepository = artRepository;
+            this.cache = cache;
         }
 
         public async Task ApproveArt(string id)
         {
             var art = this.artRepository.All().FirstOrDefault(x => x.Id == id);
             art.ApprovedByAdmin = true;
+            this.cache.Remove(ArtsCacheKey);
             await this.artRepository.SaveChangesAsync();
         }
 
@@ -56,6 +62,7 @@
 
             await this.artRepository.AddAsync(art);
             await this.artRepository.SaveChangesAsync();
+            this.cache.Remove(ArtsCacheKey);
         }
 
         public async Task DeleteAsync(string id)
@@ -67,10 +74,13 @@
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 3)
         {
-            var art = this.artRepository.AllAsNoTracking()
-                .OrderByDescending(x => x.Id)
+            var cachedArt = this.GetCachedData<T>();
+
+
+            var art = cachedArt
                 .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
-                .To<T>().ToList();
+                .ToList();
+
             return art;
         }
 
@@ -109,10 +119,31 @@
 
         public IEnumerable<T> GetRandom<T>(int count)
         {
-            return this.artRepository.All()
-               .OrderBy(x => Guid.NewGuid())
+            var art = this.GetCachedData<T>()
+                .OrderBy(x => Guid.NewGuid())
+
                .Take(count)
-               .To<T>().ToList();
+               .ToList();
+
+
+            return art;
+        }
+
+        public IEnumerable<T> GetCachedData<T>()
+        {
+
+            var cachedArt = this.cache.Get<IEnumerable<T>>(ArtsCacheKey);
+
+            if (cachedArt == null)
+            {
+                cachedArt = this.artRepository.AllAsNoTracking().OrderByDescending(x => x.Id).To<T>().ToList();
+
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+                this.cache.Set(ArtsCacheKey, cachedArt, cacheOptions);
+            }
+
+            return cachedArt;
         }
 
         public bool IsBase64String(string base64)
@@ -129,6 +160,7 @@
             articles.RemoteImageUrl = input.RemoteImageUrl;
 
             await this.artRepository.SaveChangesAsync();
+            this.cache.Remove(ArtsCacheKey);
         }
     }
 }

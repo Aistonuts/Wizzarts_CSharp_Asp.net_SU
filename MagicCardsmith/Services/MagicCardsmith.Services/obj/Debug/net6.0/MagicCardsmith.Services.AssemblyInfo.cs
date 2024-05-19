@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MagicCardsmith.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3931410b8d3b3e877d40d34e2a7aefcb95b8e426")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a1cd779dc353d0761bb3900b4beff25fc6d4377")]
 [assembly: System.Reflection.AssemblyProductAttribute("MagicCardsmith.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MagicCardsmith.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

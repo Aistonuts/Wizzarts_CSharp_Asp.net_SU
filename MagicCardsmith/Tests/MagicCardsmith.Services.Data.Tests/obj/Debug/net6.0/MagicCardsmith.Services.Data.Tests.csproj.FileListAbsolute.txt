@@ -144,7 +144,6 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmi
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\obj\Debug\net6.0\MagicCardsmith.Services.Data.Tests.AssemblyInfoInputs.cache
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\obj\Debug\net6.0\MagicCardsmith.Services.Data.Tests.AssemblyInfo.cs
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\obj\Debug\net6.0\MagicCardsmith.Services.Data.Tests.csproj.CoreCompileInputs.cache
-C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\obj\Debug\net6.0\MagicCardsmith.Services.Data.Tests.csproj.CopyComplete
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\obj\Debug\net6.0\MagicCardsmith.Services.Data.Tests.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\obj\Debug\net6.0\refint\MagicCardsmith.Services.Data.Tests.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\obj\Debug\net6.0\MagicCardsmith.Services.Data.Tests.pdb
@@ -689,3 +688,4 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmi
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\bin\Debug\net6.0\MagicCardsmith.Web.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\bin\Debug\net6.0\MagicCardsmith.Services.Messaging.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\bin\Debug\net6.0\MagicCardsmith.Web.Infrastructure.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Tests\MagicCardsmith.Services.Data.Tests\obj\Debug\net6.0\MagicCar.C334F277.Up2Date
