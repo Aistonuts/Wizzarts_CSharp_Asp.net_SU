@@ -3,6 +3,7 @@
     using System.Collections.Generic;
 
     using MagicCardsmith.Data.Common.Models;
+    using Microsoft.EntityFrameworkCore;
 
     public class CardType : BaseDeletableModel<int>
     {
@@ -11,8 +12,10 @@
             this.Cards = new HashSet<Card>();
         }
 
-        public string Name { get; set; }
+        [Comment("Card type is.")]
+        public string Name { get; set; } = string.Empty;
 
-        public ICollection<Card> Cards { get; set; }
+        [Comment("Collect of cards by type.")]
+        public virtual ICollection<Card> Cards { get; set; }
     }
 }

@@ -7,7 +7,7 @@
     using MagicCardsmith.Web.ViewModels.Card;
     using MagicCardsmith.Web.ViewModels.CardReview;
 
-    public class SingleExpansionViewModel : IMapFrom<GameExpansion>
+    public class SingleExpansionViewModel : IMapFrom<GameExpansion>, ISingleExpansionViewModel
     {
         public int Id { get; set; }
 

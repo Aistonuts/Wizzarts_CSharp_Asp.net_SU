@@ -939,8 +939,8 @@
                             {
                                 <div class="inner-container">
                                     <div class="item-hidden-text">@card.Name</div>
-                                    <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" data-name="@card.Name" data-number="@card.Id" data-img="@card.ImageUrl class="item ae-card-link cardLink">
-                                        <img class="lazy" src="@card.ImageUrl" alt="@card.Name" style="">
+                                    <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" data-name="@card.Name" data-number="@card.Id" data-img="@card.CardRemoteUrl class="item ae-card-link cardLink">
+                                        <img class="lazy" src="@card.CardRemoteUrl" alt="@card.Name" style="">
                                     </a>
                                     <div class="item-footer">
                                     </div>

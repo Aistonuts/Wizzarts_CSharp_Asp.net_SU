@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OAmNcFE0+DHx3zm7yNrK19mTW3fT7sp2HugfIcnFUOU=",
+  "Hash": "g2zXnd3S0W8FhIJQCfbFNdeibQHGvqm3IyzExayBJoc=",
   "Source": "SearchWebApi",
   "BasePath": "_content/SearchWebApi",
   "Mode": "Default",
@@ -1131,12 +1131,12 @@
       "OriginalItemSpec": "wwwroot\\images\\art\\Unlimited\\Wheel_of_Fortune.jpg"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\art\\userArt\\623fc647-38a7-410f-b897-5b66ba42d0d2.jpg",
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\art\\userArt\\5376ad0c-48d9-41fe-8056-8ce8d0918a60.jpg",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Project",
       "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
       "BasePath": "_content/MagicCardsmith.Web",
-      "RelativePath": "images/art/userArt/623fc647-38a7-410f-b897-5b66ba42d0d2.jpg",
+      "RelativePath": "images/art/userArt/5376ad0c-48d9-41fe-8056-8ce8d0918a60.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1147,7 +1147,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\art\\userArt\\623fc647-38a7-410f-b897-5b66ba42d0d2.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\art\\userArt\\5376ad0c-48d9-41fe-8056-8ce8d0918a60.jpg"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_Five.png",

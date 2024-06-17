@@ -9,6 +9,7 @@ namespace MagicCardsmith.Services.Data.Tests.Art
     using MagicCardsmith.Web.ViewModels.Art;
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Caching.Memory;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -30,7 +31,7 @@ namespace MagicCardsmith.Services.Data.Tests.Art
         {
             OneTimeSetup();
             var data = this.dbContext;
-
+            var cache = new MemoryCache(new MemoryCacheOptions());
             await data.Arts.AddAsync(new Art { Id = "66030199-349f-4e35-846d-97685187a565", Title = "New Fancy piece" });
             await data.Arts.AddAsync(new Art { Id = "7519476e-b5a0-464b-bcb9-e6f2aa7ed73c",Title = "Second Fancy piece" });
             await data.Arts.AddAsync(new Art { Id = "2ba62b79-65ed-45da-bfeb-a5c50b4f8a2a", Title = "First Fancy piece" });
@@ -39,7 +40,7 @@ namespace MagicCardsmith.Services.Data.Tests.Art
            
 
             using var repository = new EfDeletableEntityRepository<Art>(data);
-            var service = new ArtService(repository);
+            var service = new ArtService(repository, cache);
 
             string UserId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot" + "/images";

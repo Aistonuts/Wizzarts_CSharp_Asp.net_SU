@@ -269,6 +269,11 @@
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
+      "MagicCardsmith.Common/1.0.0": {
+        "runtime": {
+          "MagicCardsmith.Common.dll": {}
+        }
+      },
       "MagicCardsmith.Data.Common/1.0.0": {
         "dependencies": {
           "System.ComponentModel.Annotations": "5.0.0"
@@ -279,6 +284,7 @@
       },
       "MagicCardsmith.Data.Models/1.0.0": {
         "dependencies": {
+          "MagicCardsmith.Common": "1.0.0",
           "MagicCardsmith.Data.Common": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.25"
         },
@@ -507,6 +513,11 @@
       "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
       "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    },
+    "MagicCardsmith.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "MagicCardsmith.Data.Common/1.0.0": {
       "type": "project",

@@ -23,7 +23,7 @@
                 Id = "2738e787-5d57-4bc7-b0d2-287242f04695",
                 CreatedOn = DateTime.UtcNow,
                 UserName = "Drawgoon",
-                AvatarUrl = "/images/avatar/Portrait_Dawgoon.png",
+                AvatarUrl = "/images/avatar/Portrait_Drawgoon.png",
                 NormalizedUserName = "DRAWGOON",
                 Email = "drawgoon@aol.com",
                 NormalizedEmail = "DRAWGOO@AOL.COM",

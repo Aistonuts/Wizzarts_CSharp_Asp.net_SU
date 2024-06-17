@@ -10,22 +10,29 @@
     <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; transform: translate3d(-155px, 22px, 0px); top: 0px; left: 0px; will-change: transform;">
         <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="fas fa-user fa-fw"></i> <b>Hello @this.User.Identity.Name!</b></a>
         <hr class="m-0">
+        @if (this.User.IsInRole(GlobalConstants.PremiumAccountRoleName) || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+        {
+            <a class="dropdown-item" asp-area="" asp-controller="Card" asp-action="PremiumCreate"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
 
-            <a class="dropdown-item" asp-area="" asp-controller="Card" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
-            <a class="dropdown-item" asp-area="" asp-controller="Article" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Article</b></a>
-            <a class="dropdown-item" asp-area="" asp-controller="Event" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Event</b></a>
-            <a class="dropdown-item" asp-area="" asp-controller="Art" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
+        }
+        @if (this.User.IsInRole(GlobalConstants.PremiumAccountRoleName) || this.User.IsInRole(GlobalConstants.StoreOwnerRoleName))
+        {
+            <a class="dropdown-item" asp-area="" asp-controller="Event" asp-action="All"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Event</b></a>
+        }
+        <a class="dropdown-item" asp-area="" asp-controller="Article" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Article</b></a>
 
-       
-        <a class="dropdown-item" asp-area="" asp-controller="Premium" asp-action="Membership"><i class="fa fa-handshake-o" aria-hidden="true"></i> <b>Contribute</b></a>
-@*         <a class="dropdown-item" href="/Identity/ClaimRole/ClaimRole"><i class="fas fa-star"></i> <b>Premium</b></a> *@
+        <a class="dropdown-item" asp-area="" asp-controller="Art" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
+
+
+        <a class="dropdown-item" asp-area="" asp-controller="Membership" asp-action="Membership"><i class="fa fa-handshake-o" aria-hidden="true"></i> <b>Contribute</b></a>
+        @*         <a class="dropdown-item" href="/Identity/ClaimRole/ClaimRole"><i class="fas fa-star"></i> <b>Premium</b></a> *@
         <hr class="m-0">
         <a class="dropdown-item" asp-area="" asp-controller="User" asp-action="Mine"><i class="fas fa-archive fa-fw"></i> <b>My Content</b></a>
-      @*   <a class="dropdown-item" href="/Manage/Orders"><i class="fas fa-shopping-basket fa-fw"></i> <b>My Orders</b></a> *@
-  
-      @*   <a class="dropdown-item" href="/Tourney/MyTourneys"><i class="fas fa-trophy fa-fw"></i> <b>My Tourneys</b></a> *@
-      @*   <a class="dropdown-item" href="/Articles/MyArticles"><i class="fas fa-newspaper fa-fw"></i> <b>My Articles</b></a> *@
-      @*   <a class="dropdown-item" href="/Video/MyVideos"><i class="fab fa-youtube fa-fw"></i> <b>My Videos</b></a> *@
+        @*   <a class="dropdown-item" href="/Manage/Orders"><i class="fas fa-shopping-basket fa-fw"></i> <b>My Orders</b></a> *@
+
+        @*   <a class="dropdown-item" href="/Tourney/MyTourneys"><i class="fas fa-trophy fa-fw"></i> <b>My Tourneys</b></a> *@
+        @*   <a class="dropdown-item" href="/Articles/MyArticles"><i class="fas fa-newspaper fa-fw"></i> <b>My Articles</b></a> *@
+        @*   <a class="dropdown-item" href="/Video/MyVideos"><i class="fab fa-youtube fa-fw"></i> <b>My Videos</b></a> *@
         <hr class="m-0">
         <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">
             <button type="submit" class="dropdown-item"> <i class="fas fa-sign-out-alt"></i> <b>Logout</b></button>

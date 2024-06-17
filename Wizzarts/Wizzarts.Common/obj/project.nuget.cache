@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "SRTbfgUvkBl0rub71RZ2xkL5YjVEaJ0s5vXAwB3EydumaQekSZUHq45+W6fxbu+8Q7GygjHKLN8JmfXoLxO+Mw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Wizzarts.Common\\Wizzarts.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.435\\stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.435\\stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512"
+  ],
+  "logs": []
+}

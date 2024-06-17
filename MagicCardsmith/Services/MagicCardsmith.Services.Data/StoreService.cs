@@ -8,6 +8,7 @@
     using MagicCardsmith.Data.Common.Repositories;
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Mapping;
+    using MagicCardsmith.Web.ViewModels.Event;
     using MagicCardsmith.Web.ViewModels.Stores;
 
     public class StoreService : IStoreService
@@ -28,7 +29,7 @@
             await this.storeRepository.SaveChangesAsync();
         }
 
-        public async Task CreateAsync(CreateStoreInputModel input, string storeOwner, string imagePath)
+        public async Task CreateAsync(SingleEventViewModel input, string storeOwner, string imagePath)
         {
             var store = new Store
             {

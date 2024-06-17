@@ -17,6 +17,8 @@
 
         IEnumerable<T> GetAllByArtistId<T>(int id);
 
+        IEnumerable<T> GetAllArtByUserId<T>(string id);
+
         IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 3);
 
         IEnumerable<T> GetRandom<T>(int count);

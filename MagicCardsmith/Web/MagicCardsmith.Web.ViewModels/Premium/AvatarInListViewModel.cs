@@ -5,7 +5,7 @@
     using MagicCardsmith.Services.Mapping;
     using MagicCardsmith.Web.ViewModels.Artist;
 
-    public class AvatarInListViewModel : IMapFrom<Avatar>, IHaveCustomMappings
+    public class AvatarInListViewModel : IMapFrom<Avatar>, IHaveCustomMappings, ISingleAvatarViewModel
     {
         public int Id { get; set; }
 

@@ -22,7 +22,7 @@ namespace MagicCardsmith.Web.Controllers
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         private readonly IArtistService artistService;
         private readonly IArtService artService;
@@ -108,7 +108,7 @@ namespace MagicCardsmith.Web.Controllers
 
             var user = await this.userManager.GetUserAsync(this.User);
 
-            const int ItemsPerPage = 5;
+            const int ItemsPerPage = 10;
 
             var view = new MyDataUserViewModel
             {

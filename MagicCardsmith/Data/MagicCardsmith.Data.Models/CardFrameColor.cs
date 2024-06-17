@@ -1,9 +1,9 @@
 ﻿namespace MagicCardsmith.Data.Models
 {
-    using System.Collections;
     using System.Collections.Generic;
 
     using MagicCardsmith.Data.Common.Models;
+    using Microsoft.EntityFrameworkCore;
 
     public class CardFrameColor : BaseDeletableModel<int>
     {
@@ -12,9 +12,11 @@
             this.Cards = new HashSet<Card>();
         }
 
-        public string Name { get; set; }
+        [Comment("Play Card Frame color. Seeded")]
+        public string Name { get; set; } = string.Empty;
 
-        public string ImageUrl { get; set; }
+        [Comment("Play Remote Image. Seeded")]
+        public string ImageUrl { get; set; } = string.Empty;
 
         public ICollection<Card> Cards { get; set; }
     }

@@ -14,17 +14,23 @@
     public class UserService : IUserService
     {
         private readonly IDeletableEntityRepository<Art> artRepository;
+        private readonly IDeletableEntityRepository<Article> articleRepository;
+        private readonly IDeletableEntityRepository<Event> eventRepository;
         private readonly IDeletableEntityRepository<Avatar> avatarRepository;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
 
         public UserService(
             IDeletableEntityRepository<Art> artRepository,
+            IDeletableEntityRepository<Article> articleRepository,
+            IDeletableEntityRepository<Event> eventRepository,
             IDeletableEntityRepository<Avatar> avatarRepository,
             UserManager<ApplicationUser> userManager,
             IDeletableEntityRepository<ApplicationUser> userRepositor)
         {
             this.artRepository = artRepository;
+            this.articleRepository = articleRepository;
+            this.eventRepository = eventRepository;
             this.avatarRepository = avatarRepository;
             this.userManager = userManager;
             this.userRepository = userRepositor;
@@ -61,45 +67,28 @@
         public int GetCountOfArt(string id)
         {
             var artCount = this.artRepository.AllAsNoTracking()
-              .Where(x => x.ApplicationUserId == id)
+              .Where(x => x.ApplicationUserId == id && x.ApprovedByAdmin == true)
               .Count();
 
             return artCount;
         }
 
-        public Task<bool> HasArtByUserIdAsync(string userId)
+        public int GetCountOfArticles(string id)
         {
-            throw new System.NotImplementedException();
+            var artCount = this.articleRepository.AllAsNoTracking()
+              .Where(x => x.ArticleCreatorId == id && x.ApprovedByAdmin == true)
+              .Count();
+
+            return artCount;
         }
 
-        public bool HasEventParticipation(string userId)
+        public int GetCountOfEvents(string id)
         {
-            throw new System.NotImplementedException();
-        }
+            var artCount = this.eventRepository.AllAsNoTracking()
+              .Where(x => x.EventCreatorId == id && x.ApprovedByAdmin == true)
+              .Count();
 
-        public bool HasPublishedContent(string userId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool IsArtist(string userId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool IsContentCreator(string userId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool IsStoreOwner(string userId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IEnumerable<T> GetAllAsync<T>(int page, int itemsPerPage = 12)
-        {
-            throw new System.NotImplementedException();
+            return artCount;
         }
 
         public T GetAvatarById<T>(int id)
@@ -118,6 +107,11 @@
             user.AvatarUrl = input.AvatarUrl;
 
             await this.userRepository.SaveChangesAsync();
+        }
+
+        public IEnumerable<T> GetAllAsync<T>(int page, int itemsPerPage = 12)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

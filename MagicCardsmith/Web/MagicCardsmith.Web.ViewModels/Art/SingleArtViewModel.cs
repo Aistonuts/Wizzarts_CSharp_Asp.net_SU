@@ -8,7 +8,7 @@
     using MagicCardsmith.Services.Mapping;
     using MagicCardsmith.Web.ViewModels.Art;
 
-    public class SingleArtViewModel : IMapFrom<Art>, IHaveCustomMappings
+    public class SingleArtViewModel : IMapFrom<Art>, IHaveCustomMappings, ISingleArtViewModel
     {
         public string Id { get; set; }
 

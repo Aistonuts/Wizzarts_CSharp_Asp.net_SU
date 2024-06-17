@@ -11,6 +11,7 @@
     using MagicCardsmith.Services.Mapping;
     using MagicCardsmith.Web.ViewModels.Article;
     using Microsoft.Extensions.Caching.Memory;
+
     using static MagicCardsmith.Common.GlobalConstants;
 
     public class ArticleService : IArticleService

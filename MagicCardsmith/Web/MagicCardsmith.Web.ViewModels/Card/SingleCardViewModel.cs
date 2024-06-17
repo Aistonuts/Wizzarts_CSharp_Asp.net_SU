@@ -11,7 +11,7 @@ namespace MagicCardsmith.Web.ViewModels.Card
     using MagicCardsmith.Web.ViewModels.CardReview;
     using MagicCardsmith.Web.ViewModels.Mana;
 
-    public class SingleCardViewModel : IMapFrom<Card>, IHaveCustomMappings
+    public class SingleCardViewModel : IMapFrom<Card>, IHaveCustomMappings, ISingleCardViewModel
     {
         public int Id { get; set; }
 

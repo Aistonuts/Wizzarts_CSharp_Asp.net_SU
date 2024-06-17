@@ -21,6 +21,7 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Caching.Memory;
     using Moq;
 
     [TestFixture]
@@ -39,14 +40,14 @@
         public void GetAllShouldReturnTheCorrectNumberOfArticles()
         {
             var repository = new Mock<IDeletableEntityRepository<Article>>();
-           
+            var cache = new MemoryCache(new MemoryCacheOptions());
             repository.Setup(r => r.AllAsNoTracking()).Returns(new List<Article>
                                                     {
                                                         new Article {Id = 1},
                                                         new Article { Id = 2},
                                                         new Article {Id = 3},
                                                     }.AsQueryable());
-            var service = new ArticleService(repository.Object);
+            var service = new ArticleService(repository.Object, cache);
 
             var allArticles = service.GetAll<IndexPageArticleViewModel>(1, 3);
             Assert.That(allArticles.Count(), Is.EqualTo(3));
@@ -57,13 +58,13 @@
         {
             OneTimeSetup();
             var data = this.dbContext;
-
+            var cache = new MemoryCache(new MemoryCacheOptions());
             await data.Articles.AddAsync(new Article { Id = 1, Title = "New Article" });
             await data.Articles.AddAsync(new Article { Id = 2, Title = "Second New Article" });
             await data.SaveChangesAsync();
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository);
+            var service = new ArticleService(repository, cache);
             string UserId ="2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot" + "/images";
 
@@ -84,13 +85,13 @@
         {
             OneTimeSetup();
             var data = this.dbContext;
-
+            var cache = new MemoryCache(new MemoryCacheOptions());
             data.Articles.Add(new Article { Id = 1, Title = "New Article" });
             data.Articles.Add(new Article { Id = 2, Title = "Second New Article" });
             await data.SaveChangesAsync();
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository);
+            var service = new ArticleService(repository, cache);
             string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
 
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory.Substring(0, AppDomain.CurrentDomain.BaseDirectory.IndexOf("\\MagicCardsmith"));
@@ -111,14 +112,14 @@
         public void GetRandomNumberOfArticlesShouldReturnTheCorrectCountInTheRightOrder()
         {
             var repository = new Mock<IDeletableEntityRepository<Article>>();
-
+            var cache = new MemoryCache(new MemoryCacheOptions());
             repository.Setup(r => r.All()).Returns(new List<Article>
                                                     {
                                                         new Article {Id = 1},
                                                         new Article { Id = 2},
                                                         new Article {Id = 3},
                                                     }.AsQueryable());
-            var service = new ArticleService(repository.Object);
+            var service = new ArticleService(repository.Object, cache);
 
             var allArticles = service.GetRandom<IndexPageArticleViewModel>(3);
             var firstArticleId = allArticles.FirstOrDefault();
@@ -134,13 +135,13 @@
         {
             OneTimeSetup();
             var data = this.dbContext;
-
+            var cache = new MemoryCache(new MemoryCacheOptions());
             data.Articles.Add(new Article { Id = 1, Title = "New Article" });
             data.Articles.Add(new Article { Id = 2, Title = "Second New Article" });
             await data.SaveChangesAsync();
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository);
+            var service = new ArticleService(repository, cache);
 
             var article = new SingleArticleViewModel();
             article = service.GetById<SingleArticleViewModel>(2);

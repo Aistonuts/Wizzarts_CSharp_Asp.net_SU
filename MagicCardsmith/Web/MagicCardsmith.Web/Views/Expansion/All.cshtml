@@ -1,4 +1,5 @@
 ﻿@model MagicCardsmith.Web.ViewModels.Expansion.ExpansionListViewModel
+@using MagicCardsmith.Web.Infrastructure.Extensions
 @{
     this.ViewData["Title"] = "Game Expansions";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,7 +17,7 @@
                 {
                     <div class="article-card card border-0">
                         <a href="" aria-label="article" class="image-wrapper">
-                            <a asp-controller="Expansion" asp-action="ById" asp-route-id="@expansion.Id" class="article-uimgheader">
+                            <a asp-controller="Expansion" asp-action="ById" asp-route-id="@expansion.Id" asp-route-information="@expansion.GetExpansionTitle()"  class="article-uimgheader">
                                 <img src="@expansion.ExpansionSymbolUrl" class="article-uimgheader" alt="@expansion.Title">
                             </a>
                         </a>

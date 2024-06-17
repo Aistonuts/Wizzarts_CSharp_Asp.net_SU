@@ -1,4 +1,5 @@
 ﻿@model MagicCardsmith.Web.Areas.Administration.Models.Users.SingleUserViewModel
+@using MagicCardsmith.Web.Infrastructure.Extensions
 @{
     this.ViewData["Title"] = "Users";
 }
@@ -65,7 +66,7 @@
                                     @foreach (var art in this.Model.Arts)
                                     {
                                         <div class="inner-container">
-                                            <a asp-area="" asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" class="item ae-card-link cardLink ">
+                                            <a asp-area="" asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" asp-route-information="@art.GetInformation()"  class="item ae-card-link cardLink ">
                                                 <img class="lazy" src="@art.ImageUrl" alt="@art.Title" style="">
                                                 <div class="item-hidden-text">@art.Title</div>
                                             </a>
@@ -84,8 +85,8 @@
                                     @foreach (var card in this.Model.Cards)
                                     {
                                         <div class="inner-container">
-                                            <a asp-area="" asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
-                                                <img class="lazy" src="@card.ImageUrl" alt="@card.Name" style="">
+                                            <a asp-area="" asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" asp-route-information="@card.GetCardName()" class="item ae-card-link cardLink ">
+                                                <img class="lazy" src="@card.CardRemoteUrl" alt="@card.Name" style="">
                                                 <div class="item-hidden-text">@card.CardExpansion</div>
                                             </a>
                                             <div class="item-footer">

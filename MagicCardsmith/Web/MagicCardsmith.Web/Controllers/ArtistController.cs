@@ -6,17 +6,15 @@
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Data;
     using MagicCardsmith.Web.Infrastructure.Extensions;
-    using MagicCardsmith.Web.ViewModels.Art;
-    using MagicCardsmith.Web.ViewModels.Article;
     using MagicCardsmith.Web.ViewModels.Artist;
     using MagicCardsmith.Web.ViewModels.Premium;
-    using MagicCardsmith.Web.ViewModels.Home;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
     using static MagicCardsmith.Common.NotificationMessagesConstants;
 
-    public class ArtistController : Controller
+    public class ArtistController : BaseController
     {
         private readonly IArtistService artistService;
         private readonly UserManager<ApplicationUser> userManager;
@@ -28,6 +26,7 @@
             this.artistService = artistService;
             this.userManager = userManager;
         }
+
         [HttpGet]
         public async Task<IActionResult> Become()
         {
@@ -51,13 +50,13 @@
             bool isAgent = await artistService.ArtistExistsByUserIdAsync(userId);
             if (isAgent)
             {
-                TempData[ErrorMessage] = "You are already an agent!";
+                this.TempData[ErrorMessage] = "You are already an agent!";
 
-                return RedirectToAction("Index", "Home");
+                return this.RedirectToAction("Index", "Home");
             }
 
 
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return View(model);
             }
@@ -66,7 +65,7 @@
                 .HasArtByUserIdAsync(userId);
             if (!userHasArtPieces)
             {
-                TempData[ErrorMessage] = "You must  have at least one art piece in order to  become an artist!";
+                this.TempData[ErrorMessage] = "You must  have at least one art piece in order to  become an artist!";
 
                 return RedirectToAction("Create", "Art");
             }
@@ -86,7 +85,7 @@
             return RedirectToAction("All", "Art");
         }
 
-
+        [AllowAnonymous]
         public IActionResult All(int id = 1)
         {
             if (id <= 0)

@@ -4,7 +4,7 @@
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Mapping;
 
-    public class ArtInListViewModel : IMapFrom<Art>, IHaveCustomMappings
+    public class ArtInListViewModel : IMapFrom<Art>, IHaveCustomMappings, ISingleArtViewModel
     {
         public string Id { get; set; }
 

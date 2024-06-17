@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\MagicCardsmith.Common\MagicCardsmith.Common.csproj" />
+    <ProjectReference Include="..\MagicCardsmith.Web.ViewModels\MagicCardsmith.Web.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

@@ -16,7 +16,7 @@ else
         @foreach (var card in this.Model.SearchedCards)
         {
             <div class="card col-md-3">
-                <img class="card-img-top" src="@card.ImageUrl" alt="@card.Name">
+                <img class="card-img-top" src="@card.CardRemoteUrl" alt="@card.Name">
                 <div class="card-body">
                     <h5 class="card-title">@card.Name</h5>
                     <p class="card-text">@card.CardTypeId</p>

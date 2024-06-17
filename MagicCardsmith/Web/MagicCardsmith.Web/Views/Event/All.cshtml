@@ -1,4 +1,5 @@
 ﻿@model MagicCardsmith.Web.ViewModels.Event.EventListViewModel
+@using MagicCardsmith.Web.Infrastructure.Extensions
 @{
     this.ViewData["Title"] = "Ongoing Events";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,7 +17,7 @@
                 {
                     <div class="article-card card border-0">
                         <a href="" aria-label="article" class="image-wrapper">
-                            <a asp-controller="Event" asp-action="ById" asp-route-id="@eventNow.Id"  class="article-uimgheader">
+                            <a asp-controller="Event" asp-action="ById" asp-route-id="@eventNow.Id" asp-route-information="@eventNow.GetEventTitle()" class="article-uimgheader">
                                 <img src="@eventNow.ImageUrl" class="article-uimgheader" alt="@eventNow.Title">
                             </a>
                         </a>

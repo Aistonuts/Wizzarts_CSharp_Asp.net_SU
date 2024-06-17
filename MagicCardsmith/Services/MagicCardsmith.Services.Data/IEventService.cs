@@ -1,14 +1,17 @@
 ﻿namespace MagicCardsmith.Services.Data
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
+
+    using MagicCardsmith.Web.ViewModels.Event;
 
     public interface IEventService
     {
+        Task CreateAsync(CreateEventViewModel input, string eventCreator, string imagePath);
+
         IEnumerable<T> GetAll<T>();
+
+        IEnumerable<T> GetAllStatuses<T>();
 
         IEnumerable<T> GetAllMilestones<T>(int id);
 

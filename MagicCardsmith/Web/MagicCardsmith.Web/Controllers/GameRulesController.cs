@@ -1,13 +1,11 @@
-﻿using MagicCardsmith.Data.Models;
-using MagicCardsmith.Web.ViewModels.Home;
-
-namespace MagicCardsmith.Web.Controllers
+﻿namespace MagicCardsmith.Web.Controllers
 {
     using MagicCardsmith.Services.Data;
     using MagicCardsmith.Web.ViewModels.GameRules;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
-    public class GameRulesController : Controller
+    public class GameRulesController : BaseController
     {
         private readonly IGameRulesService gameRulesService;
 
@@ -16,6 +14,7 @@ namespace MagicCardsmith.Web.Controllers
             this.gameRulesService = gameRulesService;
         }
 
+        [AllowAnonymous]
         public IActionResult GetRules()
         {
             var rules = this.gameRulesService.Get<GameRulesViewModel>();

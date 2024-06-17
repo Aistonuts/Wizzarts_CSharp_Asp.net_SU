@@ -19,7 +19,5 @@
         public string UserId { get; set; }
 
         public string Bio { get; set; }
-
-
     }
 }

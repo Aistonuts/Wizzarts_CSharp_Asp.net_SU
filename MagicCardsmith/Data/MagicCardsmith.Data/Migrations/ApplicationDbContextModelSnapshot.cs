@@ -72,10 +72,13 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("AvatarId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Avatar Identifier.Picked after signing in");
 
                     b.Property<string>("AvatarUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Avatar remote URL.Picked after signing in");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -95,7 +98,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("GameRulesId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Game Rules published by Admin");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -110,7 +114,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nickname")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -162,16 +167,21 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("User id");
 
                     b.Property<bool>("ApprovedByAdmin")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasComment("Is art approved by admin");
 
                     b.Property<int?>("ArtIstId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Is this art added by MagciCardsmith team.");
 
                     b.Property<int?>("CardId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Any cards using this art.");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -180,25 +190,35 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasComment("Art Description");
 
                     b.Property<string>("Extension")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Art image extension");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsEventArt")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasComment("Is art added from an event");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("RemoteImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Art URL");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)")
+                        .HasComment("Art Title");
 
                     b.HasKey("Id");
 
@@ -224,10 +244,13 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<bool>("ApprovedByAdmin")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasComment("Is Article approved by Admin.");
 
                     b.Property<string>("ArticleCreatorId")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("Article creator identifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -236,10 +259,15 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
+                        .HasComment("Article description");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Article image URL");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -248,10 +276,16 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ShortDescription")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasComment("Article short description");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasComment("Article title");
 
                     b.HasKey("Id");
 
@@ -271,13 +305,18 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<bool>("ApprovedByAdmin")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasComment("Is user artist applicaiton approved by the admin.");
 
                     b.Property<string>("AvatarUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Avatar remote URL.Picked after signing in");
 
                     b.Property<string>("Bio")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Information about the artist");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -286,7 +325,9 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Artist's eamil");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -295,10 +336,13 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nickname")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("Artist's user id");
 
                     b.HasKey("Id");
 
@@ -318,7 +362,8 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("AvatarUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Avatar Remote URL. Seeded.");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -333,7 +378,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Avatar Name. Seeded.");
 
                     b.HasKey("Id");
 
@@ -351,10 +397,12 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ColorName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Mana Conor Name");
 
                     b.Property<int>("Cost")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Play Card Total Cost");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -363,7 +411,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Remote URL. Seeded.");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -387,10 +436,12 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ColorName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Mana Conor Name");
 
                     b.Property<int>("Cost")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Play Card Total Cost");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -399,7 +450,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Remote URL. Seeded.");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -423,34 +475,45 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("AbilitiesAndFlavor")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
+                        .HasComment("Card use requirements and effects. Card power description.");
 
                     b.Property<bool>("ApprovedByAdmin")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasComment("Has this card been approved by admin.");
 
                     b.Property<string>("ArtId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("BlackManaId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Mana cost Id");
 
                     b.Property<int?>("BlueManaId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Mana cost Id");
 
                     b.Property<int?>("CardFrameColorId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Framecolor Id. There is a default value.");
 
                     b.Property<string>("CardRemoteUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Image of the card saved locally upon creation.");
 
                     b.Property<string>("CardSmithId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("CardTypeId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Card type identifier.");
 
                     b.Property<int?>("ColorlessManaId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Mana cost Id");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -462,37 +525,50 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("GameExpansionId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("This card is part of which expansion.");
 
                     b.Property<int?>("GreenManaId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Mana cost Id");
 
                     b.Property<bool>("IsBanned")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasComment("Has this card been created during an event.");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsEventCard")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasComment("Has this card been created during an event.");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)")
+                        .HasComment("Playcard name");
 
                     b.Property<string>("Power")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1)
+                        .HasColumnType("nvarchar(1)")
+                        .HasComment("Card will deal damage equal to power.");
 
                     b.Property<int?>("RedManaId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Mana cost Id");
 
                     b.Property<string>("Toughness")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1)
+                        .HasColumnType("nvarchar(1)")
+                        .HasComment("Card can take damage up to amount equal to its toughness.");
 
                     b.Property<int?>("WhiteManaId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Mana cost Id");
 
                     b.HasKey("Id");
 
@@ -538,7 +614,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Remote Image. Seeded");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -547,7 +624,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Frame color. Seeded");
 
                     b.HasKey("Id");
 
@@ -568,7 +646,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Color")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Mana color type.");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -583,7 +662,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("RemoteImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Mana remote image url.");
 
                     b.HasKey("Id");
 
@@ -602,8 +682,9 @@ namespace MagicCardsmith.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CardId")
-                        .HasColumnType("int");
+                    b.Property<int>("CardId")
+                        .HasColumnType("int")
+                        .HasComment("Review of which card");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -612,7 +693,9 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Card Description");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -624,13 +707,21 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Review")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasComment("CardReview");
 
                     b.Property<string>("Suggestions")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasComment("What can be done to resolve the issue.");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Card title");
 
                     b.HasKey("Id");
 
@@ -664,7 +755,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Card type is.");
 
                     b.HasKey("Id");
 
@@ -682,10 +774,12 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ColorName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Mana Conor Name");
 
                     b.Property<int>("Cost")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Play Card Total Cost");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -694,7 +788,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Remote URL. Seeded.");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -718,7 +813,8 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<bool>("ApprovedByAdmin")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasComment("Is event approved by admin.");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -727,13 +823,19 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EventCreatorId")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("Event creator");
 
                     b.Property<string>("EventDescription")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
+                        .HasComment("Event Description");
 
                     b.Property<int>("EventStatusId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Event status");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -742,10 +844,15 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("RemoteImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Event image url");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)")
+                        .HasComment("Event Title");
 
                     b.HasKey("Id");
 
@@ -773,19 +880,25 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
+                        .HasComment("Milestone description");
 
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Image");
 
                     b.Property<string>("Instructions")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Milestone instructions");
 
                     b.Property<bool>("IsCompleted")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasComment("Is milestone completed");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -794,10 +907,14 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("RequireArtInput")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasComment("Does it require art input");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasComment("Milestone title");
 
                     b.HasKey("Id");
 
@@ -829,7 +946,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Event status.Seeded");
 
                     b.HasKey("Id");
 
@@ -847,7 +965,8 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CardsCount")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Numbwer of cards by expansion. Seeded");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -856,10 +975,12 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Card game expansion description. Seeded");
 
                     b.Property<string>("ExpansionSymbolUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Card game expansion symbol. Seeded");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -868,7 +989,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Card game expansion title.Seeded");
 
                     b.HasKey("Id");
 
@@ -892,13 +1014,15 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Game rule component desciption. Seeded");
 
                     b.Property<int>("GameRulesId")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Game rule component image url. Seeded");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -907,7 +1031,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Game rule component title. Seeded");
 
                     b.HasKey("Id");
 
@@ -927,10 +1052,12 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ColorName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Mana Conor Name");
 
                     b.Property<int>("Cost")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Play Card Total Cost");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -939,7 +1066,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Remote URL. Seeded.");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -1105,10 +1233,12 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ColorName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Mana Conor Name");
 
                     b.Property<int>("Cost")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Play Card Total Cost");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -1117,7 +1247,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Remote URL. Seeded.");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -1174,16 +1305,26 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasComment("Store location");
 
                     b.Property<bool>("ApprovedByAdmin")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasComment("Store approved by Admin.");
 
                     b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasComment("Store location");
 
                     b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasComment("Store location");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -1192,7 +1333,9 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Store image Url");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -1201,10 +1344,16 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)")
+                        .HasComment("Store name");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)")
+                        .HasComment("Store phone");
 
                     b.Property<string>("StoreOwnerId")
                         .HasColumnType("nvarchar(450)");
@@ -1227,7 +1376,8 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CardId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Vote added to.");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -1236,10 +1386,12 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("Vote casted by.");
 
                     b.Property<byte>("Value")
-                        .HasColumnType("tinyint");
+                        .HasColumnType("tinyint")
+                        .HasComment("Vote value");
 
                     b.HasKey("Id");
 
@@ -1259,10 +1411,12 @@ namespace MagicCardsmith.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ColorName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Mana Conor Name");
 
                     b.Property<int>("Cost")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("Play Card Total Cost");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -1271,7 +1425,8 @@ namespace MagicCardsmith.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Play Card Remote URL. Seeded.");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -1405,7 +1560,9 @@ namespace MagicCardsmith.Data.Migrations
                 {
                     b.HasOne("MagicCardsmith.Data.Models.ApplicationUser", "ApplicationUser")
                         .WithMany("Art")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("MagicCardsmith.Data.Models.Artist", "Artist")
                         .WithMany("ArtPieces")
@@ -1426,7 +1583,9 @@ namespace MagicCardsmith.Data.Migrations
                 {
                     b.HasOne("MagicCardsmith.Data.Models.ApplicationUser", "ArticleCreator")
                         .WithMany("Articles")
-                        .HasForeignKey("ArticleCreatorId");
+                        .HasForeignKey("ArticleCreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("ArticleCreator");
                 });
@@ -1456,7 +1615,9 @@ namespace MagicCardsmith.Data.Migrations
 
                     b.HasOne("MagicCardsmith.Data.Models.ApplicationUser", "CardSmith")
                         .WithMany("Cards")
-                        .HasForeignKey("CardSmithId");
+                        .HasForeignKey("CardSmithId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("MagicCardsmith.Data.Models.CardType", "CardType")
                         .WithMany("Cards")
@@ -1524,7 +1685,9 @@ namespace MagicCardsmith.Data.Migrations
                 {
                     b.HasOne("MagicCardsmith.Data.Models.Card", "Card")
                         .WithMany("CardReviews")
-                        .HasForeignKey("CardId");
+                        .HasForeignKey("CardId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("MagicCardsmith.Data.Models.ApplicationUser", "PostedByUser")
                         .WithMany("Reviews")
@@ -1539,7 +1702,9 @@ namespace MagicCardsmith.Data.Migrations
                 {
                     b.HasOne("MagicCardsmith.Data.Models.ApplicationUser", "EventCreator")
                         .WithMany("Events")
-                        .HasForeignKey("EventCreatorId");
+                        .HasForeignKey("EventCreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("MagicCardsmith.Data.Models.EventStatus", "Status")
                         .WithMany()
@@ -1707,7 +1872,8 @@ namespace MagicCardsmith.Data.Migrations
 
             modelBuilder.Entity("MagicCardsmith.Data.Models.Card", b =>
                 {
-                    b.Navigation("Art");
+                    b.Navigation("Art")
+                        .IsRequired();
 
                     b.Navigation("CardMana");
 

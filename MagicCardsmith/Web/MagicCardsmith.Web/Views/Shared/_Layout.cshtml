@@ -1,5 +1,9 @@
 ﻿
 @using MagicCardsmith.Common
+@using MagicCardsmith.Data.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +13,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/cardsmith.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/style.min.css" asp-append-version="true" />
@@ -19,6 +22,7 @@
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
+
 <body data-theme="dark">
     <div class="wrapper" id="wrapper">
         <nav id="sidebar" class="mCustomScrollbar _mCS_1 mCS-autoHide active mCS_no_scrollbar">
@@ -51,7 +55,7 @@
                                 <li>
                                     <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Artist" asp-action="All">Artists</a>
                                 </li>
-                            </ul>
+                            </ul>                           
                             <a href="#MetaHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>Magic cards</b></a>
                             <ul class="list-unstyled collapse show" id="MetaHubSubmenu" style="">
                                 <li>
@@ -70,91 +74,41 @@
                                     <a class="nav-link text-dark" asp-area="" asp-controller="GameRules" asp-action="GetRules">Magic Cardsmith Rules</a>
                                 </li>
                             </ul>
-                            <a href="#CollectionSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>My area</b></a>
-                            <ul class="collapse list-unstyled" id="CollectionSubmenu">
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="User" asp-action="Mine"><i class="fas fa-archive fa-fw"></i> <b>My Content</b></a>
-                                </li>                               
+                            @if (this.SignInManager.IsSignedIn(this.User))
+                            {
+                                <a href="#CollectionSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>My area</b></a>
+                                <ul class="collapse list-unstyled" id="CollectionSubmenu">
+                                    <li>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="User" asp-action="Mine"><i class="fas fa-archive fa-fw"></i> <b>My Content</b></a>
+                                    </li>                               
 
-                                <li>
-                                    <hr class="mt-2 mb-2">
-                                </li>
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Premium" asp-action="Membership"><i class="fa fa-handshake-o" aria-hidden="true"></i> <b>Contribute</b></a>
-                                </li>
-                            </ul>
-                            <a href="#TourneySubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Magic Cardsmither</b></a>
-                            <ul class="collapse list-unstyled" id="TourneySubmenu">
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Card" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
-                                </li>                                                                                                                        
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Article" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Article</b></a>
-                                </li>
-                                <li>
-                                    <hr class="mt-2 mb-2">
-                                </li>
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Event</b></a>
-                                </li>
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Art" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
-                                </li>
-                            </ul>
-                          @*   <a href="#DatabaseSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Database</b></a>
-                            <ul class="collapse list-unstyled" id="DatabaseSubmenu">
-                                <li>
-                                    <a href="/Card/Search/" class="pl-5 pt-1 pb-2 nav-link">Card Search</a>
-                                </li>
-                                <li>
-                                    <a href="/Card/Set" class="pl-5 pt-1 pb-2 nav-link">Set List</a>
-                                </li>
-                                <li>
-                                    <a href="/Spoilers/" class="pl-5 pt-1 pb-2 nav-link">Spoilers</a>
-                                </li>
-                                <li>
-                                    <hr class="mt-2 mb-2">
-                                </li>
-                                <li>
-                                    <a href="/Banlist" class="pl-5 pt-1 pb-2 nav-link">Card Banlist</a>
-                                </li>
-                                <li>
-                                    <a href="/MTGACalendar/" class="pl-5 pt-1 pb-2 nav-link">MTGA Calendar</a>
-                                </li>
-                                <li>
-                                    <a href="/MTGAGuides" class="pl-5 pt-1 pb-2 nav-link">MTGA Guides</a>
-                                </li>
-                                <li>
-                                    <hr class="mt-2 mb-2">
-                                </li>
-                                <li>
-                                    <a href="/Article/" class="pl-5 pt-1 pb-2 nav-link">Articles</a>
-                                </li>
-                                <li>
-                                    <a href="/Video/" class="pl-5 pt-1 pb-2 nav-link">Videos</a>
-                                </li>
-                                <li>
-                                    <a href="/Docs/" class="pl-5 pt-1 pb-2 nav-link">Documentation</a>
-                                </li>
-                            </ul>
-                            <a href="#AppsSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Apps</b></a>
-                            <ul class="collapse list-unstyled" id="AppsSubmenu">
-                                <li>
-                                    <a href="/Apps/MTGAAssistant" class="pl-5 pt-1 pb-2 nav-link">MTGA Assistant</a>
-                                </li>
-                                <li>
-                                    <a href="/Apps/DeckConverter" class="pl-5 pt-1 pb-2 nav-link">Deck Converter</a>
-                                </li>
-                                <li>
-                                    <a href="/Apps/MtgLife" class="pl-5 pt-1 pb-2 nav-link">MTG Life</a>
-                                </li>
-                                <li>
-                                    <a href="/Apps/HyperGeometric" class="pl-5 pt-1 pb-2 nav-link">Hypergeometric Calculator</a>
-                                </li>
-                                <li>
-                                    <a href="/Apps/TwitchExtensions" class="pl-5 pt-1 pb-2 nav-link">Twitch Extensions</a>
-                                </li>
-                            </ul> *@
+                                    <li>
+                                        <hr class="mt-2 mb-2">
+                                    </li>
+                                    <li>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Premium" asp-action="Membership"><i class="fa fa-handshake-o" aria-hidden="true"></i> <b>Contribute</b></a>
+                                    </li>
+                                </ul>
+
+                                <a href="#TourneySubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Magic Cardsmither</b></a>
+                                <ul class="collapse list-unstyled" id="TourneySubmenu">
+                                    <li>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Card" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
+                                    </li>                                                                                                                        
+                                    <li>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Article" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Article</b></a>
+                                    </li>
+                                    <li>
+                                        <hr class="mt-2 mb-2">
+                                    </li>
+                                    <li>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Event</b></a>
+                                    </li>
+                                    <li>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Art" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
+                                    </li>
+                                </ul>
+                            }
                         </li>
                     </ul>
                 </div>
@@ -269,7 +223,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div>                           
                             <div class="mr-2">
                                 <ul class="nav">
                                     <li class="nav-item dropdown">
@@ -277,9 +231,9 @@
                                             <i class="far fa-star"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" asp-area="" asp-controller="Artist" asp-action="Become"><b>Premium</b></a>
-                                            <a class="dropdown-item" href="/Artist"><b>Content Creators</b></a>
-                                            <a class="dropdown-item" href="/Team"><b>Team</b></a>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Membership" asp-action="Membership"><b>Membership</b></a>
+@*                                             <a class="dropdown-item" href="/Artist"><b>Content Creators</b></a>
+                                            <a class="dropdown-item" href="/Team"><b>Team</b></a> *@
 
                                         </div>
                                     </li>
@@ -306,7 +260,8 @@
         </div>
         <div class="ae-inner-content-wrapper">
             <div class="inner-content">
-                <div class="row row pt-2">
+                @* <div class="row row pt-2"> *@
+                <div class="row ae-break-word">
                         <partial name="_CookieConsentPartial" />
                             @this.RenderBody()
                 </div>
@@ -434,7 +389,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Search MagicCardsnith</h4>
+                    <h4 class="modal-title">Search MagicCardsmith</h4>
                     <button type="button" class="close" data-dismiss="modal">
                         <span class="fas fa-times text-dark"></span>
                     </button>

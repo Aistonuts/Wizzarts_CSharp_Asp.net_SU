@@ -139,6 +139,7 @@
                     Id = x.Id,
                     Email = x.Email,
                     Nickname = x.Nickname,
+                    AvatarUrl = x.AvatarUrl,
                 }),
 
                 Artists = artists.Select(x => new UserServiceInListModel
@@ -146,6 +147,7 @@
                     Id = x.Id,
                     Email = x.Email,
                     Nickname = x.Nickname,
+                    AvatarUrl = x.AvatarUrl,
                 }),
 
                 Admins = admins.Select(x => new UserServiceInListModel
@@ -153,6 +155,7 @@
                     Id = x.Id,
                     Email = x.Email,
                     Nickname = x.Nickname,
+                    AvatarUrl = x.AvatarUrl,
                 }),
 
                 StoreOwners = storeOwners.Select(x => new UserServiceInListModel
@@ -160,6 +163,7 @@
                     Id = x.Id,
                     Email = x.Email,
                     Nickname = x.Nickname,
+                    AvatarUrl = x.AvatarUrl,
                 }),
 
                 Premium = premium.Select(x => new UserServiceInListModel
@@ -167,6 +171,7 @@
                     Id = x.Id,
                     Email = x.Email,
                     Nickname = x.Nickname,
+                    AvatarUrl = x.AvatarUrl,
                 }),
             };
             return this.View(viewModel);

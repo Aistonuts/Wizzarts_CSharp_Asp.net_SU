@@ -173,11 +173,11 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Design/6.0.25": {
+      "Microsoft.EntityFrameworkCore.Design/6.0.26": {
         "type": "package",
         "dependencies": {
           "Humanizer.Core": "2.8.26",
-          "Microsoft.EntityFrameworkCore.Relational": "6.0.25"
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.26"
         },
         "compile": {
           "lib/net6.0/_._": {
@@ -210,11 +210,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/6.0.25": {
+      "Microsoft.EntityFrameworkCore.SqlServer/6.0.26": {
         "type": "package",
         "dependencies": {
           "Microsoft.Data.SqlClient": "2.1.4",
-          "Microsoft.EntityFrameworkCore.Relational": "6.0.25"
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.26"
         },
         "compile": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
@@ -227,10 +227,10 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Tools/6.0.25": {
+      "Microsoft.EntityFrameworkCore.Tools/6.0.26": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "6.0.25"
+          "Microsoft.EntityFrameworkCore.Design": "6.0.26"
         },
         "compile": {
           "lib/net6.0/_._": {}
@@ -1095,6 +1095,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "MagicCardsmith.Common": "1.0.0",
           "MagicCardsmith.Data.Common": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.25"
         },
@@ -1375,10 +1376,10 @@
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Design/6.0.25": {
-      "sha512": "YawyMKj1f+GkwHrxMIf9tX84sMGgLFa5YoRmyuUugGhffiubkVLYIrlm4W0uSy2NzX4t6+V7keFLQf7lRQvDmA==",
+    "Microsoft.EntityFrameworkCore.Design/6.0.26": {
+      "sha512": "SKcdA+0RtsfgbmafYNK5ej0Hm46IBlZrfnkn4RXPDwqWRkEV+tdO3FifZJlFnUgB3cG4feWd8TYZNPpT9ReCVg==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.design/6.0.25",
+      "path": "microsoft.entityframeworkcore.design/6.0.26",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1386,7 +1387,7 @@
         "build/net6.0/Microsoft.EntityFrameworkCore.Design.props",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Design.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Design.xml",
-        "microsoft.entityframeworkcore.design.6.0.25.nupkg.sha512",
+        "microsoft.entityframeworkcore.design.6.0.26.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
@@ -1404,31 +1405,31 @@
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/6.0.25": {
-      "sha512": "/oIgY1cu75FiZc5gDfQQKgL9lv79Vearc+AY5WpZkoA0k+hJnkVYg68mdgbBZkJuyAC93cdKw8UXtCN0sUH7yg==",
+    "Microsoft.EntityFrameworkCore.SqlServer/6.0.26": {
+      "sha512": "e8B4Bc6+0pZzoyNZSQCyi6ZX3IkcsDRGS9CpKlUUAKqwBIVDTBaURnwjI7hYwA/y+2Rmnfk4ZiA1/z8OS2xf3Q==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver/6.0.25",
+      "path": "microsoft.entityframeworkcore.sqlserver/6.0.26",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "microsoft.entityframeworkcore.sqlserver.6.0.25.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.6.0.26.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Tools/6.0.25": {
-      "sha512": "2iPMR+DHXh2Xn9qoJ0ejzdHblpns73e1pZ/pyRbYDQi0HPJyq1/pTYDda1owJ5W2lxAGDg8l5Fl1jVp97fTR1g==",
+    "Microsoft.EntityFrameworkCore.Tools/6.0.26": {
+      "sha512": "QsdYf5pYszTFKxyfgL8+PsXx2vhTXpl3kPRcunnkJ7TQ8u6WH1OFSFHXCvvZgmH65it6jKv/pY9Jgl+r+vRYnw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.tools/6.0.25",
+      "path": "microsoft.entityframeworkcore.tools/6.0.26",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/_._",
-        "microsoft.entityframeworkcore.tools.6.0.25.nupkg.sha512",
+        "microsoft.entityframeworkcore.tools.6.0.26.nupkg.sha512",
         "microsoft.entityframeworkcore.tools.nuspec",
         "tools/EntityFrameworkCore.PS2.psd1",
         "tools/EntityFrameworkCore.PS2.psm1",
@@ -2798,10 +2799,11 @@
       "MagicCardsmith.Data.Common >= 1.0.0",
       "MagicCardsmith.Data.Models >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.26",
-      "Microsoft.EntityFrameworkCore.Design >= 6.0.25",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.25",
-      "Microsoft.EntityFrameworkCore.Tools >= 6.0.25",
+      "Microsoft.EntityFrameworkCore.Design >= 6.0.26",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.26",
+      "Microsoft.EntityFrameworkCore.Tools >= 6.0.26",
       "Microsoft.Extensions.Configuration.UserSecrets >= 6.0.1",
+      "Microsoft.Extensions.Identity.Core >= 6.0.26",
       "StyleCop.Analyzers >= 1.2.0-beta.435"
     ]
   },
@@ -2867,21 +2869,25 @@
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[6.0.25, )"
+            "version": "[6.0.26, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
-            "version": "[6.0.25, )"
+            "version": "[6.0.26, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[6.0.25, )"
+            "version": "[6.0.26, )"
           },
           "Microsoft.Extensions.Configuration.UserSecrets": {
             "target": "Package",
             "version": "[6.0.1, )"
+          },
+          "Microsoft.Extensions.Identity.Core": {
+            "target": "Package",
+            "version": "[6.0.26, )"
           },
           "StyleCop.Analyzers": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers",

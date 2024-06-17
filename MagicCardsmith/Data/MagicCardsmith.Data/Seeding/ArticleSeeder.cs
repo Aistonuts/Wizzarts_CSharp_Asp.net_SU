@@ -1,16 +1,15 @@
-﻿using MagicCardsmith.Data.Models;
-
-namespace MagicCardsmith.Data.Seeding
+﻿namespace MagicCardsmith.Data.Seeding
 {
     using System;
     using System.Linq;
     using System.Threading.Tasks;
 
+    using MagicCardsmith.Data.Models;
+
     public class ArticleSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-
             if (dbContext.Articles.Any())
             {
                 return;
@@ -18,9 +17,9 @@ namespace MagicCardsmith.Data.Seeding
 
             await dbContext.Articles.AddAsync(new Article
             {
-                Title = "The Magic Cardsmith platform has arrived.",
-                ShortDescription = "The Magic cardsmith is a platform for creating tabletop and digita collectible card games.",
-                Description = "Our current project is the Alpha Magic cardsmith. The Alpha deck has been just released. It is already avaialble in our stores.",
+                Title = "Magic Cardsmith game is live.",
+                ShortDescription = "Magic Cardsmith is the place where you can find all about our card game.",
+                Description = "The Magic Cardsmith Alpha deck  has been just released. It is already avaialble in our stores.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/MagicTheGathering.jpg",
                 ApprovedByAdmin = true,
@@ -30,7 +29,7 @@ namespace MagicCardsmith.Data.Seeding
             {
                 Title = "The Magic Cardsmith team.",
                 ShortDescription = "Our team consist of artists, playgame testers, card flavour creators and store owners.",
-                Description = "Common interest for art tabletob games and collectible card games was the main reason for creating this platform were we can exchange our ideas with anyone interested.",
+                Description = "We share common interest for art, tabletob games and collectible card games.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/SonsOfTheStorm.jpg",
                 ApprovedByAdmin = true,
@@ -38,11 +37,11 @@ namespace MagicCardsmith.Data.Seeding
 
             await dbContext.Articles.AddAsync(new Article
             {
-                Title = "The long wait is over.Beta deck is here",
-                ShortDescription = "Two months have passed since the release of our Aplha deck and it was a blast.",
-                Description = "Since the release of our alpha deck we noticed your huge interest so we decided to release our Beta deck in the upcoming month," +
-                "however we need your help.Before releasing the Beta deck and the next Unlimited deck we will give the chance to few of you to partially participate in creating the Beta deck and later" +
-                "join our team for assisting us with creating the Unlimited deck. For more information check the events board.",
+                Title = "The long wait is over.",
+                ShortDescription = "Our Beta deck is almost complete.",
+                Description = "Two months have passed since the release of our Aplha deck and it was a blast. " +
+                "Since the release of our alpha deck we noticed your huge interest so we decided to release our Beta deck in the upcoming month," +
+                "however we need your help.Before releasing the Beta deck we will allow you to participate in completing the deck by adding some of of your ideas.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/AlphaBox.png",
                 ApprovedByAdmin = true,
@@ -52,12 +51,11 @@ namespace MagicCardsmith.Data.Seeding
             {
                 Title = "Beta deck pre-release events",
                 ShortDescription = "We are representing our first events board.The Magic Cardsmith community needs your help for releasing the upcomming expansion as soon as possible.",
-                Description = "Our Beta deck is complete, but there is still place for your ideas and we will gladly replace some of our cards with better ones created by you." +
-                "Few of you will have the chance to share their ideas with us .Thanks to our vote system, " +
-                "we will pick those who are worthy enough to join our team. Every card needs a certain type of flavour and an art of course, the art is what gives our cards they magical appearance" +
-                "but the flavour grants its powers." +
-                "For those participating in the events a chance to join our team as an artist, game play mechanics tester or admin will be offered." +
-                "All you have to do is to participate in the vent, complete the milestones and  get enough votes from our community and we will pick those of you with the higher number of votes.",
+                Description = "Our Beta deck is complete, but there is still place for your ideas." +
+                "Upload your art, participate in our events, use our tools to create new play cards and we will include them in our final version of the Beta deck." +
+                "Every card needs a certain type of flavour and an art of course, the art is what gives our cards their magical appearance" +
+                "but the flavour is where their power resides." +
+                "Keep in mind that there is a place in our team for those of you using their own art during the events.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/Champion.png",
                 ApprovedByAdmin = true,
@@ -66,7 +64,7 @@ namespace MagicCardsmith.Data.Seeding
             await dbContext.Articles.AddAsync(new Article
             {
                 Title = "Arena masters",
-                ShortDescription = "Every battle needs a suitable battleground.",
+                ShortDescription = "Every battle needs a battleground.",
                 Description = "If you are a store owner, passionate about board games and interested in hosting tournaments ,this is your chance. Click on become store owner," +
                 "submit a picture of your store and fill your address, phone number and exact location.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",

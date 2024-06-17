@@ -1,11 +1,9 @@
 ﻿namespace MagicCardsmith.Web.Controllers
 {
-
     using System.Security.Claims;
     using System.Threading.Tasks;
     using MagicCardsmith.Services.Data;
     using MagicCardsmith.Web.ViewModels.Votes;
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     [ApiController]
@@ -20,7 +18,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<ActionResult<PostVoteResponseModel>> Post(PostVoteInputModel input)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;

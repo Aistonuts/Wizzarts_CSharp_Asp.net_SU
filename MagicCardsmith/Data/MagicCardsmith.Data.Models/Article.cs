@@ -1,21 +1,42 @@
 ﻿namespace MagicCardsmith.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     using MagicCardsmith.Data.Common.Models;
+    using Microsoft.EntityFrameworkCore;
+
+    using static MagicCardsmith.Common.DataConstants;
 
     public class Article : BaseDeletableModel<int>
     {
-        public string Title { get; set; }
+        [Required]
+        [MaxLength(ArticleTitleMaxLength)]
+        [Comment("Article title")]
+        public string Title { get; set; } = string.Empty;
 
-        public string ShortDescription { get; set; }
+        [Required]
+        [MaxLength(ArticleShortDescriptionMaxLength)]
+        [Comment("Article short description")]
+        public string ShortDescription { get; set; } = string.Empty;
 
-        public string Description { get; set; }
+        [Required]
+        [MaxLength(ArticleDescriptionMaxLength)]
+        [Comment("Article description")]
+        public string Description { get; set; } = string.Empty;
 
-        public string ImageUrl { get; set; }
+        [Required]
+        [Comment("Article image URL")]
+        public string ImageUrl { get; set; } = string.Empty;
 
-        public string ArticleCreatorId { get; set; }
+        [Required]
+        [Comment("Article creator identifier")]
+        public string ArticleCreatorId { get; set; } = string.Empty;
 
+        [Comment("Is Article approved by Admin.")]
         public bool ApprovedByAdmin { get; set; }
 
+        [ForeignKey(nameof(ArticleCreatorId))]
         public ApplicationUser ArticleCreator { get; set; }
     }
 }

@@ -30,5 +30,7 @@
         public const string ArticlesCacheKey = "ArticlesCacheKey";
 
         public const string CardsCacheKey = "CardsCacheKey";
+
+        public const string EventsCacheKey = "EventsCacheKey";
     }
 }

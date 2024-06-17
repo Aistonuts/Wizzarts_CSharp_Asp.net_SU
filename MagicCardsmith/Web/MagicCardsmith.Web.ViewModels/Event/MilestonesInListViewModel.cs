@@ -4,7 +4,7 @@
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Mapping;
 
-    public class MilestonesInListViewModel : IMapFrom<EventMilestone>, IHaveCustomMappings
+    public class MilestonesInListViewModel : IMapFrom<EventMilestone>, IHaveCustomMappings, ISingleMilestoneViewModel
     {
         public int Id { get; set; }
 

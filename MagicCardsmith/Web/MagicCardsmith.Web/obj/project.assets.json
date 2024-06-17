@@ -845,10 +845,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/6.0.25": {
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/6.0.26": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "6.0.25"
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.26"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {
@@ -1005,11 +1005,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Identity.UI/6.0.25": {
+      "Microsoft.AspNetCore.Identity.UI/6.0.26": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Embedded": "6.0.25",
-          "Microsoft.Extensions.Identity.Stores": "6.0.25"
+          "Microsoft.Extensions.FileProviders.Embedded": "6.0.26",
+          "Microsoft.Extensions.Identity.Stores": "6.0.26"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Identity.UI.dll": {
@@ -1255,11 +1255,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Mvc.Razor.Extensions/6.0.25": {
+      "Microsoft.AspNetCore.Mvc.Razor.Extensions/6.0.26": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Razor.Language": "6.0.25",
-          "Microsoft.CodeAnalysis.Razor": "6.0.25"
+          "Microsoft.AspNetCore.Razor.Language": "6.0.26",
+          "Microsoft.CodeAnalysis.Razor": "6.0.26"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll": {}
@@ -1268,11 +1268,11 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/6.0.25": {
+      "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/6.0.26": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Mvc.Razor.Extensions": "6.0.25",
-          "Microsoft.CodeAnalysis.Razor": "6.0.25",
+          "Microsoft.AspNetCore.Mvc.Razor.Extensions": "6.0.26",
+          "Microsoft.CodeAnalysis.Razor": "6.0.26",
           "Microsoft.Extensions.DependencyModel": "6.0.0"
         },
         "compile": {
@@ -1377,7 +1377,7 @@
           "buildMultiTargeting/_._": {}
         }
       },
-      "Microsoft.AspNetCore.Razor.Language/6.0.25": {
+      "Microsoft.AspNetCore.Razor.Language/6.0.26": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {}
@@ -1850,10 +1850,10 @@
           }
         }
       },
-      "Microsoft.CodeAnalysis.Razor/6.0.25": {
+      "Microsoft.CodeAnalysis.Razor/6.0.26": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Razor.Language": "6.0.25",
+          "Microsoft.AspNetCore.Razor.Language": "6.0.26",
           "Microsoft.CodeAnalysis.CSharp": "4.0.0",
           "Microsoft.CodeAnalysis.Common": "4.0.0"
         },
@@ -2146,11 +2146,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/6.0.25": {
+      "Microsoft.EntityFrameworkCore.SqlServer/6.0.26": {
         "type": "package",
         "dependencies": {
           "Microsoft.Data.SqlClient": "2.1.4",
-          "Microsoft.EntityFrameworkCore.Relational": "6.0.25"
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.26"
         },
         "compile": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
@@ -2386,7 +2386,7 @@
           }
         }
       },
-      "Microsoft.Extensions.FileProviders.Embedded/6.0.25": {
+      "Microsoft.Extensions.FileProviders.Embedded/6.0.26": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Abstractions": "6.0.0"
@@ -4997,8 +4997,9 @@
           "MagicCardsmith.Data.Common": "1.0.0",
           "MagicCardsmith.Data.Models": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.26",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.25",
-          "Microsoft.Extensions.Configuration.UserSecrets": "6.0.1"
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.26",
+          "Microsoft.Extensions.Configuration.UserSecrets": "6.0.1",
+          "Microsoft.Extensions.Identity.Core": "6.0.26"
         },
         "compile": {
           "bin/placeholder/MagicCardsmith.Data.dll": {}
@@ -5024,6 +5025,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "MagicCardsmith.Common": "1.0.0",
           "MagicCardsmith.Data.Common": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.25"
         },
@@ -5099,6 +5101,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "MagicCardsmith.Common": "1.0.0",
+          "MagicCardsmith.Web.ViewModels": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "Microsoft.Extensions.Identity.Core": "6.0.25"
@@ -6118,10 +6121,10 @@
         "microsoft.aspnetcore.diagnostics.abstractions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/6.0.25": {
-      "sha512": "wryahIKkpxIAIn7YqZfX+USe+aUhSsNvK5XA4KlApF09fDfmWuDam3xiewHsXwBKxVRPn9zlxWElk3TULr1RIg==",
+    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/6.0.26": {
+      "sha512": "X+l/M0jipwXdvgKn9rursL7YiqvB4I2tmdIc5Z3C7sjM6zXxJqFIb4cY745otkNl1gYY7VqRfUu6OsoLHafw6w==",
       "type": "package",
-      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/6.0.25",
+      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/6.0.26",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6129,7 +6132,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net6.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll",
         "lib/net6.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.xml",
-        "microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.25.nupkg.sha512",
+        "microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.26.nupkg.sha512",
         "microsoft.aspnetcore.diagnostics.entityframeworkcore.nuspec"
       ]
     },
@@ -6245,10 +6248,10 @@
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Identity.UI/6.0.25": {
-      "sha512": "UcFxaIYAbi7ihg/Zmja0H8etGOTReK5spBVhlbWQhKK3vkOxJWYoDL7lFSJ1tQKUQVl/WHTwKN++MG1DeWrZbw==",
+    "Microsoft.AspNetCore.Identity.UI/6.0.26": {
+      "sha512": "0tN1ZbI9p9SLV0FseeX16cOK8nqrbd1MTbxrcwla+97KJE6J7npqahqbo0UE+Ejh7lScyhZi0amIKT4u6SDygA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.identity.ui/6.0.25",
+      "path": "microsoft.aspnetcore.identity.ui/6.0.26",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6263,7 +6266,7 @@
         "buildTransitive/Microsoft.AspNetCore.Identity.UI.targets",
         "lib/net6.0/Microsoft.AspNetCore.Identity.UI.dll",
         "lib/net6.0/Microsoft.AspNetCore.Identity.UI.xml",
-        "microsoft.aspnetcore.identity.ui.6.0.25.nupkg.sha512",
+        "microsoft.aspnetcore.identity.ui.6.0.26.nupkg.sha512",
         "microsoft.aspnetcore.identity.ui.nuspec",
         "staticwebassets/V4/css/site.css",
         "staticwebassets/V4/favicon.ico",
@@ -6518,24 +6521,24 @@
         "microsoft.aspnetcore.mvc.razor.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Mvc.Razor.Extensions/6.0.25": {
-      "sha512": "8jlqgV4KnCUr1iiI01jc+QXPCpAbvFo94miIXEl88MuzRhCvIs59zo7NpBsvuO31Lryg9+VQh4W2kkDuJ8ozVQ==",
+    "Microsoft.AspNetCore.Mvc.Razor.Extensions/6.0.26": {
+      "sha512": "0QzEoWF0FjiJPGx2h56TgRHk4+0EUNS271w/OHp4xIe+lLyMIvZ5brCRH0OHiY7eoD23frjQwS95Orl8nnvrfQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.mvc.razor.extensions/6.0.25",
+      "path": "microsoft.aspnetcore.mvc.razor.extensions/6.0.26",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll",
-        "microsoft.aspnetcore.mvc.razor.extensions.6.0.25.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.razor.extensions.6.0.26.nupkg.sha512",
         "microsoft.aspnetcore.mvc.razor.extensions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/6.0.25": {
-      "sha512": "ZaEfnI1JcB2Crz1azK1zTi1AYH+3EUfT5COWoP3eNLvKzmC3R/gzfYTYNQUXhu57Wb46Q058w3AMEDf4wZZoiA==",
+    "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/6.0.26": {
+      "sha512": "RnTDlcSaISiiAH7Wv4jZVs3ICPG3uaLmIaM3iTY1kCckssRfHyZRYpM1IUe/xb4b7e/uOnWAB8DdMct4FPMMLA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.mvc.razor.runtimecompilation/6.0.25",
+      "path": "microsoft.aspnetcore.mvc.razor.runtimecompilation/6.0.26",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6545,7 +6548,7 @@
         "buildTransitive/net6.0/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.targets",
         "lib/net6.0/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll",
         "lib/net6.0/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.xml",
-        "microsoft.aspnetcore.mvc.razor.runtimecompilation.6.0.25.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.razor.runtimecompilation.6.0.26.nupkg.sha512",
         "microsoft.aspnetcore.mvc.razor.runtimecompilation.nuspec"
       ]
     },
@@ -6626,17 +6629,17 @@
         "tools/rzc.runtimeconfig.json"
       ]
     },
-    "Microsoft.AspNetCore.Razor.Language/6.0.25": {
-      "sha512": "Thv1gDVuakcVIErTEf/RVBJc8YKrAU2/3+aQiXqzvxAICidTmoObVwa0gg0g6G0R5DuS5wwfHJOB2jZgFQMbew==",
+    "Microsoft.AspNetCore.Razor.Language/6.0.26": {
+      "sha512": "cmO7PqjgsTdipIjMyxK3pVu9WVrMfwam9fzbeB8rP6gfvpKXSvr4xb9f0E7M7d9qvJs/oG+FBEX4GTHlx7S56A==",
       "type": "package",
-      "path": "microsoft.aspnetcore.razor.language/6.0.25",
+      "path": "microsoft.aspnetcore.razor.language/6.0.26",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll",
-        "microsoft.aspnetcore.razor.language.6.0.25.nupkg.sha512",
+        "microsoft.aspnetcore.razor.language.6.0.26.nupkg.sha512",
         "microsoft.aspnetcore.razor.language.nuspec"
       ]
     },
@@ -7132,17 +7135,17 @@
         "microsoft.codeanalysis.features.nuspec"
       ]
     },
-    "Microsoft.CodeAnalysis.Razor/6.0.25": {
-      "sha512": "KmiuLPvmWQyzuXr9y9oR3pqmoNqnLq5q0f6SxH6h+i0gGcTbStcX80BcLmysZGyY0xdYWWfVZ8ppzjWiaZo0tQ==",
+    "Microsoft.CodeAnalysis.Razor/6.0.26": {
+      "sha512": "30ry5SYAn3JKMStEOi8n/DINC9wpI8VmpuRbD2MBMGFubiNVJjF1qtO1X60y36VK2txgY6znDo/dz7sYnMITIA==",
       "type": "package",
-      "path": "microsoft.codeanalysis.razor/6.0.25",
+      "path": "microsoft.codeanalysis.razor/6.0.26",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard2.0/Microsoft.CodeAnalysis.Razor.dll",
-        "microsoft.codeanalysis.razor.6.0.25.nupkg.sha512",
+        "microsoft.codeanalysis.razor.6.0.26.nupkg.sha512",
         "microsoft.codeanalysis.razor.nuspec"
       ]
     },
@@ -7480,17 +7483,17 @@
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/6.0.25": {
-      "sha512": "/oIgY1cu75FiZc5gDfQQKgL9lv79Vearc+AY5WpZkoA0k+hJnkVYg68mdgbBZkJuyAC93cdKw8UXtCN0sUH7yg==",
+    "Microsoft.EntityFrameworkCore.SqlServer/6.0.26": {
+      "sha512": "e8B4Bc6+0pZzoyNZSQCyi6ZX3IkcsDRGS9CpKlUUAKqwBIVDTBaURnwjI7hYwA/y+2Rmnfk4ZiA1/z8OS2xf3Q==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver/6.0.25",
+      "path": "microsoft.entityframeworkcore.sqlserver/6.0.26",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "microsoft.entityframeworkcore.sqlserver.6.0.25.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.6.0.26.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
@@ -7736,10 +7739,10 @@
         "microsoft.extensions.fileproviders.composite.nuspec"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Embedded/6.0.25": {
-      "sha512": "q1S6iVA2+kvwuSt21zcjKLzQDGTyMwVlEGhucOu8xNIQiHjcvWrKHtwlBIJzIE1EIcxQL/4w3iQw9W665i5WdQ==",
+    "Microsoft.Extensions.FileProviders.Embedded/6.0.26": {
+      "sha512": "80zUFCSuINM204slpRWle/cj7W+QrR0WYtxCkvgrx04av5yjEWaZQy/grCYNoG1R9eMonYHXdkDR2juzThQ9wQ==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.embedded/6.0.25",
+      "path": "microsoft.extensions.fileproviders.embedded/6.0.26",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7754,7 +7757,7 @@
         "lib/net6.0/Microsoft.Extensions.FileProviders.Embedded.xml",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.xml",
-        "microsoft.extensions.fileproviders.embedded.6.0.25.nupkg.sha512",
+        "microsoft.extensions.fileproviders.embedded.6.0.26.nupkg.sha512",
         "microsoft.extensions.fileproviders.embedded.nuspec",
         "tasks/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.Manifest.Task.dll"
       ]
@@ -13564,9 +13567,9 @@
       "MagicCardsmith.Services.Messaging >= 1.0.0",
       "MagicCardsmith.Web.Infrastructure >= 1.0.0",
       "MagicCardsmith.Web.ViewModels >= 1.0.0",
-      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.25",
-      "Microsoft.AspNetCore.Identity.UI >= 6.0.25",
-      "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.25",
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.26",
+      "Microsoft.AspNetCore.Identity.UI >= 6.0.26",
+      "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.26",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
       "Microsoft.Web.LibraryManager.Build >= 2.1.175",
       "Selenium.WebDriver >= 4.16.2",
@@ -13652,15 +13655,15 @@
           },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[6.0.25, )"
+            "version": "[6.0.26, )"
           },
           "Microsoft.AspNetCore.Identity.UI": {
             "target": "Package",
-            "version": "[6.0.25, )"
+            "version": "[6.0.26, )"
           },
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
             "target": "Package",
-            "version": "[6.0.25, )"
+            "version": "[6.0.26, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",

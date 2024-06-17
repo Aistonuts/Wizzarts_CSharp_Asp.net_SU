@@ -1,4 +1,5 @@
 ﻿@model MagicCardsmith.Web.ViewModels.Premium.AvatarListViewModel
+@using MagicCardsmith.Web.Infrastructure.Extensions
 @{
     this.ViewData["Title"] = "All Avatars";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,7 +14,7 @@
             @foreach (var avatar in Model.Avatars)
             {
                 <div class="inner-container">
-                    <a asp-controller="User" asp-action="Update" asp-route-id="@avatar.Id" class="item ae-card-link cardLink ">
+                    <a asp-controller="User" asp-action="Update" asp-route-id="@avatar.Id" asp-route-information="@avatar.GetAvatarName()" class="item ae-card-link cardLink ">
                         <img class="lazy" src="@avatar.AvatarUrl">
                     </a>
                     <div class="item-footer">

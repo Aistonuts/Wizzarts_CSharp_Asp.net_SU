@@ -257,8 +257,8 @@
       "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Wheel_of_Fortune.jpg"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\art\\userArt\\623fc647-38a7-410f-b897-5b66ba42d0d2.jpg",
-      "PackagePath": "staticwebassets\\images\\art\\userArt\\623fc647-38a7-410f-b897-5b66ba42d0d2.jpg"
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\art\\userArt\\5376ad0c-48d9-41fe-8056-8ce8d0918a60.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\userArt\\5376ad0c-48d9-41fe-8056-8ce8d0918a60.jpg"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\avatar\\Marvel_Five.png",
@@ -371,6 +371,10 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\swamp.jpg",
       "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\swamp.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavor\\Ankh of Mishra.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavor\\Ankh of Mishra.png"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Bayou.png",

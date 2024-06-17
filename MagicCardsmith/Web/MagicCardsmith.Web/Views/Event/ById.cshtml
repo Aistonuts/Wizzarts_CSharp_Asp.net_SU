@@ -1,5 +1,6 @@
 ﻿@using MagicCardsmith.Common;
 @model MagicCardsmith.Web.ViewModels.Event.SingleEventViewModel
+@using MagicCardsmith.Web.Infrastructure.Extensions
 @{
     this.ViewData["Title"] = "Event Milestones";
 }
@@ -53,7 +54,7 @@
                     <div class="col-md-12 col-lg-8 pl-0 pr-0 order-1 order-lg-1">
                         <div class="card" s="">
                             <div class="card-body pt-2 pb-1">
-                                <form method="post" asp-action="CreateStore" enctype="multipart/form-data">
+                                <form method="post" asp-controller="Event" asp-action="CreateStore" enctype="multipart/form-data">
                                     <div class="form-group row mb-1">
                                         <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreName"></label>
                                         <div class="col-sm-8 col-lg-6">
@@ -121,7 +122,7 @@
                                     @foreach (var milestone in this.Model.EventMilestones)
                                     {
                                         <div class="inner-container">
-                                            <a asp-controller="Card" asp-action="Create" asp-route-id="@milestone.Id" class="item ae-card-link cardLink ">
+                                            <a asp-controller="Card" asp-action="Create" asp-route-id="@milestone.Id" asp-route-information="@milestone.GetMilestoreTitle()" class="item ae-card-link cardLink ">
                                                 <img class="lazy" src="@milestone.ImageUrl" alt="@milestone.Description" style="">
                                                 <div class="">@milestone.Description</div>
                                             </a>

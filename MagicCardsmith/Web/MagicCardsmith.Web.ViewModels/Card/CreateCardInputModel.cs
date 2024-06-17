@@ -1,6 +1,7 @@
 ﻿namespace MagicCardsmith.Web.ViewModels.Card
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using MagicCardsmith.Web.ViewModels.Art;
     using MagicCardsmith.Web.ViewModels.Expansion;
     using MagicCardsmith.Web.ViewModels.SelectCategoriesViewModel;
@@ -14,7 +15,15 @@
 
         public int EventId { get; set; }
 
-        public IEnumerable<ArtInListViewModel> ArtByUserId { get; set; }
+        public string EventMilestoneImage { get; set; }
+
+        public string EventMilestoneTitle { get; set; }
+
+        public string EventMilestoneDescription { get; set; }
+
+        public string EventDescription { get; set; }
+
+        public IEnumerable<ArtInListViewModel> ArtByUserId { get; set; } = new List<ArtInListViewModel>();
 
         public IEnumerable<BlackManaCostViewModel> BlackMana { get; set; } = new List<BlackManaCostViewModel>();
 

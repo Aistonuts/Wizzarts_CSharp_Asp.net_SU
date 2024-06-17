@@ -26,7 +26,7 @@
                 ArtIstId = 1,
                 CardId = 1,
                 ApprovedByAdmin = true,
-
+                ApplicationUserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -39,7 +39,7 @@
                 ArtIstId = 2,
                 CardId = 2,
                 ApprovedByAdmin = true,
-
+                ApplicationUserId = "0ac1e577-c7ff-4aa3-83c3-e5acac9de281",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -52,7 +52,7 @@
                 ArtIstId = 3,
                 CardId = 3,
                 ApprovedByAdmin = true,
-
+                ApplicationUserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -65,7 +65,7 @@
                 ArtIstId = 4,
                 CardId = 4,
                 ApprovedByAdmin = true,
-
+                ApplicationUserId = "f6f94be8-49e0-4a28-9e7f-797c40e7e169",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -78,7 +78,7 @@
                 ArtIstId = 5,
                 CardId = 5,
                 ApprovedByAdmin = true,
-
+                ApplicationUserId = "b4accad4-e878-4de3-a317-665d0a43fbd3",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -91,6 +91,7 @@
                 ArtIstId = 9,
                 CardId = 6,
                 ApprovedByAdmin = true,
+                ApplicationUserId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -103,6 +104,7 @@
                 ArtIstId = 9,
                 CardId = 7,
                 ApprovedByAdmin = true,
+                ApplicationUserId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -115,6 +117,7 @@
                 ArtIstId = 9,
                 CardId = 8,
                 ApprovedByAdmin = true,
+                ApplicationUserId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
             });
             await dbContext.Arts.AddAsync(new Art
             {
@@ -126,7 +129,7 @@
                 ArtIstId = 6,
                 CardId = 9,
                 ApprovedByAdmin = true,
-
+                ApplicationUserId = "5823bbf1-993c-416b-9bf1-c358fedf38a6",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -139,7 +142,7 @@
                 ArtIstId = 7,
                 CardId = 10,
                 ApprovedByAdmin = true,
-
+                ApplicationUserId = "ad8dada2-c947-4ad3-aaa1-e530f13d21c1",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -152,7 +155,7 @@
                 ArtIstId = 8,
                 CardId = 11,
                 ApprovedByAdmin = true,
-
+                ApplicationUserId = "799d728e-0c16-4e4a-81b3-48a113a88cf1",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -165,6 +168,7 @@
                 ArtIstId = 9,
                 CardId = 12,
                 ApprovedByAdmin = true,
+                ApplicationUserId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -177,6 +181,7 @@
                 ArtIstId = 1,
                 CardId = 13,
                 ApprovedByAdmin = true,
+                ApplicationUserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -189,6 +194,7 @@
                 ArtIstId = 1,
                 CardId = 14,
                 ApprovedByAdmin = true,
+                ApplicationUserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -201,6 +207,7 @@
                 ArtIstId = 1,
                 CardId = 15,
                 ApprovedByAdmin = true,
+                ApplicationUserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -213,6 +220,7 @@
                 ArtIstId = 1,
                 CardId = 16,
                 ApprovedByAdmin = true,
+                ApplicationUserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -225,6 +233,7 @@
                 ArtIstId = 1,
                 CardId = 17,
                 ApprovedByAdmin = true,
+                ApplicationUserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -237,6 +246,7 @@
                 ArtIstId = 1,
                 CardId = 18,
                 ApprovedByAdmin = true,
+                ApplicationUserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -249,6 +259,7 @@
                 ArtIstId = 1,
                 CardId = 19,
                 ApprovedByAdmin = true,
+                ApplicationUserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
             });
             await dbContext.SaveChangesAsync();
         }

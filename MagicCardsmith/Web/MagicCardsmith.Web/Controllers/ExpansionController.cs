@@ -9,11 +9,12 @@
     using MagicCardsmith.Web.ViewModels.CardReview;
     using MagicCardsmith.Web.ViewModels.Event;
     using MagicCardsmith.Web.ViewModels.Expansion;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
 
-    public class ExpansionController : Controller
+    public class ExpansionController : BaseController
     {
         private readonly IExpansionService expansionService;
         private readonly UserManager<ApplicationUser> userManager;
@@ -32,7 +33,7 @@
             this.userManager = userManager;
         }
 
-
+        [AllowAnonymous]
         public IActionResult All()
         {
             var viewModel = new ExpansionListViewModel

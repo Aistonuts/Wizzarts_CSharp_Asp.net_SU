@@ -1,5 +1,63 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model MagicCardsmith.Web.ViewModels.Event.CreateEventViewModel
 @{
+    this.ViewData["Title"] = "Create new Event";
 }
+
+<div class="row text-center no-gutters">
+    <div class="col-md-12">
+        <h2 class="text-header-gold">Create Article</h2>
+        <p>
+            All Articles from Artists, Store Owners and content creators.
+        </p>
+    </div>
+</div>
+<div class="col-md-12 col-lg-8 pl-0 pr-0 order-1 order-lg-1">
+    <div class="card" s="">
+        <div class="card-body pt-2 pb-1">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group row mb-1">
+                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Title"></label>
+                    <div class="col-sm-8 col-lg-6">
+                        <input asp-for="Title" class="form-control" placeholder="Article Title">
+                    </div>
+                    <span asp-validation-for="Title" class="small text-danger"></span>
+                </div>
+                <div class="form-group row mb-1">
+                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="EventDescription"></label>
+                    <div class="col-sm-8 col-lg-6">
+                        <textarea asp-for="EventDescription" class="form-control" placeholder="Description"></textarea>
+                    </div>
+                    <span asp-validation-for="EventDescription" class="small text-danger"></span>
+                </div>
+
+                <div class="form-group row mb-1">
+                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="ImageUrl"></label>
+                    <div class="col-sm-8 col-lg-6">
+                        <input asp-for="ImageUrl" class="form-control" placeholder="Your Article Image">
+                    </div>
+                    <span asp-validation-for="ImageUrl" class="small text-danger"></span>
+                </div>
+                <div class="form-group row mb-1">
+                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="EventStatuses"></label>
+                    <div class="col-sm-8 col-lg-6">
+                        <select asp-for="EventStatuses" class="form-control">
+                            @foreach(var type in Model.EventStatuses)
+                            {
+                                <option value="@type.Id">@type.Name</option>
+                            }                          
+                            </select>
+                    </div>
+                    <span asp-validation-for="EventStatuses" class="small text-danger"></span>
+                </div>
+                <div class="form-group row mb-1">
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-8">
+                        <button type="submit" class="btn btn-light">
+                            <span class="fas fa-plus"></span> <b>Create</b>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

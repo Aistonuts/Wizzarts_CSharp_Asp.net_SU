@@ -110,7 +110,8 @@ namespace MagicCardsmith.Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Home/Error/500");
+                app.UseStatusCodePagesWithReExecute("/Home/Error", "?statusCode={0}");
                 app.UseHsts();
             }
 
@@ -124,7 +125,7 @@ namespace MagicCardsmith.Web
             app.UseAuthorization();
 
             app.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-            app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}/{information?}");
             app.MapRazorPages();
         }
     }

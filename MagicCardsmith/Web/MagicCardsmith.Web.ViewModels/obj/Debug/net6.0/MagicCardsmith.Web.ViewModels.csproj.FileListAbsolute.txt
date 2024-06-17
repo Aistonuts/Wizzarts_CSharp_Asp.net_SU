@@ -18,3 +18,5 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\ref\MagicCardsmith.Web.ViewModels.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\MagicCardsmith.Web.ViewModels.sourcelink.json
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\obj\Debug\net6.0\MagicCar.04FAC62C.Up2Date
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\bin\Debug\net6.0\MagicCardsmith.Common.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Web\MagicCardsmith.Web.ViewModels\bin\Debug\net6.0\MagicCardsmith.Common.pdb

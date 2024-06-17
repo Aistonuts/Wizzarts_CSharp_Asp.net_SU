@@ -7,6 +7,7 @@
     using MagicCardsmith.Data.Common.Repositories;
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Data;
+    using MagicCardsmith.Web.Infrastructure.Extensions;
     using MagicCardsmith.Web.ViewModels.Art;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Hosting;
@@ -14,7 +15,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
 
-    public class ArtController : Controller
+    public class ArtController : BaseController
     {
         private readonly ApplicationDbContext db;
         private readonly IArtService artService;
@@ -34,14 +35,12 @@
             this.artistRepository = artistRepository;
         }
 
-        [Authorize]
         public IActionResult Create()
         {
             return this.View();
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Create(CreateArtInputModel input)
         {
             if (!this.ModelState.IsValid)
@@ -68,6 +67,7 @@
             return this.RedirectToAction("All");
         }
 
+        [AllowAnonymous]
         public IActionResult All(int id = 1)
         {
             if (id <= 0)
@@ -86,15 +86,19 @@
             return this.View(viewModel);
         }
 
-        public IActionResult ById(string id)
+
+        public IActionResult ById(string id, string information)
         {
             var art = this.artService.GetById<SingleArtViewModel>(id);
+            if (information != art.GetInformation())
+            {
+                return this.BadRequest(information);
+            }
+
             return this.View(art);
         }
 
         [HttpPost]
-        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
-
         public async Task<IActionResult> Delete(string id)
         {
             await this.artService.DeleteAsync(id);

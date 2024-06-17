@@ -1,9 +1,10 @@
 ﻿namespace MagicCardsmith.Services.Data
 {
-    using MagicCardsmith.Web.ViewModels.Article;
-    using MagicCardsmith.Web.ViewModels.Premium;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
+    using MagicCardsmith.Web.ViewModels.Article;
+    using MagicCardsmith.Web.ViewModels.Premium;
 
     public interface IUserService
     {
@@ -11,19 +12,11 @@
 
         int GetCountOfArt(string id);
 
+        int GetCountOfEvents(string id);
+
+        int GetCountOfArticles(string id);
+
         IEnumerable<T> GetAllArtByUserId<T>(string id);
-
-        Task<bool> HasArtByUserIdAsync(string userId);
-
-        bool IsStoreOwner(string userId);
-
-        bool IsContentCreator(string userId);
-
-        bool IsArtist(string userId);
-
-        bool HasPublishedContent(string userId);
-
-        bool HasEventParticipation(string userId);
 
         T GetAvatarById<T>(int id);
 

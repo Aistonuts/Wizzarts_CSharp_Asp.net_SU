@@ -384,6 +384,16 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
+      "MagicCardsmith.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/MagicCardsmith.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MagicCardsmith.Common.dll": {}
+        }
+      },
       "MagicCardsmith.Data.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -976,6 +986,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "MagicCardsmith.Common/1.0.0": {
+      "type": "project",
+      "path": "../../MagicCardsmith.Common/MagicCardsmith.Common.csproj",
+      "msbuildProject": "../../MagicCardsmith.Common/MagicCardsmith.Common.csproj"
+    },
     "MagicCardsmith.Data.Common/1.0.0": {
       "type": "project",
       "path": "../MagicCardsmith.Data.Common/MagicCardsmith.Data.Common.csproj",
@@ -984,6 +999,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "MagicCardsmith.Common >= 1.0.0",
       "MagicCardsmith.Data.Common >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.25",
       "StyleCop.Analyzers >= 1.2.0-beta.435"
@@ -1018,6 +1034,9 @@
           "projectReferences": {
             "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data.Common\\MagicCardsmith.Data.Common.csproj": {
               "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data.Common\\MagicCardsmith.Data.Common.csproj"
+            },
+            "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\MagicCardsmith.Common\\MagicCardsmith.Common.csproj": {
+              "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\MagicCardsmith.Common\\MagicCardsmith.Common.csproj"
             }
           }
         }

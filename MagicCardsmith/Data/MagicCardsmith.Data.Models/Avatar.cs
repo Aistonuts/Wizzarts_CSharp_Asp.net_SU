@@ -1,9 +1,9 @@
 ﻿namespace MagicCardsmith.Data.Models
 {
-    using System.Collections;
     using System.Collections.Generic;
 
     using MagicCardsmith.Data.Common.Models;
+    using Microsoft.EntityFrameworkCore;
 
     public class Avatar : BaseDeletableModel<int>
     {
@@ -12,9 +12,11 @@
             this.Users = new HashSet<ApplicationUser>();
         }
 
-        public string Name { get; set; }
+        [Comment("Avatar Name. Seeded.")]
+        public string Name { get; set; } = string.Empty;
 
-        public string AvatarUrl { get; set; }
+        [Comment("Avatar Remote URL. Seeded.")]
+        public string AvatarUrl { get; set; } = string.Empty;
 
         public ICollection<ApplicationUser> Users { get; set; }
     }

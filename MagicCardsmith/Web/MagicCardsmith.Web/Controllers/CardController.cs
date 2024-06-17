@@ -1,27 +1,26 @@
-﻿using MagicCardsmith.Web.ViewModels.CardReview;
-using NuGet.Packaging.Signing;
-
-namespace MagicCardsmith.Web.Controllers
+﻿namespace MagicCardsmith.Web.Controllers
 {
-    using EllipticCurve.Utils;
+    using System;
+    using System.Threading.Tasks;
+
     using MagicCardsmith.Common;
     using MagicCardsmith.Data.Common.Repositories;
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Data;
+    using MagicCardsmith.Web.Infrastructure.Extensions;
     using MagicCardsmith.Web.ViewModels.Art;
     using MagicCardsmith.Web.ViewModels.Card;
+    using MagicCardsmith.Web.ViewModels.CardReview;
     using MagicCardsmith.Web.ViewModels.Event;
-    using MagicCardsmith.Web.ViewModels.Expansion;
-    using MagicCardsmith.Web.ViewModels.Home;
     using MagicCardsmith.Web.ViewModels.Mana;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using System;
-    using System.Threading.Tasks;
 
-    public class CardController : Controller
+    using static MagicCardsmith.Common.GlobalConstants;
+
+    public class CardController : BaseController
     {
         private readonly ICardService cardService;
         private readonly IArtistService artistService;
@@ -32,7 +31,6 @@ namespace MagicCardsmith.Web.Controllers
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IWebHostEnvironment environment;
         private readonly IDeletableEntityRepository<Card> cardRepository;
-
 
         public CardController(
             ICardService cardService,
@@ -56,6 +54,70 @@ namespace MagicCardsmith.Web.Controllers
             this.cardRepository = cardRepository;
         }
 
+
+
+        public async Task<IActionResult> PremiumCreate()
+        {
+            if (this.User.IsInRole(PremiumAccountRoleName) || !this.User.IsInRole(AdministratorRoleName))
+            {
+                return this.RedirectToAction("Membership", "Premium");
+            }
+
+            var viewModel = new PremiumCreateCardInputModel();
+            viewModel.RedMana = this.categoryService.GetAllRedMana();
+            viewModel.BlueMana = this.categoryService.GetAllBlueMana();
+            viewModel.BlackMana = this.categoryService.GetAllBlackMana();
+            viewModel.GreenMana = this.categoryService.GetAllGreenMana();
+            viewModel.WhiteMana = this.categoryService.GetAllWhiteMana();
+            viewModel.ColorlessMana = this.categoryService.GetAllColorlessMana();
+            viewModel.SelectType = this.categoryService.GetAllCardType();
+            viewModel.SelectFrameColor = this.categoryService.GetAllCardFrames();
+            viewModel.SelectExpansion = this.categoryService.GetAllExpansionInListView();
+
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            viewModel.ArtByUserId = this.artService.GetAllArtByUserId<ArtInListViewModel>(user.Id);
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PremiumCreate(PremiumCreateCardInputModel input,  string canvasCapture)
+        {
+            if (this.User.IsInRole(PremiumAccountRoleName) || !this.User.IsInRole(AdministratorRoleName))
+            {
+                return this.RedirectToAction("Membership", "Premium");
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            if (!this.artService.IsBase64String(canvasCapture))
+            {
+                throw new Exception($"Invalid Base64String {canvasCapture}");
+            }
+
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            bool isEventCard = false;
+
+            try
+            {
+                await this.cardService.PremiumCreateAsync(input, user.Id, $"{this.environment.WebRootPath}/Images", isEventCard, false, canvasCapture);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+                return this.View(input);
+            }
+
+            this.TempData["Message"] = "Card added successfully.";
+            return this.RedirectToAction("All", "Event");
+
+        }
+
         public async Task<IActionResult> Create(int id)
         {
             var viewModel = new CreateCardInputModel();
@@ -72,9 +134,9 @@ namespace MagicCardsmith.Web.Controllers
             var milestone = this.eventService.GetMilestoneById<MilestonesInListViewModel>(id);
             var currentEvent = this.eventService.GetById<EventInListViewModel>(milestone.EventId);
             var user = await this.userManager.GetUserAsync(this.User);
-            var idOfArtist = await this.artistService.GetArtistIdByUserIdAsync(user.Id);
 
-            viewModel.ArtByUserId = this.artService.GetAllByArtistId<ArtInListViewModel>(int.Parse(idOfArtist));
+            viewModel.ArtByUserId = this.artService.GetAllArtByUserId<ArtInListViewModel>(user.Id);
+
             viewModel.EventMilestoneImage = milestone.ImageUrl;
             viewModel.EventMilestoneTitle = milestone.Title;
             viewModel.EventMilestoneDescription = milestone.Description;
@@ -86,16 +148,6 @@ namespace MagicCardsmith.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateCardInputModel input, int id, string canvasCapture)
         {
-            if (!this.ModelState.IsValid)
-            {
-                return this.View(input);
-            }
-
-            if (!this.artService.IsBase64String(canvasCapture))
-            {
-                throw new Exception($"Invalid Base64String {canvasCapture}");
-            }
-
             var user = await this.userManager.GetUserAsync(this.User);
             var milestone = this.eventService.GetMilestoneById<MilestonesInListViewModel>(id);
 
@@ -114,6 +166,36 @@ namespace MagicCardsmith.Web.Controllers
                 input.AbilitiesAndFlavor = cardDescription;
             }
 
+            if (!this.ModelState.IsValid)
+            {
+                input.RedMana = this.categoryService.GetAllRedMana();
+                input.BlueMana = this.categoryService.GetAllBlueMana();
+                input.BlackMana = this.categoryService.GetAllBlackMana();
+                input.GreenMana = this.categoryService.GetAllGreenMana();
+                input.WhiteMana = this.categoryService.GetAllWhiteMana();
+                input.ColorlessMana = this.categoryService.GetAllColorlessMana();
+                input.SelectType = this.categoryService.GetAllCardType();
+                input.SelectFrameColor = this.categoryService.GetAllCardFrames();
+                input.SelectExpansion = this.categoryService.GetAllExpansionInListView();
+
+                var currentEvent = this.eventService.GetById<EventInListViewModel>(milestone.EventId);
+
+                input.ArtByUserId = this.artService.GetAllArtByUserId<ArtInListViewModel>(user.Id);
+
+                input.EventMilestoneImage = milestone.ImageUrl;
+                input.EventMilestoneTitle = milestone.Title;
+                input.EventMilestoneDescription = milestone.Description;
+                input.EventDescription = currentEvent.EventDescription;
+                input.EventId = milestone.EventId;
+
+                return this.View(input);
+            }
+
+            if (!this.artService.IsBase64String(canvasCapture))
+            {
+                throw new Exception($"Invalid Base64String {canvasCapture}");
+            }
+
             try
             {
                 await this.cardService.CreateAsync(input, user.Id, milestone.EventId, $"{this.environment.WebRootPath}/Images", isEventCard, milestone.RequireArtInput, canvasCapture);
@@ -128,6 +210,7 @@ namespace MagicCardsmith.Web.Controllers
             return this.RedirectToAction("All","Event");
         }
 
+        [AllowAnonymous]
         public IActionResult All( int id = 1)
         {
             if (id <= 0)
@@ -147,17 +230,28 @@ namespace MagicCardsmith.Web.Controllers
             return this.View(viewModel);
         }
 
-        public IActionResult ById(int id)
+        public IActionResult ById(int id, string information)
         {
             var card = this.cardService.GetById<SingleCardViewModel>(id);
             card.Mana = this.cardService.GetAllByCardId<ManaListViewModel>(id);
             card.CardReviews = this.reviewService.GetAllReviews<CardReviewInListViewModel>();
+
+            if (information != card.GetCardName())
+            {
+                return this.BadRequest(information);
+            }
+
             return this.View(card);
         }
 
         [HttpPost]
         public async Task<IActionResult> CommentAsync(SingleCardViewModel model, int id)
         {
+            if (this.User.IsInRole(PremiumAccountRoleName) || !this.User.IsInRole(AdministratorRoleName) || this.User.IsInRole(ArtistRoleName) || this.User.IsInRole(StoreOwnerRoleName))
+            {
+                return this.RedirectToAction("Membership", "Premium");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 return this.View(model);

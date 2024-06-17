@@ -5,8 +5,9 @@
     using AutoMapper;
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Mapping;
+    using MagicCardsmith.Web.ViewModels.Article;
 
-    public class IndexPageArticleViewModel : IMapFrom<Article>, IHaveCustomMappings
+    public class IndexPageArticleViewModel : IMapFrom<Article>, IHaveCustomMappings, ISingleArticleViewModel
     {
         public int Id { get; set; }
 

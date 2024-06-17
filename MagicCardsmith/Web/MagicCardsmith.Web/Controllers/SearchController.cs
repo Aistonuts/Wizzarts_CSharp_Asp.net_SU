@@ -8,11 +8,12 @@
     using MagicCardsmith.Web.ViewModels.Card;
     using MagicCardsmith.Web.ViewModels.SearchArt;
     using MagicCardsmith.Web.ViewModels.SearchCard;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
-    public class SearchController : Controller
+    public class SearchController : BaseController
     {
         private readonly ApplicationDbContext db;
         private readonly IArtService artService;
@@ -38,6 +39,7 @@
             this.artistRepository = artistRepository;
         }
 
+        [AllowAnonymous]
         public IActionResult All(int id)
         {
             var viewModel = new ArtByArtistListViewModel
@@ -61,6 +63,7 @@
         //}
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Search(SearchListInputModel input)
         {
 
@@ -74,6 +77,7 @@
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult AdvancedSearch(SearchListInputModel input)
         {
             var viewModel = new CardSearchResultViewModel

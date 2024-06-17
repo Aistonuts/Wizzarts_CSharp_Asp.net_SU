@@ -4,7 +4,7 @@
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Mapping;
 
-    public class ExpansionInListViewModel : IMapFrom<GameExpansion>, IHaveCustomMappings
+    public class ExpansionInListViewModel : IMapFrom<GameExpansion>, IHaveCustomMappings, ISingleExpansionViewModel
     {
         public int Id { get; set; }
 

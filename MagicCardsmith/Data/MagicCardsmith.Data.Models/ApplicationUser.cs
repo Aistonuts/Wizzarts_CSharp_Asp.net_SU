@@ -3,9 +3,13 @@ namespace MagicCardsmith.Data.Models
 {
     using System;
     using System.Collections.Generic;
-    using MagicCardsmith.Data.Common.Models;
+    using System.ComponentModel.DataAnnotations;
 
+    using MagicCardsmith.Data.Common.Models;
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
+
+    using static MagicCardsmith.Common.DataConstants;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
@@ -24,15 +28,21 @@ namespace MagicCardsmith.Data.Models
             this.Reviews = new HashSet<CardReview>();
         }
 
-        public string Nickname { get; set; }
+        [MaxLength(UserNickNameMaxLength)]
+        [PersonalData]
+        public string Nickname { get; set; } = string.Empty;
 
-        public string AvatarUrl { get; set; }
-
+        [Comment("Avatar Identifier.Picked after signing in")]
         public int? AvatarId { get; set; }
+
+        [Required]
+        [Comment("Avatar remote URL.Picked after signing in")]
+        public string AvatarUrl { get; set; } = string.Empty;
 
         public Avatar Avatar { get; set; }
 
-        public string GameRulesId { get; set; }
+        [Comment("Game Rules published by Admin")]
+        public string? GameRulesId { get; set; } = string.Empty;
 
         public MagicCardsmithGameRules GameRules { get; set; }
 

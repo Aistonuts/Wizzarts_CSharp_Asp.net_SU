@@ -162,5 +162,14 @@
             await this.artRepository.SaveChangesAsync();
             this.cache.Remove(ArtsCacheKey);
         }
+
+        public IEnumerable<T> GetAllArtByUserId<T>(string id)
+        {
+            var art = this.artRepository.AllAsNoTracking()
+              .Where(x => x.ApplicationUserId == id)
+              .To<T>().ToList();
+
+            return art;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿@model MagicCardsmith.Web.ViewModels.Card.CardListViewModel
+@using MagicCardsmith.Web.Infrastructure.Extensions
 @{
     this.ViewData["Title"] = "All Cards";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,11 +8,11 @@
 <div class="row mt-2">
     <div class="col-md-12">
         <div id="DigitalArt" class="outer-container">
-            @foreach (var card in this.Model.Cards.Where(x => x.ApprovedByAdmin == true))
+            @foreach (var card in this.Model.Cards)
             {
                 <div class="inner-container">
-                    <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
-                        <img class="lazy" src="@card.ImageUrl" alt="@card.Name" style="">
+                    <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" asp-route-information="@card.GetCardName()" class="item ae-card-link cardLink ">
+                        <img class="lazy" src="@card.CardRemoteUrl" alt="@card.Name" style="">
                         <div class="item-hidden-text">@card.Name</div>
                     </a>
                     <div class="item-footer">

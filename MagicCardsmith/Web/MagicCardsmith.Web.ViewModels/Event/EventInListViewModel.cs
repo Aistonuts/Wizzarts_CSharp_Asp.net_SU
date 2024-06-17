@@ -6,7 +6,7 @@
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Mapping;
 
-    public class EventInListViewModel : IMapFrom<Event>, IHaveCustomMappings
+    public class EventInListViewModel : IMapFrom<Event>, IHaveCustomMappings, ISingleEventViewModel
     {
         public int Id { get; set; }
 

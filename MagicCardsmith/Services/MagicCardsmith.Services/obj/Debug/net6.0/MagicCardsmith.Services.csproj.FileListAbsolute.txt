@@ -20,3 +20,5 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCard
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Services.Mapping.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\obj\Debug\net6.0\MagicCardsmith.Services.csproj.AssemblyReference.cache
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\obj\Debug\net6.0\MagicCar.6F37EC9E.Up2Date
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Common.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\MagicCardsmith\Services\MagicCardsmith.Services\bin\Debug\net6.0\MagicCardsmith.Common.pdb

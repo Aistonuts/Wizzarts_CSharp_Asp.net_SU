@@ -1,81 +1,79 @@
 ﻿@using MagicCardsmith.Common
+@using MagicCardsmith.Web.Infrastructure.Extensions
 @model MagicCardsmith.Web.ViewModels.Home.IndexViewModel
 @{
     this.ViewData["Title"] = "Home Page";
 }
 <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-3">
-    <div class="row">
+    <div class="col-sm-12 col-md-12 pl-0 pr-0">
+        <h1 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Welcome to @GlobalConstants.SystemName!</h1>
+        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Newest Articles</h4>
 
-        <div class="col-sm-12 col-md-12 pl-0 pr-0">
-            <h1 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Welcome to @GlobalConstants.SystemName!</h1>
-            <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Newest Articles</h4>
+        <div class="firstfeed-flexbox">
+            @foreach (var article in this.Model.Articles)
+            {
+                <div class="article-card card border-0">
+                    <a href="" aria-label="article" class="image-wrapper">
+                        <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()">
+                            <img src="@article.ImageUrl" class="article-uimgheader" alt="@article.Title">
+                        </a>
+                    </a>
+                    <div class="card-body pt-0">
+                        <small class="yellow-line">
+                            <a href=""><i class="far fa-star"></i>@article.ArticleCreatorName</a>
+                            <span>@article.CreatedOn</span>
+                        </small>
+                        <div class="ff-display font-size-18">
+                            <b><a href="">@article.Title</a></b>
+                        </div>
+                        <div class="card-text d-none d-md-flex m-1">@article.ShortDescription</div>
+                    </div>
+                </div>
+            }
+        </div>
+        <hr />
+        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Art</h4>
+        <div class="firstfeed-flexbox">
+            @foreach (var art in this.Model.Arts)
+            {
+                <div class="inner-container">
+                    <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" asp-route-information="@art.GetInformation()" class="item ae-card-link cardLink ">
+                        <img class="lazy" src="@art.ImageUrl" alt="@art.Title" style="">
+                        <div class="item-hidden-text">@art.Title</div>
+                    </a>
+                    <div class="item-footer">
+                    </div>
+                </div>
+            }
+        </div>
+        <hr />
+        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Cards</h4>
+        <div class="firstfeed-flexbox">
+            @foreach (var card in this.Model.Cards)
+            {
+                <div class="inner-container">
+                    <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" asp-route-information="@card.GetCardName()" class="item ae-card-link cardLink ">
+                        <img  src="@card.CardRemoteUrl" alt="@card.Name" style="">
+                        <div class="item-hidden-text">@card.CardExpansion</div>
+                    </a>
+                    <div class="item-footer">
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="mb-5"></div>
 
-            <div class="firstfeed-flexbox">
-                @foreach (var article in this.Model.Articles)
-                {
-                    <div class="article-card card border-0">
-                        <a href="" aria-label="article" class="image-wrapper">
-                            <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id">
-                                <img src="@article.ImageUrl" class="article-uimgheader" alt="@article.Title">
-                            </a>
-                        </a>
-                        <div class="card-body pt-0">
-                            <small class="yellow-line">
-                                <a href=""><i class="far fa-star"></i>@article.ArticleCreatorName</a>
-                                <span>@article.CreatedOn</span>
-                            </small>
-                            <div class="ff-display font-size-18">
-                                <b><a href="">@article.Title</a></b>
-                            </div>
-                            <div class="card-text d-none d-md-flex m-1">@article.ShortDescription</div>
-                        </div>
-                    </div>
-                }
+        <div class="row">
+            <div class="col-12 text-center">
+                <button class="btn btn-primary" id="statistics_btn">Show Statistics</button>
             </div>
-            <hr />
-            <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Art</h4>
-            <div class="firstfeed-flexbox">
-                @foreach (var art in this.Model.Arts)
-                {
-                    <div class="inner-container">
-                        <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" class="item ae-card-link cardLink ">
-                            <img class="lazy" src="@art.ImageUrl" alt="@art.Title" style="">
-                            <div class="item-hidden-text">@art.Title</div>
-                        </a>
-                        <div class="item-footer">
-                        </div>
-                    </div>
-                }
-            </div>
-            <hr />
-            <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Cards</h4>
-            <div class="firstfeed-flexbox">
-                @foreach (var card in this.Model.Cards)
-                {
-                    <div class="inner-container">
-                        <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
-                            <img class="lazy" src="@card.ImageUrl" alt="@card.Name" style="">
-                            <div class="item-hidden-text">@card.CardExpansion</div>
-                        </a>
-                        <div class="item-footer">
-                        </div>
-                    </div>
-                }
-            </div>
-            <div class="mb-5"></div>
+        </div>
 
+        <div class="mt-4 p-5 bg-light d-none" id="statistics_box">
             <div class="row">
-                <div class="col-12 text-center">
-                    <button class="btn btn-primary" id="statistics_btn">Show Statistics</button>
-                </div>
-            </div>
-
-            <div class="mt-4 p-5 bg-light d-none" id="statistics_box">
-                <div class="row">
-                    <h2 class="col-md-6 text-center" id="total_houses"></h2>
-                    <h2 class="col-md-6 text-center" id="total_rents"></h2>
-                    <h2 class="col-md-6 text-center" id="total_names"></h2>
-                </div>
+                <h2 class="col-md-6 text-center" id="total_houses"></h2>
+                <h2 class="col-md-6 text-center" id="total_rents"></h2>
+                <h2 class="col-md-6 text-center" id="total_names"></h2>
             </div>
         </div>
     </div>
@@ -83,36 +81,43 @@
 
 <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
     <div class="card mb-2 ">
-        <div class="ae-border-bottom-light  p-0 text-center">
+        <div class="ae-border-bottom-light p-0 text-center ff-display">
             <b><i class="fas fa-database"></i>Game Expansions</b>
         </div>
-        <p class="card-text">
-            The MagicCardsmith database contains a full list of <a href="/Card/Set">all card sets</a> in MTG,ordered by  <a href="/Card/Set">expansions</a> a card <a href="/Card">creation tool for all approved artists</a>,
-            <a href="/Apps/LimitedRatings">limited ratings</a>, <a href="/Article/">article archive</a>, <a href="/MTGAGuides">MTG Arena Guides</a> and
-            detailed <a href="/Docs/">documentation</a> of the website.
-        </p>
-        @foreach (var gameExpansion in this.Model.GameExpansions)
-        {
-            <div class="card-body p-2">
-                <p class="card-text">
-                    The @gameExpansion.Title @gameExpansion.Description .
-                </p>
-            </div>
-        }
+        <div class="card-body p-2">
+            <p class="card-text">
+                The MagicCardsmith database contains a full list of <a href="/Card/Set">all card sets</a> in MTG,ordered by  <a href="/Card/Set">expansions</a> a card <a href="/Card">creation tool for all approved artists</a>,
+                <a href="/Apps/LimitedRatings">limited ratings</a>, <a href="/Article/">article archive</a>, <a href="/MTGAGuides">MTG Arena Guides</a> and
+                detailed <a href="/Docs/">documentation</a> of the website.
 
+                @foreach (var gameExpansion in this.Model.GameExpansions)
+                {
+
+
+                    <a class="card-text d-none d-md-flex m-1">The @gameExpansion.Title @gameExpansion.Description .</a>
+
+
+
+                }
+            </p>
+        </div>
     </div>
     <div class="card mb-2 ">
         <div class="ae-border-bottom-light  p-0 text-center">
             <b><i class="fas fa-users"></i> Our Stores</b>
         </div>
-        @foreach (var store in this.Model.Stores)
-        {
-            <div class="card-body p-2">
+        <div class="card-body p-2">
+
+                @foreach (var store in this.Model.Stores)
+                {
                 <p class="card-text">
-                    The @store.Name is a @store.Country based store.It is located in the city of @store.City .
+
+                     <a href="/Card/Set">The @store.Name</a> is a @store.Country based store.It is located in the city of @store.City .
+
                 </p>
-            </div>
-        }
+                }
+
+        </div>
     </div>
     <div class="card mb-2 ">
         <div class="ae-border-bottom-light  p-0 text-center">
@@ -142,7 +147,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-   
+
     <script>search();</script>
 
 }

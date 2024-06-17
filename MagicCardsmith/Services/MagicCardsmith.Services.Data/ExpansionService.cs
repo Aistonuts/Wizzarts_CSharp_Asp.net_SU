@@ -21,6 +21,7 @@
         {
             var expansions = this.gameExpansionRepository.AllAsNoTracking()
                  .OrderBy(x => x.Id)
+                 .Where(x => x.Cards.Count() > 0)
                  .To<T>().ToList();
 
             return expansions;

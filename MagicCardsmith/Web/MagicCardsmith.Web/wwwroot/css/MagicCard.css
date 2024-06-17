@@ -164,6 +164,14 @@
        
 }
 
+.frame-art-flavor {
+    height: 44.3%;
+    margin: 47.3px 26px;
+    position: absolute;
+    max-height: 328px;
+    max-width: 397px;
+}
+
 #set-icon {
     height: 100%;
     width: 6%;

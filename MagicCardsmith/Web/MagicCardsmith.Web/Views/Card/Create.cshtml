@@ -1,4 +1,6 @@
 ﻿@model MagicCardsmith.Web.ViewModels.Card.CreateCardInputModel
+
+@using MagicCardsmith.Web.Infrastructure.Extensions
 @{
     this.ViewData["Title"] = "Add new play card";
 }
@@ -36,7 +38,7 @@
 
 <div class="container-create">
     <div class="first">
-       
+
         <table id="html-content-holder" border="0" cellspacing="0" cellpadding="0" style="clear: both;">
             <tbody>
                 <tr style="width:100%">
@@ -45,7 +47,7 @@
                         {
                             <form method="post" enctype="multipart/form-data">
                                 <table border="0" cellspacing="1" cellpadding="5" style="width:100%;">
-                                   <tbody>
+                                    <tbody>
                                         <tr class="row1" id="submitCardImage" hidden>
                                             <td>
                                                 <div>
@@ -62,11 +64,11 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                                                              
-                                   </tbody>
-                               </table>
+
+                                    </tbody>
+                                </table>
                                 <table id="cardData" border="0" cellspacing="0" cellpadding="2" style="width:100%;">
-                                    <tbody>                                      
+                                    <tbody>
                                         <tr class="row1">
                                             <td style="width:30%">
                                                 <label asp-for="Name">Name:</label>
@@ -74,8 +76,9 @@
                                             <td>
                                                 <input asp-for="Name" name="name" id="name" placeholder="@Model.CardDefaultName" maxlength="20">
                                             </td>
-                                        </tr>                                      
-                                        <tr class="row2">
+                                            <span asp-validation-for="@Model.Name" class="small text-danger"></span>
+                                        </tr>
+                                        <tr class="row1">
                                             <td>
                                                 <label asp-for="CardFrameId">Frame:</label>
                                             </td>
@@ -87,6 +90,7 @@
                                                     }
                                                 </select>
                                             </td>
+                                            <span asp-validation-for="@Model.CardFrameId" class="small text-danger"></span>
                                         </tr>
                                         <tr class="row1">
                                             <td>
@@ -172,6 +176,7 @@
                                                     }
                                                 </select>
                                             </td>
+                                            <span asp-validation-for="@Model.CardTypeId" class="small text-danger"></span>
                                         </tr>
                                         <tr class="row2">
                                             <td>
@@ -187,6 +192,7 @@
                                                     }
                                                 </select>
                                             </td>
+                                            <span asp-validation-for="@Model.GameExpansionId" class="small text-danger"></span>
                                         </tr>
                                         <tr class="row1">
                                             <td>
@@ -222,6 +228,7 @@
                                                     <a href="#" class="clearTextFromCard" id="t"><img src="~/images/mana/t.png"></a>
                                                 </div>
                                             </td>
+                                            <span asp-validation-for="@Model.AbilitiesAndFlavor" class="small text-danger"></span>
                                         </tr>
                                         <tr class="row1">
                                         </tr>
@@ -232,7 +239,7 @@
                                                 <input asp-for="Toughness" id="toughness" size="2" maxlength="2">
                                             </td>
                                         </tr>
-                                       
+
                                     </tbody>
                                 </table>
                             </form>
@@ -256,68 +263,100 @@
                         }
                         @if (Model.EventId == 2)
                         {
-                            <form method="post" id="cardinfo" enctype="multipart/form-data">
+                            @if (Model.ArtByUserId.Where(x => x.ApprovedByAdmin == true).Any())
+                            {
+                                <form method="post" id="cardinfo" enctype="multipart/form-data">
+                                    <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
+                                        <tbody>
+                                            <tr class="row1">
+                                                <td>
+                                                    <label asp-for="ArtId">Art:</label>
+                                                </td>
+                                                <td>
+                                                    <select asp-for="ArtId" id="artByArtist" onchange="artByArtistFunc(event);">
+                                                        <option value="0" selected="true">
+                                                        </option>
+                                                        @foreach (var art in Model.ArtByUserId)
+                                                        {
+                                                            <option data-container="@art.ImageUrl" value="@art.Id">@art.Title</option>
+                                                        }
+                                                    </select>
+                                                </td>
+                                                <span asp-validation-for="@Model.ArtId" class="small text-danger"></span>
+                                            </tr>
+                                            <div class="form-group row mb-1" hidden>
+                                                <label class="col-sm-2 col-lg-2 col-form-label" asp-for="@Model.Images"></label>
+                                                <div class="col-sm-8 col-lg-6">
+                                                    <input asp-for="@Model.Images" type="hidden" value="" name="canvasCapture" class="form-control" id="imageData">
+                                                </div>
+                                            </div>
+
+                                            <tr class="row2">
+                                                <td>
+                                                    <label asp-for="GameExpansionId">Expansion Symbol:</label>
+                                                </td>
+                                                <td>
+                                                    <select asp-for="GameExpansionId" id="expansion" onchange="expansionSymbolFunc(event)">
+                                                        <option value="0" selected="true">
+                                                        </option>
+                                                        @foreach (var type in Model.SelectExpansion)
+                                                        {
+                                                            <option value="@type.Id">@type.Title</option>
+                                                        }
+                                                    </select>
+                                                </td>
+                                                <span asp-validation-for="@Model.GameExpansionId" class="small text-danger"></span>
+                                            </tr>
+
+                                            <input type="submit" id="submitEventTwo" value="Submit" class="btn btn-warning" hidden>
+                                        </tbody>
+                                    </table>
+
+                                </form>
+
+
                                 <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
                                     <tbody>
-                                        <tr class="row2">
-                                            <td>
-                                                <label asp-for="EventMilestoneDescription">Art:</label>
-                                            </td>
-                                            <td>
 
-                                                <select asp-for="ArtId" id="artByArtist" onchange="artByArtistFunc(event);">
-                                                    <option value="0" selected="true">
-                                                    </option>
-                                                    @foreach (var art in Model.ArtByUserId)
-                                                    {
-                                                        <option data-container="@art.ImageUrl" value="@art.Id">@art.Title</option>
-                                                    }
-                                                </select>
+                                        <tr class="row1">
+                                            <td>
+                                                <div id="previewEventTwo" style="font-size:16px;min-width:0px">
+                                                    <button class="btn btn-info">Preview</button>
+                                                </div>
                                             </td>
                                         </tr>
-                                        <div class="form-group row mb-1" hidden>
-                                            <label class="col-sm-2 col-lg-2 col-form-label" asp-for="@Model.Images"></label>
-                                            <div class="col-sm-8 col-lg-6">
-                                                <input asp-for="@Model.Images" type="hidden" value="" name="canvasCapture" class="form-control" id="imageData">
-                                            </div>
-                                            <span asp-validation-for="@Model.Images" class="small text-danger"></span>
-                                        </div>
-
-                                        <tr class="row2">
-                                            <td>
-                                                <label asp-for="GameExpansionId">Expansion Symbol:</label>
-                                            </td>
-                                            <td>
-                                                <select asp-for="GameExpansionId" id="expansion" onchange="expansionSymbolFunc(event)">
-                                                    <option value="0" selected="true">
-                                                    </option>
-                                                    @foreach (var type in Model.SelectExpansion)
-                                                    {
-                                                        <option value="@type.Id">@type.Title</option>
-                                                    }
-                                                </select>
-                                            </td>
-                                        </tr>
-                                       
-                                        <input type="submit" id="submitEventTwo"value="Submit" class="btn btn-warning" hidden>
                                     </tbody>
                                 </table>
+                            }
+                            else
+                            {
+                                @if (Model.ArtByUserId.Any())
+                                {
+                                    <div class="row text-center no-gutters">
+                                        <div class="col-md-12">
+                                            <h2 class="text-header-gold">You have @Model.ArtByUserId.Count() art piece(s) waiting for approval.Click below to add new art piece.</h2>
+                                            <p>
+                                                <a class="dropdown-item" asp-area="" asp-controller="Art" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="row text-center no-gutters">
+                                        <div class="col-md-12">
+                                            <h2 class="text-header-gold">You do not own any art. Click below to add a new art piece</h2>
+                                            <p>
+                                                <a class="dropdown-item" asp-area="" asp-controller="Art" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                }
 
-                            </form>
+                            }
 
 
-                            <table border="0" cellspacing="0" cellpadding="2" style="width:100%;" >
-                                <tbody>
-  
-                                    <tr class="row1">
-                                        <td>
-                                            <div id="previewEventTwo" style="font-size:16px;min-width:0px">
-                                                <button class="btn btn-info">Preview</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
                         }
                     </td>
                 </tr>
@@ -384,7 +423,7 @@
             {
                 <div class="card-background" id="backgroundTwo" style="background-image: url('@Model.EventMilestoneImage')">
                     <div class="card-frame">
-                        <img id="imageInput" class="frame-art" src="">
+                        <img id="imageInput" class="frame-art-flavor" src="">
                         <div class="frame-header-v2">
                             <h1 class="type" id="cardtype"></h1>
                             <div id="symbolHeader">
@@ -411,29 +450,51 @@
                 document.getElementById("previewEventTwo").hidden = true;
                 document.getElementById("submitEventTwo").hidden = false;
                 document.getElementById("startOver").hidden = false;
-                
+
             });
         });
     </script>
 
     <script>
-        document.getElementById("screenshot").addEventListener("click", function () {
-            html2canvas(document.getElementById("background")).then(function (canvas) {
-                var anchorTag = document.createElement("a");
-                var dataURL = canvas.toDataURL("image/png", 1.0);
-                dataURL = dataURL.replace('data:image/png;base64,', '');
-                $("#imageDataEventOne").val(dataURL);
-                document.getElementById("submitButton").hidden = false;
-                document.getElementById("submitCardImage").hidden = false;
-                document.getElementById("cardData").hidden = true;
-                document.getElementById("startOver").hidden = false;
-                document.getElementById("cardTools").hidden = true;
+        const el = document.getElementById('screenshot');
+        if (el) {
+            el.addEventListener("click", function () {
+                html2canvas(document.getElementById("background")).then(function (canvas) {
+                    var anchorTag = document.createElement("a");
+                    var dataURL = canvas.toDataURL("image/png", 1.0);
+                    dataURL = dataURL.replace('data:image/png;base64,', '');
+                    $("#imageDataEventOne").val(dataURL);
+                    document.getElementById("submitButton").hidden = false;
+                    document.getElementById("submitCardImage").hidden = false;
+                    document.getElementById("cardData").hidden = true;
+                    document.getElementById("startOver").hidden = false;
+                    document.getElementById("cardTools").hidden = true;
 
+                });
             });
-        });
+        };
     </script>
 
-   @*  <script>
+
+
+
+    @*
+                document.getElementById("screenshot").addEventListener("click", function () {
+                html2canvas(document.getElementById("background")).then(function (canvas) {
+                    var anchorTag = document.createElement("a");
+                    var dataURL = canvas.toDataURL("image/png", 1.0);
+                    dataURL = dataURL.replace('data:image/png;base64,', '');
+                    $("#imageDataEventOne").val(dataURL);
+                    document.getElementById("submitButton").hidden = false;
+                    document.getElementById("submitCardImage").hidden = false;
+                    document.getElementById("cardData").hidden = true;
+                    document.getElementById("startOver").hidden = false;
+                    document.getElementById("cardTools").hidden = true;
+
+                });
+            }); *@
+
+    @*  <script>
 
         document.getElementById("screenshot").addEventListener("click", function () {
             html2canvas(document.getElementById("background")).then(function (canvas) {
@@ -442,7 +503,7 @@
                 document.getElementById("second").innerHTML = '';
                 document.getElementById("second").appendChild(canvas);
                 var name = document.getElementById("name").value;
-          
+
 
                 var dataURL = canvas.toDataURL("image/jpg", 1.0);
 
@@ -461,11 +522,11 @@
             document.getElementById("submitCardImage").hidden = false;
             document.getElementById("cardData").hidden = true;
             document.getElementById("startOver").hidden = false;
-            document.getElementById("cardTools").hidden = true;           
+            document.getElementById("cardTools").hidden = true;
         } *@
-        
-       
-    </script>
+
+
+        </script>
 
     <script type="text/javascript">
 

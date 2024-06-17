@@ -439,6 +439,16 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
+      "MagicCardsmith.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/MagicCardsmith.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MagicCardsmith.Common.dll": {}
+        }
+      },
       "MagicCardsmith.Data.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -456,6 +466,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "MagicCardsmith.Common": "1.0.0",
           "MagicCardsmith.Data.Common": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.25"
         },
@@ -1201,6 +1212,11 @@
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "MagicCardsmith.Common/1.0.0": {
+      "type": "project",
+      "path": "../../MagicCardsmith.Common/MagicCardsmith.Common.csproj",
+      "msbuildProject": "../../MagicCardsmith.Common/MagicCardsmith.Common.csproj"
     },
     "MagicCardsmith.Data.Common/1.0.0": {
       "type": "project",

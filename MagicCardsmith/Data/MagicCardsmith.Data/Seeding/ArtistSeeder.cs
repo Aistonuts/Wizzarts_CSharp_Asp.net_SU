@@ -93,7 +93,7 @@
                 Email = "thammer@aol.com",
                 Bio = "Thammer is one of Blizzard's most influential artists.Thammer worked on artwork featured in the Warcraft II manual,[1] and was responsible for much of the design of the undead, the goblins, and night elf structures in Warcraft III",
                 AvatarUrl = "/images/avatar/Portrait_Thammer.png",
-                UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                UserId = "799d728e-0c16-4e4a-81b3-48a113a88cf1",
                 ApprovedByAdmin = true,
             });
 

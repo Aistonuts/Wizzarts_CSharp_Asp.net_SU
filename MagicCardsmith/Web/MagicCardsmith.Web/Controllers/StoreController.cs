@@ -7,7 +7,7 @@
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
 
-    public class StoreController : Controller
+    public class StoreController : BaseController
     {
         private readonly IStoreService storeService;
 
@@ -17,6 +17,7 @@
             this.storeService = storeService;
         }
 
+        [AllowAnonymous]
         public IActionResult All( int id = 1)
         {
             if (id <= 0)

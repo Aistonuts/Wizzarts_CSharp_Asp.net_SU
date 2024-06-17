@@ -6,6 +6,7 @@
     using MagicCardsmith.Common;
     using MagicCardsmith.Data.Models;
     using MagicCardsmith.Services.Data;
+    using MagicCardsmith.Web.Infrastructure.Extensions;
     using MagicCardsmith.Web.ViewModels.Article;
     using MagicCardsmith.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Authorization;
@@ -13,7 +14,9 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
-    public class ArticleController : Controller
+    using static MagicCardsmith.Common.GlobalConstants;
+
+    public class ArticleController : BaseController
     {
         private readonly IArticleService articleService;
         private readonly UserManager<ApplicationUser> userManager;
@@ -29,7 +32,7 @@
             this.environment = environment;
         }
 
-       // [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+
         public IActionResult Edit()
         {
             return this.View();
@@ -37,7 +40,6 @@
 
 
         [HttpPost]
-        //[Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Edit(int id, EditArticleInputModel input)
         {
             if (!this.ModelState.IsValid)
@@ -49,12 +51,15 @@
             return this.RedirectToAction(nameof(this.ById), new { id });
         }
 
+        [Authorize(Roles = AdministratorRoleName + "," + PremiumAccountRoleName + "," + ArtistRoleName)]
         public IActionResult Create()
         {
+
             return this.View();
         }
 
         [HttpPost]
+        [Authorize(Roles = AdministratorRoleName + "," + PremiumAccountRoleName + "," + ArtistRoleName)]
         public async Task<IActionResult> Create(CreateArticleInputModel input)
         {
             if (!this.ModelState.IsValid)
@@ -80,10 +85,16 @@
             return this.RedirectToAction("Index", "Home");
         }
 
-        public IActionResult ById(int id)
+        public IActionResult ById(int id, string information)
         {
             var article = this.articleService.GetById<SingleArticleViewModel>(id);
             article.Articles = this.articleService.GetRandom<IndexPageArticleViewModel>(3);
+
+            if (information != article.GetArticleTitle())
+            {
+                return this.BadRequest(information);
+            }
+
             return this.View(article);
         }
 
