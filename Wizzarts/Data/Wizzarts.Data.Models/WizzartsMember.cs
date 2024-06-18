@@ -30,6 +30,11 @@
         [Comment("Avatar remote URL.Picked after signing in")]
         public string AvatarUrl { get; set; } = string.Empty;
 
+        [Comment("Avatar Identifier.Picked after signing in")]
+        public int AvatarId { get; set; }
+
+        public Avatar Avatar { get; set; }
+
         [Comment("Information about the artist")]
         public string Bio { get; set; } = string.Empty;
 
@@ -44,7 +49,6 @@
 
         [Comment("Team MagicCardsmith art pieces")]
         public virtual ICollection<Art> ArtPieces { get; set; }
-
 
         public virtual ICollection<Article> Articles { get; set; }
 

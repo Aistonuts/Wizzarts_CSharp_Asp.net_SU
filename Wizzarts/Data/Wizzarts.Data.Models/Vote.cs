@@ -13,10 +13,10 @@
         public virtual PlayCard Card { get; set; }
 
         [Comment("Vote casted by.")]
-        public string UserId { get; set; } = string.Empty;
+        public string AddedByMemberId { get; set; } = string.Empty;
 
-        [ForeignKey(nameof(UserId))]
-        public virtual WizzartsMember User { get; set; }
+        [ForeignKey(nameof(AddedByMemberId))]
+        public virtual WizzartsMember AddedByMember { get; set; }
 
         [Comment("Vote value")]
         public byte Value { get; set; }

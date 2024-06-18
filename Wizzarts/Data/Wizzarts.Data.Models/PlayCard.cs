@@ -82,9 +82,9 @@ namespace Wizzarts.Data.Models
         public string Toughness { get; set; } = string.Empty;
 
         [Comment("This card is part of which expansion.")]
-        public int? GameExpansionId { get; set; }
+        public int CardGameExpansionId { get; set; }
 
-        public CadGameExpansion GameExpansion { get; set; }
+        public CadGameExpansion CardGameExpansion { get; set; }
 
         [Comment("Has this card been created during an event.")]
         public bool IsEventCard { get; set; }
@@ -98,11 +98,11 @@ namespace Wizzarts.Data.Models
         [Comment("Art from the database that has been used for creating this card.")]
         public virtual Art Art { get; set; }
 
-        public string CardSmithId { get; set; } = string.Empty;
+        public string AddedByMemberId { get; set; } = string.Empty;
 
         [Comment("Who is the creator of this card")]
-        [ForeignKey(nameof(CardSmithId))]
-        public virtual ApplicationUser CardSmith { get; set; }
+        [ForeignKey(nameof(AddedByMemberId))]
+        public virtual WizzartsMember AddedByMember { get; set; }
 
         [Comment("Has this card been approved by admin.")]
         public bool ApprovedByAdmin { get; set; }

@@ -20,7 +20,7 @@
         public string AvatarUrl { get; set; } = string.Empty;
 
         [Comment("Game Rules published by Admin")]
-        public string? GameRulesId { get; set; } = string.Empty;
+        public string GameRulesId { get; set; } = string.Empty;
 
         public WizzartsGameRules GameRules { get; set; }
 

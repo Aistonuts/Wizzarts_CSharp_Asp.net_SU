@@ -33,17 +33,12 @@
         [Comment("Image extension")]
         public string Extension { get; set; } = string.Empty;
 
-        [Comment("Card identifier.")]
-        public int? CardId { get; set; }
-
-        public PlayCard Card { get; set; }
-
         [Comment("New art piece  has been approved or not")]
         public bool ApprovedByAdmin { get; set; }
 
-        public string ApplicationUserId { get; set; } = string.Empty;
+        public string AddedByMemberId { get; set; } = string.Empty;
 
-        [ForeignKey(nameof(ApplicationUserId))]
-        public ApplicationUser ApplicationUser { get; set; }
+        [ForeignKey(nameof(AddedByMemberId))]
+        public WizzartsMember AddedByMember { get; set; }
     }
 }
