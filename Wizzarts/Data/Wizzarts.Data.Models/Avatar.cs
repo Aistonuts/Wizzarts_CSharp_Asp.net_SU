@@ -3,8 +3,9 @@
     using System.Collections.Generic;
 
     using Microsoft.EntityFrameworkCore;
+    using Wizzarts.Data.Common.Models;
 
-    public class Avatar
+    public class Avatar : BaseDeletableModel<int>
     {
         public Avatar()
         {

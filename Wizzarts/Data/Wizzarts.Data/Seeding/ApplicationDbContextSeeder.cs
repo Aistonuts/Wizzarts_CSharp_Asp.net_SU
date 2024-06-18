@@ -27,6 +27,9 @@
                           {
                               new RolesSeeder(),
                               new SettingsSeeder(),
+                              new UserSeeder(),
+                              new WizzartsTeamRoleSeeder(),
+                              new CardGameExpansionSeeder(),
                           };
 
             foreach (var seeder in seeders)

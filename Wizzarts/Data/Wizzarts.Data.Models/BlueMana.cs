@@ -15,7 +15,7 @@
         [Comment("Play Card Total Cost")]
         public int Cost { get; set; }
 
-        [Comment("Play Card Mana Conor Name")]
+        [Comment("Play Card Mana Color Name")]
         public string ColorName { get; set; } = string.Empty;
 
         [Comment("Play Card Remote URL. Seeded.")]

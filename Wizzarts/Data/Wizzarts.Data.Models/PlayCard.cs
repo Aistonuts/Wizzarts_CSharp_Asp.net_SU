@@ -84,7 +84,7 @@ namespace Wizzarts.Data.Models
         [Comment("This card is part of which expansion.")]
         public int CardGameExpansionId { get; set; }
 
-        public CadGameExpansion CardGameExpansion { get; set; }
+        public CardGameExpansion CardGameExpansion { get; set; }
 
         [Comment("Has this card been created during an event.")]
         public bool IsEventCard { get; set; }

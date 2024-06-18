@@ -34,7 +34,7 @@
 
         public DbSet<WizzartsTeam> WizzartsTeamMembers { get; set; }
 
-        public DbSet<CadGameExpansion> CardGameExpansions { get; set; }
+        public DbSet<CardGameExpansion> CardGameExpansions { get; set; }
 
         public DbSet<PlayCard> PlayCards { get; set; }
 
@@ -190,7 +190,7 @@
             .WithOne(a => a.CardType)
             .HasForeignKey(a => a.CardTypeId);
 
-            builder.Entity<CadGameExpansion>()
+            builder.Entity<CardGameExpansion>()
             .HasMany(a => a.Cards)
             .WithOne(a => a.CardGameExpansion)
             .HasForeignKey(a => a.CardGameExpansionId);
