@@ -36,9 +36,9 @@
         [Comment("New art piece  has been approved or not")]
         public bool ApprovedByAdmin { get; set; }
 
-        public string AddedByMemberId { get; set; } = string.Empty;
+        public string AddedByMemberId { get; set; }
 
         [ForeignKey(nameof(AddedByMemberId))]
-        public WizzartsMember AddedByMember { get; set; }
+        public ApplicationUser AddedByMember { get; set; }
     }
 }

@@ -8,7 +8,6 @@
 
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.VisualBasic;
     using Wizzarts.Data.Common.Models;
     using Wizzarts.Data.Models;
 
@@ -60,7 +59,7 @@
 
         public DbSet<Event> Events { get; set; }
 
-        public DbSet<EventData> EventData { get; set; }
+        public DbSet<EventComponent> EventComponents { get; set; }
 
         public DbSet<Store> Stores { get; set; }
 
@@ -73,6 +72,8 @@
         public DbSet<WizzartsGameRulesData> WizzartsGameRulesData { get; set; }
 
         public DbSet<Setting> Settings { get; set; }
+
+        public DbSet<WizzartsCardGame> WizzartsCardGame { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -100,52 +101,57 @@
             .WithOne()
             .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<Event>()
-            .HasOne(a => a.Status)
-            .WithOne()
-            .OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<EventStatus>()
+            .HasMany(a => a.Events)
+            .WithOne(a => a.Status)
+            .HasForeignKey(a => a.EventStatusId);
 
-            builder.Entity<WizzartsTeam>()
-            .HasOne(a => a.GameRules)
-            .WithOne(a => a.PublishedBy)
-            .HasForeignKey<WizzartsGameRules>(a => a.PublishedById);
+            builder.Entity<WizzartsCardGame>()
+            .HasOne(a => a.CardGameRules)
+            .WithOne(a => a.WizzartsCardGame)
+            .HasForeignKey<WizzartsGameRules>(a => a.WizzartsCardGameId);
 
-            builder.Entity<WizzartsGameRules>()
+            builder.Entity<WizzartsCardGame>()
             .HasMany(a => a.GameRulesData)
-            .WithOne(a => a.GameRules)
-            .HasForeignKey(a => a.GameRulesId);
+            .WithOne(a => a.WizzartsCardGame)
+            .HasForeignKey(a => a.WizzartsCardGameId);
 
-            builder.Entity<WizzartsMember>()
+            builder.Entity<WizzartsCardGame>()
+            .HasMany(a => a.WizzartsTeamMembers)
+            .WithOne(a => a.WizzartsCardGame)
+            .HasForeignKey(a => a.WizzartsCardGameId);
+
+            builder.Entity<ApplicationUser>()
             .HasMany(a => a.Articles)
             .WithOne(a => a.ArticleCreator)
             .HasForeignKey(a => a.ArticleCreatorId);
 
-            builder.Entity<WizzartsMember>()
+            builder.Entity<ApplicationUser>()
             .HasMany(a => a.Cards)
             .WithOne(a => a.AddedByMember)
             .HasForeignKey(a => a.AddedByMemberId);
 
-            builder.Entity<WizzartsMember>()
+            builder.Entity<ApplicationUser>()
             .HasMany(a => a.Events)
             .WithOne(a => a.EventCreator)
             .HasForeignKey(a => a.EventCreatorId);
 
-            builder.Entity<WizzartsMember>()
+            builder.Entity<ApplicationUser>()
             .HasMany(a => a.Stores)
             .WithOne(a => a.StoreOwner)
             .HasForeignKey(a => a.StoreOwnerId);
 
-            builder.Entity<WizzartsMember>()
+            builder.Entity<ApplicationUser>()
             .HasMany(a => a.Votes)
             .WithOne(a => a.AddedByMember)
             .HasForeignKey(a => a.AddedByMemberId);
 
-            builder.Entity<WizzartsMember>()
+            builder.Entity<ApplicationUser>()
             .HasMany(a => a.Art)
             .WithOne(a => a.AddedByMember)
             .HasForeignKey(a => a.AddedByMemberId);
 
-            builder.Entity<WizzartsMember>()
+            builder.Entity<ApplicationUser>()
             .HasMany(a => a.Comments)
             .WithOne(a => a.PostedByUser)
             .HasForeignKey(a => a.PostedByUserId);
@@ -211,7 +217,7 @@
             .HasForeignKey(a => a.CardId);
 
             builder.Entity<Event>()
-            .HasMany(a => a.EventData)
+            .HasMany(a => a.EventComponents)
             .WithOne(a => a.Event)
             .HasForeignKey(a => a.EventId);
             // Needed for Identity models configuration

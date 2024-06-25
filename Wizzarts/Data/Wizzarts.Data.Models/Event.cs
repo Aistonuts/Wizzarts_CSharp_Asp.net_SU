@@ -13,7 +13,7 @@
     {
         public Event()
         {
-            this.EventData = new HashSet<EventData>();
+            this.EventComponents = new HashSet<EventComponent>();
         }
 
         [Required]
@@ -25,10 +25,6 @@
         [MaxLength(EventDescriptionMaxLength)]
         [Comment("Event Description")]
         public string EventDescription { get; set; } = string.Empty;
-
-        [Required]
-        [Comment("Event creator")]
-        public string EventCreatorId { get; set; } = string.Empty;
 
         [Required]
         [Comment("Event image url")]
@@ -43,9 +39,13 @@
         [Comment("Is event approved by admin.")]
         public bool ApprovedByAdmin { get; set; }
 
-        [ForeignKey(nameof(EventCreatorId))]
-        public WizzartsMember EventCreator { get; set; }
+        [Required]
+        [Comment("Event creator")]
+        public string EventCreatorId { get; set; } = string.Empty;
 
-        public virtual ICollection<EventData> EventData { get; set; }
+        [ForeignKey(nameof(EventCreatorId))]
+        public ApplicationUser EventCreator { get; set; }
+
+        public virtual ICollection<EventComponent> EventComponents { get; set; }
     }
 }

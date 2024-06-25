@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wizzarts.Web.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+940a4bff4a0e208fa5f61f738711ef4f1697f1df")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41ac6f6e8ed6126335d1d9c3522b94ce6f1e60ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wizzarts.Web.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wizzarts.Web.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

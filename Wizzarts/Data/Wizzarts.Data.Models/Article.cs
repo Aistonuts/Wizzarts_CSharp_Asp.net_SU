@@ -29,14 +29,14 @@
         [Comment("Article image URL")]
         public string ImageUrl { get; set; } = string.Empty;
 
+        [Comment("Is Article approved by Admin.")]
+        public bool ApprovedByAdmin { get; set; }
+
         [Required]
         [Comment("Article creator identifier")]
         public string ArticleCreatorId { get; set; } = string.Empty;
 
-        [Comment("Is Article approved by Admin.")]
-        public bool ApprovedByAdmin { get; set; }
-
         [ForeignKey(nameof(ArticleCreatorId))]
-        public WizzartsMember ArticleCreator { get; set; }
+        public ApplicationUser ArticleCreator { get; set; }
     }
 }

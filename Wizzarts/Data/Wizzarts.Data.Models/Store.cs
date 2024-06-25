@@ -42,9 +42,10 @@
         [Comment("Store approved by Admin.")]
         public bool ApprovedByAdmin { get; set; }
 
+        [Required]
         public string StoreOwnerId { get; set; } = string.Empty;
 
         [ForeignKey(nameof(StoreOwnerId))]
-        public WizzartsMember StoreOwner { get; set; }
+        public ApplicationUser StoreOwner { get; set; }
     }
 }

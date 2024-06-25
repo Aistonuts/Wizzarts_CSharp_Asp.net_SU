@@ -40,4 +40,11 @@
     <ProjectReference Include="..\Wizzarts.Web.Infrastructure\Wizzarts.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\Wizzarts.Web.ViewModels\Wizzarts.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\art\Beta\" />
+    <Folder Include="wwwroot\images\cardsByExpansion\Beta\" />
+    <Folder Include="wwwroot\images\cardsByExpansion\PremiumUserCards\" />
+    <Folder Include="wwwroot\images\event\UserEvent\" />
+  </ItemGroup>
 </Project>

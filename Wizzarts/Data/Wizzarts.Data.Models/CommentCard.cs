@@ -34,10 +34,11 @@
 
         public PlayCard Card { get; set; }
 
+        [Required]
         public string PostedByUserId { get; set; } = string.Empty;
 
         [ForeignKey(nameof(PostedByUserId))]
         [Comment("Posted by user")]
-        public virtual WizzartsMember PostedByUser { get; set; }
+        public virtual ApplicationUser PostedByUser { get; set; }
     }
 }

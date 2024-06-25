@@ -16,7 +16,7 @@
         public string AddedByMemberId { get; set; } = string.Empty;
 
         [ForeignKey(nameof(AddedByMemberId))]
-        public virtual WizzartsMember AddedByMember { get; set; }
+        public virtual ApplicationUser AddedByMember { get; set; }
 
         [Comment("Vote value")]
         public byte Value { get; set; }

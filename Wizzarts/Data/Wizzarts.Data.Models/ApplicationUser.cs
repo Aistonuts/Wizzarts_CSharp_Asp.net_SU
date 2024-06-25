@@ -4,9 +4,9 @@ namespace Wizzarts.Data.Models
     using System;
     using System.Collections.Generic;
 
-    using Wizzarts.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
+    using Wizzarts.Data.Common.Models;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
@@ -16,6 +16,13 @@ namespace Wizzarts.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+            this.Articles = new HashSet<Article>();
+            this.Cards = new HashSet<PlayCard>();
+            this.Events = new HashSet<Event>();
+            this.Stores = new HashSet<Store>();
+            this.Votes = new HashSet<Vote>();
+            this.Art = new HashSet<Art>();
+            this.Comments = new HashSet<CommentCard>();
         }
 
         // Audit info
@@ -33,5 +40,22 @@ namespace Wizzarts.Data.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        [Comment("Team MagicCardsmith art pieces")]
+        public virtual ICollection<Art> ArtPieces { get; set; }
+
+        public virtual ICollection<Article> Articles { get; set; }
+
+        public virtual ICollection<PlayCard> Cards { get; set; }
+
+        public virtual ICollection<Event> Events { get; set; }
+
+        public virtual ICollection<Store> Stores { get; set; }
+
+        public virtual ICollection<Vote> Votes { get; set; }
+
+        public virtual ICollection<Art> Art { get; set; }
+
+        public virtual ICollection<CommentCard> Comments { get; set; }
     }
 }

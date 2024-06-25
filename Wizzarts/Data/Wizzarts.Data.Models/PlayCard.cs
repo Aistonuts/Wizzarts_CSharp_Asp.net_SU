@@ -98,11 +98,12 @@ namespace Wizzarts.Data.Models
         [Comment("Art from the database that has been used for creating this card.")]
         public virtual Art Art { get; set; }
 
+        [Required]
         public string AddedByMemberId { get; set; } = string.Empty;
 
         [Comment("Who is the creator of this card")]
         [ForeignKey(nameof(AddedByMemberId))]
-        public virtual WizzartsMember AddedByMember { get; set; }
+        public virtual ApplicationUser AddedByMember { get; set; }
 
         [Comment("Has this card been approved by admin.")]
         public bool ApprovedByAdmin { get; set; }

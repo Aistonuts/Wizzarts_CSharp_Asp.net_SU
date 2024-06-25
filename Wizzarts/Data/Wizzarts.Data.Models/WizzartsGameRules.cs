@@ -1,16 +1,11 @@
 ﻿namespace Wizzarts.Data.Models
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
+
     using Wizzarts.Data.Common.Models;
 
     public class WizzartsGameRules : BaseDeletableModel<int>
     {
-        public WizzartsGameRules()
-        {
-            this.GameRulesData = new HashSet<WizzartsGameRulesData>();
-        }
-
         public string Title { get; set; } = string.Empty;
 
         public string Description { get; set; } = string.Empty;
@@ -85,9 +80,9 @@
 
         public string PublishedById { get; set; } = string.Empty;
 
-        [ForeignKey(nameof(PublishedById))]
-        public WizzartsTeam PublishedBy { get; set; }
+        public string WizzartsCardGameId { get; set; }
 
-        public virtual ICollection<WizzartsGameRulesData> GameRulesData { get; set; }
+        [ForeignKey(nameof(WizzartsCardGameId))]
+        public WizzartsCardGame WizzartsCardGame { get; set; }
     }
 }

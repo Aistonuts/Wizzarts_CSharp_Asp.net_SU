@@ -2,25 +2,16 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Models;
+
     using static Wizzarts.Common.DataConstants;
 
-    public class WizzartsMember : BaseDeletableModel<string>
+    public class WizzartsMember : BaseDeletableModel<int>
     {
-        public WizzartsMember()
-        {
-            this.Articles = new HashSet<Article>();
-            this.Cards = new HashSet<PlayCard>();
-            this.Events = new HashSet<Event>();
-            this.Stores = new HashSet<Store>();
-            this.Votes = new HashSet<Vote>();
-            this.Art = new HashSet<Art>();
-            this.Comments = new HashSet<CommentCard>();
-        }
-
         [Required]
         [MaxLength(UserNickNameMaxLength)]
         [PersonalData]
@@ -46,22 +37,5 @@
         public string UserId { get; set; } = string.Empty;
 
         public ApplicationUser User { get; set; }
-
-        [Comment("Team MagicCardsmith art pieces")]
-        public virtual ICollection<Art> ArtPieces { get; set; }
-
-        public virtual ICollection<Article> Articles { get; set; }
-
-        public virtual ICollection<PlayCard> Cards { get; set; }
-
-        public virtual ICollection<Event> Events { get; set; }
-
-        public virtual ICollection<Store> Stores { get; set; }
-
-        public virtual ICollection<Vote> Votes { get; set; }
-
-        public virtual ICollection<Art> Art { get; set; }
-
-        public virtual ICollection<CommentCard> Comments { get; set; }
     }
 }
