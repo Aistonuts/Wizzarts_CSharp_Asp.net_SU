@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wizzarts.Services.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41ac6f6e8ed6126335d1d9c3522b94ce6f1e60ca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf19173c72dd8d80a40b222bbc2eed444f3310c1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wizzarts.Services.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wizzarts.Services.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

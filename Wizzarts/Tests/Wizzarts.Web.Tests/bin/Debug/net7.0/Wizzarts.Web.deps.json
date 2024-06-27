@@ -3532,6 +3532,9 @@
         }
       },
       "Wizzarts.Common/1.0.0": {
+        "dependencies": {
+          "Wizzarts.Web.Infrastructure": "1.0.0"
+        },
         "runtime": {
           "Wizzarts.Common.dll": {}
         },
@@ -3628,7 +3631,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
-          "Microsoft.Extensions.Identity.Core": "6.0.26"
+          "Microsoft.Extensions.Identity.Core": "6.0.26",
+          "Wizzarts.Data.Common": "1.0.0"
         },
         "runtime": {
           "Wizzarts.Web.Infrastructure.dll": {}

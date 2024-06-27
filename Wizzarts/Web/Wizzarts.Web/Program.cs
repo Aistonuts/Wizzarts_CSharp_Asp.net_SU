@@ -20,6 +20,7 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Microsoft.AspNetCore.Cors.Infrastructure;
 
     public class Program
     {
@@ -47,6 +48,7 @@
                     options.MinimumSameSitePolicy = SameSiteMode.None;
                 });
 
+            services.AddMemoryCache();
             services.AddControllersWithViews(
                 options =>
                 {
@@ -54,6 +56,10 @@
                 }).AddRazorRuntimeCompilation();
             services.AddRazorPages();
             services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddAntiforgery(options =>
+            {
+                options.HeaderName = "X-CSRF-TOKEN";
+            });
 
             services.AddSingleton(configuration);
 
@@ -65,6 +71,12 @@
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
+            services.AddTransient<IArticleService, ArticleService>();
+            services.AddTransient<IArtService, ArtService>();
+            services.AddTransient<IPlayCardService, PlayCardService>();
+            services.AddTransient<IStoreService, StoreService>();
+            services.AddTransient<IEventService, EventService>();
+            services.AddTransient<IPlayCardExpansionService, PlayCardExpansionService>();
         }
 
         private static void Configure(WebApplication app)
@@ -73,7 +85,15 @@
             using (var serviceScope = app.Services.CreateScope())
             {
                 var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                dbContext.Database.Migrate();
+                if (dbContext.Database.IsRelational())
+                {
+                    dbContext.Database.Migrate();
+                }
+                else
+                {
+                    dbContext.Database.EnsureCreated();
+                }
+
                 new ApplicationDbContextSeeder().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
             }
 

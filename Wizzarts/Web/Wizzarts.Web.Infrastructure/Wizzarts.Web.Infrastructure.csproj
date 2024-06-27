@@ -21,4 +21,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Wizzarts.Common\Wizzarts.Common.csproj" />
+    <ProjectReference Include="..\Wizzarts.Web.ViewModels\Wizzarts.Web.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>

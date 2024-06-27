@@ -671,7 +671,14 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj"
+              },
+              "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Wizzarts.Common\\Wizzarts.Common.csproj": {
+                "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Wizzarts.Common\\Wizzarts.Common.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

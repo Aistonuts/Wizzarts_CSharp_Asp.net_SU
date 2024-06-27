@@ -5088,7 +5088,9 @@
         "dependencies": {
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
-          "Microsoft.Extensions.Identity.Core": "6.0.26"
+          "Microsoft.Extensions.Identity.Core": "6.0.26",
+          "Wizzarts.Common": "1.0.0",
+          "Wizzarts.Web.ViewModels": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Wizzarts.Web.Infrastructure.dll": {}
