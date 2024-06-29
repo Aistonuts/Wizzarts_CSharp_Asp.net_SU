@@ -1,7 +1,17 @@
-﻿namespace Wizzarts.Web
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Wizzarts.Data;
+namespace Wizzarts.Web
 {
     using System.Reflection;
 
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
     using Wizzarts.Data;
     using Wizzarts.Data.Common;
     using Wizzarts.Data.Common.Repositories;
@@ -12,15 +22,6 @@
     using Wizzarts.Services.Mapping;
     using Wizzarts.Services.Messaging;
     using Wizzarts.Web.ViewModels;
-
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Hosting;
-    using Microsoft.AspNetCore.Cors.Infrastructure;
 
     public class Program
     {

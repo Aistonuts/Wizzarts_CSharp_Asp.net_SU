@@ -1,0 +1,33 @@
+﻿@model Wizzarts.Web.ViewModels.Home.IndexAuthenticationViewModel
+@{
+    this.ViewData["Title"] = "Register Page";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" method="post">
+            <h2>Create a new account.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="RegisterEmail" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="RegisterEmail">name@example.com</label>
+                <span asp-validation-for="RegisterEmail" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="RegisterPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="RegisterPassword">Password</label>
+                <span asp-validation-for="RegisterPassword" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="RegisterConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="RegisterConfirmPassword">Confirm Password</label>
+                <span asp-validation-for="RegisterConfirmPassword" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

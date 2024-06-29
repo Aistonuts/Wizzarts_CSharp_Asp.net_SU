@@ -1,0 +1,133 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\signalrdeathroll\\signalrdeathroll\\hubs\\chathubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|solutionrelative:signalrdeathroll\\hubs\\chathubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\signalrdeathroll\\signalrdeathroll\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|solutionrelative:signalrdeathroll\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\signalrdeathroll\\signalrdeathroll\\views\\home\\chat.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|solutionrelative:signalrdeathroll\\views\\home\\chat.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\signalrdeathroll\\signalrdeathroll\\models\\chat\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|solutionrelative:signalrdeathroll\\models\\chat\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\signalrdeathroll\\signalrdeathroll\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|solutionrelative:signalrdeathroll\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\signalrdeathroll\\signalrdeathroll\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|solutionrelative:signalrdeathroll\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\signalrdeathroll\\signalrdeathroll\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0342E89F-732E-4814-86D5-8BC749C0190F}|SignalRDeathRoll\\SignalRDeathRoll.csproj|solutionrelative:signalrdeathroll\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Chat.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\Views\\Home\\Chat.cshtml",
+              "RelativeDocumentMoniker": "SignalRDeathRoll\\Views\\Home\\Chat.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\Views\\Home\\Chat.cshtml",
+              "RelativeToolTip": "SignalRDeathRoll\\Views\\Home\\Chat.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-01-21T11:47:12.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "SignalRDeathRoll\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "SignalRDeathRoll\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-21T10:32:19.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "SignalRDeathRoll\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "SignalRDeathRoll\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAADYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-01-21T10:29:18.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Message.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\Models\\Chat\\Message.cs",
+              "RelativeDocumentMoniker": "SignalRDeathRoll\\Models\\Chat\\Message.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\Models\\Chat\\Message.cs",
+              "RelativeToolTip": "SignalRDeathRoll\\Models\\Chat\\Message.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-21T10:26:42.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChatHubs.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\Hubs\\ChatHubs.cs",
+              "RelativeDocumentMoniker": "SignalRDeathRoll\\Hubs\\ChatHubs.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\Hubs\\ChatHubs.cs",
+              "RelativeToolTip": "SignalRDeathRoll\\Hubs\\ChatHubs.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-21T10:24:57.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\appsettings.json",
+              "RelativeDocumentMoniker": "SignalRDeathRoll\\appsettings.json",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\appsettings.json",
+              "RelativeToolTip": "SignalRDeathRoll\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-01-21T10:22:53.664Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\Program.cs",
+              "RelativeDocumentMoniker": "SignalRDeathRoll\\Program.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\SignalRDeathRoll\\SignalRDeathRoll\\Program.cs",
+              "RelativeToolTip": "SignalRDeathRoll\\Program.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAUwDoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-21T10:16:02.341Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SignalRDeathRoll")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8416de12d71f0776c6475f4efc199b35a347c651")]
 [assembly: System.Reflection.AssemblyProductAttribute("SignalRDeathRoll")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SignalRDeathRoll")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
