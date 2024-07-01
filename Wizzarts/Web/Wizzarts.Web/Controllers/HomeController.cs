@@ -1,38 +1,26 @@
 ﻿namespace Wizzarts.Web.Controllers
 {
     using System.Diagnostics;
+    using System.Threading.Tasks;
 
-    using Wizzarts.Web.ViewModels;
-
-    using Microsoft.AspNetCore.Mvc;
-    using Wizzarts.Services.Data;
     using MagicCardsmith.Web.ViewModels.Card;
     using MagicCardsmith.Web.ViewModels.Event;
     using MagicCardsmith.Web.ViewModels.Expansion;
     using MagicCardsmith.Web.ViewModels.Stores;
-    using Wizzarts.Web.ViewModels.Art;
-    using Wizzarts.Web.ViewModels.Home;
-    using Wizzarts.Web.ViewModels.Article;
-    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Caching.Memory;
     using Microsoft.Extensions.Logging;
     using Wizzarts.Data.Models;
-    using System.Linq;
-    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-    using Microsoft.AspNetCore.WebUtilities;
-    using System.Text.Encodings.Web;
-    using System.Text;
-    using System.Threading;
-    using Wizzarts.Common;
-    using System;
-    using Microsoft.Extensions.Caching.Memory;
+    using Wizzarts.Services.Data;
+    using Wizzarts.Web.ViewModels;
+    using Wizzarts.Web.ViewModels.Art;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Home;
 
     public class HomeController : BaseController
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<ApplicationRole> _roleManager;
-        private readonly IUserStore<ApplicationUser> _userStore;
         private readonly ILogger<IndexAuthenticationViewModel> _logger;
         private readonly IArticleService articlesService;
         private readonly IArtService artService;
@@ -44,9 +32,6 @@
 
         public HomeController(
            SignInManager<ApplicationUser> _signInManager,
-           UserManager<ApplicationUser> _userManager,
-           RoleManager<ApplicationRole> _roleManager,
-           IUserStore<ApplicationUser> _userStore,
            ILogger<IndexAuthenticationViewModel> _logger,
            IArticleService articlesServic,
            IArtService artService,
@@ -57,9 +42,6 @@
            IMemoryCache cache)
         {
             this._signInManager = _signInManager;
-            this._userManager = _userManager;
-            this._roleManager = _roleManager;
-            this._userStore = _userStore;
             this._logger = _logger;
             this.articlesService = articlesServic;
             this.artService = artService;
@@ -72,7 +54,7 @@
 
         public IActionResult Index()
         {
-            var viewModel = new IndexAuthenticationViewModel
+            var viewModel = new IndexAuthenticationViewModel()
             {
                 Articles = this.articlesService.GetRandom<ArticleInListViewModel>(6),
                 Arts = this.artService.GetRandom<ArtInListViewModel>(3),
@@ -89,18 +71,6 @@
         {
             returnUrl ??= this.Url.Content("~/");
 
-            var viewModel = new IndexAuthenticationViewModel
-            {
-                Articles = this.articlesService.GetRandom<ArticleInListViewModel>(6),
-                Arts = this.artService.GetRandom<ArtInListViewModel>(3),
-                Cards = this.playCardService.GetRandom<CardInListViewModel>(4),
-                Stores = this.storeService.GetAll<StoresInListViewModel>(),
-                Events = this.eventService.GetAll<EventInListViewModel>(),
-                GameExpansions = this.cardExpansionService.GetAll<ExpansionInListViewModel>(),
-            };
-            this.ModelState.Remove("RegisterEmail");
-            this.ModelState.Remove("RegisterPassword");
-            this.ModelState.Remove("RegisterConfirmPassword");
             if (this.ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
@@ -114,12 +84,12 @@
                 else
                 {
                     this.ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return this.View(viewModel);
+                    return this.View();
                 }
             }
 
             // If we got this far, something failed, redisplay form
-            return this.View(viewModel);
+            return this.View();
         }
 
         public IActionResult Privacy()
@@ -133,7 +103,5 @@
             return this.View(
                 new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
-
-       
     }
 }

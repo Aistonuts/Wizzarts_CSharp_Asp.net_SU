@@ -1,18 +1,19 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Logging;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-using System;
-using Wizzarts.Data.Models;
-using Wizzarts.Services.Data;
-using Wizzarts.Web.ViewModels.Home;
-
-namespace Wizzarts.Web.Controllers
+﻿namespace Wizzarts.Web.Controllers
 {
+    using System;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.WebUtilities;
+    using Microsoft.Extensions.Caching.Memory;
+    using Microsoft.Extensions.Logging;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Services.Data;
+    using Wizzarts.Web.ViewModels.Home;
+
     public class RegistrationController : BaseController
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -49,7 +50,7 @@ namespace Wizzarts.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Registration(IndexAuthenticationViewModel viewModel, string returnUrl = null)
+        public async Task<IActionResult> Registration(RegisterViewModel viewModel, string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
             this.ModelState.Remove("UserName");

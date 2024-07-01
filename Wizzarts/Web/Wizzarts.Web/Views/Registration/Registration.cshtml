@@ -1,33 +1,51 @@
-﻿@model Wizzarts.Web.ViewModels.Home.IndexAuthenticationViewModel
+﻿@model Wizzarts.Web.ViewModels.Home.RegisterViewModel
 @{
     this.ViewData["Title"] = "Register Page";
 }
 <div class="row">
-    <div class="col-md-4">
-        <form id="registerForm" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="RegisterEmail" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="RegisterEmail">name@example.com</label>
-                <span asp-validation-for="RegisterEmail" class="text-danger"></span>
+    <div class="col-md-12 col-lg-7 pl-0 pr-0 pr-lg-2">
+        <div class="card mt-2">
+            <div class="card-header p-0">
+                <h5 class="text-center">Email registration</h5>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="RegisterPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="RegisterPassword">Password</label>
-                <span asp-validation-for="RegisterPassword" class="text-danger"></span>
+            <div class="card-body">
+                <form id="registerForm" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <div class="form-group row">
+                        <label asp-for="RegisterEmail" class="col-md-3 control-label" for="Email">Email</label>
+                        <div class="col-md-9">
+                            <input asp-for="RegisterEmail" class="form-control" autocomplete="username" aria-required="true" />
+                            <small class="text-muted">We will not share your email with any third party or send you any email apart from service related information.</small>
+                            <span asp-validation-for="RegisterEmail" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="RegisterPassword" class="col-md-3 control-label">Password</label>
+                        <div class="col-md-9">
+                            <input asp-for="RegisterPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                            <small class="text-muted">Password must be at least 6 characters long, contain a digit, a lower case and a upper case character.</small>
+                            <span asp-validation-for="RegisterPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="RegisterConfirmPassword" class="col-md-3 control-label" for="ConfirmPassword">Confirm password</label>
+                        <div class="col-md-9">
+                            <input asp-for="RegisterConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                            <span asp-validation-for="RegisterConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="offset-md-3 col-md-9 text-center">
+                            <button id="registerSubmit" type="submit" class="btn btn-light font-weight-bold">Register</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="RegisterConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="RegisterConfirmPassword">Confirm Password</label>
-                <span asp-validation-for="RegisterConfirmPassword" class="text-danger"></span>
-            </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
-        </form>
+        </div>
     </div>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+

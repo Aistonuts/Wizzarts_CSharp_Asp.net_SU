@@ -62,6 +62,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Art/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0XEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Art/All.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0XEFsbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Art/ById.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0XEJ5SWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Art/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -86,6 +102,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0dGluZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Shared/Components/SignUp/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2lnblVwXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -100,6 +120,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Shared/_PagingPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYWdpbmdQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/_ViewImports.cshtml]
