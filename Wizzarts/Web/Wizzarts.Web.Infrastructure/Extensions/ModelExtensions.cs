@@ -1,12 +1,11 @@
-﻿using Wizzarts.Web.ViewModels.Art;
-using Wizzarts.Web.ViewModels.Article;
-using Wizzarts.Web.ViewModels.Card;
-using Wizzarts.Web.ViewModels.Event;
-using Wizzarts.Web.ViewModels.Expansion;
-using Wizzarts.Web.ViewModels.WizzartsMember;
-
-namespace Wizzarts.Web.Infrastructure.Extensions
+﻿namespace Wizzarts.Web.Infrastructure.Extensions
 {
+    using Wizzarts.Web.ViewModels.Art;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Card;
+    using Wizzarts.Web.ViewModels.Event;
+    using Wizzarts.Web.ViewModels.Expansion;
+    using Wizzarts.Web.ViewModels.WizzartsMember;
 
     public static class ModelExtensions
     {

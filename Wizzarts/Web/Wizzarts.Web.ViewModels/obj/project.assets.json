@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
+    "net6.0": {
       "AutoMapper/13.0.1": {
         "type": "package",
         "dependencies": {
@@ -47,19 +47,19 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Http.Features/5.0.17": {
+      "Microsoft.AspNetCore.Http.Features/3.1.32": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "5.0.1",
-          "System.IO.Pipelines": "5.0.2"
+          "Microsoft.Extensions.Primitives": "3.1.32",
+          "System.IO.Pipelines": "4.7.5"
         },
         "compile": {
-          "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.dll": {
             "related": ".xml"
           }
         }
@@ -341,13 +341,7 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "StyleCop.Analyzers/1.2.0-beta.435": {
-        "type": "package",
-        "dependencies": {
-          "StyleCop.Analyzers.Unstable": "1.2.0.435"
-        }
-      },
-      "StyleCop.Analyzers.Unstable/1.2.0.435": {
+      "StyleCop.Analyzers/1.1.118": {
         "type": "package"
       },
       "System.Collections.Immutable/6.0.0": {
@@ -401,17 +395,20 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "System.IO.Pipelines/5.0.2": {
+      "System.IO.Pipelines/6.0.2": {
         "type": "package",
         "compile": {
-          "ref/netcoreapp2.0/System.IO.Pipelines.dll": {
+          "lib/net6.0/System.IO.Pipelines.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {
+          "lib/net6.0/System.IO.Pipelines.dll": {
             "related": ".xml"
           }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {
@@ -432,7 +429,7 @@
       },
       "Wizzarts.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
           "bin/placeholder/Wizzarts.Common.dll": {}
         },
@@ -442,7 +439,7 @@
       },
       "Wizzarts.Data.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "System.ComponentModel.Annotations": "5.0.0"
         },
@@ -455,7 +452,7 @@
       },
       "Wizzarts.Data.Models/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.26",
           "Wizzarts.Common": "1.0.0",
@@ -470,7 +467,7 @@
       },
       "Wizzarts.Services.Mapping/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper": "13.0.1"
         },
@@ -537,22 +534,20 @@
         "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http.Features/5.0.17": {
-      "sha512": "3jG2xS+dx8DDCGV/F+STdPTg89lX3ao3dF/VEPvJaz3wzBIjuadipTtYNEXDIVuOPZwb6jdmhrX9jkzOIBm5cw==",
+    "Microsoft.AspNetCore.Http.Features/3.1.32": {
+      "sha512": "uf8Cae8ThkSWPqzRD1HyBzGjd3HbJzw4HDPtMRv2sMmJCDBkGxMIc3gGFP09VLPzt5bHRv82TNPfOYFsMRhr8Q==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http.features/5.0.17",
+      "path": "microsoft.aspnetcore.http.features/3.1.32",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.AspNetCore.Http.Features.dll",
-        "lib/net461/Microsoft.AspNetCore.Http.Features.xml",
-        "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll",
-        "lib/net5.0/Microsoft.AspNetCore.Http.Features.xml",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
-        "microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.3.1.32.nupkg.sha512",
         "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
@@ -892,23 +887,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "StyleCop.Analyzers/1.2.0-beta.435": {
-      "sha512": "TADk7vdGXtfTnYCV7GyleaaRTQjfoSfZXprQrVMm7cSJtJbFc1QIbWPyLvrgrfGdfHbGmUPvaN4ODKNxg2jgPQ==",
+    "StyleCop.Analyzers/1.1.118": {
+      "sha512": "Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
       "type": "package",
-      "path": "stylecop.analyzers/1.2.0-beta.435",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "THIRD-PARTY-NOTICES.txt",
-        "stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",
-        "stylecop.analyzers.nuspec"
-      ]
-    },
-    "StyleCop.Analyzers.Unstable/1.2.0.435": {
-      "sha512": "ouwPWZxbOV3SmCZxIRqHvljkSzkCyi1tDoMzQtDb/bRP8ctASV/iRJr+A2Gdj0QLaLmWnqTWDrH82/iP+X80Lg==",
-      "type": "package",
-      "path": "stylecop.analyzers.unstable/1.2.0.435",
+      "path": "stylecop.analyzers/1.1.118",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -924,9 +906,8 @@
         "analyzers/dotnet/cs/pl-PL/StyleCop.Analyzers.resources.dll",
         "analyzers/dotnet/cs/pt-BR/StyleCop.Analyzers.resources.dll",
         "analyzers/dotnet/cs/ru-RU/StyleCop.Analyzers.resources.dll",
-        "rulesets/StyleCopAnalyzersDefault.ruleset",
-        "stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512",
-        "stylecop.analyzers.unstable.nuspec",
+        "stylecop.analyzers.1.1.118.nupkg.sha512",
+        "stylecop.analyzers.nuspec",
         "tools/install.ps1",
         "tools/uninstall.ps1"
       ]
@@ -1069,30 +1050,29 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.IO.Pipelines/5.0.2": {
-      "sha512": "Iew+dfa6FFiyvWBdRmXApixRY1db+beyutpIck4SOSe0NLM8FD/7AD54MscqVLhvfSMLHO7KadjTRT7fqxOGTA==",
+    "System.IO.Pipelines/6.0.2": {
+      "sha512": "cb5OfQjnz+zjpJJei+f3QYK7+wWZrDdNHf3DykO6QCacpNZ80tuNgq1DC2kqlrjfEu+cMUTvulxPIrCMbBkjqg==",
       "type": "package",
-      "path": "system.io.pipelines/5.0.2",
+      "path": "system.io.pipelines/6.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.IO.Pipelines.targets",
+        "buildTransitive/netcoreapp3.1/_._",
         "lib/net461/System.IO.Pipelines.dll",
         "lib/net461/System.IO.Pipelines.xml",
-        "lib/netcoreapp3.0/System.IO.Pipelines.dll",
-        "lib/netcoreapp3.0/System.IO.Pipelines.xml",
-        "lib/netstandard1.3/System.IO.Pipelines.dll",
-        "lib/netstandard1.3/System.IO.Pipelines.xml",
+        "lib/net6.0/System.IO.Pipelines.dll",
+        "lib/net6.0/System.IO.Pipelines.xml",
+        "lib/netcoreapp3.1/System.IO.Pipelines.dll",
+        "lib/netcoreapp3.1/System.IO.Pipelines.xml",
         "lib/netstandard2.0/System.IO.Pipelines.dll",
         "lib/netstandard2.0/System.IO.Pipelines.xml",
-        "ref/netcoreapp2.0/System.IO.Pipelines.dll",
-        "ref/netcoreapp2.0/System.IO.Pipelines.xml",
-        "system.io.pipelines.5.0.2.nupkg.sha512",
+        "system.io.pipelines.6.0.2.nupkg.sha512",
         "system.io.pipelines.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
@@ -1142,9 +1122,10 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net7.0": [
-      "Microsoft.AspNetCore.Http.Features >= 5.0.17",
-      "StyleCop.Analyzers >= 1.2.0-beta.435",
+    "net6.0": [
+      "Microsoft.AspNetCore.Http.Features >= 3.1.32",
+      "StyleCop.Analyzers >= 1.1.118",
+      "System.IO.Pipelines >= 6.0.2",
       "Wizzarts.Data.Models >= 1.0.0",
       "Wizzarts.Services.Mapping >= 1.0.0"
     ]
@@ -1166,15 +1147,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net7.0"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {
             "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data.Models\\Wizzarts.Data.Models.csproj": {
               "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data.Models\\Wizzarts.Data.Models.csproj"
@@ -1197,18 +1178,22 @@
       }
     },
     "frameworks": {
-      "net7.0": {
-        "targetAlias": "net7.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": {
             "target": "Package",
-            "version": "[5.0.17, )"
+            "version": "[3.1.32, )"
           },
           "StyleCop.Analyzers": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.2.0-beta.435, )"
+            "version": "[1.1.118, )"
+          },
+          "System.IO.Pipelines": {
+            "target": "Package",
+            "version": "[6.0.2, )"
           }
         },
         "imports": [

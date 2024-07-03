@@ -3,12 +3,12 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    using MagicCardsmith.Web.ViewModels.Card;
-    using MagicCardsmith.Web.ViewModels.Event;
-    using MagicCardsmith.Web.ViewModels.Expansion;
-    using MagicCardsmith.Web.ViewModels.Stores;
     using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Card;
+    using Wizzarts.Web.ViewModels.Event;
+    using Wizzarts.Web.ViewModels.Expansion;
+    using Wizzarts.Web.ViewModels.Stores;
     using Wizzarts.Web.ViewModels.WizzartsMember;
 
     public class IndexAuthenticationViewModel : PagingViewModel

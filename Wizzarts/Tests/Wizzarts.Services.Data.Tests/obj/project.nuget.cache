@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HBzeqTAUOko3kSNH0RDfWJ0loLIvtbrPM759Tac6tMEGsco+X0rWhbHKNjT72Mmf89nkeLS/JGbIzrBGUBmw7g==",
+  "dgSpecHash": "12JEwVUkfsC8ZF5UMxTgLD76hHdGwr9KPJg5yQx/hdneWzBUo5m6qARFozHWEb8S0V/3bZOvbA+7doBnjOFY9w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj",
   "expectedPackageFiles": [
@@ -98,7 +98,7 @@
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.pipelines\\4.7.5\\system.io.pipelines.4.7.5.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.pipelines\\6.0.2\\system.io.pipelines.6.0.2.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",

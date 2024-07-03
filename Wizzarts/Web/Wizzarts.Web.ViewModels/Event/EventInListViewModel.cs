@@ -1,4 +1,4 @@
-﻿namespace MagicCardsmith.Web.ViewModels.Event
+﻿namespace Wizzarts.Web.ViewModels.Event
 {
     using System;
 

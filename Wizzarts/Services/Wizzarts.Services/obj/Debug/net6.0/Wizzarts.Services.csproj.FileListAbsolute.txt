@@ -1,0 +1,12 @@
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services\bin\Debug\net6.0\Wizzarts.Services.deps.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services\bin\Debug\net6.0\Wizzarts.Services.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services\bin\Debug\net6.0\Wizzarts.Services.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services\obj\Debug\net6.0\Wizzarts.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services\obj\Debug\net6.0\Wizzarts.Services.AssemblyInfoInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services\obj\Debug\net6.0\Wizzarts.Services.AssemblyInfo.cs
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services\obj\Debug\net6.0\Wizzarts.Services.csproj.CoreCompileInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services\obj\Debug\net6.0\Wizzarts.Services.sourcelink.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services\obj\Debug\net6.0\Wizzarts.Services.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services\obj\Debug\net6.0\refint\Wizzarts.Services.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services\obj\Debug\net6.0\Wizzarts.Services.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services\obj\Debug\net6.0\ref\Wizzarts.Services.dll

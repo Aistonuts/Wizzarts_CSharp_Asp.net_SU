@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XLra3NkHxa9ilnbJneEZfvamYHCirFWDImHFKgiMMxa/HyYzh6eWtKCk7WQja4hoNJGnuUwBaMbGXDJ5vcLtGw==",
+  "dgSpecHash": "kCaEXlenTm+di4RBks8kC1CZOBKsC77TrGwc2yp7NYStxJqOuZaYG/LFbX0af2sxTpJhfSgEafykDcRllIpMFA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.Infrastructure\\Wizzarts.Web.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -22,7 +22,7 @@
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.0\\microsoft.aspnetcore.http.2.2.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.32\\microsoft.aspnetcore.http.features.3.1.32.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.26\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.26.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\2.2.0\\microsoft.aspnetcore.jsonpatch.2.2.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.aspnetcore.localization\\2.2.0\\microsoft.aspnetcore.localization.2.2.0.nupkg.sha512",
@@ -126,7 +126,7 @@
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\system.io.pipelines\\6.0.2\\system.io.pipelines.6.0.2.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",

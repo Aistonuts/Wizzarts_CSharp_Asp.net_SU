@@ -5,13 +5,13 @@
     using System.IO;
     using System.Threading.Tasks;
 
-    using Wizzarts.Data;
+
     using Wizzarts.Data.Common;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;
     using Wizzarts.Data.Seeding;
-    using Wizzarts.Services.Data;
+
     using Wizzarts.Services.Messaging;
 
     using CommandLine;
@@ -20,6 +20,8 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
+    using Wizzarts.Data;
+    using Wizzarts.Services.Data;
 
     public static class Program
     {

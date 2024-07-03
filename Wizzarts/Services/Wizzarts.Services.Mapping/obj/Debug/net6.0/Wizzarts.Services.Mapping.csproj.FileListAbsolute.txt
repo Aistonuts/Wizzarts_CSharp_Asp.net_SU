@@ -1,0 +1,13 @@
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\bin\Debug\net6.0\Wizzarts.Services.Mapping.deps.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\bin\Debug\net6.0\Wizzarts.Services.Mapping.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\bin\Debug\net6.0\Wizzarts.Services.Mapping.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\obj\Debug\net6.0\Wizzarts.Services.Mapping.csproj.AssemblyReference.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\obj\Debug\net6.0\Wizzarts.Services.Mapping.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\obj\Debug\net6.0\Wizzarts.Services.Mapping.AssemblyInfoInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\obj\Debug\net6.0\Wizzarts.Services.Mapping.AssemblyInfo.cs
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\obj\Debug\net6.0\Wizzarts.Services.Mapping.csproj.CoreCompileInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\obj\Debug\net6.0\Wizzarts.Services.Mapping.sourcelink.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\obj\Debug\net6.0\Wizzarts.Services.Mapping.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\obj\Debug\net6.0\refint\Wizzarts.Services.Mapping.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\obj\Debug\net6.0\Wizzarts.Services.Mapping.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Mapping\obj\Debug\net6.0\ref\Wizzarts.Services.Mapping.dll

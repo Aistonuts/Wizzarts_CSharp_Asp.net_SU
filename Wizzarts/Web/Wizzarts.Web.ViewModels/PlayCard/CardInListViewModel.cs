@@ -1,4 +1,4 @@
-﻿namespace MagicCardsmith.Web.ViewModels.Card
+﻿namespace Wizzarts.Web.ViewModels.Card
 {
     using System;
     using System.Collections.Generic;

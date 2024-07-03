@@ -1,36 +1,17 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
-      "StyleCop.Analyzers/1.2.0-beta.435": {
-        "type": "package",
-        "dependencies": {
-          "StyleCop.Analyzers.Unstable": "1.2.0.435"
-        }
-      },
-      "StyleCop.Analyzers.Unstable/1.2.0.435": {
+    "net6.0": {
+      "StyleCop.Analyzers/1.1.118": {
         "type": "package"
       }
     }
   },
   "libraries": {
-    "StyleCop.Analyzers/1.2.0-beta.435": {
-      "sha512": "TADk7vdGXtfTnYCV7GyleaaRTQjfoSfZXprQrVMm7cSJtJbFc1QIbWPyLvrgrfGdfHbGmUPvaN4ODKNxg2jgPQ==",
+    "StyleCop.Analyzers/1.1.118": {
+      "sha512": "Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
       "type": "package",
-      "path": "stylecop.analyzers/1.2.0-beta.435",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "THIRD-PARTY-NOTICES.txt",
-        "stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",
-        "stylecop.analyzers.nuspec"
-      ]
-    },
-    "StyleCop.Analyzers.Unstable/1.2.0.435": {
-      "sha512": "ouwPWZxbOV3SmCZxIRqHvljkSzkCyi1tDoMzQtDb/bRP8ctASV/iRJr+A2Gdj0QLaLmWnqTWDrH82/iP+X80Lg==",
-      "type": "package",
-      "path": "stylecop.analyzers.unstable/1.2.0.435",
+      "path": "stylecop.analyzers/1.1.118",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -46,17 +27,16 @@
         "analyzers/dotnet/cs/pl-PL/StyleCop.Analyzers.resources.dll",
         "analyzers/dotnet/cs/pt-BR/StyleCop.Analyzers.resources.dll",
         "analyzers/dotnet/cs/ru-RU/StyleCop.Analyzers.resources.dll",
-        "rulesets/StyleCopAnalyzersDefault.ruleset",
-        "stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512",
-        "stylecop.analyzers.unstable.nuspec",
+        "stylecop.analyzers.1.1.118.nupkg.sha512",
+        "stylecop.analyzers.nuspec",
         "tools/install.ps1",
         "tools/uninstall.ps1"
       ]
     }
   },
   "projectFileDependencyGroups": {
-    "net7.0": [
-      "StyleCop.Analyzers >= 1.2.0-beta.435"
+    "net6.0": [
+      "StyleCop.Analyzers >= 1.1.118"
     ]
   },
   "packageFolders": {
@@ -76,15 +56,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net7.0"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {}
         }
       },
@@ -100,14 +80,14 @@
       }
     },
     "frameworks": {
-      "net7.0": {
-        "targetAlias": "net7.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "StyleCop.Analyzers": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.2.0-beta.435, )"
+            "version": "[1.1.118, )"
           }
         },
         "imports": [

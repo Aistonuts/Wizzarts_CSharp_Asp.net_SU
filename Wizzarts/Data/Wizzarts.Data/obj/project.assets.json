@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
+    "net6.0": {
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -1070,7 +1070,7 @@
       },
       "Wizzarts.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
           "bin/placeholder/Wizzarts.Common.dll": {}
         },
@@ -1080,7 +1080,7 @@
       },
       "Wizzarts.Data.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "System.ComponentModel.Annotations": "5.0.0"
         },
@@ -1093,7 +1093,7 @@
       },
       "Wizzarts.Data.Models/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.26",
           "Wizzarts.Common": "1.0.0",
@@ -2794,7 +2794,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net7.0": [
+    "net6.0": [
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.26",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.26",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.26",
@@ -2823,15 +2823,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net7.0"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {
             "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data.Common\\Wizzarts.Data.Common.csproj": {
               "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data.Common\\Wizzarts.Data.Common.csproj"
@@ -2857,8 +2857,8 @@
       }
     },
     "frameworks": {
-      "net7.0": {
-        "targetAlias": "net7.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",

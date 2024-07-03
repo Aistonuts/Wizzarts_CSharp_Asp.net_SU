@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
+    "net6.0": {
       "AutoMapper/13.0.1": {
         "type": "package",
         "dependencies": {
@@ -1751,17 +1751,20 @@
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
         }
       },
-      "System.IO.Pipelines/4.7.5": {
+      "System.IO.Pipelines/6.0.2": {
         "type": "package",
         "compile": {
-          "ref/netcoreapp2.0/System.IO.Pipelines.dll": {
+          "lib/net6.0/System.IO.Pipelines.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {
+          "lib/net6.0/System.IO.Pipelines.dll": {
             "related": ".xml"
           }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "System.Linq/4.3.0": {
@@ -2811,7 +2814,7 @@
       },
       "Wizzarts.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
           "bin/placeholder/Wizzarts.Common.dll": {}
         },
@@ -2821,7 +2824,7 @@
       },
       "Wizzarts.Data/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.26",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.26",
@@ -2839,7 +2842,7 @@
       },
       "Wizzarts.Data.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "System.ComponentModel.Annotations": "5.0.0"
         },
@@ -2852,7 +2855,7 @@
       },
       "Wizzarts.Data.Models/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.26",
           "Wizzarts.Common": "1.0.0",
@@ -2867,13 +2870,14 @@
       },
       "Wizzarts.Services.Data/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "3.1.32",
           "Selenium.WebDriver": "4.21.0",
           "Wizzarts.Data.Common": "1.0.0",
           "Wizzarts.Data.Models": "1.0.0",
-          "Wizzarts.Services.Mapping": "1.0.0"
+          "Wizzarts.Services.Mapping": "1.0.0",
+          "Wizzarts.Web.ViewModels": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Wizzarts.Services.Data.dll": {}
@@ -2884,7 +2888,7 @@
       },
       "Wizzarts.Services.Mapping/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper": "13.0.1"
         },
@@ -2893,6 +2897,22 @@
         },
         "runtime": {
           "bin/placeholder/Wizzarts.Services.Mapping.dll": {}
+        }
+      },
+      "Wizzarts.Web.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "3.1.32",
+          "System.IO.Pipelines": "6.0.2",
+          "Wizzarts.Data.Models": "1.0.0",
+          "Wizzarts.Services.Mapping": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Wizzarts.Web.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Wizzarts.Web.ViewModels.dll": {}
         }
       }
     }
@@ -5680,32 +5700,29 @@
         "system.io.filesystem.primitives.nuspec"
       ]
     },
-    "System.IO.Pipelines/4.7.5": {
-      "sha512": "iqGBxw9zqxHK4bzwiYMYGYnaKK1OBQkLGwqqN/+kkj1lQVo+jEaEntOCL4XztOHjpp+ANYQ4UPKNUeeQmFK3mQ==",
+    "System.IO.Pipelines/6.0.2": {
+      "sha512": "cb5OfQjnz+zjpJJei+f3QYK7+wWZrDdNHf3DykO6QCacpNZ80tuNgq1DC2kqlrjfEu+cMUTvulxPIrCMbBkjqg==",
       "type": "package",
-      "path": "system.io.pipelines/4.7.5",
+      "path": "system.io.pipelines/6.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.IO.Pipelines.targets",
+        "buildTransitive/netcoreapp3.1/_._",
         "lib/net461/System.IO.Pipelines.dll",
         "lib/net461/System.IO.Pipelines.xml",
-        "lib/netcoreapp3.0/System.IO.Pipelines.dll",
-        "lib/netcoreapp3.0/System.IO.Pipelines.xml",
-        "lib/netstandard1.3/System.IO.Pipelines.dll",
-        "lib/netstandard1.3/System.IO.Pipelines.xml",
+        "lib/net6.0/System.IO.Pipelines.dll",
+        "lib/net6.0/System.IO.Pipelines.xml",
+        "lib/netcoreapp3.1/System.IO.Pipelines.dll",
+        "lib/netcoreapp3.1/System.IO.Pipelines.xml",
         "lib/netstandard2.0/System.IO.Pipelines.dll",
         "lib/netstandard2.0/System.IO.Pipelines.xml",
-        "ref/net461/System.IO.Pipelines.dll",
-        "ref/net461/System.IO.Pipelines.xml",
-        "ref/netcoreapp2.0/System.IO.Pipelines.dll",
-        "ref/netcoreapp2.0/System.IO.Pipelines.xml",
-        "system.io.pipelines.4.7.5.nupkg.sha512",
+        "system.io.pipelines.6.0.2.nupkg.sha512",
         "system.io.pipelines.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Linq/4.3.0": {
@@ -8382,10 +8399,15 @@
       "type": "project",
       "path": "../../Services/Wizzarts.Services.Mapping/Wizzarts.Services.Mapping.csproj",
       "msbuildProject": "../../Services/Wizzarts.Services.Mapping/Wizzarts.Services.Mapping.csproj"
+    },
+    "Wizzarts.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../../Web/Wizzarts.Web.ViewModels/Wizzarts.Web.ViewModels.csproj",
+      "msbuildProject": "../../Web/Wizzarts.Web.ViewModels/Wizzarts.Web.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
-    "net7.0": [
+    "net6.0": [
       "AutoMapper >= 13.0.1",
       "Microsoft.EntityFrameworkCore.InMemory >= 6.0.26",
       "Microsoft.NET.Test.Sdk >= 17.5.0",
@@ -8414,15 +8436,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net7.0"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {
             "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data\\Wizzarts.Data.csproj": {
               "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data\\Wizzarts.Data.csproj"
@@ -8445,8 +8467,8 @@
       }
     },
     "frameworks": {
-      "net7.0": {
-        "targetAlias": "net7.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "AutoMapper": {
             "target": "Package",

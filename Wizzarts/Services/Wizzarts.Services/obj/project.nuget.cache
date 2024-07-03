@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "aIoXt5ZqSQ0HbIywGQ5EUaGHubYgixH1XLuE2Xm9xDFFn+j9Hcpgw1VUcSUQJUqzFQo60JQdLR5VmPirPsxKTQ==",
+  "dgSpecHash": "yfA/gtrC9sycPeoxKdZ/uxrJKPfVHue15hiyDIRuhu3w5FHiZybEF5AumIn6fzrSXSIyGwjihXrgkeYnNHHZdg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services\\Wizzarts.Services.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.435\\stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.435\\stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512"
+    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
   ],
   "logs": []
 }

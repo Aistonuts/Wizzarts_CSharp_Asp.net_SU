@@ -1,4 +1,4 @@
-﻿namespace MagicCardsmith.Web.ViewModels.Expansion
+﻿namespace Wizzarts.Web.ViewModels.Expansion
 {
     using AutoMapper;
     using Wizzarts.Data.Models;

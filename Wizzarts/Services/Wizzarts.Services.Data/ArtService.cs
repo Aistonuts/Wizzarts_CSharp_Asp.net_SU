@@ -2,12 +2,15 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
+    using System.Threading.Tasks;
 
     using Microsoft.Extensions.Caching.Memory;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels.Art;
 
     using static Wizzarts.Common.GlobalConstants;
 
@@ -71,6 +74,61 @@
             }
 
             return cachedArt;
+        }
+
+        public T GetById<T>(string id)
+        {
+            var art = this.artRepository.AllAsNoTracking()
+           .Where(x => x.Id == id)
+           .To<T>().FirstOrDefault();
+
+            return art;
+        }
+
+
+
+        public async Task AddAsync(AddArtViewModel input, string userId, string imagePath)
+        {
+            var art = new Art
+            {
+                Title = input.Title,
+                Description = input.Description,
+                AddedByMemberId = userId,
+
+            };
+
+            Directory.CreateDirectory($"{imagePath}/art/userArt/");
+            var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
+            if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
+            {
+                throw new Exception($"Invalid image extension {extension}");
+            }
+
+            art.Extension = extension;
+            var physicalPath = $"{imagePath}/art/userArt/{art.Id}.{extension}";
+            art.RemoteImageUrl = $"/images/art/userArt/{art.Id}.{extension}";
+            using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            await input.Image.CopyToAsync(fileStream);
+
+            await this.artRepository.AddAsync(art);
+            await this.artRepository.SaveChangesAsync();
+            this.cache.Remove(ArtsCacheKey);
+        }
+
+        public async Task Edit(EditArtViewModel input, string Id)
+        {
+            var art = this.artRepository.All().FirstOrDefault(x => x.Id == Id);
+
+            art.Title = input.Title;
+            art.Description = input.Description;
+            await this.artRepository.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(string id)
+        {
+            var art = this.artRepository.All().FirstOrDefault(x => x.Id == id);
+            this.artRepository.Delete(art);
+            await this.artRepository.SaveChangesAsync();
         }
     }
 }

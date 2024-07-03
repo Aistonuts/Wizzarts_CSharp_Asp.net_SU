@@ -1,0 +1,989 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\home-index.css",
+      "PackagePath": "staticwebassets\\css\\home-index.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\keyrune.min.css",
+      "PackagePath": "staticwebassets\\css\\keyrune.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\mana.min.css",
+      "PackagePath": "staticwebassets\\css\\mana.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\site.min.css",
+      "PackagePath": "staticwebassets\\css\\site.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\styles.min.css",
+      "PackagePath": "staticwebassets\\css\\styles.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\Philosopher-Bold.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Philosopher-Bold.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\Philosopher-Regular.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Philosopher-Regular.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\fonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\fonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\fonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\keyrune.woff2",
+      "PackagePath": "staticwebassets\\fonts\\keyrune.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\mana.eot",
+      "PackagePath": "staticwebassets\\fonts\\mana.eot"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\mana.svg",
+      "PackagePath": "staticwebassets\\fonts\\mana.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\mana.ttf",
+      "PackagePath": "staticwebassets\\fonts\\mana.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\mana.woff",
+      "PackagePath": "staticwebassets\\fonts\\mana.woff"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\mana.woff2",
+      "PackagePath": "staticwebassets\\fonts\\mana.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\mplantin.eot",
+      "PackagePath": "staticwebassets\\fonts\\mplantin.eot"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\mplantin.svg",
+      "PackagePath": "staticwebassets\\fonts\\mplantin.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\mplantin.ttf",
+      "PackagePath": "staticwebassets\\fonts\\mplantin.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\fonts\\mplantin.woff",
+      "PackagePath": "staticwebassets\\fonts\\mplantin.woff"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\AetherhubLogo320.png",
+      "PackagePath": "staticwebassets\\images\\AetherhubLogo320.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\0.png",
+      "PackagePath": "staticwebassets\\images\\Stores\\0.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\Bright.jpg",
+      "PackagePath": "staticwebassets\\images\\Stores\\Bright.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\Daytona_Magic.jpg",
+      "PackagePath": "staticwebassets\\images\\Stores\\Daytona_Magic.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\Wizards.jpg",
+      "PackagePath": "staticwebassets\\images\\Stores\\Wizards.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\Wizards_Main.jpg",
+      "PackagePath": "staticwebassets\\images\\Stores\\Wizards_Main.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\Yokohama.jpg",
+      "PackagePath": "staticwebassets\\images\\Stores\\Yokohama.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Ancestral_Recall.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Ancestral_Recall.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Bad_Moon.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Bad_Moon.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Crusade.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Crusade.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Dark_Ritual.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Dark_Ritual.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Forest.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Forest.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Giant_Growth.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Giant_Growth.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Goblin_King.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Goblin_King.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Healing_Salve.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Healing_Salve.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Island.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Island.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Lightning_Bolt.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Lightning_Bolt.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Mountain.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Mountain.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Plains.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Plains.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Swamp.png",
+      "PackagePath": "staticwebassets\\images\\art\\Alpha\\Swamp.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Bayou.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Bayou.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Black_lotus.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Black_lotus.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Copy_Artifact.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Copy_Artifact.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Lord_of_Atlantis.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Lord_of_Atlantis.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Mox_Emerald.png",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Mox_Emerald.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Mox_Jet.png",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Mox_Jet.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Mox_Pearl.png",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Mox_Pearl.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Mox_Ruby.png",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Mox_Ruby.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Mox_Sapphire.png",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Mox_Sapphire.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Phantom_Monster.png",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Phantom_Monster.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Roc_of_Kher_Ridges.png",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Roc_of_Kher_Ridges.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Royal_Assassin.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Royal_Assassin.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Sengir_Vampire.png",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Sengir_Vampire.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Serra_Angel.png",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Serra_Angel.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Time_Vault.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Time_Vault.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Time_Walk.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Time_Walk.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Volcanic_Isle.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Volcanic_Isle.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Unlimited\\Wheel_of_Fortune.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Wheel_of_Fortune.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Marvel_Five.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Marvel_Five.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Marvel_Four.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Marvel_Four.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Marvel_One.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Marvel_One.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Marvel_Six.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Marvel_Six.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Marvel_Three.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Marvel_Three.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Marvel_Two.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Marvel_Two.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Portrait_Drawgoon.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Drawgoon.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Portrait_Glowei.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Glowei.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Portrait_Metzen.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Metzen.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Portrait_MrJack.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_MrJack.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Portrait_Raneman.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Raneman.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Portrait_RedKnuckle.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_RedKnuckle.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Portrait_Samwise.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Samwise.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Portrait_Thammer.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Thammer.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Portrait_Twincruiser.png",
+      "PackagePath": "staticwebassets\\images\\avatar\\Portrait_Twincruiser.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\ancestral_recall.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\ancestral_recall.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\bad-moon.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\bad-moon.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\crusade.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\crusade.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\dark-ritual.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\dark-ritual.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\forest.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\forest.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\giant-growth.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\giant-growth.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\goblin-king.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\goblin-king.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\healing_salve.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\healing_salve.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\island.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\island.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\lightning-bolt.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\lightning-bolt.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\mountain.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\mountain.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\plains.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\plains.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\swamp.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\swamp.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavor\\Ankh of Mishra.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavor\\Ankh of Mishra.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\new card.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavorless\\new card.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Bayou.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\Bayou.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Black_Lotus.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\Black_Lotus.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Copy_Artifact.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\Copy_Artifact.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Royal_Assasin.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\Royal_Assasin.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Time_Vault.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\Time_Vault.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Time_Walk.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\Time_Walk.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Volcanic_Island.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\Volcanic_Island.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Wheel_of_Fortune.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\Wheel_of_Fortune.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\lord-of-atlantis.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\lord-of-atlantis.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\mox-emerald.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\mox-emerald.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\mox-jet.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\mox-jet.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\mox-pearl.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\mox-pearl.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\mox-ruby.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\mox-ruby.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\mox-sapphire.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\mox-sapphire.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\phantom-monster.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\phantom-monster.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\roc-of-kher-ridges.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\roc-of-kher-ridges.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\sengir-vampire.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\sengir-vampire.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\serra_angel.jpg",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\serra_angel.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\ArenaMaster.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\ArenaMaster.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\Call_to_arts.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\Call_to_arts.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\Flavorless.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\Flavorless.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\Game_tester.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\Game_tester.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Abandoned_Mire.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Abandoned_Mire.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Adeline.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Adeline.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Black_Market.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Black_Market.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Empire.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Empire.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Ghast.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Ghast.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\InfernalGrasp.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\InfernalGrasp.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Scavengers.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Scavengers.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Ankh_Of_Mishra.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Ankh_Of_Mishra.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Ankh_Of_Mishra_Event.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Ankh_Of_Mishra_Event.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Demonic_Tutor.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Demonic_Tutor.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Demonic_Tutor_Event.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Demonic_Tutor_Event.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Timetwister.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Timetwister.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Timetwister_Event.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Timetwister_Event.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Wrath_of_God.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Wrath_of_God.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventTwoMilestones\\Wrath_of_God_Event.png",
+      "PackagePath": "staticwebassets\\images\\event\\milestones\\EventTwoMilestones\\Wrath_of_God_Event.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\acard.jpg",
+      "PackagePath": "staticwebassets\\images\\frames\\acard.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\black.png",
+      "PackagePath": "staticwebassets\\images\\frames\\black.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\blackValue.png",
+      "PackagePath": "staticwebassets\\images\\frames\\blackValue.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\blue.png",
+      "PackagePath": "staticwebassets\\images\\frames\\blue.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\blueValue.png",
+      "PackagePath": "staticwebassets\\images\\frames\\blueValue.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\clpt.png",
+      "PackagePath": "staticwebassets\\images\\frames\\clpt.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\createcard.jpg",
+      "PackagePath": "staticwebassets\\images\\frames\\createcard.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\gold.png",
+      "PackagePath": "staticwebassets\\images\\frames\\gold.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\goldValue.png",
+      "PackagePath": "staticwebassets\\images\\frames\\goldValue.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\green.png",
+      "PackagePath": "staticwebassets\\images\\frames\\green.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\greenValue.png",
+      "PackagePath": "staticwebassets\\images\\frames\\greenValue.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\holofoil-texture-2.jpg",
+      "PackagePath": "staticwebassets\\images\\frames\\holofoil-texture-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\red.png",
+      "PackagePath": "staticwebassets\\images\\frames\\red.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\redValue.png",
+      "PackagePath": "staticwebassets\\images\\frames\\redValue.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\white.png",
+      "PackagePath": "staticwebassets\\images\\frames\\white.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\frames\\whiteValue.png",
+      "PackagePath": "staticwebassets\\images\\frames\\whiteValue.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\1.png",
+      "PackagePath": "staticwebassets\\images\\mana\\1.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\2.png",
+      "PackagePath": "staticwebassets\\images\\mana\\2.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\3.png",
+      "PackagePath": "staticwebassets\\images\\mana\\3.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\4.png",
+      "PackagePath": "staticwebassets\\images\\mana\\4.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\5.png",
+      "PackagePath": "staticwebassets\\images\\mana\\5.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\6.png",
+      "PackagePath": "staticwebassets\\images\\mana\\6.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\7.png",
+      "PackagePath": "staticwebassets\\images\\mana\\7.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\8.png",
+      "PackagePath": "staticwebassets\\images\\mana\\8.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\9.png",
+      "PackagePath": "staticwebassets\\images\\mana\\9.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\b.png",
+      "PackagePath": "staticwebassets\\images\\mana\\b.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\g.png",
+      "PackagePath": "staticwebassets\\images\\mana\\g.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\r.png",
+      "PackagePath": "staticwebassets\\images\\mana\\r.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\t.png",
+      "PackagePath": "staticwebassets\\images\\mana\\t.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\u.png",
+      "PackagePath": "staticwebassets\\images\\mana\\u.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\mana\\w.png",
+      "PackagePath": "staticwebassets\\images\\mana\\w.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\0.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\AlphaBox.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\AlphaBox.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\Arena.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\Arena.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\Champion.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\Champion.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\MagicCardsmith.gif",
+      "PackagePath": "staticwebassets\\images\\navigation\\MagicCardsmith.gif"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\MagicTheGathering.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\MagicTheGathering.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\Premium.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\Premium.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\SonsOfTheStorm.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\SonsOfTheStorm.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\WrenchMan.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\WrenchMan.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\ah_logo.svg",
+      "PackagePath": "staticwebassets\\images\\navigation\\ah_logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\articles\\0.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\articles\\0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\clouds.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\clouds.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\menu_side.svg",
+      "PackagePath": "staticwebassets\\images\\navigation\\menu_side.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\menu_side_mobile.svg",
+      "PackagePath": "staticwebassets\\images\\navigation\\menu_side_mobile.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\ArtifactRules.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\ArtifactRules.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\CreatureRules.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\CreatureRules.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\EnchantmentRules.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\EnchantmentRules.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\GameRulesBattlefield.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\GameRulesBattlefield.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\InstantRules.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\InstantRules.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\LandsRules.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\LandsRules.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\MCSGameRules.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\MCSGameRules.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\MGCCardComponents.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\MGCCardComponents.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\MGCExpansion.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\MGCExpansion.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\MGCMana.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\MGCMana.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\MGCName.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\MGCName.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\MGCPowerToughness.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\MGCPowerToughness.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\MGCTextBox.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\MGCTextBox.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\MGCType.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\MGCType.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\PlaneswalkerRules.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\PlaneswalkerRules.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\SorceryRules.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\SorceryRules.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\rulesNav\\cloudsAlt.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\rulesNav\\cloudsAlt.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\t.png",
+      "PackagePath": "staticwebassets\\images\\navigation\\t.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\expansions\\Alpha.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Alpha.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\expansions\\Beta.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Beta.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\expansions\\Unlimited.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Unlimited.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\1.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\1.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\2.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\2.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\3.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\3.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\4.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\4.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\5.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\5.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\6.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\6.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\7.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\7.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\8.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\8.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\9.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\9.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\b.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\b.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\g.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\g.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\r.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\r.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\t.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\t.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\u.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\u.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\w.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\mana\\w.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\various\\Back.jpg",
+      "PackagePath": "staticwebassets\\images\\symbols\\various\\Back.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\various\\black.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\various\\black.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\various\\blue.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\various\\blue.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\various\\clpt.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\various\\clpt.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\various\\gold.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\various\\gold.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\various\\green.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\various\\green.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\js\\global.js",
+      "PackagePath": "staticwebassets\\js\\global.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\js\\site.min.js",
+      "PackagePath": "staticwebassets\\js\\site.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\bootstrap-select.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-select.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\bootstrap-select.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\bootstrap-select.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\jquery-ui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\jquery.lazy.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\jquery.lazy.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\jquery.mCustomScrollbar.concat.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\jquery.mCustomScrollbar.concat.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\jquery.unveil.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\jquery.unveil.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\moment.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\moment.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\popper.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\popper.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\lib\\jquery\\respond.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\respond.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Wizzarts.Web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.Wizzarts.Web.props",
+      "PackagePath": "build\\Wizzarts.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Wizzarts.Web.props",
+      "PackagePath": "buildMultiTargeting\\Wizzarts.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.Wizzarts.Web.props",
+      "PackagePath": "buildTransitive\\Wizzarts.Web.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

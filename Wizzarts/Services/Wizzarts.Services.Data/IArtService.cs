@@ -1,12 +1,22 @@
 ﻿namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Wizzarts.Web.ViewModels.Art;
 
     public interface IArtService
     {
+        Task AddAsync(AddArtViewModel input, string userId, string imagePath);
+
+        Task Edit(EditArtViewModel input, string id);
+
+        Task DeleteAsync(string id);
+
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12);
 
         IEnumerable<T> GetRandom<T>(int count);
+
+        T GetById<T>(string id);
 
         int GetCount();
 

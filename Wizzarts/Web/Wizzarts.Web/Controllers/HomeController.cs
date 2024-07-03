@@ -3,10 +3,6 @@
     using System.Diagnostics;
     using System.Threading.Tasks;
 
-    using MagicCardsmith.Web.ViewModels.Card;
-    using MagicCardsmith.Web.ViewModels.Event;
-    using MagicCardsmith.Web.ViewModels.Expansion;
-    using MagicCardsmith.Web.ViewModels.Stores;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Caching.Memory;
@@ -16,7 +12,11 @@
     using Wizzarts.Web.ViewModels;
     using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Card;
+    using Wizzarts.Web.ViewModels.Event;
+    using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.Home;
+    using Wizzarts.Web.ViewModels.Stores;
 
     public class HomeController : BaseController
     {

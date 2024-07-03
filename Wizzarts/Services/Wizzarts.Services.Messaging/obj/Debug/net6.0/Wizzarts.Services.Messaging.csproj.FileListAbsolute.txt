@@ -1,0 +1,13 @@
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\bin\Debug\net6.0\Wizzarts.Services.Messaging.deps.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\bin\Debug\net6.0\Wizzarts.Services.Messaging.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\bin\Debug\net6.0\Wizzarts.Services.Messaging.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\obj\Debug\net6.0\Wizzarts.Services.Messaging.csproj.AssemblyReference.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\obj\Debug\net6.0\Wizzarts.Services.Messaging.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\obj\Debug\net6.0\Wizzarts.Services.Messaging.AssemblyInfoInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\obj\Debug\net6.0\Wizzarts.Services.Messaging.AssemblyInfo.cs
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\obj\Debug\net6.0\Wizzarts.Services.Messaging.csproj.CoreCompileInputs.cache
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\obj\Debug\net6.0\Wizzarts.Services.Messaging.sourcelink.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\obj\Debug\net6.0\Wizzarts.Services.Messaging.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\obj\Debug\net6.0\refint\Wizzarts.Services.Messaging.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\obj\Debug\net6.0\Wizzarts.Services.Messaging.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Messaging\obj\Debug\net6.0\ref\Wizzarts.Services.Messaging.dll

@@ -1,4 +1,4 @@
-﻿namespace MagicCardsmith.Web.ViewModels.Stores
+﻿namespace Wizzarts.Web.ViewModels.Stores
 {
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
