@@ -8,7 +8,7 @@
     using Wizzarts.Web.ViewModels.Card;
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.Expansion;
-    using Wizzarts.Web.ViewModels.Stores;
+    using Wizzarts.Web.ViewModels.Store;
     using Wizzarts.Web.ViewModels.WizzartsMember;
 
     public class IndexAuthenticationViewModel : PagingViewModel
@@ -34,7 +34,7 @@
 
         public IEnumerable<EventInListViewModel> Events { get; set; }
 
-        public IEnumerable<StoresInListViewModel> Stores { get; set; }
+        public IEnumerable<StoreInListViewModel> Stores { get; set; }
 
         public IEnumerable<ExpansionInListViewModel> GameExpansions { get; set; }
     }

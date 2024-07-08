@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OgEE9la1jjG05ahYhD0uSV6G3tmMwdnAC9NSIjWvjjw=",
+  "Hash": "i4CSAKPQMQgZC9uYT9FFY3p6r/i0ga03HeHcR2Pl/NE=",
   "Source": "Wizzarts.Web.Tests",
   "BasePath": "_content/Wizzarts.Web.Tests",
   "Mode": "Default",
@@ -122,6 +122,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\mana.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\playcard.css",
+      "SourceId": "Wizzarts.Web",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\",
+      "BasePath": "_content/Wizzarts.Web",
+      "RelativePath": "css/playcard.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\playcard.css"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\site.css",

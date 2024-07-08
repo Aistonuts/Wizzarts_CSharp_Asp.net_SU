@@ -16,7 +16,7 @@
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.Home;
-    using Wizzarts.Web.ViewModels.Stores;
+    using Wizzarts.Web.ViewModels.Store;
 
     public class HomeController : BaseController
     {
@@ -59,7 +59,7 @@
                 Articles = this.articlesService.GetRandom<ArticleInListViewModel>(6),
                 Arts = this.artService.GetRandom<ArtInListViewModel>(3),
                 Cards = this.playCardService.GetRandom<CardInListViewModel>(4),
-                Stores = this.storeService.GetAll<StoresInListViewModel>(),
+                Stores = this.storeService.GetAll<StoreInListViewModel>(),
                 Events = this.eventService.GetAll<EventInListViewModel>(),
                 GameExpansions = this.cardExpansionService.GetAll<ExpansionInListViewModel>(),
             };

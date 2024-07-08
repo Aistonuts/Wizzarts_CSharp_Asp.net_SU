@@ -8,11 +8,15 @@
     {
         Task AddAsync(AddArtViewModel input, string userId, string imagePath);
 
-        Task Edit(EditArtViewModel input, string id);
+        Task UpdateAsync(EditArtViewModel input, string id);
 
         Task DeleteAsync(string id);
 
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12);
+
+        IEnumerable<T> GetAllArtByUserId<T>(string id, int page, int itemsPerPage = 3);
+
+        IEnumerable<T> GetAllArtByUserIdPaginationless<T>(string id);
 
         IEnumerable<T> GetRandom<T>(int count);
 

@@ -1,9 +1,10 @@
-﻿namespace Wizzarts.Web.ViewModels.Stores
+﻿namespace Wizzarts.Web.ViewModels.Store
 {
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels.Home;
 
-    public class StoresInListViewModel : IMapFrom<Store>
+    public class StoreInListViewModel : IndexAuthenticationViewModel, IMapFrom<Store>
     {
         public int Id { get; set; }
 

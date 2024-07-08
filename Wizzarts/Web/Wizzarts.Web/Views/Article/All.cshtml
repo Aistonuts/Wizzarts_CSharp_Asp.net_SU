@@ -1,0 +1,45 @@
+﻿@model Wizzarts.Web.ViewModels.Article.ArticleListViewModel
+
+@{
+    this.ViewData["Title"] = "All Articles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row ae-break-word pt-2">
+    <div class="col-sm-12 col-xl-9 pl-0 pr-0">
+
+
+     
+        <h4 class="text-center pb-1 ae-border-bottom-light text-header-gold">Articles</h4>
+
+        <div id="firstfeed" class="firstfeed-flexbox mr-md-2">
+                @foreach (var article in this.Model.Articles)
+            {
+            <div class="article-card card mb-3 border-0">
+                <a href="/Article/Bloomburrow-Set-Information-Latest-Updates-and-Spoilers" aria-label="article" class="image-wrapper">
+                    <img src="@article;aspect_ratio=16:9&amp;height=159" class="article-uimgheader" alt="image">
+                    <div class="w-100 text-center text-white article-text-tags pos-abs">
+                        <span>Information</span>
+                    </div>
+                </a>
+                <div class="card-body pt-0">
+                    <small class="yellow-line">
+                            <a href="/User/ChrisCee/Articles">@article.ArticleCreatorName</a>
+                        <span>04 Jul</span>
+                    </small>
+                    <div class="ff-display font-size-18">
+                        <b><a href="/Article/Bloomburrow-Set-Information-Latest-Updates-and-Spoilers">@article.Title</a></b>
+                    </div>
+                    <div class="card-text d-none d-md-flex m-1">@article.Description</div>
+                </div>
+            </div>
+            }
+        </div>
+
+
+
+
+    </div>
+    <div class="col-sm-12 col-xl-3 pl-0 pr-0">
+    </div>
+</div>

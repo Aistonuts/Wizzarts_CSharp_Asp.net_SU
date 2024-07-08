@@ -115,7 +115,7 @@
             this.cache.Remove(ArtsCacheKey);
         }
 
-        public async Task Edit(EditArtViewModel input, string Id)
+        public async Task UpdateAsync(EditArtViewModel input, string Id)
         {
             var art = this.artRepository.All().FirstOrDefault(x => x.Id == Id);
 
@@ -129,6 +129,25 @@
             var art = this.artRepository.All().FirstOrDefault(x => x.Id == id);
             this.artRepository.Delete(art);
             await this.artRepository.SaveChangesAsync();
+        }
+
+        public IEnumerable<T> GetAllArtByUserId<T>(string id, int page, int itemsPerPage = 3)
+        {
+            var art = this.artRepository.AllAsNoTracking()
+              .Where(x => x.AddedByMemberId == id)
+              .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+              .To<T>().ToList();
+
+            return art;
+        }
+
+        public IEnumerable<T> GetAllArtByUserIdPaginationless<T>(string id)
+        {
+            var art = this.artRepository.AllAsNoTracking()
+               .Where(x => x.AddedByMemberId == id)
+               .To<T>().ToList();
+
+            return art;
         }
     }
 }

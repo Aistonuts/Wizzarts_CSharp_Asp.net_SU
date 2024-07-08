@@ -61,6 +61,24 @@
             return this.RedirectToAction("All");
         }
 
+        public IActionResult Edit(string id)
+        { 
+            var inputModel = this.artService.GetById<EditArtViewModel>(id);
+            return this.View(inputModel);
+        }
+
+        public async Task<IActionResult> Edit(EditArtViewModel inputModel, string id)
+        {
+            if (!this.ModelState.IsValid)
+            {
+
+                return this.View(inputModel);
+            }
+
+            await this.artService.UpdateAsync(inputModel, id);
+            return this.RedirectToAction(nameof(this.ById), new { id });
+        }
+
         public IActionResult All(int id = 1)
         {
             if (id <= 0)

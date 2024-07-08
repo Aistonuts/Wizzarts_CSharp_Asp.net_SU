@@ -5,14 +5,14 @@
     using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
-    using Wizzarts.Web.ViewModels.Home;
-    using Wizzarts.Services.Mapping;
 
     public class ArticleInListViewModel : IMapFrom<Article>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
         public string Title { get; set; }
+
+        public string Description { get; set; }
 
         public string ShortDescription { get; set; }
 

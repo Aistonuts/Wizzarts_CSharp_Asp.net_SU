@@ -78,6 +78,7 @@ namespace Wizzarts.Web
             services.AddTransient<IStoreService, StoreService>();
             services.AddTransient<IEventService, EventService>();
             services.AddTransient<IPlayCardExpansionService, PlayCardExpansionService>();
+            services.AddTransient<IPlayCardComponentsService, PlayCardComponentsService>();
         }
 
         private static void Configure(WebApplication app)
