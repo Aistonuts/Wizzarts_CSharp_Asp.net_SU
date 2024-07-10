@@ -443,63 +443,7 @@ $(document).ready(function () {
     });
 
 
-    if (visAPI() === true && $(window).width() > 767) {
-        $.ajax({
-            url: '/Home/GetSponsored',
-            type: 'POST',
-            success: function (data) {
-                var sponsored = '';
-                if (typeof data.sponsored !== 'undefined' && data.sponsored.length > 0) {
-                    var rand = data.sponsored[Math.floor(Math.random() * data.sponsored.length)];
-                    sponsored = rand;
-                }
-                var frameExist = document.getElementById('SponsoredFrame');
-                if (sponsored.name && frameExist) {
-                    let streamImg = sponsored.image.replace('{width}', '300').replace('{height}', '168');
-                    frameExist.innerHTML = `<a href="${sponsored.url}"><img class="d-block" alt="${sponsored.name}" src="${streamImg}" width="300" height="168" /></a><div class="text-center"><a href="${sponsored.url}"><b>${sponsored.name}</b></a></div>`;
-
-                    //setTimeout(function () {
-                    //    var options = {
-                    //        width: 300,
-                    //        height: 250,
-                    //        autoplay: true,
-                    //        channel: sponsored.name,
-                    //        muted: true
-
-                    //    };
-                    //    Twitchplayer = new Twitch.Player("SponsoredFrame", options);
-                    //    //Twitchplayer.setQuality("160p30");
-                    //    Twitchplayer.setMuted(true);
-                    //    if (frameExist.getAttribute('data-play') === 'true') {
-                    //        Twitchplayer.play();
-                    //    }
-                    //}, 1000);
-                }
-                else {
-                    $('#SponsoredStream').removeClass('d-md-block');
-                }
-                $(window).on("blur focus", function (e) {
-                    var prevType = $(this).data("prevType");
-                    if (Twitchplayer && prevType != e.type) { //reduce double fire issues
-                        switch (e.type) {
-                            case "blur":
-                                    setTimeout(function () {
-                                        Twitchplayer.pause();
-                                        window.PauseSponsorHandle = null;
-                                    }, 5000);
-                                break;
-                            case "focus":
-                                Twitchplayer.play();
-                        }
-                    }
-                    $(this).data("prevType", e.type);
-                });
-            }
-        });
-    } else {
-        $('#SponsoredStream').removeClass('d-md-block');
-    }
-
+   
     //Autocomplete function
     var autocompleteInput = document.getElementById("searchM");
     if (autocompleteInput) {

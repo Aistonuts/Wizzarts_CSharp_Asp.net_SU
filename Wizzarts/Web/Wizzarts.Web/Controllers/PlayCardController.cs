@@ -94,6 +94,9 @@
                 input.AbilitiesAndFlavor = cardDescription;
             }
 
+            this.ModelState.Remove("UserName");
+            this.ModelState.Remove("Password");
+
             if (!this.ModelState.IsValid)
             {
                 input.RedMana = this.playCardComponentsService.GetAllRedMana();

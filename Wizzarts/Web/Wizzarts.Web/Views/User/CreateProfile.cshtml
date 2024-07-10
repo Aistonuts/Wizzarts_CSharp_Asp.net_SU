@@ -1,0 +1,78 @@
+﻿@model Wizzarts.Web.ViewModels.WizzartsMember.CreateMemberProfileViewModel
+
+@{
+    this.ViewData["Title"] = "New Member";
+}
+
+<div class="row pt-2">
+    <div class="col-md-12 col-lg-9 pr-0 pl-0 pr-lg-2">
+        <div class="card">
+            <div class="card-body pt-1 pb-1">
+                <div class="d-flex justify-content-right">
+                    <div>
+                        <div class="ae-profile-image-container">
+                            <img src="@Model.AvatarUrl" width="100" height="100" class="rounded-circle">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div class="card-header bg-light pt-0">
+                <form method="post">
+                    <div class="form-group row mb-1">
+                        <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Nickname"></label>
+                        <div class="col-sm-8 col-lg-6">
+                            <input asp-for="Nickname" class="form-control" placeholder="Nickname">
+                        </div>
+                        <span asp-validation-for="Nickname" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group row mb-1" hidden>
+                        <label class="col-sm-2 col-lg-2 col-form-label" asp-for="AvatarUrl"></label>
+                        <div class="col-sm-8 col-lg-6">
+                            <input asp-for="AvatarUrl" class="form-control" placeholder="AvatarUrl">
+                        </div>
+                        <span asp-validation-for="AvatarUrl" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group row mb-1">
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-8">
+                            <button type="submit" class="btn btn-light">
+                                <span class="fas fa-plus"></span> <b>Create</b>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-12 col-lg-3 pr-0 pl-0">
+        <div class="card mb-2">
+
+            <div class="card-body pt-1 pb-1">
+                <div class="d-flex justify-content-center">
+                    <div>
+                        @foreach (var avatar in Model.Avatars)
+                        {
+                            <div class="card-body pt-1 pb-1">
+                                <div class="d-flex justify-content-center">
+                                    <div>
+                                        <a asp-controller="User" asp-action="Update" asp-route-id="@avatar.Id" class="ae-profile-image-container">
+                                            <img src="@avatar.AvatarUrl" width="80" height="80" class="rounded-circle" alt="ChrisCee">
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,6 +18,8 @@
 
         public string CreatorId { get; set; }
 
+        public string EventCreator { get; set; }
+
         public string ImageUrl { get; set; }
 
         public IEnumerable<CardInListViewModel> Cards { get; set; }

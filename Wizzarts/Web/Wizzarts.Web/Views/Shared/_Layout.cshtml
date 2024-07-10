@@ -11,18 +11,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" /> *@
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/styles.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/keyrune.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/mana.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/home-index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/playcard.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/article-index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/article.css" asp-append-version="true" />
+
 </head>
 <body data-base data-theme="dark">
     <div class="wrapper" id="wrapper">
-        <nav id="sidebar" class="mCustomScrollbar _mCS_1 mCS-autoHide active mCS_no_scrollbar">
+        <nav id="sidebar" class="mCustomScrollbar _mCS_1 mCS-autoHide active mCS_no_scrollbar" style="overflow: visible;">
             <div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: 1534px;" tabindex="0">
                 <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; top: 0px; left: 0px;" dir="ltr">
                     <div class="w-100 text-center mb-1 mt-1">
@@ -68,7 +70,7 @@
                                     <hr class="mt-2 mb-2">
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="GameRules" asp-action="GetRules">Magic Cardsmith Rules</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Wizzarts" asp-action="GetRules">Wizzarts Card Game Rules</a>
                                 </li>
                             </ul>
                             @if (this.SignInManager.IsSignedIn(this.User))
@@ -182,7 +184,7 @@
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Expansion" asp-action="All">Game Expansions</a>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="All">Magic Game Stores</a>
                                                         <hr>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="GameRules" asp-action="GetRules">Magic Cardsmith Rules</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Wizzarts" asp-action="GetRules">Magic Cardsmith Rules</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -489,7 +491,9 @@
             </div>
         </div>
     </div>
-
+    <div id="popupMsg"></div>
+  
+    <script type="text/javascript" src="~/js/html2canvas.js" asp-append-version="true"></script>
     <script src="~/lib/jquery/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery/jquery-ui.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery/popper.min.js" asp-append-version="true"></script>
@@ -503,11 +507,16 @@
     <script src="~/lib/jquery/jquery.mCustomScrollbar.concat.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery/moment.min.js" asp-append-version="true"></script>
     <script src="~/js/global.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/popper.min.js" asp-append-version="true"></script>
+
 @*     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script> *@
     <script src="https://kit.fontawesome.com/e0f25cd0cd.js" crossorigin="anonymous"></script>
+
+    <script>search();</script>
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

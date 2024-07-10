@@ -1,0 +1,20 @@
+#article-body img:not(.ae-card-hover-img) {
+    max-width: 100%;
+    height: auto;
+}
+
+@media only screen and (max-width: 494px) {
+    .flex-item {
+        width: 400px;
+    }
+}
+.card-image {
+    position: relative;
+    min-width: 50px;
+    display: block;
+    max-width: 100%;
+    width: 280px;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 15px;
+}

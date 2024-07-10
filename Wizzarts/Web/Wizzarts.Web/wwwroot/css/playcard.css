@@ -145,10 +145,10 @@
 }
 
 .frame-art {
-    height: 25.3%;
-    margin: 81.3px 42px;
+    height: 37.3%;
+    margin: 80.3px 42px;
     position:absolute;
-    max-height:278px;
+    max-height:378px;
     max-width:380px;
        
 }
@@ -170,8 +170,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 60px 7px;
-    font-size: 1.2em;
+    padding: 25px 9px;
+    font-size: 0.9em;
     margin-top: -600px;
     margin-left: 45px;
     margin-right: 42px;

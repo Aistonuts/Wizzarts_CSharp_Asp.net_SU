@@ -190,6 +190,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/User/CreateProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGVQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/User/MyData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxNeURhdGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/User/SelectAvatar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTZWxlY3RBdmF0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Wizzarts/GetRules.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2l6emFydHNcR2V0UnVsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Wizzarts/Membership.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2l6emFydHNcTWVtYmVyc2hpcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

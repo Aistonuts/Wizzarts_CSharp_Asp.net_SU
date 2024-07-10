@@ -1,6 +1,14 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\article-index.css",
+      "PackagePath": "staticwebassets\\css\\article-index.css"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\article.css",
+      "PackagePath": "staticwebassets\\css\\article.css"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.css"
     },
@@ -253,6 +261,10 @@
       "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Wheel_of_Fortune.jpg"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\userArt\\5dcd490a-1fdf-4239-a7f0-af14bfbfc273.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\userArt\\5dcd490a-1fdf-4239-a7f0-af14bfbfc273.jpg"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Marvel_Five.png",
       "PackagePath": "staticwebassets\\images\\avatar\\Marvel_Five.png"
     },
@@ -367,6 +379,18 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavor\\Ankh of Mishra.png",
       "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavor\\Ankh of Mishra.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\aaaaaaaaaaaaaaa.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavorless\\aaaaaaaaaaaaaaa.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\aaaaaaaaaaaaaaaaa.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavorless\\aaaaaaaaaaaaaaaaa.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\bbbbbbbbbbbbbbbbbbbb.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavorless\\bbbbbbbbbbbbbbbbbbbb.png"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\new card.png",
@@ -871,6 +895,14 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\js\\global.js",
       "PackagePath": "staticwebassets\\js\\global.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\js\\html2canvas.js",
+      "PackagePath": "staticwebassets\\js\\html2canvas.js"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\js\\popper.min.js",
+      "PackagePath": "staticwebassets\\js\\popper.min.js"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\js\\site.js",

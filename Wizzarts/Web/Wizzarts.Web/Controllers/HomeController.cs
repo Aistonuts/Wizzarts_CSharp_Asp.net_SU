@@ -71,6 +71,16 @@
         {
             returnUrl ??= this.Url.Content("~/");
 
+            var viewModel = new IndexAuthenticationViewModel()
+            {
+                Articles = this.articlesService.GetRandom<ArticleInListViewModel>(6),
+                Arts = this.artService.GetRandom<ArtInListViewModel>(3),
+                Cards = this.playCardService.GetRandom<CardInListViewModel>(4),
+                Stores = this.storeService.GetAll<StoreInListViewModel>(),
+                Events = this.eventService.GetAll<EventInListViewModel>(),
+                GameExpansions = this.cardExpansionService.GetAll<ExpansionInListViewModel>(),
+            };
+
             if (this.ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
@@ -84,7 +94,7 @@
                 else
                 {
                     this.ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return this.View();
+                    return this.View(viewModel);
                 }
             }
 

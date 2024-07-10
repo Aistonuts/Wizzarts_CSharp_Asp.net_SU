@@ -3,25 +3,32 @@
 @{
     this.ViewData["Title"] = "Event Milestones";
 }
-
-<div class="col-sm-12 col-md-12 col-lg-8 pl-0 pr-0 pr-lg-3">
-    <div class="card p-lg-3">
-        <div>
-            <div id="zone01-flex" class="mx-auto"></div>
-        </div>
-        <article id="article-body">
-            <div class="h-oneKpx pl-0 pr-0">
-                <div class="mt-3 mb-3 d-sm-flex justify-content-between align-items-end">
-                    <div class="col-12 col-sm-7 col-md-6">
-                        <h1 class="ff-display">@Model.Title</h1>
-                        <div class="w-100 d-flex justify-content-start mb-1 mt-3">
+<div class="row pt-2 ae-break-word">
+    <div class="col-sm-12 col-md-12 col-lg-8 pl-0 pr-0 pr-lg-3">
+        <div class="card p-lg-3">
+            <div>
+                <div id="zone01-flex" class="mx-auto"></div>
+            </div>
+            <article id="article-body">
+                <div class="h-oneKpx pl-0 pr-0">
+                    <div class="mt-3 mb-3 d-sm-flex justify-content-between align-items-end">
+                        <div class="col-12 col-sm-7 col-md-6">
+                            <h1 class="ff-display">@Model.Title</h1>
+                            <div class="w-100 d-flex justify-content-start mb-1 mt-3">
+                            </div>
+                            <div class="w-100 d-flex justify-content-start mb-1 mt-3">
+                                <div class="yellow-line w-100 mb-0">
+                                    <img src="https://gravatar.com/avatar/9ef5be673bd91a07ceeab44408c72793.jpg" width="50" height="50" class="rounded-circle">
+                                    <a href="/User/Genoslugcs">Genoslugcs</a>
+                                    <span class="text-muted">July 6, 2024</span>
+                                    <span class="text-muted"><i class="far fa-clock"></i> 4 min</span>
+                                </div>
+                            </div>
                         </div>
-
+                        <div class="col-12 col-sm-5 col-md-6">
+                            <img class="article-uimgheader-preview" src="@Model.ImageUrl" alt="@Model.Title">
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-5 col-md-6">
-                        <img class="article-uimgheader-preview" src="@Model.ImageUrl" alt="@Model.Title">
-                    </div>
-                </div>
                     <div class="card-text d-none d-md-flex m-1">@Model.EventDescription</div>
                     <div class="col-sm-12 col-md-12 col-lg-4 pl-0 pr-0 mt-2 mt-lg-0">
                         <div class="row mt-2">
@@ -30,9 +37,9 @@
                                     @foreach (var component in this.Model.EventComponents)
                                     {
                                         <div class="inner-container">
-                                        <a asp-controller="PlayCard" asp-action="Create" asp-route-id="@component.Id" class="item ae-card-link cardLink ">
-                                            <img class="lazy" src="@component.ImageUrl" alt="@component.Description" style="">
-                                            <div class="">@component.Description</div>
+                                            <a asp-controller="PlayCard" asp-action="Create" asp-route-id="@component.Id" class="item ae-card-link cardLink ">
+                                                <img class="lazy" src="@component.ImageUrl" alt="@component.Description" style="">
+                                                <div class="">@component.Description</div>
                                             </a>
                                             <div class="item-footer">
                                             </div>
@@ -41,10 +48,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>              
-            </div>
-            <hr />
-            <hr />
-        </article>
+                    </div>
+                </div>
+            </article>
+        </div>
     </div>
 </div>
