@@ -14,15 +14,18 @@
     public class ArtController : BaseController
     {
         private readonly IArtService artService;
+        private readonly IWizzartsServices wizzartsServices;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IWebHostEnvironment environment;
 
         public ArtController(
             IArtService artService,
+            IWizzartsServices wizzartsServices,
             UserManager<ApplicationUser> userManager,
             IWebHostEnvironment environment)
         {
             this.artService = artService;
+            this.wizzartsServices = wizzartsServices;
             this.userManager = userManager;
             this.environment = environment;
         }
@@ -89,6 +92,17 @@
             var viewModel = new ArtListViewModel
             {
                 Art = this.artService.GetRandom<ArtInListViewModel>(20),
+            };
+
+            return this.View(viewModel);
+        }
+
+        public IActionResult ByUserId(int id)
+        {
+            var userId = this.wizzartsServices.GetUserIdByArtistId(id);
+            var viewModel = new ArtListViewModel
+            {
+                Art = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(userId),
             };
 
             return this.View(viewModel);

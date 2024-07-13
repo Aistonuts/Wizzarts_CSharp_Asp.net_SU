@@ -85,7 +85,7 @@
                                         <hr class="mt-2 mb-2">
                                     </li>
                                     <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Premium" asp-action="Membership"><i class="fa fa-handshake-o" aria-hidden="true"></i> <b>Contribute</b></a>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Wizzarts" asp-action="Membership"><i class="fa fa-handshake-o" aria-hidden="true"></i> <b>Contribute</b></a>
                                     </li>
                                 </ul>
 
@@ -263,132 +263,15 @@
                 @* <div class="row row pt-2"> *@              
                     <partial name="_CookieConsentPartial" />
                     @this.RenderBody()
-               
-            </div>
-        </div>
-        <div class="card mb-2 ">
-            <div class="card-body p-2">
-                <div class="d-flex flex-wrap justify-content-start">
-                    <div class="home-meta-card">
-                        <div class="home-meta-card-headline lazy" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/home/jace.png&quot;);">
-                            Standard
-                        </div>
-                        <ul>
-                            <li><a href="/Metagame/Standard-BO1/">BO1 Metagame</a></li>
-                            <li><a href="/Metagame/Traditional-Standard/">BO3 Metagame</a></li>
-                            <li><a href="/Events/Standard/">Tournament Decks</a></li>
-                            <li><a href="/MTGA-Decks/Standard-BO1/">Latest MTGA Decks</a></li>
-                            <li><a href="/Decks/Standard-BO1/">Player Posted Decks</a></li>
-                        </ul>
-                    </div>
-                    <div class="home-meta-card">
-                        <div class="home-meta-card-headline lazy" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/home/gideon.png&quot;);">
-                            Historic
-                        </div>
-                        <ul>
-                            <li><a href="/Metagame/Historic-BO1/">BO1 Metagame</a></li>
-                            <li><a href="/Metagame/Traditional-Historic/">BO3 Metagame</a></li>
-                            <li><a href="/Events/Historic/">Tournament Decks</a></li>
-                            <li><a href="/MTGA-Decks/Historic-BO1/">Latest MTGA Decks</a></li>
-                            <li><a href="/Decks/Historic-BO1/">Player Posted Decks</a></li>
-                        </ul>
-                    </div>
-                    <div class="home-meta-card">
-                        <div class="home-meta-card-headline lazy" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/home/chandra.png&quot;);">
-                            Pioneer
-                        </div>
-                        <ul>
-                            <li><a href="/Metagame/Pioneer/30">Metagame Last 30 Days</a></li>
-                            <li><a href="/Metagame/Pioneer/90">Metagame Last 90 Days</a></li>
-                            <li><a href="/Events/Pioneer/">Tournament Decks</a></li>
-                            <li><a href="/Decks/Pioneer/">Player Posted Decks</a></li>
-                        </ul>
-                    </div>
-                    <div class="home-meta-card">
-                        <div class="home-meta-card-headline lazy" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/home/nissa.png&quot;);">
-                            Alchemy
-                        </div>
-                        <ul>
-                            <li><a href="/Metagame/Alchemy-BO1/">BO1 Metagame</a></li>
-                            <li><a href="/Metagame/Traditional-Alchemy/">BO3 Metagame</a></li>
-                            <li><a href="/MTGA-Decks/Alchemy-BO1/">Latest MTGA Decks</a></li>
-                            <li><a href="/Decks/Alchemy-BO1/">Player Posted BO1 Decks</a></li>
-                            <li><a href="/Decks/Traditional-Alchemy/">Player Posted BO3 Decks</a></li>
-                        </ul>
-                    </div>
-                    <div class="home-meta-card">
-                        <div class="home-meta-card-headline lazy" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/home/ajani.png&quot;);">
-                            Explorer
-                        </div>
-                        <ul>
-                            <li><a href="/Metagame/Explorer-BO1/">BO1 Metagame</a></li>
-                            <li><a href="/Metagame/Traditional-Explorer/">BO3 Metagame</a></li>
-                            <li><a href="/MTGA-Decks/Explorer-BO1/">Latest MTGA BO1 Decks</a></li>
-                            <li><a href="/MTGA-Decks/Traditional-Explorer/">Latest MTGA BO3 Decks</a></li>
-                            <li><a href="/Decks/Explorer-BO1/">Player Posted Decks</a></li>
-                        </ul>
-                    </div>
-                    <div class="home-meta-card">
-                        <div class="home-meta-card-headline lazy" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/home/atraxa.png&quot;);">
-                            Brawl
-                        </div>
-                        <ul>
-                            <li><a href="/Metagame/Brawl/">Brawl Metagame</a></li>
-                            <li><a href="/Metagame/Historic-Brawl/">Historic Brawl Metagame</a></li>
-                            <li><a href="/MTGA-Decks/Brawl/">Latest Brawl MTGA Decks</a></li>
-                            <li><a href="/MTGA-Decks/Historic-Brawl/">Latest Historic Brawl MTGA Decks</a></li>
-                            <li><a href="/Decks/Brawl/">Player Posted Decks</a></li>
-                        </ul>
-                    </div>
-                    <div class="home-meta-card">
-                        <div class="home-meta-card-headline lazy" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/home/serra.png&quot;);">
-                            Modern
-                        </div>
-                        <ul>
-                            <li><a href="/Metagame/Modern/30">Metagame Last 30 Days</a></li>
-                            <li><a href="/Metagame/Modern/90">Metagame Last 90 Days</a></li>
-                            <li><a href="/Events/Modern/">Tournament Decks</a></li>
-                            <li><a href="/Decks/Modern/">Player Posted Decks</a></li>
-                        </ul>
-                    </div>
-                    <div class="home-meta-card">
-                        <div class="home-meta-card-headline lazy" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/home/blacklotus.png&quot;);">
-                            Commander
-                        </div>
-                        <ul>
-                            <li><a href="/Metagame/Commander/"> Commander Metagame</a></li>
-                            <li><a href="/Metagame/Oathbreaker/">Oathbreaker Metagame</a></li>
-                            <li><a href="/Decks/Commander/">Commander Player Decks</a></li>
-                            <li><a href="/Decks/Oathbreaker/">Oathbreaker Player Decks</a></li>
-                        </ul>
-                    </div>
-                    <div class="home-meta-card">
-                        <div class="home-meta-card-headline lazy" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/home/liliana.png&quot;);">
-                            Limited
-                        </div>
-                        <ul>
-                            <li><a href="/Limited/">Limited Metagame</a></li>
-                            <li><a href="/Limited/Ratings/">Limited Ratings</a></li>
-                            <li><a href="/Limited/Draftevents/">Latest MTGA Limited Winners</a></li>
-                            <li><a href="/Limited/DraftSensei/">Draft Trainer</a></li>
-                        </ul>
-                    </div>
-                    <div class="home-meta-card">
-                        <div class="home-meta-card-headline lazy" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/home/elspeth.png&quot;);">
-                            Tournaments
-                        </div>
-                        <ul>
-                            <li><a href="/Tourney/MyTourneys">Create MTG Tournament</a></li>
-
-                            <li><a href="/Tourney/">Find Tournament</a></li>
-                            <li><a href="/Tourney/Leagues">Find League</a></li>
-                            <li><a href="/Tourney/MyLeagues">Create a League</a></li>
-                            <li><a href="/Docs/TourneyHosting">How to host a tournament</a></li>
-                        </ul>
-                    </div>
+                <div>
+                    
+                    <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Team Wizzarts</h4>
+                    <hr />
+                    @await Component.InvokeAsync("WizzartsTeam")
                 </div>
             </div>
         </div>
+      
     </div>
     <footer class="d-print-none">
         <div class="footer-decor">

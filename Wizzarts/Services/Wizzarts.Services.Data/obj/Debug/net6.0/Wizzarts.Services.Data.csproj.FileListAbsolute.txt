@@ -25,3 +25,6 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Servic
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Data\obj\Debug\net6.0\refint\Wizzarts.Services.Data.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Data\obj\Debug\net6.0\Wizzarts.Services.Data.pdb
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Data\obj\Debug\net6.0\ref\Wizzarts.Services.Data.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Data\bin\Debug\net6.0\appsettings.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Data\bin\Debug\net6.0\Wizzarts.Data.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Services\Wizzarts.Services.Data\bin\Debug\net6.0\Wizzarts.Data.pdb

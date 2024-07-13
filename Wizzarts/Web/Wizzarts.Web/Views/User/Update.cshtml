@@ -30,11 +30,25 @@
                         <span asp-validation-for="Nickname" class="small text-danger"></span>
                     </div>
                     <div class="form-group row mb-1" hidden>
+                        <label class="col-sm-2 col-lg-2 col-form-label" asp-for="AvatarId"></label>
+                        <div class="col-sm-8 col-lg-6">
+                            <input asp-for="AvatarId" class="form-control" placeholder="Nickname">
+                        </div>
+                        <span asp-validation-for="AvatarId" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group row mb-1" hidden>
                         <label class="col-sm-2 col-lg-2 col-form-label" asp-for="AvatarUrl"></label>
                         <div class="col-sm-8 col-lg-6">
                             <input asp-for="AvatarUrl" class="form-control" placeholder="AvatarUrl">
                         </div>
                         <span asp-validation-for="AvatarUrl" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group row mb-1">
+                        <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Bio"></label>
+                        <div class="col-sm-8 col-lg-6">
+                            <input asp-for="Bio" class="form-control" placeholder="Art Description">
+                        </div>
+                        <span asp-validation-for="Bio" class="small text-danger"></span>
                     </div>
                     <div class="form-group row mb-1">
                         <label class="col-sm-2 col-form-label"></label>
@@ -61,7 +75,7 @@
                             <div class="card-body pt-1 pb-1">
                                 <div class="d-flex justify-content-center">
                                     <div>
-                                        <a asp-controller="User" asp-action="Update" asp-route-id="@avatar.Id" class="ae-profile-image-container">
+                                        <a asp-controller="User" asp-action="CreateProfile" asp-route-id="@avatar.Id" class="ae-profile-image-container">
                                             <img src="@avatar.AvatarUrl" width="80" height="80" class="rounded-circle" alt="ChrisCee">
                                         </a>
                                     </div>

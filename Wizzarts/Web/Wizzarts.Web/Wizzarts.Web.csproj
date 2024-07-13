@@ -46,7 +46,10 @@
     <Folder Include="wwwroot\images\art\Beta\" />
     <Folder Include="wwwroot\images\art\userArt\" />
     <Folder Include="wwwroot\images\cardsByExpansion\Beta\" />
+    <Folder Include="wwwroot\images\cardsByExpansion\EventCards\Flavorless\" />
+    <Folder Include="wwwroot\images\cardsByExpansion\EventCards\Flavor\" />
     <Folder Include="wwwroot\images\cardsByExpansion\PremiumUserCards\" />
     <Folder Include="wwwroot\images\event\UserEvent\" />
+    <Folder Include="wwwroot\images\navigation\articles\" />
   </ItemGroup>
 </Project>

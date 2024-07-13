@@ -28,35 +28,6 @@ namespace Wizzarts.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetUsers",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Avatars",
                 columns: table => new
                 {
@@ -318,6 +289,128 @@ namespace Wizzarts.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Nickname = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: true),
+                    AvatarId = table.Column<int>(type: "int", nullable: true, comment: "Avatar Identifier.Picked after signing in"),
+                    AvatarUrl = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Avatar remote URL.Picked after signing in"),
+                    Bio = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "Information about the artist"),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUsers_Avatars_AvatarId",
+                        column: x => x.AvatarId,
+                        principalTable: "Avatars",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WizzartsGameRules",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GameRulesIntroUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CardReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CardReadingIntroUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CardNameReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CardNameUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ManaCostReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ManaCostUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CardTypeReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CardTypeUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SetSymbolReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SetSymbolUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CardTextBoxReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CardTextBoxUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CardPowerToughnessReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CardPowToughUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BattleFieldSetUp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BattleFieldIntroUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreaturesInBattle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LibraryInBattle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LandsInBattle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GraveyardInBattle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HandInBattle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GameActions = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TappingUntapping = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CastingSpells = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AttackingAndBlocking = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PartsOfTheTurn = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BeginningPhase = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstMainPhase = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CombatPhase = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SecondMainPhase = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EndingPhase = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Outro = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OutroUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PublishedById = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    WizzartsCardGameId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WizzartsGameRules", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_WizzartsGameRules_WizzartsCardGame_WizzartsCardGameId",
+                        column: x => x.WizzartsCardGameId,
+                        principalTable: "WizzartsCardGame",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WizzartsGameRulesData",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "Game rule component title. Seeded"),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "Game rule component description. Seeded"),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "Game rule component image url. Seeded"),
+                    WizzartsCardGameId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WizzartsGameRulesData", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_WizzartsGameRulesData_WizzartsCardGame_WizzartsCardGameId",
+                        column: x => x.WizzartsCardGameId,
+                        principalTable: "WizzartsCardGame",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Articles",
                 columns: table => new
                 {
@@ -464,69 +557,6 @@ namespace Wizzarts.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Stores",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false, comment: "Store name"),
-                    Country = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, comment: "Store location"),
-                    City = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, comment: "Store location"),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false, comment: "Store phone"),
-                    Address = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, comment: "Store location"),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Store image Url"),
-                    ApprovedByAdmin = table.Column<bool>(type: "bit", nullable: false, comment: "Store approved by Admin."),
-                    StoreOwnerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Stores", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Stores_AspNetUsers_StoreOwnerId",
-                        column: x => x.StoreOwnerId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "WizzartsMembers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nickname = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
-                    AvatarUrl = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Avatar remote URL.Picked after signing in"),
-                    AvatarId = table.Column<int>(type: "int", nullable: false, comment: "Avatar Identifier.Picked after signing in"),
-                    Bio = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "Information about the artist"),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Artist's eamil"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true, comment: "Artist's user id"),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_WizzartsMembers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_WizzartsMembers_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_WizzartsMembers_Avatars_AvatarId",
-                        column: x => x.AvatarId,
-                        principalTable: "Avatars",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Events",
                 columns: table => new
                 {
@@ -561,49 +591,19 @@ namespace Wizzarts.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "WizzartsGameRules",
+                name: "Stores",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GameRulesIntroUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardReadingIntroUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardNameReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardNameUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ManaCostReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ManaCostUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardTypeReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardTypeUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SetSymbolReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SetSymbolUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardTextBoxReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardTextBoxUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardPowerToughnessReading = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardPowToughUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BattleFieldSetUp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BattleFieldIntroUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreaturesInBattle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LibraryInBattle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LandsInBattle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GraveyardInBattle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    HandInBattle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GameActions = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TappingUntapping = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CastingSpells = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AttackingAndBlocking = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PartsOfTheTurn = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BeginningPhase = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FirstMainPhase = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CombatPhase = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SecondMainPhase = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EndingPhase = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Outro = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    OutroUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PublishedById = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    WizzartsCardGameId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false, comment: "Store name"),
+                    Country = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, comment: "Store location"),
+                    City = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, comment: "Store location"),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false, comment: "Store phone"),
+                    Address = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, comment: "Store location"),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Store image Url"),
+                    ApprovedByAdmin = table.Column<bool>(type: "bit", nullable: false, comment: "Store approved by Admin."),
+                    StoreOwnerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -611,37 +611,13 @@ namespace Wizzarts.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WizzartsGameRules", x => x.Id);
+                    table.PrimaryKey("PK_Stores", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_WizzartsGameRules_WizzartsCardGame_WizzartsCardGameId",
-                        column: x => x.WizzartsCardGameId,
-                        principalTable: "WizzartsCardGame",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "WizzartsGameRulesData",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "Game rule component title. Seeded"),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "Game rule component description. Seeded"),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "Game rule component image url. Seeded"),
-                    WizzartsCardGameId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_WizzartsGameRulesData", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_WizzartsGameRulesData_WizzartsCardGame_WizzartsCardGameId",
-                        column: x => x.WizzartsCardGameId,
-                        principalTable: "WizzartsCardGame",
-                        principalColumn: "Id");
+                        name: "FK_Stores_AspNetUsers_StoreOwnerId",
+                        column: x => x.StoreOwnerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -954,6 +930,11 @@ namespace Wizzarts.Data.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_AvatarId",
+                table: "AspNetUsers",
+                column: "AvatarId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AspNetUsers_IsDeleted",
                 table: "AspNetUsers",
                 column: "IsDeleted");
@@ -1195,21 +1176,6 @@ namespace Wizzarts.Data.Migrations
                 column: "WizzartsCardGameId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_WizzartsMembers_AvatarId",
-                table: "WizzartsMembers",
-                column: "AvatarId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_WizzartsMembers_IsDeleted",
-                table: "WizzartsMembers",
-                column: "IsDeleted");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_WizzartsMembers_UserId",
-                table: "WizzartsMembers",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_WizzartsTeamMembers_IsDeleted",
                 table: "WizzartsTeamMembers",
                 column: "IsDeleted");
@@ -1270,9 +1236,6 @@ namespace Wizzarts.Data.Migrations
                 name: "WizzartsGameRulesData");
 
             migrationBuilder.DropTable(
-                name: "WizzartsMembers");
-
-            migrationBuilder.DropTable(
                 name: "WizzartsTeamMembers");
 
             migrationBuilder.DropTable(
@@ -1280,9 +1243,6 @@ namespace Wizzarts.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "PlayCards");
-
-            migrationBuilder.DropTable(
-                name: "Avatars");
 
             migrationBuilder.DropTable(
                 name: "WizzartsCardGame");
@@ -1325,6 +1285,9 @@ namespace Wizzarts.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "EventStatuses");
+
+            migrationBuilder.DropTable(
+                name: "Avatars");
         }
     }
 }

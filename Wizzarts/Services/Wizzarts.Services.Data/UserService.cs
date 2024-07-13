@@ -7,6 +7,8 @@
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
+    using Wizzarts.Data;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
@@ -14,6 +16,7 @@
 
     public class UserService : IUserService
     {
+        private readonly ApplicationDbContext dbContext;
         private readonly IDeletableEntityRepository<Art> artRepository;
         private readonly IDeletableEntityRepository<Article> articleRepository;
         private readonly IDeletableEntityRepository<Event> eventRepository;
@@ -22,6 +25,7 @@
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
 
         public UserService(
+           ApplicationDbContext dbContext,
            IDeletableEntityRepository<Art> artRepository,
            IDeletableEntityRepository<Article> articleRepository,
            IDeletableEntityRepository<Event> eventRepository,
@@ -29,6 +33,7 @@
            UserManager<ApplicationUser> userManager,
            IDeletableEntityRepository<ApplicationUser> userRepositor)
         {
+            this.dbContext = dbContext;
             this.artRepository = artRepository;
             this.articleRepository = articleRepository;
             this.eventRepository = eventRepository;
@@ -102,15 +107,12 @@
         public async Task UpdateAsync(string id, CreateMemberProfileViewModel input)
         {
             var user = this.userRepository.All().FirstOrDefault(x => x.Id == id);
-            //user.Nickname = input.Nickname;
-            //user.AvatarUrl = input.AvatarUrl;
+            user.Nickname = input.Nickname;
+            user.AvatarUrl = input.AvatarUrl;
+            user.Bio = input.Bio;
+            user.AvatarId = input.AvatarId;
 
             await this.userRepository.SaveChangesAsync();
-        }
-
-        public IEnumerable<T> GetAllAsync<T>(int page, int itemsPerPage = 12)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

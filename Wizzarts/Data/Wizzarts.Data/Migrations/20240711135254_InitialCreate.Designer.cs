@@ -12,7 +12,7 @@ using Wizzarts.Data;
 namespace Wizzarts.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240624193049_InitialCreate")]
+    [Migration("20240711135254_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -179,6 +179,19 @@ namespace Wizzarts.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<int?>("AvatarId")
+                        .HasColumnType("int")
+                        .HasComment("Avatar Identifier.Picked after signing in");
+
+                    b.Property<string>("AvatarUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Avatar remote URL.Picked after signing in");
+
+                    b.Property<string>("Bio")
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Information about the artist");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -208,6 +221,10 @@ namespace Wizzarts.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Nickname")
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
+
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -236,6 +253,8 @@ namespace Wizzarts.Data.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AvatarId");
 
                     b.HasIndex("IsDeleted");
 
@@ -1505,64 +1524,6 @@ namespace Wizzarts.Data.Migrations
                     b.ToTable("WizzartsGameRulesData");
                 });
 
-            modelBuilder.Entity("Wizzarts.Data.Models.WizzartsMember", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("AvatarId")
-                        .HasColumnType("int")
-                        .HasComment("Avatar Identifier.Picked after signing in");
-
-                    b.Property<string>("AvatarUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasComment("Avatar remote URL.Picked after signing in");
-
-                    b.Property<string>("Bio")
-                        .HasColumnType("nvarchar(max)")
-                        .HasComment("Information about the artist");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasComment("Artist's eamil");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Nickname")
-                        .IsRequired()
-                        .HasMaxLength(12)
-                        .HasColumnType("nvarchar(12)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)")
-                        .HasComment("Artist's user id");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AvatarId");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("WizzartsMembers");
-                });
-
             modelBuilder.Entity("Wizzarts.Data.Models.WizzartsTeam", b =>
                 {
                     b.Property<int>("Id")
@@ -1663,6 +1624,15 @@ namespace Wizzarts.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.ApplicationUser", b =>
+                {
+                    b.HasOne("Wizzarts.Data.Models.Avatar", "Avatar")
+                        .WithMany("Members")
+                        .HasForeignKey("AvatarId");
+
+                    b.Navigation("Avatar");
                 });
 
             modelBuilder.Entity("Wizzarts.Data.Models.Art", b =>
@@ -1875,23 +1845,6 @@ namespace Wizzarts.Data.Migrations
                         .HasForeignKey("WizzartsCardGameId");
 
                     b.Navigation("WizzartsCardGame");
-                });
-
-            modelBuilder.Entity("Wizzarts.Data.Models.WizzartsMember", b =>
-                {
-                    b.HasOne("Wizzarts.Data.Models.Avatar", "Avatar")
-                        .WithMany("Members")
-                        .HasForeignKey("AvatarId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Wizzarts.Data.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Avatar");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Wizzarts.Data.Models.WizzartsTeam", b =>

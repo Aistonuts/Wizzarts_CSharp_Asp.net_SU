@@ -1,13 +1,17 @@
-﻿@model Wizzarts.Web.ViewModels.WizzartsMember.AvatarListViewModel
+﻿@using Wizzarts.Common
+@model Wizzarts.Web.ViewModels.WizzartsMember.AvatarListViewModel
 @{
     this.ViewData["Title"] = "All Avatars";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row mt-2">
-    <div class="col-md-12">
-        <div id="DigitalArt" class="outer-container">
-            @foreach (var avatar in Model.Avatars)
+<div class="col-md-12 col-lg-12 col-xl-11 pl-0 pr-0 pr-xl-3">
+    <div class="col-sm-12 col-md-12 pl-0 pr-0">
+        <h1 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Welcome to @GlobalConstants.SystemName!</h1>
+        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Pick your avatar</h4>
+
+        <div class="firstfeed-flexbox">
+            @foreach (var avatar in this.Model.Avatars)
             {
                 <div class="inner-container">
                     <a asp-controller="User" asp-action="Update" asp-route-id="@avatar.Id" class="item ae-card-link cardLink ">
@@ -20,3 +24,5 @@
         </div>
     </div>
 </div>
+
+

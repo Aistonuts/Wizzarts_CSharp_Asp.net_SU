@@ -109,7 +109,7 @@
             return article;
         }
 
-        public IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 3)
+        public IEnumerable<T> GetAllArticlesByUserId<T>(string id, int page, int itemsPerPage = 3)
         {
             var article = this.articleRepository.AllAsNoTracking()
                .Where(x => x.ArticleCreatorId == id)

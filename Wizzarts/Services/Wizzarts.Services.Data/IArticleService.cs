@@ -19,6 +19,6 @@
 
         int GetCount();
 
-        IEnumerable<T> GetAllByUserId<T>(string id, int page, int itemsPerPage = 3);
+        IEnumerable<T> GetAllArticlesByUserId<T>(string id, int page, int itemsPerPage = 3);
     }
 }

@@ -3,10 +3,13 @@ namespace Wizzarts.Data.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Models;
+
+    using static Wizzarts.Common.DataConstants;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
@@ -24,6 +27,22 @@ namespace Wizzarts.Data.Models
             this.Art = new HashSet<Art>();
             this.Comments = new HashSet<CommentCard>();
         }
+
+        [MaxLength(UserNickNameMaxLength)]
+        [PersonalData]
+        public string Nickname { get; set; } = string.Empty;
+
+        [Comment("Avatar Identifier.Picked after signing in")]
+        public int? AvatarId { get; set; }
+
+        [Required]
+        [Comment("Avatar remote URL.Picked after signing in")]
+        public string AvatarUrl { get; set; } = string.Empty;
+
+        [Comment("Information about the artist")]
+        public string Bio { get; set; } = string.Empty;
+
+        public Avatar Avatar { get; set; }
 
         // Audit info
         public DateTime CreatedOn { get; set; }

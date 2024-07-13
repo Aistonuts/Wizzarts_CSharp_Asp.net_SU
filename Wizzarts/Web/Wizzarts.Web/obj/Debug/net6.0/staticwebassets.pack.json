@@ -377,26 +377,6 @@
       "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\swamp.jpg"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavor\\Ankh of Mishra.png",
-      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavor\\Ankh of Mishra.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\aaaaaaaaaaaaaaa.png",
-      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavorless\\aaaaaaaaaaaaaaa.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\aaaaaaaaaaaaaaaaa.png",
-      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavorless\\aaaaaaaaaaaaaaaaa.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\bbbbbbbbbbbbbbbbbbbb.png",
-      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavorless\\bbbbbbbbbbbbbbbbbbbb.png"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\new card.png",
-      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavorless\\new card.png"
-    },
-    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Bayou.png",
       "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\Bayou.png"
     },
@@ -707,10 +687,6 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\ah_logo.svg",
       "PackagePath": "staticwebassets\\images\\navigation\\ah_logo.svg"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\articles\\0.jpg",
-      "PackagePath": "staticwebassets\\images\\navigation\\articles\\0.jpg"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\clouds.png",

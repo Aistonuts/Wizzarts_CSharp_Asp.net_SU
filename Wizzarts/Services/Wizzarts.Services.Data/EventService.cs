@@ -39,6 +39,16 @@
             return eventComponents;
         }
 
+        public IEnumerable<T> GetAllEventsByUserId<T>(string id, int page, int itemsPerPage = 3)
+        {
+            var events = this.eventRepository.AllAsNoTracking()
+            .Where(x => x.EventCreatorId == id)
+            .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+            .To<T>().ToList();
+
+            return events;
+        }
+
         public T GetById<T>(int id)
         {
             var newEvent = this.eventRepository.AllAsNoTracking()

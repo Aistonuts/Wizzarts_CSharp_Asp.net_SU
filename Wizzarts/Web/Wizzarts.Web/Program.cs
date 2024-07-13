@@ -80,6 +80,7 @@ namespace Wizzarts.Web
             services.AddTransient<IPlayCardExpansionService, PlayCardExpansionService>();
             services.AddTransient<IPlayCardComponentsService, PlayCardComponentsService>();
             services.AddTransient<IWizzartsServices, WizzartsServices>();
+            services.AddTransient<IUserService, UserService>();
         }
 
         private static void Configure(WebApplication app)
@@ -109,7 +110,8 @@ namespace Wizzarts.Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Home/Error/500");
+                app.UseStatusCodePagesWithReExecute("/Home/Error", "?statusCode={0}");
                 app.UseHsts();
             }
 

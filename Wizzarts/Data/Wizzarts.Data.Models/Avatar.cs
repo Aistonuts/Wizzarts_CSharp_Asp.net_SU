@@ -9,7 +9,7 @@
     {
         public Avatar()
         {
-            this.Members = new HashSet<WizzartsMember>();
+            this.Members = new HashSet<ApplicationUser>();
         }
 
         [Comment("Avatar Name. Seeded.")]
@@ -18,6 +18,6 @@
         [Comment("Avatar Remote URL. Seeded.")]
         public string AvatarUrl { get; set; } = string.Empty;
 
-        public ICollection<WizzartsMember> Members { get; set; }
+        public ICollection<ApplicationUser> Members { get; set; }
     }
 }

@@ -21,6 +21,7 @@
         private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly IUserStore<ApplicationUser> _userStore;
         private readonly ILogger<IndexAuthenticationViewModel> _logger;
+        private readonly IMemoryCache cache;
 
         public RegistrationController(
           SignInManager<ApplicationUser> _signInManager,
@@ -28,12 +29,6 @@
           RoleManager<ApplicationRole> _roleManager,
           IUserStore<ApplicationUser> _userStore,
           ILogger<IndexAuthenticationViewModel> _logger,
-          IArticleService articlesServic,
-          IArtService artService,
-          IPlayCardService playCardService,
-          IEventService eventService,
-          IStoreService storeService,
-          IPlayCardExpansionService cardExpansionService,
           IMemoryCache cache)
         {
             this._signInManager = _signInManager;
@@ -41,6 +36,7 @@
             this._roleManager = _roleManager;
             this._userStore = _userStore;
             this._logger = _logger;
+            this.cache = cache;
         }
 
         public IActionResult Registration()
@@ -52,7 +48,7 @@
         [HttpPost]
         public async Task<IActionResult> Registration(RegisterViewModel viewModel, string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/");
+            returnUrl ??= Url.Content("~/User/SelectAvatar");
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
 

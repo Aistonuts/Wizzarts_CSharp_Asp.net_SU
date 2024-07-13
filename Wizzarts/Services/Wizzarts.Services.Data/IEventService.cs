@@ -12,5 +12,6 @@ namespace Wizzarts.Services.Data
 
         T GetEventComponentById<T>(int id);
 
+        IEnumerable<T> GetAllEventsByUserId<T>(string id, int page, int itemsPerPage = 3);
     }
 }

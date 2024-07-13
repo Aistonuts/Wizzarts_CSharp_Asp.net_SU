@@ -8,7 +8,7 @@
 
     public class WizzartsTeamInListViewModel : IMapFrom<WizzartsTeam>, IHaveCustomMappings
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string Nickname { get; set; }
 

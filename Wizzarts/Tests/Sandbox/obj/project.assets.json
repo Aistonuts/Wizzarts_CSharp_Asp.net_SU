@@ -1358,6 +1358,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "3.1.32",
           "Selenium.WebDriver": "4.21.0",
+          "Wizzarts.Data": "1.0.0",
           "Wizzarts.Data.Common": "1.0.0",
           "Wizzarts.Data.Models": "1.0.0",
           "Wizzarts.Services.Mapping": "1.0.0",

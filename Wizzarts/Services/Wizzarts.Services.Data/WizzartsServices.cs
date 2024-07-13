@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-
+    using System.Threading.Tasks;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
@@ -46,6 +46,19 @@
                 .To<T>().FirstOrDefault();
 
             return rules;
+        }
+
+        public string GetUserIdByArtistId(int artistId)
+        {
+            WizzartsTeam teamMember = this.wizzartsTeamRepository.AllAsNoTracking()
+                .FirstOrDefault(a => a.Id == artistId);
+
+            if (teamMember == null)
+            {
+                return null;
+            }
+
+            return teamMember.UserId.ToString();
         }
     }
 }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Wizzarts.Web.ViewModels.WizzartsMember
+﻿namespace Wizzarts.Web.ViewModels.WizzartsMember
 {
-    public class MembershipViewModel
+    using Wizzarts.Web.ViewModels.Home;
+
+    public class MembershipViewModel : IndexAuthenticationViewModel
     {
         public const int ArtistRequiredArts = 3;
 

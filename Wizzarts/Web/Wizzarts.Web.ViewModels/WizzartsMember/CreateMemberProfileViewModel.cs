@@ -3,6 +3,7 @@
     using System.Collections.Generic;
 
     using AutoMapper;
+    using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Home;
@@ -14,6 +15,9 @@
         public string Nickname { get; set; }
 
         public string AvatarUrl { get; set; }
+
+        [Comment("Information about the artist")]
+        public string Bio { get; set; } = string.Empty;
 
         public IEnumerable<AvatarInListViewModel> Avatars { get; set; }
 

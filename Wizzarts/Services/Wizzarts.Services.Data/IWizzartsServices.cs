@@ -1,6 +1,7 @@
 ﻿namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public interface IWizzartsServices
     {
@@ -9,5 +10,7 @@
         IEnumerable<T> GetAllGameRulesData<T>();
 
         IEnumerable<T> GetAllWizzartsTeamMembers<T>();
+
+        string GetUserIdByArtistId(int artistId);
     }
 }

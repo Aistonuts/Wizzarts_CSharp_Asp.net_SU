@@ -17,5 +17,7 @@
         Task CreateAsync(CreateCardViewModel input, string userId, int id, string path, bool isEventCard, bool requireArtInput, string canvasCapture);
 
         IEnumerable<T> GetAllCardManaByCardId<T>(int id);
+
+        IEnumerable<T> GetAllCardsByUserId<T>(string id, int page, int itemsPerPage = 12);
     }
 }

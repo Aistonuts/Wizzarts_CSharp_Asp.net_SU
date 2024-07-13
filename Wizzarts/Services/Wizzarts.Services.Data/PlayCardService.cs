@@ -272,5 +272,15 @@
 
             return mana;
         }
+
+        public IEnumerable<T> GetAllCardsByUserId<T>(string id, int page, int itemsPerPage = 12)
+        {
+            var cards = this.cardRepository.AllAsNoTracking()
+            .Where(x => x.AddedByMemberId == id)
+            .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+            .To<T>().ToList();
+
+            return cards;
+        }
     }
 }

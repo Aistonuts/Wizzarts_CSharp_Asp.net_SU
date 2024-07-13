@@ -29,8 +29,6 @@
 
         public DbSet<Article> Articles { get; set; }
 
-        public DbSet<WizzartsMember> WizzartsMembers { get; set; }
-
         public DbSet<WizzartsTeam> WizzartsTeamMembers { get; set; }
 
         public DbSet<CardGameExpansion> CardGameExpansions { get; set; }

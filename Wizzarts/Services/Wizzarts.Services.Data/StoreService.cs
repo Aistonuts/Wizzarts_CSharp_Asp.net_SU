@@ -64,6 +64,16 @@
             return store;
         }
 
+        public IEnumerable<T> GetAllStoresByUserId<T>(string id, int page, int itemsPerPage = 3)
+        {
+            var store = this.storeRepository.AllAsNoTracking()
+           .Where(x => x.StoreOwnerId == id)
+           .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+           .To<T>().ToList();
+
+            return store;
+        }
+
         public int GetCount()
         {
             return this.storeRepository.All().Count();

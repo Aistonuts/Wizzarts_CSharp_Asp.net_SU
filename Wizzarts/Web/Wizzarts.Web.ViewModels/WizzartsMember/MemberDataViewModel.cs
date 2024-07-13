@@ -9,11 +9,12 @@ using Wizzarts.Web.ViewModels.Art;
 using Wizzarts.Web.ViewModels.Article;
 using Wizzarts.Web.ViewModels.Card;
 using Wizzarts.Web.ViewModels.Event;
+using Wizzarts.Web.ViewModels.Home;
 using Wizzarts.Web.ViewModels.Store;
 
 namespace Wizzarts.Web.ViewModels.WizzartsMember
 {
-    public class MemberDataViewModel
+    public class MemberDataViewModel : IndexAuthenticationViewModel
     {
         public string Id { get; set; }
 
