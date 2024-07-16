@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8U5w2AivY/aoyXOLPVqbBsoMan0oHk4WjUpPmbdm+bg=",
+  "Hash": "5kEfrGwZte6xDaAITyi6ikISMeYhU1vG6eJgLdUrj9w=",
   "Source": "MagicCardsmith.Web",
   "BasePath": "_content/MagicCardsmith.Web",
   "Mode": "Default",
@@ -2829,6 +2829,25 @@
       "OriginalItemSpec": "wwwroot\\images\\cardsByExpansion\\EventCards\\Flavor\\Ankh of Mishra.png"
     },
     {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\new card.png",
+      "SourceId": "MagicCardsmith.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsmith.Web",
+      "RelativePath": "images/cardsByExpansion/EventCards/Flavorless/new card.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\new card.png"
+    },
+    {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Bayou.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Discovered",
@@ -4898,6 +4917,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\symbols\\expansions\\Unlimited.png"
+    },
+    {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\expansions\\Untitled.gif",
+      "SourceId": "MagicCardsmith.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsmith.Web",
+      "RelativePath": "images/symbols/expansions/Untitled.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\symbols\\expansions\\Untitled.gif"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\mana\\1.png",

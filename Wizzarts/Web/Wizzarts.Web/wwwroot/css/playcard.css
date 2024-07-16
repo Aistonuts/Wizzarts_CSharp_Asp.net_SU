@@ -110,7 +110,7 @@
 .frame-type-line {
     background: linear-gradient( 0deg, rgba(201, 216, 201, .3), rgba(201, 216, 209, .3) ), url();
     display: flex;
-    margin-top: 36px;
+    margin-top: 27px;
     margin-left: 36px;
     margin-right: 28px;
     padding: 10px 0;
@@ -162,7 +162,7 @@
 }
 
 .frame-type-line {
-    margin-top: -298px;
+    margin-top: -317px;
 }
 
 .frame-text-box {
@@ -183,12 +183,12 @@
     padding: 0px 0;
 }
 
-p {
+/*P {
     margin-bottom: 0px;
     font-size: 16px;
     font-style: oblique;
     font-weight: bold;
-}
+}*/
 
 .ftb-inner-margin {
     margin: 20px 1px;
@@ -233,12 +233,12 @@ h3 {
     text-align: right;
     color: black;
     height: 6.0%;
-    margin: -75px 367px;
+    margin: -67px 367px;
 }
 
 .centered-power {
     position: absolute;
-    top: 30%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     color:black;

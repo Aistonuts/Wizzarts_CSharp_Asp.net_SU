@@ -7,7 +7,7 @@
 
 <div class="col-md-12 col-lg-12 col-xl-12 pl-0 pr-0 pr-xl-3">
     <div class="col-sm-12 col-md-12 pl-0 pr-0">
-        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Events</h4>
+        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Stores</h4>
 
         <div class="firstfeed-flexbox">
             @foreach (var store in this.Model.Stores.Where(x => x.ApprovedByAdmin == true))
@@ -15,7 +15,7 @@
                 <div class="article-card card border-0">
                     <a href="" aria-label="article" class="image-wrapper" data-toggle="modal" data-target="#imageModal">
 
-                        <div class="article-uimgheader"><img id="previewCardModal" class="article-uimgheader" src="@store.Image" alt="Card" onerror="this.onerror=null;this.src='@store.Image';"></div>
+                        <div class="article-uimgheader"><img id="previewCardModal" class="article-uimgheader" style="width : 366px" src="@store.Image" alt="Card" onerror="this.onerror=null;this.src='@store.Image';"></div>
 
                     </a>
                     <div class="card-body pt-0">

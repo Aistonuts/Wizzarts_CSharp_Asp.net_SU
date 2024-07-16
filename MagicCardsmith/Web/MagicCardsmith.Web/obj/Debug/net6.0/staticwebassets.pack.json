@@ -377,6 +377,10 @@
       "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavor\\Ankh of Mishra.png"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\new card.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavorless\\new card.png"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Bayou.png",
       "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Unlimited\\Bayou.png"
     },
@@ -787,6 +791,10 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\expansions\\Unlimited.png",
       "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Unlimited.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\expansions\\Untitled.gif",
+      "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Untitled.gif"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\mana\\1.png",

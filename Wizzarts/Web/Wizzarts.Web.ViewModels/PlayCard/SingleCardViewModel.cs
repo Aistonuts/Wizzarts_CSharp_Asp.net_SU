@@ -9,7 +9,6 @@
     using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
-    using Wizzarts.Web.ViewModels.Card;
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
 

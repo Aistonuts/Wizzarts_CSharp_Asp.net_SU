@@ -7,7 +7,7 @@ using Wizzarts.Data.Models;
 using Wizzarts.Services.Data;
 using Wizzarts.Web.ViewModels.Art;
 using Wizzarts.Web.ViewModels.Article;
-using Wizzarts.Web.ViewModels.Card;
+using Wizzarts.Web.ViewModels.PlayCard;
 using Wizzarts.Web.ViewModels.Event;
 using Wizzarts.Web.ViewModels.Store;
 using Wizzarts.Web.ViewModels.WizzartsMember;

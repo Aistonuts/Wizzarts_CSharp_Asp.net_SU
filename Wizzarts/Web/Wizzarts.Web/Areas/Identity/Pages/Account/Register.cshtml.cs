@@ -109,7 +109,9 @@ namespace Wizzarts.Web.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/");
+            returnUrl ??= Url.Content("~/User/SelectAvatar");
+            this.ModelState.Remove("UserName");
+            this.ModelState.Remove("Password");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {

@@ -12,7 +12,7 @@
     using Wizzarts.Web.ViewModels;
     using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Article;
-    using Wizzarts.Web.ViewModels.Card;
+    using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.Home;

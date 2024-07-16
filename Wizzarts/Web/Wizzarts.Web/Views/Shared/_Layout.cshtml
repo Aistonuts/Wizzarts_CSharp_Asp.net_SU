@@ -58,10 +58,10 @@
                             <a href="#MetaHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>Magic cards</b></a>
                             <ul class="list-unstyled collapse show" id="MetaHubSubmenu" style="">
                                 <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Card" asp-action="All">Magic Cards</a>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="PlayCard" asp-action="All">Magic Cards</a>
                                 </li>
                                 <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Expansion" asp-action="All">Game Expansions</a>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="PlayCard" asp-action="Expansion">Game Expansions</a>
                                 </li>
                                 <li>
                                     <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Store" asp-action="All">Magic Game Stores</a>
@@ -78,7 +78,7 @@
                                 <a href="#CollectionSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>My area</b></a>
                                 <ul class="collapse list-unstyled" id="CollectionSubmenu">
                                     <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="User" asp-action="Mine"><i class="fas fa-archive fa-fw"></i> <b>My Content</b></a>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="User" asp-action="MyData"><i class="fas fa-archive fa-fw"></i> <b>My Content</b></a>
                                     </li>
 
                                     <li>
@@ -92,7 +92,7 @@
                                 <a href="#TourneySubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Magic Cardsmither</b></a>
                                 <ul class="collapse list-unstyled" id="TourneySubmenu">
                                     <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Card" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="PlayCard" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
                                     </li>
                                     <li>
                                         <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Article" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Article</b></a>
@@ -104,7 +104,7 @@
                                         <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Event</b></a>
                                     </li>
                                     <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Art" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Art" asp-action="Add"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
                                     </li>
                                 </ul>
                             }
@@ -180,8 +180,8 @@
                                             <div class="ae-nav-dropdown-menu-wrapper">
                                                 <div class="">
                                                     <div class="ae-list-header">
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Card" asp-action="All">Magic Cards</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Expansion" asp-action="All">Game Expansions</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="PlayCard" asp-action="All">Magic Cards</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="PlayCard" asp-action="Expansion">Game Expansions</a>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="All">Magic Game Stores</a>
                                                         <hr>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Wizzarts" asp-action="GetRules">Magic Cardsmith Rules</a>
@@ -231,7 +231,7 @@
                                             <i class="far fa-star"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" asp-area="" asp-controller="Membership" asp-action="Membership"><b>Membership</b></a>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Wizzarts" asp-action="Membership"><b>Membership</b></a>
                                             @*                                             <a class="dropdown-item" href="/Artist"><b>Content Creators</b></a>
                                             <a class="dropdown-item" href="/Team"><b>Team</b></a> *@
 

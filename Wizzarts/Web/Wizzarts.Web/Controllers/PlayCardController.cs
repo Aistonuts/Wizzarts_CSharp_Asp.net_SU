@@ -11,8 +11,9 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.ViewModels.Art;
-    using Wizzarts.Web.ViewModels.Card;
+    using Wizzarts.Web.ViewModels.CardGameExpansion;
     using Wizzarts.Web.ViewModels.Event;
+    using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
 
@@ -20,6 +21,7 @@
     {
         private readonly IPlayCardService cardService;
         private readonly IPlayCardComponentsService playCardComponentsService;
+        private readonly IPlayCardExpansionService playCardExpansionService;
         private readonly IEventService eventService;
         private readonly IArtService artService;
         private readonly UserManager<ApplicationUser> userManager;
@@ -30,6 +32,7 @@
         public PlayCardController(
             IPlayCardService cardService,
             IPlayCardComponentsService playCardComponentsService,
+            IPlayCardExpansionService playCardExpansionService,
             IEventService eventService,
             IArtService artService,
             UserManager<ApplicationUser> userManager,
@@ -38,6 +41,7 @@
         {
             this.cardService = cardService;
             this.playCardComponentsService = playCardComponentsService;
+            this.playCardExpansionService = playCardExpansionService;
             this.eventService = eventService;
             this.artService = artService;
             this.userManager = userManager;
@@ -156,7 +160,7 @@
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
                 Count = this.cardService.GetCount(),
-                Cards = this.cardService.GetAll<CardInListViewModel>(id, ItemsPerPage),
+                Cards = this.cardService.GetRandom<CardInListViewModel>(20),
             };
 
             return this.View(viewModel);
@@ -168,6 +172,16 @@
             card.Mana = this.cardService.GetAllCardManaByCardId<ManaListViewModel>(id);
 
             return this.View(card);
+        }
+
+        public IActionResult Expansion()
+        {
+            var viewModel = new ExpansionListViewModel
+            {
+                CardGameExpansions = this.playCardExpansionService.GetAll<ExpansionInListViewModel>(),
+            };
+
+            return this.View(viewModel);
         }
     }
 }

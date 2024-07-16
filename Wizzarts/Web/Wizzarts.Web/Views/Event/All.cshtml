@@ -5,7 +5,7 @@
 }
 
 
-<div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-3">
+<div class="col-md-12 col-lg-12 col-xl-12 pl-0 pr-0 pr-xl-3">
     <div class="row">
 
         <div class="col-sm-12 col-md-12 pl-0 pr-0">
@@ -21,25 +21,25 @@
                             @if(eventNow.Id == 1)
                             {
                                     <a asp-controller="Event" asp-action="ById" asp-route-id="@eventNow.Id" class="image-wrapper">
-                                    <img src="@eventNow.ImageUrl" class="article-uimgheader" alt="@eventNow.Title">
+                                    <img src="@eventNow.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@eventNow.Title">
                                 </a>
                             }
                             @if (eventNow.Id == 2)
                             {
                                     <a asp-controller="Event" asp-action="ById" asp-route-id="@eventNow.Id" class="image-wrapper">
-                                    <img src="@eventNow.ImageUrl" class="article-uimgheader" alt="@eventNow.Title">
+                                    <img src="@eventNow.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@eventNow.Title">
                                 </a>
                             }
                             @if (eventNow.Id == 3)
                             {
                                     <a asp-controller="Store" asp-action="Create" asp-route-id="@eventNow.Id" class="image-wrapper">
-                                    <img src="@eventNow.ImageUrl" class="article-uimgheader" alt="@eventNow.Title">
+                                    <img src="@eventNow.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@eventNow.Title">
                                 </a>
                             }
                             @if (eventNow.Id == 4)
                             {
                                     <a asp-controller="PlayCard" asp-action="AllEventCards" asp-route-id="@eventNow.Id" class="image-wrapper">
-                                    <img src="@eventNow.ImageUrl" class="article-uimgheader" alt="@eventNow.Title">
+                                    <img src="@eventNow.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@eventNow.Title">
                                 </a>
                             }
                            

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Wizzarts.Web.ViewModels.Event
+﻿namespace Wizzarts.Web.ViewModels.Event
 {
-    internal class CreateEventViewModel
+    using System.ComponentModel.DataAnnotations;
+
+    using Microsoft.AspNetCore.Http;
+
+    public class CreateEventViewModel : BaseEventViewModel
     {
+        [Required(ErrorMessage = "Event image is required!")]
+        public IFormFile Image { get; set; }
     }
 }

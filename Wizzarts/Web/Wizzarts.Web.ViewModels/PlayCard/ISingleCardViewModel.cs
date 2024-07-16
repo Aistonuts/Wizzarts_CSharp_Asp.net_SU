@@ -1,4 +1,4 @@
-﻿namespace Wizzarts.Web.ViewModels.Card
+﻿namespace Wizzarts.Web.ViewModels.PlayCard
 {
     public interface ISingleCardViewModel
     {

@@ -781,8 +781,20 @@
       "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Beta.png"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\expansions\\Theros_Beyond_Death_expansion_symbol.jpg",
+      "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Theros_Beyond_Death_expansion_symbol.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\expansions\\Theros_Beyond_Death_expansion_symbol.webp",
+      "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Theros_Beyond_Death_expansion_symbol.webp"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\expansions\\Unlimited.png",
       "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Unlimited.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\expansions\\WOE_expansion_symbol.webp",
+      "PackagePath": "staticwebassets\\images\\symbols\\expansions\\WOE_expansion_symbol.webp"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\symbols\\mana\\1.png",

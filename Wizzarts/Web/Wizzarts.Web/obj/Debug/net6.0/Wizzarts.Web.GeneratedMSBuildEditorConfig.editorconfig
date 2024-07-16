@@ -98,6 +98,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Event/AddComponent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcQWRkQ29tcG9uZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Event/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcQWxsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -154,8 +158,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUNhcmRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/PlayCard/CreateOffEvent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUNhcmRcQ3JlYXRlT2ZmRXZlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/PlayCard/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUNhcmRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/PlayCard/Expansion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUNhcmRcRXhwYW5zaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Registration/Registration.cshtml]
@@ -184,6 +196,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Shared/_LayoutIdentity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRJZGVudGl0eS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Shared/_LoginPartial.cshtml]
