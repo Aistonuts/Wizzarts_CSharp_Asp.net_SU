@@ -13,7 +13,7 @@
 
     public class CardInListViewModel : IMapFrom<PlayCard>, IHaveCustomMappings
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 
@@ -24,6 +24,8 @@
         public string CardTypeId { get; set; }
 
         public string AbilitiesAndFlavor { get; set; }
+
+        public bool IsEventCard { get; set; }
 
         public bool ApprovedByAdmin { get; set; }
 

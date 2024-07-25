@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="~/css/MagicCard.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/mana.min.css" asp-append-version="true" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/css/chat.css" asp-append-version="true" />
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
@@ -210,6 +211,25 @@
                                         </div>
                                     </li>
                                 }
+                                <li>
+                                    <div class="ae-nav-dropdown">
+                                        <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Chat</b></button>
+                                        <div class="ae-nav-dropdown-menu">
+                                            <div class="ae-nav-dropdown-menu-wrapper">
+                                                <div class="">
+                                                    <div class="ae-list-header">
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Find">Find</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Private</a>
+                                                        <hr>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Room</a>
+                                                        <a  data-toggle="modal" data-target="#create-room-modal" id="create-room-btn"><i class="fa-solid fa-comment">Add New Room</i> </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li> 
                             </ul>
                         </div>
 
@@ -383,7 +403,40 @@
     </nav>
     </header>*@
 
-   
+
+    <div id="create-room-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Create Room</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span class="fas fa-times text-dark"></span>
+                    </button>
+                </div>
+                <div class="modal-body ui-front d-flex flex-row justify-content-center">
+                    <form asp-controller="Home" asp-action="CreateRoom" method="post">
+                        <div class="input-group ae-card-search">
+                            <input type="text" name="name">
+                            <div class="input-group-append">
+                                <button class="btn btn-light" type="submit" aria-label="Create">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer mt-0">
+                    <div class="text-right">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">
+                            <i class="fas fa-times"></i> <b>Close</b>
+                        </button>
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </div>
+
+
 
     <div id="siteSearchModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">

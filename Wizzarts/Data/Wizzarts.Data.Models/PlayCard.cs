@@ -11,7 +11,7 @@ namespace Wizzarts.Data.Models
 
     using static Wizzarts.Common.DataConstants;
 
-    public class PlayCard : BaseDeletableModel<int>
+    public class PlayCard : BaseDeletableModel<string>
     {
         public PlayCard()
         {

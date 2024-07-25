@@ -3,6 +3,90 @@
   "WorkspaceRootPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\MagicCardsmith.Web.ViewModels\\MagicCardsmith.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web.viewmodels\\article\\singlearticleviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\MagicCardsmith.Web.ViewModels\\MagicCardsmith.Web.ViewModels.csproj|solutionrelative:web\\magiccardsmith.web.viewmodels\\article\\singlearticleviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web\\wwwroot\\css\\chat.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\wwwroot\\css\\chat.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web\\views\\card\\byid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\views\\card\\byid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web\\wwwroot\\js\\messagebuilder.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\wwwroot\\js\\messagebuilder.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\MagicCardsmith.Web.ViewModels\\MagicCardsmith.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web.viewmodels\\chat\\chatmessageslistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\MagicCardsmith.Web.ViewModels\\MagicCardsmith.Web.ViewModels.csproj|solutionrelative:web\\magiccardsmith.web.viewmodels\\chat\\chatmessageslistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9FDB52F-52DC-48B2-86E1-0176377BB53F}|Data\\MagicCardsmith.Data.Models\\MagicCardsmith.Data.Models.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\data\\magiccardsmith.data.models\\chatuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9FDB52F-52DC-48B2-86E1-0176377BB53F}|Data\\MagicCardsmith.Data.Models\\MagicCardsmith.Data.Models.csproj|solutionrelative:data\\magiccardsmith.data.models\\chatuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B844ECB-E845-49A6-8B31-85E577933598}|Data\\MagicCardsmith.Data\\MagicCardsmith.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\data\\magiccardsmith.data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B844ECB-E845-49A6-8B31-85E577933598}|Data\\MagicCardsmith.Data\\MagicCardsmith.Data.csproj|solutionrelative:data\\magiccardsmith.data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9FDB52F-52DC-48B2-86E1-0176377BB53F}|Data\\MagicCardsmith.Data.Models\\MagicCardsmith.Data.Models.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\data\\magiccardsmith.data.models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9FDB52F-52DC-48B2-86E1-0176377BB53F}|Data\\MagicCardsmith.Data.Models\\MagicCardsmith.Data.Models.csproj|solutionrelative:data\\magiccardsmith.data.models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9FDB52F-52DC-48B2-86E1-0176377BB53F}|Data\\MagicCardsmith.Data.Models\\MagicCardsmith.Data.Models.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\data\\magiccardsmith.data.models\\enums\\chattype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9FDB52F-52DC-48B2-86E1-0176377BB53F}|Data\\MagicCardsmith.Data.Models\\MagicCardsmith.Data.Models.csproj|solutionrelative:data\\magiccardsmith.data.models\\enums\\chattype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9FDB52F-52DC-48B2-86E1-0176377BB53F}|Data\\MagicCardsmith.Data.Models\\MagicCardsmith.Data.Models.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\data\\magiccardsmith.data.models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9FDB52F-52DC-48B2-86E1-0176377BB53F}|Data\\MagicCardsmith.Data.Models\\MagicCardsmith.Data.Models.csproj|solutionrelative:data\\magiccardsmith.data.models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B844ECB-E845-49A6-8B31-85E577933598}|Data\\MagicCardsmith.Data\\MagicCardsmith.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\data\\magiccardsmith.data\\repositories\\efrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B844ECB-E845-49A6-8B31-85E577933598}|Data\\MagicCardsmith.Data\\MagicCardsmith.Data.csproj|solutionrelative:data\\magiccardsmith.data\\repositories\\efrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\MagicCardsmith.Web.ViewModels\\MagicCardsmith.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web.viewmodels\\home\\indexviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\MagicCardsmith.Web.ViewModels\\MagicCardsmith.Web.ViewModels.csproj|solutionrelative:web\\magiccardsmith.web.viewmodels\\home\\indexviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\MagicCardsmith.Web.ViewModels\\MagicCardsmith.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web.viewmodels\\chat\\chatmessagesinlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\MagicCardsmith.Web.ViewModels\\MagicCardsmith.Web.ViewModels.csproj|solutionrelative:web\\magiccardsmith.web.viewmodels\\chat\\chatmessagesinlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web\\viewcomponents\\roomviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\viewcomponents\\roomviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web\\wwwroot\\lib\\jquery\\dist\\jquery.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\wwwroot\\lib\\jquery\\dist\\jquery.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web\\views\\article\\byid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\views\\article\\byid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -11,8 +95,8 @@
       "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\MagicCardsmith.Web\\MagicCardsmith.Web.csproj|solutionrelative:web\\magiccardsmith.web\\views\\user\\avatar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\MagicCardsmith.Web.ViewModels\\MagicCardsmith.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\web\\magiccardsmith.web.viewmodels\\article\\singlearticleviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\MagicCardsmith.Web.ViewModels\\MagicCardsmith.Web.ViewModels.csproj|solutionrelative:web\\magiccardsmith.web.viewmodels\\article\\singlearticleviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4B844ECB-E845-49A6-8B31-85E577933598}|Data\\MagicCardsmith.Data\\MagicCardsmith.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\magiccardsmith\\data\\magiccardsmith.data\\migrations\\20240720122915_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B844ECB-E845-49A6-8B31-85E577933598}|Data\\MagicCardsmith.Data\\MagicCardsmith.Data.csproj|solutionrelative:data\\magiccardsmith.data\\migrations\\20240720122915_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +106,289 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAuwGoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T13:32:46.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ChatMessagesListViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web.ViewModels\\Chat\\ChatMessagesListViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web.ViewModels\\Chat\\ChatMessagesListViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web.ViewModels\\Chat\\ChatMessagesListViewModel.cs",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web.ViewModels\\Chat\\ChatMessagesListViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T11:00:29.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAAAJcAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-21T14:45:18.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web\\wwwroot\\js\\site.js",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAAAGIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-07-20T13:08:15.451Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAOkAAAAAAAAAAAAAAPAAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-20T12:37:28.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "messageBuilder.js",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\messageBuilder.js",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\wwwroot\\js\\messageBuilder.js",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\messageBuilder.js",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web\\wwwroot\\js\\messageBuilder.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-07-20T14:01:25.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "chat.css",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\css\\chat.css",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\wwwroot\\css\\chat.css",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\css\\chat.css",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web\\wwwroot\\css\\chat.css",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAEkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-07-20T12:36:43.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SingleArticleViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web.ViewModels\\Article\\SingleArticleViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web.ViewModels\\Article\\SingleArticleViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web.ViewModels\\Article\\SingleArticleViewModel.cs",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web.ViewModels\\Article\\SingleArticleViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T10:04:29.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\MagicCardsmith.Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\MagicCardsmith.Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAEwGYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T12:04:06.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ById.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Views\\Card\\ById.cshtml",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\Views\\Card\\ById.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Views\\Card\\ById.cshtml",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web\\Views\\Card\\ById.cshtml",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAEQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-23T05:18:22.295Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ChatType.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data.Models\\Enums\\ChatType.cs",
+              "RelativeDocumentMoniker": "Data\\MagicCardsmith.Data.Models\\Enums\\ChatType.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data.Models\\Enums\\ChatType.cs",
+              "RelativeToolTip": "Data\\MagicCardsmith.Data.Models\\Enums\\ChatType.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T12:08:11.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data.Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Data\\MagicCardsmith.Data.Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data.Models\\ApplicationUser.cs",
+              "RelativeToolTip": "Data\\MagicCardsmith.Data.Models\\ApplicationUser.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAFIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T12:02:01.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ChatUser.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data.Models\\ChatUser.cs",
+              "RelativeDocumentMoniker": "Data\\MagicCardsmith.Data.Models\\ChatUser.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data.Models\\ChatUser.cs",
+              "RelativeToolTip": "Data\\MagicCardsmith.Data.Models\\ChatUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T12:00:39.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Message.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data.Models\\Message.cs",
+              "RelativeDocumentMoniker": "Data\\MagicCardsmith.Data.Models\\Message.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data.Models\\Message.cs",
+              "RelativeToolTip": "Data\\MagicCardsmith.Data.Models\\Message.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T12:00:17.81Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Program.cs",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\Program.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Program.cs",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web\\Program.cs",
+              "ViewState": "AQIAAGcAAAAAAAAAAAAAAH8AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T12:14:04.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IndexViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web.ViewModels\\Home\\IndexViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web.ViewModels\\Home\\IndexViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web.ViewModels\\Home\\IndexViewModel.cs",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web.ViewModels\\Home\\IndexViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T10:56:12.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EfRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data\\Repositories\\EfRepository.cs",
+              "RelativeDocumentMoniker": "Data\\MagicCardsmith.Data\\Repositories\\EfRepository.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data\\Repositories\\EfRepository.cs",
+              "RelativeToolTip": "Data\\MagicCardsmith.Data\\Repositories\\EfRepository.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAEwCYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T13:23:06.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ChatMessagesInListViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web.ViewModels\\Chat\\ChatMessagesInListViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web.ViewModels\\Chat\\ChatMessagesInListViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web.ViewModels\\Chat\\ChatMessagesInListViewModel.cs",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web.ViewModels\\Chat\\ChatMessagesInListViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T11:00:13.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web\\wwwroot\\css\\site.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-07-20T12:34:56.11Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "jquery.js",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+              "ViewState": "AQIAAEYdAAAAAAAAAADwv14dAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-07-20T12:29:57.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RoomViewComponent.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\ViewComponents\\RoomViewComponent.cs",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\ViewComponents\\RoomViewComponent.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\ViewComponents\\RoomViewComponent.cs",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web\\ViewComponents\\RoomViewComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T14:56:10.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "20240720122915_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data\\Migrations\\20240720122915_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Data\\MagicCardsmith.Data\\Migrations\\20240720122915_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Data\\MagicCardsmith.Data\\Migrations\\20240720122915_InitialCreate.cs",
+              "RelativeToolTip": "Data\\MagicCardsmith.Data\\Migrations\\20240720122915_InitialCreate.cs",
+              "ViewState": "AQIAAL8BAAAAAAAAAAAAANQBAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T12:29:15.665Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ById.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Views\\Article\\ById.cshtml",
+              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\Views\\Article\\ById.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Views\\Article\\ById.cshtml",
+              "RelativeToolTip": "Web\\MagicCardsmith.Web\\Views\\Article\\ById.cshtml",
+              "ViewState": "AQIAAB0AAAAAAAAAAADwvzEAAAAjAQAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-04T09:25:42.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "Avatar.cshtml",
               "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Views\\User\\Avatar.cshtml",
               "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\Views\\User\\Avatar.cshtml",
@@ -35,31 +397,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-11T13:56:29.042Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SingleArticleViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web.ViewModels\\Article\\SingleArticleViewModel.cs",
-              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web.ViewModels\\Article\\SingleArticleViewModel.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web.ViewModels\\Article\\SingleArticleViewModel.cs",
-              "RelativeToolTip": "Web\\MagicCardsmith.Web.ViewModels\\Article\\SingleArticleViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T10:04:29.425Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ById.cshtml",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Views\\Article\\ById.cshtml",
-              "RelativeDocumentMoniker": "Web\\MagicCardsmith.Web\\Views\\Article\\ById.cshtml",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\Views\\Article\\ById.cshtml",
-              "RelativeToolTip": "Web\\MagicCardsmith.Web\\Views\\Article\\ById.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-04T09:25:42.131Z",
-              "EditorCaption": ""
             }
           ]
         }

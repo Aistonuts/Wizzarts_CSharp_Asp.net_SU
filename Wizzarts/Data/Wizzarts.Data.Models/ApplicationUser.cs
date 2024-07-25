@@ -76,5 +76,7 @@ namespace Wizzarts.Data.Models
         public virtual ICollection<Art> Art { get; set; }
 
         public virtual ICollection<CommentCard> Comments { get; set; }
+
+        public ICollection<ChatUser> Chats { get; set; }
     }
 }

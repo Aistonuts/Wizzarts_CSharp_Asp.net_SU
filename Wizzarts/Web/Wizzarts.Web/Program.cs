@@ -21,6 +21,7 @@ namespace Wizzarts.Web
     using Wizzarts.Services.Data;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Services.Messaging;
+    using Wizzarts.Web.SignalRChatApp.Hubs;
     using Wizzarts.Web.ViewModels;
 
     public class Program
@@ -50,6 +51,7 @@ namespace Wizzarts.Web
                 });
 
             services.AddMemoryCache();
+            services.AddSignalR();
             services.AddControllersWithViews(
                 options =>
                 {
@@ -81,6 +83,7 @@ namespace Wizzarts.Web
             services.AddTransient<IPlayCardComponentsService, PlayCardComponentsService>();
             services.AddTransient<IWizzartsServices, WizzartsServices>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IChatService, ChatService>();
         }
 
         private static void Configure(WebApplication app)
@@ -124,6 +127,7 @@ namespace Wizzarts.Web
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.MapHub<ChatHub>("/chat");
             app.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
             app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();

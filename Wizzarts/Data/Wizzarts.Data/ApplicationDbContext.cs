@@ -73,6 +73,12 @@
 
         public DbSet<WizzartsCardGame> WizzartsCardGame { get; set; }
 
+        public DbSet<Chat> Chats { get; set; }
+
+        public DbSet<ChatUser> ChatUsers { get; set; }
+
+        public DbSet<ChatMessage> ChatMessages { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -94,6 +100,9 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<ChatUser>()
+            .HasKey(c => new { c.UserId, c.ChatId });
+
             builder.Entity<PlayCard>()
             .HasOne(a => a.Art)
             .WithOne()

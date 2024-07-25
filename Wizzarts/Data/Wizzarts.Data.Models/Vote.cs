@@ -8,7 +8,7 @@
     public class Vote : BaseDeletableModel<int>
     {
         [Comment("Vote added to.")]
-        public int CardId { get; set; }
+        public string CardId { get; set; }
 
         public virtual PlayCard Card { get; set; }
 

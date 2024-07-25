@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicCardsmith.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240601154317_InitialCreate")]
+    [Migration("20240720122915_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -767,6 +767,54 @@ namespace MagicCardsmith.Data.Migrations
                     b.ToTable("CardTypes");
                 });
 
+            modelBuilder.Entity("MagicCardsmith.Data.Models.Chat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("Chats");
+                });
+
+            modelBuilder.Entity("MagicCardsmith.Data.Models.ChatUser", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ChatId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "ChatId");
+
+                    b.HasIndex("ChatId");
+
+                    b.ToTable("ChatUsers");
+                });
+
             modelBuilder.Entity("MagicCardsmith.Data.Models.ColorlessMana", b =>
                 {
                     b.Property<int>("Id")
@@ -1224,6 +1272,47 @@ namespace MagicCardsmith.Data.Migrations
                         .HasFilter("[PublishedById] IS NOT NULL");
 
                     b.ToTable("GameRules");
+                });
+
+            modelBuilder.Entity("MagicCardsmith.Data.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ChatId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("MagicCardsmith.Data.Models.RedMana", b =>
@@ -1700,6 +1789,25 @@ namespace MagicCardsmith.Data.Migrations
                     b.Navigation("PostedByUser");
                 });
 
+            modelBuilder.Entity("MagicCardsmith.Data.Models.ChatUser", b =>
+                {
+                    b.HasOne("MagicCardsmith.Data.Models.Chat", "Chat")
+                        .WithMany("Users")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MagicCardsmith.Data.Models.ApplicationUser", "User")
+                        .WithMany("Chats")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Chat");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MagicCardsmith.Data.Models.Event", b =>
                 {
                     b.HasOne("MagicCardsmith.Data.Models.ApplicationUser", "EventCreator")
@@ -1748,6 +1856,17 @@ namespace MagicCardsmith.Data.Migrations
                         .HasForeignKey("MagicCardsmith.Data.Models.MagicCardsmithGameRules", "PublishedById");
 
                     b.Navigation("PublishedBy");
+                });
+
+            modelBuilder.Entity("MagicCardsmith.Data.Models.Message", b =>
+                {
+                    b.HasOne("MagicCardsmith.Data.Models.Chat", "Chat")
+                        .WithMany("Messages")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Chat");
                 });
 
             modelBuilder.Entity("MagicCardsmith.Data.Models.Store", b =>
@@ -1835,6 +1954,8 @@ namespace MagicCardsmith.Data.Migrations
 
                     b.Navigation("Cards");
 
+                    b.Navigation("Chats");
+
                     b.Navigation("Claims");
 
                     b.Navigation("Events");
@@ -1892,6 +2013,13 @@ namespace MagicCardsmith.Data.Migrations
             modelBuilder.Entity("MagicCardsmith.Data.Models.CardType", b =>
                 {
                     b.Navigation("Cards");
+                });
+
+            modelBuilder.Entity("MagicCardsmith.Data.Models.Chat", b =>
+                {
+                    b.Navigation("Messages");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("MagicCardsmith.Data.Models.ColorlessMana", b =>

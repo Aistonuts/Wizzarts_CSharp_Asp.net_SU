@@ -51,6 +51,9 @@
                               new PlayCardManaSeeder(),
                               new WizzartsCardGameRulesSeeder(),
                               new WizzartsCardGameRulesDataSeeder(),
+                              new ChatSeeder(),
+                              new ChatUserSeeder(),
+                              new ChatMessageSeeder(),
                           };
 
             foreach (var seeder in seeders)

@@ -1,4 +1,7 @@
-﻿namespace Wizzarts.Web.Controllers
+﻿using Wizzarts.Data.Models.Enums;
+using Wizzarts.Data.Models;
+
+namespace Wizzarts.Web.Controllers
 {
     using System;
     using System.Threading.Tasks;
@@ -7,6 +10,7 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Wizzarts.Data;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
@@ -19,6 +23,7 @@
 
     public class PlayCardController : BaseController
     {
+        private readonly ApplicationDbContext dbContext;
         private readonly IPlayCardService cardService;
         private readonly IPlayCardComponentsService playCardComponentsService;
         private readonly IPlayCardExpansionService playCardExpansionService;
@@ -30,6 +35,7 @@
 
 
         public PlayCardController(
+            ApplicationDbContext dbContext,
             IPlayCardService cardService,
             IPlayCardComponentsService playCardComponentsService,
             IPlayCardExpansionService playCardExpansionService,
@@ -39,6 +45,7 @@
             IWebHostEnvironment environment,
             IDeletableEntityRepository<PlayCard> cardRepository)
         {
+            this.dbContext = dbContext;
             this.cardService = cardService;
             this.playCardComponentsService = playCardComponentsService;
             this.playCardExpansionService = playCardExpansionService;
@@ -47,6 +54,7 @@
             this.userManager = userManager;
             this.environment = environment;
             this.cardRepository = cardRepository;
+
         }
 
         public async Task<IActionResult> Create(int id)
@@ -166,7 +174,7 @@
             return this.View(viewModel);
         }
 
-        public IActionResult ById(int id)
+        public IActionResult ById(string id)
         {
             var card = this.cardService.GetById<SingleCardViewModel>(id);
             card.Mana = this.cardService.GetAllCardManaByCardId<ManaListViewModel>(id);

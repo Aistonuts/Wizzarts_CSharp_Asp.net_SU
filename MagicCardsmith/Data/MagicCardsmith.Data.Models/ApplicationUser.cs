@@ -26,6 +26,7 @@ namespace MagicCardsmith.Data.Models
             this.Votes = new HashSet<Vote>();
             this.Art = new HashSet<Art>();
             this.Reviews = new HashSet<CardReview>();
+            this.Chats = new HashSet<ChatUser>();
         }
 
         [MaxLength(UserNickNameMaxLength)]
@@ -75,5 +76,7 @@ namespace MagicCardsmith.Data.Models
         public virtual ICollection<Art> Art { get; set; }
 
         public virtual ICollection<CardReview> Reviews { get; set; }
+
+        public ICollection<ChatUser> Chats { get; set; }
     }
 }

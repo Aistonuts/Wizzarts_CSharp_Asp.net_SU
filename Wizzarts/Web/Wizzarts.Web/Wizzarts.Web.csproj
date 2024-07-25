@@ -9,6 +9,14 @@
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\js\chat.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\chat.js" />
+  </ItemGroup>
 	<ItemGroup>
 		<AdditionalFiles Include="..\..\stylecop.json" />
 	</ItemGroup>
@@ -57,5 +65,9 @@
     <Folder Include="wwwroot\images\cardsByExpansion\PremiumUserCards\" />
     <Folder Include="wwwroot\images\event\UserEvent\" />
     <Folder Include="wwwroot\images\navigation\articles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\chat.js" />
   </ItemGroup>
 </Project>

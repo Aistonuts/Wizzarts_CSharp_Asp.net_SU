@@ -9,12 +9,13 @@
     using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
 
     public class SingleCardViewModel : IndexAuthenticationViewModel, IMapFrom<PlayCard>, IHaveCustomMappings, ISingleCardViewModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 
@@ -44,6 +45,7 @@
 
         public bool ApprovedByAdmin { get; set; }
 
+        public IEnumerable<CardInListViewModel> playCards { get; set; }
 
         public IEnumerable<ManaListViewModel> Mana { get; set; }
 

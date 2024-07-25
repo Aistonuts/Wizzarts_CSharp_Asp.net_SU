@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Reflection;
+    using System.Runtime.CompilerServices;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -75,6 +76,12 @@
 
         public DbSet<GameRulesComponents> GameRulesComponents { get; set; }
 
+        public DbSet<Chat> Chats { get; set; }
+
+        public DbSet<ChatUser> ChatUsers { get; set; }
+
+        public DbSet<Message> Messages { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -96,6 +103,9 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<ChatUser>()
+                .HasKey(c => new { c.UserId, c.ChatId });
+
             builder.Entity<Card>()
             .HasOne(a => a.Art)
             .WithOne(a => a.Card)

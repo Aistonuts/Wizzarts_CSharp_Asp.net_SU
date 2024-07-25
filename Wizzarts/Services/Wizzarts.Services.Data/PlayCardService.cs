@@ -255,7 +255,7 @@
             this.cache.Remove(CardsCacheKey);
         }
 
-        public T GetById<T>(int id)
+        public T GetById<T>(string id)
         {
             var card = this.cardRepository.AllAsNoTracking()
                 .Where(x => x.Id == id)
@@ -264,7 +264,7 @@
             return card;
         }
 
-        public IEnumerable<T> GetAllCardManaByCardId<T>(int id)
+        public IEnumerable<T> GetAllCardManaByCardId<T>(string id)
         {
             var mana = this.cardManaRepository.AllAsNoTracking()
               .Where(x => x.CardId == id)

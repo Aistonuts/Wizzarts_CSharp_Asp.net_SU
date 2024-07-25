@@ -17,7 +17,7 @@ namespace Wizzarts.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.26")
+                .HasAnnotation("ProductVersion", "6.0.32")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -544,6 +544,98 @@ namespace Wizzarts.Data.Migrations
                     b.ToTable("CardGameExpansions");
                 });
 
+            modelBuilder.Entity("Wizzarts.Data.Models.Chat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RelationKey")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("Chats");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.ChatMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ChatId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("ChatMessages");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.ChatUser", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ChatId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "ChatId");
+
+                    b.HasIndex("ChatId");
+
+                    b.ToTable("ChatUsers");
+                });
+
             modelBuilder.Entity("Wizzarts.Data.Models.ColorlessMana", b =>
                 {
                     b.Property<int>("Id")
@@ -591,8 +683,9 @@ namespace Wizzarts.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CardId")
-                        .HasColumnType("int")
+                    b.Property<string>("CardId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
                         .HasComment("Review of which card");
 
                     b.Property<DateTime>("CreatedOn")
@@ -839,8 +932,8 @@ namespace Wizzarts.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CardId")
-                        .HasColumnType("int");
+                    b.Property<string>("CardId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)")
@@ -873,11 +966,8 @@ namespace Wizzarts.Data.Migrations
 
             modelBuilder.Entity("Wizzarts.Data.Models.PlayCard", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AbilitiesAndFlavor")
                         .IsRequired()
@@ -1230,8 +1320,8 @@ namespace Wizzarts.Data.Migrations
                         .HasColumnType("nvarchar(450)")
                         .HasComment("Vote casted by.");
 
-                    b.Property<int>("CardId")
-                        .HasColumnType("int")
+                    b.Property<string>("CardId")
+                        .HasColumnType("nvarchar(450)")
                         .HasComment("Vote added to.");
 
                     b.Property<DateTime>("CreatedOn")
@@ -1659,6 +1749,36 @@ namespace Wizzarts.Data.Migrations
                     b.Navigation("ArticleCreator");
                 });
 
+            modelBuilder.Entity("Wizzarts.Data.Models.ChatMessage", b =>
+                {
+                    b.HasOne("Wizzarts.Data.Models.Chat", "Chat")
+                        .WithMany("Messages")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Chat");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.ChatUser", b =>
+                {
+                    b.HasOne("Wizzarts.Data.Models.Chat", "Chat")
+                        .WithMany("Users")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Wizzarts.Data.Models.ApplicationUser", "User")
+                        .WithMany("Chats")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Chat");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Wizzarts.Data.Models.CommentCard", b =>
                 {
                     b.HasOne("Wizzarts.Data.Models.PlayCard", "Card")
@@ -1712,9 +1832,7 @@ namespace Wizzarts.Data.Migrations
                 {
                     b.HasOne("Wizzarts.Data.Models.PlayCard", "Card")
                         .WithMany("CardMana")
-                        .HasForeignKey("CardId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("CardId");
 
                     b.Navigation("Card");
                 });
@@ -1818,9 +1936,7 @@ namespace Wizzarts.Data.Migrations
 
                     b.HasOne("Wizzarts.Data.Models.PlayCard", "Card")
                         .WithMany("Votes")
-                        .HasForeignKey("CardId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("CardId");
 
                     b.Navigation("AddedByMember");
 
@@ -1870,6 +1986,8 @@ namespace Wizzarts.Data.Migrations
 
                     b.Navigation("Cards");
 
+                    b.Navigation("Chats");
+
                     b.Navigation("Claims");
 
                     b.Navigation("Comments");
@@ -1903,6 +2021,13 @@ namespace Wizzarts.Data.Migrations
             modelBuilder.Entity("Wizzarts.Data.Models.CardGameExpansion", b =>
                 {
                     b.Navigation("Cards");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.Chat", b =>
+                {
+                    b.Navigation("Messages");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("Wizzarts.Data.Models.ColorlessMana", b =>

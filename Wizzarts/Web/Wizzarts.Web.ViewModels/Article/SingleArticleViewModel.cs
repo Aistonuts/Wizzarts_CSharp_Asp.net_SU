@@ -11,7 +11,7 @@
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Home;
 
-    public class SingleArticleViewModel : IndexAuthenticationViewModel, IMapFrom<Article>, IHaveCustomMappings
+    public class SingleArticleViewModel : IndexAuthenticationViewModel, IMapFrom<Article>, IHaveCustomMappings, ISingleArticleViewModel
     {
         public int Id { get; set; }
 
@@ -38,7 +38,10 @@
             configuration.CreateMap<Article, SingleArticleViewModel>()
                .ForMember(x => x.ArticleCreatorName, opt =>
                    opt.MapFrom(x =>
-                       x.ArticleCreator.UserName));
+                       x.ArticleCreator.UserName))
+            .ForMember(x => x.ArticleCreatorAvatar, opt =>
+                   opt.MapFrom(x =>
+                       x.ArticleCreator.AvatarUrl));
         }
     }
 }

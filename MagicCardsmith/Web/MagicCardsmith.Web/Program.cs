@@ -48,6 +48,7 @@ namespace MagicCardsmith.Web
                     options.MinimumSameSitePolicy = SameSiteMode.None;
                 });
             services.AddMemoryCache();
+            services.AddSignalR();
             services.AddControllersWithViews(
                 options =>
                 {
@@ -124,6 +125,7 @@ namespace MagicCardsmith.Web
             app.UseAuthentication();
             app.UseAuthorization();
 
+            //app.MapHub<ChatHub>("/chat");
             app.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
             app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}/{information?}");
             app.MapRazorPages();

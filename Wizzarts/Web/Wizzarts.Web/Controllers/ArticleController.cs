@@ -81,7 +81,7 @@
             return this.RedirectToAction("Index", "Home");
         }
 
-        public IActionResult ById(int id)
+        public async Task<IActionResult> ById(int id)
         {
             var article = this.articleService.GetById<SingleArticleViewModel>(id);
             article.Articles = this.articleService.GetRandom<ArticleInListViewModel>(3);

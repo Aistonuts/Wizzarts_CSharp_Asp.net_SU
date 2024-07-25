@@ -101,7 +101,7 @@
                     @foreach (var card in this.Model.Cards)
                     {
                         <div class="inner-container">
-                            <a asp-controller="Card" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
+                            <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
                                 <img width="200" height="300"  src="@card.CardRemoteUrl" alt="@card.Name" style="">
                                 <div class="item-hidden-text">@card.Name</div>
                             </a>
@@ -167,10 +167,127 @@
                 </div>
             }
         </div>
-        <div id="zone18-300x600-card" class="mb-2 pt-1">
+        <div class="card mb-2 ">
+
+            <div class="ae-border-bottom-light  p-0 text-center">
+                <b><i class="fas fa-users"></i> Chat</b>
+            </div>
+            <div class="chat-box-main">
+                <div class="chat" style="height:627px">
+
+                    <div id="messagesList" class="chat-body">
+                        @foreach (var message in Model.ChatMessages)
+                        {
+                        <div class="message">
+                                <header style="color:black">@message.Name:</header>
+                        <p style="color:black">@message.Text</p>
+                                <footer style="color:black">@message.Timestamp</footer>
+                        </div>
+                        }
+                    </div>
+                    <div class="row text-center no-gutters mb-3">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="btn-group w-100 flex-wrap">
+                                <a href="/Decks/Other/" id="formatId-15" data-id="15" data-format="Other" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Other</b></a>
+                                <a href="/Decks/Pauper/" id="formatId-9" data-id="9" data-format="Pauper" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Pauper</b></a>
+                                <a href="/Decks/Other/" id="formatId-15" data-id="15" data-format="Other" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Other</b></a>
+                                <a href="/Decks/Other/" id="formatId-15" data-id="15" data-format="Other" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Other</b></a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <form method="post" onsubmit="sendMessage(event)" id="chatMessage" class="ae-border-bottom-light  p-0 text-center">
+                        <div class="input-group ae-card-search">
+                            <input type="text" name="message" id="messageInput"
+                                   class="form-control d-print-none ui-autocomplete-input"
+                                   placeholder="Send your message >>>>>" aria-label="Search magic cards" />                                  
+                            <div class="input-group-append">
+                                <button type="submit" id="sendButton" class="btn btn-light" aria-label="Search">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    @*                 <form class="chat-input" onsubmit="sendMessage(event)" asp-controller="Home" asp-action="CreateMessage" asp-route-id="@Model.ChatId">
+                    <input type="hidden" name="chatId" value="@Model.ChatId">
+                    <input type="text" name="message" id="message-input">
+                    <button type="submit">Send</button>
+                    </form> *@
+                </div>
+            </div>
+
+        </div>
+       @*  <div id="zone18-300x600-card" class="mb-2 pt-1">
             <div>
                 <div id="zone18-300x600" class="mx-auto"></div>
             </div>
-        </div>
+        </div> *@
     </div>
 </div>
+
+<form method="post" id="antiForgeryForm"></form>
+@section Scripts {
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js" asp-append-version="true"></script>
+    <script src="~/js/chat.js" asp-append-version="true"></script>
+
+
+    @*     <script type="text/javascript">
+        $(function () {
+            $("#chatMessage").submit(function (e) {
+                e.preventDefault();
+
+                console.log('Doing ajax submit');
+                var fdata = new FormData();
+                var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
+                var text = $('#messageInput').val();
+                console.log(text);
+                fdata.append("text", text);
+
+                $.ajax({
+                    type: "POST",
+                    url: "/api/Chat",
+                    data: fdata,
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': antiForgeryToken
+                    },
+                }).done(function (result) {
+                    // do something with the result now
+                    console.log(result);
+                    if (result.status === "success") {
+                        alert(result.url);
+                    } else {
+                        alert(result.message);
+                    }
+                });
+            });
+        })
+    </script> *@
+
+
+
+    <script>
+        var sendMessage = function (event) {
+            event.preventDefault();
+            var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
+            var text = $('#messageInput').val();
+            var data = { userId: 1, text: text , chatId : @Model.ChatId};
+            console.log(text);
+            document.getElementById('messageInput').value = '';
+            $.ajax({
+                type: "POST",
+                url: "/api/Chat",
+                data: JSON.stringify(data),
+                headers: {
+                    'X-CSRF-TOKEN': antiForgeryToken
+                },
+                success: function (result) {
+                    alert('Successfully received Data ');
+                },
+                contentType: 'application/json',
+            });
+        }
+    </script>
+}

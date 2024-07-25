@@ -17,11 +17,17 @@
     using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.Store;
+    using Wizzarts.Data;
+    using System.Linq;
+    using Wizzarts.Web.ViewModels.Chat;
+    using Microsoft.EntityFrameworkCore;
 
     public class HomeController : BaseController
     {
+        public const int GeneralChatId = 1;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<IndexAuthenticationViewModel> _logger;
+        private readonly IChatService chatService;
         private readonly IArticleService articlesService;
         private readonly IArtService artService;
         private readonly IPlayCardService playCardService;
@@ -29,10 +35,11 @@
         private readonly IStoreService storeService;
         private readonly IPlayCardExpansionService cardExpansionService;
         private readonly IMemoryCache cache;
-
+        
         public HomeController(
            SignInManager<ApplicationUser> _signInManager,
            ILogger<IndexAuthenticationViewModel> _logger,
+           IChatService chatService,
            IArticleService articlesServic,
            IArtService artService,
            IPlayCardService playCardService,
@@ -43,6 +50,7 @@
         {
             this._signInManager = _signInManager;
             this._logger = _logger;
+            this.chatService = chatService;
             this.articlesService = articlesServic;
             this.artService = artService;
             this.playCardService = playCardService;
@@ -62,6 +70,8 @@
                 Stores = this.storeService.GetAll<StoreInListViewModel>(),
                 Events = this.eventService.GetAll<EventInListViewModel>(),
                 GameExpansions = this.cardExpansionService.GetAll<ExpansionInListViewModel>(),
+                ChatMessages = this.chatService.GetAllGeneralChatMessages<DbChatMessagesInListViewModel>(GeneralChatId),
+                ChatId = GeneralChatId,
             };
             return this.View(viewModel);
         }

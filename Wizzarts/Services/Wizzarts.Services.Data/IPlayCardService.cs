@@ -8,7 +8,7 @@
     {
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12);
 
-        T GetById<T>(int id);
+        T GetById<T>(string id);
 
         int GetCount();
 
@@ -16,7 +16,7 @@
 
         Task CreateAsync(CreateCardViewModel input, string userId, int id, string path, bool isEventCard, bool requireArtInput, string canvasCapture);
 
-        IEnumerable<T> GetAllCardManaByCardId<T>(int id);
+        IEnumerable<T> GetAllCardManaByCardId<T>(string id);
 
         IEnumerable<T> GetAllCardsByUserId<T>(string id, int page, int itemsPerPage = 12);
     }

@@ -30,7 +30,7 @@
 
         [Required]
         [Comment("Review of which card")]
-        public int CardId { get; set; }
+        public string CardId { get; set; }
 
         public PlayCard Card { get; set; }
 

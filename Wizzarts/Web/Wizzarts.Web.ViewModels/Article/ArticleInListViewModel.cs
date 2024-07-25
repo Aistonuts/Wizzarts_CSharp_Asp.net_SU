@@ -5,8 +5,9 @@
     using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels.Home;
 
-    public class ArticleInListViewModel : IMapFrom<Article>, IHaveCustomMappings
+    public class ArticleInListViewModel : IndexAuthenticationViewModel, IMapFrom<Article>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
@@ -17,8 +18,6 @@
         public string ShortDescription { get; set; }
 
         public string ImageUrl { get; set; }
-
-        public string? ArtId { get; set; }
 
         public string ArticleCreatorName { get; set; }
 

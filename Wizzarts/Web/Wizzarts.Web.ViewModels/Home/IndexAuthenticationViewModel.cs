@@ -5,6 +5,7 @@
 
     using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Chat;
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.PlayCard;
@@ -24,6 +25,8 @@
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        public int ChatId { get; set; }
+
         public IEnumerable<ArticleInListViewModel> Articles { get; set; }
 
         public IEnumerable<ArtInListViewModel> Arts { get; set; }
@@ -37,5 +40,7 @@
         public IEnumerable<StoreInListViewModel> Stores { get; set; }
 
         public IEnumerable<ExpansionInListViewModel> GameExpansions { get; set; }
+
+        public IEnumerable<DbChatMessagesInListViewModel> ChatMessages { get; set; }
     }
 }

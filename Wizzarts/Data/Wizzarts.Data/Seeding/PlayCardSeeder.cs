@@ -17,6 +17,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "c330fecf-61a9-4e03-8052-cd2b9583a251",
                 Name = "Ancestral Recall",
                 BlueManaId = 2,
                 BlackManaId = 1,
@@ -38,6 +39,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "f43639ef-5503-4e8a-a75d-5651c645a03d",
                 Name = "Bad Moon",
                 BlueManaId = 1,
                 BlackManaId = 2,
@@ -59,6 +61,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "4ece25e1-5d3a-4109-8d92-74864fc7da8a",
                 Name = "Crusade",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -80,6 +83,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "d4d2ffa1-948d-4c01-b6ae-b3b92a6004f2",
                 Name = "Dark Ritual",
                 BlueManaId = 1,
                 BlackManaId = 2,
@@ -101,6 +105,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "ca5958d7-b51a-49c4-a64c-cefa15bc0575",
                 Name = "Forest",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -122,6 +127,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "91c884eb-ca3a-4571-8eee-341eba48029b",
                 Name = "Plains",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -143,6 +149,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "52b4336f-7c8d-48e7-bc30-a9f1363339e2",
                 Name = "Mountain",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -164,6 +171,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "19b87a65-3352-4ee6-9c6a-5b7dfb82bfd1",
                 Name = "Swamp",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -184,6 +192,7 @@
             });
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "632d8f1f-4fdf-4a28-a0b5-6ae083e91580",
                 Name = "Gianth Growth",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -205,6 +214,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "7e1ef124-3c7f-4318-89b3-18315d7eaf81",
                 Name = "Goblin King",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -226,6 +236,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "3f7ff61c-d081-4326-b30d-82c1b51a2010",
                 Name = "Healing Salve",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -247,6 +258,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "ea971255-f368-4fa5-adb9-ddf18f58fc6f",
                 Name = "Island",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -268,6 +280,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "1b768ded-75fb-4af9-bc79-f53fe2810ef5",
                 Name = "Lightning Bolt",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -289,6 +302,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "94d21dfd-4eeb-4dbd-86db-a2816b9d75a9",
                 Name = "Black Lotus",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -310,6 +324,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "6c0b467f-ce6a-4d90-9ec7-5c3bb8077cca",
                 Name = "Mox Emerald",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -331,6 +346,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "29d331a8-b9a7-4932-adff-6d6dc1c57d9c",
                 Name = "Mox Jet",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -352,6 +368,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "cd83a0cb-c6d8-40cf-ad85-0aeede8ffd4a",
                 Name = "Mox Pearl",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -373,6 +390,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "940c79ba-4aeb-4abe-bdf5-bb639144c306",
                 Name = "Mox Ruby",
                 BlueManaId = 1,
                 BlackManaId = 1,
@@ -394,6 +412,7 @@
 
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
+                Id = "5f3f96a8-836a-479c-93c8-6921feb79366",
                 Name = "Mox Sapphire",
                 BlueManaId = 1,
                 BlackManaId = 1,

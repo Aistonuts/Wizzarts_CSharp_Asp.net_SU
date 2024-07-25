@@ -1,5 +1,181 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Wizzarts.Common
+@model Wizzarts.Web.ViewModels.PlayCard.SingleCardViewModel
 @{
+    this.ViewData["Title"] = Model.Name;
 }
+
+<div class="row pt-2">
+    <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-1">
+        <div class="card">
+            <div class="card-body">
+                <div class="w-100 span-all mb-5 mt-5">
+                    <h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">@Model.Name</h4>
+
+
+                    <div id="cardInfo" class="row mb-4">
+                        <div class="col-sm-12 col-md-6 cardModal">
+                            <a class="" data-toggle="modal" data-target="#imageModal">
+                                <div class="card-image-front text-center"><img id="previewCardModal" class="card-image" src="@Model.CardRemoteUrl" alt="Card" onerror="this.onerror=null;this.src='@Model.CardRemoteUrl';"></div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
+                            <h2>@Model.Name</h2> @* <span class="pull-right"><i class="ms ms-4 ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i></span> *@
+                            <p>@Model.AbilitiesAndFlavor</p>
+                            <hr>
+                            <div class="entry-meta">
+                                <div class="single-meta">
+                                    <div value="@Model.Id" class="single-meta">
+                                        <div class="item-rating">
+                                            <span class="star-fill" data-vote="1"><i class="fas fa-star"></i></span>
+                                            <span class="star-fill" data-vote="2"><i class="fas fa-star"></i></span>
+                                            <span class="star-fill" data-vote="3"><i class="fas fa-star"></i></span>
+                                            <span class="star-fill" data-vote="4"><i class="fas fa-star"></i></span>
+                                            <span class="star-fill" data-vote="5"><i class="fas fa-star"></i></span>
+                                            <span id="averageVoteValue">@Model.AverageVote.ToString("0.0")</span><span> / 5</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p></p>
+                            <p><i></i></p>
+                            <hr>
+
+                            <p>
+                                <i>Illustrated by: @Model.AddedByMemberId</i><br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-9 col-12">
+                    <ul class="entry-meta">
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        {
+                            <li class="single-meta">
+                                <a asp-controller="Card" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary">Edit</a>
+                            </li>
+                            @*   <li class="single-meta">
+                        <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
+                        </form>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                        </li> *@
+                            <li class="single-meta">
+                                <form asp-controller="Card" method="post" asp-action="ApproveCard" asp-route-id="@Model.Id">
+                                    <button class="btn btn-danger">Approve</button>
+                                </form>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
+        <div class="card mb-2">
+            <div class="w-100 text-center ae-border-bottom-light"><h4><a href="/Metagame/Standard-BO1/" class="metagroup-link ff-display">Metagame</a></h4></div>
+            <div class="card-body pl-1 pr-1 pt-2 pb-0">
+                <div class="metagroup-container">
+                    <div class="mr-2 d-none d-lg-block">
+                        <a href="/Metagame/Standard-BO1/Deck/mono-red-1065929">
+                            <div class="meta-cardimg" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/cards/mtg-MID/Play%20with%20Fire.154.jpg&quot;);"></div>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="metagroup-link" href="/Metagame/Standard-BO1/Deck/mono-red-1065929">
+                            <b class="text-primary">Mono Red Wins</b>
+                            <br>
+                            8.87% of meta
+                            <span title="Change since last week" class="diffright d-none d-sm-inline text-danger">
+                                <i class="fas fa-caret-down"></i>4.60%
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="metagroup-container">
+                    <div class="mr-2 d-none d-lg-block">
+                        <a href="/Metagame/Standard-BO1/Deck/mono-blue-1064045">
+                            <div class="meta-cardimg" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/cards/mtg-MID/Fading%20Hope.51.jpg&quot;);"></div>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="metagroup-link" href="/Metagame/Standard-BO1/Deck/mono-blue-1064045">
+                            <b class="text-primary">Mono Blue Tempo</b>
+                            <br>
+                            1.54% of meta
+                            <span title="Change since last week" class="diffright d-none d-sm-inline text-success">
+                                <i class="fas fa-caret-up"></i>0.34%
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="ff-display">Articles</h3>
+        <div class="card mt-2 mb-2 ">
+            <div class="w-100 d-flex justify-content-start">
+                <div class="mr-1">
+                    <a href="/Article/Magic-The-Gathering-Foundations---Set-Info--Spoilers">
+                        <div class="article-imgheader-xs lazy uimg" style="background-image: url(&quot;https://aetherhub.b-cdn.net/articles/10830_screen%20shot%202024-06-28%20at%2010.50.34%20pm.png&quot;);">
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <div class="ff-display font-size-18">
+                        <b><a href="/Article/Magic-The-Gathering-Foundations---Set-Info--Spoilers">Magic: The Gathering Foundations - Set Info &amp; Spoilers</a></b>
+                    </div>
+                    <p>
+                        <span class="text-muted">
+                            29.Jun
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+
+<div id="imageModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@Model.Name</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="fas fa-times text-dark"></span>
+                </button>
+            </div>
+            <div class="modal-body ui-front d-flex flex-row justify-content-center">
+                <div>
+                    <div class="ae-img-byid"><img id="previewCardModal" width="800" height="700" class="ae-img-byid" src="@Model.CardRemoteUrl" alt="Card" onerror="this.onerror=null;this.src='@Model.CardRemoteUrl';"></div>
+                </div>
+                <ul id="ui-id-1" tabindex="0"
+                    class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" unselectable="on"
+                    style="display: none;"></ul>
+            </div>
+            <div class="modal-footer mt-0">
+                <div class="text-right">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">
+                        <i class="fas fa-times"></i> <b>Close</b>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Do you want to delete "@Model.Name"?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>

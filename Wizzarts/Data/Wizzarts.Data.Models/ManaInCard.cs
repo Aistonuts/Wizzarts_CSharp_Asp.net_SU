@@ -13,7 +13,7 @@
         [Comment("Mana remote image url.")]
         public string RemoteImageUrl { get; set; } = string.Empty;
 
-        public int CardId { get; set; }
+        public string CardId { get; set; }
 
         [ForeignKey(nameof(CardId))]
         public PlayCard Card { get; set; }

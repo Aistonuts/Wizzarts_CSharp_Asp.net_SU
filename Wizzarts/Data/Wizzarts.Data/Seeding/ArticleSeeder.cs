@@ -50,7 +50,8 @@
             await dbContext.Articles.AddAsync(new Article
             {
                 Title = "Alpha deck release events",
-                ShortDescription = "We were caught by surprise by the interest in our game and we were forced to release it early which came with a cost, our deck is incomplete." +
+                ShortDescription = "We will need your help with completing the alpha deck",
+                Description = "We were caught by surprise by the interest in our game and we were forced to release it early which came with a cost, our deck is incomplete." +
                 "We will need your help with completing the alpha deck. We have added events for everyone interested in helping Wizzarts community." +
                 "The Flavorless cards event is for our members but the Powerless cards event is only for artist, content creators and Wizzart team members." +
                 "We will pick the best cards and we will add them to our deck.",
