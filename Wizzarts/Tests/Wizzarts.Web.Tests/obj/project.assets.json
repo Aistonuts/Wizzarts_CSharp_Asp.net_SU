@@ -24,6 +24,39 @@
           "build/_._": {}
         }
       },
+      "DiffEngine/11.3.0": {
+        "type": "package",
+        "dependencies": {
+          "EmptyFiles": "4.4.0",
+          "System.Management": "6.0.1"
+        },
+        "compile": {
+          "lib/net6.0/DiffEngine.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/DiffEngine.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "EmptyFiles/4.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/EmptyFiles.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EmptyFiles.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/EmptyFiles.targets": {}
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -1352,6 +1385,22 @@
           "buildTransitive/net6.0/Microsoft.AspNetCore.Mvc.Testing.targets": {}
         }
       },
+      "Microsoft.AspNetCore.Mvc.Versioning/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Mvc.Versioning.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Mvc.Versioning.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Mvc.ViewFeatures/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -1996,7 +2045,7 @@
           "build/netstandard2.0/Microsoft.CodeCoverage.targets": {}
         }
       },
-      "Microsoft.CSharp/4.5.0": {
+      "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.0/_._": {}
@@ -2093,6 +2142,19 @@
           }
         }
       },
+      "Microsoft.DotNet.PlatformAbstractions/3.1.6": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.DotNet.Scaffolding.Shared/6.0.17": {
         "type": "package",
         "dependencies": {
@@ -2157,6 +2219,22 @@
         },
         "runtime": {
           "lib/netstandard2.0/_._": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.InMemory/6.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.3"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.EntityFrameworkCore.Relational/6.0.32": {
@@ -2260,7 +2338,7 @@
           }
         }
       },
-      "Microsoft.Extensions.Configuration/6.0.0": {
+      "Microsoft.Extensions.Configuration/6.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -3526,6 +3604,522 @@
           }
         }
       },
+      "MyTested.AspNetCore.Mvc/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Core": "6.0.0",
+          "MyTested.AspNetCore.Mvc.DependencyInjection": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Options": "6.0.0",
+          "MyTested.AspNetCore.Mvc.ViewFeatures": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Abstractions/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.TestHost": "6.0.3",
+          "Microsoft.CSharp": "4.7.0",
+          "Microsoft.DotNet.PlatformAbstractions": "3.1.6",
+          "Microsoft.Extensions.Configuration.Json": "6.0.0",
+          "Microsoft.Extensions.DependencyModel": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Configuration": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Authentication/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Http": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Authentication.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Authentication.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Caching/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Memory": "6.0.1",
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Caching.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Caching.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Configuration/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "6.0.1",
+          "Microsoft.Extensions.Configuration.Binder": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Configuration.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Configuration.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Controllers/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Controllers.ActionResults/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Controllers": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.ActionResults.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.ActionResults.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Controllers.Attributes/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Controllers": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.Attributes.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.Attributes.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Controllers.Views/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Controllers": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.Views.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.Views.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Controllers.Views.ActionResults/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Controllers.Views": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.Views.ActionResults.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.Views.ActionResults.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Core/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Controllers": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Controllers.ActionResults": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Controllers.Attributes": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Models": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Pipeline": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Routing": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.DataAnnotations/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Core": "6.0.0",
+          "MyTested.AspNetCore.Mvc.ModelState": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.DataAnnotations.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.DataAnnotations.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.DependencyInjection/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.DependencyInjection.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.DependencyInjection.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.EntityFrameworkCore/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.InMemory": "6.0.3",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.3",
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Helpers/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Controllers.ActionResults": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Controllers.Views.ActionResults": "6.0.0",
+          "MyTested.AspNetCore.Mvc.DataAnnotations": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Models": "6.0.0",
+          "MyTested.AspNetCore.Mvc.ViewComponents.Results": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Helpers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Helpers.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Http/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Http.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Http.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Models/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Models.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Models.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.ModelState/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.ModelState.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.ModelState.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Options/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Options.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Options.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Pipeline/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Controllers": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Routing": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Pipeline.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Pipeline.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "6.0.3",
+          "MyTested.AspNetCore.Mvc.ViewFeatures": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Routing/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Http": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Routing.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Routing.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Session/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Session.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Session.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.TempData/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.TempData.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.TempData.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Universe/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Authentication": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Caching": "6.0.0",
+          "MyTested.AspNetCore.Mvc.EntityFrameworkCore": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Session": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Versioning": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Universe.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Universe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.Versioning/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Versioning": "5.0.0",
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Versioning.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.Versioning.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.ViewComponents/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.ViewComponents.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.ViewComponents.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.ViewComponents.Results/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.ViewComponents": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.ViewComponents.Results.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.ViewComponents.Results.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.ViewData/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.ViewData.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.ViewData.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MyTested.AspNetCore.Mvc.ViewFeatures/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MyTested.AspNetCore.Mvc.Controllers.Views.ActionResults": "6.0.0",
+          "MyTested.AspNetCore.Mvc.DataAnnotations": "6.0.0",
+          "MyTested.AspNetCore.Mvc.Helpers": "6.0.0",
+          "MyTested.AspNetCore.Mvc.TempData": "6.0.0",
+          "MyTested.AspNetCore.Mvc.ViewComponents.Results": "6.0.0",
+          "MyTested.AspNetCore.Mvc.ViewData": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.ViewFeatures.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MyTested.AspNetCore.Mvc.ViewFeatures.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -3921,6 +4515,26 @@
           }
         }
       },
+      "Shouldly/4.2.1": {
+        "type": "package",
+        "dependencies": {
+          "DiffEngine": "11.3.0",
+          "EmptyFiles": "4.4.0"
+        },
+        "compile": {
+          "lib/net5.0/Shouldly.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Shouldly.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Shouldly.targets": {}
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.2": {
         "type": "package",
         "dependencies": {
@@ -4093,6 +4707,22 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
+        }
+      },
+      "System.CodeDom/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/System.CodeDom.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.CodeDom.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -4670,6 +5300,31 @@
         },
         "runtime": {
           "lib/netstandard1.6/System.Linq.Expressions.dll": {}
+        }
+      },
+      "System.Management/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.CodeDom": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/System.Management.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Management.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.Management.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "System.Memory/4.5.4": {
@@ -5929,6 +6584,108 @@
         "tools/netstandard1.3/BundlerMinifier.dll",
         "tools/netstandard1.3/NUglify.dll",
         "tools/netstandard1.3/Newtonsoft.Json.dll"
+      ]
+    },
+    "DiffEngine/11.3.0": {
+      "sha512": "k0ZgZqd09jLZQjR8FyQbSQE86Q7QZnjEzq1LPHtj1R2AoWO8sjV5x+jlSisL7NZAbUOI4y+7Bog8gkr9WIRBGw==",
+      "type": "package",
+      "path": "diffengine/11.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "diffengine.11.3.0.nupkg.sha512",
+        "diffengine.nuspec",
+        "icon.png",
+        "lib/net461/DiffEngine.dll",
+        "lib/net461/DiffEngine.xml",
+        "lib/net48/DiffEngine.dll",
+        "lib/net48/DiffEngine.xml",
+        "lib/net5.0/DiffEngine.dll",
+        "lib/net5.0/DiffEngine.xml",
+        "lib/net6.0/DiffEngine.dll",
+        "lib/net6.0/DiffEngine.xml",
+        "lib/net7.0/DiffEngine.dll",
+        "lib/net7.0/DiffEngine.xml",
+        "lib/netcoreapp2.0/DiffEngine.dll",
+        "lib/netcoreapp2.0/DiffEngine.xml",
+        "lib/netcoreapp2.1/DiffEngine.dll",
+        "lib/netcoreapp2.1/DiffEngine.xml",
+        "lib/netcoreapp3.0/DiffEngine.dll",
+        "lib/netcoreapp3.0/DiffEngine.xml",
+        "lib/netcoreapp3.1/DiffEngine.dll",
+        "lib/netcoreapp3.1/DiffEngine.xml",
+        "lib/netstandard2.0/DiffEngine.dll",
+        "lib/netstandard2.0/DiffEngine.xml",
+        "lib/netstandard2.1/DiffEngine.dll",
+        "lib/netstandard2.1/DiffEngine.xml"
+      ]
+    },
+    "EmptyFiles/4.4.0": {
+      "sha512": "gwJEfIGS7FhykvtZoscwXj/XwW+mJY6UbAZk+qtLKFUGWC95kfKXnj8VkxsZQnWBxJemM/q664rGLN5nf+OHZw==",
+      "type": "package",
+      "path": "emptyfiles/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "EmptyFiles/archive/empty.7z",
+        "EmptyFiles/archive/empty.bz2",
+        "EmptyFiles/archive/empty.gz",
+        "EmptyFiles/archive/empty.tar",
+        "EmptyFiles/archive/empty.xz",
+        "EmptyFiles/archive/empty.zip",
+        "EmptyFiles/document/empty.docx",
+        "EmptyFiles/document/empty.odt",
+        "EmptyFiles/document/empty.pdf",
+        "EmptyFiles/document/empty.rtf",
+        "EmptyFiles/image/empty.avif",
+        "EmptyFiles/image/empty.bmp",
+        "EmptyFiles/image/empty.dds",
+        "EmptyFiles/image/empty.dib",
+        "EmptyFiles/image/empty.emf",
+        "EmptyFiles/image/empty.exif",
+        "EmptyFiles/image/empty.gif",
+        "EmptyFiles/image/empty.heic",
+        "EmptyFiles/image/empty.heif",
+        "EmptyFiles/image/empty.ico",
+        "EmptyFiles/image/empty.j2c",
+        "EmptyFiles/image/empty.jfif",
+        "EmptyFiles/image/empty.jp2",
+        "EmptyFiles/image/empty.jpc",
+        "EmptyFiles/image/empty.jpe",
+        "EmptyFiles/image/empty.jpg",
+        "EmptyFiles/image/empty.jxr",
+        "EmptyFiles/image/empty.pbm",
+        "EmptyFiles/image/empty.pcx",
+        "EmptyFiles/image/empty.pgm",
+        "EmptyFiles/image/empty.png",
+        "EmptyFiles/image/empty.ppm",
+        "EmptyFiles/image/empty.rle",
+        "EmptyFiles/image/empty.tga",
+        "EmptyFiles/image/empty.tif",
+        "EmptyFiles/image/empty.wdp",
+        "EmptyFiles/image/empty.webp",
+        "EmptyFiles/image/empty.wmp",
+        "EmptyFiles/sheet/empty.ods",
+        "EmptyFiles/sheet/empty.xlsx",
+        "EmptyFiles/slide/empty.odp",
+        "EmptyFiles/slide/empty.pptx",
+        "build/EmptyFiles.targets",
+        "buildTransitive/EmptyFiles.targets",
+        "emptyfiles.4.4.0.nupkg.sha512",
+        "emptyfiles.nuspec",
+        "icon.png",
+        "lib/net461/EmptyFiles.dll",
+        "lib/net461/EmptyFiles.xml",
+        "lib/net5.0/EmptyFiles.dll",
+        "lib/net5.0/EmptyFiles.xml",
+        "lib/net6.0/EmptyFiles.dll",
+        "lib/net6.0/EmptyFiles.xml",
+        "lib/net7.0/EmptyFiles.dll",
+        "lib/net7.0/EmptyFiles.xml",
+        "lib/netstandard2.0/EmptyFiles.dll",
+        "lib/netstandard2.0/EmptyFiles.xml",
+        "lib/netstandard2.1/EmptyFiles.dll",
+        "lib/netstandard2.1/EmptyFiles.xml"
       ]
     },
     "Humanizer/2.14.1": {
@@ -7351,6 +8108,25 @@
         "tasks/netstandard2.0/Microsoft.AspNetCore.Mvc.Testing.Tasks.dll"
       ]
     },
+    "Microsoft.AspNetCore.Mvc.Versioning/5.0.0": {
+      "sha512": "mN9IARvNpHMBD2/oGmp5Bxp1Dg45Hfcp+LWaAyTtL2HisWLMOIcf0Ox1qW9IvCvdbHM+2A9dWEInhiqBsNxsJA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.mvc.versioning/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "icon.png",
+        "lib/net5.0/Microsoft.AspNetCore.Mvc.Versioning.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Mvc.Versioning.pdb",
+        "lib/net5.0/Microsoft.AspNetCore.Mvc.Versioning.xml",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Mvc.Versioning.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Mvc.Versioning.pdb",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Mvc.Versioning.xml",
+        "microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.versioning.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Mvc.ViewFeatures/2.2.0": {
       "sha512": "dt7MGkzCFVTAD5oesI8UeVVeiSgaZ0tPdFstQjG6YLJSCiq1koOUSHMpf0PASGdOW/H9hxXkolIBhT5dWqJi7g==",
       "type": "package",
@@ -8042,10 +8818,10 @@
         "microsoft.codecoverage.nuspec"
       ]
     },
-    "Microsoft.CSharp/4.5.0": {
-      "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
+    "Microsoft.CSharp/4.7.0": {
+      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "type": "package",
-      "path": "microsoft.csharp/4.5.0",
+      "path": "microsoft.csharp/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -8058,6 +8834,7 @@
         "lib/netcoreapp2.0/_._",
         "lib/netstandard1.3/Microsoft.CSharp.dll",
         "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
         "lib/portable-net45+win8+wp8+wpa81/_._",
         "lib/uap10.0.16299/_._",
         "lib/win8/_._",
@@ -8067,7 +8844,7 @@
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
-        "microsoft.csharp.4.5.0.nupkg.sha512",
+        "microsoft.csharp.4.7.0.nupkg.sha512",
         "microsoft.csharp.nuspec",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
@@ -8230,6 +9007,26 @@
         "microsoft.diasymreader.nuspec"
       ]
     },
+    "Microsoft.DotNet.PlatformAbstractions/3.1.6": {
+      "sha512": "jek4XYaQ/PGUwDKKhwR8K47Uh1189PFzMeLqO83mXrXQVIpARZCcfuDedH50YDTepBkfijCZN5U/vZi++erxtg==",
+      "type": "package",
+      "path": "microsoft.dotnet.platformabstractions/3.1.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net45/Microsoft.DotNet.PlatformAbstractions.dll",
+        "lib/net45/Microsoft.DotNet.PlatformAbstractions.xml",
+        "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll",
+        "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.xml",
+        "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.dll",
+        "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.xml",
+        "microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",
+        "microsoft.dotnet.platformabstractions.nuspec"
+      ]
+    },
     "Microsoft.DotNet.Scaffolding.Shared/6.0.17": {
       "sha512": "0I3btt7TTE9EyCJwMbSU61FbJ5Cvvwlk1Y8Wh3MCvnG1gQ7eLw7dNDUCmYRGskUXOeMxpKIeyO2a1M088kLgmg==",
       "type": "package",
@@ -8286,6 +9083,20 @@
         "lib/netstandard2.0/_._",
         "microsoft.entityframeworkcore.analyzers.6.0.32.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/6.0.3": {
+      "sha512": "4LX3OTfSQYUYGASDYcpSfI8zXSb5ycGkCqRuaUK4emXAdq98ebOOBBTqwl9VCTZjZiBpiMaUPRO1GQg4FrybGA==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.inmemory/6.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "microsoft.entityframeworkcore.inmemory.6.0.3.nupkg.sha512",
+        "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/6.0.32": {
@@ -8381,10 +9192,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Configuration/6.0.0": {
-      "sha512": "tq2wXyh3fL17EMF2bXgRhU7JrbO3on93MRKYxzz4JzzvuGSA1l0W3GI9/tl8EO89TH+KWEymP7bcFway6z9fXg==",
+    "Microsoft.Extensions.Configuration/6.0.1": {
+      "sha512": "BUyFU9t+HzlSE7ri4B+AQN2BgTgHv/uM82s5ZkgU1BApyzWzIl48nDsG5wR1t0pniNuuyTBzG3qCW8152/NtSw==",
       "type": "package",
-      "path": "microsoft.extensions.configuration/6.0.0",
+      "path": "microsoft.extensions.configuration/6.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -8395,7 +9206,7 @@
         "lib/net461/Microsoft.Extensions.Configuration.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
-        "microsoft.extensions.configuration.6.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.6.0.1.nupkg.sha512",
         "microsoft.extensions.configuration.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -10246,6 +11057,456 @@
         "version.txt"
       ]
     },
+    "MyTested.AspNetCore.Mvc/6.0.0": {
+      "sha512": "/ePUS5N+ZGrtLGLTFo2/ZVPX9grJHT2KKE7WaWFxNMsWcuEKpnYf3ZQWtaOwFhS/dV7MWF+bZi0cf5J8yXNBEw==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.xml",
+        "mytested.aspnetcore.mvc.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Abstractions/6.0.0": {
+      "sha512": "wJaEIrw0RXql03BEwZVwaZA5lLl2jv5JnVkCwUGa0FFzQpYuBeuFideHM90c8d6Y5ew+wbGCc4pFLOk45XCtmQ==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.abstractions/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Abstractions.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Abstractions.xml",
+        "mytested.aspnetcore.mvc.abstractions.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.abstractions.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Authentication/6.0.0": {
+      "sha512": "C7gV23k5tPZ/9u/6gZVy6iha0lNpVJNN9wr2LSqOmlqvqL+qnEYwZ7z+gFzMpiQYU8QJPIO+s2qaDbEqUjiWWA==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.authentication/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Authentication.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Authentication.xml",
+        "mytested.aspnetcore.mvc.authentication.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.authentication.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Caching/6.0.0": {
+      "sha512": "saQlB6ALDCAmCDBkEQg5sq8GAnJSjHVqgtzIK1ryE656hQYK/PLnPRAx2ERS5pZManZTOWVHyXNQqKbbQ4zNlw==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.caching/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Caching.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Caching.xml",
+        "mytested.aspnetcore.mvc.caching.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.caching.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Configuration/6.0.0": {
+      "sha512": "7SMqS6GziliDjpFVWVrfnEYfKb0iBUOEL6lYe/neCBoYS7zxm329Izg6CC+K5zmwP3H0JstzBGrHXkuHMFHvUg==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.configuration/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Configuration.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Configuration.xml",
+        "mytested.aspnetcore.mvc.configuration.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.configuration.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Controllers/6.0.0": {
+      "sha512": "0eBEEav+HutG/5RTiVspXQfo+f634Kh+SrrowS6JMvGR543MTX7pV/4vOxn7tpNmS8f/tRz86EWmwygOEAn46w==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.controllers/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.xml",
+        "mytested.aspnetcore.mvc.controllers.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.controllers.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Controllers.ActionResults/6.0.0": {
+      "sha512": "zH1GScq35j1bMLn7RWZ2h3+u+qt36Dm0PRIdG1ShOGAvY2LlvElfGEFo5ESU5LykRxhsTd7CpYMNCHiIs6Wd2w==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.controllers.actionresults/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.ActionResults.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.ActionResults.xml",
+        "mytested.aspnetcore.mvc.controllers.actionresults.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.controllers.actionresults.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Controllers.Attributes/6.0.0": {
+      "sha512": "M/pXTTKS3vkEvln60hNPD/+8wdx0ky1J202xmHbNU1OCYqW8Xk3oH/n/da8YJJ/P99oEpV5Pj1+J08URGAHb0A==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.controllers.attributes/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.Attributes.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.Attributes.xml",
+        "mytested.aspnetcore.mvc.controllers.attributes.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.controllers.attributes.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Controllers.Views/6.0.0": {
+      "sha512": "7dygIs+DMkvG+CxzisbLjE26DLvPlFIVAuI8lhk6vwY82Ugq5TPmvkSnm5K0TT3mzKOOU2OAG/9n9axYrR9OaA==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.controllers.views/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.Views.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.Views.xml",
+        "mytested.aspnetcore.mvc.controllers.views.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.controllers.views.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Controllers.Views.ActionResults/6.0.0": {
+      "sha512": "sW5rYlTSqtMVRuL4XZQypcGog/y05EVWUGdDt2vZPLM/j9eOb65njz6Kq7LJcS/GFsh74gyE86RTXmbkQv/5YA==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.controllers.views.actionresults/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.Views.ActionResults.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Controllers.Views.ActionResults.xml",
+        "mytested.aspnetcore.mvc.controllers.views.actionresults.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.controllers.views.actionresults.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Core/6.0.0": {
+      "sha512": "miXwhBKaHQ24wJDRuF1F+p7clu2t1SVPDtlMWhsZpkYFDop7Vw4hivhnF2U4473K+lM0ewJaPQY9d1muAsoLiA==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.core/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Core.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Core.xml",
+        "mytested.aspnetcore.mvc.core.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.core.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.DataAnnotations/6.0.0": {
+      "sha512": "sJPN/aMQ0H0NVtR1i4HzpMUOV2Ve04oU8j+sZgPcNeLQR9e2zU0/ijeLqMQmpUMKMuao/NT53eQYfYgPO/ppzg==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.dataannotations/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.DataAnnotations.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.DataAnnotations.xml",
+        "mytested.aspnetcore.mvc.dataannotations.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.dataannotations.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.DependencyInjection/6.0.0": {
+      "sha512": "xe5QjXs2W7bWcxF1O0S7GHiYEwI6twbNSM/K3i4F/wQVj8bybybC7E/cgZ25we18aYokzHPmd0gubusX8Aa/iw==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.dependencyinjection/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.DependencyInjection.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.DependencyInjection.xml",
+        "mytested.aspnetcore.mvc.dependencyinjection.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.dependencyinjection.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.EntityFrameworkCore/6.0.0": {
+      "sha512": "TikSpVkJrf+M6hXQwW1KpJk4osqBNiwZr91WK6Q7IUkfnNVQxDkTGJFHZTaN1J0pcHDoGKu9RkTRXubhbWlAog==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.entityframeworkcore/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.EntityFrameworkCore.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.EntityFrameworkCore.xml",
+        "mytested.aspnetcore.mvc.entityframeworkcore.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.entityframeworkcore.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Helpers/6.0.0": {
+      "sha512": "z+BKqPL+imi0l4lx5vdNqUJPw2DcCxer09nkAxnRBrTOH0scJX41TvIomD1ZOG7LuEOKKfZAnb/l2RVdC7PzuQ==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.helpers/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Helpers.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Helpers.xml",
+        "mytested.aspnetcore.mvc.helpers.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.helpers.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Http/6.0.0": {
+      "sha512": "BmCLtHg6UMhmafFSNFj45BOEHozTbfLff2Fp7nIMkgkMZxGcFqbja+TAjOY92AnPjcgtl1iI+sicOsVLLc2I5A==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.http/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Http.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Http.xml",
+        "mytested.aspnetcore.mvc.http.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.http.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Models/6.0.0": {
+      "sha512": "IXxfnTtz2pR/ufnnCYwmdkX+JbZOgP/xmcNZ+2K7jS+2gEpUmlRG4dRc8GuWG6jLEdAntGVPtoll4Bh9DJleHQ==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.models/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Models.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Models.xml",
+        "mytested.aspnetcore.mvc.models.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.models.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.ModelState/6.0.0": {
+      "sha512": "+6RoL5GFO3xyeBp1cFJ8w4aKAzy6/FFniH+5y0BCIK+DlnaUfYsV5I5D2mrHNJF3oqy3BWuZ0KI9F4HXPNtM3g==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.modelstate/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.ModelState.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.ModelState.xml",
+        "mytested.aspnetcore.mvc.modelstate.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.modelstate.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Options/6.0.0": {
+      "sha512": "btMMbjf8jKDy8TdGihryOWhXVgV6S4Xj47yFeIFJl6xKOlo9naBKkxZZODfK17wU6yUaoNUUw7BWIjc1Uw5Zyg==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.options/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Options.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Options.xml",
+        "mytested.aspnetcore.mvc.options.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.options.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Pipeline/6.0.0": {
+      "sha512": "redoA93NXoyFPkiAUuIibIqSBWGdZYM/6DG3H33nqIh73Ugf9/wltHdZkL7Smu8YF+Zjazv5Jg6BRllKnNkBcA==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.pipeline/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Pipeline.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Pipeline.xml",
+        "mytested.aspnetcore.mvc.pipeline.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.pipeline.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation/6.0.0": {
+      "sha512": "MPEoIRoO8LOxHUBHawqdfZYXKbGU1qCXpyrxyJTfLZSeWa53zZ1yOMNECMv997wTy0phE8mm1Vto8MGclFS6pg==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.razor.runtimecompilation/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation.xml",
+        "mytested.aspnetcore.mvc.razor.runtimecompilation.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.razor.runtimecompilation.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Routing/6.0.0": {
+      "sha512": "BgWvJjv2HVfhYAg00Dv1NSSZBJAJPCttCPHUgVZuMUW5Y8FYBU4hgXfFJVMtSB+vwfaQI3ceChO1Kt4UIBJjdg==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.routing/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Routing.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Routing.xml",
+        "mytested.aspnetcore.mvc.routing.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.routing.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Session/6.0.0": {
+      "sha512": "jZ18alDuRBMzEzCs7uxnqUziwaVB3Ot04cQNUbDAzHL7djCRBou7P+9SF33lWTNU6TBUoYZFOgtVNv8F414fbQ==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.session/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Session.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Session.xml",
+        "mytested.aspnetcore.mvc.session.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.session.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.TempData/6.0.0": {
+      "sha512": "cf2tvWyPM1PaEKSnoZ3FrXnX32SGBEsUMAMvweHu3DGCFPN5LnwudKnu/LEqc20bLP9TTqlp5oAwG2YqIPCZQw==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.tempdata/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.TempData.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.TempData.xml",
+        "mytested.aspnetcore.mvc.tempdata.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.tempdata.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Universe/6.0.0": {
+      "sha512": "1YKCcGzzUYsnw4Upg3+6Xedflf+bD8LQLPSRR2z9IOGmz4SsPPCuceEopGhr/j4YvvyO1KS3sppK6Lry8pUt1g==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.universe/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Universe.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Universe.xml",
+        "mytested.aspnetcore.mvc.universe.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.universe.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.Versioning/6.0.0": {
+      "sha512": "ufHvg6lTZRnOPwapw9IA0V52kEP3qFBiYlx4aNIF4/oldPOSj3Mj5yTiSqE7YbzyoTxDX53kSbPIwUhs9kg34Q==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.versioning/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Versioning.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.Versioning.xml",
+        "mytested.aspnetcore.mvc.versioning.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.versioning.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.ViewComponents/6.0.0": {
+      "sha512": "DjeiZ8RCxZJANgkhfpZGIllCo2ixJoLldGzgDliF1s55pmpnQX7omc0xW+uMj5dBM03eDxvl/e7raxqk4sZvkA==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.viewcomponents/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.ViewComponents.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.ViewComponents.xml",
+        "mytested.aspnetcore.mvc.viewcomponents.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.viewcomponents.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.ViewComponents.Results/6.0.0": {
+      "sha512": "1ZFrlCE0PzeWzeORvyRNjJlnaGTEAA4+L+Zx9GiM6TOIR2mee9ND2KnX6dTmygdcl9ffLMg/W1rAgpLAz4Eg1g==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.viewcomponents.results/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.ViewComponents.Results.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.ViewComponents.Results.xml",
+        "mytested.aspnetcore.mvc.viewcomponents.results.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.viewcomponents.results.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.ViewData/6.0.0": {
+      "sha512": "Jbzc8zjx82Grhp97eeLdSKk5hlDv1nOwOxDtfGJODOZda7iN/SZn2MrfUJkcY0gWwOJ0Yg+TJnEIGn+N/pHv2A==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.viewdata/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.ViewData.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.ViewData.xml",
+        "mytested.aspnetcore.mvc.viewdata.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.viewdata.nuspec",
+        "nuget-logo.png"
+      ]
+    },
+    "MyTested.AspNetCore.Mvc.ViewFeatures/6.0.0": {
+      "sha512": "Z6W3B1s9cS/CWnvBv5aO1R/98987oB1qvcM+oPiuQine78rnJGzAcvJ3pcvD2jQRpU399a267wl6kLHq3OL8mA==",
+      "type": "package",
+      "path": "mytested.aspnetcore.mvc.viewfeatures/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.ViewFeatures.dll",
+        "lib/net6.0/MyTested.AspNetCore.Mvc.ViewFeatures.xml",
+        "mytested.aspnetcore.mvc.viewfeatures.6.0.0.nupkg.sha512",
+        "mytested.aspnetcore.mvc.viewfeatures.nuspec",
+        "nuget-logo.png"
+      ]
+    },
     "NETStandard.Library/1.6.1": {
       "sha512": "WcSp3+vP+yHNgS8EV5J7pZ9IRpeDuARBPN28by8zqff1wJQXm26PVU8L3/fYLBJVU7BtDyqNVWq2KlCVvSSR4A==",
       "type": "package",
@@ -10710,6 +11971,23 @@
         "sendgrid.nuspec"
       ]
     },
+    "Shouldly/4.2.1": {
+      "sha512": "dKAKiSuhLKqD2TXwLKtqNg1nwzJcIKOOMncZjk9LYe4W+h+SCftpWdxwR79YZUIHMH+3Vu9s0s0UHNrgICLwRQ==",
+      "type": "package",
+      "path": "shouldly/4.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "assets/logo_128x128.png",
+        "buildTransitive/Shouldly.targets",
+        "lib/net5.0/Shouldly.dll",
+        "lib/net5.0/Shouldly.xml",
+        "lib/netstandard2.0/Shouldly.dll",
+        "lib/netstandard2.0/Shouldly.xml",
+        "shouldly.4.2.1.nupkg.sha512",
+        "shouldly.nuspec"
+      ]
+    },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.2": {
       "sha512": "ilkvNhrTersLmIVAcDwwPqfhUFCg19Z1GVMvCSi3xk6Akq94f4qadLORQCq/T8+9JgMiPs+F/NECw5uauviaNw==",
       "type": "package",
@@ -10924,6 +12202,29 @@
         "system.buffers.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "System.CodeDom/6.0.0": {
+      "sha512": "CPc6tWO1LAer3IzfZufDBRL+UZQcj5uS207NHALQzP84Vp/z6wF0Aa0YZImOQY8iStY0A2zI/e3ihKNPfUm8XA==",
+      "type": "package",
+      "path": "system.codedom/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.CodeDom.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.CodeDom.dll",
+        "lib/net461/System.CodeDom.xml",
+        "lib/net6.0/System.CodeDom.dll",
+        "lib/net6.0/System.CodeDom.xml",
+        "lib/netstandard2.0/System.CodeDom.dll",
+        "lib/netstandard2.0/System.CodeDom.xml",
+        "system.codedom.6.0.0.nupkg.sha512",
+        "system.codedom.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Collections/4.3.0": {
@@ -12268,6 +13569,34 @@
         "runtimes/aot/lib/netcore50/System.Linq.Expressions.dll",
         "system.linq.expressions.4.3.0.nupkg.sha512",
         "system.linq.expressions.nuspec"
+      ]
+    },
+    "System.Management/6.0.1": {
+      "sha512": "10J1D0h/lioojphfJ4Fuh5ZUThT/xOVHdV9roGBittKKNP2PMjrvibEdbVTGZcPra1399Ja3tqIJLyQrc5Wmhg==",
+      "type": "package",
+      "path": "system.management/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Management.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/_._",
+        "lib/net6.0/System.Management.dll",
+        "lib/net6.0/System.Management.xml",
+        "lib/netcoreapp3.1/System.Management.dll",
+        "lib/netcoreapp3.1/System.Management.xml",
+        "lib/netstandard2.0/System.Management.dll",
+        "lib/netstandard2.0/System.Management.xml",
+        "runtimes/win/lib/net6.0/System.Management.dll",
+        "runtimes/win/lib/net6.0/System.Management.xml",
+        "runtimes/win/lib/netcoreapp3.1/System.Management.dll",
+        "runtimes/win/lib/netcoreapp3.1/System.Management.xml",
+        "system.management.6.0.1.nupkg.sha512",
+        "system.management.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Memory/4.5.4": {
@@ -14978,6 +16307,8 @@
     "net6.0": [
       "Microsoft.AspNetCore.Mvc.Testing >= 6.0.26",
       "Microsoft.NET.Test.Sdk >= 17.5.0",
+      "MyTested.AspNetCore.Mvc.Universe >= 6.0.0",
+      "Shouldly >= 4.2.1",
       "StyleCop.Analyzers >= 1.1.118",
       "Wizzarts.Web >= 1.0.0",
       "xunit >= 2.4.2",
@@ -15039,6 +16370,14 @@
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.5.0, )"
+          },
+          "MyTested.AspNetCore.Mvc.Universe": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
+          "Shouldly": {
+            "target": "Package",
+            "version": "[4.2.1, )"
           },
           "StyleCop.Analyzers": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers",

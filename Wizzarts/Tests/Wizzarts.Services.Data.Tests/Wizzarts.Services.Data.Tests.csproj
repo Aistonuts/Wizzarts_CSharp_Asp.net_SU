@@ -5,9 +5,11 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  
   <ItemGroup>
     <AdditionalFiles Include="..\..\stylecop.json" />
   </ItemGroup>
@@ -17,8 +19,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.26" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
     <PackageReference Include="Moq" Version="4.18.4" />
-    <PackageReference Include="xunit" Version="2.4.2" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+    <PackageReference Include="MyTested.AspNetCore.Mvc.Universe" Version="6.0.0" />
+    <PackageReference Include="Shouldly" Version="4.2.1" />
+    <PackageReference Include="xunit" Version="2.9.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
@@ -30,6 +34,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Wizzarts.Data\Wizzarts.Data.csproj" />
     <ProjectReference Include="..\..\Services\Wizzarts.Services.Data\Wizzarts.Services.Data.csproj" />
+    <ProjectReference Include="..\..\Web\Wizzarts.Web\Wizzarts.Web.csproj" />
   </ItemGroup>
 
 </Project>
