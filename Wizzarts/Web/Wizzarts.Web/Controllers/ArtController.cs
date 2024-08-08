@@ -50,7 +50,7 @@
 
             try
             {
-                await this.artService.AddAsync(input, user.Id, $"{this.environment.WebRootPath}/images");
+                await this.artService.AddAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images");
             }
             catch (Exception ex)
             {
@@ -64,12 +64,22 @@
             return this.RedirectToAction("All");
         }
 
+        [HttpGet]
         public IActionResult Edit(string id)
-        { 
+        {
             var inputModel = this.artService.GetById<EditArtViewModel>(id);
-            return this.View(inputModel);
+
+            if (inputModel != null)
+            {
+                return this.View(inputModel);
+            }
+            else
+            {
+                return this.NotFound();
+            }
         }
 
+        [HttpPost]
         public async Task<IActionResult> Edit(EditArtViewModel inputModel, string id)
         {
             if (!this.ModelState.IsValid)
@@ -77,6 +87,8 @@
 
                 return this.View(inputModel);
             }
+
+
 
             await this.artService.UpdateAsync(inputModel, id);
             return this.RedirectToAction(nameof(this.ById), new { id });

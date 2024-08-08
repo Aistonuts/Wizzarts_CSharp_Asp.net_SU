@@ -11,6 +11,7 @@ using Wizzarts.Web.ViewModels.PlayCard;
 using Wizzarts.Web.ViewModels.Event;
 using Wizzarts.Web.ViewModels.Store;
 using Wizzarts.Web.ViewModels.WizzartsMember;
+using Wizzarts.Web.Infrastructure.Extensions;
 
 namespace Wizzarts.Web.Controllers
 {
@@ -52,6 +53,7 @@ namespace Wizzarts.Web.Controllers
             return this.View(viewModel);
         }
 
+        [HttpGet]
         public IActionResult Update(int id)
         {
             if(id == 0)
@@ -79,7 +81,7 @@ namespace Wizzarts.Web.Controllers
 
             try
             {
-                await this.userService.UpdateAsync(user.Id, input);
+                await this.userService.UpdateAsync(this.User.GetId(), input);
             }
             catch (Exception ex)
             {
@@ -107,17 +109,17 @@ namespace Wizzarts.Web.Controllers
             var view = new MemberDataViewModel
             {
                 Nickname = user.Nickname,
-                Id = user.Id,
+                Id = this.User.GetId(),
                 Email = user.Email,
                 AvatarUrl = user.AvatarUrl,
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
             };
-            view.Arts = this.artService.GetAllArtByUserId<ArtInListViewModel>(user.Id, id, ItemsPerPage);
-            view.Articles = this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(user.Id, id, ItemsPerPage);
-            view.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(user.Id, id, ItemsPerPage);
-            view.Cards = this.cardService.GetAllCardsByUserId<CardInListViewModel>(user.Id, id, ItemsPerPage);
-            view.Stores = this.storeService.GetAllStoresByUserId<StoreInListViewModel>(user.Id, id, ItemsPerPage);
+            view.Arts = this.artService.GetAllArtByUserId<ArtInListViewModel>(this.User.GetId(), id, ItemsPerPage);
+            view.Articles = this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(this.User.GetId(), id, ItemsPerPage);
+            view.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), id, ItemsPerPage);
+            view.Cards = this.cardService.GetAllCardsByUserId<CardInListViewModel>(this.User.GetId(), id, ItemsPerPage);
+            view.Stores = this.storeService.GetAllStoresByUserId<StoreInListViewModel>(this.User.GetId(), id, ItemsPerPage);
             return this.View(view);
         }
     }

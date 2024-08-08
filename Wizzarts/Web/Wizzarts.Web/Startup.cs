@@ -80,7 +80,6 @@ namespace Wizzarts.Web
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IArticleService, ArticleService>();
             services.AddTransient<IArtService, ArtService>();
             services.AddTransient<IPlayCardService, PlayCardService>();

@@ -34,7 +34,7 @@
                 EventCreatorId = userId,
                 EventStatusId = input.EventStatusId,
             };
-            Directory.CreateDirectory($"{imagePath}/event/");
+            Directory.CreateDirectory($"{imagePath}/event/UserEvent/");
             var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
             {

@@ -1,7 +1,7 @@
 ﻿namespace Wizzarts.Web.ViewModels.WizzartsMember
 {
     using System.Collections.Generic;
-
+    using System.ComponentModel.DataAnnotations;
     using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Models;
@@ -12,9 +12,11 @@
     {
         public int AvatarId { get; set; }
 
+        [Required]
         public string Nickname { get; set; }
 
         public string AvatarUrl { get; set; }
+
 
         [Comment("Information about the artist")]
         public string Bio { get; set; } = string.Empty;

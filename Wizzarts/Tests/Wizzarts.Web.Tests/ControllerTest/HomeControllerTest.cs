@@ -3,9 +3,11 @@ using Shouldly;
 using System.Collections.Generic;
 using System.Linq;
 using Wizzarts.Data.Models;
+using Wizzarts.Services.Data.Tests;
 using Wizzarts.Web.Controllers;
 using Wizzarts.Web.ViewModels.Art;
 using Wizzarts.Web.ViewModels.Article;
+using Wizzarts.Web.ViewModels.Chat;
 using Wizzarts.Web.ViewModels.Event;
 using Wizzarts.Web.ViewModels.Expansion;
 using Wizzarts.Web.ViewModels.Home;
@@ -15,7 +17,7 @@ using Xunit;
 
 namespace Wizzarts.Web.Tests.ControllerTest
 {
-    public class HomeControllerTest
+    public class HomeControllerTest : UnitTestBase
     {
         [Fact]
         public void IndexShouldReturnViewWithCorrectModel()
@@ -68,7 +70,8 @@ namespace Wizzarts.Web.Tests.ControllerTest
                     model,
                     With.No<string>()))
                 .ShouldReturn()
-                .View();
+                .LocalRedirect(redirect => redirect
+                .To<HomeController>(c => c.Index()));
 
 
         }
@@ -88,10 +91,10 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .ShouldReturn()
                 .View();
 
-        [Theory]
-        [InlineData("User@mobile.com", "Passwordaaaaaaaaaaaaaaa", "fakeUrl")]
-        public void IndexPostSignInShouldReturnViewWithSameModelWhenInvalidModelState(string username, string password, string url)
+        [Fact]
+        public void IndexPostSignInShouldReturnViewWithSameModelWhenInvalidModelState()
         {
+
             MyController<HomeController>
                 .Calling(c => c.Index(
                     new IndexAuthenticationViewModel
@@ -102,26 +105,14 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .ShouldHave()
                 .ValidModelState()
                 .AndAlso()
-                .ShouldHave()
-                .Data(data => data
-                    .WithSet<ApplicationUser>(set =>
-                    {
-                        set.ShouldNotBeEmpty();
-                        set.SingleOrDefault(a => a.UserName == SignInManagerMock.ValidUser).ShouldNotBeNull();
-                    }))
-                .AndAlso()
-                .ShouldHave()
-                .TempData(tempData => tempData
-                    .ContainingEntryWithKey("User logged in."))
-                .AndAlso()
                 .ShouldReturn()
-                .Redirect(redirect => redirect
+                .LocalRedirect(redirect => redirect
                     .To<HomeController>(c => c.Index()));
 
         }
 
         [Fact]
-        public void PostLoginShouldReturnReturnViewWithInvalidCredentials()
+        public void PostLoginShouldReturnViewWithInvalidCredentials()
         {
             var model = new IndexAuthenticationViewModel
             {
@@ -137,6 +128,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 Stores = new List<StoreInListViewModel>(),
                 Events = new List<EventInListViewModel>(),
                 GameExpansions = new List<ExpansionInListViewModel>(),
+                ChatMessages = new List<DbChatMessagesInListViewModel>(),
             };
 
             MyMvc

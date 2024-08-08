@@ -30,7 +30,6 @@
 
         public PlayCardService(
             IDeletableEntityRepository<PlayCard> cardRepository,
-            IDeletableEntityRepository<Art> artRepository,
             IDeletableEntityRepository<ManaInCard> cardManaRepository,
             IDeletableEntityRepository<BlackMana> blackManaRepository,
             IDeletableEntityRepository<BlueMana> blueManaRepository,
@@ -214,15 +213,17 @@
             var physicalPath = " ";
             if (requireArtInput)
             {
+                Directory.CreateDirectory($"{path}/cardsByExpansion/EventCards/Flavor/");
                 physicalPath = $"{path}/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
                 card.CardRemoteUrl = $"/images/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
             }
             else
             {
+                Directory.CreateDirectory($"{path}/cardsByExpansion/EventCards/Flavorless/");
                 physicalPath = $"{path}/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
                 card.CardRemoteUrl = $"/images/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
             }
-
+            
             //string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
 
             using (FileStream fs = new FileStream(physicalPath, FileMode.Create))

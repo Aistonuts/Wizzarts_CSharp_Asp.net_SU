@@ -100,7 +100,7 @@ namespace Wizzarts.Services.Data.Tests.ArtServiceTest
             var service = new ArtService(repository, cache);
 
             string UserId = "66030199-349f-4e35-846d-97685187a565";
-            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\MagicCardsmith.Web\\wwwroot" + "/images";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");

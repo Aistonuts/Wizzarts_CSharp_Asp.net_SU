@@ -26,7 +26,7 @@
     {
         public const int GeneralChatId = 1;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly ILogger<IndexAuthenticationViewModel> _logger;
+        private readonly ILogger<HomeController> _logger;
         private readonly IChatService chatService;
         private readonly IArticleService articlesService;
         private readonly IArtService artService;
@@ -38,7 +38,7 @@
         
         public HomeController(
            SignInManager<ApplicationUser> _signInManager,
-           ILogger<IndexAuthenticationViewModel> _logger,
+           ILogger<HomeController> _logger,
            IChatService chatService,
            IArticleService articlesServic,
            IArtService artService,
@@ -89,6 +89,7 @@
                 Stores = this.storeService.GetAll<StoreInListViewModel>(),
                 Events = this.eventService.GetAll<EventInListViewModel>(),
                 GameExpansions = this.cardExpansionService.GetAll<ExpansionInListViewModel>(),
+                ChatMessages = this.chatService.GetAllGeneralChatMessages<DbChatMessagesInListViewModel>(GeneralChatId),
             };
 
             if (this.ModelState.IsValid)

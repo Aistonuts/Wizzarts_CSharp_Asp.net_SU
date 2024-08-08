@@ -14,6 +14,7 @@ namespace Wizzarts.Web.Controllers
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
+    using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.CardGameExpansion;
     using Wizzarts.Web.ViewModels.Event;
@@ -57,6 +58,7 @@ namespace Wizzarts.Web.Controllers
 
         }
 
+        [HttpGet]
         public async Task<IActionResult> Create(int id)
         {
             var viewModel = new CreateCardViewModel();
@@ -72,9 +74,9 @@ namespace Wizzarts.Web.Controllers
 
             var eventComponent = this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
             var currentEvent = this.eventService.GetById<EventInListViewModel>(eventComponent.EventId);
-            var user = await this.userManager.GetUserAsync(this.User);
+            //var user = await this.userManager.GetUserAsync(this.User);
 
-            viewModel.ArtByUserId = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(user.Id);
+            viewModel.ArtByUserId = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
 
             viewModel.EventMilestoneImage = eventComponent.ImageUrl;
             viewModel.EventMilestoneTitle = eventComponent.Title;
@@ -141,7 +143,7 @@ namespace Wizzarts.Web.Controllers
 
             try
             {
-                await this.cardService.CreateAsync(input, user.Id, eventComponent.EventId, $"{this.environment.WebRootPath}/Images", isEventCard, eventComponent.RequireArtInput, canvasCapture);
+                await this.cardService.CreateAsync(input, this.User.GetId(), eventComponent.EventId, $"{this.environment.WebRootPath}/images", isEventCard, eventComponent.RequireArtInput, canvasCapture);
             }
             catch (Exception ex)
             {

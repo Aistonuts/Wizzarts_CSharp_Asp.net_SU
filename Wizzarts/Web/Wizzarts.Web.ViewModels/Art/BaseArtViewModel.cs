@@ -1,12 +1,12 @@
 ﻿namespace Wizzarts.Web.ViewModels.Art
 {
     using System.ComponentModel.DataAnnotations;
-
+    using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Home;
-
+    using Wizzarts.Data.Models;
     using static Wizzarts.Common.DataConstants;
 
-    public class BaseArtViewModel : IndexAuthenticationViewModel
+    public class BaseArtViewModel : IndexAuthenticationViewModel, IMapFrom<Art>
     {
         [Required(ErrorMessage = "Art title is required!")]
         [StringLength(ArtTitleMaxLength, MinimumLength = ArtTitleMinLength, ErrorMessage = "Art title should be between 1 and 30 characters long")]

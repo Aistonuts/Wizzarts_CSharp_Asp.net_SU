@@ -9,6 +9,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
+    using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Store;
 
     public class StoreController : BaseController
@@ -27,6 +28,7 @@
             this.environment = environment;
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return this.View();
@@ -49,7 +51,7 @@
 
             try
             {
-                await this.storeService.CreateAsync(input, user.Id, $"{this.environment.WebRootPath}/images");
+                await this.storeService.CreateAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images");
             }
             catch (Exception ex)
             {

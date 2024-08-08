@@ -6,6 +6,7 @@
     using Wizzarts.Common;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
+    using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.GameRules;
     using Wizzarts.Web.ViewModels.WizzartsMember;
 
@@ -55,11 +56,11 @@
             if (user != null)
             {
 
-                var countOfArts = this.userService.GetCountOfArt(user.Id);
+                var countOfArts = this.userService.GetCountOfArt(this.User.GetId());
 
-                var countOfArticles = this.userService.GetCountOfArticles(user.Id);
+                var countOfArticles = this.userService.GetCountOfArticles(this.User.GetId());
 
-                var countOfEvents = this.userService.GetCountOfEvents(user.Id);
+                var countOfEvents = this.userService.GetCountOfEvents(this.User.GetId());
 
                 var userRole = await this.userManager.GetRolesAsync(user);
 

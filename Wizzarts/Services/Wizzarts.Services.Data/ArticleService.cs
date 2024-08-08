@@ -74,7 +74,7 @@
                 ShortDescription = input.ShortDescription,
                 ArticleCreatorId = userId,
             };
-            Directory.CreateDirectory($"{imagePath}/navigation/");
+            Directory.CreateDirectory($"{imagePath}/navigation/articles");
             var extension = Path.GetExtension(input.ImageUrl.FileName).TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
             {

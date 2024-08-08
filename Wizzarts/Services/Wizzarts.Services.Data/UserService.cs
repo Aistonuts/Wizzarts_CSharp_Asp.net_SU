@@ -16,30 +16,25 @@
 
     public class UserService : IUserService
     {
-        private readonly ApplicationDbContext dbContext;
         private readonly IDeletableEntityRepository<Art> artRepository;
         private readonly IDeletableEntityRepository<Article> articleRepository;
         private readonly IDeletableEntityRepository<Event> eventRepository;
         private readonly IDeletableEntityRepository<Avatar> avatarRepository;
-        private readonly UserManager<ApplicationUser> userManager;
+
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
 
         public UserService(
-           ApplicationDbContext dbContext,
            IDeletableEntityRepository<Art> artRepository,
            IDeletableEntityRepository<Article> articleRepository,
            IDeletableEntityRepository<Event> eventRepository,
            IDeletableEntityRepository<Avatar> avatarRepository,
-           UserManager<ApplicationUser> userManager,
-           IDeletableEntityRepository<ApplicationUser> userRepositor)
+           IDeletableEntityRepository<ApplicationUser> userRepository)
         {
-            this.dbContext = dbContext;
             this.artRepository = artRepository;
             this.articleRepository = articleRepository;
             this.eventRepository = eventRepository;
             this.avatarRepository = avatarRepository;
-            this.userManager = userManager;
-            this.userRepository = userRepositor;
+            this.userRepository = userRepository;
         }
 
         public T GetById<T>(string id)

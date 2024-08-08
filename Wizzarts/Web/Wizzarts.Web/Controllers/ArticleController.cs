@@ -10,6 +10,7 @@
     using Wizzarts.Common;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
+    using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Article;
 
     public class ArticleController : BaseController
@@ -28,6 +29,7 @@
             this.environment = environment;
         }
 
+        [HttpGet]
         public IActionResult Edit()
         {
             return this.View();
@@ -36,6 +38,8 @@
         [HttpPost]
         public async Task<IActionResult> Edit(int id, EditArticleViewModel input)
         {
+            this.ModelState.Remove("UserName");
+            this.ModelState.Remove("Password");
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
@@ -45,6 +49,7 @@
             return this.RedirectToAction(nameof(this.ById), new { id });
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
 
@@ -52,7 +57,6 @@
         }
 
         [HttpPost]
-
         public async Task<IActionResult> Create(CreateArticleViewModel input)
         {
             this.ModelState.Remove("UserName");
@@ -67,7 +71,7 @@
 
             try
             {
-                await this.articleService.CreateAsync(input, user.Id, $"{this.environment.WebRootPath}/images");
+                await this.articleService.CreateAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images");
             }
             catch (Exception ex)
             {

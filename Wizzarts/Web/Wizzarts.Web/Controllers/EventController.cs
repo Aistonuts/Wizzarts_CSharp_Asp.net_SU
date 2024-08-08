@@ -11,6 +11,7 @@
     using System.Threading.Tasks;
     using System;
     using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.Infrastructure.Extensions;
 
     public class EventController : BaseController
     {
@@ -70,7 +71,7 @@
 
             try
             {
-                await this.eventService.CreateAsync(input, user.Id, $"{this.environment.WebRootPath}/images");
+                await this.eventService.CreateAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images");
             }
             catch (Exception ex)
             {

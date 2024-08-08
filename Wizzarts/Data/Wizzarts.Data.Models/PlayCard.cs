@@ -1,6 +1,7 @@
 ﻿
 namespace Wizzarts.Data.Models
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -15,6 +16,7 @@ namespace Wizzarts.Data.Models
     {
         public PlayCard()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.CardMana = new HashSet<ManaInCard>();
             this.Comments = new HashSet<CommentCard>();
             this.Votes = new HashSet<Vote>();
