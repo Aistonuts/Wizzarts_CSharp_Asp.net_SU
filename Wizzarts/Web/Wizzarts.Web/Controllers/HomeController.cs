@@ -21,6 +21,9 @@
     using System.Linq;
     using Wizzarts.Web.ViewModels.Chat;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.AspNetCore.Authorization;
+    using static Wizzarts.Common.GlobalConstants;
+    using Wizzarts.Web.Infrastructure.Extensions;
 
     public class HomeController : BaseController
     {
@@ -35,7 +38,9 @@
         private readonly IStoreService storeService;
         private readonly IPlayCardExpansionService cardExpansionService;
         private readonly IMemoryCache cache;
-        
+        private readonly IUserService userService;
+        private readonly UserManager<ApplicationUser> userManager;
+
         public HomeController(
            SignInManager<ApplicationUser> _signInManager,
            ILogger<HomeController> _logger,
@@ -46,7 +51,9 @@
            IEventService eventService,
            IStoreService storeService,
            IPlayCardExpansionService cardExpansionService,
-           IMemoryCache cache)
+           IUserService userService,
+           IMemoryCache cache,
+           UserManager<ApplicationUser> userManager)
         {
             this._signInManager = _signInManager;
             this._logger = _logger;
@@ -57,26 +64,53 @@
             this.eventService = eventService;
             this.storeService = storeService;
             this.cardExpansionService = cardExpansionService;
+            this.userService = userService;
             this.cache = cache;
+            this.userManager = userManager;
         }
 
-        public IActionResult Index()
+        [AllowAnonymous]
+        public async Task<IActionResult> Index()
         {
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            string welcomeMessage = " ";
+
+            if (user != null)
+            {
+                var currentRole = await this.userManager.GetRolesAsync(user);
+                if (!currentRole.Contains(AdministratorRoleName))
+                {
+                    welcomeMessage = await this.userService.UpdateRoleAsync(user, user.Id);
+                }
+            }
+            else
+            {
+                welcomeMessage = string.Empty;
+            }
+
             var viewModel = new IndexAuthenticationViewModel()
             {
-                Articles = this.articlesService.GetRandom<ArticleInListViewModel>(6),
-                Arts = this.artService.GetRandom<ArtInListViewModel>(3),
+                Articles = this.articlesService.GetRandom<ArticleInListViewModel>(8),
+                Arts = this.artService.GetRandom<ArtInListViewModel>(4),
                 Cards = this.playCardService.GetRandom<CardInListViewModel>(4),
                 Stores = this.storeService.GetAll<StoreInListViewModel>(),
                 Events = this.eventService.GetAll<EventInListViewModel>(),
                 GameExpansions = this.cardExpansionService.GetAll<ExpansionInListViewModel>(),
                 ChatMessages = this.chatService.GetAllGeneralChatMessages<DbChatMessagesInListViewModel>(GeneralChatId),
+                ChatRooms = this.chatService.GetAllChatRooms<SingleChatViewModel>(),
                 ChatId = GeneralChatId,
+                MembershipStatus = welcomeMessage,
+                CountOfArts = this.userService.GetCountOfArt(this.User.GetId()),
+                CountOfArticles = this.userService.GetCountOfArticles(this.User.GetId()),
+                CountOfCards = this.userService.GetCountOfCards(this.User.GetId()),
+                CountOfEvents = this.userService.GetCountOfEvents(this.User.GetId()),
             };
             return this.View(viewModel);
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Index(IndexAuthenticationViewModel loginModel, string returnUrl = null)
         {
             returnUrl ??= this.Url.Content("~/");
@@ -100,6 +134,8 @@
                 if (result.Succeeded)
                 {
                     this._logger.LogInformation("User logged in.");
+
+
                     return LocalRedirect(returnUrl);
                 }
                 else
@@ -118,11 +154,25 @@
             return this.View();
         }
 
+
+        [HttpGet]
+        [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error(int statusCode)
         {
-            return this.View(
-                new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
+            if (statusCode == 400)
+            {
+                return this.View("Error400");
+            }
+
+            if (statusCode == 401)
+            {
+                return this.View("Error401");
+            }
+
+            return View();
+            //return this.View(
+            //    new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
     }
 }

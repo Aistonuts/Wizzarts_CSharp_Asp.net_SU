@@ -21,7 +21,7 @@
 
         public const string DefaultCardFrameUrl = "/images/frames/createcard.jpg";
 
-        public const string DefaultGameExpansionUrl = "/images/symbols/expansions/Beta.png";
+        public const string DefaultGameExpansionUrl = "/images/symbols/expansions/Nameless.png";
 
         public const string DefaulCardType = "Not Defined !!!";
 

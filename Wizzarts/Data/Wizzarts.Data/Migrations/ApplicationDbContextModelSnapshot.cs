@@ -17,7 +17,7 @@ namespace Wizzarts.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.32")
+                .HasAnnotation("ProductVersion", "6.0.26")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -177,6 +177,9 @@ namespace Wizzarts.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("AdminFeedBack")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("AvatarId")
                         .HasColumnType("int")
                         .HasComment("Avatar Identifier.Picked after signing in");
@@ -205,6 +208,9 @@ namespace Wizzarts.Data.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("HasBeenUpdated")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
@@ -238,6 +244,9 @@ namespace Wizzarts.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RequestFeedback")
                         .HasColumnType("bit");
 
                     b.Property<string>("SecurityStamp")
@@ -501,6 +510,76 @@ namespace Wizzarts.Data.Migrations
                     b.ToTable("BlueMana");
                 });
 
+            modelBuilder.Entity("Wizzarts.Data.Models.CardDeck", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreatedByMemberId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DeckMinimumCards")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DeckMinimumEventCards")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("HasEventCards")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("HasPriority")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsLocked")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShippingAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StoreId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedByMemberId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("StatusId");
+
+                    b.HasIndex("StoreId");
+
+                    b.ToTable("CardDecks");
+                });
+
             modelBuilder.Entity("Wizzarts.Data.Models.CardGameExpansion", b =>
                 {
                     b.Property<int>("Id")
@@ -683,21 +762,32 @@ namespace Wizzarts.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Art")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasComment("What can be done to resolve the issue.");
+
+                    b.Property<string>("CardFlavor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Card Description");
+
                     b.Property<string>("CardId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)")
                         .HasComment("Review of which card");
+
+                    b.Property<string>("CardName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Card title");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasComment("Card Description");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -721,11 +811,6 @@ namespace Wizzarts.Data.Migrations
                         .HasColumnType("nvarchar(500)")
                         .HasComment("What can be done to resolve the issue.");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasComment("Card title");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CardId");
@@ -735,6 +820,73 @@ namespace Wizzarts.Data.Migrations
                     b.HasIndex("PostedByUserId");
 
                     b.ToTable("CardComments");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.DeckOfCards", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DeckId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PlayCardId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeckId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("PlayCardId");
+
+                    b.ToTable("DeckOfCards");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.DeckStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("DeckStatuses");
                 });
 
             modelBuilder.Entity("Wizzarts.Data.Models.Event", b =>
@@ -762,8 +914,8 @@ namespace Wizzarts.Data.Migrations
 
                     b.Property<string>("EventDescription")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)")
                         .HasComment("Event Description");
 
                     b.Property<int>("EventStatusId")
@@ -852,6 +1004,38 @@ namespace Wizzarts.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("EventComponents");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.EventParticipant", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("UserId", "EventId");
+
+                    b.HasIndex("EventId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("EventParticipants");
                 });
 
             modelBuilder.Entity("Wizzarts.Data.Models.EventStatus", b =>
@@ -1027,16 +1211,15 @@ namespace Wizzarts.Data.Migrations
                         .HasColumnType("int")
                         .HasComment("Mana cost Id");
 
-                    b.Property<bool>("IsBanned")
-                        .HasColumnType("bit")
-                        .HasComment("Has this card been created during an event.");
+                    b.Property<bool>("HasBeenUpdated")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsEventCard")
                         .HasColumnType("bit")
-                        .HasComment("Has this card been created during an event.");
+                        .HasComment("Has this card been created during an event?");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
@@ -1060,6 +1243,9 @@ namespace Wizzarts.Data.Migrations
                         .HasMaxLength(1)
                         .HasColumnType("nvarchar(1)")
                         .HasComment("Card can take damage up to amount equal to its toughness.");
+
+                    b.Property<bool>("UpdateRequest")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("WhiteManaId")
                         .HasColumnType("int")
@@ -1749,6 +1935,33 @@ namespace Wizzarts.Data.Migrations
                     b.Navigation("ArticleCreator");
                 });
 
+            modelBuilder.Entity("Wizzarts.Data.Models.CardDeck", b =>
+                {
+                    b.HasOne("Wizzarts.Data.Models.ApplicationUser", "CreatedByMember")
+                        .WithMany("CardDecks")
+                        .HasForeignKey("CreatedByMemberId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Wizzarts.Data.Models.DeckStatus", "Status")
+                        .WithMany("Decks")
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Wizzarts.Data.Models.Store", "Store")
+                        .WithMany()
+                        .HasForeignKey("StoreId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("CreatedByMember");
+
+                    b.Navigation("Status");
+
+                    b.Navigation("Store");
+                });
+
             modelBuilder.Entity("Wizzarts.Data.Models.ChatMessage", b =>
                 {
                     b.HasOne("Wizzarts.Data.Models.Chat", "Chat")
@@ -1798,6 +2011,23 @@ namespace Wizzarts.Data.Migrations
                     b.Navigation("PostedByUser");
                 });
 
+            modelBuilder.Entity("Wizzarts.Data.Models.DeckOfCards", b =>
+                {
+                    b.HasOne("Wizzarts.Data.Models.CardDeck", "Deck")
+                        .WithMany()
+                        .HasForeignKey("DeckId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Wizzarts.Data.Models.PlayCard", "PlayCard")
+                        .WithMany()
+                        .HasForeignKey("PlayCardId");
+
+                    b.Navigation("Deck");
+
+                    b.Navigation("PlayCard");
+                });
+
             modelBuilder.Entity("Wizzarts.Data.Models.Event", b =>
                 {
                     b.HasOne("Wizzarts.Data.Models.ApplicationUser", "EventCreator")
@@ -1826,6 +2056,25 @@ namespace Wizzarts.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.EventParticipant", b =>
+                {
+                    b.HasOne("Wizzarts.Data.Models.Event", "Event")
+                        .WithMany()
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Wizzarts.Data.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Wizzarts.Data.Models.ManaInCard", b =>
@@ -1984,6 +2233,8 @@ namespace Wizzarts.Data.Migrations
 
                     b.Navigation("Articles");
 
+                    b.Navigation("CardDecks");
+
                     b.Navigation("Cards");
 
                     b.Navigation("Chats");
@@ -2033,6 +2284,11 @@ namespace Wizzarts.Data.Migrations
             modelBuilder.Entity("Wizzarts.Data.Models.ColorlessMana", b =>
                 {
                     b.Navigation("Cards");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.DeckStatus", b =>
+                {
+                    b.Navigation("Decks");
                 });
 
             modelBuilder.Entity("Wizzarts.Data.Models.Event", b =>

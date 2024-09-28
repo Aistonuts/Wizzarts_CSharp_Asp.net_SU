@@ -45,7 +45,7 @@
                                 <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
                             </li>
                             <li class="single-meta">
-                                <form asp-controller="Art" method="post" asp-action="ApproveArt" asp-route-id="@Model.Id">
+                                <form asp-area="" asp-controller="Art" method="post" asp-action="ApproveArt" asp-route-id="@Model.Id">
                                     <button class="btn btn-danger">Approve</button>
                                 </form>
                             </li>

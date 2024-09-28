@@ -2,17 +2,10 @@
 {
     using Wizzarts.Web.ViewModels.Home;
 
+    using static Wizzarts.Common.MembershipConstants;
+
     public class MembershipViewModel : IndexAuthenticationViewModel
     {
-        public const int ArtistRequiredArts = 3;
-
-        public const int PremiumRequiredArts = 10;
-
-        public const int RequiredNumberArticles = 1;
-
-        public const int RequiredNumberCards = 1;
-
-        public const int RequiredNumberEvents = 1;
 
         public string CurrentRole { get; set; } = string.Empty;
 
@@ -22,15 +15,15 @@
 
         public bool IsArtist { get; set; }
 
-        public bool IsPremiumUser { get; set; }
+        public bool IsContentCreator { get; set; }
 
-        public int ArtistRoleNeededArts { get; set; } = ArtistRequiredArts;
+        public int ArtistRoleNeededArts { get; set; } = MemberToArtistRequiredArts;
 
-        public int PremiumRoleNeededArts { get; set; } = PremiumRequiredArts;
+        public int ContentCreatorNeededArts { get; set; } = ArtistToContentCreatorRequiredArts;
 
         public int AllRolesRequiredArticles { get; set; } = RequiredNumberArticles;
 
-        public int AllRolesCards { get; set; } = RequiredNumberCards;
+        public int AllRolesCards { get; set; } = RequiredNumberEventCards;
 
         public int AllRolesEvents { get; set; } = RequiredNumberEvents;
 

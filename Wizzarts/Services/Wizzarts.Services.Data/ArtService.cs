@@ -5,7 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Caching.Memory;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
@@ -127,8 +127,11 @@
         public async Task DeleteAsync(string id)
         {
             var art = this.artRepository.All().FirstOrDefault(x => x.Id == id);
-            this.artRepository.Delete(art);
-            await this.artRepository.SaveChangesAsync();
+            if (art != null)
+            {
+                this.artRepository.Delete(art);
+                await this.artRepository.SaveChangesAsync();
+            }
         }
 
         public IEnumerable<T> GetAllArtByUserId<T>(string id, int page, int itemsPerPage = 3)
@@ -148,6 +151,37 @@
                .To<T>().ToList();
 
             return art;
+        }
+
+        public async Task<string> ApproveArt(string id)
+        {
+            var art = this.artRepository.All().FirstOrDefault(x => x.Id == id);
+            if (art != null && art.ApprovedByAdmin == false)
+            {
+                art.ApprovedByAdmin = true;
+                this.cache.Remove(ArtsCacheKey);
+                await this.artRepository.SaveChangesAsync();
+
+                return art.AddedByMemberId;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+        public async Task<bool> ArtExist(string id)
+        {
+
+            return await this.artRepository
+                .AllAsNoTracking().AnyAsync(a => a.Id == id);
+        }
+
+        public async Task<bool> HasUserWithIdAsync(string artId, string userId)
+        {
+            return await this.artRepository.AllAsNoTracking()
+                 .AnyAsync(a => a.Id == artId && a.AddedByMemberId == userId);
         }
     }
 }

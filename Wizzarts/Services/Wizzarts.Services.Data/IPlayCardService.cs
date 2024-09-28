@@ -2,13 +2,20 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.PlayCard;
 
     public interface IPlayCardService
     {
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12);
 
+        IEnumerable<T> GetAllNoPagination<T>();
+
+        IEnumerable<T> GetAllEventCards<T>();
+
         T GetById<T>(string id);
+
+        Task DeleteAsync(string id);
 
         int GetCount();
 
@@ -19,5 +26,15 @@
         IEnumerable<T> GetAllCardManaByCardId<T>(string id);
 
         IEnumerable<T> GetAllCardsByUserId<T>(string id, int page, int itemsPerPage = 12);
+
+        Task<string> ApproveCard(string id);
+
+        Task<bool> CardExist(string id);
+
+        Task<bool> HasUserWithIdAsync(string artId, string userId);
+
+        IEnumerable<T> GetAllCardsByCriteria<T>(SingleDeckViewModel input);
+
+        T GetByName<T>(string name);
     }
 }

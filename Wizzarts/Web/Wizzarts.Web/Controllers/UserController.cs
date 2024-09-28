@@ -12,6 +12,9 @@ using Wizzarts.Web.ViewModels.Event;
 using Wizzarts.Web.ViewModels.Store;
 using Wizzarts.Web.ViewModels.WizzartsMember;
 using Wizzarts.Web.Infrastructure.Extensions;
+using Wizzarts.Web.Areas.Administration.Models.User;
+using Wizzarts.Common;
+using System.Linq;
 
 namespace Wizzarts.Web.Controllers
 {
@@ -121,6 +124,31 @@ namespace Wizzarts.Web.Controllers
             view.Cards = this.cardService.GetAllCardsByUserId<CardInListViewModel>(this.User.GetId(), id, ItemsPerPage);
             view.Stores = this.storeService.GetAllStoresByUserId<StoreInListViewModel>(this.User.GetId(), id, ItemsPerPage);
             return this.View(view);
+        }
+
+        public async Task<IActionResult> AllByArtistRole(int id = 1)
+        {
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+            var artists = this.userManager.GetUsersInRoleAsync(GlobalConstants.ArtistRoleName).Result;
+            const int ItemsPerPage = 12;
+
+            var viewModel = new ArtistListViewModel
+            {
+                ItemsPerPage = ItemsPerPage,
+                PageNumber = id,
+
+                Artists = artists.Select(x => new ArtistsInListViewModel
+                {
+                    Id = x.Id,
+                    Nickname = x.Nickname,
+                    AvatarUrl = x.AvatarUrl,
+                }),
+            };
+
+            return this.View(viewModel);
         }
     }
 }

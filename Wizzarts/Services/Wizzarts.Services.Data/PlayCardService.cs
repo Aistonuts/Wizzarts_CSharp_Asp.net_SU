@@ -5,12 +5,14 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
+    using System.Xml.Linq;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Caching.Memory;
     using Microsoft.VisualBasic;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.PlayCard;
     using static Wizzarts.Common.GlobalConstants;
 
@@ -282,6 +284,120 @@
             .To<T>().ToList();
 
             return cards;
+        }
+
+        public async Task<string> ApproveCard(string id)
+        {
+            var card = this.cardRepository.All().FirstOrDefault(x => x.Id == id);
+            if (card != null && card.ApprovedByAdmin == false)
+            {
+                card.ApprovedByAdmin = true;
+                await this.cardRepository.SaveChangesAsync();
+                this.cache.Remove(CardsCacheKey);
+                return card.AddedByMemberId;
+            }else
+            {
+                return null;
+            }
+
+        }
+
+        public async Task<bool> CardExist(string id)
+        {
+            return await this.cardRepository
+                .AllAsNoTracking().AnyAsync(a => a.Id == id);
+        }
+
+        public async Task<bool> HasUserWithIdAsync(string cardId, string userId)
+        {
+            return await this.cardRepository.AllAsNoTracking()
+                 .AnyAsync(a => a.Id == cardId && a.AddedByMemberId == userId);
+        }
+
+        public async Task DeleteAsync(string id)
+        {
+            var card = this.cardRepository.All().FirstOrDefault(x => x.Id == id);
+            if (card != null)
+            {
+                this.cardRepository.Delete(card);
+                await this.cardRepository.SaveChangesAsync();
+            }
+        }
+
+        public IEnumerable<T> GetAllEventCards<T>()
+        {
+            return this.cardRepository.AllAsNoTracking()
+          .Where(x => x.IsEventCard == true)
+          .To<T>().ToList();
+
+        }
+
+        public IEnumerable<T> GetAllNoPagination<T>()
+        {
+             var card = this.GetCachedData<T>()
+             .ToList();
+             return card;
+        }
+
+        public IEnumerable<T> GetAllCardsByCriteria<T>(SingleDeckViewModel input)
+        {
+
+
+            if (input.SearchEvent == "Event" && input.SearchName != null && input.SearchType != null)
+            {
+                return this.cardRepository.AllAsNoTracking()
+             .Where(x => x.IsEventCard == true)
+             .To<T>().ToList();
+            }
+            else if (input.SearchEvent == "Event" && input.SearchName == null && input.SearchType != null)
+            {
+                return this.cardRepository.AllAsNoTracking()
+             .Where(x => x.IsEventCard == true)
+             .To<T>().ToList();
+            }
+            else if (input.SearchEvent == "Event" && input.SearchName != null && input.SearchType == null)
+            {
+                return this.cardRepository.AllAsNoTracking()
+             .Where(x => x.IsEventCard == true)
+             .To<T>().ToList();
+            }
+            else if (input.SearchEvent == "Event" && input.SearchName == null && input.SearchType == null)
+            {
+                return this.cardRepository.AllAsNoTracking()
+             .Where(x => x.IsEventCard == true)
+             .To<T>().ToList();
+            }
+            else if (input.SearchEvent == "Base" && input.SearchName != null && input.SearchType != null)
+            {
+                return this.cardRepository.AllAsNoTracking()
+             .Where(x => x.IsEventCard != true && x.Name == input.SearchName && x.CardType.Id == input.SearchTypeId - 1)
+             .To<T>().ToList();
+            }
+            else if (input.SearchEvent == "Base" && input.SearchName == null && input.SearchType != null)
+            {
+                return this.cardRepository.AllAsNoTracking()
+             .Where(x => x.IsEventCard != true && x.CardType.Id == input.SearchTypeId - 1)
+             .To<T>().ToList();
+            }
+            else if (input.SearchEvent == "Base" && input.SearchName != null && input.SearchType == null)
+            {
+                return this.cardRepository.AllAsNoTracking()
+             .Where(x => x.IsEventCard != true && x.Name == input.SearchName)
+             .To<T>().ToList();
+            }
+            else
+            {
+                var card = this.GetCachedData<T>()
+                .ToList();
+                return card;
+            }
+        }
+
+        public T GetByName<T>(string name)
+        {
+            return this.cardRepository.AllAsNoTracking()
+                .Where(x => x.Name == name)
+                .To<T>().FirstOrDefault();
         }
     }
 }

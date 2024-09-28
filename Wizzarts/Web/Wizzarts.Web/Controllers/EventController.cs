@@ -12,6 +12,9 @@
     using System;
     using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.Infrastructure.Extensions;
+    using Microsoft.AspNetCore.Authorization;
+    using Wizzarts.Common;
+    using Wizzarts.Web.ViewModels.Art;
 
     public class EventController : BaseController
     {
@@ -32,6 +35,7 @@
             this.environment = environment;
         }
 
+        [AllowAnonymous]
         public IActionResult All()
         {
             var viewModel = new EventListViewModel
@@ -83,6 +87,61 @@
             this.TempData["Message"] = "Event added successfully.";
 
             return this.RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var inputModel = this.eventService.GetById<EditEventViewModel>(id);
+
+            if (inputModel != null)
+            {
+                return this.View(inputModel);
+            }
+            else
+            {
+                return this.NotFound();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditEventViewModel inputModel, int id)
+        {
+            if (!this.ModelState.IsValid)
+            {
+
+                return this.View(inputModel);
+            }
+
+            if (await this.eventService.EventExist(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            if (await this.eventService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
+            await this.eventService.UpdateAsync(inputModel, id);
+            return this.RedirectToAction(nameof(this.ById), new { id });
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> ApproveEvent(int id)
+        {
+            var userId = await this.eventService.ApproveEvent(id);
+            if (userId != null)
+            {
+                return this.RedirectToAction("ById", "User", new { id = $"{userId}", Area = "Administration" });
+            }
+            else
+            {
+                return this.BadRequest();
+            }
+
         }
     }
 }

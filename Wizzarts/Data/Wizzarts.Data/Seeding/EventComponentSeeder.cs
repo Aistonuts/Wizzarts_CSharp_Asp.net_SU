@@ -131,10 +131,37 @@
 
             await dbContext.EventComponents.AddAsync(new EventComponent
             {
-                Title = "Test this card.",
-                Description = "This is a newly created card by one of the event participants.",
-                Instructions = "Use the printing tool. Print your card and test how it plays during a game. A specific tool for rating the card, pointing its weaknesses and strong points and what should the card creator work on." +
-                "Click on the Test button and you will be redirected to the list of event cards. Once the test has been completed, Share your feedback with us.",
+                Title = "Bright store game testers",
+                Description = "The event will start on the 1 of July 2024.",
+                ImageUrl = "/images/Stores/Bright.jpg",
+                Instructions = "Pick your deck from your local store or from the Bright store. The event will start at 14. There will be a tournament.",
+                EventId = 4,
+            });
+
+            await dbContext.EventComponents.AddAsync(new EventComponent
+            {
+                Title = "Bright store game testers",
+                Description = "The event will start on the 1 of July 2024, We will be waiting for you at Montpellier,23 Gabriel Peri 32000, France",
+                ImageUrl = "/images/Stores/Bright.jpg",
+                Instructions = "Pick your deck from your local store or from the Bright store. The event will start at 14. There will be a tournament.",
+                EventId = 4,
+            });
+
+            await dbContext.EventComponents.AddAsync(new EventComponent
+            {
+                Title = "Daytona Magic store game testers",
+                Description = "The event will start on the 1 of July 2024, We will be waiting for you at Miami,23 34 Lower Keys 190, Florida",
+                ImageUrl = "/images/Stores/Daytona_Magic.jpg",
+                Instructions = "Pick your deck from your local store or from the Bright store. The event will start at 14. There will be a tournament.",
+                EventId = 4,
+            });
+
+            await dbContext.EventComponents.AddAsync(new EventComponent
+            {
+                Title = "Yokohama store game testers",
+                Description = "The event will start on the 1 of July 2024, We will be waiting for you at Yokohama,14 Sakura 34000 190, Japan",
+                ImageUrl = "/images/Stores/Daytona_Magic.jpg",
+                Instructions = "Pick your deck from your local store or from the Bright store. The event will start at 14. There will be a tournament.",
                 EventId = 4,
             });
             await dbContext.SaveChangesAsync();

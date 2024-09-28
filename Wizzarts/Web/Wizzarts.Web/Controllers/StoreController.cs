@@ -7,10 +7,13 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Wizzarts.Common;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
+    using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.Store;
+    using static Wizzarts.Common.GlobalConstants;
 
     public class StoreController : BaseController
     {
@@ -31,7 +34,9 @@
         [HttpGet]
         public IActionResult Create()
         {
-            return this.View();
+            var viewModel = new CreateStoreViewModel();
+            viewModel.Stores = this.storeService.GetAll<StoreInListViewModel>();
+            return this.View(viewModel);
         }
 
         [HttpPost]
@@ -48,10 +53,14 @@
             }
 
             var user = await this.userManager.GetUserAsync(this.User);
-
+            var currentRole = await this.userManager.GetRolesAsync(user);
             try
             {
                 await this.storeService.CreateAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images");
+                if (!currentRole.Contains(StoreOwnerRoleName))
+                {
+                    await this.userManager.AddToRoleAsync(user, StoreOwnerRoleName);
+                }
             }
             catch (Exception ex)
             {
@@ -66,6 +75,7 @@
             return this.RedirectToAction("All");
         }
 
+        [AllowAnonymous]
         public IActionResult All(int id = 1)
         {
             if (id <= 0)
@@ -82,6 +92,15 @@
             };
 
             return this.View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> ApproveStore(int id)
+        {
+          var userId = await this.storeService.ApproveStore(id);
+
+          return this.RedirectToAction("ById", "User", new { id = $"{userId}", Area = "Administration" });
         }
     }
 }

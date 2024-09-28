@@ -27,6 +27,18 @@
 
         public int ChatId { get; set; }
 
+        public string MembershipStatus { get; set; } = string.Empty;
+
+        public string CurrentRole { get; set; } = string.Empty;
+
+        public int CountOfArts { get; set; }
+
+        public int CountOfArticles { get; set; }
+
+        public int CountOfEvents { get; set; }
+
+        public int CountOfCards { get; set; }
+
         public IEnumerable<ArticleInListViewModel> Articles { get; set; }
 
         public IEnumerable<ArtInListViewModel> Arts { get; set; }
@@ -42,5 +54,7 @@
         public IEnumerable<ExpansionInListViewModel> GameExpansions { get; set; }
 
         public IEnumerable<DbChatMessagesInListViewModel> ChatMessages { get; set; }
+
+        public IEnumerable<SingleChatViewModel> ChatRooms { get; set; }
     }
 }

@@ -90,6 +90,20 @@ namespace Wizzarts.Web
             services.AddTransient<IWizzartsServices, WizzartsServices>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IChatService, ChatService>();
+            services.AddTransient<ICommentService, CommentService>();
+            services.AddTransient<IDeckService, DeckService>();
+            services.AddTransient<ISearchService, SearchService>();
+
+            services.AddCors(setup =>
+            {
+                setup.AddPolicy("Wizzarts", policyBuilder =>
+                {
+                    policyBuilder
+                        .WithOrigins("https://localhost:5001")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -141,6 +155,7 @@ namespace Wizzarts.Web
                     endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                     endpoints.MapRazorPages();
                 });
+            app.UseCors("Wizzarts");
         }
     }
 }

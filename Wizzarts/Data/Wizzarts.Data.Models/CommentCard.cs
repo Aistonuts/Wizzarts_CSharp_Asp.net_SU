@@ -1,5 +1,6 @@
 ﻿namespace Wizzarts.Data.Models
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,11 +13,11 @@
     {
         [Required]
         [Comment("Card title")]
-        public string Title { get; set; } = string.Empty;
+        public string CardName { get; set; } = string.Empty;
 
         [Required]
         [Comment("Card Description")]
-        public string Description { get; set; } = string.Empty;
+        public string CardFlavor { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(CardReviewMaxLength)]
@@ -27,6 +28,11 @@
         [MaxLength(CardReviewSuggestionMaxLength)]
         [Comment("What can be done to resolve the issue.")]
         public string Suggestions { get; set; } = string.Empty;
+
+        [Required]
+        [MaxLength(CardReviewSuggestionMaxLength)]
+        [Comment("What can be done to resolve the issue.")]
+        public string Art { get; set; } = string.Empty;
 
         [Required]
         [Comment("Review of which card")]

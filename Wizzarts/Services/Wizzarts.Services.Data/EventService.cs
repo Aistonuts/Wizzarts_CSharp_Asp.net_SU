@@ -1,5 +1,6 @@
 ﻿namespace Wizzarts.Services.Data
 {
+    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -7,9 +8,11 @@
     using System.Threading.Tasks;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
+    using Wizzarts.Data.Repositories;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Event;
+    using Wizzarts.Web.ViewModels.PlayCard;
 
     public class EventService : IEventService
     {
@@ -48,6 +51,22 @@
             await this.eventRepository.AddAsync(newEvent);
             await this.eventRepository.SaveChangesAsync();
 
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var currentEvent = this.eventRepository.All().FirstOrDefault(x => x.Id == id);
+            if (currentEvent != null)
+            {
+                this.eventRepository.Delete(currentEvent);
+                await this.eventRepository.SaveChangesAsync();
+            }
+        }
+
+        public async Task<bool> EventExist(int id)
+        {
+            return await this.eventRepository
+                .AllAsNoTracking().AnyAsync(a => a.Id == id);
         }
 
         public IEnumerable<T> GetAll<T>()
@@ -94,5 +113,40 @@
                .To<T>().FirstOrDefault();
             return component;
         }
+
+        public async Task<bool> HasUserWithIdAsync(int eventId, string userId)
+        {
+            return await this.eventRepository.AllAsNoTracking()
+                .AnyAsync(a => a.Id == eventId && a.EventCreatorId == userId);
+        }
+
+        public async Task UpdateAsync(EditEventViewModel input, int Id)
+        {
+            var currentEvent = this.eventRepository.All().FirstOrDefault(x => x.Id == Id);
+
+            if (currentEvent != null)
+            {
+                currentEvent.Title = input.Title;
+                currentEvent.EventDescription = input.EventDescription;
+
+                await this.eventRepository.SaveChangesAsync();
+            }
+        }
+
+        public async Task<string> ApproveEvent(int id)
+        {
+            var currentEvent = this.eventRepository.All().FirstOrDefault(x => x.Id == id);
+
+            if (currentEvent != null && currentEvent.ApprovedByAdmin == false)
+            {
+                currentEvent.ApprovedByAdmin = true;
+                await this.eventRepository.SaveChangesAsync();
+                return currentEvent.EventCreatorId;
+            }else
+            {
+                return null;
+            }
+        }
+
     }
 }

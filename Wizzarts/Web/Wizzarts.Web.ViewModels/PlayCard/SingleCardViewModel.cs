@@ -10,6 +10,7 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.CardComments;
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
 
@@ -35,11 +36,15 @@
 
         public string ArtId { get; set; }
 
-        public string Review { get; set; }
+        public string CommentTitle { get; set; }
+
+        public string CommentDescription { get; set; }
+
+        public string CommentReview { get; set; }
 
         public double AverageVote { get; set; }
 
-        public string Suggestions { get; set; }
+        public string CommentSuggestions { get; set; }
 
         public string AddedByMemberId { get; set; }
 
@@ -47,6 +52,9 @@
 
         public IEnumerable<CardInListViewModel> playCards { get; set; }
 
+        public IEnumerable<CardCommentInListViewModel> CommentsByAdmin { get; set; }
+
+        public IEnumerable<CardCommentInListViewModel> CommentsByUsers { get; set; }
         public IEnumerable<ManaListViewModel> Mana { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)

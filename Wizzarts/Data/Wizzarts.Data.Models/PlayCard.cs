@@ -20,6 +20,7 @@ namespace Wizzarts.Data.Models
             this.CardMana = new HashSet<ManaInCard>();
             this.Comments = new HashSet<CommentCard>();
             this.Votes = new HashSet<Vote>();
+            this.DeckOfCards = new HashSet<CardDeck>();
         }
 
         [Required]
@@ -88,11 +89,8 @@ namespace Wizzarts.Data.Models
 
         public CardGameExpansion CardGameExpansion { get; set; }
 
-        [Comment("Has this card been created during an event.")]
+        [Comment("Has this card been created during an event?")]
         public bool IsEventCard { get; set; }
-
-        [Comment("Has this card been created during an event.")]
-        public bool IsBanned { get; set; }
 
 #nullable enable
         public string? ArtId { get; set; } = string.Empty;
@@ -115,10 +113,16 @@ namespace Wizzarts.Data.Models
         [Comment("Has this been created during an event.")]
         public Event Event { get; set; }
 
+        public bool UpdateRequest { get; set; }
+
+        public bool HasBeenUpdated { get; set; }
+
         public virtual ICollection<ManaInCard> CardMana { get; set; }
 
         public virtual ICollection<CommentCard> Comments { get; set; }
 
         public virtual ICollection<Vote> Votes { get; set; }
+
+        public virtual ICollection<CardDeck> DeckOfCards { get; set; }
     }
 }

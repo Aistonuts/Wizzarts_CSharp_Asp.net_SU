@@ -793,12 +793,20 @@
       "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Beta.png"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\expansions\\Nameless.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Nameless.png"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\expansions\\Unlimited.png",
       "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Unlimited.png"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\expansions\\Untitled.gif",
       "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Untitled.gif"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\expansions\\Untitled.png",
+      "PackagePath": "staticwebassets\\images\\symbols\\expansions\\Untitled.png"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\mana\\1.png",
@@ -883,6 +891,10 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\various\\green.png",
       "PackagePath": "staticwebassets\\images\\symbols\\various\\green.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\chat.js",
+      "PackagePath": "staticwebassets\\js\\chat.js"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\html2canvas.js",

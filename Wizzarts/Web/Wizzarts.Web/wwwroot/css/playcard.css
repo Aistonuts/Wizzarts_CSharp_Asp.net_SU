@@ -44,7 +44,35 @@
     width: 100%;
     height: 100%;
 }
-
+.frame-header-v2 {
+    height: 46.3%;
+    margin: 136.3px 227px;
+    position: absolute;
+    max-height: 378px;
+    max-width: 380px;
+}
+.symbolFrame {
+    height: 46.3%;
+    margin: 247.3px 187px;
+    position: absolute;
+    max-height: 378px;
+    max-width: 380px;
+}
+.frame-art-v2 {
+    height: 46.3%;
+    margin: 6.3px 13px;
+    position: absolute;
+    max-height: 378px;
+    max-width: 380px;
+}
+.frame-art-flavor {
+    height: 95.3%;
+    width:396px;
+    margin: 38.3px 14px;
+    position: absolute;
+    max-height: 378px;
+    max-width: 397px;
+}
 .frame-header,
 .frame-type-line {
     border-bottom: 1x solid #a9a9a9;

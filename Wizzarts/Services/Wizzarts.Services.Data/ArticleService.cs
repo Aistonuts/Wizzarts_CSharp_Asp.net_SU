@@ -5,7 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Caching.Memory;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
@@ -57,9 +57,12 @@
             {
                 cachedArticles = this.articleRepository.AllAsNoTracking().OrderByDescending(x => x.Id).To<T>().ToList();
 
-                var cacheOptions = new MemoryCacheEntryOptions()
+                if (cachedArticles.Any())
+                {
+                    var cacheOptions = new MemoryCacheEntryOptions()
                     .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
-                this.cache.Set(ArticlesCacheKey, cachedArticles, cacheOptions);
+                    this.cache.Set(ArticlesCacheKey, cachedArticles, cacheOptions);
+                }
             }
 
             return cachedArticles;
@@ -93,11 +96,15 @@
         public async Task UpdateAsync(int id, EditArticleViewModel input)
         {
             var articles = this.articleRepository.All().FirstOrDefault(x => x.Id == id);
-            articles.Title = input.Title;
-            articles.Description = input.Description;
+            if (articles != null)
+            {
+                articles.Title = input.Title;
+                articles.Description = input.Description;
 
-            await this.articleRepository.SaveChangesAsync();
-            this.cache.Remove(ArticlesCacheKey);
+                await this.articleRepository.SaveChangesAsync();
+                this.cache.Remove(ArticlesCacheKey);
+            }
+
         }
 
         public T GetById<T>(int id)
@@ -117,6 +124,45 @@
                .To<T>().ToList();
 
             return article;
+        }
+
+        public async Task<string> ApproveArticle(int id)
+        {
+            var article = this.articleRepository.All().FirstOrDefault(x => x.Id == id);
+            if (article != null && article.ApprovedByAdmin == false)
+            {
+                article.ApprovedByAdmin = true;
+                await this.articleRepository.SaveChangesAsync();
+                this.cache.Remove(ArticlesCacheKey);
+                return article.ArticleCreatorId;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> ArticleExist(int id)
+        {
+            return await this.articleRepository
+                .AllAsNoTracking().AnyAsync(a => a.Id == id);
+        }
+
+        public async Task<bool> HasUserWithIdAsync(int articleId, string userId)
+        {
+            return await this.articleRepository.AllAsNoTracking()
+                .AnyAsync(a => a.Id == articleId && a.ArticleCreatorId == userId);
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var art = this.articleRepository.All().FirstOrDefault(x => x.Id == id);
+            if (art != null)
+            {
+                this.articleRepository.Delete(art);
+                await this.articleRepository.SaveChangesAsync();
+            }
+
         }
     }
 }

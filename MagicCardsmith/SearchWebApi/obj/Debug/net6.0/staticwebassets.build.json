@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5GUd3D/uz4CZSIM7UJQf4i6nn/u8YntuF8JWCcFvYBA=",
+  "Hash": "V0ct4hLUhvAAyi/ahPfOvZmb6fXcQyLmzBfbyrWqQDw=",
   "Source": "SearchWebApi",
   "BasePath": "_content/SearchWebApi",
   "Mode": "Default",
@@ -3791,6 +3791,25 @@
       "OriginalItemSpec": "wwwroot\\images\\symbols\\expansions\\Beta.png"
     },
     {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\expansions\\Nameless.png",
+      "SourceId": "MagicCardsmith.Web",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsmith.Web",
+      "RelativePath": "images/symbols/expansions/Nameless.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\symbols\\expansions\\Nameless.png"
+    },
+    {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\expansions\\Unlimited.png",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Project",
@@ -3827,6 +3846,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\symbols\\expansions\\Untitled.gif"
+    },
+    {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\expansions\\Untitled.png",
+      "SourceId": "MagicCardsmith.Web",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsmith.Web",
+      "RelativePath": "images/symbols/expansions/Untitled.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\symbols\\expansions\\Untitled.png"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\images\\symbols\\mana\\1.png",
@@ -4228,6 +4266,25 @@
       "OriginalItemSpec": "wwwroot\\images\\symbols\\various\\green.png"
     },
     {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\chat.js",
+      "SourceId": "MagicCardsmith.Web",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsmith.Web",
+      "RelativePath": "js/chat.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\chat.js"
+    },
+    {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\html2canvas.js",
       "SourceId": "MagicCardsmith.Web",
       "SourceType": "Project",
@@ -4245,6 +4302,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\html2canvas.js"
+    },
+    {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\messageBuilder.js",
+      "SourceId": "MagicCardsmith.Web",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\",
+      "BasePath": "_content/MagicCardsmith.Web",
+      "RelativePath": "js/messageBuilder.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\messageBuilder.js"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\MagicCardsmith\\Web\\MagicCardsmith.Web\\wwwroot\\js\\popper.min.js",

@@ -24,7 +24,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
         [Fact]
         public void EditGetShouldHaveRestrictionsForHttpGetOnlyAndAuthorizedUsers()
            => MyController<ArticleController>
-               .Calling(c => c.Edit())
+               .Calling(c => c.Edit(With.Empty<int>()))
                .ShouldHave()
                .ActionAttributes(attrs => attrs
                    .RestrictingForHttpMethod(HttpMethod.Get));

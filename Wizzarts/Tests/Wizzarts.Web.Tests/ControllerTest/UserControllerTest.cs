@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using MyTested.AspNetCore.Mvc;
 using System.IO;
 using System.Linq;
@@ -16,6 +17,17 @@ namespace Wizzarts.Web.Tests.ControllerTest
 {
     public class UserControllerTest : UnitTestBase
     {
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly IStoreService storeService;
+
+        public UserControllerTest(
+            UserManager<ApplicationUser> userManager,
+            IStoreService storeService)
+        {
+            this.userManager = userManager;
+            this.storeService = storeService;
+
+        }
         [Fact]
         public void SelectAvatarhouldReturnViewWithCorrectModel()
         {
@@ -60,12 +72,13 @@ namespace Wizzarts.Web.Tests.ControllerTest
             OneTimeSetup();
             var data = this.dbContext;
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
             using var repositoryArticle = new EfDeletableEntityRepository<Article>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
 
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryEvent, repositoryAvatar, repositoryUser);
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, this.userManager, repositoryUser, this.storeService);
 
             MyController<UserController>
                 .Instance(instance => instance

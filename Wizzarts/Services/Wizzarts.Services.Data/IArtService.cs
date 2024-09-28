@@ -25,5 +25,11 @@
         int GetCount();
 
         bool IsBase64String(string base64);
+
+        Task<string> ApproveArt(string id);
+
+        Task<bool> ArtExist(string id);
+
+        Task<bool> HasUserWithIdAsync(string artId, string userId);
     }
 }

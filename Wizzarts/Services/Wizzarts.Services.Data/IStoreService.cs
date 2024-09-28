@@ -16,5 +16,9 @@
         Task CreateAsync(CreateStoreViewModel input, string storeOwner, string imagePath);
 
         IEnumerable<T> GetAllStoresByUserId<T>(string id, int page, int itemsPerPage = 3);
+
+        IEnumerable<T> GetAllApprovedStoresByUserId<T>(string id);
+
+        Task<string> ApproveStore(int id);
     }
 }

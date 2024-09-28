@@ -22,11 +22,6 @@
 
             await dbContext.EventStatuses.AddAsync(new EventStatus
             {
-                Name = "Completed",
-            });
-
-            await dbContext.EventStatuses.AddAsync(new EventStatus
-            {
                 Name = "Closed",
             });
 

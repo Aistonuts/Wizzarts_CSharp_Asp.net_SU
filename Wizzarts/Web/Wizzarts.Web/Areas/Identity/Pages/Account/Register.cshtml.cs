@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Wizzarts.Common;
 using Wizzarts.Data.Models;
 
 namespace Wizzarts.Web.Areas.Identity.Pages.Account
@@ -107,9 +108,11 @@ namespace Wizzarts.Web.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync()
         {
-            returnUrl ??= Url.Content("~/User/SelectAvatar");
+            // string returnUrl = null removed because it iterfere with logic
+            string returnUrl = Url.Content("~/User/SelectAvatar");
+
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -120,6 +123,8 @@ namespace Wizzarts.Web.Areas.Identity.Pages.Account
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
+
+                await _userManager.AddToRoleAsync(user, GlobalConstants.MemberRoleName);
 
                 if (result.Succeeded)
                 {

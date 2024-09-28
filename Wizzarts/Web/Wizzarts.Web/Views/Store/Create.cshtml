@@ -18,44 +18,44 @@
                         <div class="card-body pt-2 pb-1">
                             <form method="post" enctype="multipart/form-data">
                                 <div class="form-group row mb-1">
-                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreName"></label>
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreName">Name</label>
                                     <div class="col-sm-8 col-lg-6">
-                                        <input asp-for="StoreName" class="form-control" placeholder="Title">
+                                        <input asp-for="StoreName" class="form-control" placeholder="Store Name">
                                     </div>
                                     <span asp-validation-for="StoreName" class="small text-danger"></span>
                                 </div>
                                 <div class="form-group row mb-1">
-                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreCountry"></label>
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreCountry">Country</label>
                                     <div class="col-sm-8 col-lg-6">
-                                        <input asp-for="StoreCountry" class="form-control" placeholder="Article ShortDescription">
+                                        <input asp-for="StoreCountry" class="form-control" placeholder="Location">
                                     </div>
                                     <span asp-validation-for="StoreCountry" class="small text-danger"></span>
                                 </div>
                                 <div class="form-group row mb-1">
-                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreCity"></label>
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreCity">City</label>
                                     <div class="col-sm-8 col-lg-6">
-                                        <input asp-for="StoreCity" class="form-control" placeholder="Art Description">
+                                        <input asp-for="StoreCity" class="form-control" placeholder="Location">
                                     </div>
                                     <span asp-validation-for="StoreCity" class="small text-danger"></span>
                                 </div>
                                 <div class="form-group row mb-1">
-                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StorePhoneNumber"></label>
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StorePhoneNumber">Phone Number</label>
                                     <div class="col-sm-8 col-lg-6">
-                                        <input asp-for="StorePhoneNumber" class="form-control" placeholder="Art Description">
+                                        <input asp-for="StorePhoneNumber" class="form-control" placeholder="Phone Number">
                                     </div>
                                     <span asp-validation-for="StorePhoneNumber" class="small text-danger"></span>
                                 </div>
                                 <div class="form-group row mb-1">
-                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreAddress"></label>
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreAddress">Address</label>
                                     <div class="col-sm-8 col-lg-6">
-                                        <input asp-for="StoreAddress" class="form-control" placeholder="Art Description">
+                                        <input asp-for="StoreAddress" class="form-control" placeholder="Store Address">
                                     </div>
                                     <span asp-validation-for="StoreAddress" class="small text-danger"></span>
                                 </div>
                                 <div class="form-group row mb-1">
-                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreImage"></label>
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreImage">Image</label>
                                     <div class="col-sm-8 col-lg-6">
-                                        <input asp-for="StoreImage" class="form-control" placeholder="Your Article Image">
+                                        <input asp-for="StoreImage" class="form-control" placeholder="Your Store Image">
                                     </div>
                                     <span asp-validation-for="StoreImage" class="small text-danger"></span>
                                 </div>
@@ -71,14 +71,26 @@
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <a href="#" data-toggle="modal" data-target="#modalCollection">
-                            <img src="https://aetherhub.b-cdn.net/images/collection/collection-preview01.png" class="img-fluid rounded mx-auto d-block" alt="Organize your collection">
-                        </a>
-                        <div class="text-center mb-4"><i>Full detailed overview of your MTG collection</i></div>
-                        <a href="#" data-toggle="modal" data-target="#modalBinder">
-                            <img src="https://aetherhub.b-cdn.net/images/collection/binder-preview01.png" class="img-fluid rounded mx-auto d-block" alt="Organize your collection">
-                        </a>
-                        <div class="text-center"><i>Binders help you organize your collection</i></div>
+                        <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Wizzarts stores</a></h4></div>
+                        @foreach (var store in this.Model.Stores)
+                        {
+                            <div class="card mt-2 mb-2 ">
+                                <div class="w-100 d-flex justify-content-start">
+                                    <div class="mr-1">
+                                        <a asp-controller="Store" asp-action="All" class="image-wrapper">
+                                            <div class="article-imgheader-xs lazy uimg" style="background-image: url('@store.Image')">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <div class="ff-display font-size-18">
+                                            <b> <a asp-controller="Store" asp-action="All" class="image-wrapper">@store.Name</a></b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
                     </div>
                 </div>
             </div>

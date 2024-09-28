@@ -38,7 +38,7 @@
                             }
                             @if (eventNow.Id == 4)
                             {
-                                    <a asp-controller="PlayCard" asp-action="AllEventCards" asp-route-id="@eventNow.Id" class="image-wrapper">
+                                    <a asp-controller="Deck" asp-action="Create" asp-route-id="@eventNow.Id" class="image-wrapper">
                                     <img src="@eventNow.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@eventNow.Title">
                                 </a>
                             }

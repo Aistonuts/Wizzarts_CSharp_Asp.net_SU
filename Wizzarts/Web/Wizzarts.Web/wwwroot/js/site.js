@@ -88,14 +88,14 @@ function search() {
             },
             source: function (request, response) {
                 $.ajax({
-                    url: 'https://localhost:7038/api/searchCard/',
+                    url: '/api/Search/Search',
                     type: "GET",
                     dataType: "json",
                     data: { cardName: request.term },
                     autoFocus: true,
                     success: function (data) {
                         response($.map(data, function (item) {
-                            return { label: item.combinedName, value: item.cardName, text: item.text };
+                            return { label: item.combinedName, value: item.cardName , text: item.text };
                         }));
                     }
                 });
@@ -119,7 +119,7 @@ function searchAdv() {
             },
             source: function (request, response) {
                 $.ajax({
-                    url: 'https://localhost:7038/api/searchCard/',
+                    url: 'https://localhost:5001/api/searchCard/',
                     type: "GET",
                     dataType: "json",
                     data: { cardName: request.term },

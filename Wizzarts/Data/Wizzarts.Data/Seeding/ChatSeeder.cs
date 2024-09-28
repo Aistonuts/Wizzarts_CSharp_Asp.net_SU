@@ -23,6 +23,56 @@ namespace Wizzarts.Data.Seeding
                RelationKey = "General",
                Type = ChatType.Room,
             });
+
+            await dbContext.Chats.AddAsync(new Chat
+            {
+                Name = "French",
+                RelationKey = "French",
+                Type = ChatType.Room,
+            });
+
+            await dbContext.Chats.AddAsync(new Chat
+            {
+                Name = "Japanese",
+                RelationKey = "Japanese",
+                Type = ChatType.Room,
+            });
+
+            await dbContext.Chats.AddAsync(new Chat
+            {
+                Name = "Spanish",
+                RelationKey = "Spanish",
+                Type = ChatType.Room,
+            });
+
+            await dbContext.Chats.AddAsync(new Chat
+            {
+                Name = "German",
+                RelationKey = "German",
+                Type = ChatType.Room,
+            });
+
+            await dbContext.Chats.AddAsync(new Chat
+            {
+                Name = "How to manage a game store ?",
+                RelationKey = "How to.",
+                Type = ChatType.Room,
+            });
+
+            await dbContext.Chats.AddAsync(new Chat
+            {
+                Name = "How to become a professional artist ?",
+                RelationKey = "How to.",
+                Type = ChatType.Room,
+            });
+
+            await dbContext.Chats.AddAsync(new Chat
+            {
+                Name = "How to design a game and create game mechanics?",
+                RelationKey = "How to.",
+                Type = ChatType.Room,
+            });
+
             await dbContext.SaveChangesAsync();
         }
     }

@@ -57,7 +57,15 @@
 
         public DbSet<Event> Events { get; set; }
 
+        public DbSet<CardDeck> CardDecks { get; set; }
+
+        public DbSet<DeckOfCards> DeckOfCards { get; set; }
+
+        public DbSet<DeckStatus> DeckStatuses { get; set; }
+
         public DbSet<EventComponent> EventComponents { get; set; }
+
+        public DbSet<EventParticipant> EventParticipants { get; set; }
 
         public DbSet<Store> Stores { get; set; }
 
@@ -100,6 +108,19 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<EventParticipant>()
+            .HasKey(c => new { c.UserId, c.EventId });
+
+            builder.Entity<Event>()
+            .HasMany(s => s.Participants)
+            .WithMany(c => c.JoinedEvents)
+            .UsingEntity<EventParticipant>();
+
+            builder.Entity<CardDeck>()
+            .HasMany(s => s.PlayCards)
+            .WithMany(c => c.DeckOfCards)
+            .UsingEntity<DeckOfCards>();
+
             builder.Entity<ChatUser>()
             .HasKey(c => new { c.UserId, c.ChatId });
 
@@ -112,6 +133,11 @@
             .HasMany(a => a.Events)
             .WithOne(a => a.Status)
             .HasForeignKey(a => a.EventStatusId);
+
+            builder.Entity<DeckStatus>()
+            .HasMany(a => a.Decks)
+            .WithOne(a => a.Status)
+            .HasForeignKey(a => a.StatusId);
 
             builder.Entity<WizzartsCardGame>()
             .HasOne(a => a.CardGameRules)
@@ -157,6 +183,11 @@
             .HasMany(a => a.Art)
             .WithOne(a => a.AddedByMember)
             .HasForeignKey(a => a.AddedByMemberId);
+
+            builder.Entity<ApplicationUser>()
+            .HasMany(a => a.CardDecks)
+            .WithOne(a => a.CreatedByMember)
+            .HasForeignKey(a => a.CreatedByMemberId);
 
             builder.Entity<ApplicationUser>()
             .HasMany(a => a.Comments)
@@ -208,6 +239,11 @@
             .WithOne(a => a.CardGameExpansion)
             .HasForeignKey(a => a.CardGameExpansionId);
 
+            builder.Entity<ApplicationUser>()
+            .HasMany(a => a.CardDecks)
+            .WithOne(a => a.CreatedByMember)
+            .HasForeignKey(a => a.CreatedByMemberId);
+
             builder.Entity<PlayCard>()
             .HasMany(a => a.CardMana)
             .WithOne(a => a.Card)
@@ -227,7 +263,9 @@
             .HasMany(a => a.EventComponents)
             .WithOne(a => a.Event)
             .HasForeignKey(a => a.EventId);
+
             // Needed for Identity models configuration
+
             base.OnModelCreating(builder);
 
             this.ConfigureUserIdentityRelations(builder);

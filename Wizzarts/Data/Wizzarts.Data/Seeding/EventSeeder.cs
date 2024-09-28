@@ -18,9 +18,9 @@
             await dbContext.Events.AddAsync(new Event
             {
                 Title = "Flavorless cards",
-                EventDescription = "There is a set of art pieces without abilities, type or name.To complete this milestone you need to add flavour to them such as card type " +
-                "such as land type, instant card spell type, enchantment type of card, creature type of card with power and toughness." +
-                "We will provide you with special tool for creating a new play card.",
+                EventDescription = "There is a set of art pieces without abilities, type or name.Add flavour to them such as type where type can be " +
+                "land type, instant card spell type, enchantment type of card, creature type of card with power and toughness." +
+                "We will provide you with special tool for participating in the event.",
                 RemoteImageUrl = "/images/event/Flavorless.jpg",
                 EventStatusId = 1,
                 ApprovedByAdmin = true,
@@ -30,9 +30,7 @@
             await dbContext.Events.AddAsync(new Event
             {
                 Title = "Call to arts",
-                EventDescription = "We are providing you a set of flavours. Your taks is to draw an ar piece. Keep in mind that each flavour is for specific type of card" +
-                "such as land type, instant card spell type, enchantment type of card, creature type of card with power and toughness." +
-                "We will provide you with special tool for creating a new play card.",
+                EventDescription = "We will provide you with set of cards. Your task is attach your art to the card. Only members with art pieces in their profiles can participate",
                 RemoteImageUrl = "/images/event/Call_to_arts.jpg",
                 EventStatusId = 1,
                 ApprovedByAdmin = true,
@@ -42,7 +40,7 @@
             await dbContext.Events.AddAsync(new Event
             {
                 Title = "Arena masters",
-                EventDescription = "This event is for those of you interested in becoming arena masters. To become an arena master you need to own a store where tournaments can be holded in future.",
+                EventDescription = "This event is for those of you interested in becoming arena masters. To become an arena master you need to own a store where tournaments can be hold in future.",
                 RemoteImageUrl = "/images/event/ArenaMaster.jpg",
                 EventStatusId = 1,
                 ApprovedByAdmin = true,
@@ -52,13 +50,14 @@
             await dbContext.Events.AddAsync(new Event
             {
                 Title = "Game play testers.",
-                EventDescription = "This event is for those of you interested in testing each one of the cards created during the ongoing events. Teaming up with arena masters will give you more" +
-                "access to cards to work with. You will be given access to each one of the newly created cards. All you will have to do is to download each one of the newly created cards, test its mechanics and playstyle during a game and submit your feedback.",
+                EventDescription = "Create and fill your deck with cards. Click to add or remove a card. Lock your deck when ready and wait for it to be shipped at the desired location." +
+                "Selecting Wizzarts store will grant you priority over others. Home delivery is possible but quantities are limited.As a game tester you can play with other at one of our stores." +
+                "Select the event you would like to join. We will be waiting for you.",
                 RemoteImageUrl = "/images/event/Game_tester.jpg",
                 EventStatusId = 1,
                 ApprovedByAdmin = true,
                 EventCreatorId = "2738e787-5d57-4bc7-b0d2-287242f04695",
-            });
+            });;
 
             await dbContext.SaveChangesAsync();
         }

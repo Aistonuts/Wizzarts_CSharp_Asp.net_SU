@@ -30,8 +30,19 @@
         }
 
         [HttpGet]
-        public IActionResult Edit()
+        public async Task<IActionResult> Edit(int id)
         {
+            if (await this.articleService.ArticleExist(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            if (await this.articleService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
             return this.View();
         }
 
@@ -43,6 +54,17 @@
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
+            }
+
+            if (await this.articleService.ArticleExist(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            if(await this.articleService.HasUserWithIdAsync(id,this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
             }
 
             await this.articleService.UpdateAsync(id, input);
@@ -82,15 +104,51 @@
 
             this.TempData["Message"] = "Article added successfully.";
 
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("User", "MyData");
         }
 
         public async Task<IActionResult> ById(int id)
         {
             var article = this.articleService.GetById<SingleArticleViewModel>(id);
-            article.Articles = this.articleService.GetRandom<ArticleInListViewModel>(3);
+            if(article != null) 
+            {
+                article.Articles = this.articleService.GetRandom<ArticleInListViewModel>(3);
+            }
 
             return this.View(article);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> ApproveArticle(int id)
+        {
+          var userId = await this.articleService.ApproveArticle(id);
+          if (userId != null)
+            {
+                return this.RedirectToAction("ById", "User", new { id = $"{userId}", Area = "Administration" });
+            }else
+            {
+                return this.BadRequest();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (await this.articleService.ArticleExist(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            if (await this.articleService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
+            await this.articleService.DeleteAsync(id);
+
+            return this.RedirectToAction("User", "MyData");
         }
     }
 }

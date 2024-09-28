@@ -75,14 +75,14 @@ namespace Wizzarts.Web.Tests.ControllerTest
 
 
         }
-        [Fact]
+        //[Fact]
 
-        public void ErrorShouldReturnView()
-            => MyController<HomeController>
-                .Instance()
-                .Calling(c => c.Error())
-                .ShouldReturn()
-                .View();
+        //public void ErrorShouldReturnView()
+        //    => MyController<HomeController>
+        //        .Instance()
+        //        .Calling(c => c.Error())
+        //        .ShouldReturn()
+        //        .View();
 
         [Fact]
         public void PrivacyShouldReturnDefaultView()

@@ -15,10 +15,18 @@
 
         Task UpdateAsync(int id, EditArticleViewModel input);
 
+        Task DeleteAsync(int id);
+
         T GetById<T>(int id);
 
         int GetCount();
 
         IEnumerable<T> GetAllArticlesByUserId<T>(string id, int page, int itemsPerPage = 3);
+
+        Task<string> ApproveArticle(int id);
+
+        Task<bool> ArticleExist(int id);
+
+        Task<bool> HasUserWithIdAsync(int articleId, string userId);
     }
 }

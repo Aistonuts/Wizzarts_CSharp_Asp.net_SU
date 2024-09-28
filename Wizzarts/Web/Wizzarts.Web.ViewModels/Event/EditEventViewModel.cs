@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wizzarts.Web.ViewModels.Event
 {
-    internal class EditEventViewModel
+    public class EditEventViewModel : BaseEventViewModel
     {
     }
 }

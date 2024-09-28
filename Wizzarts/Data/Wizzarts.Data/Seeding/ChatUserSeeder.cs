@@ -22,6 +22,49 @@ namespace Wizzarts.Data.Seeding
                UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
                ChatId = 1,
             });
+
+            await dbContext.ChatUsers.AddAsync(new ChatUser
+            {
+                UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ChatId = 2,
+            });
+
+            await dbContext.ChatUsers.AddAsync(new ChatUser
+            {
+                UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ChatId = 3,
+            });
+
+            await dbContext.ChatUsers.AddAsync(new ChatUser
+            {
+                UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ChatId = 4,
+            });
+
+            await dbContext.ChatUsers.AddAsync(new ChatUser
+            {
+                UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ChatId = 5,
+            });
+
+            await dbContext.ChatUsers.AddAsync(new ChatUser
+            {
+                UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ChatId = 6,
+            });
+
+            await dbContext.ChatUsers.AddAsync(new ChatUser
+            {
+                UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ChatId = 7,
+            });
+
+            await dbContext.ChatUsers.AddAsync(new ChatUser
+            {
+                UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ChatId = 8,
+            });
+
             await dbContext.SaveChangesAsync();
         }
     }

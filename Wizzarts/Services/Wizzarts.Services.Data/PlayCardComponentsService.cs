@@ -4,6 +4,7 @@
     using System.Linq;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
+    using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
 

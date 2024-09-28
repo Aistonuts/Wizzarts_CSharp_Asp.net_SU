@@ -47,5 +47,7 @@
 
         [ForeignKey(nameof(StoreOwnerId))]
         public ApplicationUser StoreOwner { get; set; }
+
+
     }
 }

@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
+    using Wizzarts.Data.Models;
     using Wizzarts.Web.ViewModels.WizzartsMember;
 
     public interface IUserService
@@ -15,6 +15,8 @@
 
         int GetCountOfArticles(string id);
 
+        int GetCountOfCards(string id);
+
         IEnumerable<T> GetAllArtByUserId<T>(string id);
 
         T GetAvatarById<T>(int id);
@@ -22,5 +24,8 @@
         T GetById<T>(string id);
 
         Task UpdateAsync(string id, CreateMemberProfileViewModel input);
+
+        Task<string> UpdateRoleAsync(ApplicationUser user, string id);
+
     }
 }

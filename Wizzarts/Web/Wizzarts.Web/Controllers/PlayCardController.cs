@@ -10,22 +10,27 @@ namespace Wizzarts.Web.Controllers
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Wizzarts.Common;
     using Wizzarts.Data;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Art;
+    using Wizzarts.Web.ViewModels.CardComments;
     using Wizzarts.Web.ViewModels.CardGameExpansion;
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
 
+    using static Wizzarts.Common.GlobalConstants;
+
     public class PlayCardController : BaseController
     {
         private readonly ApplicationDbContext dbContext;
         private readonly IPlayCardService cardService;
+        private readonly ICommentService commentService;
         private readonly IPlayCardComponentsService playCardComponentsService;
         private readonly IPlayCardExpansionService playCardExpansionService;
         private readonly IEventService eventService;
@@ -38,6 +43,7 @@ namespace Wizzarts.Web.Controllers
         public PlayCardController(
             ApplicationDbContext dbContext,
             IPlayCardService cardService,
+            ICommentService commentService,
             IPlayCardComponentsService playCardComponentsService,
             IPlayCardExpansionService playCardExpansionService,
             IEventService eventService,
@@ -48,6 +54,7 @@ namespace Wizzarts.Web.Controllers
         {
             this.dbContext = dbContext;
             this.cardService = cardService;
+            this.commentService = commentService;
             this.playCardComponentsService = playCardComponentsService;
             this.playCardExpansionService = playCardExpansionService;
             this.eventService = eventService;
@@ -176,14 +183,40 @@ namespace Wizzarts.Web.Controllers
             return this.View(viewModel);
         }
 
+        [AllowAnonymous]
+        public IActionResult AllEventCards(int id = 1)
+        {
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+
+            const int ItemsPerPage = 5;
+            var viewModel = new CardListViewModel
+            {
+                ItemsPerPage = ItemsPerPage,
+                PageNumber = id,
+                Count = this.cardService.GetCount(),
+                Cards = this.cardService.GetAllEventCards<CardInListViewModel>(),
+            };
+
+            return this.View(viewModel);
+        }
+
         public IActionResult ById(string id)
         {
             var card = this.cardService.GetById<SingleCardViewModel>(id);
-            card.Mana = this.cardService.GetAllCardManaByCardId<ManaListViewModel>(id);
 
+            if (card != null)
+            {
+                card.Mana = this.cardService.GetAllCardManaByCardId<ManaListViewModel>(id);
+            }
+            var commentsByAdmin = this.commentService.GetAllAttackCommentsByAdmin<CardCommentInListViewModel>(id);
+            card.CommentsByAdmin = commentsByAdmin;
             return this.View(card);
         }
 
+        [AllowAnonymous]
         public IActionResult Expansion()
         {
             var viewModel = new ExpansionListViewModel
@@ -192,6 +225,110 @@ namespace Wizzarts.Web.Controllers
             };
 
             return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AttackComment(SingleCardViewModel model, string cardId)
+        {
+            bool IsAdmin = false;
+            if (this.User.IsInRole(AdministratorRoleName))
+            {
+                IsAdmin = true;
+            }
+            this.ModelState.Remove("UserName");
+            this.ModelState.Remove("Password");
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            try
+            {
+                await this.commentService.AttackCommentAsync(model, user.Id, cardId, IsAdmin);
+            }
+            catch (Exception ex)
+            {
+
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+
+                return this.View(model);
+            }
+
+            this.TempData["Message"] = "Comment added successfully.";
+
+            return this.RedirectToAction("ById", "PlayCard", new { id = $"{model.Id}", Area = "" });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Defense(SingleCardViewModel model, int data)
+        {
+            bool IsAdmin = false;
+            var currentComment = this.commentService.GetAttackCommentById<CardCommentInListViewModel>(data);
+
+            if (this.User.IsInRole(AdministratorRoleName))
+            {
+                IsAdmin = true;
+            }
+            this.ModelState.Remove("UserName");
+            this.ModelState.Remove("Password");
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            try
+            {
+                await this.commentService.DefenseReplyCommentAsync(model, user.Id,  currentComment.CardId, data, IsAdmin);
+            }
+            catch (Exception ex)
+            {
+
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+
+                return this.View(model);
+            }
+
+            this.TempData["Message"] = "Reply added successfully.";
+
+            return this.RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> ApproveCard(string id)
+        {
+            var userId = await this.cardService.ApproveCard(id);
+            if (userId != null)
+            {
+                return this.RedirectToAction("ById", "User", new { id = $"{userId}", Area = "Administration" });
+            }
+            else
+            {
+                return this.BadRequest();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id)
+        {
+            if (await this.cardService.CardExist(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            if (await this.cardService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
+            await this.cardService.DeleteAsync(id);
+
+            return this.RedirectToAction("User", "MyData");
         }
     }
 }

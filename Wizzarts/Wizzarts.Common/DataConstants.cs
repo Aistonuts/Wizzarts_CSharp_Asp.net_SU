@@ -62,7 +62,7 @@
 
         public const int EventTitleMinLength = 5;
 
-        public const int EventDescriptionMaxLength = 1000;
+        public const int EventDescriptionMaxLength = 5000;
 
         public const int EventDescriptionMinLength = 10;
 

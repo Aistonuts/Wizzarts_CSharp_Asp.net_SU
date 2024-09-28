@@ -47,5 +47,7 @@
         public ApplicationUser EventCreator { get; set; }
 
         public virtual ICollection<EventComponent> EventComponents { get; set; }
+
+        public virtual ICollection<ApplicationUser> Participants { get; set; }
     }
 }

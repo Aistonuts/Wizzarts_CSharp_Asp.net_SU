@@ -1,0 +1,225 @@
+﻿@model Wizzarts.Web.ViewModels.Deck.SingleDeckViewModel
+
+
+@{
+    ViewData["Title"] = "Advanced Search";
+}
+<div class="row pt-2">
+    <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-1">
+        <div class="card h-oneKpx">
+            <div class="card-header bg-light pt-0">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active">
+                            <span class="fas fa-search" title="Advanced Search"></span> <b>Advanced Search</b>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Card/Set" class="nav-link ">
+                            <span class="ss ss-xmods" title="Browse by Set"></span> <b>MTG Set List</b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body pt-1">
+                <form asp-controller="Deck" asp-action="Add" asp-route-id="@this.Model.Id" id="searchform" method="get">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
+                            <div class="input-group">
+                                <input asp-for="SearchName" id="adv-CardText" class="form-control btn-outline-dark" placeholder="Card name">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        @foreach (var card in this.Model.Cards)
+                                        {
+                                            <a class="dropdown-item ae-btn-keyword" href="#" data-keyword="@card.Name">@card.Name</a>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="input-group-append">
+                                    <button type="button" id="reset-adv-CardText" class="btn btn-sm btn-light margin-right">
+                                        <span class="fas fa-times"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
+                            <div class="input-group">
+                                <input asp-for="SearchType" id="adv-CardType" class="form-control btn-outline-dark" placeholder="Card type line">
+                                <input asp-for="SearchTypeId" id="adv-CardTypeId" type="hidden">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        @foreach (var type in Model.SelectType.Where(x => x.Id != 1))
+                                        {
+                                            <a class="dropdown-item ae-btn-type" href="#" data-id="@type.Id" data-type="@type.Name">@type.Name</a>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="input-group-append">
+                                    <button type="button" id="reset-adv-CardType" class="btn btn-sm btn-light margin-right">
+                                        <span class="fas fa-times"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mt-1">
+                            <div class="input-group">
+                                <div class="dropdown bootstrap-select form-control">
+                                    <select asp-for="SearchEvent" id="adv-setSelector" class="selectpicker form-control" data-live-search="true" title="All Sets" data-style="btn-outline-dark" tabindex="-98">
+                                        <option class="bs-title-option" value=""></option>
+                                        <option value="">All Sets</option>
+                                        <option value="Base" selected="true"></option>
+                                        <option value="Event" data-icon="ss ss-pip">Event cards</option>
+                                        <option value="Base" data-icon="ss ss-pip">Base deck</option>
+                                    </select><button type="button" class="btn dropdown-toggle btn-outline-dark bs-placeholder" data-toggle="dropdown" role="button" data-id="adv-setSelector" title="All Sets"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">All Sets</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="bs-searchbox"><input type="text" class="form-control" autocomplete="off" role="textbox" aria-label="Search"></div><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div>
+                                </div>
+                                <div class="input-group-append">
+                                    <button type="button" id="reset-adv-setSelector" class="btn btn-sm btn-light margin-right">
+                                        <span class="fas fa-times"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group mt-2 d-flex justify-content-center">
+                        <div>
+                            <div class="input-group">
+                                <button type="submit" class="btn btn-light mr-2" @* onclick="cardSearch()" *@><span class="fas fa-search"></span> <b>Search</b></button>
+                                <div class="btn-group-toggle mr-2" data-toggle="buttons" title="Hides cards with same name and only shows the latest">
+                                    <input type="hidden" id="adv-unique" value="false" name="uniq">
+                                    <label id="adv-unique-btn" class="btn btn-light">
+                                        <b><i class="fas fa-low-vision"></i></b>
+                                    </label>
+                                </div>
+                                <button type="button" id="resetFilter" class="btn btn-sm btn-light btn-outline-danger margin-right">
+                                    <span class="fas fa-filter"></span> <b>Reset filters</b>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                @* <div id="cardSearchToggles" class="row pr-2 pl-2 d-none">
+                <div class="col-xs-6 col-md-6">
+                </div>
+                <div class="col-xs-6 col-md-6 text-right">
+                <button type="button" data-sort="descending" id="searchSortName" class="btn btn-light btn-outline-dark"><b><i class="fas fa-sort-amount-up"></i> Name</b></button>
+                <button type="button" data-sort="ascending" id="searchSortNumber" class="btn btn-light btn-outline-dark"><b>Number</b></button>
+                <button type="button" id="ae-price-sort" class="btn btn-light btn-outline-dark" data-sort="descending"><b>Price</b></button>
+                <button type="button" id="ae-price-toggle" class="btn btn-light btn-outline-dark" data-url="search" data-toggle="usd-eur" data-nexttoggle="eur"><b>$ / €</b></button>
+                </div>
+                </div> *@
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <div id="cards" class="outer-container">
+                            @if (!Model.Cards.Any())
+                            {
+                                <div class="d-flex flex-row justify-content-center">
+                                    <div class="font-weight-bold mt-5" style="max-width: 500px;">
+                                        AetherHub has catalogued every Magic: The Gathering card and token into a comprehensive database. <br>Search through the entire Magic history for additions to your deck, detailed information about ruling, format legalities or different prints of a card.
+                                    </div>
+                                </div>
+                            }
+                            else
+                                @foreach (var card in this.Model.Cards)
+                                {
+                                    <div class="inner-container">
+                                        <div class="item-hidden-text">@card.Name</div>
+                                        <a asp-controller="Deck" asp-action="AddCard" asp-route-data="@card.Id" asp-route-id="@this.Model.Id" class="item ae-card-link cardLink" data-name="@card.Name" data-number="@card.Id" data-img="@card.CardRemoteUrl">
+                                            <img class="lazy" src="@card.CardRemoteUrl" alt="@card.Name" style="">
+                                        </a>
+                                        <div class="item-footer">
+                                        </div>
+                                    </div>
+                                }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
+        <div class="card mb-2">
+            <div class="w-100 text-center ae-border-bottom-light"><h4><a href="/Metagame/Standard-BO1/" class="metagroup-link ff-display">User decks </a></h4></div>
+            <div class="card-body pl-1 pr-1 pt-2 pb-0">
+                @foreach (var deck in this.Model.Decks)
+                {
+                    <div class="metagroup-container">
+                        <div class="mr-2 d-none d-lg-block">
+                            <a asp-controller="Deck" asp-action="Add" asp-route-id="@deck.Id">
+                                <div class="meta-cardimg" style="background-image: url('@deck.ImageUrl')"></div>
+                            </a>
+                        </div>
+                        <div>
+                            <a asp-controller="Deck" asp-action="Add" asp-route-id="@deck.Id" class="metagroup-link">
+                                <b class="text-primary">@deck.Name</b>
+                                <br>
+
+                                <span title="Change since last week" class="diffright d-none d-sm-inline text-danger">
+                                    <i class="fas fa-caret-down"></i>4.60%
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="card mb-2 pb-1 text-center ff-display">
+            <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Lock your deck and join the event. Once your deck is at "@Model.DeliveryLocation" store the status of your deck will change to "Delivered"</h4>
+            <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Your deck status is : @Model.DeckStatus</h4>
+        </div>
+        <div class="card mb-2">
+            <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Cards in @Model.Name </a></h4></div>
+            <div class="w-100 text-center ae-border-bottom-light">
+                <h4>
+                    <a asp-controller="Deck" asp-action="Send" asp-route-id="@this.Model.Id" class="metagroup-link ff-display">
+                        <span class="btn btn-light font-weight-bold">Join event!</span>
+                    </a>
+                </h4>
+            </div>
+            <div class="w-100 text-center ae-border-bottom-light">
+                <h4>
+                    <a asp-controller="Deck" asp-action="Change" asp-route-id="@this.Model.Id" class="metagroup-link ff-display">
+                        <span class="btn btn-light font-weight-bold">@Model.IsLocked</span>
+                    </a>
+                </h4>
+            </div>
+           
+            <div class="card-body pl-1 pr-1 pt-2 pb-0">
+                @foreach (var deck in this.Model.CardsInDeck)
+                {
+                    <div class="card mt-2 mb-2 ">
+                        <div class="w-100 d-flex justify-content-start">
+                            <div class="mr-1">
+                                <a asp-controller="Deck" asp-action="Remove" asp-route-data="@deck.Id" asp-route-id="@this.Model.Id" class="image-wrapper">
+                                    <div class="article-imgheader-xs lazy uimg" style="background-image: url('@deck.CardRemoteUrl')">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <div class="ff-display font-size-18">
+                                    <b> <a asp-controller="Deck" asp-action="Remove" asp-route-data="@deck.Id" asp-route-id="@this.Model.Id" class="image-wrapper">@deck.Name</a></b>
+                                </div>
+                                @*    <p>
+                            <span class="text-muted">
+                            29.Jun
+                            </span>
+                            </p> *@
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+</div>

@@ -35,7 +35,7 @@
     </div>
 </div>*@
 <div class="row ae-break-word">
-    <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-3">
+    <div class="col-md-12 col-lg-12 col-xl-8 pl-0 pr-0 pr-xl-3">
         <div class="row">
             <div class="col-sm-12 col-md-12 pl-0 pr-0">
                 <div class="container-create">
@@ -276,7 +276,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <select asp-for="ArtId" id="artByArtist" onchange="artByArtistFunc(event);">
-                                                                        <option value="0" selected="true">
+                                                                         <option value="0" selected="true">
                                                                         </option>
                                                                         @foreach (var art in Model.ArtByUserId)
                                                                         {
@@ -338,7 +338,7 @@
                                                         <div class="col-md-12">
                                                             <h2 class="text-header-gold">You have @Model.ArtByUserId.Count() art piece(s) waiting for approval.Click below to add new art piece.</h2>
                                                             <p>
-                                                                <a class="dropdown-item" asp-area="" asp-controller="Art" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
+                                                                <a class="dropdown-item" asp-area="" asp-controller="Art" asp-action="Add"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -349,7 +349,7 @@
                                                         <div class="col-md-12">
                                                             <h2 class="text-header-gold">You do not own any art. Click below to add a new art piece</h2>
                                                             <p>
-                                                                <a class="dropdown-item" asp-area="" asp-controller="Art" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
+                                                                <a class="dropdown-item" asp-area="" asp-controller="Art" asp-action="Add"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -378,10 +378,9 @@
     </div>
     <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
         <div class="second" id="second">
-            <div id="card-container" class="card-container">
-                @if (Model.EventId == 1)
-                {
-
+            @if (Model.EventId == 1)
+            {
+                <div id="card-container" class="card-container">
                     <div class="card-background" id="background" style="background-image: url('@Model.CardFrameDefaultUrl')">
                         <div class="card-frame">
                             <div class="frame-header">
@@ -399,7 +398,7 @@
                             <div class="frame-type-line" id="frame-type-line">
                                 <h1 class="type" id="cardtype">@Model.CardDefaultType </h1>
                                 <div id="symbolHeader">
-                                    <img src=@Model.CardExpansionSymbolDefaultUrl id=set - icon alt=OGW - icon />
+                                    <img src="@Model.CardExpansionSymbolDefaultUrl"  />
                                 </div>
                             </div>
                             <div class="frame-text-box">
@@ -407,7 +406,7 @@
                                     <p>
                                         @Model.EventDescription
                                     </p>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -423,22 +422,24 @@
                         <img id="power-frame" src="~/images/frames/whiteValue.png" alt="Nature">
                         <div class="centered-power"></div>
                     </div>
+                </div>
 
-                }
-                @if (Model.EventId == 2)
-                {
+            }
+            @if (Model.EventId == 2)
+            {
+                <div id="card-container" class="card-container">
                     <div class="card-background" id="backgroundTwo" style="background-image: url('@Model.EventMilestoneImage')">
-                        <div class="card-frame">
-                            <img id="imageInput" class="frame-art-flavor" src="">
-                            <div class="frame-header-v2">
-                                <h1 class="type" id="cardtype"></h1>
-                                <div id="symbolHeader">
-                                </div>
+                        <div  class="card-frame">
+                            <div id ="imageInput" class="frame-art-v2">
+                           </div>                          
+                        </div>
+                        <div class="frame-header-v2">
+                            <div class="symbolFrame" id="symbolHeader">
                             </div>
                         </div>
                     </div>
-                }
-            </div>
+                </div>
+            }
         </div>
     </div>
 </div>
@@ -469,7 +470,7 @@
         const elTwo = document.getElementById('screenshot');
         if (elTwo) {
             elTwo.addEventListener("click", function () {
-                html2canvas(document.getElementById("background")).then(function (canvas) {
+                html2canvas(document.getElementById("card-container")).then(function (canvas) {
                     var anchorTag = document.createElement("a");
                     var dataURL = canvas.toDataURL("image/png", 1.0);
                     dataURL = dataURL.replace('data:image/png;base64,', '');
@@ -536,7 +537,7 @@
     } *@
 
 
-                </script>
+                        </script>
 
     <script type="text/javascript">
 
@@ -664,7 +665,7 @@
 
         function artByArtistFunc(e) {
 
-            document.getElementById('imageInput').src = '';
+            document.getElementById('imageInput').innerHTML = '';
 
             var currentSelection = e.target.id;
             let selectedValue = $("#" + currentSelection + " option:selected").data('container');
@@ -673,11 +674,10 @@
                 return false;
 
             } else {
-                document.getElementById('imageInput').src = selectedValue;
+                $('#imageInput').append("<img class= frame-art-flavor src=" + selectedValue + " />")
             }
 
         }
-
         function expansionSymbolFunc(e) {
 
             document.getElementById('symbolHeader').textContent = '';

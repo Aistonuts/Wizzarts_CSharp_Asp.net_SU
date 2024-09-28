@@ -44,6 +44,12 @@ namespace Wizzarts.Data.Models
 
         public Avatar Avatar { get; set; }
 
+        public string AdminFeedBack { get; set; } = string.Empty;
+
+        public bool RequestFeedback { get; set; }
+
+        public bool HasBeenUpdated { get; set; }
+
         // Audit info
         public DateTime CreatedOn { get; set; }
 
@@ -69,6 +75,8 @@ namespace Wizzarts.Data.Models
 
         public virtual ICollection<Event> Events { get; set; }
 
+        public virtual ICollection<CardDeck> CardDecks { get; set; }
+
         public virtual ICollection<Store> Stores { get; set; }
 
         public virtual ICollection<Vote> Votes { get; set; }
@@ -78,5 +86,7 @@ namespace Wizzarts.Data.Models
         public virtual ICollection<CommentCard> Comments { get; set; }
 
         public ICollection<ChatUser> Chats { get; set; }
+
+        public virtual ICollection<Event> JoinedEvents { get; set; }
     }
 }

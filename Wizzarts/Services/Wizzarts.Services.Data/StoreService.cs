@@ -20,6 +20,14 @@
             this.storeRepository = storeRepository;
         }
 
+        public async Task<string> ApproveStore(int id)
+        {
+            var store = this.storeRepository.All().FirstOrDefault(x => x.Id == id);
+            store.ApprovedByAdmin = true;
+            await this.storeRepository.SaveChangesAsync();
+            return store.StoreOwnerId;
+        }
+
         public async Task CreateAsync(CreateStoreViewModel input, string storeOwner, string imagePath)
         {
             var store = new Store
@@ -62,6 +70,16 @@
                 .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
                 .To<T>().ToList();
             return store;
+        }
+
+        public IEnumerable<T> GetAllApprovedStoresByUserId<T>(string id)
+        {
+            var stores = this.storeRepository.AllAsNoTracking()
+                 .OrderByDescending(x => x.Id)
+                 .Where(x=>x.ApprovedByAdmin == true && x.StoreOwnerId == id)
+                 .To<T>().ToList();
+
+            return stores;
         }
 
         public IEnumerable<T> GetAllStoresByUserId<T>(string id, int page, int itemsPerPage = 3)

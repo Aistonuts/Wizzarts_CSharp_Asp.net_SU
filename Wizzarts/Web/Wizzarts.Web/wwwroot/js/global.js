@@ -444,35 +444,35 @@ $(document).ready(function () {
 
 
    
-    //Autocomplete function
-    var autocompleteInput = document.getElementById("searchM");
-    if (autocompleteInput) {
-        $("#searchM").autocomplete({
-            autoFocus: true,
-            select: function (event, ui) {
-                $("#searchM").val(ui.item.value);
-                $(this).closest("form").submit();
-            },
-            source: function (request, response) {
-                $.ajax({
-                    url: $('body').data('base') + "/Market/Autocomplete",
-                    type: "POST",
-                    dataType: "json",
-                    data: { cardName: request.term },
-                    autoFocus: true,
-                    success: function (data) {
-                        response($.map(data, function (item) {
-                            return { label: item.combinedName, value: item.cardName, text: item.text };
-                        }));
-                    }
-                });
-            }
-        }).autocomplete("instance")._renderItem = function (ul, item) {
-            return $("<li>")
-                .append("<div><b>" + item.label + (item.text !== undefined && item.text !== null ? "</b><br><small class='autocomplete-desc'><i>" + globalJS.mtgSymbolConverter(item.text, false) + "</i></small>" : "") + "</div>")
-                .appendTo(ul);
-            };
-    }
+    ////Autocomplete function
+    //var autocompleteInput = document.getElementById("searchM");
+    //if (autocompleteInput) {
+    //    $("#searchM").autocomplete({
+    //        autoFocus: true,
+    //        select: function (event, ui) {
+    //            $("#searchM").val(ui.item.value);
+    //            $(this).closest("form").submit();
+    //        },
+    //        source: function (request, response) {
+    //            $.ajax({
+    //                url: $('body').data('base') + "/Market/Autocomplete",
+    //                type: "POST",
+    //                dataType: "json",
+    //                data: { cardName: request.term },
+    //                autoFocus: true,
+    //                success: function (data) {
+    //                    response($.map(data, function (item) {
+    //                        return { label: item.combinedName, value: item.cardName, text: item.text };
+    //                    }));
+    //                }
+    //            });
+    //        }
+    //    }).autocomplete("instance")._renderItem = function (ul, item) {
+    //        return $("<li>")
+    //            .append("<div><b>" + item.label + (item.text !== undefined && item.text !== null ? "</b><br><small class='autocomplete-desc'><i>" + globalJS.mtgSymbolConverter(item.text, false) + "</i></small>" : "") + "</div>")
+    //            .appendTo(ul);
+    //        };
+    //}
     $('#login-dp .social-buttons a').on('click', function (e) {
         var provider = $(this).data('value');
         $('#' + provider).click();
