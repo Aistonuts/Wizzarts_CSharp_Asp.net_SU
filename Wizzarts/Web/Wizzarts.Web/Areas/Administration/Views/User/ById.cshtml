@@ -36,7 +36,7 @@
                                 <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Newest Articles</h4>
 
                                 <div class="firstfeed-flexbox">
-                                    @foreach (var article in this.Model.Articles)
+                                    @foreach (var article in this.Model.Articles.Where(x=>x.ApprovedByAdmin ==false))
                                     {
                                         <div class="article-card card border-0">
                                             <a href="" aria-label="article" class="image-wrapper">
@@ -64,7 +64,7 @@
                             {
                                 <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Art</h4>
                                 <div class="firstfeed-flexbox">
-                                    @foreach (var art in this.Model.Arts)
+                                    @foreach (var art in this.Model.Arts.Where(x => x.ApprovedByAdmin == false))
                                     {
                                         <div class="inner-container">
                                             <a asp-area="" asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" asp-route-data="@Model.Id"  class="item ae-card-link cardLink ">
@@ -82,7 +82,7 @@
                             {
                                 <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Cards</h4>
                                 <div class="firstfeed-flexbox">
-                                    @foreach (var card in this.Model.Cards)
+                                    @foreach (var card in this.Model.Cards.Where(x => x.ApprovedByAdmin == false))
                                     {
                                         <div class="inner-container">
                                             <a asp-area="" asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id"  class="item ae-card-link cardLink ">
@@ -99,7 +99,7 @@
                             @if (Model.Events.Any())
                             {
                                 <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Events</h4>
-                                @foreach (var eventNow in this.Model.Events)
+                                @foreach (var eventNow in this.Model.Events.Where(x => x.ApprovedByAdmin == false))
                                 {
                                     <div class="article-card card border-0">
                                         <a href="" aria-label="article" class="image-wrapper">
@@ -125,7 +125,7 @@
                             {
                                 <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Stores</h4>
                                 <div class="firstfeed-flexbox">
-                                    @foreach (var store in this.Model.Stores)
+                                    @foreach (var store in this.Model.Stores.Where(x => x.ApprovedByAdmin == false))
                                     {
                                         <div class="article-card card border-0">
                                             <a href="" aria-label="article" class="image-wrapper" data-toggle="modal" data-target="#imageModal">

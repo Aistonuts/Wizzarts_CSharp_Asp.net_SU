@@ -8,7 +8,7 @@ namespace Wizzarts.Services.Data
 {
     public interface IEventService
     {
-        Task CreateAsync(CreateEventViewModel input, string userId, string imagePath);
+        Task CreateAsync(CreateEventViewModel input, string userId, string imagePath, bool isContentCreator);
 
         Task UpdateAsync(EditEventViewModel input, int id);
 
@@ -29,5 +29,9 @@ namespace Wizzarts.Services.Data
         Task DeleteAsync(int id);
 
         Task<string> ApproveEvent(int id);
+
+        Task AddComponentAsync(MyEventSettingsViewModel input, string userId, string imagePath);
+
+        Task DeleteComponentAsync(int id);
     }
 }

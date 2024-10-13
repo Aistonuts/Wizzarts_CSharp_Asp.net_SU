@@ -76,7 +76,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                .AndAlso()
                .ShouldReturn()
                .Redirect(redirect => redirect
-                   .To<ArtController>(c => c.All(With.No<int>())));
+                   .To<UserController>(c => c.MyData(With.No<int>())));
         }
 
         [Fact]

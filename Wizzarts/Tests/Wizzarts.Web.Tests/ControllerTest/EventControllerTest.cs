@@ -5,6 +5,7 @@ using Shouldly;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using Wizzarts.Data.Models;
 using Wizzarts.Data.Repositories;
 using Wizzarts.Services.Data;
@@ -56,14 +57,21 @@ namespace Wizzarts.Web.Tests.ControllerTest
 
         [Fact]
         public void CreateGetShouldHaveRestrictionsForHttpGetOnlyAndAuthorizedUsersAndShouldReturnView()
-           => MyController<EventController>
-               .Calling(c => c.Create())
-               .ShouldHave()
-               .ActionAttributes(attrs => attrs
-                   .RestrictingForHttpMethod(HttpMethod.Get))
-               .AndAlso()
-               .ShouldReturn()
-               .View();
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+
+            MyController<EventController>
+                .Instance(instance => instance
+                    .WithData(data.Events))
+                .Calling(c => c.Create())
+                .ShouldHave()
+                .ActionAttributes(attrs => attrs
+                    .RestrictingForHttpMethod(HttpMethod.Get))
+                .AndAlso()
+                .ShouldReturn()
+                .View();
+        }
 
         [Theory]
         [InlineData("Event Title", "Create Event EventEventEventEventEventEventEvent")]

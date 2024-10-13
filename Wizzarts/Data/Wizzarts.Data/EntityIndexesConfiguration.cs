@@ -1,10 +1,8 @@
 ﻿namespace Wizzarts.Data
 {
     using System.Linq;
-
-    using Wizzarts.Data.Common.Models;
-
     using Microsoft.EntityFrameworkCore;
+    using Wizzarts.Data.Common.Models;
 
     internal static class EntityIndexesConfiguration
     {

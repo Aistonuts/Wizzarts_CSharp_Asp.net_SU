@@ -1,4 +1,5 @@
-﻿namespace Wizzarts.Web.ViewModels.PlayCard
+﻿#nullable enable
+namespace Wizzarts.Web.ViewModels.PlayCard
 {
     using System.ComponentModel.DataAnnotations;
 
@@ -8,27 +9,6 @@
 
     public class BaseCardViewModel : IndexAuthenticationViewModel
     {
-        // Default values
-        public const int DefaultManaValue = 1;
-
-        public const int DefaultCardTypeValue = 1;
-
-        public const int DefaultCardFrameValue = 3;
-
-        public const int DefaultGameExpansionId = 2;
-
-        public const string DefaultCardName = "Unknown Card.";
-
-        public const string DefaultCardFrameUrl = "/images/frames/createcard.jpg";
-
-        public const string DefaultGameExpansionUrl = "/images/symbols/expansions/Nameless.png";
-
-        public const string DefaulCardType = "Not Defined !!!";
-
-        public const string DefaultCardDescription = "Unknown Abilites and Flavour.";
-
-        public const string DefaultCardImage = "/images/navigation/0.jpg";
-
         // Model view properties
         [Required(ErrorMessage = "Card Name is required!")]
         [StringLength(CardNameMaxLength, MinimumLength = CardNameMinLength, ErrorMessage = "Card name should be between 5 and 30 characters long")]
@@ -69,18 +49,17 @@
         public int GameExpansionId { get; set; } = DefaultGameExpansionId;
 
         [Required(ErrorMessage = "Card Abilities are required!")]
-        [StringLength(CardAbilitiesAndFlavorMaxLenght, MinimumLength = CardAbilitiesAndFlavorMinLenght, ErrorMessage = "Card Abilities description should be between 28 and 200 characters long")]
+        [StringLength(CardAbilitiesAndFlavorMaxLength, MinimumLength = CardAbilitiesAndFlavorMinLength, ErrorMessage = "Card Abilities description should be between 28 and 200 characters long")]
         [Display(Name = "Abilities And Flavor")]
         public string AbilitiesAndFlavor { get; set; } = DefaultCardDescription;
 
-        [StringLength(CardPowerMaxLenght, MinimumLength = CardPowerMinLenght, ErrorMessage = "Card power should be 1 character long")]
+
+        [StringLength(CardPowerMaxLength, MinimumLength = CardPowerMinLength, ErrorMessage = "Card power should be 1 character long")]
         public string? Power { get; set; }
 
-        [StringLength(CardToughnessMaxLenght, MinimumLength = CardToughnessMinLenght, ErrorMessage = "Card toughness should be 1 character long")]
+        [StringLength(CardToughnessMaxLength, MinimumLength = CardToughnessMinLength, ErrorMessage = "Card toughness should be 1 character long")]
         public string? Toughness { get; set; }
 
-        public string ArtId { get; set; }
-
-        public string CardSmithId { get; set; }
+        public string ArtId { get; set; } = string.Empty;
     }
 }

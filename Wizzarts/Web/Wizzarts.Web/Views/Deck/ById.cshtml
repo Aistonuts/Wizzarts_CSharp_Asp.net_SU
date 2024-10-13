@@ -11,13 +11,13 @@
             <div class="card-header bg-light pt-0">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active">
-                            <span class="fas fa-search" title="Advanced Search"></span> <b>Advanced Search</b>
+                        <a asp-controller="Deck" asp-action="Add" asp-route-id="@this.Model.Id" class="metagroup-link ff-display">
+                            <span class="btn btn-light font-weight-bold">Edit</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/Card/Set" class="nav-link ">
-                            <span class="ss ss-xmods" title="Browse by Set"></span> <b>MTG Set List</b>
+                        <a asp-controller="Deck" asp-action="Create" class="metagroup-link ff-display">
+                            <span class="btn btn-light font-weight-bold">New Deck</span>
                         </a>
                     </li>
                 </ul>
@@ -26,7 +26,7 @@
                 <div class="row mt-2">
                     <div class="col-md-12">
                         <div id="cards" class="outer-container">
-                            @if (!Model.CardsInDeck.Any())
+                            @if (!Model.Cards.Any())
                             {
                                 <div class="d-flex flex-row justify-content-center">
                                     <div class="font-weight-bold mt-5" style="max-width: 500px;">
@@ -35,7 +35,7 @@
                                 </div>
                             }
                             else
-                                @foreach (var card in this.Model.CardsInDeck)
+                                @foreach (var card in this.Model.Cards)
                                 {
                                     <div class="inner-container">
                                         <div class="item-hidden-text">@card.Name</div>
@@ -101,15 +101,14 @@
                         <div>
                             <a asp-controller="Deck" asp-action="ById" asp-route-id="@deck.Id" class="metagroup-link">
                                 <b class="text-primary">@deck.Name</b>
-                                <br>
-
-                                <span title="Change since last week" class="diffright d-none d-sm-inline text-danger">
-                                    <i class="fas fa-caret-down"></i>4.60%
-                                </span>
                             </a>
                         </div>
                     </div>
                 }
+            </div>
+            <div class="card mb-2 pb-1 text-center ff-display">
+                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Lock your deck and join the event. Once your deck is at "@Model.DeliveryLocation" store the status of your deck will change to "Delivered"</h4>
+                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Your deck status is : @Model.DeckStatus</h4>
             </div>
         </div>
     </div>

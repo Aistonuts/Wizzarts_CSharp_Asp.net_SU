@@ -16,6 +16,8 @@
 
         public string ArtistName { get; set; }
 
+        public string AddedByMemberId { get; set; }
+
         public bool ApprovedByAdmin { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)

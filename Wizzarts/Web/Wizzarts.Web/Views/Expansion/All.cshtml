@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="w-100 span-all mb-5 mt-5">
-                    <h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">Wizzarts Art</h4>
+                    <h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">Wizzarts game expansion</h4>
                     <div id="creatorCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
                         <div class="carousel-inner">
 
@@ -23,15 +23,10 @@
 
                                             <div class="video-card card border-0">
                                                 <div class="yt-img">
-                                                    <a asp-controller="CardGameExpansion" asp-action="ById" asp-route-id="@this.Model.CardGameExpansions.ToList()[i].Id">
+                                                    <a asp-controller="Expansion" asp-action="ById" asp-route-id="@this.Model.CardGameExpansions.ToList()[i].Id">
                                                         <img src="@this.Model.CardGameExpansions.ToList()[i].ExpansionSymbolUrl" alt="@this.Model.CardGameExpansions.ToList()[i].Title" class="lazy" alt="video" style="">
 
                                                     </a>
-                                                </div>
-                                                <div class="card-body p-0">
-                                                    <small class="text-center mb-1 text-muted">
-                                                        01 Jul by <a href="/User/ReikoBoy"><i class="far fa-star"></i>ReikoBoy</a>
-                                                    </small>
                                                 </div>
                                             </div>
                                         </div>
@@ -44,15 +39,15 @@
 
                                             <div class="video-card card border-0">
                                                 <div class="yt-img">
-                                                    <a asp-controller="CardGameExpansion" asp-action="ById" asp-route-id="@this.Model.CardGameExpansions.ToList()[i].Id">
+                                                    <a asp-controller="Expansion" asp-action="ById" asp-route-id="@this.Model.CardGameExpansions.ToList()[i].Id">
                                                         <img src="@this.Model.CardGameExpansions.ToList()[i].ExpansionSymbolUrl" alt="@this.Model.CardGameExpansions.ToList()[i].Title" class="lazy" alt="video" style="">
                                                     </a>
                                                 </div>
-                                                <div class="card-body p-0">
+                                               @*  <div class="card-body p-0">
                                                     <small class="text-center mb-1 text-muted">
                                                         01 Jul by <a href="/User/ReikoBoy"><i class="far fa-star"></i>ReikoBoy</a>
                                                     </small>
-                                                </div>
+                                                </div> *@
                                             </div>
                                         </div>
                                     </div>
@@ -79,65 +74,48 @@
     </div>
     <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
         <div class="card mb-2">
-            <div class="w-100 text-center ae-border-bottom-light"><h4><a href="/Metagame/Standard-BO1/" class="metagroup-link ff-display">Metagame</a></h4></div>
+            <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Events</a></h4></div>
             <div class="card-body pl-1 pr-1 pt-2 pb-0">
-                <div class="metagroup-container">
-                    <div class="mr-2 d-none d-lg-block">
-                        <a href="/Metagame/Standard-BO1/Deck/mono-red-1065929">
-                            <div class="meta-cardimg" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/cards/mtg-MID/Play%20with%20Fire.154.jpg&quot;);"></div>
-                        </a>
-                    </div>
-                    <div>
-                        <a class="metagroup-link" href="/Metagame/Standard-BO1/Deck/mono-red-1065929">
-                            <b class="text-primary">Mono Red Wins</b>
-                            <br>
-                            8.87% of meta
-                            <span title="Change since last week" class="diffright d-none d-sm-inline text-danger">
-                                <i class="fas fa-caret-down"></i>4.60%
-                            </span>
-                        </a>
-                    </div>
-                </div>
-                <div class="metagroup-container">
-                    <div class="mr-2 d-none d-lg-block">
-                        <a href="/Metagame/Standard-BO1/Deck/mono-blue-1064045">
-                            <div class="meta-cardimg" style="background-image: url(&quot;https://aetherhub.b-cdn.net/images/cards/mtg-MID/Fading%20Hope.51.jpg&quot;);"></div>
-                        </a>
-                    </div>
-                    <div>
-                        <a class="metagroup-link" href="/Metagame/Standard-BO1/Deck/mono-blue-1064045">
-                            <b class="text-primary">Mono Blue Tempo</b>
-                            <br>
-                            1.54% of meta
-                            <span title="Change since last week" class="diffright d-none d-sm-inline text-success">
-                                <i class="fas fa-caret-up"></i>0.34%
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h3 class="ff-display">Articles</h3>
-        <div class="card mt-2 mb-2 ">
-            <div class="w-100 d-flex justify-content-start">
-                <div class="mr-1">
-                    <a href="/Article/Magic-The-Gathering-Foundations---Set-Info--Spoilers">
-                        <div class="article-imgheader-xs lazy uimg" style="background-image: url(&quot;https://aetherhub.b-cdn.net/articles/10830_screen%20shot%202024-06-28%20at%2010.50.34%20pm.png&quot;);">
+                @foreach (var events in this.Model.Events)
+                {
+                    <div class="metagroup-container">
+                        <div class="mr-2 d-none d-lg-block">
+                            <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" class="image-wrapper">
+                                <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div>
-                    <div class="ff-display font-size-18">
-                        <b><a href="/Article/Magic-The-Gathering-Foundations---Set-Info--Spoilers">Magic: The Gathering Foundations - Set Info &amp; Spoilers</a></b>
+                        <div>
+                            <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" class="image-wrapper">
+                                <b class="text-primary">@events.Title</b>
+                            </a>
+                        </div>
                     </div>
-                    <p>
-                        <span class="text-muted">
-                            29.Jun
-                        </span>
-                    </p>
-                </div>
+                }
+
             </div>
         </div>
+        <div class="card mb-2">
+            <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Articles</a></h4></div>
+            <div class="card-body pl-1 pr-1 pt-2 pb-0">
+                @foreach (var article in this.Model.Articles)
+                {
+                    <div class="metagroup-container">
+                        <div class="mr-2 d-none d-lg-block">
+                            <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" class="image-wrapper">
+                                <div class="meta-cardimg" style="background-image: url('@article.ImageUrl')"></div>
+                            </a>
+                        </div>
+                        <div>
+                            <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" class="image-wrapper">
+                                <b class="text-primary">@article.Title</b>
+                            </a>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
     </div>
 </div>
 <hr />

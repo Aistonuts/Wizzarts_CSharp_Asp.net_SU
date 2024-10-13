@@ -7,7 +7,7 @@
 <div class="row pt-2">
     <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-1">
         <div class="card h-oneKpx">
-            <div class="card-header bg-light pt-0">
+           @*  <div class="card-header bg-light pt-0">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
                         <a class="nav-link active">
@@ -20,7 +20,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div> *@
             <div class="card-body pt-1">
                 <form asp-controller="Deck" asp-action="Add" asp-route-id="@this.Model.Id" id="searchform" method="get">
                     <div class="row">
@@ -122,7 +122,7 @@
                             {
                                 <div class="d-flex flex-row justify-content-center">
                                     <div class="font-weight-bold mt-5" style="max-width: 500px;">
-                                        AetherHub has catalogued every Magic: The Gathering card and token into a comprehensive database. <br>Search through the entire Magic history for additions to your deck, detailed information about ruling, format legalities or different prints of a card.
+                                        Wizzarts has catalogued every Magic: The Gathering card and token into a comprehensive database. <br>Search through the entire Magic history for additions to your deck, detailed information about ruling, format legalities or different prints of a card.
                                     </div>
                                 </div>
                             }
@@ -161,11 +161,6 @@
                         <div>
                             <a asp-controller="Deck" asp-action="Add" asp-route-id="@deck.Id" class="metagroup-link">
                                 <b class="text-primary">@deck.Name</b>
-                                <br>
-
-                                <span title="Change since last week" class="diffright d-none d-sm-inline text-danger">
-                                    <i class="fas fa-caret-down"></i>4.60%
-                                </span>
                             </a>
                         </div>
                     </div>
@@ -180,13 +175,6 @@
             <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Cards in @Model.Name </a></h4></div>
             <div class="w-100 text-center ae-border-bottom-light">
                 <h4>
-                    <a asp-controller="Deck" asp-action="Send" asp-route-id="@this.Model.Id" class="metagroup-link ff-display">
-                        <span class="btn btn-light font-weight-bold">Join event!</span>
-                    </a>
-                </h4>
-            </div>
-            <div class="w-100 text-center ae-border-bottom-light">
-                <h4>
                     <a asp-controller="Deck" asp-action="Change" asp-route-id="@this.Model.Id" class="metagroup-link ff-display">
                         <span class="btn btn-light font-weight-bold">@Model.IsLocked</span>
                     </a>
@@ -194,7 +182,7 @@
             </div>
            
             <div class="card-body pl-1 pr-1 pt-2 pb-0">
-                @foreach (var deck in this.Model.CardsInDeck)
+                @foreach (var deck in this.Model.Cards)
                 {
                     <div class="card mt-2 mb-2 ">
                         <div class="w-100 d-flex justify-content-start">
@@ -222,4 +210,3 @@
     </div>
 </div>
 <hr />
-</div>

@@ -9,7 +9,7 @@ using Wizzarts.Web.ViewModels.PlayCard;
 namespace Wizzarts.Web.Controllers
 {
     [ApiController]
-    [Route("api/[controller]/{action}")]
+    [Route("api/[controller]/[action]")]
     public class SearchController : BaseController
     {
         private readonly ISearchService searchService;

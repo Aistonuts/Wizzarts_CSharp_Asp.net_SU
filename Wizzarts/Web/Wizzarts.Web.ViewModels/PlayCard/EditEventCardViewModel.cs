@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wizzarts.Web.ViewModels.PlayCard
 {
-    public class EditEventCardViewModel
+    public class EditEventCardViewModel : BaseCardViewModel
     {
     }
 }

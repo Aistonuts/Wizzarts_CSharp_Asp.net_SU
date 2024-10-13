@@ -74,8 +74,11 @@
         [HttpGet]
         public IActionResult Create()
         {
-
-            return this.View();
+            var viewModel = new CreateArticleViewModel
+            {
+                Articles = this.articleService.GetRandom<ArticleInListViewModel>(5),
+            };
+            return this.View(viewModel);
         }
 
         [HttpPost]
@@ -104,7 +107,7 @@
 
             this.TempData["Message"] = "Article added successfully.";
 
-            return this.RedirectToAction("User", "MyData");
+            return this.RedirectToAction("MyData", "User");
         }
 
         public async Task<IActionResult> ById(int id)
@@ -148,7 +151,7 @@
 
             await this.articleService.DeleteAsync(id);
 
-            return this.RedirectToAction("User", "MyData");
+            return this.RedirectToAction("MyData", "User");
         }
     }
 }

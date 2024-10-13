@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-using Wizzarts.Services.Mapping;
-
-namespace Wizzarts.Web.ViewModels.Chat
+﻿namespace Wizzarts.Web.ViewModels.Chat
 {
+    using System;
+
+    using Wizzarts.Data.Models;
+    using Wizzarts.Services.Mapping;
+
     public class DbChatMessagesInListViewModel : IMapFrom<ChatMessage>
     {
         public string Name { get; set; }

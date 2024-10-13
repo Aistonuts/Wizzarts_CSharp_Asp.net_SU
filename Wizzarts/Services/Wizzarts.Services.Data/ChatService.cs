@@ -53,7 +53,7 @@ namespace Wizzarts.Services.Data
         public T GetById<T>(int id)
         {
             var chatRoom = this.chatRepository.AllAsNoTracking()
-                .Where(x=> x.Id == id)
+                .Where(x => x.Id == id)
                .To<T>().FirstOrDefault();
 
             return chatRoom;

@@ -6,17 +6,19 @@
     using Wizzarts.Web.ViewModels.Home;
 
     using static Wizzarts.Common.DataConstants;
+    using static Wizzarts.Common.MessageConstants;
 
     public class BaseEventViewModel : IndexAuthenticationViewModel
     {
         public const int StatusId = 3;
 
-        [MaxLength(EventTitleMaxLength)]
+        [Required(ErrorMessage = RequiredMessage)]
+        [StringLength(EventTitleMaxLength, MinimumLength = EventTitleMinLength, ErrorMessage = LengthMessage)]
         [Comment("Event Title")]
         public string Title { get; set; } = string.Empty;
 
-        [Required]
-        [MaxLength(EventDescriptionMaxLength)]
+        [Required(ErrorMessage = RequiredMessage)]
+        [StringLength(EventDescriptionMaxLength, MinimumLength = EventDescriptionMinLength, ErrorMessage = LengthMessage)]
         [Comment("Event Description")]
         public string EventDescription { get; set; } = string.Empty;
 

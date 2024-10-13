@@ -8,6 +8,9 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
+    using Wizzarts.Web.ViewModels.Art;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.GameRules;
     using Wizzarts.Web.ViewModels.WizzartsMember;
 
@@ -19,15 +22,25 @@
     {
         private readonly IWizzartsServices wizzartsServices;
         private readonly IUserService userService;
+        private readonly IArtService artService;
+        private readonly IEventService eventService;
+        private readonly IArticleService articleService;
+
         private readonly UserManager<ApplicationUser> userManager;
 
         public WizzartsController(
             IWizzartsServices wizzartsServices,
             IUserService userService,
+            IArtService artService,
+            IEventService eventService,
+            IArticleService articleService,
             UserManager<ApplicationUser> userManager)
         {
             this.wizzartsServices = wizzartsServices;
             this.userService = userService;
+            this.artService = artService;
+            this.eventService = eventService;
+            this.articleService = articleService;
             this.userManager = userManager;
         }
 
@@ -113,58 +126,13 @@
             return this.View(view);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> GetPremium()
-        //{
-        //    var user = await this.userManager.GetUserAsync(this.User);
-        //    var userRole = await this.userManager.GetRolesAsync(user);
-
-        //    if (userRole.Contains(ContentCreatorRoleName))
-        //    {
-        //        this.ModelState.AddModelError("Error", "You already have premium access");
-        //        this.TempData[ErrorMessage] = "You already have premium access";
-
-        //        return this.RedirectToAction("Index", "Home");
-        //    }
-
-        //    var countOfArts = this.userService.GetCountOfArt(user.Id);
-
-        //    var countOfArticles = this.userService.GetCountOfArticles(user.Id);
-
-        //    var countOfEvents = this.userService.GetCountOfEvents(user.Id);
-
-        //    if ((userRole.Contains(ArtistRoleName) && countOfArts > 10) || (userRole.Contains(ArtistRoleName) && countOfArts > 3) || (userRole.Contains(StoreOwnerRoleName) && countOfArticles > 1 && countOfEvents > 1) || (countOfArticles > 5 && countOfEvents > 5) || (userRole.Contains(StoreOwnerRoleName) && userRole.Contains(ArtistRoleName)))
-        //    {
-        //        await this.userManager.AddToRoleAsync(user, ContentCreatorRoleName);
-        //    }
-        //    else
-        //    {
-        //        this.ModelState.AddModelError("Error", NotEligibleForPremium);
-        //    }
-
-        //    return this.RedirectToAction("Index", "Home");
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> Become()
-        //{
-        //    var user = await this.userManager.GetUserAsync(this.User);
-
-        //    var userRole = await this.userManager.GetRolesAsync(user);
-
-        //    if (userRole.Contains(ArtistRoleName))
-        //    {
-        //        this.ModelState.AddModelError("Error", "You are already an artist");
-        //        this.TempData[ErrorMessage] = "You are already an artist!";
-
-        //        return this.RedirectToAction("Index", "Home");
-        //    }
-
-        //    await this.userManager.AddToRoleAsync(user, ArtistRoleName);
-
-        //    await this.userManager.RemoveFromRoleAsync(user, MemberRoleName);
-
-        //    return this.RedirectToAction("Index", "Home");
-        //}
+        public IActionResult ById(string id)
+        {
+            var member = this.userService.GetById<SingleMemberViewModel>(id);
+            member.Arts = this.artService.GetAllArtByUserId<ArtInListViewModel>(id,1,50);
+            member.Articles = this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(id,1,50);
+            member.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(id,1,50);
+            return this.View(member);
+        }
     }
 }

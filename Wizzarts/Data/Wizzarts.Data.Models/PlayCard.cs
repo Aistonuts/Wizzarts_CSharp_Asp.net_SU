@@ -63,6 +63,7 @@ namespace Wizzarts.Data.Models
 
         public PlayCardFrameColor CardFrameColor { get; set; }
 
+        [MaxLength(RemoteImageUrlMaxLength)]
         [Comment("Image of the card saved locally upon creation.")]
         public string CardRemoteUrl { get; set; }
 
@@ -72,16 +73,16 @@ namespace Wizzarts.Data.Models
         public PlayCardType CardType { get; set; }
 
         [Required]
-        [MaxLength(CardAbilitiesAndFlavorMaxLenght)]
+        [MaxLength(CardAbilitiesAndFlavorMaxLength)]
         [Comment("Card use requirements and effects. Card power description.")]
         public string AbilitiesAndFlavor { get; set; } = string.Empty;
 
         [Comment("Card will deal damage equal to power.")]
-        [MaxLength(CardPowerMaxLenght)]
+        [MaxLength(CardPowerMaxLength)]
         public string Power { get; set; } = string.Empty;
 
         [Comment("Card can take damage up to amount equal to its toughness.")]
-        [MaxLength(CardToughnessMaxLenght)]
+        [MaxLength(CardToughnessMaxLength)]
         public string Toughness { get; set; } = string.Empty;
 
         [Comment("This card is part of which expansion.")]
@@ -113,8 +114,10 @@ namespace Wizzarts.Data.Models
         [Comment("Has this been created during an event.")]
         public Event Event { get; set; }
 
+        [Comment("Admin might request an update due to typos, in case of duplicate or using other artist art piece.")]
         public bool UpdateRequest { get; set; }
 
+        [Comment("Upon request from admin, this becomes false, upon added update from user, this becomes true.")]
         public bool HasBeenUpdated { get; set; }
 
         public virtual ICollection<ManaInCard> CardMana { get; set; }

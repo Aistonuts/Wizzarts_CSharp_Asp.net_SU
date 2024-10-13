@@ -41,7 +41,7 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
-
+            bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
             {
                 Title = "The newest Event",
@@ -50,7 +50,7 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
                 EventStatusId = 1,
             };
 
-            await service.CreateAsync(testEvent, UserId, path);
+            await service.CreateAsync(testEvent, UserId, path,isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
             var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
@@ -77,6 +77,7 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.nft");
 
+            bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
             {
                 Title = "The newest Event",
@@ -85,7 +86,7 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
                 EventStatusId = 1,
             };
 
-            var exception = await Assert.ThrowsAsync<Exception>(() => service.CreateAsync(testEvent, UserId, path));
+            var exception = await Assert.ThrowsAsync<Exception>(() => service.CreateAsync(testEvent, UserId, path, isContentCreator));
             Assert.Equal("Invalid image extension nft", exception.Message);
             this.TearDownBase();
         }

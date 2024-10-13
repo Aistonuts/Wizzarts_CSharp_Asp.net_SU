@@ -36,6 +36,7 @@
         public string Address { get; set; } = string.Empty;
 
         [Required]
+        [MaxLength(RemoteImageUrlMaxLength)]
         [Comment("Store image Url")]
         public string Image { get; set; } = string.Empty;
 

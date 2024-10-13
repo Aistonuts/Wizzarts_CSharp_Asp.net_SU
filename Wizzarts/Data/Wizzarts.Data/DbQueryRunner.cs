@@ -2,10 +2,8 @@
 {
     using System;
     using System.Threading.Tasks;
-
-    using Wizzarts.Data.Common;
-
     using Microsoft.EntityFrameworkCore;
+    using Wizzarts.Data.Common;
 
     public class DbQueryRunner : IDbQueryRunner
     {

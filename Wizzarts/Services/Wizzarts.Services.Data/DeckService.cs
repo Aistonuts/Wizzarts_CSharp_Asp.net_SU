@@ -163,22 +163,6 @@ namespace Wizzarts.Services.Data
             return hasEventCards;
         }
 
-        public async Task ChangeStatusAsync(int id)
-        {
-            var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == id);
-
-            if (deck.StatusId == 1)
-            {
-                deck.StatusId = 2;
-            }
-           else if (deck.StatusId == 2)
-            {
-                deck.StatusId = 1;
-            }
-
-            await this.deckRepository.SaveChangesAsync();
-        }
-
         public async Task<int> LockDeck(int id)
         {
             var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == id);
@@ -186,11 +170,12 @@ namespace Wizzarts.Services.Data
             if (!deck.IsLocked)
             {
                 deck.IsLocked = true;
-
+                deck.StatusId = 2;
             }
             else
             {
                 deck.IsLocked = false;
+                deck.StatusId = 1;
 
             }
 

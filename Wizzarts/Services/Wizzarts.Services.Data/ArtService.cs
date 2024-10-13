@@ -98,15 +98,15 @@
             };
 
             Directory.CreateDirectory($"{imagePath}/art/userArt/");
-            var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
+            var extension = Path.GetExtension(input.Image.FileName)!.TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
             {
                 throw new Exception($"Invalid image extension {extension}");
             }
 
             art.Extension = extension;
-            var physicalPath = $"{imagePath}/art/userArt/{art.Id}.{extension}";
-            art.RemoteImageUrl = $"/images/art/userArt/{art.Id}.{extension}";
+            var physicalPath = $"{imagePath}/art/userArt/{art.Title}.{extension}";
+            art.RemoteImageUrl = $"/images/art/userArt/{art.Title}.{extension}";
             using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.Image.CopyToAsync(fileStream);
 

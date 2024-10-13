@@ -23,7 +23,11 @@
 
         Task CreateAsync(CreateCardViewModel input, string userId, int id, string path, bool isEventCard, bool requireArtInput, string canvasCapture);
 
+        Task AddAsync(CreateCardViewModel input, string userId, string path, bool isEventCard, string canvasCapture);
+
         IEnumerable<T> GetAllCardManaByCardId<T>(string id);
+
+        IEnumerable<T> GetAllCardsByExpansion<T>(int id);
 
         IEnumerable<T> GetAllCardsByUserId<T>(string id, int page, int itemsPerPage = 12);
 

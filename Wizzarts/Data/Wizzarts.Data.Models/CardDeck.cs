@@ -1,15 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Common.Models;
-
-namespace Wizzarts.Data.Models
+﻿namespace Wizzarts.Data.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    using Microsoft.EntityFrameworkCore;
+    using Wizzarts.Data.Common.Models;
+
+    using static Wizzarts.Common.DataConstants;
+
     public class CardDeck : BaseDeletableModel<int>
     {
         public CardDeck()
@@ -17,16 +16,22 @@ namespace Wizzarts.Data.Models
             this.PlayCards = new HashSet<PlayCard>();
         }
 
+        [Required]
+        [MaxLength(CardDeckNameMaxLength)]
         public string Name { get; set; }
 
+        [MaxLength(CardDeckDescriptionMaxMaxLength)]
         public string Description { get; set; }
 
+        [MaxLength(CardDeckShippingAddressMaxLength)]
         public string ShippingAddress { get; set; }
 
+        [MaxLength(RemoteImageUrlMaxLength)]
         public string ImageUrl { get; set; } = string.Empty;
 
-        public int StoreId { get; set; }
+        public int? StoreId { get; set; }
 
+        [ForeignKey(nameof(StoreId))]
         public Store Store { get; set; }
 
         public int StatusId { get; set; }
@@ -50,7 +55,7 @@ namespace Wizzarts.Data.Models
 
         public bool IsLocked { get; set; }
 
-        public ICollection<PlayCard> PlayCards { get; set; }
+        public virtual ICollection<PlayCard> PlayCards { get; set; }
 
 
     }

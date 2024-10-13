@@ -26,6 +26,7 @@ namespace Wizzarts.Data.Models
             this.Votes = new HashSet<Vote>();
             this.Art = new HashSet<Art>();
             this.Comments = new HashSet<CommentCard>();
+            this.JoinedEvents = new HashSet<Event>();
         }
 
         [MaxLength(UserNickNameMaxLength)]
@@ -37,17 +38,23 @@ namespace Wizzarts.Data.Models
 
         [Required]
         [Comment("Avatar remote URL.Picked after signing in")]
+        [MaxLength(RemoteImageUrlMaxLength)]
         public string AvatarUrl { get; set; } = string.Empty;
 
+        [MaxLength(ArtistBioMaxLength)]
         [Comment("Information about the artist")]
         public string Bio { get; set; } = string.Empty;
 
         public Avatar Avatar { get; set; }
 
+        [MaxLength(AdminFeedBackMaxLength)]
+        [Comment("Admin might want to remind client about name policies, missing profile details, missing avatar...")]
         public string AdminFeedBack { get; set; } = string.Empty;
 
+        [Comment("Admin Request notification")]
         public bool RequestFeedback { get; set; }
 
+        [Comment("Customer acknowledged admin request and fulfilled it")]
         public bool HasBeenUpdated { get; set; }
 
         // Audit info
@@ -66,9 +73,6 @@ namespace Wizzarts.Data.Models
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
 
-        [Comment("Team MagicCardsmith art pieces")]
-        public virtual ICollection<Art> ArtPieces { get; set; }
-
         public virtual ICollection<Article> Articles { get; set; }
 
         public virtual ICollection<PlayCard> Cards { get; set; }
@@ -85,7 +89,7 @@ namespace Wizzarts.Data.Models
 
         public virtual ICollection<CommentCard> Comments { get; set; }
 
-        public ICollection<ChatUser> Chats { get; set; }
+        public virtual ICollection<ChatUser> Chats { get; set; }
 
         public virtual ICollection<Event> JoinedEvents { get; set; }
     }

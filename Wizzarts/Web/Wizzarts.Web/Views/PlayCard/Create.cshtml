@@ -1,39 +1,10 @@
 ﻿@model Wizzarts.Web.ViewModels.PlayCard.CreateCardViewModel
-
+@using static Wizzarts.Common.HardCodedConstants;
 @using Wizzarts.Web.Infrastructure.Extensions
 @{
     this.ViewData["Title"] = "Add new event play card";
 }
 
-@*<div class="text-center row">
-    <h1 class="display-4">Welcome to</h1>
-    <div class="col-sm-12 col-md-12 pl-0 pr-0">
-        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Newest Articles</h4>
-        <div class="firstfeed-flexbox">
-            <div class="article-card card border-0">
-                <a href="" aria-label="article" class="image-wrapper">
-                    <a asp-controller="Article" asp-action="Create" asp-route-id="@Model.Id" class="article-uimgheader">
-                        <img src="@Model.ImageUrl" class="article-uimgheader" alt="@Model.Title">
-                    </a>
-                    <div class="w-100 text-center text-white article-text-tags">
-                        <span>Discussion</span>
-                        <span>News</span>
-                    </div>
-                </a>
-                <div class="card-body pt-0">
-                    <small class="yellow-line">
-                        <a href=""><i class="far fa-star"></i>User</a>
-                        <span>23 Jul</span>
-                    </small>
-                    <div class="ff-display font-size-18">
-                        <b><a href="">@Model.Title</a></b>
-                    </div>
-                    <div class="card-text d-none d-md-flex m-1">@Model.Description</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>*@
 <div class="row ae-break-word">
     <div class="col-md-12 col-lg-12 col-xl-8 pl-0 pr-0 pr-xl-3">
         <div class="row">
@@ -45,7 +16,7 @@
                             <tbody>
                                 <tr style="width:100%">
                                     <td style="padding:0px;text-align:left;vertical-align:top;">
-                                        @if (Model.EventId == 1)
+                                        @if (Model.EventId == InputTextEventIdValue)
                                         {
                                             <form method="post" enctype="multipart/form-data">
                                                 <table border="0" cellspacing="1" cellpadding="5" style="width:100%;">
@@ -180,13 +151,13 @@
                                                             </td>
                                                             <span asp-validation-for="@Model.CardTypeId" class="small text-danger"></span>
                                                         </tr>
-                                                        <tr class="row2">
+                                                        <tr class="row2" hidden>
                                                             <td>
                                                                 <label asp-for="GameExpansionId">Expansion Symbol:</label>
                                                             </td>
                                                             <td>
                                                                 <select asp-for="GameExpansionId" id="expansion" onchange="expansionSymbolFunc(event)">
-                                                                    <option value="1" selected="true">
+                                                                    <option value="2" selected="true">
                                                                     </option>
                                                                     @foreach (var type in Model.SelectExpansion)
                                                                     {
@@ -263,20 +234,20 @@
                                                 </tbody>
                                             </table>
                                         }
-                                        @if (Model.EventId == 2)
+                                        @if (Model.EventId == InputImageEventIdValue)
                                         {
                                             @if (Model.ArtByUserId.Where(x => x.ApprovedByAdmin == true).Any())
                                             {
                                                 <form method="post" id="cardinfo" enctype="multipart/form-data">
                                                     <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
                                                         <tbody>
-                                                            <tr class="row1">
+                                                            <tr id="artByArtistV2" class="row1">
                                                                 <td>
                                                                     <label asp-for="ArtId">Art:</label>
                                                                 </td>
                                                                 <td>
                                                                     <select asp-for="ArtId" id="artByArtist" onchange="artByArtistFunc(event);">
-                                                                         <option value="0" selected="true">
+                                                                         <option value="1" selected="true" hidden>
                                                                         </option>
                                                                         @foreach (var art in Model.ArtByUserId)
                                                                         {
@@ -293,13 +264,13 @@
                                                                 </div>
                                                             </div>
 
-                                                            <tr class="row2">
+                                                            <tr class="row2" hidden>
                                                                 <td>
                                                                     <label asp-for="GameExpansionId">Expansion Symbol:</label>
                                                                 </td>
                                                                 <td>
                                                                     <select asp-for="GameExpansionId" id="expansion" onchange="expansionSymbolFunc(event)">
-                                                                        <option value="0" selected="true">
+                                                                        <option value="2" selected="true">
                                                                         </option>
                                                                         @foreach (var type in Model.SelectExpansion)
                                                                         {
@@ -460,7 +431,7 @@
                     document.getElementById("previewEventTwo").hidden = true;
                     document.getElementById("submitEventTwo").hidden = false;
                     document.getElementById("startOver").hidden = false;
-
+                    document.getElementById("artByArtistV2").hidden = true;
                 });
             });
         };
@@ -480,7 +451,6 @@
                     document.getElementById("cardData").hidden = true;
                     document.getElementById("startOver").hidden = false;
                     document.getElementById("cardTools").hidden = true;
-
                 });
             });
         };

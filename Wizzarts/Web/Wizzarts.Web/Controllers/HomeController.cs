@@ -1,29 +1,28 @@
 ﻿namespace Wizzarts.Web.Controllers
 {
-    using System.Diagnostics;
+    using System;
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Localization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Caching.Memory;
     using Microsoft.Extensions.Logging;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
-    using Wizzarts.Web.ViewModels;
+    using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Article;
-    using Wizzarts.Web.ViewModels.PlayCard;
+    using Wizzarts.Web.ViewModels.Chat;
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.Home;
+    using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.Store;
-    using Wizzarts.Data;
-    using System.Linq;
-    using Wizzarts.Web.ViewModels.Chat;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.AspNetCore.Authorization;
+
     using static Wizzarts.Common.GlobalConstants;
-    using Wizzarts.Web.Infrastructure.Extensions;
 
     public class HomeController : BaseController
     {
@@ -148,12 +147,26 @@
             // If we got this far, something failed, redisplay form
             return this.View();
         }
-
+        [AllowAnonymous]
         public IActionResult Privacy()
         {
             return this.View();
         }
-
+        [AllowAnonymous]
+        public IActionResult Help()
+        {
+            return this.View();
+        }
+        [AllowAnonymous]
+        public IActionResult Terms()
+        {
+            return this.View();
+        }
+        [AllowAnonymous]
+        public IActionResult Contact()
+        {
+            return this.View();
+        }
 
         [HttpGet]
         [AllowAnonymous]
@@ -173,6 +186,19 @@
             return View();
             //return this.View(
             //    new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+            );
+
+            return this.LocalRedirect(returnUrl);
         }
     }
 }

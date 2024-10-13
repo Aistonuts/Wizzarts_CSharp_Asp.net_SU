@@ -55,7 +55,7 @@
 
             if (cachedArticles == null)
             {
-                cachedArticles = this.articleRepository.AllAsNoTracking().OrderByDescending(x => x.Id).To<T>().ToList();
+                cachedArticles = this.articleRepository.AllAsNoTracking().OrderByDescending(x => x.Id).Where(x => x.ApprovedByAdmin == true).To<T>().ToList();
 
                 if (cachedArticles.Any())
                 {
@@ -78,15 +78,15 @@
                 ArticleCreatorId = userId,
             };
             Directory.CreateDirectory($"{imagePath}/navigation/articles");
-            var extension = Path.GetExtension(input.ImageUrl.FileName).TrimStart('.');
+            var extension = Path.GetExtension(input.ImageUrl.FileName)!.TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
             {
                 throw new Exception($"Invalid image extension {extension}");
             }
 
-            var physicalPath = $"{imagePath}/navigation/articles/{article.Id}.{extension}";
-            article.ImageUrl = $"/images/navigation/articles/{article.Id}.{extension}";
-            using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            var physicalPath = $"{imagePath}/navigation/articles/{article.Title}.{extension}";
+            article.ImageUrl = $"/images/navigation/articles/{article.Title}.{extension}";
+            await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.ImageUrl.CopyToAsync(fileStream);
             await this.articleRepository.AddAsync(article);
             await this.articleRepository.SaveChangesAsync();

@@ -1,8 +1,8 @@
 ﻿namespace Wizzarts.Data.Configurations
 {
-    using Wizzarts.Data.Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using Wizzarts.Data.Models;
 
     public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {

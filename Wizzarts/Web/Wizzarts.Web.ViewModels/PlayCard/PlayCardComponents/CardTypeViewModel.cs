@@ -3,8 +3,6 @@ using Wizzarts.Services.Mapping;
 
 namespace Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents
 {
-
-
     public class CardTypeViewModel : IMapFrom<PlayCardType>
     {
         public int Id { get; set; }

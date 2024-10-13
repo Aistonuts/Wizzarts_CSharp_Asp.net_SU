@@ -30,11 +30,6 @@
         public string Suggestions { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(CardReviewSuggestionMaxLength)]
-        [Comment("What can be done to resolve the issue.")]
-        public string Art { get; set; } = string.Empty;
-
-        [Required]
         [Comment("Review of which card")]
         public string CardId { get; set; }
 

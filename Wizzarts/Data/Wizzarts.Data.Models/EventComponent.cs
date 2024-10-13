@@ -19,9 +19,11 @@
         [Comment("Description")]
         public string Description { get; set; } = string.Empty;
 
+        [MaxLength(EventMilestoneDescriptionMaxLength)]
         [Comment("Instructions")]
         public string Instructions { get; set; } = string.Empty;
 
+        [MaxLength(RemoteImageUrlMaxLength)]
         [Comment("Image")]
         public string ImageUrl { get; set; } = string.Empty;
 

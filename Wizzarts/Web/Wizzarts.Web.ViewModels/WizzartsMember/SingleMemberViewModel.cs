@@ -1,10 +1,8 @@
 ﻿namespace Wizzarts.Web.ViewModels.WizzartsMember
 {
     using AutoMapper;
-    using System.Collections.Generic;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
-    using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Home;
 
     public class SingleMemberViewModel : IndexAuthenticationViewModel, IMapFrom<ApplicationUser>
@@ -17,11 +15,10 @@
 
         public string Email { get; set; }
 
-        public IEnumerable<ArtListViewModel> Arts { get; set; }
+        public string Bio { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
         {
-
             configuration.CreateMap<ApplicationUser, SingleMemberViewModel>()
             .ForMember(x => x.AvatarUrl, opt =>
                     opt.MapFrom(x =>

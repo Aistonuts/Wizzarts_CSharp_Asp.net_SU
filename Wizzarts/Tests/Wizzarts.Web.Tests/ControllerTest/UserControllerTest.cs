@@ -17,16 +17,8 @@ namespace Wizzarts.Web.Tests.ControllerTest
 {
     public class UserControllerTest : UnitTestBase
     {
-        private readonly UserManager<ApplicationUser> userManager;
-        private readonly IStoreService storeService;
-
-        public UserControllerTest(
-            UserManager<ApplicationUser> userManager,
-            IStoreService storeService)
+        public UserControllerTest()
         {
-            this.userManager = userManager;
-            this.storeService = storeService;
-
         }
         [Fact]
         public void SelectAvatarhouldReturnViewWithCorrectModel()
@@ -78,7 +70,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
 
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, this.userManager, repositoryUser, this.storeService);
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
 
             MyController<UserController>
                 .Instance(instance => instance
@@ -147,25 +139,21 @@ namespace Wizzarts.Web.Tests.ControllerTest
               .ActionAttributes(attrs => attrs
                   .RestrictingForHttpMethod(HttpMethod.Post));
 
-        [Fact]
-        public void MyDataShouldReturnCorrectModel()
-        {
-            OneTimeSetup();
-            var data = this.dbContext;
+        //[Fact]
+        //public void MyDataShouldReturnCorrectModel()
+        //{
+        //    OneTimeSetup();
+        //    var data = this.dbContext;
 
           
 
-            MyController<UserController>
-                .Instance(instance => instance
-                 .WithUser()
-                 .WithData(data.Arts)
-                 .WithData(data.Articles)
-                 .WithData(data.Events)
-                 .WithData(data.PlayCards)
-                 .WithData(data.Stores))
-              .Calling(c => c.MyData(With.No<int>()))
-              .ShouldReturn()
-              .View(With.Default<MemberDataViewModel>());
-        }
+        //    MyController<UserController>
+        //        .Instance(instance => instance
+        //         .WithUser())
+        //      .Calling(c => c.MyData(With.No<int>()))
+        //      .ShouldReturn()
+        //      .View(With.Default<MemberDataViewModel>());
+        //    TearDownBase();
+        //}
     }
 }

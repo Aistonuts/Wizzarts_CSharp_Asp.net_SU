@@ -30,10 +30,7 @@
             configuration.CreateMap<Article, ArticleInListViewModel>()
                .ForMember(x => x.ArticleCreatorName, opt =>
                    opt.MapFrom(x =>
-                       x.ArticleCreator.UserName));
-
-            // ImapFrom requires same name
-            configuration.CreateMap<Article, ArticleInListViewModel>()
+                       x.ArticleCreator.UserName))
                .ForMember(x => x.ImageUrl, opt =>
                    opt.MapFrom(x =>
                        x.ImageUrl));

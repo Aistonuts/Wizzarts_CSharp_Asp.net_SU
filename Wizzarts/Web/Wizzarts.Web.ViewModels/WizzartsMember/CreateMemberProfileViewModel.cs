@@ -17,7 +17,6 @@
 
         public string AvatarUrl { get; set; }
 
-
         [Comment("Information about the artist")]
         public string Bio { get; set; } = string.Empty;
 

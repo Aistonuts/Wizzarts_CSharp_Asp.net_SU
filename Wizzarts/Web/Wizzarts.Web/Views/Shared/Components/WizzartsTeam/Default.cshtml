@@ -5,14 +5,15 @@
         <div class="d-flex flex-wrap justify-content-start">
             @foreach (var artist in this.Model.wizzartsTeam)
             {
-                <div class="home-meta-card">
-                    <div class="home-meta-card-headline lazy" style="background-image: url(@artist.AvatarUrl);background-repeat:no-repeat;background-position:left;background-size:90px;text-align:right;padding:5px;height:80px;">
+
+                <a asp-controller="Wizzarts" asp-action="ById" asp-route-id="@artist.UserId" class="home-meta-card">
+                    <div  class="home-meta-card-headline lazy" style="background-image: url(@artist.AvatarUrl);background-repeat:no-repeat;background-position:left;background-size:90px;text-align:right;padding:5px;height:80px;">
                         @artist.Nickname
                     </div>
-                    <ul>
-                        <li><a asp-controller="Art" asp-action="ByUserId" asp-route-id="@artist.Id">Art</a></li>
-                    </ul>
-                </div>
+                </a>
+
+                <hr />
+                <hr />
             }
 
         </div>

@@ -1,18 +1,14 @@
-﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-using Wizzarts.Services.Mapping;
-using Wizzarts.Web.ViewModels.Art;
-using Wizzarts.Web.ViewModels.Home;
-using Wizzarts.Web.ViewModels.PlayCard;
-using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
-
-namespace Wizzarts.Web.ViewModels.Deck
+﻿namespace Wizzarts.Web.ViewModels.Deck
 {
+    using System.Collections.Generic;
+
+    using AutoMapper;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels.Home;
+    using Wizzarts.Web.ViewModels.PlayCard;
+    using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
+
     public class SingleDeckViewModel : IndexAuthenticationViewModel, IMapFrom<CardDeck>, IHaveCustomMappings
     {
         public int Id { get; set; }
@@ -37,12 +33,6 @@ namespace Wizzarts.Web.ViewModels.Deck
 
         public string SearchEvent { get; set; }
 
-        public IEnumerable<DeckInListViewModel> Decks { get; set; }
-
-        public IEnumerable<CardInListViewModel> CardsInDeck { get; set; }
-
-        public IEnumerable<DeckStatusListViewModel> DeckStatuses { get; set; }
-
         public IEnumerable<CardTypeViewModel> SelectType { get; set; } = new List<CardTypeViewModel>();
 
         public void CreateMappings(IProfileExpression configuration)
@@ -50,7 +40,7 @@ namespace Wizzarts.Web.ViewModels.Deck
             configuration.CreateMap<CardDeck, SingleDeckViewModel>()
                 .ForMember(x => x.IsLocked, opt =>
                     opt.MapFrom(x =>
-                       x.IsLocked ? "Locked" : "Open"))
+                       x.IsLocked ? "Unlock" : "Lock"))
                 .ForMember(x => x.DeliveryLocation, opt =>
                     opt.MapFrom(x =>
                        x.Store.Name.ToString()))

@@ -14,16 +14,17 @@
         <div class="row">
             <div class="col-sm-12 col-md-12 pl-0 pr-0">
                 <h1 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Welcome to @GlobalConstants.SystemName!</h1>
-                <div class="mb-2 firstfeed-flexbox ff-display">
-                    <div class="card">
-                        @if (this.SignInManager.IsSignedIn(this.User))
-                        {
+                @if (this.SignInManager.IsSignedIn(this.User))
+                {
+                    <div class="mb-2 firstfeed-flexbox ff-display">
+                        <div class="card">
+
 
                             <div class="ae-border-bottom-light text-gold pl-2">
                                 <b> The artist's path account progress</b>
                             </div>
                             <div class="card-body p-2">
-                                <a  class="text-decoration-none"><i class="ss ss-pmtg1"></i>Member to Artist : @Model.CountOfArts/@MembershipConstants.MemberToArtistRequiredArts</a><br>
+                                <a class="text-decoration-none"><i class="ss ss-pmtg1"></i>Member to Artist : @Model.CountOfArts/@MembershipConstants.MemberToArtistRequiredArts</a><br>
                                 <a class="text-decoration-none"><i class="ss ss-pmtg1"></i>Artist to Content creator: @Model.CountOfArts/@MembershipConstants.ArtistToContentCreatorRequiredArts</a><br>
                                 <a class="text-decoration-none"><i class="ss ss-parl3"></i>Member to Content creator : @Model.CountOfArts/@MembershipConstants.MemberToContentCreatorRequiredArts</a><br>
                             </div>
@@ -35,52 +36,41 @@
                                 <a class="text-decoration-none"><i class="ss ss-parl3"></i>Event creator : @Model.CountOfEvents/@MembershipConstants.RequiredNumberEvents</a><br>
                                 <a class="text-decoration-none"><i class="ss ss-parl3"></i>Event cards : @Model.CountOfCards/@MembershipConstants.RequiredNumberEventCards</a><br>
                             </div>
-                        }
-                        else
-                        {
-                            <div class="card mb-2 pb-1 text-center ff-display">
-                                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">You are not signed in.</h4>
+                        </div>
+                        <div class="card">
+                            <div class="ae-border-bottom-light text-gold pl-2">
+                                <b>Notifications</b>
                             </div>
-                        }
-                    </div>
-                    <div class="card">
-                        <div class="ae-border-bottom-light text-gold pl-2">
-                            <b>Notifications</b>
-                        </div>
-                        <div class="card-body p-2">
-
-
-                                  <a asp-controller="User" asp-action="Mine" class="text-decoration-none"><i class="fas fa-eye"></i> My content</a>
-
+                            <div class="card-body p-2">
+                                <a asp-controller="User" asp-action="MyData" class="text-decoration-none"><i class="fas fa-eye"></i> My content</a>
                                 <br>
-
-
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="ae-border-bottom-light text-gold pl-2">
+                                <b>Database</b>
+                            </div>
+                            <div class="card-body p-2">
+                                <a asp-controller="Art" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Art</a><br>
+                                <a asp-controller="PlayCard" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game Cards</a><br>
+                                <a asp-controller="Wizzarts" asp-action="GetRules" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game rules</a><br>
+                                <a asp-controller="Deck" asp-action="All" class="text-decoration-none"><i class="ss ss-parl3"></i> Card Decks</a><br>
+                                <a asp-controller="Event" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i>Events</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="ae-border-bottom-light text-gold pl-2">
+                                <b>TOOLS</b>
+                            </div>
+                            <div class="card-body p-2">
+                                <a asp-controller="Card" asp-action="Create" class="text-decoration-none"><i class="fas fa-tools"></i> Create Card</a><br>
+                                <a asp-controller="Article" asp-action="Create" class="text-decoration-none"><i class="fas fa-trophy"></i> Create article</a><br>
+                                <a asp-controller="Art" asp-action="Create" class="text-decoration-none"><i class="fas fa-briefcase"></i> Add art</a><br>
+                                <a asp-controller="Event" asp-action="Create" class="text-decoration-none"><i class="ss ss-parl3"></i> Create event</a><br>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="ae-border-bottom-light text-gold pl-2">
-                            <b>Database</b>
-                        </div>
-                        <div class="card-body p-2">
-                            <a asp-controller="Art" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Art</a><br>
-                            <a asp-controller="PlayCard" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game Cards</a><br>
-                            <a asp-controller="Wizzarts" asp-action="GetRules" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game rules</a><br>
-                            <a asp-controller="Deck" asp-action="All" class="text-decoration-none"><i class="ss ss-parl3"></i> Card Decks</a><br>
-                            <a asp-controller="Event" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i>Events</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="ae-border-bottom-light text-gold pl-2">
-                            <b>TOOLS</b>
-                        </div>
-                        <div class="card-body p-2">
-                            <a asp-controller="Card" asp-action="Create" class="text-decoration-none"><i class="fas fa-tools"></i> Create Card</a><br>
-                            <a asp-controller="Article" asp-action="Create" class="text-decoration-none"><i class="fas fa-trophy"></i> Create article</a><br>
-                            <a asp-controller="Art" asp-action="Create" class="text-decoration-none"><i class="fas fa-briefcase"></i> Add art</a><br>
-                            <a asp-controller="Event" asp-action="Create" class="text-decoration-none"><i class="ss ss-parl3"></i> Create event</a><br>
-                        </div>
-                    </div>
-                </div>
+                }
                 <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Newest Articles</h4>
 
                 <div class="firstfeed-flexbox">
@@ -155,7 +145,7 @@
             </div>
             <div class="card-body p-2">
                 <p class="card-text">
-                    The MagicCardsmith database contains a full list of <a asp-controller="PlayCard" asp-action="All">all card sets</a> in MTG,ordered by  <a asp-controller="PlayCard" asp-action="Expansion">expansions</a> a card <a href="/Card">creation tool for all approved artists</a>
+                    The MagicCardsmith database contains a full list of <a asp-controller="PlayCard" asp-action="All">all card sets</a> in MTG,ordered by  <a asp-controller="Expansion" asp-action="All">expansions</a>, user created <a asp-controller="Deck" asp-action="All">card decks.</a>
                     @foreach (var gameExpansion in this.Model.GameExpansions)
                     {
 

@@ -1,25 +1,17 @@
 ﻿namespace Wizzarts.Services.Data
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore.Metadata.Internal;
-    using Wizzarts.Data;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.WizzartsMember;
 
-    using static Wizzarts.Common.MembershipConstants;
     using static Wizzarts.Common.GlobalConstants;
-    using Wizzarts.Data.Seeding;
-    using Wizzarts.Web.ViewModels.Store;
-    using Wizzarts.Common;
+    using static Wizzarts.Common.MembershipConstants;
 
     public class UserService : IUserService
     {
@@ -30,7 +22,7 @@
         private readonly IDeletableEntityRepository<Avatar> avatarRepository;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
-        private readonly IStoreService storeService;
+
         public UserService(
            IDeletableEntityRepository<Art> artRepository,
            IDeletableEntityRepository<Article> articleRepository,
@@ -38,8 +30,7 @@
            IDeletableEntityRepository<Event> eventRepository,
            IDeletableEntityRepository<Avatar> avatarRepository,
            UserManager<ApplicationUser> userManager,
-           IDeletableEntityRepository<ApplicationUser> userRepository,
-           IStoreService storeService)
+           IDeletableEntityRepository<ApplicationUser> userRepository)
         {
             this.artRepository = artRepository;
             this.articleRepository = articleRepository;
@@ -48,7 +39,6 @@
             this.avatarRepository = avatarRepository;
             this.userManager = userManager;
             this.userRepository = userRepository;
-            this.storeService = storeService;
         }
 
         public T GetById<T>(string id)
@@ -79,27 +69,27 @@
 
         public int GetCountOfArt(string id)
         {
-            var artCount = this.artRepository.AllAsNoTracking()
-              .Where(x => x.AddedByMemberId == id && x.ApprovedByAdmin == true)
-              .Count();
+            var artCount = this.artRepository
+                .AllAsNoTracking()
+                .Count(x => x.AddedByMemberId == id && x.ApprovedByAdmin == true);
 
             return artCount;
         }
 
         public int GetCountOfArticles(string id)
         {
-            var artCount = this.articleRepository.AllAsNoTracking()
-              .Where(x => x.ArticleCreatorId == id && x.ApprovedByAdmin == true)
-              .Count();
+            var artCount = this.articleRepository
+                .AllAsNoTracking()
+                .Count(x => x.ArticleCreatorId == id && x.ApprovedByAdmin == true);
 
             return artCount;
         }
 
         public int GetCountOfEvents(string id)
         {
-            var artCount = this.eventRepository.AllAsNoTracking()
-              .Where(x => x.EventCreatorId == id && x.ApprovedByAdmin == true)
-              .Count();
+            var artCount = this.eventRepository
+                .AllAsNoTracking()
+                .Count(x => x.EventCreatorId == id && x.ApprovedByAdmin == true);
 
             return artCount;
         }
@@ -138,18 +128,36 @@
 
             string message = " ";
 
+
+
+
             if (currentRole.Contains(StoreOwnerRoleName) && !currentRole.Contains(ContentCreatorRoleName))
             {
-                if(currentRole.Contains(ArtistRoleName))
+                if (currentRole.Contains(ArtistRoleName))
                 {
                     if (!currentRole.Contains(ContentCreatorRoleName))
                     {
                         await this.userManager.AddToRoleAsync(user, ContentCreatorRoleName);
+                        await this.userManager.RemoveFromRoleAsync(user, MemberRoleName);
                         message = "Congratulations you have acquired content creator role . Check your benefits in the membership section";
                     }
                 }
+                else if (countOfEvents >= RequiredNumberEvents)
+                {
+                    await this.userManager.AddToRoleAsync(user, ContentCreatorRoleName);
+                    await this.userManager.RemoveFromRoleAsync(user, MemberRoleName);
+                    message = "Congratulations you have acquired content creator role . Check your benefits in the membership section";
+                }
+                else if (countOfCards >= RequiredNumberEventCards && countOfArticles >= RequiredNumberArticles)
+                {
+                    await this.userManager.AddToRoleAsync(user, ContentCreatorRoleName);
+                    await this.userManager.RemoveFromRoleAsync(user, MemberRoleName);
+                    message = "Congratulations you have acquired content creator role . Check your benefits in the membership section";
+                }
+
             }
-           else if (currentRole.Contains(ArtistRoleName) && !currentRole.Contains(ContentCreatorRoleName))
+
+            if (currentRole.Contains(ArtistRoleName) && !currentRole.Contains(ContentCreatorRoleName))
             {
                 if (countOfArts >= ArtistToContentCreatorRequiredArts && !currentRole.Contains(ContentCreatorRoleName))
                 {
@@ -177,7 +185,8 @@
                        $" {eventsNeededArtist} event(s) created, {articlesNeededArtist} article(s) and {cardsNeededArtist} event card(s).";
                 }
             }
-           else if (currentRole.Contains(MemberRoleName) && !currentRole.Contains(ContentCreatorRoleName) && !currentRole.Contains(ArtistRoleName))
+
+            if (currentRole.Contains(MemberRoleName) && !currentRole.Contains(ContentCreatorRoleName) && !currentRole.Contains(ArtistRoleName))
             {
                 if (countOfArts >= MemberToArtistRequiredArts && !currentRole.Contains(ArtistRoleName))
                 {
@@ -211,9 +220,9 @@
 
         public int GetCountOfCards(string id)
         {
-            var cardsCount = this.playCardRepository.AllAsNoTracking()
-             .Where(x => x.AddedByMemberId == id && x.ApprovedByAdmin == true && x.IsEventCard == true)
-             .Count();
+            var cardsCount = this.playCardRepository
+                .AllAsNoTracking()
+                .Count(x => x.AddedByMemberId == id && x.ApprovedByAdmin == true && x.IsEventCard == true);
 
             return cardsCount;
         }

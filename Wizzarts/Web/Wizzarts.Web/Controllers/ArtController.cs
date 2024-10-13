@@ -45,7 +45,11 @@
 
         public IActionResult Add()
         {
-            return this.View();
+            var viewModel = new AddArtViewModel
+            {
+                Events = this.eventService.GetAll<EventInListViewModel>(),
+            };
+            return this.View(viewModel);
         }
 
         [HttpPost]
@@ -74,7 +78,7 @@
             this.TempData["Message"] = "Art added successfully.";
 
             // TODO: Redirect to article info page
-            return this.RedirectToAction("User", "MyData");
+            return this.RedirectToAction("MyData", "User");
         }
 
         [HttpGet]
@@ -126,7 +130,7 @@
             const int ItemsPerPage = 10;
             var viewModel = new ArtListViewModel
             {
-                Art = this.artService.GetRandom<ArtInListViewModel>(20),
+                Arts = this.artService.GetRandom<ArtInListViewModel>(20),
                 Articles = this.articlesService.GetRandom<ArticleInListViewModel>(3),
                 Events = this.eventService.GetAll<EventInListViewModel>(),
                 Cards = this.playCardService.GetRandom<CardInListViewModel>(3),
@@ -140,7 +144,7 @@
             var userId = this.wizzartsServices.GetUserIdByArtistId(id);
             var viewModel = new ArtListViewModel
             {
-                Art = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(userId),
+                Arts = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(userId),
             };
 
             return this.View(viewModel);
@@ -153,7 +157,8 @@
             //{
             //    return this.BadRequest(information);
             //}
-
+            art.Events = this.eventService.GetAll<EventInListViewModel>();
+            art.Articles = this.articlesService.GetRandom<ArticleInListViewModel>(3);
             return this.View(art);
         }
 
@@ -187,7 +192,7 @@
 
             await this.artService.DeleteAsync(id);
 
-            return this.RedirectToAction("User", "MyData");
+            return this.RedirectToAction("MyData", "User");
         }
     }
 }

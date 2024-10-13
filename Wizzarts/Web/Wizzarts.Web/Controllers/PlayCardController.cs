@@ -4,6 +4,7 @@ using Wizzarts.Data.Models;
 namespace Wizzarts.Web.Controllers
 {
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
@@ -17,6 +18,7 @@ namespace Wizzarts.Web.Controllers
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Art;
+    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.CardComments;
     using Wizzarts.Web.ViewModels.CardGameExpansion;
     using Wizzarts.Web.ViewModels.Event;
@@ -34,6 +36,7 @@ namespace Wizzarts.Web.Controllers
         private readonly IPlayCardComponentsService playCardComponentsService;
         private readonly IPlayCardExpansionService playCardExpansionService;
         private readonly IEventService eventService;
+        private readonly IArticleService articleService;
         private readonly IArtService artService;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IWebHostEnvironment environment;
@@ -47,6 +50,7 @@ namespace Wizzarts.Web.Controllers
             IPlayCardComponentsService playCardComponentsService,
             IPlayCardExpansionService playCardExpansionService,
             IEventService eventService,
+            IArticleService articleService,
             IArtService artService,
             UserManager<ApplicationUser> userManager,
             IWebHostEnvironment environment,
@@ -58,6 +62,7 @@ namespace Wizzarts.Web.Controllers
             this.playCardComponentsService = playCardComponentsService;
             this.playCardExpansionService = playCardExpansionService;
             this.eventService = eventService;
+            this.articleService = articleService;
             this.artService = artService;
             this.userManager = userManager;
             this.environment = environment;
@@ -66,7 +71,7 @@ namespace Wizzarts.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Create(int id)
+        public IActionResult Add(int id)
         {
             var viewModel = new CreateCardViewModel();
             viewModel.RedMana = this.playCardComponentsService.GetAllRedMana();
@@ -79,8 +84,83 @@ namespace Wizzarts.Web.Controllers
             viewModel.SelectFrameColor = this.playCardComponentsService.GetAllCardFrames();
             viewModel.SelectExpansion = this.playCardComponentsService.GetAllExpansionInListView();
 
+            //var user = await this.userManager.GetUserAsync(this.User);
+
+            viewModel.ArtByUserId = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(CreateCardViewModel input, int id, string canvasCapture)
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+            bool isEventCard = false;
+
+            this.ModelState.Remove("UserName");
+            this.ModelState.Remove("Password");
+
+            var art = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
+
+            if(art.Any(x => x.Id == input.ArtId))
+            {
+                this.ModelState.AddModelError(nameof(input.ArtId), "Play card with this Art already exist");
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                input.RedMana = this.playCardComponentsService.GetAllRedMana();
+                input.BlueMana = this.playCardComponentsService.GetAllBlueMana();
+                input.BlackMana = this.playCardComponentsService.GetAllBlackMana();
+                input.GreenMana = this.playCardComponentsService.GetAllGreenMana();
+                input.WhiteMana = this.playCardComponentsService.GetAllWhiteMana();
+                input.ColorlessMana = this.playCardComponentsService.GetAllColorlessMana();
+                input.SelectType = this.playCardComponentsService.GetAllCardType();
+                input.SelectFrameColor = this.playCardComponentsService.GetAllCardFrames();
+                input.SelectExpansion = this.playCardComponentsService.GetAllExpansionInListView();
+
+                input.ArtByUserId = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(user.Id);
+
+                return this.View(input);
+            }
+
+            if (!this.artService.IsBase64String(canvasCapture))
+            {
+                throw new Exception($"Invalid Base64String {canvasCapture}");
+            }
+
+            try
+            {
+                await this.cardService.AddAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images", isEventCard, canvasCapture);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+                return this.View(input);
+            }
+
+            this.TempData["Message"] = "Card added successfully.";
+            return this.RedirectToAction("Add", "PlayCard");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Create(int id)
+        {
             var eventComponent = this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
             var currentEvent = this.eventService.GetById<EventInListViewModel>(eventComponent.EventId);
+
+            var viewModel = new CreateCardViewModel();
+            viewModel.RedMana = this.playCardComponentsService.GetAllRedMana();
+            viewModel.BlueMana = this.playCardComponentsService.GetAllBlueMana();
+            viewModel.BlackMana = this.playCardComponentsService.GetAllBlackMana();
+            viewModel.GreenMana = this.playCardComponentsService.GetAllGreenMana();
+            viewModel.WhiteMana = this.playCardComponentsService.GetAllWhiteMana();
+            viewModel.ColorlessMana = this.playCardComponentsService.GetAllColorlessMana();
+            viewModel.SelectType = this.playCardComponentsService.GetAllCardType();
+            viewModel.SelectFrameColor = this.playCardComponentsService.GetAllCardFrames();
+            viewModel.SelectExpansion = this.playCardComponentsService.GetAllExpansionInListView();
+
+         
             //var user = await this.userManager.GetUserAsync(this.User);
 
             viewModel.ArtByUserId = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
@@ -178,6 +258,8 @@ namespace Wizzarts.Web.Controllers
                 PageNumber = id,
                 Count = this.cardService.GetCount(),
                 Cards = this.cardService.GetRandom<CardInListViewModel>(20),
+                Events = this.eventService.GetAll<EventInListViewModel>(),
+                Articles = this.articleService.GetRandom<ArticleInListViewModel>(4),
             };
 
             return this.View(viewModel);
@@ -213,18 +295,9 @@ namespace Wizzarts.Web.Controllers
             }
             var commentsByAdmin = this.commentService.GetAllAttackCommentsByAdmin<CardCommentInListViewModel>(id);
             card.CommentsByAdmin = commentsByAdmin;
+            card.Events = this.eventService.GetAll<EventInListViewModel>();
+            card.Articles = this.articleService.GetRandom<ArticleInListViewModel>(4);
             return this.View(card);
-        }
-
-        [AllowAnonymous]
-        public IActionResult Expansion()
-        {
-            var viewModel = new ExpansionListViewModel
-            {
-                CardGameExpansions = this.playCardExpansionService.GetAll<ExpansionInListViewModel>(),
-            };
-
-            return this.View(viewModel);
         }
 
         [HttpPost]

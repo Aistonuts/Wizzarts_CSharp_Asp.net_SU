@@ -13,7 +13,7 @@
                     <div id="creatorCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
                         <div class="carousel-inner">
 
-                            @for (var i = 0; i < this.Model.Art.Where(x => x.ApprovedByAdmin == true).Count(); i++)
+                            @for (var i = 0; i < this.Model.Arts.Where(x => x.ApprovedByAdmin == true).Count(); i++)
                             {
                                 if (i == 0)
                                 {
@@ -22,8 +22,8 @@
 
                                             <div class="video-card card border-0">
                                                 <div class="yt-img">
-                                                    <a asp-controller="Art" asp-action="ById" asp-route-id="@this.Model.Art.ToList()[i].Id">
-                                                        <img src="@this.Model.Art.ToList()[i].ImageUrl" alt="@this.Model.Art.ToList()[i].Title" class="lazy" alt="video" style="">
+                                                    <a asp-controller="Art" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].Id">
+                                                        <img src="@this.Model.Arts.ToList()[i].ImageUrl" alt="@this.Model.Arts.ToList()[i].Title" class="lazy" alt="video" style="">
 
                                                     </a>
                                                 </div>
@@ -43,8 +43,8 @@
 
                                             <div class="video-card card border-0">
                                                 <div class="yt-img">
-                                                    <a asp-controller="Art" asp-action="ById" asp-route-id="@this.Model.Art.ToList()[i].Id">
-                                                        <img src="@this.Model.Art.ToList()[i].ImageUrl" alt="@this.Model.Art.ToList()[i].Title" class="lazy" alt="video" style="">
+                                                    <a asp-controller="Art" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].Id">
+                                                        <img src="@this.Model.Arts.ToList()[i].ImageUrl" alt="@this.Model.Arts.ToList()[i].Title" class="lazy" alt="video" style="">
                                                     </a>
                                                 </div>
                                                 <div class="card-body p-0">

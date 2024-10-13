@@ -20,7 +20,7 @@
         {
             var expansions = this.cardGameExpansionRepository.AllAsNoTracking()
                  .OrderBy(x => x.Id)
-                 .Where(x => x.Cards.Count() > 0)
+                 .Where(x => x.Cards.Any())
                  .To<T>().ToList();
 
             return expansions;

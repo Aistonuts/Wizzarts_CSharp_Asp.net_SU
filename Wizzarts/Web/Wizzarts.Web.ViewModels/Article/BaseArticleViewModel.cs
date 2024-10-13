@@ -6,6 +6,8 @@
 
     using static Wizzarts.Common.DataConstants;
 
+    using static Wizzarts.Common.MessageConstants;
+
     public class BaseArticleViewModel : IndexAuthenticationViewModel
     {
         [Required(ErrorMessage = "Article title is required!")]

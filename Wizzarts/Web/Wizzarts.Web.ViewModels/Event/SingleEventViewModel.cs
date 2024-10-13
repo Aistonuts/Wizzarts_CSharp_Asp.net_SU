@@ -22,11 +22,6 @@
 
         public string ImageUrl { get; set; }
 
-        public IEnumerable<CardInListViewModel> Cards { get; set; }
-
-
-        public IEnumerable<EventComponentsInListViewModel> EventComponents { get; set; }
-
         public IEnumerable<CardInListViewModel> CardsFromEvent { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)

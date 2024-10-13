@@ -106,7 +106,7 @@ p.card-text a {
   transition: all 0.4s ease-in-out;
 }
 .video-card {
-  width: 100%;
+  width: 40%;
 }
 .progress .progress-bar {
   animation-name: animateBar;

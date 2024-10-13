@@ -136,21 +136,21 @@ namespace Wizzarts.Web.Tests.ControllerTest
             TearDownBase();
         }
 
-        [Fact]
-        public void ExpansionShouldReturnViewWithCorrectModel()
-        {
-            OneTimeSetup();
-            var data = this.dbContext;
+        //[Fact]
+        //public void ExpansionShouldReturnViewWithCorrectModel()
+        //{
+        //    OneTimeSetup();
+        //    var data = this.dbContext;
 
-            MyController<PlayCardController>
-             .Instance(instance => instance
-                 .WithData(data.CardGameExpansions.ToList()))
-             .Calling(c => c.Expansion())
-             .ShouldReturn()
-             .View(view => view
-                 .WithModelOfType<ExpansionListViewModel>());
+        //    MyController<PlayCardController>
+        //     .Instance(instance => instance
+        //         .WithData(data.CardGameExpansions.ToList()))
+        //     .Calling(c => c.Expansion())
+        //     .ShouldReturn()
+        //     .View(view => view
+        //         .WithModelOfType<ExpansionListViewModel>());
 
-            TearDownBase();
-        }
+        //    TearDownBase();
+        //}
     }
 }

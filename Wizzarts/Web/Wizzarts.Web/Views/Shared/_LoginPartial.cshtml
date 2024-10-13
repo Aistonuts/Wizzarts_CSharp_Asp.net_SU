@@ -12,12 +12,12 @@
         <hr class="m-0">
         @if (this.User.IsInRole(GlobalConstants.ContentCreatorRoleName) || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
         {
-            <a class="dropdown-item" asp-area="" asp-controller="Card" asp-action="PremiumCreate"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
+            <a class="dropdown-item" asp-area="" asp-controller="PlayCard" asp-action="Add"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
 
         }
         @if (this.User.IsInRole(GlobalConstants.ContentCreatorRoleName) || this.User.IsInRole(GlobalConstants.StoreOwnerRoleName))
         {
-            <a class="dropdown-item" asp-area="" asp-controller="Event" asp-action="All"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Event</b></a>
+            <a class="dropdown-item" asp-area="" asp-controller="Event" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Event</b></a>
         }
         <a class="dropdown-item" asp-area="" asp-controller="Article" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Article</b></a>
 

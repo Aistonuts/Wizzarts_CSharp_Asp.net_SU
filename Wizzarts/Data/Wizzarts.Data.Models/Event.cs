@@ -14,6 +14,7 @@
         public Event()
         {
             this.EventComponents = new HashSet<EventComponent>();
+            this.Participants = new HashSet<ApplicationUser>();
         }
 
         [Required]
@@ -27,6 +28,7 @@
         public string EventDescription { get; set; } = string.Empty;
 
         [Required]
+        [MaxLength(RemoteImageUrlMaxLength)]
         [Comment("Event image url")]
         public string RemoteImageUrl { get; set; } = string.Empty;
 
@@ -38,6 +40,8 @@
 
         [Comment("Is event approved by admin.")]
         public bool ApprovedByAdmin { get; set; }
+
+        public bool IsContentCreator { get; set; }
 
         [Required]
         [Comment("Event creator")]

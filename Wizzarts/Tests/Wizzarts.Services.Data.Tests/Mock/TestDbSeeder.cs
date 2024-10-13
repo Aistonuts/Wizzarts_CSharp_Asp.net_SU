@@ -22,9 +22,10 @@
             }
             var seeders = new List<ITestDbSeeder>
                           {
-
+                              //new RoleSeederTest(),
                               new UserTestSeeder(),
                               new WizzartsCardGameSeeder(),
+                              //new WizzartsTeamRoleSeederTest(),
                               new CardGameExpansionSeeder(),
                               new WizzartsTeamSeeder(),
                               new CardBlueManaSeeder(),

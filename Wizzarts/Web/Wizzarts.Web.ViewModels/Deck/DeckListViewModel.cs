@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Web.ViewModels.Home;
-
-namespace Wizzarts.Web.ViewModels.Deck
+﻿namespace Wizzarts.Web.ViewModels.Deck
 {
+    using System.Collections.Generic;
+
+    using Wizzarts.Web.ViewModels.Home;
+
     public class DeckListViewModel : IndexAuthenticationViewModel
     {
         public IEnumerable<DeckInListViewModel> Decks { get; set; }

@@ -1,6 +1,9 @@
 ﻿namespace Wizzarts.Services.Data.Tests
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Caching.Memory;
+    using Microsoft.Extensions.DependencyInjection;
     using Wizzarts.Data;
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;
@@ -17,6 +20,7 @@
         public IPlayCardExpansionService cardExpansionService;
         public IChatService chatService;
 
+        
         public void OneTimeSetup()
         {
             this.dbContext = DatabaseMock.MockDatabase();

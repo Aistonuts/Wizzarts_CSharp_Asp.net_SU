@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-using Wizzarts.Services.Mapping;
-
-namespace Wizzarts.Web.ViewModels.Deck
+﻿namespace Wizzarts.Web.ViewModels.Deck
 {
+    using Wizzarts.Data.Models;
+    using Wizzarts.Services.Mapping;
+
     public class DeckInListViewModel : IMapFrom<CardDeck>
     {
         public int Id { get; set; }

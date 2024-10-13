@@ -9,7 +9,7 @@ using Wizzarts.Web.ViewModels.Article;
 using Wizzarts.Web.ViewModels.PlayCard;
 using Wizzarts.Web.ViewModels.Store;
 using Xunit;
-
+using static Wizzarts.Common.GlobalConstants;
 namespace Wizzarts.Web.Tests.ControllerTest
 {
     public class StoreControllerTest : UnitTestBase
@@ -28,31 +28,64 @@ namespace Wizzarts.Web.Tests.ControllerTest
 
         [Fact]
         public void CreatePostShouldHaveRestrictionsForHttpPostOnlyAndAuthorizedUsers()
-          => MyController<StoreController>
-              .Calling(c => c.Create(With.Empty<CreateStoreViewModel>()))
-              .ShouldHave()
-              .ActionAttributes(attrs => attrs
-                  .RestrictingForHttpMethod(HttpMethod.Post));
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            MyController<StoreController>
+                .Instance(instance => instance
+                    .WithData(data.Users.FirstOrDefault(x => x.Id == "2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
+                    .WithUser(X => X.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").WithRoleType(AdministratorRoleName)))
+                .Calling(c => c.Create(With.Empty<CreateStoreViewModel>()))
+                .ShouldHave()
+                .ActionAttributes(attrs => attrs
+                    .RestrictingForHttpMethod(HttpMethod.Post));
+            TearDownBase();
+        }
 
         [Fact]
         public void CreatePostShouldReturnViewWithSameModelWhenInvalidModelState()
-            => MyController<StoreController>
-                .Calling(c => c.Create(With.Default<CreateStoreViewModel>()))
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 1, bytes.Length, "Data", "dummy.jpg");
+
+            MyController<StoreController>
+                .Instance(instance => instance
+                    .WithData(data.Users)
+                    .WithData(data.Roles)
+                    .WithUser(X => X.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").WithRoleType(StoreOwnerRoleName)))
+                .Calling(c => c.Create(new CreateStoreViewModel
+                {
+                    StoreName = "test",
+                    StoreOwnerId = "testtesttest",
+                    StoreAddress = "testtesttesttest",
+                    StoreCity = "testtesttesttest",
+                    StoreCountry = "testtesttesttest",
+                    StorePhoneNumber = "00000100000",
+                    StoreImage = file,
+                }))
                 .ShouldHave()
                 .InvalidModelState()
                 .AndAlso()
                 .ShouldReturn()
                 .View(With.Default<CreateStoreViewModel>());
+            TearDownBase();
+        }
 
         [Fact]
         public void CreatePostShouldSaveArticleSetTempDataMessageAndRedirectWhenValidModel()
         {
+            OneTimeSetup();
+            var data = this.dbContext;
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 1, bytes.Length, "Data", "dummy.jpg");
 
             MyController<StoreController>
-                .Instance()
-                .WithUser()
+                .Instance(instance => instance
+                    .WithData(data.Users)
+                    .WithUser(x => x.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695").WithRoleType(StoreOwnerRoleName))
+                    )
                .Calling(c => c.Create(new CreateStoreViewModel
                {
                    StoreName = "test",
@@ -73,6 +106,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                .ShouldReturn()
                .Redirect(redirect => redirect
                    .To<StoreController>(c => c.All(With.No<int>())));
+            TearDownBase();
         }
 
         [Fact]

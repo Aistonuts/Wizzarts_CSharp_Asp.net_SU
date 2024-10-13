@@ -5,6 +5,5 @@
 
     public class CardListViewModel : IndexAuthenticationViewModel
     {
-        public IEnumerable<CardInListViewModel> Cards { get; set; }
     }
 }

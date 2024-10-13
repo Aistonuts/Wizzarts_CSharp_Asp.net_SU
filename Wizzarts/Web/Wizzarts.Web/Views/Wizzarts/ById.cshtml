@@ -4,7 +4,7 @@
     <div class="row pt-2">
         <div class="col-md-12 col-lg-9 pr-0 pl-0 pr-lg-2">
             <div class="card">
-                <div class="card-header bg-light pt-0">
+              @*   <div class="card-header bg-light pt-0">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
                             <a href="/User/ChrisCee/" class="nav-link active">
@@ -27,55 +27,88 @@
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div> *@
                 <div class="card-body d-flex flex-column pr-0 pl-0 pb-0">
-                    <div class="my-4">
-                        <div id="zone15-728x90" class="mx-auto" data-request-id="018c4369-0808-7000-905d-552f12f45d49" data-bidder="house" data-creative-id="237" style="min-height: 90px; text-align: center; font-size: 0px;"><iframe width="728px" height="90px" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" title="advertisement" style="width: 728px; border: none; margin: 0px auto; display: block;"></iframe><img src="https://tracker.nitropay.com/pixel.png?s=207&amp;wb=eyJhZFVuaXRDb2RlIjoiem9uZTE1LTcyOHg5MCIsImJpZGRlciI6ImhvdXNlIiwiaGVpZ2h0Ijo5MCwid2lkdGgiOjcyOCwiY3BtIjowLCJjcmVhdGl2ZUlkIjoiMjM3IiwiaHJlZiI6Imh0dHBzOi8vYWV0aGVyaHViLmNvbS9Vc2VyL0NocmlzQ2VlLyIsImFjY2VwdGFibGUiOmZhbHNlLCJyZXF1ZXN0SWQiOiIwMThjNDM2OS0wODA4LTcwMDAtOTA1ZC01NTJmMTJmNDVkNDkiLCJ0aW1lVG9SZXNwb25kIjoxNzUsImMiOiJCRyIsInIiOiIyMiIsInR5cGUiOjAsImR1cmF0aW9uIjowLCJyZWZyZXNoIjp0cnVlLCJ0aW1lc3RhbXAiOjE3MDE5MzgwMDY2NDh9&amp;t=0&amp;r=1&amp;p=1" style="display: none;"></div>
-                    </div>
-                    <div class="card mb-2 border-0">
-                        <div class="w-100 d-flex justify-content-start">
-                            <div class="d-none d-md-block">
-                                <a href="/Article/Timeless-is-the-Newest-Format-for-MTG-Arena">
-                                    <div class="article-imgheader-feed uimg" style="background-image: url('https://aetherhub.b-cdn.net/articles/10794_dig-through-time.jpg');">
+                    @if (!Model.Articles.Any() && !Model.Arts.Any() & !Model.Events.Any())
+                    {
+                        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">User is not active</h4>
+                    }
+                    @if(Model.Articles.Any())
+                    {
+                        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Articles</h4>
+                        <div class="firstfeed-flexbox">
+                            @foreach (var article in this.Model.Articles)
+                            {
+                                <div class="article-card card border-0">
+                                    <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" aria-label="article" class="image-wrapper">
+                                        <img src="@article.ImageUrl" class="article-uimgheader lazy" alt="@article.Title">
+                                    </a>
+                                    <div class="card-body pt-0">
+                                        <small class="yellow-line">
+                                            <a href=""><i class="far fa-star"></i>@article.ArticleCreatorName</a>
+                                            <span>@article.CreatedOn</span>
+                                        </small>
+                                        <div class="ff-display font-size-18">
+                                            <b><a href="">@article.Title</a></b>
+                                        </div>
+                                        <div class="card-text d-none d-md-flex m-1">@article.ShortDescription</div>
                                     </div>
-                                </a>
-                            </div>
-                            <div class="w-100 pl-2">
-                                <h5><b><a href="/Article/Timeless-is-the-Newest-Format-for-MTG-Arena">Timeless is the Newest Format for MTG Arena</a></b></h5>
-                                <h5 class="card-subtitle text-muted">
-                                    MTGA&nbsp;News&nbsp;
-                                </h5>
-                                <p class="card-text">
-                                    This Vintage-lite format looks like the ultimate, free-for-all, build-it-all format for MTG Arena.
-                                    <br>
-                                    <small class="text-muted">1 day ago</small>
-                                </p>
-                            </div>
-                            <div class="mr-2">
-                                <small class="text-muted text-nowrap">Article</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card mb-2 border-0">
-                        <div class="d-flex flex-row">
-                            <div class="w-100 pl-2">
-                                <h5 class="card-title"><a href="/Deck/lcc-veloci-ramp-tor-deck-other-cards"><b>LCC Veloci-RAMP-Tor Deck Full List</b></a></h5>
-                                <div class="w-100 d-flex justify-content-start pb-1">
-                                    <div class="ae-color-replace" data-colors="18|0|0|19|52|0"><i class="ms ms-w ms-cost ms-shadow mr-1 ml-1"></i><i class="ms ms-r ms-cost ms-shadow mr-1 ml-1"></i><i class="ms ms-g ms-cost ms-shadow mr-1 ml-1"></i></div>
-                                    <div class="ae-tag-replace ml-1 pt-1" data-tags=""></div>
                                 </div>
-                                Commander
-                                <br>
-                                <small class="text-muted">1 month ago</small>
-                            </div>
-                            <div class="mr-2">
-                                <small class="text-muted text-nowrap">
-                                    <text>Deck</text>
-                                </small>
-                            </div>
+                            }
                         </div>
-                    </div>
+                        <hr />
+                    }
+                    @if (Model.Arts.Any())
+                    {
+                        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Art</h4>
+                        <div class="firstfeed-flexbox">
+                            @foreach (var art in this.Model.Arts)
+                            {
+                                <div class="article-card card border-0">
+                                    <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" class="image-wrapper">
+                                        <img width="600" height="300" class="article-uimgheader lazy" src="@art.ImageUrl" alt="@art.Title" style="">
+
+                                    </a>
+
+                                    <div class="item-footer">
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+                        <hr />
+                    }
+                    @if (Model.Events.Any())
+                    {
+                        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Events</h4>
+                        <div class="firstfeed-flexbox">
+                            @foreach (var eventNow in this.Model.Events)
+                            {
+
+                                <div class="article-card card border-0">
+                                    <a asp-controller="Event" asp-action="My" asp-route-id="@eventNow.Id" class="image-wrapper">
+                                        <img src="@eventNow.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@eventNow.Title">
+                                    </a>
+                                    <div class="w-100 text-center text-white article-text-tags">
+                                        <span>Discussion</span>
+                                        <span>News</span>
+                                    </div>
+
+                                    <div class="card-body pt-0">
+                                        <small class="yellow-line">
+                                            <a href=""><i class="far fa-star"></i></a>
+                                            <span>@eventNow.CreatedOn</span>
+                                        </small>
+                                        <div class="ff-display font-size-18">
+                                            <b><a href="">@eventNow.Title</a></b>
+                                        </div>
+                                        <div class="card-text d-none d-md-flex m-1">@eventNow.EventDescription</div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                   
                 </div>
             </div>
         </div>
@@ -83,16 +116,14 @@
             <div class="card mb-2">
                 <div class="ae-border-bottom-light pt-1 pb-1 text-center">
                     <b>
-                        <a href="/Premium/" class="text-dark"><i class="far fa-star" title="Content Creator"></i></a>
-                        <a href="/Premium/" class="text-dark"><i class="fas fa-star" title="Premium User"></i></a>
-                        ChrisCee
+                        @Model.UserName
                     </b>
                 </div>
                 <div class="card-body pt-1 pb-1">
                     <div class="d-flex justify-content-center">
                         <div>
                             <div class="ae-profile-image-container">
-                                <img src="https://gravatar.com/avatar/ffec5fa40af1284051b913ff0c293c82.jpg" width="80" height="80" class="rounded-circle" alt="ChrisCee">
+                                <img src="@Model.AvatarUrl" width="80" height="80" class="rounded-circle" alt="ChrisCee">
                             </div>
                         </div>
                         <div class="w-100">
@@ -105,22 +136,6 @@
                     </div>
                     <p>A witness since the time the benevolent silver planeswalker first left Dominaria, ChrisCee has since went back and forth on a number of plane-shattering incidents to oversee the current state of the Multiverse.</p>
                     <p><em>"Target bird is no longer available. Please leave a message after the last bounce."</em></p>
-                </div>
-                <div class="card-footer p-0 d-flex mt-2">
-                    <div class="w-100 d-flex justify-content-around text-center">
-                        <div>
-                            <span class="d-block text-muted small">Followers</span>
-                            <span class="font-weight-bold">2</span>
-                        </div>
-                        <div>
-                            <span class="d-block text-muted small">Following</span>
-                            <span class="font-weight-bold">0</span>
-                        </div>
-                        <div>
-                            <span class="d-block text-muted small">Level</span>
-                            <div class="font-weight-bold ae-levelCalc" data-myexp="578"><a href="#levelDescriptionModal" data-toggle="modal" title="Aether Peasant - next lvl 103 / 295xp">3</a></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

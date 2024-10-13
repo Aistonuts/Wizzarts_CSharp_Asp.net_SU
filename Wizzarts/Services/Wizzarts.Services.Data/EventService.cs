@@ -28,14 +28,15 @@
             this.eventComponentsRepository = eventComponentsRepository;
         }
 
-        public async Task CreateAsync(CreateEventViewModel input, string userId, string imagePath)
+        public async Task CreateAsync(CreateEventViewModel input, string userId, string imagePath, bool isContentCreator)
         {
             var newEvent = new Event
             {
                 Title = input.Title,
                 EventDescription = input.EventDescription,
                 EventCreatorId = userId,
-                EventStatusId = input.EventStatusId,
+                EventStatusId = 1,
+                IsContentCreator = isContentCreator,
             };
             Directory.CreateDirectory($"{imagePath}/event/UserEvent/");
             var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
@@ -44,8 +45,8 @@
                 throw new Exception($"Invalid image extension {extension}");
             }
 
-            var physicalPath = $"{imagePath}/event/UserEvent/{newEvent.Id}.{extension}";
-            newEvent.RemoteImageUrl = $"/images/event/UserEvent/{newEvent.Id}.{extension}";
+            var physicalPath = $"{imagePath}/event/UserEvent/{newEvent.Title}.{extension}";
+            newEvent.RemoteImageUrl = $"/images/event/UserEvent/{newEvent.Title}.{extension}";
             using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.Image.CopyToAsync(fileStream);
             await this.eventRepository.AddAsync(newEvent);
@@ -148,5 +149,38 @@
             }
         }
 
+        public async Task AddComponentAsync(MyEventSettingsViewModel input, string userId, string imagePath)
+        {
+            var component = new EventComponent
+            {
+                Title = input.ComponentTitle,
+                Description = input.ComponentDescription,
+                EventId = input.EventId,
+                RequireArtInput = false,
+            };
+            if (input.Image != null)
+            {
+                component.RequireArtInput = true;
+            }
+
+            Directory.CreateDirectory($"{imagePath}/event/UserEvent/Components");
+            var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
+            if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
+            {
+                throw new Exception($"Invalid image extension {extension}");
+            }
+
+            var physicalPath = $"{imagePath}/event/UserEvent/Components/{component.Title}.{extension}";
+            component.ImageUrl = $"/images/event/UserEvent/Components/{component.Title}.{extension}";
+            await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            await input.Image.CopyToAsync(fileStream);
+            await this.eventComponentsRepository.AddAsync(component);
+            await this.eventComponentsRepository.SaveChangesAsync();
+        }
+
+        public Task DeleteComponentAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

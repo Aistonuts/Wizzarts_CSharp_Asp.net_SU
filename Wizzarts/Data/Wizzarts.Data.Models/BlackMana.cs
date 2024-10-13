@@ -12,10 +12,10 @@
             this.Cards = new HashSet<PlayCard>();
         }
 
-        [Comment("Play Card Total Cost")]
+        [Comment("Play Card Total Cost.Seeded")]
         public int Cost { get; set; }
 
-        [Comment("Play Card Mana Color Name")]
+        [Comment("Play Card Mana Color Name.Seeded")]
         public string ColorName { get; set; } = string.Empty;
 
         [Comment("Play Card Remote URL. Seeded.")]

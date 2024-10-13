@@ -24,17 +24,17 @@
             });
             await dbContext.CardGameExpansions.AddAsync(new CardGameExpansion
             {
-                Title = "Nameless",
-                Description = "The expansion where the name of card and its abilities were added during the Nameless Cards Event",
+                Title = "Second",
+                Description = "This is the pre-beta deck where our community helped us prepare for the beta release.",
                 CardsCount = "13",
-                ExpansionSymbolUrl = "/images/symbols/expansions/Beta.png",
+                ExpansionSymbolUrl = "/images/symbols/expansions/Second.png",
             });
             await dbContext.CardGameExpansions.AddAsync(new CardGameExpansion
             {
-                Title = "Faceless",
-                Description = "The expansion where the name of card and its abilities were added during the Faceless Cards Event",
+                Title = "Beta",
+                Description = "Core game",
                 CardsCount = "31",
-                ExpansionSymbolUrl = "/images/symbols/expansions/Unlimited.png",
+                ExpansionSymbolUrl = "/images/symbols/expansions/Beta.png",
             });
 
             await dbContext.SaveChangesAsync();

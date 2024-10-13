@@ -1,15 +1,11 @@
 ﻿namespace Wizzarts.Web.ViewModels.PlayCard
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
-    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.CardComments;
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
@@ -49,13 +45,6 @@
         public string AddedByMemberId { get; set; }
 
         public bool ApprovedByAdmin { get; set; }
-
-        public IEnumerable<CardInListViewModel> playCards { get; set; }
-
-        public IEnumerable<CardCommentInListViewModel> CommentsByAdmin { get; set; }
-
-        public IEnumerable<CardCommentInListViewModel> CommentsByUsers { get; set; }
-        public IEnumerable<ManaListViewModel> Mana { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
         {

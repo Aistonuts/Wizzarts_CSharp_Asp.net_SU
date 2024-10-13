@@ -18,6 +18,7 @@
 
     public class PlayCardService : IPlayCardService
     {
+        private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<PlayCard> cardRepository;
         private readonly IDeletableEntityRepository<ManaInCard> cardManaRepository;
         private readonly IDeletableEntityRepository<BlackMana> blackManaRepository;
@@ -213,19 +214,11 @@
                 card.CardFrameColorId = cardFrame.Id;
             }
             var physicalPath = " ";
-            if (requireArtInput)
-            {
-                Directory.CreateDirectory($"{path}/cardsByExpansion/EventCards/Flavor/");
-                physicalPath = $"{path}/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
-                card.CardRemoteUrl = $"/images/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
-            }
-            else
-            {
-                Directory.CreateDirectory($"{path}/cardsByExpansion/EventCards/Flavorless/");
-                physicalPath = $"{path}/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
-                card.CardRemoteUrl = $"/images/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
-            }
-            
+
+            Directory.CreateDirectory($"{path}/cardsByExpansion/PremiumUserCards");
+            physicalPath = $"{path}/cardsByExpansion/PremiumUserCards/{input.Name}.png";
+            card.CardRemoteUrl = $"/images/cardsByExpansion/PremiumUserCards/{input.Name}.png";
+
             //string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
 
             using (FileStream fs = new FileStream(physicalPath, FileMode.Create))
@@ -398,6 +391,170 @@
             return this.cardRepository.AllAsNoTracking()
                 .Where(x => x.Name == name)
                 .To<T>().FirstOrDefault();
+        }
+
+        public IEnumerable<T> GetAllCardsByExpansion<T>(int id)
+        {
+            return this.cardRepository.AllAsNoTracking()
+            .Where(x => x.CardGameExpansionId == id)
+            .To<T>().ToList();
+        }
+
+        public async Task AddAsync(CreateCardViewModel input, string userId, string path, bool isEventCard, string canvasCapture)
+        {
+            var card = new PlayCard
+            {
+                Name = input.Name,
+                BlackManaId = input.BlackManaId,
+                BlueManaId = input.BlueManaId,
+                RedManaId = input.RedManaId,
+                WhiteManaId = input.WhiteManaId,
+                GreenManaId = input.GreenManaId,
+                ColorlessManaId = input.ColorlessManaId,
+                CardFrameColorId = input.CardFrameColorId,
+                CardTypeId = input.CardTypeId,
+                AbilitiesAndFlavor = input.AbilitiesAndFlavor,
+                Power = input.Power,
+                Toughness = input.Toughness,
+                CardGameExpansionId = input.GameExpansionId,
+                AddedByMemberId = userId,
+                IsEventCard = isEventCard,
+                ArtId = input.ArtId,
+            };
+
+            var manaBlack = this.blackManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.BlackManaId);
+
+            if (manaBlack != null)
+            {
+                for (var i = 0; i < manaBlack.Cost; i++)
+                {
+                    card.CardMana.Add(new ManaInCard()
+                    {
+                        Color = manaBlack.ColorName,
+                        RemoteImageUrl = manaBlack.ImageUrl,
+                    });
+                }
+            }
+
+            var manaBlue = this.blueManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.BlueManaId);
+
+            if (manaBlue != null)
+            {
+                for (var i = 0; i < manaBlue.Cost; i++)
+                {
+                    card.CardMana.Add(new ManaInCard()
+                    {
+                        Color = manaBlue.ColorName,
+                        RemoteImageUrl = manaBlue.ImageUrl,
+                    });
+                }
+            }
+
+            var manaGreen = this.greenManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.GreenManaId);
+
+            if (manaGreen != null)
+            {
+                for (var i = 0; i < manaGreen.Cost; i++)
+                {
+                    card.CardMana.Add(new ManaInCard()
+                    {
+                        Color = manaGreen.ColorName,
+                        RemoteImageUrl = manaGreen.ImageUrl,
+                    });
+                }
+            }
+
+            var manaRed = this.redManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.RedManaId);
+
+            if (manaRed != null)
+            {
+                for (var i = 0; i < manaRed.Cost; i++)
+                {
+                    card.CardMana.Add(new ManaInCard()
+                    {
+                        Color = manaRed.ColorName,
+                        RemoteImageUrl = manaRed.ImageUrl,
+                    });
+                }
+            }
+
+            var colorlessMana = this.colorlessManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.ColorlessManaId);
+
+            if (colorlessMana != null)
+            {
+                for (var i = 0; i < colorlessMana.Cost; i++)
+                {
+                    card.CardMana.Add(new ManaInCard()
+                    {
+                        Color = colorlessMana.ColorName,
+                        RemoteImageUrl = colorlessMana.ImageUrl,
+                    });
+                }
+            }
+
+            var manaWhite = this.whiteManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.WhiteManaId);
+
+            if (manaWhite != null)
+            {
+                for (var i = 0; i < manaWhite.Cost; i++)
+                {
+                    card.CardMana.Add(new ManaInCard()
+                    {
+                        Color = manaWhite.ColorName,
+                        RemoteImageUrl = manaWhite.ImageUrl,
+                    });
+                }
+            }
+
+            var cardType = this.cardTypeRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.CardTypeId);
+
+            if (cardType != null)
+            {
+                card.CardTypeId = cardType.Id;
+            }
+
+            var cardFrame = this.cardFrameColorRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.CardFrameId);
+
+            if (cardFrame != null)
+            {
+                card.CardFrameColorId = cardFrame.Id;
+            }
+            var physicalPath = " ";
+
+            Directory.CreateDirectory($"{path}/cardsByExpansion/PremiumUserCards/");
+            physicalPath = $"{path}/cardsByExpansion/PremiumUserCards/{input.Name}.png";
+            card.CardRemoteUrl = $"/images/cardsByExpansion/PremiumUserCards/{input.Name}.png";
+
+            //string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
+
+            using (FileStream fs = new FileStream(physicalPath, FileMode.Create))
+            {
+                using (BinaryWriter bw = new BinaryWriter(fs))
+                {
+                    byte[] data = Convert.FromBase64String(canvasCapture);
+                    MemoryStream ms = new MemoryStream(data, 0, data.Length);
+
+                    bw.Write(data);
+                    bw.Close();
+                }
+            }
+            //var extension = Path.GetExtension(input.Images.FileName).TrimStart('.');
+
+
+            //if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
+            //{
+            //    throw new Exception($"Invalid image extension {extension}");
+            //}
+
+            //var physicalPath = $"{path}/cardsByExpansion/EventCards/{input.Name}.{extension}";
+
+            //using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            //await input.Images.CopyToAsync(fileStream);
+;
+
+            await this.cardRepository.AddAsync(card);
+            await this.cardRepository.SaveChangesAsync();
+            this.cache.Remove(CardsCacheKey);
         }
     }
 }

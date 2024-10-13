@@ -16,22 +16,12 @@ namespace Wizzarts.Web.ViewModels.WizzartsMember
 {
     public class MemberDataViewModel : IndexAuthenticationViewModel
     {
-        public string Id { get; set; }
+        public string Id { get; set; } = string.Empty;
 
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
-        public string Nickname { get; set; }
+        public string Nickname { get; set; } = string.Empty;
 
-        public string AvatarUrl { get; set; }
-
-        public IEnumerable<ArtInListViewModel> Arts { get; set; }
-
-        public IEnumerable<ArticleInListViewModel> Articles { get; set; }
-
-        public IEnumerable<EventInListViewModel> Events { get; set; }
-
-        public IEnumerable<CardInListViewModel> Cards { get; set; }
-
-        public IEnumerable<StoreInListViewModel> Stores { get; set; }
+        public string AvatarUrl { get; set; } = string.Empty;
     }
 }

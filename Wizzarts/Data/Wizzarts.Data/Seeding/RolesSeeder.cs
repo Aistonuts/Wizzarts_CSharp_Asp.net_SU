@@ -3,12 +3,10 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-
-    using Wizzarts.Common;
-    using Wizzarts.Data.Models;
-
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.DependencyInjection;
+    using Wizzarts.Common;
+    using Wizzarts.Data.Models;
 
     internal class RolesSeeder : ISeeder
     {

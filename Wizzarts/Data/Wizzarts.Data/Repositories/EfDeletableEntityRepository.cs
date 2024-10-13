@@ -2,11 +2,9 @@
 {
     using System;
     using System.Linq;
-
+    using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Models;
     using Wizzarts.Data.Common.Repositories;
-
-    using Microsoft.EntityFrameworkCore;
 
     public class EfDeletableEntityRepository<TEntity> : EfRepository<TEntity>, IDeletableEntityRepository<TEntity>
         where TEntity : class, IDeletableEntity

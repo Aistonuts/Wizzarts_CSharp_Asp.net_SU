@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Common.Models;
-using Wizzarts.Data.Models.Enums;
-
-namespace Wizzarts.Data.Models
+﻿namespace Wizzarts.Data.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Wizzarts.Data.Common.Models;
+    using Wizzarts.Data.Models.Enums;
+
+    using static Wizzarts.Common.DataConstants;
+
     public class Chat : BaseDeletableModel<int>
     {
         public Chat()
@@ -16,14 +20,17 @@ namespace Wizzarts.Data.Models
             this.Users = new HashSet<ChatUser>();
         }
 
+        [Required]
+        [MaxLength(ChatNameMaXLength)]
         public string Name { get; set; }
 
+        [MaxLength(ChatRelationKeyMaxLength)]
         public string RelationKey { get; set; }
 
         public ChatType Type { get; set; }
 
-        public ICollection<ChatMessage> Messages { get; set; }
+        public virtual ICollection<ChatMessage> Messages { get; set; }
 
-        public ICollection<ChatUser> Users { get; set; }
+        public virtual ICollection<ChatUser> Users { get; set; }
     }
 }

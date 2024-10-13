@@ -6,9 +6,6 @@
 
     public class MembershipViewModel : IndexAuthenticationViewModel
     {
-
-        public string CurrentRole { get; set; } = string.Empty;
-
         public bool IsMember { get; set; }
 
         public bool IsStoreOwner { get; set; }

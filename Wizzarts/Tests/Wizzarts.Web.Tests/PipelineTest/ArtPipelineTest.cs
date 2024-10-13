@@ -99,7 +99,7 @@ namespace Wizzarts.Web.Tests.PipelineTest
                     .WithModelOfType<ArtListViewModel>()
                     .Passing(articleListing =>
                     {
-                        articleListing.Art.Count().ShouldBe(expectedCount);
+                        articleListing.Arts.Count().ShouldBe(expectedCount);
                     }));
             TearDownBase();
         }

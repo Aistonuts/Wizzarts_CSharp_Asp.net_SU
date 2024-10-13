@@ -165,7 +165,7 @@
                                                 <div class="">
                                                     <div class="ae-list-header">
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="All">Art</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Artist" asp-action="All">Artists</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="AllByArtistRole">Artists</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -274,14 +274,13 @@
             </div>
             <div class="col-sm-12 col-md-4 text-center pb-3">
                 <ul class="list-unstyled d-block d-md-flex gap-1 justify-content-center">
-                    <li class="my-2 my-md-0"><a href="/Help" class="text-white"><b>Help</b></a></li>
-                    <li class="my-2 my-md-0"><a href="/Contact" class="text-white"><b>Contact Us</b></a></li>
-                    <li class="my-2 my-md-0"><a href="/PrivacyPolicy" class="text-white"><b>Privacy Policy</b></a></li>
+                    <li class="my-2 my-md-0"><a asp-controller="Home" asp-action="Help" class="text-white"><b>Help</b></a></li>
+                    <li class="my-2 my-md-0"><a asp-controller="Home" asp-action="Contact" class="text-white"><b>Contact Us</b></a></li>
                 </ul>
                 <ul class="list-unstyled d-block d-md-flex gap-1 justify-content-center">
-                    <li class="my-2 my-md-0"><a href="/Premium/" class="text-white"><b>Premium Account</b></a></li>
-                    <li class="my-2 my-md-0"><a href="/TermsAndConditions" class="text-white"><b>Terms and Conditions</b></a></li>
-                    <li class="my-2 my-md-0"><a href="/Docs/" class="text-white"><b>Documentation</b></a></li>
+                    <li class="my-2 my-md-0"><a asp-controller="Wizzarts" asp-action="Membership" class="text-white"><b>Account progress</b></a></li>
+                    <li class="my-2 my-md-0"><a asp-controller="Home" asp-action="Terms" class="text-white"><b>Terms and Conditions</b></a></li>
+                    <li class="my-2 my-md-0"><a asp-controller="Wizzarts" asp-action="GetRules" class="text-white"><b>Documentation</b></a></li>
                 </ul>
 
             </div>

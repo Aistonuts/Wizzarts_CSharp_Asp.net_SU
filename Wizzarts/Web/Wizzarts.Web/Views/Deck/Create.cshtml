@@ -39,9 +39,9 @@
                         <span asp-validation-for="@Model.EventId" class="small text-danger"></span>
                     </div>
                     <div class="form-group row mb-1">
-                        <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreId">Store name</label>
+                        <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreId">Pick-up location</label>
                         <div class="col-sm-8 col-lg-6">
-                            <select asp-for="StoreId" class="form-control" placeholder="Art Description">
+                            <select asp-for="StoreId" class="form-control" placeholder="Pick-up location">
                                 <option value="0" selected="true">
                                 </option>
                                 @foreach (var store in Model.Stores)
@@ -55,7 +55,7 @@
                     <div class="form-group row mb-1">
                         <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Description"></label>
                         <div class="col-sm-8 col-lg-6">
-                            <input asp-for="Description" class="form-control" placeholder="Art Description">
+                            <input asp-for="Description" class="form-control" placeholder="Deck Description">
                         </div>
                         <span asp-validation-for="Description" class="small text-danger"></span>
                     </div>
@@ -119,7 +119,7 @@
     </div>
     <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
         <div class="card mb-2">
-            <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Metagame</a></h4></div>
+            <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Your decks</a></h4></div>
             <div class="card-body pl-1 pr-1 pt-2 pb-0">
                 @foreach (var deck in this.Model.Decks)
                 {
@@ -132,11 +132,6 @@
                         <div>
                             <a asp-controller="Deck" asp-action="Add" asp-route-id="@deck.Id" class="metagroup-link">
                                 <b class="text-primary">@deck.Name</b>
-                                <br>
-
-                                <span title="Change since last week" class="diffright d-none d-sm-inline text-danger">
-                                    <i class="fas fa-caret-down"></i>4.60%
-                                </span>
                             </a>
                         </div>
                     </div>

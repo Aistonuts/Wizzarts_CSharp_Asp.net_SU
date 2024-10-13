@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Memory;
+using Moq;
 using MyTested.AspNetCore.Mvc;
 using Shouldly;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ using Wizzarts.Web.Controllers;
 using Wizzarts.Web.ViewModels.Art;
 using Wizzarts.Web.ViewModels.Article;
 using Xunit;
-
+using static Wizzarts.Common.GlobalConstants;
 namespace Wizzarts.Web.Tests.ControllerTest
 {
     public class ArticleControllerTest : UnitTestBase
@@ -117,7 +118,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
 
             MyController<ArticleController>
                 .Instance(instance => instance
-
+                    .WithUser(X => X.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").WithRoleType(AdministratorRoleName))
                    .WithData(data.Articles.FirstOrDefault(x => x.Id == 1)))
                 .Calling(c => c.Edit(1, model))
                 .ShouldHave()
@@ -186,7 +187,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                .AndAlso()
                .ShouldReturn()
                .Redirect(redirect => redirect
-                   .To<HomeController>(c => c.Index()));
+                    .To<UserController>(c => c.MyData(With.No<int>())));
         }
 
         [Fact]

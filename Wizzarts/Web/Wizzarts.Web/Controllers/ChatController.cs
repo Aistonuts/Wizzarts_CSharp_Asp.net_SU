@@ -16,7 +16,7 @@ using Wizzarts.Services.Data;
 namespace Wizzarts.Web.Controllers
 {
     [ApiController]
-    [Route("api/[controller]/{action}")]
+    [Route("api/[controller]/[action]")]
     public class ChatController : BaseController
     {
         private readonly ApplicationDbContext dbContext;

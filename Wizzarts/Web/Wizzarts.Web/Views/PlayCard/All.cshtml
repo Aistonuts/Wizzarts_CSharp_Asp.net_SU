@@ -27,11 +27,7 @@
 
                                                     </a>
                                                 </div>
-                                                <div class="card-body p-0">
-                                                    <small class="text-center mb-1 text-muted">
-                                                        01 Jul by <a href="/User/ReikoBoy"><i class="far fa-star"></i>ReikoBoy</a>
-                                                    </small>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -46,11 +42,6 @@
                                                     <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@this.Model.Cards.ToList()[i].Id">
                                                         <img src="@this.Model.Cards.ToList()[i].CardRemoteUrl" alt="@this.Model.Cards.ToList()[i].Name" class="lazy" alt="video" style="">
                                                     </a>
-                                                </div>
-                                                <div class="card-body p-0">
-                                                    <small class="text-center mb-1 text-muted">
-                                                        01 Jul by <a href="/User/ReikoBoy"><i class="far fa-star"></i>ReikoBoy</a>
-                                                    </small>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +89,8 @@
 
             </div>
         </div>
-        <h3 class="ff-display">Articles</h3>
+        <div class="card mb-2">
+            <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Articles</a></h4></div>
         @foreach (var article in this.Model.Articles)
         {
             <div class="card mt-2 mb-2 ">
@@ -122,6 +114,7 @@
                 </div>
             </div>
         }
+        </div>
     </div>
 </div>
 <hr />

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Wizzarts.Data.Models.Enums;
 using Wizzarts.Data.Models;
+using Wizzarts.Data.Models.Enums;
 
 namespace Wizzarts.Data.Seeding
 {

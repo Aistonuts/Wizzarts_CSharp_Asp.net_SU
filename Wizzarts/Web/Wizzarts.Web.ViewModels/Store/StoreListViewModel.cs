@@ -6,6 +6,5 @@
 
     public class StoreListViewModel : IndexAuthenticationViewModel
     {
-        public IEnumerable<StoreInListViewModel> Stores { get; set; }
     }
 }

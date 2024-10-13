@@ -14,8 +14,5 @@
 
         public GameRulesViewModel CardGameRules { get; set; }
 
-        public IEnumerable<WizzartsTeamInListViewModel> WizzartsTeamMembers { get; set; }
-
-        public IEnumerable<GameRulesDataViewModel> GameRulesData { get; set; }
     }
 }

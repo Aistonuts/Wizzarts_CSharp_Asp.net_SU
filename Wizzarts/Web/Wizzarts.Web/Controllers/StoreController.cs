@@ -40,7 +40,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Create(CreateStoreViewModel input)
         {
             this.ModelState.Remove("UserName");

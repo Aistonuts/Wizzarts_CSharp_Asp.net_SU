@@ -5,10 +5,14 @@
 
     using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.CardComments;
     using Wizzarts.Web.ViewModels.Chat;
+    using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.Expansion;
+    using Wizzarts.Web.ViewModels.GameRules;
     using Wizzarts.Web.ViewModels.PlayCard;
+    using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
     using Wizzarts.Web.ViewModels.Store;
     using Wizzarts.Web.ViewModels.WizzartsMember;
 
@@ -39,11 +43,15 @@
 
         public int CountOfCards { get; set; }
 
+        public IEnumerable<DeckStatusListViewModel> DeckStatuses { get; set; }
+
+        public IEnumerable<DeckInListViewModel> Decks { get; set; }
+
+        public IEnumerable<EventComponentsInListViewModel> EventComponents { get; set; }
+
         public IEnumerable<ArticleInListViewModel> Articles { get; set; }
 
         public IEnumerable<ArtInListViewModel> Arts { get; set; }
-
-        public IEnumerable<WizzartsTeamInListViewModel> Artists { get; set; }
 
         public IEnumerable<CardInListViewModel> Cards { get; set; }
 
@@ -56,5 +64,15 @@
         public IEnumerable<DbChatMessagesInListViewModel> ChatMessages { get; set; }
 
         public IEnumerable<SingleChatViewModel> ChatRooms { get; set; }
+
+        public IEnumerable<WizzartsTeamInListViewModel> WizzartsTeamMembers { get; set; }
+
+        public IEnumerable<GameRulesDataViewModel> GameRulesData { get; set; }
+
+        public IEnumerable<CardCommentInListViewModel> CommentsByAdmin { get; set; }
+
+        public IEnumerable<CardCommentInListViewModel> CommentsByUsers { get; set; }
+
+        public IEnumerable<ManaListViewModel> Mana { get; set; }
     }
 }

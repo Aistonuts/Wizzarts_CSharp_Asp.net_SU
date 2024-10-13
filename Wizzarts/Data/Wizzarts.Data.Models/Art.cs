@@ -27,6 +27,7 @@
         public string? Description { get; set; } = string.Empty;
 
         [Required]
+        [MaxLength(RemoteImageUrlMaxLength)]
         [Comment("Art url")]
         public string RemoteImageUrl { get; set; } = string.Empty;
 
