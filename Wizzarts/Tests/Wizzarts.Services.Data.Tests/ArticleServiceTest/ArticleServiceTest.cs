@@ -1,24 +1,22 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Mapping;
-using Wizzarts.Web.ViewModels;
-using Wizzarts.Web.ViewModels.Art;
-using Wizzarts.Web.ViewModels.Article;
-using Xunit;
-
-namespace Wizzarts.Services.Data.Tests.ArticleServiceTest
+﻿namespace Wizzarts.Services.Data.Tests.ArticleServiceTest
 {
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Caching.Memory;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels;
+    using Wizzarts.Web.ViewModels.Article;
+    using Xunit;
+
     public class ArticleServiceTest : UnitTestBase
     {
         public ArticleServiceTest()
@@ -80,7 +78,8 @@ namespace Wizzarts.Services.Data.Tests.ArticleServiceTest
             using var repository = new EfDeletableEntityRepository<Article>(data);
             var service = new ArticleService(repository, cache);
             string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
-            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
+                          "/images";
 
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
@@ -94,7 +93,7 @@ namespace Wizzarts.Services.Data.Tests.ArticleServiceTest
                 }, UserId, path);
             var count = await repository.All().CountAsync();
             var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
-            Assert.Equal(7,repository.All().Count());
+            Assert.Equal(7, count);
             Assert.Equal("New", testArticle.Title);
             this.TearDownBase();
         }
@@ -109,7 +108,8 @@ namespace Wizzarts.Services.Data.Tests.ArticleServiceTest
             using var repository = new EfDeletableEntityRepository<Article>(data);
             var service = new ArticleService(repository, cache);
             string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
-            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
+                          "/images";
 
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.nft");
@@ -141,7 +141,7 @@ namespace Wizzarts.Services.Data.Tests.ArticleServiceTest
                 Title = "The newest Article",
             };
 
-            await service.UpdateAsync(1,testArticle);
+            await service.UpdateAsync(1, testArticle);
             var articleInDb = await data.Articles.FirstOrDefaultAsync(x => x.Id == 1);
 
             Assert.Equal(testArticle.Title, articleInDb.Title);
@@ -174,8 +174,79 @@ namespace Wizzarts.Services.Data.Tests.ArticleServiceTest
             using var repository = new EfDeletableEntityRepository<Article>(data);
             var service = new ArticleService(repository, cache);
 
-            var articlesByUserMetzen = service.GetAllArticlesByUserId<ArticleInListViewModel>("2b346dc6-5bd7-4e64-8396-15a064aa27a7", 1, 4);
+            var articlesByUserMetzen =
+                service.GetAllArticlesByUserId<ArticleInListViewModel>("2b346dc6-5bd7-4e64-8396-15a064aa27a7", 1, 4);
             Assert.Equal(4, articlesByUserMetzen.Count());
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task DeleteArticleShouldChangeTheTotalCountOfArticlesAndShouldRemoveTheCorrectItem()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repository = new EfDeletableEntityRepository<Article>(data);
+            var service = new ArticleService(repository, cache);
+            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
+                          "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            await service.CreateAsync(
+                new CreateArticleViewModel
+                {
+                    Title = "New",
+                    ImageUrl = file,
+                    Description = "Test",
+                    ShortDescription = "Test",
+                }, UserId, path);
+            var count = await repository.All().CountAsync();
+            var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
+            int testArticleId = testArticle.Id;
+            string testArticleName = testArticle.Title;
+            await service.DeleteAsync(testArticleId);
+            Assert.Equal(7, testArticleId);
+            Assert.Equal("New", testArticleName);
+            Assert.Equal(6, repository.All().Count());
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task ApproveArticleShouldChangeNewArticleStatusToApprovedByAdminToTrue()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repository = new EfDeletableEntityRepository<Article>(data);
+            var service = new ArticleService(repository, cache);
+            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
+                          "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            await service.CreateAsync(
+                new CreateArticleViewModel
+                {
+                    Title = "New",
+                    ImageUrl = file,
+                    Description = "Test",
+                    ShortDescription = "Test",
+                }, UserId, path);
+            var count = await repository.All().CountAsync();
+            var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
+            int testArticleId = testArticle.Id;
+            string testArticleName = testArticle.Title;
+            bool approvalStatusBefore = testArticle.ApprovedByAdmin;
+            await service.ApproveArticle(testArticleId);
+            Assert.Equal("New", testArticleName);
+            Assert.Equal(7, count);
+            Assert.False(approvalStatusBefore);
+            Assert.True(testArticle.ApprovedByAdmin);
             this.TearDownBase();
         }
     }

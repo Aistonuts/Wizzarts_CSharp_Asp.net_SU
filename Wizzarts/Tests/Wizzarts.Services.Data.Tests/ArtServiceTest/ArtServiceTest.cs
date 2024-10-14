@@ -236,5 +236,102 @@ namespace Wizzarts.Services.Data.Tests.ArtServiceTest
             Assert.Equal(8, artByUserDrawgoon.Count());
             this.TearDownBase();
         }
+
+        [Fact]
+        public async Task ArtExistShouldReturnTrue()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repository = new EfDeletableEntityRepository<Art>(data);
+            var service = new ArtService(repository, cache);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            var testArtPiece = new AddArtViewModel()
+            {
+                Title = "The newest ArtPiece",
+                Image = file,
+            };
+
+            await service.AddAsync(testArtPiece, UserId, path);
+
+            var testArt = data.Arts.FirstOrDefault(x => x.Title == "The newest ArtPiece");
+
+            Assert.Equal(testArtPiece.Title, testArt.Title);
+            Assert.True(await service.ArtExist(testArt.Id));
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task ApproveNewAddedArtShouldChangeItsStatusToApproved()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repository = new EfDeletableEntityRepository<Art>(data);
+            var service = new ArtService(repository, cache);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            var testArtPiece = new AddArtViewModel()
+            {
+                Title = "The newest ArtPiece",
+                Image = file,
+            };
+
+            await service.AddAsync(testArtPiece, UserId, path);
+            var count = await repository.All().CountAsync();
+            var testArt = data.Arts.FirstOrDefault(x => x.Title == "The newest ArtPiece");
+            bool approvalStatusBefore = testArt.ApprovedByAdmin;
+            await service.ApproveArt(testArt.Id);
+            Assert.Equal(20, count);
+            Assert.Equal(testArtPiece.Title, testArt.Title);
+            Assert.False(approvalStatusBefore);
+            Assert.True(testArt.ApprovedByAdmin);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task HasUserWithIdShouldReturnTrue()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repository = new EfDeletableEntityRepository<Art>(data);
+            var service = new ArtService(repository, cache);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            var testArtPiece = new AddArtViewModel()
+            {
+                Title = "The newest ArtPiece",
+                Image = file,
+            };
+
+            await service.AddAsync(testArtPiece, UserId, path);
+
+            var testArt = data.Arts.FirstOrDefault(x => x.Title == "The newest ArtPiece");
+            bool hasUserWithId = await service.HasUserWithIdAsync(testArt.Id, "66030199-349f-4e35-846d-97685187a565");
+            Assert.Equal(testArtPiece.Title, testArt.Title);
+            Assert.True(hasUserWithId);
+
+            this.TearDownBase();
+        }
     }
 }

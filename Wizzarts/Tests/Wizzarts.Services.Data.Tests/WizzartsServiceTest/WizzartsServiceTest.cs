@@ -92,5 +92,21 @@ namespace Wizzarts.Services.Data.Tests.WizzartsServiceTest
 
             Assert.Equal("2738e787-5d57-4bc7-b0d2-287242f04695", user);
         }
+
+        [Fact]
+        public async Task GetNonExistingUserIdByArtistIdShouldReturnNull()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+
+            using var gameRulesRepository = new EfDeletableEntityRepository<WizzartsGameRules>(data);
+            using var gameRulesDataRepository = new EfDeletableEntityRepository<WizzartsGameRulesData>(data);
+            using var wizzartsTeamRepository = new EfDeletableEntityRepository<WizzartsTeam>(data);
+            var service = new WizzartsServices(gameRulesRepository, gameRulesDataRepository, wizzartsTeamRepository);
+
+            var user = service.GetUserIdByArtistId(20);
+
+            Assert.Null(user);
+        }
     }
 }

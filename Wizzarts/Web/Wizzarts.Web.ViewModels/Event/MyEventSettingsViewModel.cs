@@ -29,7 +29,6 @@
 
         public string ComponentImageUrl { get; set; }
 
-        [Required(ErrorMessage = "Component image is required!")]
         public IFormFile Image { get; set; }
 
         public int EventId { get; set; }

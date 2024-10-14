@@ -497,6 +497,14 @@
       "PackagePath": "staticwebassets\\images\\event\\UserEvent\\Components\\Newst addition.png"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\Components\\The newest Component.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\Components\\The newest Component.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\Components\\The newest Event.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\Components\\The newest Event.jpg"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\Components\\new.jpg",
       "PackagePath": "staticwebassets\\images\\event\\UserEvent\\Components\\new.jpg"
     },

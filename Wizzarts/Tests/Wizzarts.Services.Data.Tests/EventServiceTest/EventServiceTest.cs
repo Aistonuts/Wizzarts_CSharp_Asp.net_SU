@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
+using NuGet.Protocol.Core.Types;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -170,5 +171,311 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             this.TearDownBase();
         }
+
+        [Fact]
+        public async Task AddEventComponentShouldChangeTheTotalCountAndShouldAddTheCorrectEventComponentAndItsRequirementForImageShouldBeTrue()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            var service = new EventService(eventRepository, eventComponentsRepository);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+  
+            var testEvent = new MyEventSettingsViewModel()
+            {
+                ComponentTitle = "The newest Component",
+                Image = file,
+                EventId = 1,
+                ComponentDescription = "test",
+            };
+
+            await service.AddComponentAsync(testEvent, UserId, path);
+
+            var count = await eventComponentsRepository.All().Where(x=> x.EventId == 1).CountAsync();
+            var newComponent = data.EventComponents.FirstOrDefault(x => x.Title == "The newest Component");
+            Assert.Equal(8, count);
+            Assert.Equal(testEvent.ComponentTitle, newComponent.Title);
+            Assert.True(newComponent.RequireArtInput);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task AddEventComponentWithWrongFileFormatShouldThrowException()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            var service = new EventService(eventRepository, eventComponentsRepository);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.nft");
+
+            var testEvent = new MyEventSettingsViewModel()
+            {
+                ComponentTitle = "The newest Event",
+                Image = file,
+                ComponentDescription = "test",
+            };
+            var exception = await Assert.ThrowsAsync<Exception>(() => service.AddComponentAsync(testEvent, UserId, path));
+            Assert.Equal("Invalid image extension nft", exception.Message);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task AddEventComponentShouldChangeTheTotalCountAndShouldAddTheCorrectEventComponentAndItsRequirementForImageShouldBeFalse()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            var service = new EventService(eventRepository, eventComponentsRepository);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            var testEvent = new MyEventSettingsViewModel()
+            {
+                ComponentTitle = "The newest Component",
+                EventId = 1,
+                ComponentDescription = "test",
+            };
+
+            await service.AddComponentAsync(testEvent, UserId, path);
+
+            var count = await eventComponentsRepository.All().Where(x => x.EventId == 1).CountAsync();
+            var newComponent = data.EventComponents.FirstOrDefault(x => x.Title == "The newest Component");
+            Assert.Equal(8, count);
+            Assert.Equal(testEvent.ComponentTitle, newComponent.Title);
+            Assert.False(newComponent.RequireArtInput);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task ApproveNewEventShouldChangeItsStatusToApprovedTrue()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            var service = new EventService(eventRepository, eventComponentsRepository);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            bool isContentCreator = false;
+            var testEvent = new CreateEventViewModel()
+            {
+                Title = "The newest Event",
+                Image = file,
+                EventDescription = "test",
+                EventStatusId = 1,
+            };
+
+            await service.CreateAsync(testEvent, UserId, path, isContentCreator);
+
+            var count = await eventRepository.All().CountAsync();
+            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            bool currentEventStatus = newTestEvent.ApprovedByAdmin;
+            await service.ApproveEvent(newTestEvent.Id);
+            Assert.Equal(5, count);
+            Assert.Equal(testEvent.Title, newTestEvent.Title);
+            Assert.False(currentEventStatus);
+            Assert.True(newTestEvent.ApprovedByAdmin);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task UpdateEventShouldEditTheCorrectEvent()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            var service = new EventService(eventRepository, eventComponentsRepository);
+
+            var testEvent = new EditEventViewModel()
+            {
+                Title = "Test",
+                EventDescription = "New Update",
+                EventStatusId = 1,
+            };
+
+            await service.UpdateAsync(testEvent, 1);
+
+            var newTestEvent = data.Events.FirstOrDefault(x => x.Id == 1);
+            Assert.Equal(testEvent.Title, newTestEvent.Title);
+            Assert.Equal(testEvent.EventDescription, newTestEvent.EventDescription);
+            Assert.Equal(testEvent.EventStatusId, newTestEvent.EventStatusId);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task DeleteComponentShouldRemoveTheCorrectComponentAndChangeTheTotalCount()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            var service = new EventService(eventRepository, eventComponentsRepository);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            var testEvent = new MyEventSettingsViewModel()
+            {
+                ComponentTitle = "The newest Component",
+                EventId = 1,
+                ComponentDescription = "test",
+            };
+
+            await service.AddComponentAsync(testEvent, UserId, path);
+
+            var count = await eventComponentsRepository.All().Where(x => x.EventId == 1).CountAsync();
+            var newComponent = data.EventComponents.FirstOrDefault(x => x.Title == "The newest Component");
+            await service.DeleteComponentAsync(newComponent.Id);
+            var newCount = await eventComponentsRepository.All().Where(x => x.EventId == 1).CountAsync();
+            var componentNotFound = data.EventComponents.Any(x => x.Title == "The newest Component");
+            Assert.Equal(8, count);
+            Assert.False(componentNotFound);
+            Assert.Equal(7, newCount);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task DeleteNewEventShouldRemoveTheCorrectEvent()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            var service = new EventService(eventRepository, eventComponentsRepository);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            bool isContentCreator = false;
+            var testEvent = new CreateEventViewModel()
+            {
+                Title = "The newest Event",
+                Image = file,
+                EventDescription = "test",
+                EventStatusId = 1,
+            };
+
+            await service.CreateAsync(testEvent, UserId, path, isContentCreator);
+
+            var count = await eventRepository.All().CountAsync();
+            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            await service.DeleteAsync(newTestEvent.Id);
+            var eventNotFound = data.Events.Any(x => x.Title == "The newest Event");
+            var newCount = await eventRepository.All().CountAsync();
+            Assert.Equal(5, count);
+            Assert.False(eventNotFound);
+            Assert.Equal(4, newCount);
+
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task NewlyAddedEventShouldExist()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            var service = new EventService(eventRepository, eventComponentsRepository);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            bool isContentCreator = false;
+            var testEvent = new CreateEventViewModel()
+            {
+                Title = "The newest Event",
+                Image = file,
+                EventDescription = "test",
+                EventStatusId = 1,
+            };
+
+            await service.CreateAsync(testEvent, UserId, path, isContentCreator);
+
+            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newEventExist = await service.EventExist(newTestEvent.Id);
+            Assert.True(newEventExist);
+
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task NewlyAddedEventShouldHaveUserWithCorrectId()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            var service = new EventService(eventRepository, eventComponentsRepository);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            bool isContentCreator = false;
+            var testEvent = new CreateEventViewModel()
+            {
+                Title = "The newest Event",
+                Image = file,
+                EventDescription = "test",
+                EventStatusId = 1,
+            };
+
+            await service.CreateAsync(testEvent, UserId, path, isContentCreator);
+
+            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var eventHasUserWithId = await service.HasUserWithIdAsync(newTestEvent.Id, UserId);
+            Assert.True(eventHasUserWithId);
+
+            this.TearDownBase();
+        }
     }
-}
+};

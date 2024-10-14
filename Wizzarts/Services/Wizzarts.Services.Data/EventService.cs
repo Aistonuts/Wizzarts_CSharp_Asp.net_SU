@@ -161,26 +161,32 @@
             if (input.Image != null)
             {
                 component.RequireArtInput = true;
+
+                Directory.CreateDirectory($"{imagePath}/event/UserEvent/Components");
+                var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
+                if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
+                {
+                    throw new Exception($"Invalid image extension {extension}");
+                }
+
+                var physicalPath = $"{imagePath}/event/UserEvent/Components/{component.Title}.{extension}";
+                component.ImageUrl = $"/images/event/UserEvent/Components/{component.Title}.{extension}";
+                await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+                await input.Image.CopyToAsync(fileStream);
             }
 
-            Directory.CreateDirectory($"{imagePath}/event/UserEvent/Components");
-            var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
-            if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
-            {
-                throw new Exception($"Invalid image extension {extension}");
-            }
-
-            var physicalPath = $"{imagePath}/event/UserEvent/Components/{component.Title}.{extension}";
-            component.ImageUrl = $"/images/event/UserEvent/Components/{component.Title}.{extension}";
-            await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-            await input.Image.CopyToAsync(fileStream);
             await this.eventComponentsRepository.AddAsync(component);
             await this.eventComponentsRepository.SaveChangesAsync();
         }
 
-        public Task DeleteComponentAsync(int id)
+        public async Task DeleteComponentAsync(int id)
         {
-            throw new NotImplementedException();
+            var thisEvent = this.eventComponentsRepository.All().FirstOrDefault(x => x.Id == id);
+            if (thisEvent != null)
+            {
+                this.eventComponentsRepository.Delete(thisEvent);
+                await this.eventComponentsRepository.SaveChangesAsync();
+            };
         }
     }
 }

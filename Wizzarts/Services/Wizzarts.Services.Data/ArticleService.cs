@@ -161,6 +161,7 @@
             {
                 this.articleRepository.Delete(art);
                 await this.articleRepository.SaveChangesAsync();
+                this.cache.Remove(ArticlesCacheKey);
             }
 
         }
