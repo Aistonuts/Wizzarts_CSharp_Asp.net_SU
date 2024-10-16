@@ -758,3 +758,9 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Services.
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Services.Data.Tests\bin\Debug\net6.0\System.Management.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Services.Data.Tests\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Management.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Services.Data.Tests\bin\Debug\net6.0\.msCoverageSourceRootsMapping_Wizzarts.Services.Data.Tests
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Services.Data.Tests\bin\Debug\net6.0\Moq.EntityFrameworkCore.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Services.Data.Tests\bin\Debug\net6.0\MvcTestingAppManifest.json
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Services.Data.Tests\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Testing.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Services.Data.Tests\bin\Debug\net6.0\Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Services.Data.Tests\bin\Debug\net6.0\Microsoft.Extensions.Hosting.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Services.Data.Tests\obj\Debug\net6.0\MvcTestingAppManifest.json

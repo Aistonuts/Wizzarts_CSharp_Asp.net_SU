@@ -31,6 +31,7 @@
                 Email = "drawgoon@aol.com",
                 NormalizedEmail = "DRAWGOO@AOL.COM",
                 PasswordHash = hasher.HashPassword(null, "Pa$$w0rd1"),
+                Role =  new ApplicationRole() {  Name = "Admin"},
             });
 
             await dbContext.Users.AddAsync(new ApplicationUser

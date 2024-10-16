@@ -779,3 +779,4 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests\bin\Debug\net6.0\Moq.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests\bin\Debug\net6.0\Wizzarts.Services.Data.Tests.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests\bin\Debug\net6.0\Wizzarts.Services.Data.Tests.pdb
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests\bin\Debug\net6.0\Moq.EntityFrameworkCore.dll

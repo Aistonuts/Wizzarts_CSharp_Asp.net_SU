@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web.viewmodels\\event\\myeventsettingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|solutionrelative:web\\wizzarts.web.viewmodels\\event\\myeventsettingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\playcardservicetest\\playcardservicestest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\playcardservicetest\\playcardservicestest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web.viewmodels\\deck\\singledeckviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|solutionrelative:web\\wizzarts.web.viewmodels\\deck\\singledeckviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,45 +18,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MyEventSettingsViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Event\\MyEventSettingsViewModel.cs",
-              "RelativeDocumentMoniker": "Web\\Wizzarts.Web.ViewModels\\Event\\MyEventSettingsViewModel.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Event\\MyEventSettingsViewModel.cs",
-              "RelativeToolTip": "Web\\Wizzarts.Web.ViewModels\\Event\\MyEventSettingsViewModel.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAAB4AAAAAAAAA",
+              "Title": "PlayCardServicesTest.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\PlayCardServiceTest\\PlayCardServicesTest.cs",
+              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\PlayCardServiceTest\\PlayCardServicesTest.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\PlayCardServiceTest\\PlayCardServicesTest.cs",
+              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\PlayCardServiceTest\\PlayCardServicesTest.cs",
+              "ViewState": "AQIAAJMDAAAAAAAAAAAqwKIDAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T16:17:30.539Z",
+              "WhenOpened": "2024-10-16T08:48:09.195Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SingleDeckViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Deck\\SingleDeckViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web.ViewModels\\Deck\\SingleDeckViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Deck\\SingleDeckViewModel.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web.ViewModels\\Deck\\SingleDeckViewModel.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAABMAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T09:51:48.032Z",
               "EditorCaption": ""
             }
           ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "b0197960-8a0c-45b5-9e96-c5fdcd21fcd8",
-        "Display": 0,
-        "X": 10,
-        "Y": 346,
-        "Width": 1085,
-        "Height": 600,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
+        },
         {
           "DockedWidth": 200,
           "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+              "Name": "ST:0:0:{290d74ba-151f-5f8b-b7df-7de2c7b571a7}"
             }
           ]
         }

@@ -2918,18 +2918,33 @@
           }
         }
       },
-      "Moq/4.18.4": {
+      "Moq/4.20.72": {
         "dependencies": {
           "Castle.Core": "5.1.1"
         },
         "runtime": {
           "lib/net6.0/Moq.dll": {
-            "assemblyVersion": "4.18.0.0",
-            "fileVersion": "4.18.4.0"
+            "assemblyVersion": "4.20.72.0",
+            "fileVersion": "4.20.72.0"
           }
         },
         "compile": {
           "lib/net6.0/Moq.dll": {}
+        }
+      },
+      "Moq.EntityFrameworkCore/6.0.1.4": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.32",
+          "Moq": "4.20.72"
+        },
+        "runtime": {
+          "lib/net6.0/Moq.EntityFrameworkCore.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Moq.EntityFrameworkCore.dll": {}
         }
       },
       "MyTested.AspNetCore.Mvc/6.0.0": {
@@ -4872,10 +4887,12 @@
       "Wizzarts.Services.Data.Tests/1.0.0": {
         "dependencies": {
           "AutoMapper": "13.0.1",
+          "Microsoft.AspNetCore.Mvc.Testing": "6.0.26",
           "Microsoft.CodeCoverage": "17.10.0",
           "Microsoft.EntityFrameworkCore.InMemory": "6.0.26",
           "Microsoft.NET.Test.Sdk": "17.5.0",
-          "Moq": "4.18.4",
+          "Moq": "4.20.72",
+          "Moq.EntityFrameworkCore": "6.0.1.4",
           "MyTested.AspNetCore.Mvc.Universe": "6.0.0",
           "Shouldly": "4.2.1",
           "Wizzarts.Data": "1.0.0",
@@ -8027,12 +8044,19 @@
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
     },
-    "Moq/4.18.4": {
+    "Moq/4.20.72": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IOo+W51+7Afnb0noltJrKxPBSfsgMzTKCw+Re5AMx8l/vBbAbMDOynLik4+lBYIWDJSO0uV7Zdqt7cNb6RZZ+A==",
-      "path": "moq/4.18.4",
-      "hashPath": "moq.4.18.4.nupkg.sha512"
+      "sha512": "sha512-EA55cjyNn8eTNWrgrdZJH5QLFp2L43oxl1tlkoYUKIE9pRwL784OWiTXeCV5ApS+AMYEAlt7Fo03A2XfouvHmQ==",
+      "path": "moq/4.20.72",
+      "hashPath": "moq.4.20.72.nupkg.sha512"
+    },
+    "Moq.EntityFrameworkCore/6.0.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AU2ksid0n2VPmG+qKSUXs4ZoZNbZXdLs/mkuGQ7JBAefzYNF/6qMJlJwDTF2iW2C0guiaLqtNzjPiAAJKvSJlQ==",
+      "path": "moq.entityframeworkcore/6.0.1.4",
+      "hashPath": "moq.entityframeworkcore.6.0.1.4.nupkg.sha512"
     },
     "MyTested.AspNetCore.Mvc/6.0.0": {
       "type": "package",

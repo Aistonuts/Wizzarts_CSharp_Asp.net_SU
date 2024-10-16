@@ -335,23 +335,22 @@
         public IEnumerable<T> GetAllCardsByCriteria<T>(SingleDeckViewModel input)
         {
 
-
             if (input.SearchEvent == "Event" && input.SearchName != null && input.SearchType != null)
             {
                 return this.cardRepository.AllAsNoTracking()
-             .Where(x => x.IsEventCard == true)
+             .Where(x => x.IsEventCard == true && x.Name == input.SearchName && x.CardType.Id == input.SearchTypeId)
              .To<T>().ToList();
             }
             else if (input.SearchEvent == "Event" && input.SearchName == null && input.SearchType != null)
             {
                 return this.cardRepository.AllAsNoTracking()
-             .Where(x => x.IsEventCard == true)
+             .Where(x => x.IsEventCard == true && x.CardType.Id == input.SearchTypeId)
              .To<T>().ToList();
             }
             else if (input.SearchEvent == "Event" && input.SearchName != null && input.SearchType == null)
             {
                 return this.cardRepository.AllAsNoTracking()
-             .Where(x => x.IsEventCard == true)
+             .Where(x => x.IsEventCard == true && x.Name == input.SearchName)
              .To<T>().ToList();
             }
             else if (input.SearchEvent == "Event" && input.SearchName == null && input.SearchType == null)
@@ -363,13 +362,13 @@
             else if (input.SearchEvent == "Base" && input.SearchName != null && input.SearchType != null)
             {
                 return this.cardRepository.AllAsNoTracking()
-             .Where(x => x.IsEventCard != true && x.Name == input.SearchName && x.CardType.Id == input.SearchTypeId - 1)
+             .Where(x => x.IsEventCard != true && x.Name == input.SearchName && x.CardType.Id == input.SearchTypeId)
              .To<T>().ToList();
             }
             else if (input.SearchEvent == "Base" && input.SearchName == null && input.SearchType != null)
             {
                 return this.cardRepository.AllAsNoTracking()
-             .Where(x => x.IsEventCard != true && x.CardType.Id == input.SearchTypeId - 1)
+             .Where(x => x.IsEventCard != true && x.CardType.Id == input.SearchTypeId)
              .To<T>().ToList();
             }
             else if (input.SearchEvent == "Base" && input.SearchName != null && input.SearchType == null)

@@ -24,7 +24,7 @@
         public void OneTimeSetup()
         {
             this.dbContext = DatabaseMock.MockDatabase();
-
+            
             this.SeedAsync(this.dbContext);
 
             var cache = new MemoryCache(new MemoryCacheOptions());

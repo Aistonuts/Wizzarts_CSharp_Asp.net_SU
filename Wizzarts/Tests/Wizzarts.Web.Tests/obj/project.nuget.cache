@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RMpakgri273T2wJGCgw+uJ9ZNr42u4Hh8ZxQqrrcP1kJyfqtZC6K5tfNDScqHD3LkuGAATbQO853DuG5aHzpKQ==",
+  "dgSpecHash": "51HS4LrQlsoOBQz3iXSTe4QXi1qfi4FmBNoCejQ9a5JarfHCQmibm+UN59ufIUJ54LWVlnHJye1+SqXR6e9w3A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Web.Tests\\Wizzarts.Web.Tests.csproj",
   "expectedPackageFiles": [
@@ -198,7 +198,8 @@
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\moq\\4.18.4\\moq.4.18.4.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\moq\\4.20.72\\moq.4.20.72.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\moq.entityframeworkcore\\6.0.1.4\\moq.entityframeworkcore.6.0.1.4.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\mytested.aspnetcore.mvc\\6.0.0\\mytested.aspnetcore.mvc.6.0.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\mytested.aspnetcore.mvc.abstractions\\6.0.0\\mytested.aspnetcore.mvc.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Cmpt\\.nuget\\packages\\mytested.aspnetcore.mvc.authentication\\6.0.0\\mytested.aspnetcore.mvc.authentication.6.0.0.nupkg.sha512",
