@@ -58,13 +58,14 @@
             {
                 return RedirectToAction("Create", "Deck");
             }
-            var model = this.deckService.GetById<SingleDeckViewModel>(Id);
-            model.Cards = this.cardService.GetAllCardsByCriteria<CardInListViewModel>(input);
-            model.Decks = decks;
-            model.Cards = this.deckService.GetAllCardsInDeckId<CardInListViewModel>(Id);
-            model.SelectType = this.playCardComponentsService.GetAllCardType();
 
-            return this.View(model);
+            input.Id = Id;
+            input.Cards = this.cardService.GetAllCardsByCriteria<CardInListViewModel>(input);
+            input.Decks = decks;
+            input.Cards = this.deckService.GetAllCardsInDeckId<CardInListViewModel>(Id);
+            input.SelectType = this.playCardComponentsService.GetAllCardType();
+
+            return this.View(input);
         }
 
         [HttpPost]

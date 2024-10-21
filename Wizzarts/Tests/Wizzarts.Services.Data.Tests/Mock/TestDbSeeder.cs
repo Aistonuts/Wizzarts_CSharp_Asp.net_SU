@@ -10,6 +10,7 @@
     using Microsoft.Extensions.Logging;
     using Wizzarts.Data;
     using Wizzarts.Data.Seeding;
+    using Wizzarts.Services.Data.Tests.Mock.TestData;
     using WWizzarts.Services.Data.Tests.Mock;
 
     public class TestDbSeeder : ITestDbSeeder
@@ -50,6 +51,8 @@
                               new ChatSeeder(),
                               new ChatUserSeeder(),
                               new ChatMessageSeeder(),
+                              new DeckSeeder(),
+                              new DeckStatusSeeder(),
                           };
 
             foreach (var seeder in seeders)

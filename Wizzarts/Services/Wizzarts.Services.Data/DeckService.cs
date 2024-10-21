@@ -27,7 +27,7 @@ namespace Wizzarts.Services.Data
             IDeletableEntityRepository<CardDeck> deckRepository,
             IDeletableEntityRepository<Event> eventRepository,
             IDeletableEntityRepository<PlayCard> playCardRepository,
-            IDeletableEntityRepository<DeckOfCards> deckOfCardsRepostiory,
+            IDeletableEntityRepository<DeckOfCards> deckOfCardsRepository,
             IDeletableEntityRepository<DeckStatus> deckStatusRepository,
             IDeletableEntityRepository<ApplicationUser> userRepository,
             IPlayCardService cardService,
@@ -36,7 +36,7 @@ namespace Wizzarts.Services.Data
             this.deckRepository = deckRepository;
             this.eventRepository = eventRepository;
             this.playCardRepository = playCardRepository;
-            this.deckOfCardsRepository = deckOfCardsRepostiory;
+            this.deckOfCardsRepository = deckOfCardsRepository;
             this.deckStatusRepository = deckStatusRepository;
             this.userRepository = userRepository;
             this.cardService = cardService;
@@ -61,6 +61,7 @@ namespace Wizzarts.Services.Data
                 CreatedByMemberId = userId,
                 StatusId = 1,
                 ImageUrl = artUrl,
+                IsLocked = false,
             };
 
             currentEvent.Participants.Add(user);
@@ -134,7 +135,7 @@ namespace Wizzarts.Services.Data
             var card = this.playCardRepository.All().FirstOrDefault(x => x.Id == cardId);
             if (!deck.IsLocked)
             {
-                this.deckOfCardsRepository.Delete(deckOfCards);
+                deck.PlayCards.Remove(card);
                 await this.deckOfCardsRepository.SaveChangesAsync();
             }
             return deckId;
@@ -151,7 +152,7 @@ namespace Wizzarts.Services.Data
             foreach (var card in deckOfCards)
 
             {
-                foreach (var item in eventCards) 
+                foreach (var item in eventCards)
                 {
                     if(card.PlayCardId == item.Id)
                     {

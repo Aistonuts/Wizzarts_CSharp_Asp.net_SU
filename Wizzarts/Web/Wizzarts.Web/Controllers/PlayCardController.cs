@@ -293,82 +293,82 @@ namespace Wizzarts.Web.Controllers
             {
                 card.Mana = this.cardService.GetAllCardManaByCardId<ManaListViewModel>(id);
             }
-            var commentsByAdmin = this.commentService.GetAllAttackCommentsByAdmin<CardCommentInListViewModel>(id);
+            var commentsByAdmin = this.commentService.GetCommentsByCardId<CardCommentInListViewModel>(id);
             card.CommentsByAdmin = commentsByAdmin;
             card.Events = this.eventService.GetAll<EventInListViewModel>();
             card.Articles = this.articleService.GetRandom<ArticleInListViewModel>(4);
             return this.View(card);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AttackComment(SingleCardViewModel model, string cardId)
-        {
-            bool IsAdmin = false;
-            if (this.User.IsInRole(AdministratorRoleName))
-            {
-                IsAdmin = true;
-            }
-            this.ModelState.Remove("UserName");
-            this.ModelState.Remove("Password");
-            if (!this.ModelState.IsValid)
-            {
-                return this.View(model);
-            }
+        //[HttpPost]
+        //public async Task<IActionResult> AttackComment(SingleCardViewModel model, string cardId)
+        //{
+        //    bool IsAdmin = false;
+        //    if (this.User.IsInRole(AdministratorRoleName))
+        //    {
+        //        IsAdmin = true;
+        //    }
+        //    this.ModelState.Remove("UserName");
+        //    this.ModelState.Remove("Password");
+        //    if (!this.ModelState.IsValid)
+        //    {
+        //        return this.View(model);
+        //    }
 
-            var user = await this.userManager.GetUserAsync(this.User);
+        //    var user = await this.userManager.GetUserAsync(this.User);
 
-            try
-            {
-                await this.commentService.AttackCommentAsync(model, user.Id, cardId, IsAdmin);
-            }
-            catch (Exception ex)
-            {
+        //    try
+        //    {
+        //        await this.commentService.AttackCommentAsync(model, user.Id, cardId, IsAdmin);
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                this.ModelState.AddModelError(string.Empty, ex.Message);
+        //        this.ModelState.AddModelError(string.Empty, ex.Message);
 
-                return this.View(model);
-            }
+        //        return this.View(model);
+        //    }
 
-            this.TempData["Message"] = "Comment added successfully.";
+        //    this.TempData["Message"] = "Comment added successfully.";
 
-            return this.RedirectToAction("ById", "PlayCard", new { id = $"{model.Id}", Area = "" });
-        }
+        //    return this.RedirectToAction("ById", "PlayCard", new { id = $"{model.Id}", Area = "" });
+        //}
 
-        [HttpPost]
-        public async Task<IActionResult> Defense(SingleCardViewModel model, int data)
-        {
-            bool IsAdmin = false;
-            var currentComment = this.commentService.GetAttackCommentById<CardCommentInListViewModel>(data);
+        //[HttpPost]
+        //public async Task<IActionResult> Defense(SingleCardViewModel model, int data)
+        //{
+        //    bool IsAdmin = false;
+        //    var currentComment = this.commentService.GetAttackCommentById<CardCommentInListViewModel>(data);
 
-            if (this.User.IsInRole(AdministratorRoleName))
-            {
-                IsAdmin = true;
-            }
-            this.ModelState.Remove("UserName");
-            this.ModelState.Remove("Password");
-            if (!this.ModelState.IsValid)
-            {
-                return this.View(model);
-            }
+        //    if (this.User.IsInRole(AdministratorRoleName))
+        //    {
+        //        IsAdmin = true;
+        //    }
+        //    this.ModelState.Remove("UserName");
+        //    this.ModelState.Remove("Password");
+        //    if (!this.ModelState.IsValid)
+        //    {
+        //        return this.View(model);
+        //    }
 
-            var user = await this.userManager.GetUserAsync(this.User);
+        //    var user = await this.userManager.GetUserAsync(this.User);
 
-            try
-            {
-                await this.commentService.DefenseReplyCommentAsync(model, user.Id,  currentComment.CardId, data, IsAdmin);
-            }
-            catch (Exception ex)
-            {
+        //    try
+        //    {
+        //        await this.commentService.DefenseReplyCommentAsync(model, user.Id,  currentComment.CardId, data, IsAdmin);
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                this.ModelState.AddModelError(string.Empty, ex.Message);
+        //        this.ModelState.AddModelError(string.Empty, ex.Message);
 
-                return this.View(model);
-            }
+        //        return this.View(model);
+        //    }
 
-            this.TempData["Message"] = "Reply added successfully.";
+        //    this.TempData["Message"] = "Reply added successfully.";
 
-            return this.RedirectToAction("Index", "Home");
-        }
+        //    return this.RedirectToAction("Index", "Home");
+        //}
 
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]

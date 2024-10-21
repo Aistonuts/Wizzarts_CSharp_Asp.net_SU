@@ -17,12 +17,13 @@ namespace Wizzarts.Services.Data
         private readonly IDeletableEntityRepository<CommentCard> commentRepository;
 
         public CommentService(
+
             IDeletableEntityRepository<CommentCard> commentRepository)
         {
             this.commentRepository = commentRepository;
         }
 
-        public async Task AttackCommentAsync(SingleCardViewModel input, string userId, string cardId, bool isAdmin)
+        public async Task CommentAsync(SingleCardViewModel input, string userId, string cardId, bool isAdmin)
         {
             var comment = new CommentCard
             {
@@ -37,40 +38,20 @@ namespace Wizzarts.Services.Data
             await this.commentRepository.SaveChangesAsync();
         }
 
-        public Task DefenseReplyCommentAsync(SingleCardViewModel input, string userId, string cardId, int commentId, bool isAdmin)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<T> GetAllAttackComments<T>()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<T> GetAllAttackCommentsByAdmin<T>(string cardId)
+        public IEnumerable<T> GetAllCommentsByUser<T>(string userId)
         {
             var comment = this.commentRepository.AllAsNoTracking()
-                .Where(x => x.CardId == cardId )
+                .Where(x => x.PostedByUserId == userId)
                 .To<T>().ToList();
 
             return comment;
         }
 
-        public IEnumerable<T> GetAllDefenseComments<T>()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<T> GetAllDefenseCommentsByCardOwnerId<T>(string cardId, string userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public T GetAttackCommentById<T>(int id)
+        public IEnumerable<T> GetCommentsByCardId<T>(string id)
         {
             var comment = this.commentRepository.AllAsNoTracking()
-                .Where(x => x.Id == id)
-                .To<T>().FirstOrDefault();
+                .Where(x => x.CardId == id)
+                .To<T>().ToList();
 
             return comment;
         }

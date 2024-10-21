@@ -3,65 +3,85 @@
   "WorkspaceRootPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\playcardservicetest\\playcardservicestest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\playcardservicetest\\playcardservicestest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EE06C6E-C8F3-418A-A309-8AC81976A074}|Tests\\Wizzarts.Web.Tests\\Wizzarts.Web.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.web.tests\\controllertest\\deckcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EE06C6E-C8F3-418A-A309-8AC81976A074}|Tests\\Wizzarts.Web.Tests\\Wizzarts.Web.Tests.csproj|solutionrelative:tests\\wizzarts.web.tests\\controllertest\\deckcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web.viewmodels\\deck\\singledeckviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|solutionrelative:web\\wizzarts.web.viewmodels\\deck\\singledeckviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\mock\\testdata\\deckseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\mock\\testdata\\deckseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\mock\\testdbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\mock\\testdbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "DockedHeight": 644,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{290d74ba-151f-5f8b-b7df-7de2c7b571a7}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlayCardServicesTest.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\PlayCardServiceTest\\PlayCardServicesTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\PlayCardServiceTest\\PlayCardServicesTest.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\PlayCardServiceTest\\PlayCardServicesTest.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\PlayCardServiceTest\\PlayCardServicesTest.cs",
-              "ViewState": "AQIAAJMDAAAAAAAAAAAqwKIDAAALAAAA",
+              "DocumentIndex": 2,
+              "Title": "TestDbSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestDbSeeder.cs",
+              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestDbSeeder.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestDbSeeder.cs",
+              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestDbSeeder.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADYAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T08:48:09.195Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-10-21T09:08:08.729Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SingleDeckViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Deck\\SingleDeckViewModel.cs",
-              "RelativeDocumentMoniker": "Web\\Wizzarts.Web.ViewModels\\Deck\\SingleDeckViewModel.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Deck\\SingleDeckViewModel.cs",
-              "RelativeToolTip": "Web\\Wizzarts.Web.ViewModels\\Deck\\SingleDeckViewModel.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAABMAAAAWAAAA",
+              "Title": "DeckSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestData\\DeckSeeder.cs",
+              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestData\\DeckSeeder.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestData\\DeckSeeder.cs",
+              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestData\\DeckSeeder.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAwwBYAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T09:51:48.032Z",
+              "WhenOpened": "2024-10-21T08:47:07.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeckControllerTest.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Web.Tests\\ControllerTest\\DeckControllerTest.cs",
+              "RelativeDocumentMoniker": "Tests\\Wizzarts.Web.Tests\\ControllerTest\\DeckControllerTest.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Web.Tests\\ControllerTest\\DeckControllerTest.cs",
+              "RelativeToolTip": "Tests\\Wizzarts.Web.Tests\\ControllerTest\\DeckControllerTest.cs",
+              "ViewState": "AQIAAPwAAAAAAAAAAAAuwA4BAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T11:44:45.522Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 200,
+          "DockedHeight": 400,
           "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{290d74ba-151f-5f8b-b7df-7de2c7b571a7}"
-            }
-          ]
+          "Children": []
+        },
+        {
+          "DockedHeight": 400,
+          "SelectedChildIndex": -1,
+          "Children": []
         }
       ]
     }

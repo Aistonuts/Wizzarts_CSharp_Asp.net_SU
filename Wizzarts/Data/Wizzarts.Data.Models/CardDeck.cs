@@ -57,6 +57,5 @@
 
         public virtual ICollection<PlayCard> PlayCards { get; set; }
 
-
     }
 }

@@ -35,7 +35,7 @@ namespace Wizzarts.Web.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Post( MessageViewModel viewModel)
+        public async Task<IActionResult> Post(MessageViewModel viewModel)
         {
             try
             {

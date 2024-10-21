@@ -43,13 +43,13 @@ namespace Wizzarts.Web.Controllers
         }
 
 
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<IActionResult> Advanced(string cardName)
-        {
-            var card = this.playCardService.GetByName<SingleCardViewModel>(cardName);
+        //[HttpGet]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> Advanced(string cardName)
+        //{
+        //    var card = this.playCardService.GetByName<SingleCardViewModel>(cardName);
 
-            return this.RedirectToAction("ById", "PlayCard", new { id = card.Id });
-        }
+        //    return this.RedirectToAction("ById", "PlayCard", new { id = card.Id });
+        //}
     }
 }

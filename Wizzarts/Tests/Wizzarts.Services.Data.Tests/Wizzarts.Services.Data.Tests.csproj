@@ -40,10 +40,4 @@
     <ProjectReference Include="..\..\Web\Wizzarts.Web\Wizzarts.Web.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DeckServiceTest\" />
-    <Folder Include="CommentServiceTest\" />
-    <Folder Include="SearchServiceTest\" />
-  </ItemGroup>
-
 </Project>
