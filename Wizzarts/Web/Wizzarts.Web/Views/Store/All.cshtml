@@ -13,17 +13,17 @@
             @foreach (var store in this.Model.Stores.Where(x => x.ApprovedByAdmin == true))
             {
                 <div class="article-card card border-0">
-                    <a href="" aria-label="article" class="image-wrapper" data-toggle="modal" data-target="#@store.Name.Replace(" ","")">
+                    <div aria-label="article" class="image-wrapper" data-toggle="modal" data-target="#@store.Name.Replace(" ","")">
 
                         <div class="article-uimgheader"><img id="previewCardModal" class="article-uimgheader" style="width : 366px" src="@store.Image" alt="Card" onerror="this.onerror=null;this.src='@store.Image';"></div>
 
-                    </a>
+                    </div>
                     <div class="card-body pt-0">
                         <small class="yellow-line">
                             <a href=""><i class="far fa-star"></i></a>
                         </small>
                         <div class="ff-display font-size-18">
-                            <b><a href="">@store.Name</a></b>
+                            <b>@store.Name</b>
                         </div>
                         <div class="text-right">
                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#@store.Name.Replace(" ", "")">

@@ -1,4 +1,6 @@
-﻿@model Wizzarts.Web.ViewModels.Article.SingleArticleViewModel
+﻿@using Wizzarts.Common
+@model Wizzarts.Web.ViewModels.Article.SingleArticleViewModel
+
 @{
     this.ViewData["Title"] = "Article";
 }
@@ -14,13 +16,13 @@
                             <div class="w-100 d-flex justify-content-start mb-1 mt-3">
                                 <div class="yellow-line w-100 mb-0">
                                     <img src="@Model.ArticleCreatorAvatar" width="50" height="50" class="rounded-circle">
-                                    <a href="/User/ChrisCee">@Model.ArticleCreatorName</a>
+                                    <a asp-controller="User"asp-action="ById" asp-route-id="@Model.ArticleCreatorId">@Model.ArticleCreatorName</a>
                                     <span class="text-muted">@Model.CreatedOn</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12 col-sm-5 col-md-6">
-                            <img class="article-uimgheader-preview" src="@Model.ImageUrl" alt="MTG Standard Rotation 2024: Overview and Final Rankings">
+                            <img class="article-uimgheader-preview" src="@Model.ImageUrl">
                         </div>
                     </div>
                     <div class="card-header bg-light p-0 text-center">
@@ -29,16 +31,30 @@
                     <div class="row mt-2 mb-2">
                         <div id="article-text" class="col-md-12">
                             <p>@Model.Description</p>
-                            <p>@Model.ShortDescription</p>
-                            
-                            <p>&nbsp;</p><p></p>
-                            <p>&nbsp;</p>
+                            <p>@Model.ShortDescription</p> 
                         </div>
                     </div>
                     <h4 class="pl-2">About @Model.ArticleCreatorName:</h4>
                     <div class="w-100 pl-2">
                         <p>@Model.ArticleCreatorBio</p>
                     </div>
+                </div>
+                <div class="col-xl-9 col-12">
+                    <ul class="entry-meta">
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        {
+                            <li class="single-meta">
+                                <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
+                                </form>
+                                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                            </li>
+                            <li class="single-meta">
+                                <form asp-area="" asp-controller="Article" method="post" asp-action="ApproveArticle" asp-route-id="@Model.Id">
+                                    <button class="btn btn-danger">Approve</button>
+                                </form>
+                            </li>
+                        }
+                    </ul>
                 </div>
             </article>
            @*  <div class="card mt-2 border-0">

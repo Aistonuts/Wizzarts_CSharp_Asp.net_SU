@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
     using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.PlayCard;
 
@@ -40,5 +41,7 @@
         IEnumerable<T> GetAllCardsByCriteria<T>(SingleDeckViewModel input);
 
         T GetByName<T>(string name);
+
+        Task Promote(string id);
     }
 }

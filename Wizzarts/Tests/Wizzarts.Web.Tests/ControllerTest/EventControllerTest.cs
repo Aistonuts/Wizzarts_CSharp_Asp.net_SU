@@ -80,11 +80,13 @@ namespace Wizzarts.Web.Tests.ControllerTest
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
-
+            this.OneTimeSetup();
+            var data = this.dbContext;
 
             MyController<EventController>
-                .Instance()
-                .WithUser()
+                .Instance(instance => instance
+                    .WithUser(c => c.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
+                    .WithData(data.Users))
                .Calling(c => c.Create(new CreateEventViewModel
                {
                    Title = title,
@@ -107,7 +109,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                .AndAlso()
                .ShouldReturn()
                .Redirect(redirect => redirect
-                   .To<HomeController>(c => c.Index()));
+                   .To<HomeController>(c => c.Index(With.No<string>())));
         }
     }
 }

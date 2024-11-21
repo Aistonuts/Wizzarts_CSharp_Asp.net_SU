@@ -22,7 +22,7 @@
         public string UserName { get; set; }
 
         /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+        ///     Gets or sets this API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
         [Required]
@@ -42,6 +42,14 @@
         public int CountOfEvents { get; set; }
 
         public int CountOfCards { get; set; }
+
+        public bool IsProfileUpToDate { get; set; } = true;
+
+        public bool HasOpenDeck { get; set; }
+
+        [Phone]
+        [Required]
+        public string PhoneNumber { get; set; } = string.Empty;
 
         public IEnumerable<DeckStatusListViewModel> DeckStatuses { get; set; }
 
@@ -69,9 +77,7 @@
 
         public IEnumerable<GameRulesDataViewModel> GameRulesData { get; set; }
 
-        public IEnumerable<CardCommentInListViewModel> CommentsByAdmin { get; set; }
-
-        public IEnumerable<CardCommentInListViewModel> CommentsByUsers { get; set; }
+        public IEnumerable<CardCommentInListViewModel> Comments { get; set; }
 
         public IEnumerable<ManaListViewModel> Mana { get; set; }
     }

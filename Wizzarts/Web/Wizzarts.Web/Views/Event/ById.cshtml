@@ -1,4 +1,5 @@
-﻿@model Wizzarts.Web.ViewModels.Event.SingleEventViewModel
+﻿@using Wizzarts.Common
+@model Wizzarts.Web.ViewModels.Event.SingleEventViewModel
 
 @{
     this.ViewData["Title"] = "Event Milestones";
@@ -7,7 +8,7 @@
     <div class="col-sm-12 col-md-12 col-lg-12 pl-0 pr-0 pr-lg-3">
         <div class="card p-lg-3">
             <div>
-                <div id="zone01-flex" class="mx-auto"></div>
+                <div id="zone01-flex" class="mx-auto"><h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">Event information</h4></div>
             </div>
             <article id="article-body">
                 <div class="h-oneKpx pl-0 pr-0">
@@ -18,10 +19,10 @@
                             </div>
                             <div class="w-100 d-flex justify-content-start mb-1 mt-3">
                                 <div class="yellow-line w-100 mb-0">
-                                    <img src="https://gravatar.com/avatar/9ef5be673bd91a07ceeab44408c72793.jpg" width="50" height="50" class="rounded-circle">
+@*                                     <img src="https://gravatar.com/avatar/9ef5be673bd91a07ceeab44408c72793.jpg" width="50" height="50" class="rounded-circle">
                                     <a href="/User/Genoslugcs">Genoslugcs</a>
                                     <span class="text-muted">July 6, 2024</span>
-                                    <span class="text-muted"><i class="far fa-clock"></i> 4 min</span>
+                                    <span class="text-muted"><i class="far fa-clock"></i> 4 min</span> *@
                                 </div>
                             </div>
                         </div>
@@ -34,7 +35,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="w-100 span-all mb-5 mt-5">
-                                    <h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">Wizzarts Art</h4>
+                                    <h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">Details</h4>
                                     <div id="creatorCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
                                         <div class="carousel-inner">
 
@@ -52,11 +53,14 @@
 
                                                                     </a>
                                                                 </div>
-                                                                <div class="card-body p-0">
-                                                                    <small class="text-center mb-1 text-muted">
-                                                                        01 Jul by <a href="/User/ReikoBoy"><i class="far fa-star"></i>ReikoBoy</a>
-                                                                    </small>
-                                                                </div>
+                                                                <div class="article-card card border-0">
+                                                                    <div class="card-body pt-0">
+                                                                        <div class="ff-display font-size-18">
+                                                                            <b>@this.Model.EventComponents.ToList()[i].Description</b>
+                                                                        </div>
+                                                                        <div class="card-text d-none d-md-flex m-1">@this.Model.EventComponents.ToList()[i].Description</div>
+                                                                    </div>
+                                                                </div>                                                             
                                                             </div>
                                                         </div>
                                                     </div>
@@ -72,10 +76,13 @@
                                                                         <img src="@this.Model.EventComponents.ToList()[i].ImageUrl" alt="@this.Model.EventComponents.ToList()[i].Title" class="lazy" alt="video" style="">
                                                                     </a>
                                                                 </div>
-                                                                <div class="card-body p-0">
-                                                                    <small class="text-center mb-1 text-muted">
-                                                                        01 Jul by <a href="/User/ReikoBoy"><i class="far fa-star"></i>ReikoBoy</a>
-                                                                    </small>
+                                                                <div class="article-card card border-0">
+                                                                    <div class="card-body pt-0">
+                                                                        <div class="ff-display font-size-18">
+                                                                            <b>@this.Model.EventComponents.ToList()[i].Title</b>
+                                                                        </div>
+                                                                        <div class="card-text d-none d-md-flex m-1">@this.Model.EventComponents.ToList()[i].Description</div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -100,6 +107,29 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-xl-9 col-12">
+                    <ul class="entry-meta">
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        {
+                            <li class="single-meta">
+                                <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.EventId">
+                                </form>
+                                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                            </li>
+                            <li class="single-meta">
+                                <form asp-area="" asp-controller="Event" method="post" asp-action="ApproveEvent" asp-route-id="@Model.EventId">
+                                    <button class="btn btn-danger">Approve</button>
+                                </form>
+                            </li>
+                            <li class="single-meta">
+                                <a asp-area="" asp-controller="Event" asp-action="Edit" asp-route-id="@Model.EventId">
+                                    <button class="btn btn-danger">Approve</button>
+                                </a>
+                            </li>
+                        }
+                       
+                    </ul>
                 </div>
             </article>
         </div>

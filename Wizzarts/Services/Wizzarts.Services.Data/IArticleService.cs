@@ -7,7 +7,7 @@
 
     public interface IArticleService
     {
-        Task CreateAsync(CreateArticleViewModel input, string userId, string imagePath);
+        Task CreateAsync(CreateArticleViewModel input, string userId, string imagePath, bool isPremium);
 
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 3);
 
@@ -19,7 +19,7 @@
 
         T GetById<T>(int id);
 
-        int GetCount();
+        Task<int> GetCount();
 
         IEnumerable<T> GetAllArticlesByUserId<T>(string id, int page, int itemsPerPage = 3);
 

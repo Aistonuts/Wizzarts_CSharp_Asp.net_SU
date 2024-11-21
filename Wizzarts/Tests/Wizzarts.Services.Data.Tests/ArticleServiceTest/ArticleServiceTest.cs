@@ -47,7 +47,7 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var articleRepository = new EfDeletableEntityRepository<Article>(data);
             var articleService = new ArticleService(articleRepository, cache);
-            int articleCount = articleService.GetCount();
+            int articleCount = await articleService.GetCount();
             Assert.Equal(6, articleCount);
 
             this.TearDownBase();
@@ -80,7 +80,7 @@
             string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
-
+            bool isPremium = false;
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
             await service.CreateAsync(
@@ -90,7 +90,7 @@
                     ImageUrl = file,
                     Description = "Test",
                     ShortDescription = "Test",
-                }, UserId, path);
+                }, UserId, path, isPremium);
             var count = await repository.All().CountAsync();
             var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
             Assert.Equal(7, count);
@@ -110,7 +110,7 @@
             string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
-
+            bool isPremium = false;
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.nft");
 
@@ -121,7 +121,7 @@
                     ImageUrl = file,
                     Description = "Test",
                     ShortDescription = "Test",
-                }, UserId, path));
+                }, UserId, path,isPremium));
             Assert.Equal("Invalid image extension nft", exception.Message);
             this.TearDownBase();
         }
@@ -192,7 +192,7 @@
             string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
-
+            bool isPremium = false;
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
             await service.CreateAsync(
@@ -202,7 +202,7 @@
                     ImageUrl = file,
                     Description = "Test",
                     ShortDescription = "Test",
-                }, UserId, path);
+                }, UserId, path, isPremium);
             var count = await repository.All().CountAsync();
             var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
             int testArticleId = testArticle.Id;
@@ -226,7 +226,7 @@
             string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
-
+            bool isPremium = false;
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
             await service.CreateAsync(
@@ -236,7 +236,7 @@
                     ImageUrl = file,
                     Description = "Test",
                     ShortDescription = "Test",
-                }, UserId, path);
+                }, UserId, path, isPremium);
             var count = await repository.All().CountAsync();
             var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
             int testArticleId = testArticle.Id;

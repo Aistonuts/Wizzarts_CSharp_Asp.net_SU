@@ -41,7 +41,7 @@
         [Comment("Is event approved by admin.")]
         public bool ApprovedByAdmin { get; set; }
 
-        public bool IsContentCreator { get; set; }
+        public bool ForMainPage { get; set; }
 
         [Required]
         [Comment("Event creator")]

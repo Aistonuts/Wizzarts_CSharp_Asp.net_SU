@@ -20,5 +20,7 @@
         IEnumerable<T> GetAllApprovedStoresByUserId<T>(string id);
 
         Task<string> ApproveStore(int id);
+
+        Task<T> GetById<T>(int id);
     }
 }

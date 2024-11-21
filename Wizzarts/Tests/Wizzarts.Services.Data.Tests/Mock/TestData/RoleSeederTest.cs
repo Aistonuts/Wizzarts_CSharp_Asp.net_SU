@@ -15,7 +15,9 @@
 //    {
 //        public async Task SeedAsync(ApplicationDbContext dbContext)
 //        {
-//            var roleManager = serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
+//            var services = new ServiceCollection();
+//            var provider = services.BuildServiceProvider();
+//            var roleManager = provider.GetRequiredService<RoleManager<ApplicationRole>>();
 
 //            await SeedRoleAsync(roleManager, GlobalConstants.AdministratorRoleName, GlobalConstants.AdministratorRoleGuid);
 //            await SeedRoleAsync(roleManager, GlobalConstants.WizzartsTeamRoleName, GlobalConstants.WizzartsTeamRoleGuid);

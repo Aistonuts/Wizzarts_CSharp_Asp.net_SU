@@ -1,6 +1,7 @@
 ﻿namespace Wizzarts.Web.Controllers
 {
     using System;
+    using System.Diagnostics;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
@@ -8,11 +9,13 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Localization;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Routing;
     using Microsoft.Extensions.Caching.Memory;
     using Microsoft.Extensions.Logging;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
+    using Wizzarts.Web.ViewModels;
     using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Chat;
@@ -23,6 +26,7 @@
     using Wizzarts.Web.ViewModels.Store;
 
     using static Wizzarts.Common.GlobalConstants;
+    using static Wizzarts.Common.HardCodedConstants;
 
     public class HomeController : BaseController
     {
@@ -30,6 +34,7 @@
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<HomeController> _logger;
         private readonly IChatService chatService;
+        private readonly IDeckService deckService;
         private readonly IArticleService articlesService;
         private readonly IArtService artService;
         private readonly IPlayCardService playCardService;
@@ -44,6 +49,7 @@
            SignInManager<ApplicationUser> _signInManager,
            ILogger<HomeController> _logger,
            IChatService chatService,
+           IDeckService deckService,
            IArticleService articlesServic,
            IArtService artService,
            IPlayCardService playCardService,
@@ -57,6 +63,7 @@
             this._signInManager = _signInManager;
             this._logger = _logger;
             this.chatService = chatService;
+            this.deckService = deckService;
             this.articlesService = articlesServic;
             this.artService = artService;
             this.playCardService = playCardService;
@@ -69,25 +76,8 @@
         }
 
         [AllowAnonymous]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string welcomeMessage = null)
         {
-            var user = await this.userManager.GetUserAsync(this.User);
-
-            string welcomeMessage = " ";
-
-            if (user != null)
-            {
-                var currentRole = await this.userManager.GetRolesAsync(user);
-                if (!currentRole.Contains(AdministratorRoleName))
-                {
-                    welcomeMessage = await this.userService.UpdateRoleAsync(user, user.Id);
-                }
-            }
-            else
-            {
-                welcomeMessage = string.Empty;
-            }
-
             var viewModel = new IndexAuthenticationViewModel()
             {
                 Articles = this.articlesService.GetRandom<ArticleInListViewModel>(8),
@@ -104,8 +94,45 @@
                 CountOfArticles = this.userService.GetCountOfArticles(this.User.GetId()),
                 CountOfCards = this.userService.GetCountOfCards(this.User.GetId()),
                 CountOfEvents = this.userService.GetCountOfEvents(this.User.GetId()),
+                HasOpenDeck = this.deckService.HasOpenDecks(this.User.GetId()),
             };
+            var user = await this.userManager.GetUserAsync(this.User);
+            if (user != null)
+            {
+                if (user.Nickname == string.Empty || user.AvatarUrl == string.Empty)
+                {
+                    viewModel.IsProfileUpToDate = false;
+                }
+            }
+
             return this.View(viewModel);
+        }
+
+        [HttpGet("Home/Status")]
+        public async Task<RedirectToActionResult> Status()
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            string updateMessage = " ";
+
+            if (user != null)
+            {
+                var currentRole = await this.userManager.GetRolesAsync(user);
+                if (!currentRole.Contains(AdministratorRoleName))
+                {
+                    updateMessage = await this.userService.UpdateRoleAsync(user, user.Id);
+                }
+                else
+                {
+                    updateMessage = "Hello admin.";
+                }
+            }
+            else
+            {
+                updateMessage = "Not signed in";
+            }
+
+            return this.RedirectToAction(nameof(this.Index), new { welcomeMessage = updateMessage });
         }
 
         [HttpPost]
@@ -116,8 +143,8 @@
 
             var viewModel = new IndexAuthenticationViewModel()
             {
-                Articles = this.articlesService.GetRandom<ArticleInListViewModel>(6),
-                Arts = this.artService.GetRandom<ArtInListViewModel>(3),
+                Articles = this.articlesService.GetRandom<ArticleInListViewModel>(8),
+                Arts = this.artService.GetRandom<ArtInListViewModel>(4),
                 Cards = this.playCardService.GetRandom<CardInListViewModel>(4),
                 Stores = this.storeService.GetAll<StoreInListViewModel>(),
                 Events = this.eventService.GetAll<EventInListViewModel>(),
@@ -147,21 +174,25 @@
             // If we got this far, something failed, redisplay form
             return this.View();
         }
+
         [AllowAnonymous]
         public IActionResult Privacy()
         {
             return this.View();
         }
+
         [AllowAnonymous]
         public IActionResult Help()
         {
             return this.View();
         }
+
         [AllowAnonymous]
         public IActionResult Terms()
         {
             return this.View();
         }
+
         [AllowAnonymous]
         public IActionResult Contact()
         {
@@ -169,7 +200,6 @@
         }
 
         [HttpGet]
-        [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error(int statusCode)
         {
@@ -178,14 +208,23 @@
                 return this.View("Error400");
             }
 
+            if (statusCode == 0)
+            {
+                return this.View("Error500");
+            }
+
             if (statusCode == 401)
             {
                 return this.View("Error401");
             }
 
-            return View();
-            //return this.View(
-            //    new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
+            if (statusCode == 404)
+            {
+                return this.View("Error404");
+            }
+
+            return this.View(
+                new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
 
         [HttpGet]

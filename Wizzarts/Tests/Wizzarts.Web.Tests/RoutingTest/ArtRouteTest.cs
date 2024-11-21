@@ -65,7 +65,7 @@ namespace Wizzarts.Web.Tests.RoutingTest
            => MyRouting
                .Configuration()
                .ShouldMap("/Art/ById/ab8532f9-2a2f-4b65-96f1-90e5468fbed2")
-               .To<ArtController>(c => c.ById("ab8532f9-2a2f-4b65-96f1-90e5468fbed2"));
+               .To<ArtController>(c => c.ById("ab8532f9-2a2f-4b65-96f1-90e5468fbed2", With.No<string>()));
 
         [Fact]
         public void GetByUserIdShouldBeRoutedCorrectly()

@@ -8,14 +8,17 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Wizzarts.Common;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
+    using Wizzarts.Web.Extensions;
     using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.Store;
 
+    using static Wizzarts.Common.GlobalConstants;
     using static Wizzarts.Common.HardCodedConstants;
 
     public class DeckController : BaseController
@@ -49,37 +52,57 @@
             this.environment = environment;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Add(SingleDeckViewModel input, int Id)
+        public async Task<IActionResult> Add(SingleDeckViewModel input, int id, string information)
         {
+            var deck = await this.deckService.GetById<SingleDeckViewModel>(id);
             var user = await this.userManager.GetUserAsync(this.User);
-            var decks = this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
-            if (!decks.Any())
+
+            var currentRole = await this.userManager.GetRolesAsync(user);
+            if (!currentRole.Contains(AdministratorRoleName) && deck.CreatedByMemberId != user.Id)
             {
-                return RedirectToAction("Create", "Deck");
+                return this.Unauthorized();
             }
 
-            input.Id = Id;
+            var decks = this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
+            if (!currentRole.Contains(AdministratorRoleName) && !decks.Any())
+            {
+                return this.RedirectToAction("Create", "Deck");
+            }
+
+            input.Id = id;
+            input.Name = deck.Name;
             input.Cards = this.cardService.GetAllCardsByCriteria<CardInListViewModel>(input);
             input.Decks = decks;
-            input.Cards = this.deckService.GetAllCardsInDeckId<CardInListViewModel>(Id);
+            input.CardsInDeck = this.deckService.GetAllCardsInDeckId<CardInListViewModel>(id);
             input.SelectType = this.playCardComponentsService.GetAllCardType();
-
+            input.DeckStatus = deck.DeckStatus;
+            input.DeliveryLocation = deck.DeliveryLocation;
+            input.IsLocked = deck.IsLocked;
             return this.View(input);
         }
 
         [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Dispatch(SingleDeckViewModel input)
         {
 
             await this.deckService.ChangeStatusAsync(input);
 
-            return this.RedirectToAction(nameof(this.ById), new { id = input.Id });
+            return this.RedirectToAction(nameof(this.ById), new { id = input.Id, information = input.GetDeckName() });
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> Shipping(SingleDeckViewModel input)
+        {
+
+            await this.deckService.UpdateShippingAsync(input);
+
+            return this.RedirectToAction(nameof(this.ById), new { id = input.Id, information = input.GetDeckName() });
         }
 
         public async Task<IActionResult> AddCard(string data, int Id)
         {
-
             var decks = this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
             if (!decks.Any())
             {
@@ -100,7 +123,7 @@
                 return this.RedirectToAction("Create", "Deck");
             }
 
-            int currentDeckId = await deckService.RemoveAsync(Id, data);
+            int currentDeckId = await this.deckService.RemoveAsync(Id, data);
 
             return this.RedirectToAction(nameof(this.Add), new { id = currentDeckId });
         }
@@ -140,6 +163,7 @@
                 this.ModelState.AddModelError(string.Empty, ex.Message);
                 model.Decks = this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
                 model.Stores = this.storeService.GetAll<StoreInListViewModel>();
+
                 return this.View(model);
             }
 
@@ -161,29 +185,51 @@
             return this.View(viewModel);
         }
 
-
-        public async Task<IActionResult> Change(int Id)
+        public async Task<IActionResult> Order(int id)
         {
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            try
+            {
+                await this.deckService.OrderAsync(id, this.User.GetId());
+            }
+            catch (Exception ex)
+            {
+                return this.RedirectToAction(nameof(this.Add), new { id = id });
+            }
+
+            this.TempData["Message"] = "Order added successfully.";
+
+            // TODO: Redirect to article info page
+            return this.RedirectToAction("My", "Order");
+        }
+
+        public async Task<IActionResult> Change(int id)
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            var currentRole = await this.userManager.GetRolesAsync(user);
 
             var decks = this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
-            if (!decks.Any())
+            if (!currentRole.Contains(AdministratorRoleName) && !decks.Any())
             {
                 return this.RedirectToAction("Create", "Deck");
             }
 
-            int deckId = await this.deckService.LockDeck(Id);
+            int deckId = await this.deckService.LockDeck(id);
 
             return this.RedirectToAction(nameof(this.Add), new { id = deckId });
         }
 
-        public IActionResult ById(int id)
+        public async Task<IActionResult> ById(int id, string information)
         {
-            var deck = this.deckService.GetById<SingleDeckViewModel>(id);
-            //if (information != art.GetInformation())
-            //{
-            //    return this.BadRequest(information);
-            //}
-            deck.DeckStatuses = this.deckService.GetAllDeckStatuses();
+            var deck = await this.deckService.GetById<SingleDeckViewModel>(id);
+            if (information != deck.GetDeckName())
+            {
+                return this.BadRequest(information);
+            }
+
+            deck.Stores = this.storeService.GetAll<StoreInListViewModel>();
             deck.Cards = this.deckService.GetAllCardsInDeckId<CardInListViewModel>(id);
             deck.Decks = this.deckService.GetAll<DeckInListViewModel>();
             return this.View(deck);

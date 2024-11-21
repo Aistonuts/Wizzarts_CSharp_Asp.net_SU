@@ -30,6 +30,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
@@ -60,7 +61,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -95,6 +96,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
@@ -125,7 +127,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -162,6 +164,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
@@ -192,7 +195,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -229,6 +232,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
@@ -259,7 +263,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -281,8 +285,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             await deckService.CreateAsync(deck, userId, path);
             await deckService.LockDeck(1);
 
-            var deckOfCards = deckService.GetById<DeckInListViewModel>(1);
-          
+            var deckOfCards = await deckService.GetById<DeckInListViewModel>(1);
             Assert.Equal("Test", deckOfCards.Name);
             this.TearDownBase();
         }
@@ -295,6 +298,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
@@ -325,7 +329,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -362,6 +366,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
@@ -392,7 +397,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -504,6 +509,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
@@ -534,7 +540,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -572,6 +578,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
@@ -602,7 +609,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -640,6 +647,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
@@ -670,7 +678,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +

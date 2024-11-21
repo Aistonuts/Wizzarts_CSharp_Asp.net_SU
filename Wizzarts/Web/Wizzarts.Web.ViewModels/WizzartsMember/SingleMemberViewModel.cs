@@ -7,22 +7,27 @@
 
     public class SingleMemberViewModel : IndexAuthenticationViewModel, IMapFrom<ApplicationUser>
     {
-        public string UserId { get; set; }
+        public string UserId { get; set; } = string.Empty;
 
-        public string Nickname { get; set; }
+        public string Nickname { get; set; } = string.Empty;
 
-        public string AvatarUrl { get; set; }
+        public string Username { get; set; } = string.Empty;
 
-        public string Email { get; set; }
+        public string AvatarUrl { get; set; } = string.Empty;
 
-        public string Bio { get; set; }
+        public string Email { get; set; } = string.Empty;
+
+        public string Bio { get; set; } = string.Empty;
 
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<ApplicationUser, SingleMemberViewModel>()
             .ForMember(x => x.AvatarUrl, opt =>
                     opt.MapFrom(x =>
-                       x.AvatarUrl));
+                       x.AvatarUrl))
+            .ForMember(x => x.Username, opt =>
+                    opt.MapFrom(x =>
+                       x.UserName));
         }
     }
 }

@@ -25,14 +25,14 @@
             await dbContext.CardGameExpansions.AddAsync(new CardGameExpansion
             {
                 Title = "Second",
-                Description = "This is the pre-beta deck where our community helped us prepare for the beta release.",
+                Description = "This is the second release of Wizzarts game.",
                 CardsCount = "13",
                 ExpansionSymbolUrl = "/images/symbols/expansions/Second.png",
             });
             await dbContext.CardGameExpansions.AddAsync(new CardGameExpansion
             {
                 Title = "Beta",
-                Description = "Core game",
+                Description = "This is the beta deck. With the effort of our community we will release the second release of our game",
                 CardsCount = "31",
                 ExpansionSymbolUrl = "/images/symbols/expansions/Beta.png",
             });

@@ -1,4 +1,7 @@
-﻿
+﻿@{
+    this.ViewData["Title"] = "All card game expansions";
+    Layout = "~/Views/Shared/_LayoutIdentity.cshtml";
+}
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -31,6 +34,9 @@
     <a asp-area="" asp-controller="Event" asp-action="Create"
        class="btn btn-primary btn-lg">Add Event</a>
     <span> | </span>
-    <a asp-area="Admin" asp-controller="User" asp-action="All"
+    <a asp-area="Admin" asp-controller="Member" asp-action="All"
        class="btn btn-primary btn-lg">All Users</a>
+    <span> | </span>
+    <a asp-area="" asp-controller="Order" asp-action="All"
+       class="btn btn-primary btn-lg">All Orders</a>
 </div>

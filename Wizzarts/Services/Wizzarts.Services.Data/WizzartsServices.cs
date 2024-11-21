@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
@@ -20,7 +21,7 @@
         {
              this.gameRulesRepository = gameRulesRepository;
              this.gameRulesDataRepository = gameRulesDataRepository;
-             this.wizzartsTeamRepository = wizzartsTeamRepository;
+            this.wizzartsTeamRepository = wizzartsTeamRepository;
         }
 
         public IEnumerable<T> GetAllGameRulesData<T>()

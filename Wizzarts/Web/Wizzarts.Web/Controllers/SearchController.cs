@@ -1,13 +1,13 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using System;
-using Wizzarts.Services.Data;
-using Wizzarts.Web.ViewModels.Search;
-using Wizzarts.Web.ViewModels.PlayCard;
-
-namespace Wizzarts.Web.Controllers
+﻿namespace Wizzarts.Web.Controllers
 {
+    using System;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    using Wizzarts.Services.Data;
+    using Wizzarts.Web.ViewModels.PlayCard;
+
     [ApiController]
     [Route("api/[controller]/[action]")]
     public class SearchController : BaseController
@@ -25,7 +25,6 @@ namespace Wizzarts.Web.Controllers
 
         [Produces("application/json")]
         [HttpGet]
-        [AllowAnonymous]
         public async Task<IActionResult> Search()
         {
             try
@@ -43,13 +42,12 @@ namespace Wizzarts.Web.Controllers
         }
 
 
-        //[HttpGet]
-        //[AllowAnonymous]
-        //public async Task<IActionResult> Advanced(string cardName)
-        //{
-        //    var card = this.playCardService.GetByName<SingleCardViewModel>(cardName);
+        [HttpGet]
+        public async Task<IActionResult> Advanced(string cardName)
+        {
+            var card = this.playCardService.GetByName<SingleCardViewModel>(cardName);
 
-        //    return this.RedirectToAction("ById", "PlayCard", new { id = card.Id });
-        //}
+            return this.RedirectToAction("ById", "PlayCard", new { id = card.Id });
+        }
     }
 }

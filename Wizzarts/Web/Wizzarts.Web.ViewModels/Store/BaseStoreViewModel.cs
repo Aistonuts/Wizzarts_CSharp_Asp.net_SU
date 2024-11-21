@@ -1,6 +1,7 @@
 ﻿namespace Wizzarts.Web.ViewModels.Store
 {
     using System.ComponentModel.DataAnnotations;
+
     using Wizzarts.Web.ViewModels.Home;
 
     using static Wizzarts.Common.DataConstants;
@@ -26,8 +27,8 @@
 
         [Required(ErrorMessage = RequiredMessage)]
         [StringLength(StoreLocationMaxLength, MinimumLength = StoreLocationMinLength, ErrorMessage = LengthMessage)]
-        public string StoreAddress { get; set; }
+        public string StoreAddress { get; set; } = string.Empty;
 
-        public string StoreOwnerId { get; set; }
+        public string StoreOwnerId { get; set; } = string.Empty;
     }
 }

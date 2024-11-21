@@ -11,7 +11,7 @@
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Art;
 
-    public class CardInListViewModel : IMapFrom<PlayCard>, IHaveCustomMappings
+    public class CardInListViewModel : IMapFrom<PlayCard>, IHaveCustomMappings, ISingleCardViewModel
     {
         public string Id { get; set; } = string.Empty;
 

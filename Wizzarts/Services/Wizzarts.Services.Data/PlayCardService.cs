@@ -5,16 +5,18 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-    using System.Xml.Linq;
+
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Caching.Memory;
-    using Microsoft.VisualBasic;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.PlayCard;
-    using static Wizzarts.Common.GlobalConstants;
+
+    using static Wizzarts.Common.AdminConstants;
+
+    using static Wizzarts.Common.HardCodedConstants;
 
     public class PlayCardService : IPlayCardService
     {
@@ -83,7 +85,7 @@
 
             if (cachedCards == null)
             {
-                cachedCards = this.cardRepository.AllAsNoTracking().Where(x => x.ApprovedByAdmin == true).OrderByDescending(x => x.Id).To<T>().ToList();
+                cachedCards = this.cardRepository.AllAsNoTracking().Where(x => x.ApprovedByAdmin == true && x.ForMainPage == true).OrderByDescending(x => x.Id).To<T>().ToList();
 
                 var cacheOptions = new MemoryCacheEntryOptions()
                     .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
@@ -111,9 +113,8 @@
                 Toughness = input.Toughness,
                 CardGameExpansionId = input.GameExpansionId,
                 AddedByMemberId = userId,
-                EventId = id,
                 IsEventCard = isEventCard,
-                ArtId = input.ArtId,
+                ForMainPage = false,
             };
 
             var manaBlack = this.blackManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.BlackManaId);
@@ -213,11 +214,33 @@
             {
                 card.CardFrameColorId = cardFrame.Id;
             }
-            var physicalPath = " ";
 
-            Directory.CreateDirectory($"{path}/cardsByExpansion/PremiumUserCards");
-            physicalPath = $"{path}/cardsByExpansion/PremiumUserCards/{input.Name}.png";
-            card.CardRemoteUrl = $"/images/cardsByExpansion/PremiumUserCards/{input.Name}.png";
+            var physicalPath = string.Empty;
+
+            if (!isEventCard)
+            {
+                Directory.CreateDirectory($"{path}/cardsByExpansion/PremiumUserCards");
+                physicalPath = $"{path}/cardsByExpansion/PremiumUserCards/{input.Name}.png";
+                card.CardRemoteUrl = $"/images/cardsByExpansion/PremiumUserCards/{input.Name}.png";
+                card.ArtId = input.ArtId;
+            }
+            else
+            {
+                card.EventId = id;
+                card.ArtId = null;
+                if (requireArtInput)
+                {
+                    Directory.CreateDirectory($"{path}/cardsByExpansion/EventCards/Flavor");
+                    physicalPath = $"{path}/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
+                    card.CardRemoteUrl = $"/images/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
+                }
+                else
+                {
+                    Directory.CreateDirectory($"{path}/cardsByExpansion/EventCards/Flavorless");
+                    physicalPath = $"{path}/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
+                    card.CardRemoteUrl = $"/images/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
+                }
+            }
 
             //string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
 
@@ -288,10 +311,9 @@
                 await this.cardRepository.SaveChangesAsync();
                 this.cache.Remove(CardsCacheKey);
                 return card.AddedByMemberId;
-            }else
-            {
-                return null;
             }
+
+            return null;
 
         }
 
@@ -314,6 +336,7 @@
             {
                 this.cardRepository.Delete(card);
                 await this.cardRepository.SaveChangesAsync();
+                this.cache.Remove(CardsCacheKey);
             }
         }
 
@@ -322,7 +345,6 @@
             return this.cardRepository.AllAsNoTracking()
           .Where(x => x.IsEventCard == true)
           .To<T>().ToList();
-
         }
 
         public IEnumerable<T> GetAllNoPagination<T>()
@@ -554,6 +576,16 @@
             await this.cardRepository.AddAsync(card);
             await this.cardRepository.SaveChangesAsync();
             this.cache.Remove(CardsCacheKey);
+        }
+
+        public async Task Promote(string id)
+        {
+            var card = this.cardRepository.All().FirstOrDefault(x => x.Id == id);
+            if (card != null)
+            {
+                card.CardGameExpansionId = SecondExpansion;
+                await this.cardRepository.SaveChangesAsync();
+            }
         }
     }
 }

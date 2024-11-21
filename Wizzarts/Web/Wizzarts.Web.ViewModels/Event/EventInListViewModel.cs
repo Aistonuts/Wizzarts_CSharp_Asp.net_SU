@@ -6,21 +6,21 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
 
-    public class EventInListViewModel : IMapFrom<Event>, IHaveCustomMappings
+    public class EventInListViewModel : IMapFrom<Event>, IHaveCustomMappings, ISingleEventViewModel
     {
         public int Id { get; set; }
 
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
-        public string EventDescription { get; set; }
+        public string EventDescription { get; set; } = string.Empty;
 
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = string.Empty;
 
-        public string Status { get; set; }
+        public string Status { get; set; } = string.Empty;
 
-        public string Creator { get; set; }
+        public string Creator { get; set; } = string.Empty;
 
-        public string CreatorId { get; set; }
+        public string CreatorId { get; set; } = string.Empty;
 
         public bool ApprovedByAdmin { get; set; }
 

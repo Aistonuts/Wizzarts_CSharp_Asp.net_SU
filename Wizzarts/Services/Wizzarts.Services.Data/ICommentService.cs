@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Web.ViewModels.PlayCard;
-
-namespace Wizzarts.Services.Data
+﻿namespace Wizzarts.Services.Data
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
+    using Wizzarts.Web.ViewModels.PlayCard;
+
     public interface ICommentService
     {
-        Task CommentAsync(SingleCardViewModel input, string userId, string cardId, bool isAdmin);
+        Task CommentAsync(SingleCardViewModel input, string userId, string cardId, bool byAdmin);
 
         IEnumerable<T> GetAllCommentsByUser<T>(string userId);
 

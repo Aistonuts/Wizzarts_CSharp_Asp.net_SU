@@ -1,8 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Wizzarts.Data.Models
+﻿namespace Wizzarts.Data.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Models;

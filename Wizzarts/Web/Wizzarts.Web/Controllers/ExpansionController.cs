@@ -12,6 +12,9 @@ using Wizzarts.Web.ViewModels.Art;
 using Wizzarts.Web.ViewModels.PlayCard;
 using Wizzarts.Web.ViewModels.Article;
 using Wizzarts.Web.ViewModels.Event;
+using System.Threading.Tasks;
+using System;
+using Wizzarts.Web.Infrastructure.Extensions;
 
 namespace Wizzarts.Web.Controllers
 {
@@ -19,6 +22,7 @@ namespace Wizzarts.Web.Controllers
     {
         private readonly ApplicationDbContext dbContext;
         private readonly IPlayCardService cardService;
+        private readonly IDeckService deckService;
         private readonly ICommentService commentService;
         private readonly IPlayCardComponentsService playCardComponentsService;
         private readonly IPlayCardExpansionService playCardExpansionService;
@@ -32,6 +36,7 @@ namespace Wizzarts.Web.Controllers
         public ExpansionController(
              ApplicationDbContext dbContext,
              IPlayCardService cardService,
+             IDeckService deckService,
              ICommentService commentService,
              IPlayCardComponentsService playCardComponentsService,
              IPlayCardExpansionService playCardExpansionService,
@@ -44,6 +49,7 @@ namespace Wizzarts.Web.Controllers
         {
             this.dbContext = dbContext;
             this.cardService = cardService;
+            this.deckService = deckService;
             this.commentService = commentService;
             this.playCardComponentsService = playCardComponentsService;
             this.playCardExpansionService = playCardExpansionService;
@@ -77,6 +83,25 @@ namespace Wizzarts.Web.Controllers
             expansion.Expansions = this.playCardExpansionService.GetAll<ExpansionInListViewModel>();
 
             return this.View(expansion);
+        }
+
+        public async Task<IActionResult> Order(int id)
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            try
+            {
+                await this.deckService.OrderAsync(id, this.User.GetId());
+            }
+            catch (Exception ex)
+            {
+                //return this.RedirectToAction(nameof(this.Add), new { id = id });
+            }
+
+            this.TempData["Message"] = "Order added successfully.";
+
+            // TODO: Redirect to article info page
+            return this.RedirectToAction("My", "Order");
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿namespace Wizzarts.Web.ViewModels.Event
 {
-    using AutoMapper;
     using System.Collections.Generic;
+
+    using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
-    using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.PlayCard;
 
@@ -12,15 +12,15 @@
     {
         public int EventId { get; set; }
 
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
-        public string EventDescription { get; set; }
+        public string EventDescription { get; set; } = string.Empty;
 
-        public string CreatorId { get; set; }
+        public string CreatorId { get; set; } = string.Empty;
 
-        public string EventCreator { get; set; }
+        public string EventCreator { get; set; } = string.Empty;
 
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = string.Empty;
 
         public IEnumerable<CardInListViewModel> CardsFromEvent { get; set; }
 

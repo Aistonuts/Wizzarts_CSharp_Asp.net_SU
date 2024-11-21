@@ -1,5 +1,4 @@
-﻿
-namespace Wizzarts.Data.Models
+﻿namespace Wizzarts.Data.Models
 {
     using System;
     using System.Collections.Generic;
@@ -21,6 +20,7 @@ namespace Wizzarts.Data.Models
             this.Comments = new HashSet<CommentCard>();
             this.Votes = new HashSet<Vote>();
             this.DeckOfCards = new HashSet<CardDeck>();
+            this.CardsInOrder = new HashSet<Order>();
         }
 
         [Required]
@@ -114,11 +114,7 @@ namespace Wizzarts.Data.Models
         [Comment("Has this been created during an event.")]
         public Event Event { get; set; }
 
-        [Comment("Admin might request an update due to typos, in case of duplicate or using other artist art piece.")]
-        public bool UpdateRequest { get; set; }
-
-        [Comment("Upon request from admin, this becomes false, upon added update from user, this becomes true.")]
-        public bool HasBeenUpdated { get; set; }
+        public bool ForMainPage { get; set; }
 
         public virtual ICollection<ManaInCard> CardMana { get; set; }
 
@@ -127,5 +123,7 @@ namespace Wizzarts.Data.Models
         public virtual ICollection<Vote> Votes { get; set; }
 
         public virtual ICollection<CardDeck> DeckOfCards { get; set; }
+
+        public virtual ICollection<Order> CardsInOrder { get; set; }
     }
 }

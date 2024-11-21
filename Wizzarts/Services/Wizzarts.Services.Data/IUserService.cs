@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
     using Wizzarts.Data.Models;
     using Wizzarts.Web.ViewModels.WizzartsMember;
 
@@ -27,5 +28,6 @@
 
         Task<string> UpdateRoleAsync(ApplicationUser user, string id);
 
+        Task<bool> IsPremium(string userId);
     }
 }

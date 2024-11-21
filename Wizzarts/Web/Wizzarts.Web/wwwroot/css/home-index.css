@@ -78,6 +78,14 @@ p.card-text a {
   position: relative;
   transition: all 0.4s ease-in-out;
 }
+
+.yt-img-exp a img {
+  width: 33%;
+  margin-left:150px;
+  height: 100%;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+}
 .yt-img a .far.fa-play-circle,
 .yt-img a .play-btn-svg {
   position: absolute;
@@ -106,7 +114,11 @@ p.card-text a {
   transition: all 0.4s ease-in-out;
 }
 .video-card {
-  width: 40%;
+  width: 34%;
+}
+
+.video-card-cards {
+    width: 25%;
 }
 .progress .progress-bar {
   animation-name: animateBar;
@@ -123,9 +135,9 @@ span.archetype-tag {
   text-align: center;
   user-select: none;
 }
-.article-card {
+/*.article-card {
   width: 100%;
-}
+}*/
 .firstfeed-flexbox {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;

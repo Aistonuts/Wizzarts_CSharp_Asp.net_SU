@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Models.Enums;
-
-namespace Wizzarts.Data.Seeding
+﻿namespace Wizzarts.Data.Seeding
 {
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Models.Enums;
+
     public class ChatSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
@@ -54,7 +53,21 @@ namespace Wizzarts.Data.Seeding
 
             await dbContext.Chats.AddAsync(new Chat
             {
+                Name = "Help. Order confirmations.",
+                RelationKey = "How to.",
+                Type = ChatType.Room,
+            });
+
+            await dbContext.Chats.AddAsync(new Chat
+            {
                 Name = "How to manage a game store ?",
+                RelationKey = "How to.",
+                Type = ChatType.Room,
+            });
+
+            await dbContext.Chats.AddAsync(new Chat
+            {
+                Name = "How to play Wizzarts the card game ?",
                 RelationKey = "How to.",
                 Type = ChatType.Room,
             });
@@ -68,7 +81,7 @@ namespace Wizzarts.Data.Seeding
 
             await dbContext.Chats.AddAsync(new Chat
             {
-                Name = "How to design a game and create game mechanics?",
+                Name = "How to design a game and what is a game engine?",
                 RelationKey = "How to.",
                 Type = ChatType.Room,
             });

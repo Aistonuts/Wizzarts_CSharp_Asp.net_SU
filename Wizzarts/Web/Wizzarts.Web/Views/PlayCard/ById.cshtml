@@ -15,14 +15,46 @@
                     <div id="cardInfo" class="row mb-4">
                         <div class="col-sm-12 col-md-6 cardModal">
                             <a class="" data-toggle="modal" data-target="#imageModal">
-                                <div class="card-image-front text-center"><img id="previewCardModal" class="card-image" src="@Model.CardRemoteUrl" alt="Card" onerror="this.onerror=null;this.src='@Model.CardRemoteUrl';"></div>
+                                <div class="card-image-front text-center"><img  id="previewCardModal" class="card-image" src="@Model.CardRemoteUrl" alt="Card" onerror="this.onerror=null;this.src='@Model.CardRemoteUrl';"></div>
                             </a>
                         </div>
                         <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
-                            <h2>@Model.Name</h2> @* <span class="pull-right"><i class="ms ms-4 ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i></span> *@
+                            <h2>@Model.CardType</h2> @* <span class="pull-right"><i class="ms ms-4 ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i></span> *@
                             <p>@Model.AbilitiesAndFlavor</p>
+                            <p>Expansion : @Model.CardExpansion</p>
                             <hr>
-                            <div class="entry-meta">
+                            <div class="col-xl-9 col-12">
+                                <ul class="entry-meta">
+                                    @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                                    {
+                                        <li class="single-meta">
+                                            <a asp-controller="Card" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-light font-weight-bold">Edit</a>
+                                        </li>
+                                        @*   <li class="single-meta">
+                                    <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
+                                    </form>
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                                    </li> *@
+                                        <li class="single-meta">
+                                            <form asp-controller="PlayCard" method="post" asp-action="ApproveCard" asp-route-id="@Model.Id">
+                                                <button class="btn btn-light font-weight-bold">Approve</button>
+                                            </form>
+                                        </li>
+                                        <li class="single-meta">
+                                            <form asp-controller="PlayCard" method="post" asp-action="Promote" asp-route-id="@Model.Id">
+                                                <button class="btn btn-light font-weight-bold">Approve</button>
+                                            </form>
+                                        </li>
+                                    }
+                                    <li class="single-meta">
+                                        <a class="btn btn-light font-weight-bold" data-toggle="modal" data-target="#attackUserModal">
+                                            <i class="fa-solid fa-skull-crossbones"></i>
+                                            Comment
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+             @*                <div class="entry-meta">
                                 <div class="single-meta">
                                     <div value="@Model.Id" class="single-meta">
                                         <div class="item-rating">
@@ -44,7 +76,7 @@
                                 <i>Illustrated by: </i><br>
                             </p>
                             <div class="firstfeed-flexbox">
-                                @*  @foreach (var comment in this.Model.CardCommentsRepliesByOwner)
+                                 @foreach (var comment in this.Model.CardCommentsRepliesByOwner)
                                 {
                                 <div class="article-card card border-0">
                                 <div class="card-body pt-0">
@@ -57,40 +89,15 @@
                                 <div class="card-text d-none d-md-flex m-1">aaas</div>
                                 </div>
                                 </div>
-                                } *@
+                                }
 
 
-                            </div>
+                            </div> *@
                         </div>
                     </div>
                 </div>
 
-                <div class="col-xl-9 col-12">
-                    <ul class="entry-meta">
-                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
-                        {
-                            <li class="single-meta">
-                                <a asp-controller="Card" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-light font-weight-bold">Edit</a>
-                            </li>
-                            @*   <li class="single-meta">
-                        <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
-                        </form>
-                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                        </li> *@
-                            <li class="single-meta">
-                                <form asp-controller="PlayCard" method="post" asp-action="ApproveCard" asp-route-id="@Model.Id">
-                                    <button class="btn btn-light font-weight-bold">Approve</button>
-                                </form>
-                            </li>
-                            <li class="single-meta">
-                                <a class="btn btn-light font-weight-bold" data-toggle="modal" data-target="#attackUserModal">
-                                    <i class="fa-solid fa-skull-crossbones"></i>
-                                    Comment
-                                </a>
-                            </li>
-                        }
-                    </ul>
-                </div>
+               
             </div>
 
         </div>
@@ -103,7 +110,7 @@
                 <div id="commentMessage" class="alert alert-danger" role="alert"></div>
                 <div id="comments" data-id="10829" data-type="article">
                     <div class="card mb-2">
-                        @foreach (var comment in this.Model.CommentsByAdmin)
+                        @foreach (var comment in this.Model.Comments.Where(x=>x.IsPostedByAdmin == true))
                         {
                             @*                         <div class="card-header pt-0 pb-0 pr-0">
                         <a href="/User/HfjNUlYZ"><b>HfjNUlYZ</b></a> <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time>
@@ -182,20 +189,20 @@
                 <b>Comments:</b>
             </div>
             <div class="card-body">
-                <div class="w-100 text-center">
+                @* <div class="w-100 text-center">
                     <h4><a href="/Account/Login/?ReturnUrl=/Article/MTG-Standard-Rotation-Guide-2024-Overview-and-Final-Rankings" rel="nofollow">Login</a> to comment</h4>
-                </div>
+                </div> *@
                 <div id="commentMessage" class="alert alert-danger" role="alert"></div>
                 <div id="comments" data-id="10829" data-type="article">
-                    @*  @foreach (var comment in this.Model.CardCommentsRepliesByOwner)
+                     @foreach (var comment in this.Model.Comments.Where(x=>x.IsPostedByAdmin == false))
                     {
                     <div class="card-header pt-0 pb-0 pr-0">
-                    <a href="/User/HfjNUlYZ"><b>HfjNUlYZ</b></a> <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time>
+                    <a asp-controller="User" asp-action="ById" asp-route-id="@comment.PostedByUserId"><b>@comment.PostedByUser</b></a> <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time>
                     </div>
                     <div class="card-body">
-                    @comment.Comment
+                    @comment.Review
                     </div>
-                    } *@
+                    }
 
                 </div>
             </div>
@@ -298,7 +305,7 @@
             </div>
             <div class="modal-body ui-front d-flex flex-row justify-content-center">
                 <div>
-                    <form asp-controller="PlayCard" asp-action="AttackComment" asp-route-data="@Model.Id" method="post">
+                    <form asp-controller="PlayCard" asp-action="Comment" asp-route-id="@Model.Id" method="post">
                         <div class="card-body">
                             <textarea asp-for="@Model.Name" id="titleText" placeholder="Title" class="form-control" rows="3" maxlength="500"></textarea>
                             <hr>

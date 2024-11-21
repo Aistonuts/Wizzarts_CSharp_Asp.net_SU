@@ -5,6 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Caching.Memory;
     using Wizzarts.Data.Common.Repositories;
@@ -12,7 +13,7 @@
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Art;
 
-    using static Wizzarts.Common.GlobalConstants;
+    using static Wizzarts.Common.AdminConstants;
 
     public class ArtService : IArtService
     {
@@ -38,9 +39,9 @@
             return art;
         }
 
-        public int GetCount()
+        public async Task<int> GetCountAsync()
         {
-            return this.artRepository.All().Count();
+            return await this.artRepository.All().CountAsync();
         }
 
         public IEnumerable<T> GetRandom<T>(int count)
@@ -66,7 +67,7 @@
 
             if (cachedArt == null)
             {
-                cachedArt = this.artRepository.AllAsNoTracking().OrderByDescending(x => x.Id).To<T>().ToList();
+                cachedArt = this.artRepository.AllAsNoTracking().Where(x => x.ApprovedByAdmin == true && x.ForMainPage == true).OrderByDescending(x => x.Id).To<T>().ToList();
 
                 var cacheOptions = new MemoryCacheEntryOptions()
                     .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
@@ -76,25 +77,23 @@
             return cachedArt;
         }
 
-        public T GetById<T>(string id)
+        public async Task<T> GetById<T>(string id)
         {
-            var art = this.artRepository.AllAsNoTracking()
+            var art = await this.artRepository.AllAsNoTracking()
            .Where(x => x.Id == id)
-           .To<T>().FirstOrDefault();
+           .To<T>().FirstOrDefaultAsync();
 
             return art;
         }
 
-
-
-        public async Task AddAsync(AddArtViewModel input, string userId, string imagePath)
+        public async Task AddAsync(AddArtViewModel input, string userId, string imagePath, bool isPremium)
         {
             var art = new Art
             {
                 Title = input.Title,
                 Description = input.Description,
                 AddedByMemberId = userId,
-
+                ForMainPage = isPremium,
             };
 
             Directory.CreateDirectory($"{imagePath}/art/userArt/");
@@ -107,7 +106,7 @@
             art.Extension = extension;
             var physicalPath = $"{imagePath}/art/userArt/{art.Title}.{extension}";
             art.RemoteImageUrl = $"/images/art/userArt/{art.Title}.{extension}";
-            using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.Image.CopyToAsync(fileStream);
 
             await this.artRepository.AddAsync(art);
@@ -119,9 +118,13 @@
         {
             var art = this.artRepository.All().FirstOrDefault(x => x.Id == Id);
 
-            art.Title = input.Title;
-            art.Description = input.Description;
-            await this.artRepository.SaveChangesAsync();
+            if (art != null)
+            {
+                art.Title = input.Title;
+                art.Description = input.Description;
+                await this.artRepository.SaveChangesAsync();
+                this.cache.Remove(ArtsCacheKey);
+            }
         }
 
         public async Task DeleteAsync(string id)
@@ -131,6 +134,7 @@
             {
                 this.artRepository.Delete(art);
                 await this.artRepository.SaveChangesAsync();
+                this.cache.Remove(ArtsCacheKey);
             }
         }
 

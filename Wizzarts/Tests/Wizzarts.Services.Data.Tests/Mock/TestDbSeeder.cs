@@ -51,7 +51,6 @@
                               new ChatSeeder(),
                               new ChatUserSeeder(),
                               new ChatMessageSeeder(),
-                              new DeckSeeder(),
                               new DeckStatusSeeder(),
                           };
 

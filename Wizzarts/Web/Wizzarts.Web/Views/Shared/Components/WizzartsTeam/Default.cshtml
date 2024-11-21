@@ -1,21 +1,118 @@
-﻿@model Wizzarts.Web.ViewModels.WizzartsMember.WizzartsTeamListViewModel
+﻿@using Wizzarts.Common
+@using Wizzarts.Data.Models
+@using Microsoft.AspNetCore.Identity
+@using static Wizzarts.Common.MembershipConstants
+@model Wizzarts.Web.ViewModels.WizzartsMember.WizzartsTeamListViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> userManager;
 
-<div class="card mb-2 ">
-    <div class="card-body p-2">
-        <div class="d-flex flex-wrap justify-content-start">
-            @foreach (var artist in this.Model.wizzartsTeam)
-            {
+@if (User.Identity.IsAuthenticated)
+{
+    <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Controls</h4>
+    <div class="row ae-break-word">
+        <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-3">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 pl-0 pr-0">
+                    @if (this.SignInManager.IsSignedIn(this.User))
+                    {
+                        <div class="mb-2 firstfeed-flexbox ff-display">
+                            <div class="card">
+                                <div class="ae-border-bottom-light text-gold pl-2">
+                                    <b> Artist role progress</b>
+                                </div>
+                                <div class="card-body p-2">
+                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Member to Artist : @Model.CountOfArts/@MembershipConstants.MemberToArtistRequiredArts</b><br>
+                                </div>
+                                <div class="ae-border-bottom-light text-gold pl-2">
+                                    <b>Premium account progress</b>
+                                </div>
+                                <div class="card-body p-2">
+                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Articles :@Model.CountOfArticles/@MembershipConstants.RequiredNumberArticles</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Events : @Model.CountOfEvents/@MembershipConstants.RequiredNumberEvents</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Cards : @Model.CountOfCards/@MembershipConstants.RequiredNumberEventCards</b><br>
+                                </div>
 
-                <a asp-controller="Wizzarts" asp-action="ById" asp-route-id="@artist.UserId" class="home-meta-card">
-                    <div  class="home-meta-card-headline lazy" style="background-image: url(@artist.AvatarUrl);background-repeat:no-repeat;background-position:left;background-size:90px;text-align:right;padding:5px;height:80px;">
-                        @artist.Nickname
-                    </div>
-                </a>
+                            </div>
+                            <div class="card">
+                                <div class="ae-border-bottom-light text-gold pl-2">
+                                    <b>Notifications</b>
+                                </div>
+                                <div class="card-body p-2">
+                                    @if (Model.MembershipStatus != null)
+                                    {
+                                        <div class="card-text d-none d-md-flex m-1">@Model.MembershipStatus</div>
+                                        <br>
+                                    }
+                                    @if (Model.HasOpenDeck)
+                                    {
+                                        <div class="card-body p-2">
+                                            <a asp-controller="Deck" asp-action="Edit" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Update deck</b></a>
+                                        </div>
+                                    }
+                                    @if (!Model.IsProfileUpToDate)
+                                    {
+                                        <div class="card-body p-2">
+                                            <a asp-controller="User" asp-action="SelectAvatar" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Update your profile</b></a>
+                                        </div>
+                                    }
+                                    <a asp-controller="User" asp-action="MyData" class="text-decoration-none"><i class="fas fa-eye"></i> My content</a>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="ae-border-bottom-light text-gold pl-2">
+                                    <b>Database</b>
+                                </div>
+                                <div class="card-body p-2">
+                                    <a asp-controller="Art" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Art</a><br>
+                                    <a asp-controller="PlayCard" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game Cards</a><br>
+                                    <a asp-controller="Wizzarts" asp-action="GetRules" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game rules</a><br>
+                                    <a asp-controller="Deck" asp-action="All" class="text-decoration-none"><i class="ss ss-parl3"></i> Card Decks</a><br>
+                                    <a asp-controller="Event" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i>Events</a>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="ae-border-bottom-light text-gold pl-2">
+                                    <b>Tools</b>
+                                </div>
+                                <div class="card-body p-2">
+                                    @if (!this.User.IsInRole(GlobalConstants.MemberRoleName))
+                                    {
+                                        <a asp-controller="PlayCard" asp-action="Create" class="text-decoration-none"><i class="fas fa-tools"></i> Create Card</a>
 
-                <hr />
-                <hr />
-            }
+                                        <br>
+                                        <a asp-controller="Article" asp-action="Create" class="text-decoration-none"><i class="fas fa-trophy"></i> Create article</a>
 
+                                        <br>
+                                    }
+                                    <a asp-controller="Art" asp-action="Create" class="text-decoration-none"><i class="fas fa-briefcase"></i> Add art</a><br>
+                                    <a asp-controller="Event" asp-action="Create" class="text-decoration-none"><i class="ss ss-parl3"></i> Create event</a><br>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
     </div>
-</div>
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <hr />
+    <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Team Wizzarts</h4>
+    <div class="card mb-2 ">
+        <div class="card-body p-2">
+            <div class="d-flex flex-wrap justify-content-start">
+                @foreach (var artist in this.Model.wizzartsTeam)
+                {
+                    <a asp-controller="Wizzarts" asp-action="ById" asp-route-id="@artist.Id" class="home-meta-card">
+                        <div class="home-meta-card-headline lazy" style="background-image: url(@artist.AvatarUrl);background-repeat:no-repeat;background-position:left;background-size:90px;text-align:right;padding:5px;height:80px;">
+                            @artist.Nickname
+                        </div>
+                    </a>
+                    <hr />
+                    <hr />
+                }
+            </div>
+        </div>
+    </div>
+}

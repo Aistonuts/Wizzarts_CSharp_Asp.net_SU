@@ -10,12 +10,12 @@
     <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; transform: translate3d(-155px, 22px, 0px); top: 0px; left: 0px; will-change: transform;">
         <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="fas fa-user fa-fw"></i> <b>Hello @this.User.Identity.Name!</b></a>
         <hr class="m-0">
-        @if (this.User.IsInRole(GlobalConstants.ContentCreatorRoleName) || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+        @if (this.User.IsInRole(GlobalConstants.PremiumRoleName) || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
         {
             <a class="dropdown-item" asp-area="" asp-controller="PlayCard" asp-action="Add"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
 
         }
-        @if (this.User.IsInRole(GlobalConstants.ContentCreatorRoleName) || this.User.IsInRole(GlobalConstants.StoreOwnerRoleName))
+        @if (this.User.IsInRole(GlobalConstants.PremiumRoleName) || this.User.IsInRole(GlobalConstants.PremiumRoleName))
         {
             <a class="dropdown-item" asp-area="" asp-controller="Event" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Event</b></a>
         }

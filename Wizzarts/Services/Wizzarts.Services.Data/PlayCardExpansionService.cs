@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-
+    using System.Threading.Tasks;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
@@ -11,7 +11,8 @@
     {
         private readonly IDeletableEntityRepository<CardGameExpansion> cardGameExpansionRepository;
 
-        public PlayCardExpansionService(IDeletableEntityRepository<CardGameExpansion> cardGameExpansionRepository)
+        public PlayCardExpansionService(
+            IDeletableEntityRepository<CardGameExpansion> cardGameExpansionRepository)
         {
             this.cardGameExpansionRepository = cardGameExpansionRepository;
         }

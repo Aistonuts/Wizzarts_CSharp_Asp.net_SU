@@ -20,9 +20,9 @@
             return user.IsInRole(ArtistRoleName);
         }
 
-        public static bool IsContentCreator(this ClaimsPrincipal user)
+        public static bool IsPremiumUser(this ClaimsPrincipal user)
         {
-            return user.IsInRole(ContentCreatorRoleName);
+            return user.IsInRole(PremiumRoleName);
         }
     }
 }

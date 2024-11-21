@@ -21,15 +21,15 @@
                                 <div class="card-header text-center pt-1 pb-1"><b><i class="fas fa-user"></i> Member</b></div>
                                 <div class="card-body pb-0">
                                     <p>
-                                        As a member you can upload your art and participate in events.
-                                        (Member's content will be reviewed before becoming visible to others.)
+                                        Members have access to our events also they can post new articles, create events and promote their game stores.
+                                        Each one of the action above is considered as  activity.
                                     </p>
                                     <ul>
-                                        <li><b>Mmbers have access</b> to event organizer , article creator and events</li>
-                                        <li>Your articles, art pieces and events will be stored on your profile</li>
+                                        <li><b>Members</b>activities count towards unlocking premium account</li>
+                                        <li>Your activity will be visible on your portfolio.</li>
                                     </ul>
                                     <p>
-                                        (Member's content will be reviewed and once approved it will become visible to others.)
+                                        (Unlike premium accounts activities, members activities are reviewed regularly and require approval before becoming visible)
                                     </p>
                                 </div>
                                 @if (!this.SignInManager.IsSignedIn(this.User))
@@ -39,85 +39,87 @@
                                     </div>
                                 }
                             </div>
+
+
+
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mt-3">
-                                <div class="card mb-3 h-100 border-premium">
-                                    <div class="card-header text-center bg-premium text-white pt-1 pb-1"><b><i class="fas fa-star" title="Premium Subscriber"></i> Premium</b></div>
-                                    <div class="card-body pb-0">
-                                        <img src="/images/navigation/Premium.png" width="300" alt="Premium" class="mx-auto d-block mb-3 img-fluid">
-                                        <ul class="mt-2">
-                                            <li><b>Content creator</b> <i class="fas fa-star" title="Content creator account"></i> </li>
-                                            <li><b>Unlimited</b> Content creators can create unlimited number of  events, new cards and their profile will become visible on our main page.</li>
-                                            <li><b>Unlimited</b> Content creators work will be published on our main page. </li>
-                                            <li><b>Unlimited</b> Content creators can create their own chat room. </li>
+                            <div class="card mb-3 h-100 border-premium">
+                                <div class="card-header text-center bg-premium text-white pt-1 pb-1"><b><i class="fas fa-star" title="Content creator"></i> Artist role</b></div>
+                                <div class="card-body pb-0">
+                                    <img src="/images/navigation/Premium.png" width="300" alt="Artist" class="mx-auto d-block mb-3 img-fluid">
+                                    <ul class="mt-2">
+                                        <li><b>Artist</b> <i class="fas fa-star" title="Artist account."></i> </li>
+                                        <li><b>Unlimited</b> access to our tools</li>
+                                        <li><b>Unlimited</b> access to your work.Your art will be published on our main page </li>
+                                        <li><b>Unlimited </b> access to all chat rooms </li>
+                                    </ul>
+                                    <p>Only artist's accounts portfolio will be rated by the Wizzarts's team and those of you getting high scores will be join our team and become part of the devolpement of our game </p>
+                                    <p>
+                                        Requirements.
+                                    </p>
+                                    <ul>
+                                        <li><b> To become an artist you need at least 3 approved art pieces in your catalog.</b> </li>
+                                    </ul>
+                                </div>
+                                @if (!this.SignInManager.IsSignedIn(this.User))
+                                {
+                                    <div class="mb-2 text-center">
+                                        <a class="btn btn-light font-weight-bold" id="register" asp-area="Identity" asp-page="/Account/Register">Start as a member</a>
+                                    </div>
+                                }
 
-                                        </ul>
-                                        <p> Everyone can become a Content creator but this role  is for our most devoted artist, store owners and even regular users.</p>
+                                else if (this.User.IsInRole(GlobalConstants.ArtistRoleName))
+                                {
+                                    <div class="mb-2 text-center">
+                                        <a class="btn btn-light font-weight-bold">You own the artist role.</a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mt-3">
+                            <div class="card mb-3 h-100 border-content-creator">
+                                <div class="card-header text-center bg-content-creator text-white pt-1 pb-1"><b><i class="far fa-star" title="Premium"></i> Premium account</b></div>
+                                <div class="card-body pb-0">
+                                    <ul class="mt-2">
+                                        <li><b>Premium</b> <i class="fas fa-star" title="Premium account."></i> </li>
+                                        <li><b>Unlimited</b> access to our tools</li>
+                                        <li><b>Unlimited </b> access to all chat rooms </li>
+                                    </ul>
+                                    <ul>
+                                        <li><b> We offer premium access to all game store owners, content creators and event organizers </b> </li>
                                         <p>
                                             Requirements.
                                         </p>
-                                        <ul>
-                                            <li>Artists with   10 approved art pieces</li>
-                                            <li>Store owners will be granted with the content creator role upon submitting at least one event.</li>
-                                            <li>Store owners who have the artist role.</li>
-                                            <li>Members who have organized events  members who have deep knowledge of our game and have large number of comments behind them.</li>
-                                            <li>Members who are helping others and are active in our chat</li>
-                                        </ul>
-                                    </div>
-                                    @if (!this.SignInManager.IsSignedIn(this.User))
-                                    {
-                                        <div class="mb-2 text-center">
-                                            <a class="btn btn-light font-weight-bold" id="register" asp-area="Identity" asp-page="/Account/Register">Start as a member</a>
-                                        </div>
-                                    }
+                                    </ul>
+                                    <ul>
+                                        <li>Have at least 2 published and approved articles.</li>
+                                        <li>Create at least 2 event cards.</li>
+                                        <li>Have at least 1 event.</li>
+                                        <li>Every store owner will get premium access as soon as their stores is submitted and approved.</li>
+                                    </ul>
 
-                                    @if (this.User.IsInRole(GlobalConstants.ContentCreatorRoleName))
-                                    {
-                                        <div class="mb-2 text-center">
-                                            <button class="btn btn-light btn-outline-premium font-weight-bold">Content creator role unlocked! </button>
-                                        </div>
-                                    }
-                                    else if (this.User.IsInRole(GlobalConstants.ArtistRoleName))
-                                    {
-                                        <div class="mb-2 text-center">
-                                            <a class="btn btn-light font-weight-bold">You need @Model.ArtNeeded art pieces to get Premium</a>
-                                        </div>
-                                    }
                                 </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mt-3">
-                                <div class="card mb-3 h-100 border-content-creator">
-                                    <div class="card-header text-center bg-content-creator text-white pt-1 pb-1"><b><i class="far fa-star" title="Artist"></i> Artist</b></div>
-                                    <div class="card-body pb-0">
-                                        <ul>
-                                            <li><b> To become an artist you need at least 3 approved art pieces in your catalog.</b> </li>
-                                            <li><b>As an artist you will gain access </b> to additional events</li>
-                                            <li>Our artist's work do not need approval.</li>
-                                        </ul>
-                                        <p>
-                                            Once an artist has 10 approved art pieces he will acquire the role of Content Creator.
-                                        </p>
+                                <br />
+                                @if (!this.SignInManager.IsSignedIn(this.User))
+                                {
+                                    <div class="mb-2 text-center">
+                                        <a class="btn btn-light font-weight-bold" id="register" asp-area="Identity" asp-page="/Account/Register">Start as a member</a>
                                     </div>
-                                    <br />
-                                    @if (!this.SignInManager.IsSignedIn(this.User))
-                                    {
-                                        <div class="mb-2 text-center">
-                                            <a class="btn btn-light font-weight-bold" id="register" asp-area="Identity" asp-page="/Account/Register">Start as a member</a>
-                                        </div>
-                                    }
-                                    @if (this.User.IsInRole(GlobalConstants.ArtistRoleName))
-                                    {
-                                        <div class="mb-2 text-center">
-                                            <button class="btn btn-light btn-outline-content-creator font-weight-bold">Artist role unlocked!</button>
-                                        </div>
-                                    }
-                                    else if (this.User.IsInRole(GlobalConstants.MemberRoleName))
-                                    {
-                                        <div class="mb-2 text-center">
-                                            <a class="btn btn-light font-weight-bold">You need @Model.ArtNeeded art pieces to become an Artist</a>
-                                        </div>
-                                    }
-                                </div>
+                                }
+                                @if (this.User.IsInRole(GlobalConstants.PremiumRoleName))
+                                {
+                                    <div class="mb-2 text-center">
+                                        <button class="btn btn-light btn-outline-content-creator font-weight-bold">Artist role unlocked!</button>
+                                    </div>
+                                }
+                                else if (this.User.IsInRole(GlobalConstants.MemberRoleName))
+                                {
+                                    <div class="mb-2 text-center">
+                                        <a class="btn btn-light font-weight-bold">You need @Model.ArtNeeded art pieces to become an Artist</a>
+                                    </div>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

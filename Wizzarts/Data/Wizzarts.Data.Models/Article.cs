@@ -33,6 +33,8 @@
         [Comment("Is Article approved by Admin.")]
         public bool ApprovedByAdmin { get; set; }
 
+        public bool ForMainPage { get; set; }
+
         [Required]
         [Comment("Article creator identifier")]
         public string ArticleCreatorId { get; set; } = string.Empty;

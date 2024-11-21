@@ -20,21 +20,16 @@
 
         public const string ArtistRoleGuid = "f4355efe-61d9-4add-ae62-e4c25603e2be";
 
-        public const string StoreOwnerRoleName = "Store Owner";
+        public const string PremiumRoleName = "Premium";
 
-        public const string StoreOwnerRoleGuid = "8c26a0fe-fec9-45aa-b1ec-a2c43675e6a5";
+        public const string PremiumRoleGuid = "8c26a0fe-fec9-45aa-b1ec-a2c43675e6a5";
 
-        public const string ContentCreatorRoleName = "Content creator";
+        //public const string StoreOwnerRoleName = "Store Owner";
 
-        public const string ContentCreatorRoleGuid = "113f8bb9-3112-45f3-aaea-7230efa9e737";
+        //public const string StoreOwnerRoleGuid = "8c26a0fe-fec9-45aa-b1ec-a2c43675e6a5";
 
-        // Cache Keys
-        public const string ArtsCacheKey = "ArtsCacheKey";
+        //public const string ContentCreatorRoleName = "Content creator";
 
-        public const string ArticlesCacheKey = "ArticlesCacheKey";
-
-        public const string CardsCacheKey = "CardsCacheKey";
-
-        public const string EventsCacheKey = "EventsCacheKey";
+        //public const string ContentCreatorRoleGuid = "113f8bb9-3112-45f3-aaea-7230efa9e737";
     }
 }

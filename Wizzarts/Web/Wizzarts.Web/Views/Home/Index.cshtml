@@ -1,14 +1,15 @@
 ﻿@using Wizzarts.Common
 @using Wizzarts.Data.Models
 @using Microsoft.AspNetCore.Identity
+@using Wizzarts.Web.Infrastructure.Extensions
 @using static Wizzarts.Common.MembershipConstants
 @model Wizzarts.Web.ViewModels.Home.IndexAuthenticationViewModel
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> userManager;
-
 @{
     this.ViewData["Title"] = "Home Page";
 }
+
 <div class="row ae-break-word">
     <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-3">
         <div class="row">
@@ -18,32 +19,62 @@
                 {
                     <div class="mb-2 firstfeed-flexbox ff-display">
                         <div class="card">
-
-
                             <div class="ae-border-bottom-light text-gold pl-2">
-                                <b> The artist's path account progress</b>
+                                <b>User profile</b>
                             </div>
-                            <div class="card-body p-2">
-                                <a class="text-decoration-none"><i class="ss ss-pmtg1"></i>Member to Artist : @Model.CountOfArts/@MembershipConstants.MemberToArtistRequiredArts</a><br>
-                                <a class="text-decoration-none"><i class="ss ss-pmtg1"></i>Artist to Content creator: @Model.CountOfArts/@MembershipConstants.ArtistToContentCreatorRequiredArts</a><br>
-                                <a class="text-decoration-none"><i class="ss ss-parl3"></i>Member to Content creator : @Model.CountOfArts/@MembershipConstants.MemberToContentCreatorRequiredArts</a><br>
-                            </div>
-                            <div class="ae-border-bottom-light text-gold pl-2">
-                                <b>The content creator's path account progress</b>
-                            </div>
-                            <div class="card-body p-2">
-                                <a class="text-decoration-none"><i class="ss ss-pmtg1"></i>Article creator :@Model.CountOfArticles/@MembershipConstants.RequiredNumberArticles</a><br>
-                                <a class="text-decoration-none"><i class="ss ss-parl3"></i>Event creator : @Model.CountOfEvents/@MembershipConstants.RequiredNumberEvents</a><br>
-                                <a class="text-decoration-none"><i class="ss ss-parl3"></i>Event cards : @Model.CountOfCards/@MembershipConstants.RequiredNumberEventCards</a><br>
-                            </div>
+                            @if (this.User.IsInRole(GlobalConstants.ArtistRoleName) || this.User.IsInRole(GlobalConstants.PremiumRoleName) || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                            {
+                                <div class="ae-border-bottom-light pl-2">
+                                    <b><i class="ss ss-pmtg1"></i>You have premium access.</b>
+                                </div>
+                            }else
+                            {                                         
+                                <div class="card-body p-2">
+                                    <a asp-controller="Home" asp-action="Status" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Check status</b></a>
+                                    <b> to get latest updates</b>
+                                </div>
+                                <div class="ae-border-bottom-light text-gold pl-2">
+                                    <b>Artist role progress : </b>
+                                </div>
+                                <div class="card-body p-2">
+                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Arts needed : @Model.CountOfArts/@MembershipConstants.MemberToArtistRequiredArts</b><br>
+                                </div>
+                                <div class="ae-border-bottom-light text-gold pl-2">
+                                    <b>Premium account requirements</b>
+                                </div>
+                                <div class="card-body p-2">
+                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Articles needed :@Model.CountOfArticles/@MembershipConstants.RequiredNumberArticles</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Events needed : @Model.CountOfEvents/@MembershipConstants.RequiredNumberEvents</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Event cards needed : @Model.CountOfCards/@MembershipConstants.RequiredNumberEventCards</b><br>
+                                </div>
+                            }
+                           
+
                         </div>
                         <div class="card">
                             <div class="ae-border-bottom-light text-gold pl-2">
                                 <b>Notifications</b>
                             </div>
                             <div class="card-body p-2">
-                                <a asp-controller="User" asp-action="MyData" class="text-decoration-none"><i class="fas fa-eye"></i> My content</a>
-                                <br>
+                                @if (Model.MembershipStatus != null)
+                                {
+                                    <div class="card-text d-none d-md-flex m-1">@Model.MembershipStatus</div>
+                                    <br>
+                                }
+                                @if (Model.HasOpenDeck)
+                                {
+                                    <div class="card-body p-2">
+                                        <a asp-controller="Deck" asp-action="Create" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Update deck</b></a>
+                                    </div>
+                                }
+                                @if (!Model.IsProfileUpToDate)
+                                {
+                                    <div class="card-body p-2">
+                                        <a asp-controller="User" asp-action="SelectAvatar" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Update your profile</b></a>
+                                    </div>
+                                }
+                                <a asp-controller="User" asp-action="MyData" class="text-decoration-none"><i class="fas fa-trophy"></i> My content</a><br>
+                                <a asp-controller="Order" asp-action="My" class="text-decoration-none"><i class="ss ss-pmtg1"></i> My orders</a><br>
                             </div>
                         </div>
                         <div class="card">
@@ -55,18 +86,22 @@
                                 <a asp-controller="PlayCard" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game Cards</a><br>
                                 <a asp-controller="Wizzarts" asp-action="GetRules" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game rules</a><br>
                                 <a asp-controller="Deck" asp-action="All" class="text-decoration-none"><i class="ss ss-parl3"></i> Card Decks</a><br>
-                                <a asp-controller="Event" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i>Events</a>
+                                <a asp-controller="Event" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i>Events</a><br>
                             </div>
                         </div>
                         <div class="card">
                             <div class="ae-border-bottom-light text-gold pl-2">
-                                <b>TOOLS</b>
+                                <b>Tools</b>
                             </div>
                             <div class="card-body p-2">
-                                <a asp-controller="Card" asp-action="Create" class="text-decoration-none"><i class="fas fa-tools"></i> Create Card</a><br>
-                                <a asp-controller="Article" asp-action="Create" class="text-decoration-none"><i class="fas fa-trophy"></i> Create article</a><br>
-                                <a asp-controller="Art" asp-action="Create" class="text-decoration-none"><i class="fas fa-briefcase"></i> Add art</a><br>
+                                <a asp-controller="Art" asp-action="Add" class="text-decoration-none"><i class="fas fa-briefcase"></i> Add art</a><br>
                                 <a asp-controller="Event" asp-action="Create" class="text-decoration-none"><i class="ss ss-parl3"></i> Create event</a><br>
+                                <a asp-controller="Article" asp-action="Create" class="text-decoration-none"><i class="fas fa-trophy"></i> Create article</a><br>
+                                <a asp-controller="Deck" asp-action="Create" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Create deck</a><br>
+                                @if (!this.User.IsInRole(GlobalConstants.MemberRoleName))
+                                {
+                                    <a asp-controller="PlayCard" asp-action="Create" class="text-decoration-none"><i class="fas fa-tools"></i> Create Card</a><br>
+                                }                                                                                            
                             </div>
                         </div>
                     </div>
@@ -77,16 +112,16 @@
                     @foreach (var article in this.Model.Articles)
                     {
                         <div class="article-card card border-0">
-                            <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" aria-label="article" class="image-wrapper">
+                            <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()" aria-label="article" class="image-wrapper">
                                 <img src="@article.ImageUrl" class="article-uimgheader lazy" alt="@article.Title">
                             </a>
                             <div class="card-body pt-0">
                                 <small class="yellow-line">
-                                    <a href=""><i class="far fa-star"></i>@article.ArticleCreatorName</a>
+                                    <a @* asp-controller="Wizzarts" asp-action="ByStringId" asp-route-id="@article.ArticleCreatorId" *@><i class="far fa-star"></i>@article.ArticleCreatorName</a>
                                     <span>@article.CreatedOn</span>
                                 </small>
                                 <div class="ff-display font-size-18">
-                                    <b><a href="">@article.Title</a></b>
+                                    <b><a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()">@article.Title</a></b>
                                 </div>
                                 <div class="card-text d-none d-md-flex m-1">@article.ShortDescription</div>
                             </div>
@@ -99,9 +134,8 @@
                     @foreach (var art in this.Model.Arts)
                     {
                         <div class="article-card card border-0">
-                            <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" class="image-wrapper">
+                            <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" asp-route-information="@art.GetInformation()"  class="image-wrapper">
                                 <img width="600" height="300" class="article-uimgheader lazy" src="@art.ImageUrl" alt="@art.Title" style="">
-
                             </a>
 
                             <div class="item-footer">
@@ -116,7 +150,7 @@
                     @foreach (var card in this.Model.Cards)
                     {
                         <div class="inner-container">
-                            <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
+                            <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id" asp-route-information="@card.GetCardName()" class="item ae-card-link cardLink ">
                                 <img width="200" height="300" src="@card.CardRemoteUrl" alt="@card.Name" style="">
                                 <div class="item-hidden-text">@card.Name</div>
                             </a>
@@ -130,15 +164,6 @@
     </div>
 
     <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
-        @if (this.SignInManager.IsSignedIn(this.User))
-        {
-            <div class="ae-border-bottom-light p-0 text-center ff-display">
-                <b><i class="ss ss-bcore"></i>Updates</b>
-            </div>
-            <div class="card mb-2 pb-1 text-center ff-display">
-                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">@Model.MembershipStatus</h4>
-            </div>
-        }
         <div class="card mb-2 ">
             <div class="ae-border-bottom-light p-0 text-center ff-display">
                 <b><i class="ss ss-bcore"></i>Game Expansions</b>
@@ -148,12 +173,7 @@
                     The MagicCardsmith database contains a full list of <a asp-controller="PlayCard" asp-action="All">all card sets</a> in MTG,ordered by  <a asp-controller="Expansion" asp-action="All">expansions</a>, user created <a asp-controller="Deck" asp-action="All">card decks.</a>
                     @foreach (var gameExpansion in this.Model.GameExpansions)
                     {
-
-
-                        <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@gameExpansion.Id">The @gameExpansion.Title @gameExpansion.Description.</a>
-
-
-
+                        <a asp-controller="Deck" asp-action="ById" asp-route-id="@gameExpansion.Id" asp-route-information="@gameExpansion.GetExpansionTitle()">The @gameExpansion.Title @gameExpansion.Description.</a>
                     }
                 </p>
             </div>
@@ -167,9 +187,7 @@
                 @foreach (var store in this.Model.Stores)
                 {
                     <p class="card-text">
-
                         <a asp-controller="Store" asp-action="All">The @store.Name</a> is a @store.Country based store.It is located in the city of @store.City .
-
                     </p>
                 }
 
@@ -257,41 +275,6 @@
     <script src="~/lib/microsoft/signalr/dist/browser/signalr.js" asp-append-version="true"></script>
     <script src="~/js/chat.js" asp-append-version="true"></script>
 
-    @*     <script type="text/javascript">
-        $(function () {
-            $("#chatMessage").submit(function (e) {
-                e.preventDefault();
-
-                console.log('Doing ajax submit');
-                var fdata = new FormData();
-                var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
-                var text = $('#messageInput').val();
-                console.log(text);
-                fdata.append("text", text);
-
-                $.ajax({
-                    type: "POST",
-                    url: "/api/Chat",
-                    data: fdata,
-                    data: JSON.stringify(data),
-                    headers: {
-                        'X-CSRF-TOKEN': antiForgeryToken
-                    },
-                }).done(function (result) {
-                    // do something with the result now
-                    console.log(result);
-                    if (result.status === "success") {
-                        alert(result.url);
-                    } else {
-                        alert(result.message);
-                    }
-                });
-            });
-        })
-    </script> *@
-
-
-
     <script>
         var sendMessage = function (event) {
             event.preventDefault();
@@ -306,9 +289,6 @@
                 data: JSON.stringify(data),
                 headers: {
                     'X-CSRF-TOKEN': antiForgeryToken
-                },
-                success: function (result) {
-                    alert('Successfully received Data ');
                 },
                 contentType: 'application/json',
             });

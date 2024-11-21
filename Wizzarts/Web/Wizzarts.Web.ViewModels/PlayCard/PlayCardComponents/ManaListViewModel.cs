@@ -6,9 +6,9 @@
 
     public class ManaListViewModel : IMapFrom<ManaInCard>, IHaveCustomMappings
     {
-        public string Color { get; set; }
+        public string Color { get; set; } = string.Empty;
 
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = string.Empty;
 
         public void CreateMappings(IProfileExpression configuration)
         {

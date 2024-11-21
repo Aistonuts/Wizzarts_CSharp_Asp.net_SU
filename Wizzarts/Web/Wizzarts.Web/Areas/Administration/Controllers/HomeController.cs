@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace Wizzarts.Web.Areas.Administration.Controllers
+﻿namespace Wizzarts.Web.Areas.Administration.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+
     public class HomeController : AdministrationController
     {
         public HomeController()
         {
-
         }
 
         public IActionResult Index()

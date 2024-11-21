@@ -8,15 +8,11 @@
     {
         public bool IsMember { get; set; }
 
-        public bool IsStoreOwner { get; set; }
-
         public bool IsArtist { get; set; }
 
-        public bool IsContentCreator { get; set; }
+        public bool IsPremiumUser { get; set; }
 
         public int ArtistRoleNeededArts { get; set; } = MemberToArtistRequiredArts;
-
-        public int ContentCreatorNeededArts { get; set; } = ArtistToContentCreatorRequiredArts;
 
         public int AllRolesRequiredArticles { get; set; } = RequiredNumberArticles;
 

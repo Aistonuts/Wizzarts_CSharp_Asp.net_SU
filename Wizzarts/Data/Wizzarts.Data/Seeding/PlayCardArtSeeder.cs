@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Wizzarts.Data.Models;
 
     public class PlayCardArtSeeder : ISeeder
@@ -23,6 +24,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -34,6 +36,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "0ac1e577-c7ff-4aa3-83c3-e5acac9de281",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -45,6 +48,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -56,6 +60,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "f6f94be8-49e0-4a28-9e7f-797c40e7e169",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -67,6 +72,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "b4accad4-e878-4de3-a317-665d0a43fbd3",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -78,6 +84,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -89,6 +96,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -100,6 +108,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
+                ForMainPage = true,
             });
             await dbContext.Arts.AddAsync(new Art
             {
@@ -110,6 +119,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "5823bbf1-993c-416b-9bf1-c358fedf38a6",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -121,6 +131,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "ad8dada2-c947-4ad3-aaa1-e530f13d21c1",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -132,6 +143,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "799d728e-0c16-4e4a-81b3-48a113a88cf1",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -143,6 +155,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -154,6 +167,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -165,6 +179,7 @@
                 Extension = ".jpg",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -176,6 +191,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -187,6 +203,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -198,6 +215,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -209,6 +227,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -220,6 +239,43 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
+            });
+
+            await dbContext.Arts.AddAsync(new Art
+            {
+                Id = "bdd4ce29-3a1a-4e97-b7d9-6c77759d7ad2",
+                Title = "Bayou",
+                Description = "You never know who might be hiding in the forest.",
+                RemoteImageUrl = "/images/art/Unlimited/Bayou.jpg",
+                Extension = ".jpg",
+                ApprovedByAdmin = true,
+                AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
+            });
+
+            await dbContext.Arts.AddAsync(new Art
+            {
+                Id = "986b5b05-f57e-477d-bb35-c7b024ae343e",
+                Title = "Time Walk",
+                Description = "You thought this has not been invented yet.",
+                RemoteImageUrl = "/images/art/Unlimited/Time_Walk.jpg",
+                Extension = ".jpg",
+                ApprovedByAdmin = true,
+                AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
+            });
+
+            await dbContext.Arts.AddAsync(new Art
+            {
+                Id = "13285a39-964b-46af-9b91-2e2a62bea2af",
+                Title = "Wheel of fortune",
+                Description = "And the lucky player is ....",
+                RemoteImageUrl = "/images/art/Unlimited/Wheel_of_Fortune.jpg",
+                Extension = ".jpg",
+                ApprovedByAdmin = true,
+                AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
             await dbContext.SaveChangesAsync();
         }

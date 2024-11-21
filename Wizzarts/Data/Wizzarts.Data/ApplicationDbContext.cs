@@ -77,8 +77,6 @@
 
         public DbSet<WizzartsGameRulesData> WizzartsGameRulesData { get; set; }
 
-        public DbSet<Setting> Settings { get; set; }
-
         public DbSet<WizzartsCardGame> WizzartsCardGame { get; set; }
 
         public DbSet<Chat> Chats { get; set; }
@@ -86,6 +84,12 @@
         public DbSet<ChatUser> ChatUsers { get; set; }
 
         public DbSet<ChatMessage> ChatMessages { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<CardOrder> CardOrders { get; set; }
+
+        public DbSet<OrderStatus> OrderStatuses { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -111,10 +115,18 @@
             builder.Entity<EventParticipant>()
             .HasKey(c => new { c.UserId, c.EventId });
 
+            builder.Entity<CardOrder>()
+            .HasKey(c => new { c.OrderId, c.PlayCardId });
+
             builder.Entity<Event>()
             .HasMany(s => s.Participants)
             .WithMany(c => c.JoinedEvents)
             .UsingEntity<EventParticipant>();
+
+            builder.Entity<Order>()
+            .HasMany(s => s.CardsInOrder)
+            .WithMany(c => c.CardsInOrder)
+            .UsingEntity<CardOrder>();
 
             builder.Entity<CardDeck>()
             .HasMany(s => s.PlayCards)
@@ -154,10 +166,20 @@
             .WithOne(a => a.WizzartsCardGame)
             .HasForeignKey(a => a.WizzartsCardGameId);
 
+            builder.Entity<OrderStatus>()
+            .HasMany(a => a.DeckOrders)
+            .WithOne(a => a.OrderStatus)
+            .HasForeignKey(a => a.OrderStatusId);
+
             builder.Entity<ApplicationUser>()
             .HasMany(a => a.Articles)
             .WithOne(a => a.ArticleCreator)
             .HasForeignKey(a => a.ArticleCreatorId);
+
+            builder.Entity<ApplicationUser>()
+            .HasMany(a => a.Orders)
+            .WithOne(a => a.Recipient)
+            .HasForeignKey(a => a.RecipientId);
 
             builder.Entity<ApplicationUser>()
             .HasMany(a => a.Cards)
@@ -264,8 +286,7 @@
             .WithOne(a => a.Event)
             .HasForeignKey(a => a.EventId);
 
-            // Needed for Identity models configuration
-
+            //Needed for Identity models configuration
             base.OnModelCreating(builder);
 
             this.ConfigureUserIdentityRelations(builder);

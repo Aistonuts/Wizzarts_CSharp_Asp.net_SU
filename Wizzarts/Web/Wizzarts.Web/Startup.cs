@@ -33,14 +33,6 @@ namespace Wizzarts.Web
         {
             this.configuration = configuration;
         }
-        //public static void Main(string[] args)
-        //{
-        //    var builder = WebApplication.CreateBuilder(args);
-        //    ConfigureServices(builder.Services, builder.Configuration);
-        //    var app = builder.Build();
-        //    Configure(app);
-        //    app.Run();
-        //}
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -79,6 +71,7 @@ namespace Wizzarts.Web
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
             // Application services
+            services.AddTransient<IEmailSender>(x => new SendGridEmailSender(this.configuration["SendGrid:ApiKey"]));
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<IArticleService, ArticleService>();
             services.AddTransient<IArtService, ArtService>();
@@ -93,6 +86,7 @@ namespace Wizzarts.Web
             services.AddTransient<ICommentService, CommentService>();
             services.AddTransient<IDeckService, DeckService>();
             services.AddTransient<ISearchService, SearchService>();
+            services.AddTransient<IOrderService,OrderService>();
 
             services.AddCors(setup =>
             {
@@ -152,7 +146,7 @@ namespace Wizzarts.Web
                 {
                     endpoints.MapHub<ChatHub>("/chat");
                     endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-                    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}/{information?}");
                     endpoints.MapRazorPages();
                 });
             app.UseCors("Wizzarts");

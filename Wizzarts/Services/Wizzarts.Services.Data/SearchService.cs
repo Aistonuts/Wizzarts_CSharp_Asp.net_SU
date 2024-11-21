@@ -1,14 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data;
-using Wizzarts.Web.ViewModels.Search;
-
-namespace Wizzarts.Services.Data
+﻿namespace Wizzarts.Services.Data
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Microsoft.EntityFrameworkCore;
+    using Wizzarts.Data;
+    using Wizzarts.Web.ViewModels.Search;
+
     public class SearchService : ISearchService
     {
         private readonly ApplicationDbContext dbContext;

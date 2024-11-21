@@ -117,7 +117,7 @@
 
             this.TempData["Message"] = "Event added successfully.";
 
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("Create", "Event");
         }
 
         public async Task<IActionResult> My(int id)
@@ -144,7 +144,7 @@
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
             var user = await this.userManager.GetUserAsync(this.User);
-            if (this.ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 var newEvent = this.eventService.GetById<MyEventSettingsViewModel>(input.EventId);
                 newEvent.EventComponents = this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(input.EventId);
@@ -177,13 +177,13 @@
             return this.RedirectToAction(nameof(this.My), new { id = input.EventId });
         }
 
-        [HttpGet]
         public IActionResult Edit(int id)
         {
             var inputModel = this.eventService.GetById<EditEventViewModel>(id);
 
             if (inputModel != null)
             {
+                inputModel.EventComponents = this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
                 return this.View(inputModel);
             }
             else
@@ -223,13 +223,52 @@
             var userId = await this.eventService.ApproveEvent(id);
             if (userId != null)
             {
-                return this.RedirectToAction("ById", "User", new { id = $"{userId}", Area = "Administration" });
+                return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
             }
             else
             {
                 return this.BadRequest();
             }
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (await this.eventService.EventExist(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            if (await this.eventService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
+            await this.eventService.DeleteAsync(id);
+
+            return this.RedirectToAction("MyData", "User");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Remove(int id)
+        {
+            if (await this.eventService.EventComponentExist(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            var currentEventComponent = this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
+
+            if (await this.eventService.HasUserWithIdAsync(currentEventComponent.EventId, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
+            await this.eventService.DeleteComponentAsync(id);
+
+            return this.RedirectToAction(nameof(this.Edit), new { id });
         }
     }
 }

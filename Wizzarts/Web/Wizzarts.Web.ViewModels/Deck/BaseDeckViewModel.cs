@@ -1,11 +1,9 @@
 ﻿namespace Wizzarts.Web.ViewModels.Deck
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
-    using Wizzarts.Web.ViewModels.Art;
-    using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.Home;
 
     using static Wizzarts.Common.DataConstants;
@@ -23,8 +21,8 @@
         [StringLength(CardDeckDescriptionMaxMaxLength, MinimumLength = CardDeckDescriptionMinLength, ErrorMessage = LengthMessage)]
         public string Description { get; set; }
 
-        [Required(ErrorMessage = RequiredMessage)]
-        [StringLength(CardDeckShippingAddressMaxLength, MinimumLength = CardDeckShippingAddressMinLength, ErrorMessage = LengthMessage)]
+        //[Required(ErrorMessage = RequiredMessage)]
+        //[StringLength(CardDeckShippingAddressMaxLength, MinimumLength = CardDeckShippingAddressMinLength, ErrorMessage = LengthMessage)]
         public string ShippingAddress { get; set; }
 
         public int StoreId { get; set; }

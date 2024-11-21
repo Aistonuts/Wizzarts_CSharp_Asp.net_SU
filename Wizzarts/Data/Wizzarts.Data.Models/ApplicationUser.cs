@@ -4,7 +4,7 @@ namespace Wizzarts.Data.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
+    using System.ComponentModel.DataAnnotations.Schema;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Models;
@@ -45,6 +45,7 @@ namespace Wizzarts.Data.Models
         [Comment("Information about the artist")]
         public string Bio { get; set; } = string.Empty;
 
+        [ForeignKey(nameof(AvatarId))]
         public Avatar Avatar { get; set; }
 
         [MaxLength(AdminFeedBackMaxLength)]
@@ -94,5 +95,7 @@ namespace Wizzarts.Data.Models
         public virtual ICollection<ChatUser> Chats { get; set; }
 
         public virtual ICollection<Event> JoinedEvents { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

@@ -68,8 +68,8 @@
                 Name = "Yokohama",
                 Country = "Japan",
                 City = "Yokohama",
-                Address = "14 Sakura 34000",
-                PhoneNumber = "1234567890",
+                Address = "11 Bonsai 34000",
+                PhoneNumber = "1234567891",
                 Image = "/images/Stores/Bright.jpg",
                 StoreOwnerId = "2738e787-5d57-4bc7-b0d2-287242f04695",
                 ApprovedByAdmin = true,
@@ -80,12 +80,37 @@
                 Name = "Bright",
                 Country = "Japan",
                 City = "Yokohama",
+                Address = "12 Kansai 34000",
+                PhoneNumber = "01-456-456-5612",
+                Image = "/images/Stores/Yokohama.jpg",
+                StoreOwnerId = "5823bbf1-993c-416b-9bf1-c358fedf38a6",
+                ApprovedByAdmin = true,
+            });
+
+            await dbContext.Stores.AddAsync(new Store
+            {
+                Name = "Bright City",
+                Country = "Japan",
+                City = "Yokohama",
                 Address = "14 Sakura 34000",
                 PhoneNumber = "01-456-456-5600",
                 Image = "/images/Stores/Yokohama.jpg",
                 StoreOwnerId = "5823bbf1-993c-416b-9bf1-c358fedf38a6",
                 ApprovedByAdmin = true,
             });
+
+            await dbContext.Stores.AddAsync(new Store
+            {
+                Name = "Yokohama City",
+                Country = "Japan",
+                City = "Yokohama",
+                Address = "14 Sakura 34000",
+                PhoneNumber = "1234567890",
+                Image = "/images/Stores/Bright.jpg",
+                StoreOwnerId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ApprovedByAdmin = true,
+            });
+
             await dbContext.SaveChangesAsync();
         }
     }

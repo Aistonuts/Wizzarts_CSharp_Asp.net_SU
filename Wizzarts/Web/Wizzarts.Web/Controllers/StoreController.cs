@@ -56,9 +56,9 @@
             try
             {
                 await this.storeService.CreateAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images");
-                if (!currentRole.Contains(StoreOwnerRoleName))
+                if (!currentRole.Contains(PremiumRoleName))
                 {
-                    await this.userManager.AddToRoleAsync(user, StoreOwnerRoleName);
+                    await this.userManager.AddToRoleAsync(user, PremiumRoleName);
                 }
             }
             catch (Exception ex)
@@ -99,7 +99,7 @@
         {
           var userId = await this.storeService.ApproveStore(id);
 
-          return this.RedirectToAction("ById", "User", new { id = $"{userId}", Area = "Administration" });
+          return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
         }
     }
 }

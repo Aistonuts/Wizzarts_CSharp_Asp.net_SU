@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Common.Repositories;
-using Wizzarts.Data.Models;
-using Wizzarts.Services.Mapping;
-
-namespace Wizzarts.Services.Data
+﻿namespace Wizzarts.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Wizzarts.Data.Common.Repositories;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Services.Mapping;
+
     public class ChatService : IChatService
     {
         private readonly IDeletableEntityRepository<ChatMessage> chatMessageRepository;
@@ -16,7 +17,7 @@ namespace Wizzarts.Services.Data
         private readonly IDeletableEntityRepository<Chat> chatRepository;
 
         public ChatService(
-            IDeletableEntityRepository<ChatMessage> chatMessageRepository, 
+            IDeletableEntityRepository<ChatMessage> chatMessageRepository,
             IDeletableEntityRepository<Chat> chatRepository)
         {
             this.chatMessageRepository = chatMessageRepository;

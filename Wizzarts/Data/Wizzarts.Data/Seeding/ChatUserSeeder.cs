@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Models.Enums;
-
-namespace Wizzarts.Data.Seeding
+﻿namespace Wizzarts.Data.Seeding
 {
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Wizzarts.Data.Models;
+
     public class ChatUserSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)

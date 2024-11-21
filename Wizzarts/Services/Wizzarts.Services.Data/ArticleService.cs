@@ -5,6 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Caching.Memory;
     using Wizzarts.Data.Common.Repositories;
@@ -12,7 +13,7 @@
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Article;
 
-    using static Wizzarts.Common.GlobalConstants;
+    using static Wizzarts.Common.AdminConstants;
 
     public class ArticleService : IArticleService
     {
@@ -36,9 +37,9 @@
             return articles;
         }
 
-        public int GetCount()
+        public async Task<int> GetCount()
         {
-            return this.articleRepository.All().Count();
+            return await this.articleRepository.All().CountAsync();
         }
 
         public IEnumerable<T> GetRandom<T>(int count)
@@ -50,12 +51,11 @@
 
         public IEnumerable<T> GetCachedData<T>()
         {
-
             var cachedArticles = this.cache.Get<IEnumerable<T>>(ArticlesCacheKey);
 
             if (cachedArticles == null)
             {
-                cachedArticles = this.articleRepository.AllAsNoTracking().OrderByDescending(x => x.Id).Where(x => x.ApprovedByAdmin == true).To<T>().ToList();
+                cachedArticles = this.articleRepository.AllAsNoTracking().OrderByDescending(x => x.Id).Where(x => x.ApprovedByAdmin == true && x.ForMainPage == true).To<T>().ToList();
 
                 if (cachedArticles.Any())
                 {
@@ -68,7 +68,7 @@
             return cachedArticles;
         }
 
-        public async Task CreateAsync(CreateArticleViewModel input, string userId, string imagePath)
+        public async Task CreateAsync(CreateArticleViewModel input, string userId, string imagePath, bool isPremium)
         {
             var article = new Article
             {
@@ -76,6 +76,7 @@
                 Description = input.Description,
                 ShortDescription = input.ShortDescription,
                 ArticleCreatorId = userId,
+                ForMainPage = isPremium,
             };
             Directory.CreateDirectory($"{imagePath}/navigation/articles");
             var extension = Path.GetExtension(input.ImageUrl.FileName)!.TrimStart('.');

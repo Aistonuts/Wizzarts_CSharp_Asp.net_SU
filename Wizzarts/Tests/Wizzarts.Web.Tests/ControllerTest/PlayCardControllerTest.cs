@@ -28,7 +28,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
 
             MyController<PlayCardController>
                 .Instance(instance => instance
-                 .WithUser()
+                    .WithUser(c => c.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
                  .WithData(data.Events))
              .Calling(c => c.Create(1))
              .ShouldHave()
@@ -51,12 +51,14 @@ namespace Wizzarts.Web.Tests.ControllerTest
 
             MyController<PlayCardController>
                 .Instance(instance => instance
-                 .WithUser()
+                    .WithUser(c => c.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
                  .WithData(data.Events))
                .Calling(c => c.Create(
                    new CreateCardViewModel
                    {
                        Name = "TestTestTest",
+                       CardRemoteUrl = "aaaaa",
+                       CardDefaultDescription = "aaaa",
                        BlackManaId = 1,
                        BlueManaId = 1,
                        RedManaId = 1,
@@ -86,21 +88,43 @@ namespace Wizzarts.Web.Tests.ControllerTest
 
         [Fact]
         public void CreatePostShouldReturnViewWithSameModelWhenInvalidModelState()
-           => MyController<PlayCardController>
-               .Calling(c => c.Create(With.Default<CreateCardViewModel>(), 1, "captured"))
-               .ShouldHave()
-               .InvalidModelState()
-               .AndAlso()
-               .ShouldReturn()
-               .View(With.Default<CreateCardViewModel>());
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 1, bytes.Length, "Data", "dummy.png");
+
+            MyController<PlayCardController>
+                .Instance(instance => instance
+                    .WithUser(c => c.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
+                    .WithData(data.Events))
+                .Calling(c => c.Create(With.Default<CreateCardViewModel>(), 1, "captured"))
+                .ShouldHave()
+                .InvalidModelState()
+                .AndAlso()
+                .ShouldReturn()
+                .View(view => view
+                    .WithModelOfType<CreateCardViewModel>());
+        }
 
         [Fact]
         public void CreatePostShouldHaveRestrictionsForHttpPostOnlyAndAuthorizedUsers()
-          => MyController<PlayCardController>
-              .Calling(c => c.Create(With.Default<CreateCardViewModel>(), 1, "captured"))
-              .ShouldHave()
-              .ActionAttributes(attrs => attrs
-                  .RestrictingForHttpMethod(HttpMethod.Post));
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 1, bytes.Length, "Data", "dummy.png");
+
+            MyController<PlayCardController>
+                .Instance(instance => instance
+                    .WithUser(c => c.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
+                    .WithData(data.Events))
+                .Calling(c => c.Create(With.Default<CreateCardViewModel>(), 1, "captured"))
+                .ShouldHave()
+                .ActionAttributes(attrs => attrs
+                    .RestrictingForHttpMethod(HttpMethod.Post));
+
+        }
 
         [Fact]
         public void AllShouldReturnDefaultViewWithCorrectModel()

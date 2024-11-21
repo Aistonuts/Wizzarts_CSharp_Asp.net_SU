@@ -16,7 +16,7 @@ namespace Wizzarts.Web.ViewModels.PlayCard
 
         public int CardFrameColorId { get; set; }
 
-        public string CardRemoteUrl { get; set; }
+        public string? CardRemoteUrl { get; set; } = string.Empty;
 
         public string CardFrameDefaultUrl { get; set; } = DefaultCardFrameUrl;
 
@@ -42,6 +42,7 @@ namespace Wizzarts.Web.ViewModels.PlayCard
 
         public int ColorlessManaId { get; set; } = DefaultManaValue;
 
+        [Range(2,8, ErrorMessage = "Card type should be defined!")]
         public int CardTypeId { get; set; } = DefaultCardTypeValue;
 
         public int CardFrameId { get; set; } = DefaultCardFrameValue;
@@ -53,13 +54,12 @@ namespace Wizzarts.Web.ViewModels.PlayCard
         [Display(Name = "Abilities And Flavor")]
         public string AbilitiesAndFlavor { get; set; } = DefaultCardDescription;
 
-
         [StringLength(CardPowerMaxLength, MinimumLength = CardPowerMinLength, ErrorMessage = "Card power should be 1 character long")]
         public string? Power { get; set; }
 
         [StringLength(CardToughnessMaxLength, MinimumLength = CardToughnessMinLength, ErrorMessage = "Card toughness should be 1 character long")]
         public string? Toughness { get; set; }
 
-        public string ArtId { get; set; } = string.Empty;
+        public string? ArtId { get; set; } = string.Empty;
     }
 }

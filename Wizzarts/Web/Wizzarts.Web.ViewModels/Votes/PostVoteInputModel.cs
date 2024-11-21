@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Wizzarts.Web.ViewModels.Votes
+﻿namespace Wizzarts.Web.ViewModels.Votes
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class PostVoteInputModel
     {
         public string CardId { get; set; } = string.Empty;

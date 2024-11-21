@@ -9,8 +9,8 @@
 
         public int Cost { get; set; }
 
-        public string ColorName { get; set; }
+        public string ColorName { get; set; } = string.Empty;
 
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = string.Empty;
     }
 }

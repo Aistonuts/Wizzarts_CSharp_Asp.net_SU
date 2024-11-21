@@ -18,7 +18,7 @@
                             <div class="w-100 d-flex justify-content-start mb-1 mt-3">
                                 <div class="yellow-line w-100 mb-0">
                                     <img src="@Model.CreatorAvatar" width="50" height="50" class="rounded-circle">
-                                    <a href="/User/ChrisCee">@Model.EventCreator</a>
+                                    <a @* href="/User/ChrisCee" *@>@Model.EventCreator</a>
 @*                                     <span class="text-muted">October 4, 2024</span>
                                     <span class="text-muted"><i class="far fa-clock"></i> 4 min</span> *@
                                 </div>
@@ -54,7 +54,27 @@
                 </div>
             </article>
         </div>
+        <div class="col-xl-9 col-12">
+            <ul class="entry-meta">
 
+                    <li class="single-meta">
+                        <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.EventId">
+                        </form>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                    </li>
+                    <li class="single-meta">
+                        <form asp-area="" asp-controller="Event" method="post" asp-action="ApproveEvent" asp-route-id="@Model.EventId">
+                            <button class="btn btn-danger">Approve</button>
+                        </form>
+                    </li>
+
+                <li class="single-meta">
+                    <a asp-area="" asp-controller="Event" asp-action="Edit" asp-route-id="@Model.EventId">
+                        <button class="btn btn-danger">Edit</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <div class="col-sm-12 col-md-12 col-lg-4 pl-0 pr-0 mt-2 mt-lg-0">

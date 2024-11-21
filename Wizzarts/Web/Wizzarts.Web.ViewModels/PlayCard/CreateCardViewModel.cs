@@ -1,5 +1,4 @@
-﻿
-namespace Wizzarts.Web.ViewModels.PlayCard
+﻿namespace Wizzarts.Web.ViewModels.PlayCard
 {
     using System;
     using System.Collections.Generic;
@@ -20,13 +19,13 @@ namespace Wizzarts.Web.ViewModels.PlayCard
 
         public int EventId { get; set; }
 
-        public string EventMilestoneImage { get; set; }
+        public string EventMilestoneImage { get; set; } = string.Empty;
 
-        public string EventMilestoneTitle { get; set; }
+        public string EventMilestoneTitle { get; set; } = string.Empty;
 
-        public string EventMilestoneDescription { get; set; }
+        public string EventMilestoneDescription { get; set; } = string.Empty;
 
-        public string EventDescription { get; set; }
+        public string EventDescription { get; set; } = string.Empty;
 
         public IEnumerable<ArtInListViewModel> ArtByUserId { get; set; } = new List<ArtInListViewModel>();
 

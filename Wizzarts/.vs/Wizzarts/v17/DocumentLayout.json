@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3EE06C6E-C8F3-418A-A309-8AC81976A074}|Tests\\Wizzarts.Web.Tests\\Wizzarts.Web.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.web.tests\\controllertest\\deckcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EE06C6E-C8F3-418A-A309-8AC81976A074}|Tests\\Wizzarts.Web.Tests\\Wizzarts.Web.Tests.csproj|solutionrelative:tests\\wizzarts.web.tests\\controllertest\\deckcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\mock\\testdata\\deckseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\mock\\testdata\\deckseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\mock\\testdbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\mock\\testdbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4B844ECB-E845-49A6-8B31-85E577933598}|Data\\Wizzarts.Data\\Wizzarts.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\data\\wizzarts.data\\migrations\\20241121101627_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B844ECB-E845-49A6-8B31-85E577933598}|Data\\Wizzarts.Data\\Wizzarts.Data.csproj|solutionrelative:data\\wizzarts.data\\migrations\\20241121101627_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 644,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,54 +26,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TestDbSeeder.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestDbSeeder.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestDbSeeder.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestDbSeeder.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestDbSeeder.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAADYAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T09:08:08.729Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DeckSeeder.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestData\\DeckSeeder.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestData\\DeckSeeder.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestData\\DeckSeeder.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\Mock\\TestData\\DeckSeeder.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAwwBYAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T08:47:07.979Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DeckControllerTest.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Web.Tests\\ControllerTest\\DeckControllerTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Web.Tests\\ControllerTest\\DeckControllerTest.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Web.Tests\\ControllerTest\\DeckControllerTest.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Web.Tests\\ControllerTest\\DeckControllerTest.cs",
-              "ViewState": "AQIAAPwAAAAAAAAAAAAuwA4BAAAKAAAA",
+              "Title": "20241121101627_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data\\Migrations\\20241121101627_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Data\\Wizzarts.Data\\Migrations\\20241121101627_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data\\Migrations\\20241121101627_InitialCreate.cs",
+              "RelativeToolTip": "Data\\Wizzarts.Data\\Migrations\\20241121101627_InitialCreate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T11:44:45.522Z",
+              "WhenOpened": "2024-11-21T10:16:27.261Z",
               "EditorCaption": ""
             }
           ]
-        },
-        {
-          "DockedHeight": 400,
-          "SelectedChildIndex": -1,
-          "Children": []
-        },
-        {
-          "DockedHeight": 400,
-          "SelectedChildIndex": -1,
-          "Children": []
         }
       ]
     }

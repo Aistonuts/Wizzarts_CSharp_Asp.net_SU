@@ -24,8 +24,8 @@
                 RemoteImageUrl = "/images/event/Flavorless.jpg",
                 EventStatusId = 1,
                 ApprovedByAdmin = true,
-                IsContentCreator = true,
                 EventCreatorId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Events.AddAsync(new Event
@@ -35,8 +35,8 @@
                 RemoteImageUrl = "/images/event/Call_to_arts.jpg",
                 EventStatusId = 1,
                 ApprovedByAdmin = true,
-                IsContentCreator = true,
                 EventCreatorId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Events.AddAsync(new Event
@@ -46,8 +46,8 @@
                 RemoteImageUrl = "/images/event/ArenaMaster.jpg",
                 EventStatusId = 1,
                 ApprovedByAdmin = true,
-                IsContentCreator = true,
                 EventCreatorId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Events.AddAsync(new Event
@@ -59,9 +59,9 @@
                 RemoteImageUrl = "/images/event/Game_tester.jpg",
                 EventStatusId = 1,
                 ApprovedByAdmin = true,
-                IsContentCreator = true,
                 EventCreatorId = "2738e787-5d57-4bc7-b0d2-287242f04695",
-            });;
+                ForMainPage = true,
+            });
 
             await dbContext.SaveChangesAsync();
         }

@@ -24,7 +24,6 @@
         [Comment("CardReview")]
         public string Review { get; set; } = string.Empty;
 
-        [Required]
         [MaxLength(CardReviewSuggestionMaxLength)]
         [Comment("What can be done to resolve the issue.")]
         public string Suggestions { get; set; } = string.Empty;
@@ -41,5 +40,7 @@
         [ForeignKey(nameof(PostedByUserId))]
         [Comment("Posted by user")]
         public virtual ApplicationUser PostedByUser { get; set; }
+
+        public bool IsAdminComment { get; set; }
     }
 }

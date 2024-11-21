@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\MagicCardsmith.Web.Tests.props" />
-</Project>

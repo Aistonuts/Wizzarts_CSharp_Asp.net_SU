@@ -7,23 +7,25 @@
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Home;
 
-    public class SingleArticleViewModel : IndexAuthenticationViewModel, IMapFrom<Article>, IHaveCustomMappings, ISingleArticleViewModel
+    public class SingleArticleViewModel : IndexAuthenticationViewModel, IMapFrom<Article>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
-        public string ShortDescription { get; set; }
+        public string ShortDescription { get; set; } = string.Empty;
 
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = string.Empty;
 
-        public string ArticleCreatorName { get; set; }
+        public string ArticleCreatorId { get; set; } = string.Empty;
 
-        public string ArticleCreatorAvatar { get; set; }
+        public string ArticleCreatorName { get; set; } = string.Empty;
 
-        public string ArticleCreatorBio { get; set; }
+        public string ArticleCreatorAvatar { get; set; } = string.Empty;
+
+        public string ArticleCreatorBio { get; set; } = string.Empty;
 
         public bool ApprovedByAdmin { get; set; }
 

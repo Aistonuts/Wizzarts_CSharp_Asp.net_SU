@@ -24,7 +24,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
         {
             MyController<HomeController>
             .Instance()
-            .Calling(c => c.Index()) // Provides a global service.
+            .Calling(c => c.Index(With.No<string>())) // Provides a global service.
             .ShouldReturn()
             .View(result => result
             .WithModelOfType<IndexAuthenticationViewModel>()
@@ -71,7 +71,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                     With.No<string>()))
                 .ShouldReturn()
                 .LocalRedirect(redirect => redirect
-                .To<HomeController>(c => c.Index()));
+                .To<HomeController>(c => c.Index(With.No<string>())));
 
 
         }
@@ -107,7 +107,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .AndAlso()
                 .ShouldReturn()
                 .LocalRedirect(redirect => redirect
-                    .To<HomeController>(c => c.Index()));
+                    .To<HomeController>(c => c.Index(With.No<string>())));
 
         }
 

@@ -33,15 +33,15 @@
 
         public int EventId { get; set; }
 
-        public string EventTitle { get; set; }
+        public string EventTitle { get; set; } = string.Empty;
 
-        public string EventDescription { get; set; }
+        public string EventDescription { get; set; } = string.Empty;
 
-        public string EventCreator { get; set; }
+        public string EventCreator { get; set; } = string.Empty;
 
-        public string CreatorAvatar { get; set; }
+        public string CreatorAvatar { get; set; } = string.Empty;
 
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = string.Empty;
 
         public bool OwnerBrowsing { get; set; }
 

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Common.Models;
-
-namespace Wizzarts.Data.Models
+﻿namespace Wizzarts.Data.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using Wizzarts.Data.Common.Models;
+
     public class DeckStatus : BaseDeletableModel<int>
     {
         public DeckStatus()
@@ -14,6 +11,8 @@ namespace Wizzarts.Data.Models
             this.Decks = new HashSet<CardDeck>();
         }
 
+        [Required]
+        [MaxLength(50)]
         public string Name { get; set; }
 
         public virtual ICollection<CardDeck> Decks { get; set; }

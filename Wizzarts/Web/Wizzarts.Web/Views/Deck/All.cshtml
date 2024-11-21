@@ -1,10 +1,9 @@
 ﻿@model Wizzarts.Web.ViewModels.Deck.DeckListViewModel
-
+@using Wizzarts.Web.Infrastructure.Extensions
 @{
     this.ViewData["Title"] = "All card game expansions";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="row pt-2">
     <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-1">
         <div class="card">
@@ -33,14 +32,14 @@
 
                                                 <div class="video-card card border-0">
                                                     <div class="yt-img">
-                                                        <a asp-controller="Deck" asp-action="ById" asp-route-id="@this.Model.Decks.ToList()[i].Id">
+                                                        <a asp-controller="Deck" asp-action="ById" asp-route-id="@this.Model.Decks.ToList()[i].Id" asp-route-information="@this.Model.Decks.ToList()[i].GetDeckName()">
                                                             <img src="@this.Model.Decks.ToList()[i].ImageUrl" alt="@this.Model.Decks.ToList()[i].Name" class="lazy" alt="video" style="">
 
                                                         </a>
                                                     </div>
                                                     <div class="card-body p-0">
                                                         <small class="text-center mb-1 text-muted">
-                                                            01 Jul by <a href="/User/ReikoBoy"><i class="far fa-star"></i>ReikoBoy</a>
+                                                            <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Decks.ToList()[i].CreatedByMemberId"><i class="far fa-star"></i>@this.Model.Decks.ToList()[i].CreatedByMember</a>
                                                         </small>
                                                     </div>
                                                 </div>
@@ -54,13 +53,13 @@
 
                                                 <div class="video-card card border-0">
                                                     <div class="yt-img">
-                                                        <a asp-controller="Deck" asp-action="ById" asp-route-id="@this.Model.Decks.ToList()[i].Id">
+                                                        <a asp-controller="Deck" asp-action="ById" asp-route-id="@this.Model.Decks.ToList()[i].Id" asp-route-information="@this.Model.Decks.ToList()[i].GetDeckName()">
                                                             <img src="@this.Model.Decks.ToList()[i].ImageUrl" alt="@this.Model.Decks.ToList()[i].Name" class="lazy" alt="video" style="">
                                                         </a>
                                                     </div>
                                                     <div class="card-body p-0">
                                                         <small class="text-center mb-1 text-muted">
-                                                            01 Jul by <a href="/User/ReikoBoy"><i class="far fa-star"></i>ReikoBoy</a>
+                                                           <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Decks.ToList()[i].CreatedByMemberId"><i class="far fa-star"></i>@this.Model.Decks.ToList()[i].CreatedByMember</a>
                                                         </small>
                                                     </div>
                                                 </div>

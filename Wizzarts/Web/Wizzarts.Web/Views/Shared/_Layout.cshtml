@@ -100,7 +100,7 @@
                                 <a href="#TourneySubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Magic Cardsmither</b></a>
                                 <ul class="collapse list-unstyled" id="TourneySubmenu">
                                     <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="PlayCard" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="PlayCard" asp-action="Add"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
                                     </li>
                                     <li>
                                         <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Article" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Article</b></a>
@@ -157,7 +157,24 @@
                                                     <div class="ae-list-header">
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="All">Events</a>
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ae-nav-dropdown">
+                                        <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Members</b></button>
+                                        <div class="ae-nav-dropdown-menu">
 
+                                            <div class="ae-nav-dropdown-menu-wrapper">
+                                                <div class="">
+                                                    <div class="ae-list-header">
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="All">Members Portfolio</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="MyData">My portfolio</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="My">Orders</a>
                                                         <hr>
                                                     </div>
                                                 </div>
@@ -173,7 +190,8 @@
                                                 <div class="">
                                                     <div class="ae-list-header">
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="All">Art</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="AllByArtistRole">Artists</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="Add">Add</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="All">Events</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -223,7 +241,8 @@
                         </div>
 
                         <div class="ae-icons d-flex justify-content-start">
-
+                            @if (this.SignInManager.IsSignedIn(this.User))
+                            {
                             <div class="mr-2">
                                 <ul class="nav">
                                     <li class="nav-item dropdown">
@@ -233,6 +252,7 @@
                                     </li>
                                 </ul>
                             </div>
+                            }
                             <div class="mr-2">
                                 <ul class="nav">
                                     <li class="nav-item dropdown">
@@ -248,7 +268,6 @@
                                     </li>
                                 </ul>
                             </div>
-
                             <div class="mr-1">
                                 <ul class="nav">
                                     <li class="nav-item dropdown">
@@ -273,9 +292,6 @@
                     <partial name="_CookieConsentPartial" />
                     @this.RenderBody()
                 <div>
-                    
-                    <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Team Wizzarts</h4>
-                    <hr />
                     @await Component.InvokeAsync("WizzartsTeam")
                 </div>
             </div>
@@ -332,7 +348,7 @@
                 </div>
                 <div class="modal-body ui-front d-flex flex-row justify-content-center">
                     <div>                
-                        <form asp-controller="Search" asp-action="Advanced" method="get">
+                        <form asp-area="" asp-controller="Search" asp-action="Advanced" method="get">
                             <div class="input-group ae-card-search">
                                 <input type="text" id="searchM" name="CardName"
                                        class="form-control d-print-none ui-autocomplete-input"

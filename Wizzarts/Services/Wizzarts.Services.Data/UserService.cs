@@ -1,5 +1,6 @@
 ﻿namespace Wizzarts.Services.Data
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -71,7 +72,7 @@
         {
             var artCount = this.artRepository
                 .AllAsNoTracking()
-                .Count(x => x.AddedByMemberId == id && x.ApprovedByAdmin == true);
+                .Count(x => x.AddedByMemberId == id);
 
             return artCount;
         }
@@ -80,7 +81,7 @@
         {
             var artCount = this.articleRepository
                 .AllAsNoTracking()
-                .Count(x => x.ArticleCreatorId == id && x.ApprovedByAdmin == true);
+                .Count(x => x.ArticleCreatorId == id);
 
             return artCount;
         }
@@ -89,7 +90,7 @@
         {
             var artCount = this.eventRepository
                 .AllAsNoTracking()
-                .Count(x => x.EventCreatorId == id && x.ApprovedByAdmin == true);
+                .Count(x => x.EventCreatorId == id);
 
             return artCount;
         }
@@ -110,6 +111,7 @@
             user.AvatarUrl = input.AvatarUrl;
             user.Bio = input.Bio;
             user.AvatarId = input.AvatarId;
+            user.PhoneNumber = input.Phone;
 
             await this.userRepository.SaveChangesAsync();
         }
@@ -125,80 +127,17 @@
             var countOfEvents = this.GetCountOfEvents(id);
 
             var countOfCards = this.GetCountOfCards(id);
+            var message = string.Empty;
 
-            string message = " ";
-
-
-
-
-            if (currentRole.Contains(StoreOwnerRoleName) && !currentRole.Contains(ContentCreatorRoleName))
+            if (currentRole.Contains(MemberRoleName))
             {
-                if (currentRole.Contains(ArtistRoleName))
-                {
-                    if (!currentRole.Contains(ContentCreatorRoleName))
-                    {
-                        await this.userManager.AddToRoleAsync(user, ContentCreatorRoleName);
-                        await this.userManager.RemoveFromRoleAsync(user, MemberRoleName);
-                        message = "Congratulations you have acquired content creator role . Check your benefits in the membership section";
-                    }
-                }
-                else if (countOfEvents >= RequiredNumberEvents)
-                {
-                    await this.userManager.AddToRoleAsync(user, ContentCreatorRoleName);
-                    await this.userManager.RemoveFromRoleAsync(user, MemberRoleName);
-                    message = "Congratulations you have acquired content creator role . Check your benefits in the membership section";
-                }
-                else if (countOfCards >= RequiredNumberEventCards && countOfArticles >= RequiredNumberArticles)
-                {
-                    await this.userManager.AddToRoleAsync(user, ContentCreatorRoleName);
-                    await this.userManager.RemoveFromRoleAsync(user, MemberRoleName);
-                    message = "Congratulations you have acquired content creator role . Check your benefits in the membership section";
-                }
-
-            }
-
-            if (currentRole.Contains(ArtistRoleName) && !currentRole.Contains(ContentCreatorRoleName))
-            {
-                if (countOfArts >= ArtistToContentCreatorRequiredArts && !currentRole.Contains(ContentCreatorRoleName))
-                {
-                    await this.userManager.AddToRoleAsync(user, ContentCreatorRoleName);
-                    await this.userManager.RemoveFromRoleAsync(user, ArtistRoleName);
-                    message = "Congratulations you have acquired content creator role . Check your benefits in the membership section";
-                }
-               else if (countOfArticles >= RequiredNumberArticles && countOfEvents >= RequiredNumberEvents && countOfCards >= RequiredNumberEventCards && !currentRole.Contains(ContentCreatorRoleName))
-                {
-                    await this.userManager.AddToRoleAsync(user, ContentCreatorRoleName);
-                    await this.userManager.RemoveFromRoleAsync(user, ArtistRoleName);
-                    message = "Congratulations you have acquired content creator role. Check your benefits in the membership section";
-                }
-                else
-                {
-                    var artNeededArtist = ArtistToContentCreatorRequiredArts - countOfArts;
-
-                    var eventsNeededArtist = RequiredNumberEvents - countOfEvents;
-
-                    var articlesNeededArtist = RequiredNumberArticles - countOfArticles;
-
-                    var cardsNeededArtist = RequiredNumberEventCards - countOfCards;
-
-                    message = $"You own the {ArtistRoleName} role. Keep up the good work. To become a content creator you need {artNeededArtist} art pieces." + $" To become a content creator you will need 13 art pieces in total or" +
-                       $" {eventsNeededArtist} event(s) created, {articlesNeededArtist} article(s) and {cardsNeededArtist} event card(s).";
-                }
-            }
-
-            if (currentRole.Contains(MemberRoleName) && !currentRole.Contains(ContentCreatorRoleName) && !currentRole.Contains(ArtistRoleName))
-            {
-                if (countOfArts >= MemberToArtistRequiredArts && !currentRole.Contains(ArtistRoleName))
+                if (countOfArts >= MemberToArtistRequiredArts)
                 {
                     await this.userManager.AddToRoleAsync(user, ArtistRoleName);
-                    await this.userManager.RemoveFromRoleAsync(user, MemberRoleName);
-                    message = "Congratulations you have acquired artist role. Check your benefits in the membership section";
                 }
-                else if (countOfArticles >= RequiredNumberArticles && countOfEvents >= RequiredNumberEvents && countOfCards >= RequiredNumberEventCards )
+                else if (countOfArticles >= RequiredNumberArticles && countOfEvents >= RequiredNumberEvents && countOfCards >= RequiredNumberEventCards)
                 {
-                    await this.userManager.AddToRoleAsync(user, ArtistRoleName);
-                    await this.userManager.RemoveFromRoleAsync(user, MemberRoleName);
-                    message = "Congratulations you have acquired artist role. Check your benefits in the membership section";
+                    await this.userManager.AddToRoleAsync(user, PremiumRoleName);
                 }
                 else
                 {
@@ -210,21 +149,42 @@
 
                     var cardsNeededMember = RequiredNumberEventCards - countOfCards;
 
-                    message = $"You own the {MemberRoleName}. To become an artist you need {artNeededMember} art pieces." + $" To become a content creator you will need 13 total of art pieces or" +
-                        $" {eventsNeededMember} event(s) created, {articlesNeededMember} articles and {cardsNeededMember} event cards.";
+                    message = $"You own the {MemberRoleName} role. To become an artist you need {artNeededMember} art pieces." + $" To get premium access you need artist role or" +
+                        $" {eventsNeededMember} event(s) created, {articlesNeededMember} article(s) and {cardsNeededMember} event card(s).";
                 }
             }
+            else if (currentRole.Contains(PremiumRoleName))
+            {
+                message = $"You have a premium account.";
+            }
+            else if (currentRole.Contains(ArtistRoleName))
+            {
+                message = $"You are an artist. Artists have premium access";
+            }
+            else
+            {
+                message = $"You are a member.";
+            }
 
-            return message.ToString();
+            return message;
         }
 
         public int GetCountOfCards(string id)
         {
             var cardsCount = this.playCardRepository
                 .AllAsNoTracking()
-                .Count(x => x.AddedByMemberId == id && x.ApprovedByAdmin == true && x.IsEventCard == true);
+                .Count(x => x.AddedByMemberId == id && x.IsEventCard == true);
 
             return cardsCount;
+        }
+
+        public async Task<bool> IsPremium(string userId)
+        {
+            var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
+            var currentRole = await this.userManager.GetRolesAsync(user);
+
+            return currentRole.Contains(ArtistRoleName) || currentRole.Contains(PremiumRoleName);
+
         }
     }
 }

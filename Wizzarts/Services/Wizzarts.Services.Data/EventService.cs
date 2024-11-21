@@ -1,18 +1,16 @@
 ﻿namespace Wizzarts.Services.Data
 {
-    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
+
+    using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
-    using Wizzarts.Data.Repositories;
     using Wizzarts.Services.Mapping;
-    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Event;
-    using Wizzarts.Web.ViewModels.PlayCard;
 
     public class EventService : IEventService
     {
@@ -36,7 +34,7 @@
                 EventDescription = input.EventDescription,
                 EventCreatorId = userId,
                 EventStatusId = 1,
-                IsContentCreator = isContentCreator,
+                ForMainPage = false,
             };
             Directory.CreateDirectory($"{imagePath}/event/UserEvent/");
             var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
@@ -47,11 +45,10 @@
 
             var physicalPath = $"{imagePath}/event/UserEvent/{newEvent.Title}.{extension}";
             newEvent.RemoteImageUrl = $"/images/event/UserEvent/{newEvent.Title}.{extension}";
-            using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.Image.CopyToAsync(fileStream);
             await this.eventRepository.AddAsync(newEvent);
             await this.eventRepository.SaveChangesAsync();
-
         }
 
         public async Task DeleteAsync(int id)
@@ -73,6 +70,7 @@
         public IEnumerable<T> GetAll<T>()
         {
             var events = this.eventRepository.AllAsNoTracking()
+                .Where(x => x.ForMainPage == true && x.ApprovedByAdmin == true)
           .OrderByDescending(x => x.Id)
           .To<T>().ToList();
 
@@ -121,9 +119,9 @@
                 .AnyAsync(a => a.Id == eventId && a.EventCreatorId == userId);
         }
 
-        public async Task UpdateAsync(EditEventViewModel input, int Id)
+        public async Task UpdateAsync(EditEventViewModel input, int id)
         {
-            var currentEvent = this.eventRepository.All().FirstOrDefault(x => x.Id == Id);
+            var currentEvent = this.eventRepository.All().FirstOrDefault(x => x.Id == id);
 
             if (currentEvent != null)
             {
@@ -143,10 +141,9 @@
                 currentEvent.ApprovedByAdmin = true;
                 await this.eventRepository.SaveChangesAsync();
                 return currentEvent.EventCreatorId;
-            }else
-            {
-                return null;
             }
+
+            return null;
         }
 
         public async Task AddComponentAsync(MyEventSettingsViewModel input, string userId, string imagePath)
@@ -187,6 +184,12 @@
                 this.eventComponentsRepository.Delete(thisEvent);
                 await this.eventComponentsRepository.SaveChangesAsync();
             };
+        }
+
+        public async Task<bool> EventComponentExist(int id)
+        {
+            return await this.eventComponentsRepository
+               .AllAsNoTracking().AnyAsync(a => a.Id == id);
         }
     }
 }

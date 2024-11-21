@@ -50,6 +50,11 @@
                 Name = "Sorcery",
             });
 
+            await dbContext.PlayCardTypes.AddAsync(new PlayCardType
+            {
+                Name = "Summon",
+            });
+
             await dbContext.SaveChangesAsync();
         }
     }

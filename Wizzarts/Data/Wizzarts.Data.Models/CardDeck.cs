@@ -45,17 +45,8 @@
         [ForeignKey(nameof(CreatedByMemberId))]
         public virtual ApplicationUser CreatedByMember { get; set; }
 
-        public int DeckMinimumCards { get; set; }
-
-        public bool HasEventCards { get; set; }
-
-        public int DeckMinimumEventCards { get; set; }
-
-        public bool HasPriority { get; set; }
-
         public bool IsLocked { get; set; }
 
         public virtual ICollection<PlayCard> PlayCards { get; set; }
-
     }
 }

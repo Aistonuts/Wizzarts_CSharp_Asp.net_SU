@@ -3,9 +3,8 @@ namespace Wizzarts.Data.Models
 {
     using System;
 
-    using Wizzarts.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using Wizzarts.Data.Common.Models;
 
     public class ApplicationRole : IdentityRole, IAuditInfo, IDeletableEntity
     {

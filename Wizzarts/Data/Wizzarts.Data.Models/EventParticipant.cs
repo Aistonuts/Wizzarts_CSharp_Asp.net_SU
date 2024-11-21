@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Common.Models;
-
-namespace Wizzarts.Data.Models
+﻿namespace Wizzarts.Data.Models
 {
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    using Wizzarts.Data.Common.Models;
+
     public class EventParticipant : BaseDeletableModel<int>
     {
         public int EventId { get; set; }

@@ -1,0 +1,204 @@
+﻿@model Wizzarts.Web.ViewModels.WizzartsMember.MembersListViewModel
+@using Wizzarts.Web.Infrastructure.Extensions
+@{
+    this.ViewData["Title"] = "All Members";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 col-lg-12 col-xl-12 pl-0 pr-0 pr-xl-3">
+    <h2 class="ml-4 text-center ae-border-bottom-light text-header-gold"><i class="far fa-star"></i> Wizzarts</h2>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 pl-0 pr-0">
+            <div class="row">
+                @if (this.Model.Members.Any())
+                {
+                    @foreach (var member in this.Model.Members)
+                    {
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                            <div class="card h-100">
+                                <div class="card-header p-0 text-center">
+                                    <a class="text-dark" asp-controller="User" asp-action="ById" asp-route-id="@member.Id" asp-route-information="@member.GetWizzartsMemberName()">
+                                        <b>
+                                            <i class="fas fa-star" title="Member"></i>@member.Nickname
+                                        </b>
+                                    </a>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="w-100 d-flex justify-content-start text-center">
+                                        <div>
+                                            <div class="ae-profile-image-container mt-1" title="Image ©Wizards of the Coast">
+                                                <a asp-controller="User" asp-action="ById" asp-route-id="@member.Id" asp-route-information="@member.GetWizzartsMemberName()">
+                                                    <img src="@member.AvatarUrl" alt="Copyright Wizzarts" class="ae-profile-image-card" onerror="this.onerror=null;this.src='@member.AvatarUrl';">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-100">
+                                            <div class="w-100 mt-2">
+                                                <a class="btn btn-light btn-sm btn-outline-dark" title="Follow on Twitch.tv" href="https://www.twitch.com" target="_blank" rel="noopener">
+                                                    <i class="fab fa-twitch fa-fw"></i>
+                                                </a>
+                                                <a class="btn btn-light btn-sm btn-outline-dark" title="Subscribe to Youtube Channel" href="https://www.youtube.com" target="_blank" rel="noopener">
+                                                    <i class="fab fa-youtube fa-fw"></i>
+                                                </a>
+                                            </div>
+                                            <div class="w-100 mt-1">
+                                                <a asp-controller="Wizzarts" asp-action="Membership">@member.Role </a> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white p-0 d-flex mt-2">
+                                    <div class="w-100 d-flex justify-content-around text-center">
+                                        <div>
+                                            <span class="d-block text-muted small">Art pieces</span>
+                                            <span class="font-weight-bold">@member.CountOfArts</span>
+                                        </div>
+                                        <div>
+                                            <span class="d-block text-muted small">Articles</span>
+                                            <span class="font-weight-bold">@member.CountOfArticles</span>
+                                        </div>
+                                        <div>
+                                            <span class="d-block text-muted small">Events</span>
+                                            <span class="font-weight-bold">@member.CountOfEvents</span>
+                                        </div>
+                                        <div>
+                                            <span class="d-block text-muted small">Cards</span>
+                                            <span class="font-weight-bold">@member.CountOfCards</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                @if (this.Model.Artists.Any())
+                {
+                    @foreach (var member in this.Model.Artists)
+                    {
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                            <div class="card h-100">
+                                <div class="card-header p-0 text-center">
+                                    <a class="text-dark" asp-controller="User" asp-action="ById" asp-route-id="@member.Id" asp-route-information="@member.GetWizzartsMemberName()">
+                                        <b>
+                                            <i class="fas fa-star" title="Member"></i>
+                                            <i class="far fa-star" title="Artist"></i> @member.Nickname
+                                        </b>
+                                    </a>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="w-100 d-flex justify-content-start text-center">
+                                        <div>
+                                            <div class="ae-profile-image-container mt-1" title="Image ©Wizards of the Coast">
+                                                <a asp-controller="User" asp-action="ById" asp-route-id="@member.Id" asp-route-information="@member.GetWizzartsMemberName()">
+                                                    <img src="@member.AvatarUrl" alt="Copyright Wizzarts" class="ae-profile-image-card" onerror="this.onerror=null;this.src='@member.AvatarUrl';">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-100">
+                                            <div class="w-100 mt-2">
+                                                <a class="btn btn-light btn-sm btn-outline-dark" title="Follow on Twitch.tv" href="https://www.twitch.tv/covertgoblue" target="_blank" rel="noopener">
+                                                    <i class="fab fa-twitch fa-fw"></i>
+                                                </a>
+                                                <a class="btn btn-light btn-sm btn-outline-dark" title="Subscribe to Youtube Channel" href="https://www.youtube.com/channel/UC-UZjHl2kZ-6XKBLgbFgGAQ" target="_blank" rel="noopener">
+                                                    <i class="fab fa-youtube fa-fw"></i>
+                                                </a>
+                                            </div>
+                                            <div class="w-100 mt-1">
+                                                <a asp-controller="Wizzarts" asp-action="Membership">@member.Role</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white p-0 d-flex mt-2">
+                                    <div class="w-100 d-flex justify-content-around text-center">
+                                        <div>
+                                            <span class="d-block text-muted small">Art pieces</span>
+                                            <span class="font-weight-bold">@member.CountOfArts</span>
+                                        </div>
+                                        <div>
+                                            <span class="d-block text-muted small">Articles</span>
+                                            <span class="font-weight-bold">@member.CountOfArticles</span>
+                                        </div>
+                                        <div>
+                                            <span class="d-block text-muted small">Events</span>
+                                            <span class="font-weight-bold">@member.CountOfEvents</span>
+                                        </div>
+                                        <div>
+                                            <span class="d-block text-muted small">Cards</span>
+                                            <span class="font-weight-bold">@member.CountOfCards</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                @if (this.Model.PremiumUsers.Any())
+                {
+                    @foreach (var member in this.Model.PremiumUsers)
+                    {
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                            <div class="card h-100">
+                                <div class="card-header p-0 text-center">
+                                    <a class="text-dark" asp-controller="User" asp-action="ById" asp-route-id="@member.Id" asp-route-information="@member.GetWizzartsMemberName()">
+                                        <b>
+                                            <i class="fas fa-star" title="Member"></i>
+                                            <i class="far fa-star" title="Premium account"></i> @member.Nickname
+                                        </b>
+                                    </a>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="w-100 d-flex justify-content-start text-center">
+                                        <div>
+                                            <div class="ae-profile-image-container mt-1" title="Image ©Wizards of the Coast">
+                                                <a asp-controller="User" asp-action="ById" asp-route-id="@member.Id" asp-route-information="@member.GetWizzartsMemberName()">
+                                                    <img src="@member.AvatarUrl" alt="Copyright Wizzarts" class="ae-profile-image-card" onerror="this.onerror=null;this.src='@member.AvatarUrl';">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-100">
+                                            <div class="w-100 mt-2">
+                                                <a class="btn btn-light btn-sm btn-outline-dark" title="Follow on Twitch.tv" href="https://www.twitch.tv/covertgoblue" target="_blank" rel="noopener">
+                                                    <i class="fab fa-twitch fa-fw"></i>
+                                                </a>
+                                                <a class="btn btn-light btn-sm btn-outline-dark" title="Subscribe to Youtube Channel" href="https://www.youtube.com/channel/UC-UZjHl2kZ-6XKBLgbFgGAQ" target="_blank" rel="noopener">
+                                                    <i class="fab fa-youtube fa-fw"></i>
+                                                </a>
+                                            </div>
+                                            <div class="w-100 mt-1">
+                                                <a asp-controller="Wizzarts" asp-action="Membership">@member.Role</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white p-0 d-flex mt-2">
+                                    <div class="w-100 d-flex justify-content-around text-center">
+                                        <div>
+                                            <span class="d-block text-muted small">Art pieces</span>
+                                            <span class="font-weight-bold">@member.CountOfArts</span>
+                                        </div>
+                                        <div>
+                                            <span class="d-block text-muted small">Articles</span>
+                                            <span class="font-weight-bold">@member.CountOfArticles</span>
+                                        </div>
+                                        <div>
+                                            <span class="d-block text-muted small">Events</span>
+                                            <span class="font-weight-bold">@member.CountOfEvents</span>
+                                        </div>
+                                        <div>
+                                            <span class="d-block text-muted small">Cards</span>
+                                            <span class="font-weight-bold">@member.CountOfCards</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<partial name="_PagingPartial" model="@Model" />

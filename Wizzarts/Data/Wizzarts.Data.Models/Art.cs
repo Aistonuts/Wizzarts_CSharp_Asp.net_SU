@@ -23,8 +23,7 @@
 
         [MaxLength(ArtDescriptionMaxLength)]
         [Comment("Art Description")]
-#nullable enable
-        public string? Description { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(RemoteImageUrlMaxLength)]
@@ -38,6 +37,9 @@
         public bool ApprovedByAdmin { get; set; }
 
         public string AddedByMemberId { get; set; }
+
+        [Comment("Premium account only")]
+        public bool ForMainPage { get; set; }
 
         [ForeignKey(nameof(AddedByMemberId))]
         public ApplicationUser AddedByMember { get; set; }

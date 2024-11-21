@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Wizzarts.Web.ViewModels.GameRules
+﻿namespace Wizzarts.Web.ViewModels.GameRules
 {
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;

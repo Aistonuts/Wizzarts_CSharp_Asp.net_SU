@@ -90,9 +90,9 @@
                     view.IsArtist = true;
                 }
 
-                if (userRole.Contains(ContentCreatorRoleName))
+                if (userRole.Contains(PremiumRoleName))
                 {
-                    view.IsContentCreator = true;
+                    view.IsPremiumUser = true;
                 }
 
                 if (view.IsMember)
@@ -110,28 +110,24 @@
                 {
                     view.CurrentRole = GlobalConstants.ArtistRoleName;
 
-                    view.ArtNeeded = view.ContentCreatorNeededArts - countOfArts;
-
-                    view.EventsNeeded = view.AllRolesEvents - countOfEvents;
-
-                    view.ArticlesNeeded = view.AllRolesRequiredArticles - countOfArticles;
                 }
 
-                if (view.IsContentCreator)
+                if (view.IsPremiumUser)
                 {
-                    view.CurrentRole = GlobalConstants.ContentCreatorRoleName;
+                    view.CurrentRole = GlobalConstants.PremiumRoleName;
                 }
             }
 
             return this.View(view);
         }
 
-        public IActionResult ById(string id)
+        public IActionResult ById(int id)
         {
-            var member = this.userService.GetById<SingleMemberViewModel>(id);
-            member.Arts = this.artService.GetAllArtByUserId<ArtInListViewModel>(id,1,50);
-            member.Articles = this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(id,1,50);
-            member.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(id,1,50);
+            var userId = this.wizzartsServices.GetUserIdByArtistId(id);
+            var member = this.userService.GetById<SingleMemberViewModel>(userId);
+            member.Arts = this.artService.GetAllArtByUserId<ArtInListViewModel>(userId, 1, 50);
+            member.Articles = this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(userId, 1, 50);
+            member.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(userId, 1, 50);
             return this.View(member);
         }
     }

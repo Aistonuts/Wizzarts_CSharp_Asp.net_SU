@@ -1,5 +1,4 @@
-﻿
-namespace Wizzarts.Web.ViewModels.Event
+﻿namespace Wizzarts.Web.ViewModels.Event
 {
     using AutoMapper;
     using Wizzarts.Data.Models;

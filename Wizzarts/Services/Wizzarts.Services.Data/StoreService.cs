@@ -1,10 +1,12 @@
 ﻿namespace Wizzarts.Services.Data
 {
+    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
@@ -46,8 +48,8 @@
                 throw new Exception($"Invalid image extension {extension}");
             }
 
-            var physicalPath = $"{imagePath}/Stores/{store.Id}.{extension}";
-            store.Image = $"/images/Stores/{store.Id}.{extension}";
+            var physicalPath = $"{imagePath}/Stores/{store.Name}.{extension}";
+            store.Image = $"/images/Stores/{store.Name}.{extension}";
             using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.StoreImage.CopyToAsync(fileStream);
             await this.storeRepository.AddAsync(store);
@@ -76,7 +78,7 @@
         {
             var stores = this.storeRepository.AllAsNoTracking()
                  .OrderByDescending(x => x.Id)
-                 .Where(x=>x.ApprovedByAdmin == true && x.StoreOwnerId == id)
+                 .Where(x => x.ApprovedByAdmin == true && x.StoreOwnerId == id)
                  .To<T>().ToList();
 
             return stores;
@@ -88,6 +90,15 @@
            .Where(x => x.StoreOwnerId == id)
            .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
            .To<T>().ToList();
+
+            return store;
+        }
+
+        public async Task<T> GetById<T>(int id)
+        {
+            var store = await this.storeRepository.AllAsNoTracking()
+                 .Where(x => x.Id == id)
+                 .To<T>().FirstOrDefaultAsync<T>();
 
             return store;
         }

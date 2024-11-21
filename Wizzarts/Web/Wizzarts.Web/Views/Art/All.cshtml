@@ -1,9 +1,10 @@
 ﻿@model Wizzarts.Web.ViewModels.Art.ArtListViewModel
+@using Wizzarts.Web.Infrastructure.Extensions
+
 @{
     this.ViewData["Title"] = "All Art pieces";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="row pt-2">
     <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-1">
         <div class="card">
@@ -22,14 +23,14 @@
 
                                             <div class="video-card card border-0">
                                                 <div class="yt-img">
-                                                    <a asp-controller="Art" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].Id">
+                                                    <a asp-controller="Art" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].Id" asp-route-information="@this.Model.Arts.ToList()[i].GetInformation()">
                                                         <img src="@this.Model.Arts.ToList()[i].ImageUrl" alt="@this.Model.Arts.ToList()[i].Title" class="lazy" alt="video" style="">
 
                                                     </a>
                                                 </div>
                                                 <div class="card-body p-0">
                                                     <small class="text-center mb-1 text-muted">
-                                                        <a asp-controller="Wizzarts" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].AddedByMemberId"><i class="far fa-star"></i>@this.Model.Arts.ToList()[i].ArtistName</a>
+                                                        <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].AddedByMemberId" asp-route-information="@this.Model.Arts.ToList()[i].GetInformation()"><i class="far fa-star"></i>@this.Model.Arts.ToList()[i].ArtistName</a>
                                                     </small>
                                                 </div>
                                             </div>
@@ -43,13 +44,13 @@
 
                                             <div class="video-card card border-0">
                                                 <div class="yt-img">
-                                                    <a asp-controller="Art" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].Id">
+                                                    <a asp-controller="Art" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].Id" asp-route-information="@this.Model.Arts.ToList()[i].GetInformation()">
                                                         <img src="@this.Model.Arts.ToList()[i].ImageUrl" alt="@this.Model.Arts.ToList()[i].Title" class="lazy" alt="video" style="">
                                                     </a>
                                                 </div>
                                                 <div class="card-body p-0">
                                                     <small class="text-center mb-1 text-muted">
-                                                        <a asp-controller="Wizzarts" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].AddedByMemberId"><i class="far fa-star"></i>@this.Model.Arts.ToList()[i].ArtistName</a>
+                                                        <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].AddedByMemberId" asp-route-information="@this.Model.Arts.ToList()[i].GetInformation()"><i class="far fa-star"></i>@this.Model.Arts.ToList()[i].ArtistName</a>
                                                     </small>
                                                 </div>
                                             </div>
@@ -58,8 +59,6 @@
                                 }
 
                             }
-
-
                         </div>
                         <a class="carousel-control-prev" href="#creatorCarousel" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

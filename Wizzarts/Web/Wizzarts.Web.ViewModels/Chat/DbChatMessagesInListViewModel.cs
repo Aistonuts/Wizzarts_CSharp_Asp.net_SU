@@ -7,9 +7,9 @@
 
     public class DbChatMessagesInListViewModel : IMapFrom<ChatMessage>
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
-        public string Text { get; set; }
+        public string Text { get; set; } = string.Empty;
 
         public DateTime Timestamp { get; set; }
 

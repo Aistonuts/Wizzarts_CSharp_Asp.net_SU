@@ -1,4 +1,5 @@
-﻿namespace Wizzarts.Web.Infrastructure.Extensions
+﻿#nullable enable
+namespace Wizzarts.Web.Infrastructure.Extensions
 {
     using System.Security.Claims;
 

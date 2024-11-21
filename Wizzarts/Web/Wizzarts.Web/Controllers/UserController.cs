@@ -1,23 +1,22 @@
-﻿using Microsoft.AspNetCore.Cors.Infrastructure;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using System;
-using Wizzarts.Data.Models;
-using Wizzarts.Services.Data;
-using Wizzarts.Web.ViewModels.Art;
-using Wizzarts.Web.ViewModels.Article;
-using Wizzarts.Web.ViewModels.PlayCard;
-using Wizzarts.Web.ViewModels.Event;
-using Wizzarts.Web.ViewModels.Store;
-using Wizzarts.Web.ViewModels.WizzartsMember;
-using Wizzarts.Web.Infrastructure.Extensions;
-using Wizzarts.Web.Areas.Administration.Models.User;
-using Wizzarts.Common;
-using System.Linq;
-
-namespace Wizzarts.Web.Controllers
+﻿namespace Wizzarts.Web.Controllers
 {
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Wizzarts.Common;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Services.Data;
+    using Wizzarts.Web.Infrastructure.Extensions;
+    using Wizzarts.Web.ViewModels.Art;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Event;
+    using Wizzarts.Web.ViewModels.PlayCard;
+    using Wizzarts.Web.ViewModels.Store;
+    using Wizzarts.Web.ViewModels.WizzartsMember;
+
+    using static Wizzarts.Common.HardCodedConstants;
     public class UserController : BaseController
     {
         private readonly IArtService artService;
@@ -59,10 +58,11 @@ namespace Wizzarts.Web.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            if(id == 0)
+            if (id == 0)
             {
-                id = 1;
+                id = DefaultUserAvatarId;
             }
+
             var avatar = this.userService.GetAvatarById<CreateMemberProfileViewModel>(id);
             avatar.Avatars = this.userService.GetAllAvatars<AvatarInListViewModel>();
             avatar.AvatarId = id;
@@ -126,29 +126,75 @@ namespace Wizzarts.Web.Controllers
             return this.View(view);
         }
 
-        public async Task<IActionResult> AllByArtistRole(int id = 1)
+        public async Task<IActionResult> All(int id = 1)
         {
             if (id <= 0)
             {
                 return this.NotFound();
             }
+
+            var members = this.userManager.GetUsersInRoleAsync(GlobalConstants.MemberRoleName).Result;
+            var contentCreators = this.userManager.GetUsersInRoleAsync(GlobalConstants.PremiumRoleName).Result;
             var artists = this.userManager.GetUsersInRoleAsync(GlobalConstants.ArtistRoleName).Result;
             const int ItemsPerPage = 12;
 
-            var viewModel = new ArtistListViewModel
+            var viewModel = new MembersListViewModel
             {
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
 
-                Artists = artists.Select(x => new ArtistsInListViewModel
+                Artists = artists.Select(x => new MembersInListViewModel
                 {
                     Id = x.Id,
                     Nickname = x.Nickname,
+                    Bio = x.Bio,
                     AvatarUrl = x.AvatarUrl,
+                    Role = GlobalConstants.ArtistRoleName,
+                    CountOfArticles = this.userService.GetCountOfArticles(x.Id),
+                    CountOfArts = this.userService.GetCountOfArt(x.Id),
+                    CountOfEvents = this.userService.GetCountOfEvents(x.Id),
+                    CountOfCards = this.userService.GetCountOfCards(x.Id),
+                }),
+                Members = members.Select(x => new MembersInListViewModel
+                {
+                    Id = x.Id,
+                    Nickname = x.Nickname,
+                    Bio = x.Bio,
+                    AvatarUrl = x.AvatarUrl,
+                    Role = GlobalConstants.MemberRoleName,
+                    CountOfArticles = this.userService.GetCountOfArticles(x.Id),
+                    CountOfArts = this.userService.GetCountOfArt(x.Id),
+                    CountOfEvents = this.userService.GetCountOfEvents(x.Id),
+                    CountOfCards = this.userService.GetCountOfCards(x.Id),
+                }),
+                PremiumUsers = contentCreators.Select(x => new MembersInListViewModel
+                {
+                    Id = x.Id,
+                    Nickname = x.Nickname,
+                    Bio = x.Bio,
+                    AvatarUrl = x.AvatarUrl,
+                    Role = GlobalConstants.PremiumRoleName,
+                    CountOfArticles = this.userService.GetCountOfArticles(x.Id),
+                    CountOfArts = this.userService.GetCountOfArt(x.Id),
+                    CountOfEvents = this.userService.GetCountOfEvents(x.Id),
+                    CountOfCards = this.userService.GetCountOfCards(x.Id),
                 }),
             };
 
             return this.View(viewModel);
+        }
+
+        public IActionResult ById(string id)
+        {
+            if(id == null)
+            {
+                return this.Unauthorized();
+            }
+            var member = this.userService.GetById<SingleMemberViewModel>(id);
+            member.Arts = this.artService.GetAllArtByUserId<ArtInListViewModel>(id, 1, 50);
+            member.Articles = this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(id, 1, 50);
+            member.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(id, 1, 50);
+            return this.View(member);
         }
     }
 }

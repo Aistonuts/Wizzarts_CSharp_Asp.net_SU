@@ -1,43 +1,54 @@
 ﻿@model Wizzarts.Web.ViewModels.WizzartsMember.SingleMemberViewModel
 
-<div class="row ae-break-word">
-    <div class="row pt-2">
-        <div class="col-md-12 col-lg-9 pr-0 pl-0 pr-lg-2">
-            <div class="card">
-              @*   <div class="card-header bg-light pt-0">
-                    <ul class="nav nav-tabs card-header-tabs">
-                        <li class="nav-item">
-                            <a href="/User/ChrisCee/" class="nav-link active">
-                                <span class="fas fa-user"></span> <b>User Feed</b>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/User/ChrisCee/Decks" class="nav-link ">
-                                <span class="fas fa-archive"></span> <span><b>Decks</b></span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/User/ChrisCee/Collection" class="nav-link  ">
-                                <span class="fas fa-suitcase"></span> <b>Collection</b>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/User/ChrisCee/Articles" class="nav-link ">
-                                <span class="fas fa-newspaper"></span> <b>Articles</b>
-                            </a>
-                        </li>
-                    </ul>
-                </div> *@
-                <div class="card-body d-flex flex-column pr-0 pl-0 pb-0">
-                    @if (!Model.Articles.Any() && !Model.Arts.Any() & !Model.Events.Any())
-                    {
-                        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">User is not active</h4>
-                    }
-                    @if(Model.Articles.Any())
-                    {
+
+
+<div class="row pt-2">
+    <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-1">
+
+
+
+
+        @*         <div class="row text-center no-gutters mb-3">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="btn-group w-100 flex-wrap">
+        <a asp-area="" asp-controller="PlayCard" asp-action="All"
+        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">All Cards</a>
+        <span> | </span>
+        <a asp-area="" asp-controller="PlayCard" asp-action="Create"
+        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">Add Card</a>
+        <span> | </span>
+        <a asp-area="" asp-controller="Art" asp-action="All"
+        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">All Art pieces</a>
+        <span> | </span>
+        <a asp-area="" asp-controller="Art" asp-action="Add"
+        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">Add Art</a>
+        <span> | </span>
+        <a asp-area="" asp-controller="Event" asp-action="All"
+        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">All Events</a>
+        <span> | </span>
+        <a asp-area="" asp-controller="Event" asp-action="Create"
+        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">Add Event</a>
+        <span> | </span>
+        <a asp-area="" asp-controller="Article" asp-action="All"
+        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">All Articles</a>
+        <span> | </span>
+        <a asp-area="" asp-controller="Article" asp-action="Create"
+        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">Add Article</a>
+        <span> | </span>
+        <a asp-area="" asp-controller="User" asp-action="Update"
+        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">Update Profile</a>
+        </div>
+        </div>
+        </div> *@
+        <div class="h-oneKpx mb-4">
+            <div id="metaHubTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 pl-0 pr-0">
+                        <h1 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Welcome to @Model.Username's profile</h1>
                         <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Articles</h4>
+
                         <div class="firstfeed-flexbox">
-                            @foreach (var article in this.Model.Articles)
+                            @foreach (var article in this.Model.Articles.ToList().Take(4).Where(x => x.ApprovedByAdmin == true))
                             {
                                 <div class="article-card card border-0">
                                     <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" aria-label="article" class="image-wrapper">
@@ -45,7 +56,7 @@
                                     </a>
                                     <div class="card-body pt-0">
                                         <small class="yellow-line">
-                                            <a href=""><i class="far fa-star"></i>@article.ArticleCreatorName</a>
+                                            <i class="far fa-star"></i>
                                             <span>@article.CreatedOn</span>
                                         </small>
                                         <div class="ff-display font-size-18">
@@ -57,12 +68,9 @@
                             }
                         </div>
                         <hr />
-                    }
-                    @if (Model.Arts.Any())
-                    {
                         <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Art</h4>
                         <div class="firstfeed-flexbox">
-                            @foreach (var art in this.Model.Arts)
+                            @foreach (var art in this.Model.Arts.ToList().Where(x => x.ApprovedByAdmin == true))
                             {
                                 <div class="article-card card border-0">
                                     <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" class="image-wrapper">
@@ -77,66 +85,65 @@
                             }
                         </div>
                         <hr />
-                    }
-                    @if (Model.Events.Any())
-                    {
-                        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Events</h4>
+                        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Cards</h4>
                         <div class="firstfeed-flexbox">
-                            @foreach (var eventNow in this.Model.Events)
+                            @foreach (var card in this.Model.Cards.ToList().Where(x => x.ApprovedByAdmin == true))
                             {
-
-                                <div class="article-card card border-0">
-                                    <a asp-controller="Event" asp-action="My" asp-route-id="@eventNow.Id" class="image-wrapper">
-                                        <img src="@eventNow.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@eventNow.Title">
+                                <div class="inner-container">
+                                    <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
+                                        <img width="200" height="300" src="@card.CardRemoteUrl" alt="@card.Name" style="">
+                                        <div class="item-hidden-text">@card.Name</div>
                                     </a>
-                                    <div class="w-100 text-center text-white article-text-tags">
-                                        <span>Discussion</span>
-                                        <span>News</span>
-                                    </div>
-
-                                    <div class="card-body pt-0">
-                                        <small class="yellow-line">
-                                            <a href=""><i class="far fa-star"></i></a>
-                                            <span>@eventNow.CreatedOn</span>
-                                        </small>
-                                        <div class="ff-display font-size-18">
-                                            <b><a href="">@eventNow.Title</a></b>
-                                        </div>
-                                        <div class="card-text d-none d-md-flex m-1">@eventNow.EventDescription</div>
+                                    <div class="item-footer">
                                     </div>
                                 </div>
                             }
                         </div>
-                    }
-                   
+                        <hr />
+                        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Events</h4>
+                        <div class="firstfeed-flexbox">
+                            @foreach (var events in this.Model.Events.ToList().Where(x => x.ApprovedByAdmin == true))
+                            {
+                                <div class="inner-container">
+                                    <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" class="item ae-card-link cardLink ">
+                                        <img width="200" height="300" src="@events.ImageUrl" alt="@events.Title" style="">
+                                        <div class="item-hidden-text">@events.Title</div>
+                                    </a>
+                                    <div class="item-footer">
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <hr />
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-12 col-lg-3 pr-0 pl-0">
-            <div class="card mb-2">
-                <div class="ae-border-bottom-light pt-1 pb-1 text-center">
-                    <b>
-                        @Model.UserName
-                    </b>
-                </div>
-                <div class="card-body pt-1 pb-1">
-                    <div class="d-flex justify-content-center">
-                        <div>
-                            <div class="ae-profile-image-container">
-                                <img src="@Model.AvatarUrl" width="80" height="80" class="rounded-circle" alt="ChrisCee">
-                            </div>
-                        </div>
-                        <div class="w-100">
-                            <div id="ae-follower-buttons" class="w-100 text-center mt-2">
-                                <button id="ae-follow-login-btn" class="btn btn-sm btn-light" title="Log in to Follow"><i class="fas fa-user-plus"></i> <b>Follow</b></button>
-                            </div>
-                            <div class="w-100 mt-2 text-center">
-                            </div>
+    </div>
+    <div class="col-md-12 col-lg-3 pr-0 pl-0">
+        <div class="card mb-2">
+            <div class="ae-border-bottom-light pt-1 pb-1 text-center">
+                <b>
+                    @Model.UserName
+                </b>
+            </div>
+            <div class="card-body pt-1 pb-1">
+                <div class="d-flex justify-content-center">
+                    <div>
+                        <div class="ae-profile-image-container">
+                            <img src="@Model.AvatarUrl" width="80" height="80" class="rounded-circle" alt="@Model.Nickname">
                         </div>
                     </div>
-                    <p>A witness since the time the benevolent silver planeswalker first left Dominaria, ChrisCee has since went back and forth on a number of plane-shattering incidents to oversee the current state of the Multiverse.</p>
-                    <p><em>"Target bird is no longer available. Please leave a message after the last bounce."</em></p>
+                    <div class="w-100">
+                        <div id="ae-follower-buttons" class="w-100 text-center mt-2">
+                            <button id="ae-follow-login-btn" class="btn btn-sm btn-light" title="Log in to Follow"><i class="fas fa-user-plus"></i> <b>Follow</b></button>
+                        </div>
+                        <div class="w-100 mt-2 text-center">
+                        </div>
+                    </div>
                 </div>
+                <p>@Model.Bio</p>
+                <p><em>"Target bird is no longer available. Please leave a message after the last bounce."</em></p>
             </div>
         </div>
     </div>

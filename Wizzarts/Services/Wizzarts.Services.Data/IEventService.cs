@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Wizzarts.Web.ViewModels.Article;
-using Wizzarts.Web.ViewModels.Event;
-using Wizzarts.Web.ViewModels.PlayCard;
-
-namespace Wizzarts.Services.Data
+﻿namespace Wizzarts.Services.Data
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
+    using Wizzarts.Web.ViewModels.Event;
+
     public interface IEventService
     {
         Task CreateAsync(CreateEventViewModel input, string userId, string imagePath, bool isContentCreator);
@@ -23,6 +22,8 @@ namespace Wizzarts.Services.Data
         IEnumerable<T> GetAllEventsByUserId<T>(string id, int page, int itemsPerPage = 3);
 
         Task<bool> EventExist(int id);
+
+        Task<bool> EventComponentExist(int id);
 
         Task<bool> HasUserWithIdAsync(int articleId, string userId);
 

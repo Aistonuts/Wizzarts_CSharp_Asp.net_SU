@@ -10,39 +10,39 @@
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
 
-    public class SingleCardViewModel : IndexAuthenticationViewModel, IMapFrom<PlayCard>, IHaveCustomMappings, ISingleCardViewModel
+    public class SingleCardViewModel : IndexAuthenticationViewModel, IMapFrom<PlayCard>, IHaveCustomMappings
     {
-        public string Id { get; set; }
+        public string Id { get; set; } = string.Empty;
 
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
-        public string CardRemoteUrl { get; set; }
+        public string CardRemoteUrl { get; set; } = string.Empty;
 
-        public string CardType { get; set; }
+        public string CardType { get; set; } = string.Empty;
 
-        public string AbilitiesAndFlavor { get; set; }
+        public string AbilitiesAndFlavor { get; set; } = string.Empty;
 
-        public string Power { get; set; }
+        public string Power { get; set; } = string.Empty;
 
-        public string Toughness { get; set; }
+        public string Toughness { get; set; } = string.Empty;
 
-        public string CardExpansion { get; set; }
+        public string CardExpansion { get; set; } = string.Empty;
 
-        public string CardRarity { get; set; }
+        public string CardRarity { get; set; } = string.Empty;
 
-        public string ArtId { get; set; }
+        public string ArtId { get; set; } = string.Empty;
 
-        public string CommentTitle { get; set; }
+        public string CommentTitle { get; set; } = string.Empty;
 
-        public string CommentDescription { get; set; }
+        public string CommentDescription { get; set; } = string.Empty;
 
-        public string CommentReview { get; set; }
+        public string CommentReview { get; set; } = string.Empty;
 
         public double AverageVote { get; set; }
 
-        public string CommentSuggestions { get; set; }
+        public string CommentSuggestions { get; set; } = string.Empty;
 
-        public string AddedByMemberId { get; set; }
+        public string AddedByMemberId { get; set; } = string.Empty;
 
         public bool ApprovedByAdmin { get; set; }
 
@@ -56,7 +56,10 @@
                      x.CardRemoteUrl))
               .ForMember(x => x.CardType, opt =>
                  opt.MapFrom(x =>
-                    x.CardType.Name));
+                    x.CardType.Name))
+              .ForMember(x => x.CardExpansion, opt =>
+                 opt.MapFrom(x =>
+                    x.CardGameExpansion.Title));
         }
     }
 }

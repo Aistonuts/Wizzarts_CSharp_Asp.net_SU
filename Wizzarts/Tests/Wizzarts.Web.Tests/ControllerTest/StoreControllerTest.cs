@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using MyTested.AspNetCore.Mvc;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Microsoft.AspNetCore.Identity;
+using Wizzarts.Data.Models;
 using Wizzarts.Services.Data.Tests;
 using Wizzarts.Web.Controllers;
 using Wizzarts.Web.ViewModels.Article;
@@ -52,9 +55,8 @@ namespace Wizzarts.Web.Tests.ControllerTest
 
             MyController<StoreController>
                 .Instance(instance => instance
-                    .WithData(data.Users)
                     .WithData(data.Roles)
-                    .WithUser(X => X.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").WithRoleType(StoreOwnerRoleName)))
+                    .WithUser(X => X.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").WithRoleType(PremiumRoleName)))
                 .Calling(c => c.Create(new CreateStoreViewModel
                 {
                     StoreName = "test",
@@ -69,7 +71,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .InvalidModelState()
                 .AndAlso()
                 .ShouldReturn()
-                .View(With.Default<CreateStoreViewModel>());
+                .View(view => view.WithModelOfType<CreateStoreViewModel>());
             TearDownBase();
         }
 
@@ -83,17 +85,16 @@ namespace Wizzarts.Web.Tests.ControllerTest
 
             MyController<StoreController>
                 .Instance(instance => instance
-                    .WithData(data.Users)
-                    .WithUser(x => x.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695").WithRoleType(StoreOwnerRoleName))
-                    )
+                    .WithUser(x=>x.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
+                    .WithData(data.Users))
                .Calling(c => c.Create(new CreateStoreViewModel
                {
-                   StoreName = "test",
-                   StoreOwnerId = "testtesttest",
-                   StoreAddress = "testtesttesttest",
-                   StoreCity = "testtesttesttest",
-                   StoreCountry = "testtesttesttest",
-                   StorePhoneNumber = "00000100000",
+                   StoreName = "testTestTest",
+                   StoreOwnerId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
+                   StoreAddress = "testtesttesttestaaaa",
+                   StoreCity = "Sofia",
+                   StoreCountry = "Bulgaria",
+                   StorePhoneNumber = "0359222222222",
                    StoreImage = file,
                }))
                .ShouldHave()

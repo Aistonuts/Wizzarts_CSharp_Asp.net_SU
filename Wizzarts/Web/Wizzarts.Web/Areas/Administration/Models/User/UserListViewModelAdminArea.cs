@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using Wizzarts.Web.ViewModels;
-
-namespace Wizzarts.Web.Areas.Administration.Models.User
+﻿namespace Wizzarts.Web.Areas.Administration.Models.User
 {
+    using System.Collections.Generic;
+
+    using Wizzarts.Web.ViewModels;
+
     public class UserListViewModelAdminArea : PagingViewModel
     {
         public IEnumerable<UserInListViewModelAdminArea> Users { get; set; }

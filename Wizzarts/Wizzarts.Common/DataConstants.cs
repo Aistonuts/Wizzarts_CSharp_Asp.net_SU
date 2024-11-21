@@ -22,7 +22,7 @@
         public const int AdminFeedBackMaxLength = 1000;
 
         // Application User Constants
-        public const int UserNickNameMaxLength = 12;
+        public const int UserNickNameMaxLength = 20;
 
         public const int UserNickNameMinLength = 1;
 

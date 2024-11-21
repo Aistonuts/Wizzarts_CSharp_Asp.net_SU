@@ -1,20 +1,17 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Wizzarts.Data;
-using Wizzarts.Data.Models.Enums;
-using Wizzarts.Data.Models;
-using Wizzarts.Web.ViewModels.Votes;
-using Wizzarts.Web.ViewModels.Chat;
-using Microsoft.AspNetCore.Identity;
-using Wizzarts.Web.ViewModels.Art;
-using System.Linq;
-using Wizzarts.Services.Data;
-
-namespace Wizzarts.Web.Controllers
+﻿namespace Wizzarts.Web.Controllers
 {
+    using System;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Wizzarts.Data;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Models.Enums;
+    using Wizzarts.Services.Data;
+    using Wizzarts.Web.ViewModels.Chat;
+
     [ApiController]
     [Route("api/[controller]/[action]")]
     public class ChatController : BaseController
@@ -34,31 +31,29 @@ namespace Wizzarts.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Post(MessageViewModel viewModel)
         {
             try
             {
                 var user = await this.userManager.GetUserAsync(this.User);
-                var Message = new ChatMessage
+                var message = new ChatMessage
                 {
                     ChatId = viewModel.ChatId,
                     Text = viewModel.Text,
                     Name = user.UserName,
                     Timestamp = DateTime.Now,
                 };
-                this.dbContext.ChatMessages.AddAsync(Message);
+                _ = this.dbContext.ChatMessages.AddAsync(message);
                 await this.dbContext.SaveChangesAsync();
-                return Ok();
+                return this.Ok();
             }
             catch (Exception)
             {
-                return BadRequest();
+                return this.BadRequest();
             }
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> CreateRoom(string name)
         {
             try
@@ -79,16 +74,15 @@ namespace Wizzarts.Web.Controllers
 
                 await this.dbContext.SaveChangesAsync();
 
-                return Ok();
+                return this.Ok();
             }
             catch (Exception)
             {
-                return BadRequest();
+                return this.BadRequest();
             }
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> JoinRoom(int id)
         {
             try
@@ -103,11 +97,11 @@ namespace Wizzarts.Web.Controllers
                 this.dbContext.ChatUsers.Add(chatUser);
 
                 await this.dbContext.SaveChangesAsync();
-                return Ok();
+                return this.Ok();
             }
             catch (Exception)
             {
-                return BadRequest();
+                return this.BadRequest();
             }
         }
 

@@ -1,16 +1,17 @@
 ﻿namespace Wizzarts.Web.Controllers
 {
-    using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Mvc;
-    using System.Threading.Tasks;
     using System;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Wizzarts.Common;
+    using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Art;
-    using Microsoft.AspNetCore.Identity;
-    using Wizzarts.Data.Models;
-    using Microsoft.AspNetCore.Hosting;
-    using Wizzarts.Common;
     using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.PlayCard;
@@ -18,6 +19,7 @@
     public class ArtController : BaseController
     {
         private readonly IArtService artService;
+        private readonly IUserService userService;
         private readonly IArticleService articlesService;
         private readonly IPlayCardService playCardService;
         private readonly IEventService eventService;
@@ -27,6 +29,7 @@
 
         public ArtController(
             IArtService artService,
+            IUserService userService,
             IArticleService articlesService,
             IPlayCardService playCardService,
             IEventService eventService,
@@ -35,6 +38,7 @@
             IWebHostEnvironment environment)
         {
             this.artService = artService;
+            this.userService = userService;
             this.articlesService = articlesService;
             this.playCardService = playCardService;
             this.eventService = eventService;
@@ -62,12 +66,10 @@
             {
                 return this.View(input);
             }
-
-            var user = await this.userManager.GetUserAsync(this.User);
-
+            bool isPremium = await this.userService.IsPremium(this.User.GetId());
             try
             {
-                await this.artService.AddAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images");
+                await this.artService.AddAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images", isPremium);
             }
             catch (Exception ex)
             {
@@ -82,8 +84,19 @@
         }
 
         [HttpGet]
-        public IActionResult Edit(string id)
+        public async Task<IActionResult> Edit(string id)
         {
+            if (await this.artService.ArtExist(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            if (await this.artService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
             var inputModel = this.artService.GetById<EditArtViewModel>(id);
 
             if (inputModel != null)
@@ -99,6 +112,17 @@
         [HttpPost]
         public async Task<IActionResult> Edit(EditArtViewModel inputModel, string id)
         {
+            if (await this.artService.ArtExist(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            if (await this.artService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
             if (!this.ModelState.IsValid)
             {
 
@@ -127,7 +151,7 @@
             {
                 return this.NotFound();
             }
-            const int ItemsPerPage = 10;
+
             var viewModel = new ArtListViewModel
             {
                 Arts = this.artService.GetRandom<ArtInListViewModel>(20),
@@ -150,13 +174,19 @@
             return this.View(viewModel);
         }
 
-        public IActionResult ById(string id)
+        public async Task<IActionResult> ById(string id, string information)
         {
-            var art = this.artService.GetById<SingleArtViewModel>(id);
-            //if (information != art.GetInformation())
-            //{
-            //    return this.BadRequest(information);
-            //}
+            if (id == null)
+            {
+                return this.Unauthorized();
+            }
+
+            var art = await this.artService.GetById<SingleArtViewModel>(id);
+            if (information != art.GetInformation())
+            {
+                return this.BadRequest(information);
+            }
+
             art.Events = this.eventService.GetAll<EventInListViewModel>();
             art.Articles = this.articlesService.GetRandom<ArticleInListViewModel>(3);
             return this.View(art);
@@ -168,12 +198,12 @@
         {
            var userId = await this.artService.ApproveArt(id);
            if (userId != null)
-            {
-                return this.RedirectToAction("ById", "User", new { id = $"{userId}", Area = "Administration" });
-            }else
-            {
-                return this.BadRequest();
-            }
+           {
+               return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
+           }else
+           {
+               return this.BadRequest();
+           }
         }
 
         [HttpPost]

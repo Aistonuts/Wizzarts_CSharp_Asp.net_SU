@@ -95,7 +95,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                .AndAlso()
                .ShouldReturn()
                .Redirect(redirect => redirect
-                   .To<HomeController>(c => c.Index()));
+                   .To<HomeController>(c => c.Index(With.No<string>())));
             TearDownBase();
         }
 

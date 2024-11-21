@@ -141,8 +141,7 @@
                                                             </td>
                                                             <td>
                                                                 <select asp-for="CardTypeId" id="newtype" onchange="cardTypeFunc(event)">
-                                                                    <option value="1" selected="true">
-                                                                    </option>
+
                                                                     @foreach (var type in Model.SelectType)
                                                                     {
                                                                         <option value="@type.Id">@type.Name</option>
@@ -157,7 +156,7 @@
                                                             </td>
                                                             <td>
                                                                 <select asp-for="GameExpansionId" id="expansion" onchange="expansionSymbolFunc(event)">
-                                                                    <option value="2" selected="true">
+                                                                    <option value="3" selected="true">
                                                                     </option>
                                                                     @foreach (var type in Model.SelectExpansion)
                                                                     {
@@ -270,7 +269,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <select asp-for="GameExpansionId" id="expansion" onchange="expansionSymbolFunc(event)">
-                                                                        <option value="2" selected="true">
+                                                                        <option value="3" selected="true">
                                                                         </option>
                                                                         @foreach (var type in Model.SelectExpansion)
                                                                         {

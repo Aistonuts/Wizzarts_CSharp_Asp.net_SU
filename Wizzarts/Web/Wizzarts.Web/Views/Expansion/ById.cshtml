@@ -22,15 +22,13 @@
                             {
                                 <div class="inner-container">
                                     <div class="item-hidden-text">@card.Name</div>
-                                    <a asp-controller="PlayCard" asp-action="ById" asp-route-data="@card.Id" asp-route-id="@this.Model.Id" class="item ae-card-link cardLink" data-name="@card.Name" data-number="@card.Id" data-img="@card.CardRemoteUrl">
+                                    <a asp-controller="PlayCard" asp-action="ById"asp-route-id="@card.Id" class="item ae-card-link cardLink" data-name="@card.Name" data-number="@card.Id" data-img="@card.CardRemoteUrl">
                                         <img class="lazy" src="@card.CardRemoteUrl" alt="@card.Name" style="">
                                     </a>
                                     <div class="item-footer">
                                     </div>
                                 </div>
                             }
-
-
                     </div>
                 </div>
             </div>

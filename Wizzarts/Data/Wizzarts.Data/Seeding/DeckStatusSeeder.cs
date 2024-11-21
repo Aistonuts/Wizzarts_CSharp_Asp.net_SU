@@ -24,16 +24,6 @@
                 Name = "Ready",
             });
 
-            await dbContext.DeckStatuses.AddAsync(new DeckStatus
-            {
-                Name = "Shipped",
-            });
-
-            await dbContext.DeckStatuses.AddAsync(new DeckStatus
-            {
-                Name = "Delivered",
-            });
-
             await dbContext.SaveChangesAsync();
         }
     }

@@ -17,42 +17,46 @@
 
             await dbContext.Articles.AddAsync(new Article
             {
-                Title = "Wizzarts arts and game database.",
+                Title = "The Wizzarts card game portal",
                 ShortDescription = "Wizzarts website is the place where you can find all about the card game.",
                 Description = "Wizzarts is the place where artists, content creators can directly contribute to the development of Wizzarts games.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/MagicTheGathering.jpg",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
             {
                 Title = "The Wizzarts team.",
-                ShortDescription = "Our team consist of artists and store owners.",
+                ShortDescription = "This is our wizzarts team, store owners and artists.",
                 Description = "We share common interest for art, tabletop games and collectible card games.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/SonsOfTheStorm.jpg",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
             {
                 Title = "The long wait is over.",
-                ShortDescription = "Wizzarts card game alpha deck is already out.",
-                Description = "The alpha deck is available at our stores",
+                ShortDescription = "Wizzarts card game alpha deck is out.",
+                Description = "The alpha deck is available in our stores",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/art/Alpha/Crusade.png",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
             {
-                Title = "Wizzarts game release events.",
+                Title = "Wizzarts second card game second release events.",
                 ShortDescription = "Participate in our events on the 1st of July 2024 to get access to more content",
                 Description = "Event participants will be able create cards, add cards to deck they can pick later from Wizzarts stores close to them.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/Champion.png",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
@@ -64,6 +68,7 @@
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/Arena.jpg",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
@@ -75,6 +80,7 @@
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/WrenchMan.jpg",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
             await dbContext.Articles.AddAsync(new Article
             {
@@ -84,15 +90,17 @@
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/AlphaBox.png",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
             await dbContext.Articles.AddAsync(new Article
             {
                 Title = "New cards have been added",
-                ShortDescription = "We have added 6 cards from which will be included in our beta deck.",
+                ShortDescription = "We have added 6 cards which will be included in our beta deck.",
                 Description = "The upcoming beta deck will be composed of cards created by our community. Participate in our events to get a chance to have one of your cards or art added to ur new deck.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/art/Unlimited/Black_lotus.jpg",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
             await dbContext.SaveChangesAsync();
         }

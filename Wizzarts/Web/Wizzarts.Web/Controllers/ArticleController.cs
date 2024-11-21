@@ -16,15 +16,18 @@
     public class ArticleController : BaseController
     {
         private readonly IArticleService articleService;
+        private readonly IUserService userService;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IWebHostEnvironment environment;
 
         public ArticleController(
             IArticleService articleService,
+            IUserService userService,
             UserManager<ApplicationUser> userManager,
             IWebHostEnvironment environment)
         {
             this.articleService = articleService;
+            this.userService = userService;
             this.userManager = userManager;
             this.environment = environment;
         }
@@ -61,7 +64,7 @@
                 return this.BadRequest();
             }
 
-            if(await this.articleService.HasUserWithIdAsync(id,this.User.GetId()) == false
+            if (await this.articleService.HasUserWithIdAsync(id,this.User.GetId()) == false
                 && this.User.IsAdmin() == false)
             {
                 return this.Unauthorized();
@@ -91,12 +94,10 @@
             {
                 return this.View(input);
             }
-
-            var user = await this.userManager.GetUserAsync(this.User);
-
+            bool isPremium = await this.userService.IsPremium(this.User.GetId());
             try
             {
-                await this.articleService.CreateAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images");
+                await this.articleService.CreateAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images", isPremium);
             }
             catch (Exception ex)
             {
@@ -110,10 +111,10 @@
             return this.RedirectToAction("MyData", "User");
         }
 
-        public async Task<IActionResult> ById(int id)
+        public IActionResult ById(int id)
         {
             var article = this.articleService.GetById<SingleArticleViewModel>(id);
-            if(article != null) 
+            if (article != null)
             {
                 article.Articles = this.articleService.GetRandom<ArticleInListViewModel>(3);
             }
@@ -127,12 +128,12 @@
         {
           var userId = await this.articleService.ApproveArticle(id);
           if (userId != null)
-            {
-                return this.RedirectToAction("ById", "User", new { id = $"{userId}", Area = "Administration" });
-            }else
-            {
-                return this.BadRequest();
-            }
+          {
+              return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
+          }else
+          {
+              return this.BadRequest();
+          }
         }
 
         [HttpPost]
@@ -144,7 +145,7 @@
             }
 
             if (await this.articleService.HasUserWithIdAsync(id, this.User.GetId()) == false
-                && this.User.IsAdmin() == false)
+                || this.User.IsAdmin() == false)
             {
                 return this.Unauthorized();
             }

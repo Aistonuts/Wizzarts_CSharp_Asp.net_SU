@@ -1,6 +1,7 @@
 ﻿namespace Wizzarts.Data
 {
     using System.Linq;
+
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Models;
 

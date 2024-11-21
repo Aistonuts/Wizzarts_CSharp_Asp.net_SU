@@ -35,83 +35,7 @@
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
-                    <ul class="list-unstyled components mobile-menu">
-                        <li>
-                            <a href="#DeckHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>General</b></a>
-                            <ul class="list-unstyled collapse show" id="DeckHubSubmenu" style="">
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                                </li>
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="All">Events</a>
-                                </li>
-                                <li>
-                                    <hr class="mt-2 mb-2">
-                                </li>
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Art" asp-action="All">Art</a>
-                                </li>
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Artist" asp-action="All">Artists</a>
-                                </li>
-                            </ul>
-                            <a href="#MetaHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>Magic cards</b></a>
-                            <ul class="list-unstyled collapse show" id="MetaHubSubmenu" style="">
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="PlayCard" asp-action="All">Magic Cards</a>
-                                </li>
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="PlayCard" asp-action="Expansion">Game Expansions</a>
-                                </li>
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Store" asp-action="All">Magic Game Stores</a>
-                                </li>
-                                <li>
-                                    <hr class="mt-2 mb-2">
-                                </li>
-                                <li>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Wizzarts" asp-action="GetRules">Wizzarts Card Game Rules</a>
-                                </li>
-                            </ul>
-                            @if (this.SignInManager.IsSignedIn(this.User))
-                            {
-                                <a href="#CollectionSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>My area</b></a>
-                                <ul class="collapse list-unstyled" id="CollectionSubmenu">
-                                    <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="User" asp-action="MyData"><i class="fas fa-archive fa-fw"></i> <b>My Content</b></a>
-                                    </li>
-
-                                    <li>
-                                        <hr class="mt-2 mb-2">
-                                    </li>
-                                    <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Wizzarts" asp-action="Membership"><i class="fa fa-handshake-o" aria-hidden="true"></i> <b>Contribute</b></a>
-                                    </li>
-                                </ul>
-
-                                <a href="#TourneySubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Magic Cardsmither</b></a>
-                                <ul class="collapse list-unstyled" id="TourneySubmenu">
-                                    <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="PlayCard" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
-                                    </li>
-                                    <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Article" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Article</b></a>
-                                    </li>
-                                    <li>
-                                        <hr class="mt-2 mb-2">
-                                    </li>
-                                    <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Event</b></a>
-                                    </li>
-                                    <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Art" asp-action="Add"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
-                                    </li>
-                                </ul>
-                            }
-                        </li>
-                    </ul>
                 </div>
-            </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px; display: block; max-height: 836.578px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div><div class="mCSB_draggerRail"></div></div></div></div>
         </nav>
         <div class="w-100 ae-header sticky-menu-mobile-navbar d-print-none">
             <div class="ae-menu-left-decor">
@@ -149,81 +73,23 @@
                                                     <div class="ae-list-header">
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="All">Events</a>
-
-                                                        <hr>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="ae-nav-dropdown">
-                                        <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Art</b></button>
-                                        <div class="ae-nav-dropdown-menu">
-                                            <div class="ae-nav-dropdown-menu-wrapper">
-                                                <div class="">
-                                                    <div class="ae-list-header">
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="All">Art</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="AllByArtistRole">Artists</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="ae-nav-dropdown">
-                                        <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Magic cards</b></button>
-                                        <div class="ae-nav-dropdown-menu">
-
-                                            <div class="ae-nav-dropdown-menu-wrapper">
-                                                <div class="">
-                                                    <div class="ae-list-header">
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="PlayCard" asp-action="All">Magic Cards</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="PlayCard" asp-action="Expansion">Game Expansions</a>
+                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Expansion" asp-action="All">Game Expansions</a>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="All">Magic Game Stores</a>
                                                         <hr>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Wizzarts" asp-action="GetRules">Magic Cardsmith Rules</a>
+                                                        <hr>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
-                                {
-                                    <li>
-                                        <div class="ae-nav-dropdown">
-
-                                            <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Admin</b></button>
-                                            <div class="ae-nav-dropdown-menu">
-
-                                                <div class="ae-nav-dropdown-menu-wrapper">
-                                                    <div class="">
-                                                        <div class="ae-list-header">
-                                                            <a class="nav-link text-dark" asp-area="Administration" asp-controller="Home" asp-action="Index" title="Admin">Home</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                }
                             </ul>
                         </div>
 
                         <div class="ae-icons d-flex justify-content-start">
-
-                            <div class="mr-2">
-                                <ul class="nav">
-                                    <li class="nav-item dropdown">
-                                        <a class="" data-toggle="modal" data-target="#siteSearchModal">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                             <div class="mr-2">
                                 <ul class="nav">
                                     <li class="nav-item dropdown">
@@ -328,7 +194,7 @@
                         </div>
                         </form>*@
 
-                        <form asp-controller="Search" asp-action="Search" method="get">
+                        <form asp-area="" asp-controller="Search" asp-action="Advanced" method="get">
                             <div class="input-group ae-card-search">
                                 <input type="text" id="searchM" name="CardName"
                                        class="form-control d-print-none ui-autocomplete-input"
