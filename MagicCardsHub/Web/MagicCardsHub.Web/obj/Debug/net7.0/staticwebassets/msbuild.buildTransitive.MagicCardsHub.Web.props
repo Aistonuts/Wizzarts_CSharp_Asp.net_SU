@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\MagicCardsHub.Web.props" />
-</Project>
