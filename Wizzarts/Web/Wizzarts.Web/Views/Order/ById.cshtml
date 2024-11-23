@@ -20,6 +20,11 @@
                             <span class="btn btn-light font-weight-bold">Shipping status : @Model.OrderStatus</span>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a asp-controller="Order" asp-action="Cancel" asp-route-id="@Model.Id" class="metagroup-link ff-display">
+                            <span class="btn btn-light font-weight-bold">Cancel</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="card-body pt-1">

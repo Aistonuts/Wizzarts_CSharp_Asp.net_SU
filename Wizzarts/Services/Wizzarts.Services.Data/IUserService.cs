@@ -29,5 +29,7 @@
         Task<string> UpdateRoleAsync(ApplicationUser user, string id);
 
         Task<bool> IsPremium(string userId);
+
+        bool HasNickName(string userId);
     }
 }

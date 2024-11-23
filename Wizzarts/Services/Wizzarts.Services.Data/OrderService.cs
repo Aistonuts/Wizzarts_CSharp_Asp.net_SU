@@ -36,6 +36,19 @@
 
         }
 
+        public async Task CancelOrder(int id)
+        {
+            var deckOfCards = this.cardsInOrderRepository.AllAsNoTracking().Where(x => x.OrderId == id);
+            var order = this.deckOrderRepository.All().FirstOrDefault(x => x.Id == id);
+            foreach (var card in deckOfCards)
+            {
+                this.cardsInOrderRepository.Delete(card);
+            }
+            this.deckOrderRepository.Delete(order);
+            await this.cardsInOrderRepository.SaveChangesAsync();
+            await this.deckOrderRepository.SaveChangesAsync();
+        }
+
         public IEnumerable<T> GetAll<T>()
         {
             var orders = this.deckOrderRepository.AllAsNoTracking()
@@ -71,6 +84,12 @@
                .To<T>().FirstOrDefaultAsync();
 
             return order;
+        }
+
+        public async Task<bool> HasUserWithIdAsync(int orderId, string userId)
+        {
+            return await this.deckOrderRepository.AllAsNoTracking()
+               .AnyAsync(a => a.Id == orderId && a.RecipientId == userId);
         }
 
         public async Task OrderAsync(SingleExpansionViewModel input, string userId)

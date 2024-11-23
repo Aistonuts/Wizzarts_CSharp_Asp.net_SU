@@ -1,16 +1,19 @@
 ﻿namespace Wizzarts.Web.Controllers
 {
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Text;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Wizzarts.Common;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Services.Messaging;
-    using Wizzarts.Web.Extensions;
+    using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.Order;
@@ -57,6 +60,7 @@
             this.emailSender = emailSender;
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public IActionResult All()
         {
             var viewModel = new OrderListViewModel
@@ -80,13 +84,14 @@
         {
             var viewModel = new OrderListViewModel
             {
-                Orders = this.orderService.GetAllOrdersByUserId<OrderInListViewModel>(this.User.Id()),
+                Orders = this.orderService.GetAllOrdersByUserId<OrderInListViewModel>(this.User.GetId()),
                 Decks = this.deckService.GetAll<DeckInListViewModel>(),
             };
 
             return View(viewModel);
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Pause(int id)
         {
             var order = await this.orderService.GetById<OrderInListViewModel>(id);
@@ -98,6 +103,7 @@
             return this.RedirectToAction("All", "Order");
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Ship(int id)
         {
             var order = await this.orderService.GetById<OrderInListViewModel>(id);
@@ -109,6 +115,7 @@
             return this.RedirectToAction("All", "Order");
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Ready(int id)
         {
             var order = await this.orderService.GetById<OrderInListViewModel>(id);
@@ -120,7 +127,24 @@
             return this.RedirectToAction("All", "Order");
         }
 
-        [HttpPost]
+        public async Task<IActionResult> Cancel(int id)
+        {
+            if (await this.orderService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
+            var order = await this.orderService.GetById<OrderInListViewModel>(id);
+            if (order != null)
+            {
+                await this.orderService.CancelOrder(id);
+            }
+
+            return this.RedirectToAction("All", "Deck");
+        }
+
+
         public async Task<IActionResult> SendToEmail(int id)
         {
             var order = await this.orderService.GetById<OrderInListViewModel>(id);
@@ -133,7 +157,7 @@
             html.AppendLine($"<h3>To secure the dispatch of your deck and your place at the event, provide us with the confirmation key by mail, chat or phone.</h3>");
             html.AppendLine($"<img src=\"{order.DeckImageUrl}\" />");
             await this.emailSender.SendEmailAsync("drawgoon@aol.com", "Wizzarts", user.Email, order.Title, html.ToString());
-            return this.RedirectToAction(nameof(this.ById), new { id });
+            return this.RedirectToAction("All", "Order");
         }
     }
 }

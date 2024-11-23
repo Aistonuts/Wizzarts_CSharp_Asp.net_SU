@@ -111,9 +111,15 @@
             return this.RedirectToAction("MyData", "User");
         }
 
-        public IActionResult ById(int id)
+        public IActionResult ById(int id, string information)
         {
+
             var article = this.articleService.GetById<SingleArticleViewModel>(id);
+            if (information != article.GetArticleTitle())
+            {
+                return this.BadRequest(information);
+            }
+
             if (article != null)
             {
                 article.Articles = this.articleService.GetRandom<ArticleInListViewModel>(3);

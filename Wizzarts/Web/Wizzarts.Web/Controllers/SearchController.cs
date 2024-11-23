@@ -7,6 +7,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.ViewModels.PlayCard;
+    using Wizzarts.Web.Infrastructure.Extensions;
 
     [ApiController]
     [Route("api/[controller]/[action]")]
@@ -47,7 +48,7 @@
         {
             var card = this.playCardService.GetByName<SingleCardViewModel>(cardName);
 
-            return this.RedirectToAction("ById", "PlayCard", new { id = card.Id });
+            return this.RedirectToAction("ById", "PlayCard", new { id = card.Id, information = card.GetCardName() });
         }
     }
 }

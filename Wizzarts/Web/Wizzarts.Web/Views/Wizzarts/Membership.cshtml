@@ -68,7 +68,12 @@
                                         <a class="btn btn-light font-weight-bold" id="register" asp-area="Identity" asp-page="/Account/Register">Start as a member</a>
                                     </div>
                                 }
-
+                                @if (this.User.IsInRole(GlobalConstants.MemberRoleName))
+                                {
+                                    <div class="mb-2 text-center">
+                                        <a class="btn btn-light font-weight-bold">You need @Model.ArtNeeded art pieces to become an Artist</a>
+                                    </div>
+                                }
                                 else if (this.User.IsInRole(GlobalConstants.ArtistRoleName))
                                 {
                                     <div class="mb-2 text-center">
@@ -111,12 +116,6 @@
                                 {
                                     <div class="mb-2 text-center">
                                         <button class="btn btn-light btn-outline-content-creator font-weight-bold">Artist role unlocked!</button>
-                                    </div>
-                                }
-                                else if (this.User.IsInRole(GlobalConstants.MemberRoleName))
-                                {
-                                    <div class="mb-2 text-center">
-                                        <a class="btn btn-light font-weight-bold">You need @Model.ArtNeeded art pieces to become an Artist</a>
                                     </div>
                                 }
                             </div>

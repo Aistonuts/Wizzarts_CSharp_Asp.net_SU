@@ -126,7 +126,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .AndAlso()
                 .ShouldReturn()
                 .Redirect(redirect => redirect
-                    .To<ArticleController>(c => c.ById(1)));
+                    .To<ArticleController>(c => c.ById(1, With.No<string>())));
 
             TearDownBase();
 
@@ -200,7 +200,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
              .Instance(instance => instance
                  .WithUser()
                  .WithData(data.Articles.FirstOrDefault(x => x.Id == 1)))
-             .Calling(c => c.ById(1))
+             .Calling(c => c.ById(1, With.No<string>()))
              .ShouldReturn()
              .View(view => view
                  .WithModelOfType<SingleArticleViewModel>());

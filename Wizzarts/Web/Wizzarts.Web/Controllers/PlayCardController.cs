@@ -23,7 +23,6 @@
     using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
-
     using static Wizzarts.Common.GlobalConstants;
 
     public class PlayCardController : BaseController
@@ -65,9 +64,16 @@
 
         }
 
-        [MustBePremium]
+        [Authorize(Roles = AdministratorRoleName + "," + PremiumRoleName + "," + ArtistRoleName)]
         public IActionResult Add(int id)
         {
+            var userArts = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
+            if (!userArts.Any())
+            {
+
+                return this.RedirectToAction("Add", "Art");
+            }
+
             var viewModel = new CreateCardViewModel();
             viewModel.RedMana = this.playCardComponentsService.GetAllRedMana();
             viewModel.BlueMana = this.playCardComponentsService.GetAllBlueMana();
@@ -79,9 +85,7 @@
             viewModel.SelectFrameColor = this.playCardComponentsService.GetAllCardFrames();
             viewModel.SelectExpansion = this.playCardComponentsService.GetAllExpansionInListView();
 
-            //var user = await this.userManager.GetUserAsync(this.User);
-
-            viewModel.ArtByUserId = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
+            viewModel.ArtByUserId = userArts;
 
             return this.View(viewModel);
         }
@@ -229,7 +233,6 @@
             return this.RedirectToAction("All", "Event");
         }
 
-
         [AllowAnonymous]
         public IActionResult All(int id = 1)
         {
@@ -272,25 +275,32 @@
             return this.View(viewModel);
         }
 
-        public IActionResult ById(string id)
+        public IActionResult ById(string id, string information)
         {
             var card = this.cardService.GetById<SingleCardViewModel>(id);
+            if (information != card.GetCardName())
+            {
+                return this.BadRequest(information);
+            }
 
             if (card != null)
             {
                 card.Mana = this.cardService.GetAllCardManaByCardId<ManaListViewModel>(id);
             }
-            var comments = this.commentService.GetCommentsByCardId<CardCommentInListViewModel>(id);
             card.Comments = this.commentService.GetCommentsByCardId<CardCommentInListViewModel>(id);
             card.Events = this.eventService.GetAll<EventInListViewModel>();
             card.Articles = this.articleService.GetRandom<ArticleInListViewModel>(4);
             return this.View(card);
         }
 
-        [MustBePremium]
         [HttpPost]
         public async Task<IActionResult> Comment(SingleCardViewModel model, string id)
         {
+            var user = await this.userManager.GetUserAsync(this.User);
+            if (user.Nickname.Length == 0 || user.Nickname == null)
+            {
+                return this.RedirectToAction("SelectAvatar", "User");
+            }
 
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
@@ -299,7 +309,6 @@
                 return this.View(model);
             }
 
-            var user = await this.userManager.GetUserAsync(this.User);
             var currentRole = await this.userManager.GetRolesAsync(user);
             bool isAdmin = false;
 
@@ -322,7 +331,7 @@
 
             this.TempData["Message"] = "Comment added successfully.";
 
-            return this.RedirectToAction("ById", "PlayCard", new { id = $"{model.Id}", Area = "" });
+            return this.RedirectToAction("ById", "PlayCard", new { id = $"{model.Id}",information = model.GetCardName(), Area = "" });
         }
 
         [HttpPost]

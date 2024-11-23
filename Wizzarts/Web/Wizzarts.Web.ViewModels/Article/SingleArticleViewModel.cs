@@ -6,8 +6,9 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Home;
+    using Wizzarts.Web.ViewModels.WizzartsMember;
 
-    public class SingleArticleViewModel : IndexAuthenticationViewModel, IMapFrom<Article>, IHaveCustomMappings
+    public class SingleArticleViewModel : IndexAuthenticationViewModel, IMapFrom<Article>, IHaveCustomMappings, ISingleArticleViewModel, ISingleMemberViewModel
     {
         public int Id { get; set; }
 
@@ -21,7 +22,9 @@
 
         public string ArticleCreatorId { get; set; } = string.Empty;
 
-        public string ArticleCreatorName { get; set; } = string.Empty;
+        public string Nickname { get; set; } = string.Empty;
+
+        public string Username { get; set; }
 
         public string ArticleCreatorAvatar { get; set; } = string.Empty;
 
@@ -34,7 +37,7 @@
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Article, SingleArticleViewModel>()
-               .ForMember(x => x.ArticleCreatorName, opt =>
+               .ForMember(x => x.Nickname, opt =>
                    opt.MapFrom(x =>
                        x.ArticleCreator.UserName))
             .ForMember(x => x.ArticleCreatorAvatar, opt =>

@@ -26,16 +26,17 @@
     <div class="wrapper" id="wrapper">
         <nav id="sidebar" class="mCustomScrollbar _mCS_1 mCS-autoHide active mCS_no_scrollbar" style="overflow: visible;">
             <div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: 1534px;" tabindex="0">
-                <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; top: 0px; left: 0px;" dir="ltr">
-                    <div class="w-100 text-center mb-1 mt-1">
-                        <a href="/">
-                            <img src="/images/navigation/Premium.png" loading="lazy" width="150" height="64" alt="AetherHub.com" class="mCS_img_loaded">
-                        </a>
-                        <button id="dismiss" class="btn btn-sm text-dark" aria-label="Close menu">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
+            <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; top: 0px; left: 0px;" dir="ltr">
+                <div class="w-100 text-center mb-1 mt-1">
+                    <a href="/">
+                        <img src="/images/navigation/Premium.png" loading="lazy" width="150" height="64" alt="AetherHub.com" class="mCS_img_loaded">
+                    </a>
+                    <button id="dismiss" class="btn btn-sm text-dark" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
                 </div>
+            </div>
+            </div>
         </nav>
         <div class="w-100 ae-header sticky-menu-mobile-navbar d-print-none">
             <div class="ae-menu-left-decor">
@@ -86,6 +87,25 @@
                                         </div>
                                     </div>
                                 </li>
+                                @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                                {
+                                    <li>
+                                        <div class="ae-nav-dropdown">
+
+                                            <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Admin</b></button>
+                                            <div class="ae-nav-dropdown-menu">
+
+                                                <div class="ae-nav-dropdown-menu-wrapper">
+                                                    <div class="">
+                                                        <div class="ae-list-header">
+                                                            <a class="nav-link text-dark" asp-area="Administration" asp-controller="Home" asp-action="Index" title="Admin">Home</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
                             </ul>
                         </div>
 

@@ -72,7 +72,7 @@
         {
             var artCount = this.artRepository
                 .AllAsNoTracking()
-                .Count(x => x.AddedByMemberId == id);
+                .Count(x => x.AddedByMemberId == id && x.ApprovedByAdmin == true);
 
             return artCount;
         }
@@ -81,7 +81,7 @@
         {
             var artCount = this.articleRepository
                 .AllAsNoTracking()
-                .Count(x => x.ArticleCreatorId == id);
+                .Count(x => x.ArticleCreatorId == id && x.ApprovedByAdmin == true);
 
             return artCount;
         }
@@ -90,7 +90,7 @@
         {
             var artCount = this.eventRepository
                 .AllAsNoTracking()
-                .Count(x => x.EventCreatorId == id);
+                .Count(x => x.EventCreatorId == id && x.ApprovedByAdmin == true);
 
             return artCount;
         }
@@ -107,11 +107,12 @@
         public async Task UpdateAsync(string id, CreateMemberProfileViewModel input)
         {
             var user = this.userRepository.All().FirstOrDefault(x => x.Id == id);
+
             user.Nickname = input.Nickname;
             user.AvatarUrl = input.AvatarUrl;
             user.Bio = input.Bio;
             user.AvatarId = input.AvatarId;
-            user.PhoneNumber = input.Phone;
+            user.PhoneNumber = input.PhoneNumber;
 
             await this.userRepository.SaveChangesAsync();
         }
@@ -129,7 +130,7 @@
             var countOfCards = this.GetCountOfCards(id);
             var message = string.Empty;
 
-            if (currentRole.Contains(MemberRoleName))
+            if (currentRole.Contains(MemberRoleName) && !currentRole.Contains(ArtistRoleName) && !currentRole.Contains(PremiumRoleName) && !currentRole.Contains(AdministratorRoleName))
             {
                 if (countOfArts >= MemberToArtistRequiredArts)
                 {
@@ -153,13 +154,13 @@
                         $" {eventsNeededMember} event(s) created, {articlesNeededMember} article(s) and {cardsNeededMember} event card(s).";
                 }
             }
-            else if (currentRole.Contains(PremiumRoleName))
+            else if (currentRole.Contains(PremiumRoleName) && !currentRole.Contains(ArtistRoleName))
             {
                 message = $"You have a premium account.";
             }
             else if (currentRole.Contains(ArtistRoleName))
             {
-                message = $"You are an artist. Artists have premium access";
+                message = $"You are an artist.If you are interested in working with us, contact us by mail at team@wizzarts.com or check for available wizzarts team members in chat and we will check your portfolio.";
             }
             else
             {
@@ -173,7 +174,7 @@
         {
             var cardsCount = this.playCardRepository
                 .AllAsNoTracking()
-                .Count(x => x.AddedByMemberId == id && x.IsEventCard == true);
+                .Count(x => x.AddedByMemberId == id && x.IsEventCard == true && x.ApprovedByAdmin == true);
 
             return cardsCount;
         }
@@ -185,6 +186,13 @@
 
             return currentRole.Contains(ArtistRoleName) || currentRole.Contains(PremiumRoleName);
 
+        }
+
+        public bool HasNickName(string userId)
+        {
+            var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
+
+            return user.Nickname == null || user.Nickname.Length == 0 ? false : true;
         }
     }
 }

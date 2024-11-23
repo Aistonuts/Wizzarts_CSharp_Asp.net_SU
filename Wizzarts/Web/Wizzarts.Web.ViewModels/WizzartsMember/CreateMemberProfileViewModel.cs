@@ -14,15 +14,12 @@
         public int AvatarId { get; set; }
 
         [Required]
-        public string Nickname { get; set; } = string.Empty;
+        public string Nickname { get; set; }
 
-        public string AvatarUrl { get; set; } = string.Empty;
+        public string AvatarUrl { get; set; }
 
         [Comment("Information about the artist")]
-        public string Bio { get; set; } = string.Empty;
-
-        [Phone]
-        public string Phone { get; set; } = string.Empty;
+        public string Bio { get; set; }
 
         public IEnumerable<AvatarInListViewModel> Avatars { get; set; }
 

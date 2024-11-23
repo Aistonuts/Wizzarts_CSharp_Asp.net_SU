@@ -195,9 +195,12 @@
         [HttpPost]
         public async Task<IActionResult> Edit(EditEventViewModel inputModel, int id)
         {
+            this.ModelState.Remove("UserName");
+            this.ModelState.Remove("Password");
             if (!this.ModelState.IsValid)
             {
 
+                inputModel.EventComponents = this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
                 return this.View(inputModel);
             }
 
@@ -213,7 +216,7 @@
             }
 
             await this.eventService.UpdateAsync(inputModel, id);
-            return this.RedirectToAction(nameof(this.ById), new { id });
+            return this.RedirectToAction(nameof(this.My), new { id });
         }
 
         [HttpPost]
@@ -250,7 +253,6 @@
             return this.RedirectToAction("MyData", "User");
         }
 
-        [HttpPost]
         public async Task<IActionResult> Remove(int id)
         {
             if (await this.eventService.EventComponentExist(id) == false)
@@ -259,7 +261,7 @@
             }
 
             var currentEventComponent = this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
-
+            var eventId = currentEventComponent.EventId;
             if (await this.eventService.HasUserWithIdAsync(currentEventComponent.EventId, this.User.GetId()) == false
                 && this.User.IsAdmin() == false)
             {
@@ -268,7 +270,7 @@
 
             await this.eventService.DeleteComponentAsync(id);
 
-            return this.RedirectToAction(nameof(this.Edit), new { id });
+            return this.RedirectToAction(nameof(this.Edit), new { id = eventId });
         }
     }
 }

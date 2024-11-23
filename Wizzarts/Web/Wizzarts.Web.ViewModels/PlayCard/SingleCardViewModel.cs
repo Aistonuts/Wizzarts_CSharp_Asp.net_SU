@@ -1,19 +1,26 @@
 ﻿namespace Wizzarts.Web.ViewModels.PlayCard
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq;
 
     using AutoMapper;
+    using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.CardComments;
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
+    using Wizzarts.Web.ViewModels.WizzartsMember;
+    using static Wizzarts.Common.DataConstants;
+    using static Wizzarts.Common.MessageConstants;
 
-    public class SingleCardViewModel : IndexAuthenticationViewModel, IMapFrom<PlayCard>, IHaveCustomMappings
+    public class SingleCardViewModel : IndexAuthenticationViewModel, IMapFrom<PlayCard>, IHaveCustomMappings, ISingleCardViewModel, ISingleMemberViewModel
     {
         public string Id { get; set; } = string.Empty;
 
+        [Required(ErrorMessage = "Card Name is required!")]
+        [StringLength(CardNameMaxLength, MinimumLength = CardNameMinLength, ErrorMessage = "Card name should be between 5 and 30 characters long")]
         public string Name { get; set; } = string.Empty;
 
         public string CardRemoteUrl { get; set; } = string.Empty;
@@ -32,14 +39,23 @@
 
         public string ArtId { get; set; } = string.Empty;
 
+        public string Nickname { get; set; } = string.Empty;
+
+        public string Username { get; set; } = string.Empty;
+
+        [Comment("Card Title this  comment is about")]
         public string CommentTitle { get; set; } = string.Empty;
 
+        [Comment("Card description this  comment is about")]
         public string CommentDescription { get; set; } = string.Empty;
 
+        [Required(ErrorMessage = RequiredMessage)]
+        [StringLength(CardReviewMaxLength, MinimumLength = CardReviewMinLength, ErrorMessage = LengthMessage)]
         public string CommentReview { get; set; } = string.Empty;
 
         public double AverageVote { get; set; }
 
+        [StringLength(CardReviewSuggestionMaxLength, MinimumLength = CardReviewSuggestionMinLength, ErrorMessage = LengthMessage)]
         public string CommentSuggestions { get; set; } = string.Empty;
 
         public string AddedByMemberId { get; set; } = string.Empty;
@@ -59,7 +75,13 @@
                     x.CardType.Name))
               .ForMember(x => x.CardExpansion, opt =>
                  opt.MapFrom(x =>
-                    x.CardGameExpansion.Title));
+                    x.CardGameExpansion.Title))
+              .ForMember(x => x.Username, opt =>
+                  opt.MapFrom(x =>
+                      x.AddedByMember.UserName))
+              .ForMember(x => x.Nickname, opt =>
+                  opt.MapFrom(x =>
+                      x.AddedByMember.Nickname)); ;
         }
     }
 }

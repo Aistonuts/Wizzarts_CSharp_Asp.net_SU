@@ -1,4 +1,5 @@
 ﻿@using Wizzarts.Common
+@using Wizzarts.Web.Infrastructure.Extensions
 @model Wizzarts.Web.ViewModels.PlayCard.SingleCardViewModel
 @{
     this.ViewData["Title"] = Model.Name;
@@ -15,7 +16,7 @@
                     <div id="cardInfo" class="row mb-4">
                         <div class="col-sm-12 col-md-6 cardModal">
                             <a class="" data-toggle="modal" data-target="#imageModal">
-                                <div class="card-image-front text-center"><img  id="previewCardModal" class="card-image" src="@Model.CardRemoteUrl" alt="Card" onerror="this.onerror=null;this.src='@Model.CardRemoteUrl';"></div>
+                                <div class="card-image-front text-center"><img id="previewCardModal" class="card-image" src="@Model.CardRemoteUrl" alt="Card" onerror="this.onerror=null;this.src='@Model.CardRemoteUrl';"></div>
                             </a>
                         </div>
                         <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
@@ -28,76 +29,55 @@
                                     @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
                                     {
                                         <li class="single-meta">
-                                            <a asp-controller="Card" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-light font-weight-bold">Edit</a>
+                                            <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
+                                            </form>
+                                            <button class="btn btn-light font-weight-bold" data-toggle="modal" data-target="#deleteModal">Delete</button>
                                         </li>
-                                        @*   <li class="single-meta">
-                                    <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
-                                    </form>
-                                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                                    </li> *@
                                         <li class="single-meta">
                                             <form asp-controller="PlayCard" method="post" asp-action="ApproveCard" asp-route-id="@Model.Id">
                                                 <button class="btn btn-light font-weight-bold">Approve</button>
                                             </form>
                                         </li>
+                                        @if (@Model.CardExpansion =="Beta")
+                                        {
+                                            <li class="single-meta">
+                                                <form asp-controller="PlayCard" method="post" asp-action="Promote" asp-route-id="@Model.Id">
+                                                    <button class="btn btn-light font-weight-bold">Promote to Beta deck</button>
+                                                </form>
+                                            </li>
+                                        }
+                                    }
+                                    @if (this.User.Identity.Name == Model.AddedByMemberId)
+                                    {
                                         <li class="single-meta">
-                                            <form asp-controller="PlayCard" method="post" asp-action="Promote" asp-route-id="@Model.Id">
-                                                <button class="btn btn-light font-weight-bold">Approve</button>
+                                            <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
                                             </form>
+                                            <button class="btn btn-light font-weight-bold" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                                        </li>
+                                    }            
+                                    @if (this.User.IsArtist() || this.User.IsPremiumUser() || this.User.IsAdmin())
+                                    {
+                                        <li class="single-meta">
+                                            <a class="btn btn-light font-weight-bold" data-toggle="modal" data-target="#attackUserModal">
+                                                <i class="fa-solid fa-skull-crossbones"></i>
+                                                Comment
+                                            </a>
                                         </li>
                                     }
-                                    <li class="single-meta">
-                                        <a class="btn btn-light font-weight-bold" data-toggle="modal" data-target="#attackUserModal">
-                                            <i class="fa-solid fa-skull-crossbones"></i>
-                                            Comment
-                                        </a>
-                                    </li>
+                                    else
+                                    {
+                                        <div class="card-body">
+                                            <div class="w-100 text-center">
+                                                <h4><a asp-controller="Wizzarts" method="post" asp-action="Membership" rel="nofollow">Get premium</a> to comment</h4>
+                                            </div>
+                                        </div>
+                                    }
+
                                 </ul>
                             </div>
-             @*                <div class="entry-meta">
-                                <div class="single-meta">
-                                    <div value="@Model.Id" class="single-meta">
-                                        <div class="item-rating">
-                                            <span class="star-fill" data-vote="1"><i class="fas fa-star"></i></span>
-                                            <span class="star-fill" data-vote="2"><i class="fas fa-star"></i></span>
-                                            <span class="star-fill" data-vote="3"><i class="fas fa-star"></i></span>
-                                            <span class="star-fill" data-vote="4"><i class="fas fa-star"></i></span>
-                                            <span class="star-fill" data-vote="5"><i class="fas fa-star"></i></span>
-                                            <span id="averageVoteValue">@Model.AverageVote.ToString("0.0")</span><span> / 5</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p></p>
-                            <p><i></i></p>
-                            <hr>
-
-                            <p>
-                                <i>Illustrated by: </i><br>
-                            </p>
-                            <div class="firstfeed-flexbox">
-                                 @foreach (var comment in this.Model.CardCommentsRepliesByOwner)
-                                {
-                                <div class="article-card card border-0">
-                                <div class="card-body pt-0">
-                                <small class="yellow-line">
-                                <a href=""><i class="far fa-star"></i>@comment.Comment</a>
-                                </small>
-                                <div class="ff-display font-size-18">
-                                <b><a href="">@comment.Suggestions</a></b>
-                                </div>
-                                <div class="card-text d-none d-md-flex m-1">aaas</div>
-                                </div>
-                                </div>
-                                }
-
-
-                            </div> *@
                         </div>
                     </div>
                 </div>
-
-               
             </div>
 
         </div>
@@ -110,11 +90,8 @@
                 <div id="commentMessage" class="alert alert-danger" role="alert"></div>
                 <div id="comments" data-id="10829" data-type="article">
                     <div class="card mb-2">
-                        @foreach (var comment in this.Model.Comments.Where(x=>x.IsPostedByAdmin == true))
+                        @foreach (var comment in this.Model.Comments.Where(x => x.IsAdminComment == true))
                         {
-                            @*                         <div class="card-header pt-0 pb-0 pr-0">
-                        <a href="/User/HfjNUlYZ"><b>HfjNUlYZ</b></a> <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time>
-                        </div> *@
                             <div class="card-body">
                                 <small class="yellow-line">
                                     <a href=""><i class="far fa-star"></i>@comment.Title</a>
@@ -125,59 +102,6 @@
                                 <div class="card-text d-none d-md-flex m-1">@comment.Suggestions</div>
 
                             </div>
-
-                            @* <div id="defenseUserModal" class="modal fade" role="dialog">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Search </h4>
-                                            <button type="button" class="close" data-dismiss="modal">
-                                                <span class="fas fa-times text-dark"></span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body ui-front d-flex flex-row justify-content-center">
-                                            <div>
-                                                <form asp-controller="PlayCard" method="post" asp-action="Defense" asp-route-data="@comment.Id">
-                                                    <div class="card-body">
-                                                        <textarea asp-for="@Model.CommentReview" id="titleText" placeholder="@comment.Suggestions" class="form-control" rows="3" maxlength="500"></textarea>
-                                                        <hr>
-                                                        <textarea asp-for="@Model.CommentSuggestions" id="descriptionText" placeholder="Card Description" class="form-control" rows="3" maxlength="500"></textarea>
-
-                                                        <div class="text-center"><button id="btnComment" data-type="deck" class="btn btn-light mt-1"><b>Post</b></button></div>
-                                                        <div id="commentMessage" class="alert alert-danger" role="alert"></div>
-                                                    <div id="comments" data-id="1021562" data-type="deck">
-                                                    <div class="firstfeed-flexbox">
-                                                    @foreach (var review in this.Model.CardReviews.Where(x => x.CardId == Model.Id))
-                                                    {
-                                                    <div class="article-card card border-0">
-                                                    <div class="card-body pt-0">
-                                                    <small class="yellow-line">
-                                                    <a href=""><i class="far fa-star"></i>@review.PostedByUser</a>
-                                                    </small>
-                                                    <div class="ff-display font-size-18">
-                                                    <b><a href="">@review.Review</a></b>
-                                                    </div>
-                                                    <div class="card-text d-none d-md-flex m-1">@review.Suggestions</div>
-                                                    </div>
-                                                    </div>
-
-                                                    }
-                                                    </div>
-                                                    </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer mt-0">
-                                            <div class="text-right">
-                                                <button type="button" class="btn btn-light" data-dismiss="modal">
-                                                    <i class="fas fa-times"></i> <b>Close</b>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> *@
                         }
                     </div>
                 </div>
@@ -189,58 +113,23 @@
                 <b>Comments:</b>
             </div>
             <div class="card-body">
-                @* <div class="w-100 text-center">
-                    <h4><a href="/Account/Login/?ReturnUrl=/Article/MTG-Standard-Rotation-Guide-2024-Overview-and-Final-Rankings" rel="nofollow">Login</a> to comment</h4>
-                </div> *@
                 <div id="commentMessage" class="alert alert-danger" role="alert"></div>
                 <div id="comments" data-id="10829" data-type="article">
-                     @foreach (var comment in this.Model.Comments.Where(x=>x.IsPostedByAdmin == false))
+                    @foreach (var comment in this.Model.Comments.Where(x => x.IsAdminComment == false))
                     {
-                    <div class="card-header pt-0 pb-0 pr-0">
-                    <a asp-controller="User" asp-action="ById" asp-route-id="@comment.PostedByUserId"><b>@comment.PostedByUser</b></a> <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time>
-                    </div>
-                    <div class="card-body">
-                    @comment.Review
-                    </div>
+                        <div class="card-header pt-0 pb-0 pr-0">
+                            <a asp-controller="User" asp-action="ById" asp-route-id="@comment.PostedByUserId" asp-route-information="@comment.GetWizzartsMemberName()"><b>@comment.Nickname</b></a> <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time>
+                        </div>
+                        <div class="card-body">
+                            @comment.Review
+                        </div>
                     }
 
                 </div>
             </div>
-           @*  <div class="col-xl-9 col-12">
-                <ul class="entry-meta">
-                    <li class="single-meta">
-                        <a class="btn btn-light font-weight-bold" data-toggle="modal" data-target="#defenseUserModal">
-                            <i class="fa-solid fa-shield-halved"></i>
-                            Defend Card
-                        </a>
-                    </li>
-                </ul>
-            </div> *@
         </div>
 
-        @* <div class="card mt-2 border-0">
-            <div class="card-header bg-light p-0 text-center">
-                <b>Defenders</b>
-            </div>
-            <div class="card-body">
-                <div class="w-100 text-center">
-                    <h4><a href="/Account/Login/?ReturnUrl=/Article/MTG-Standard-Rotation-Guide-2024-Overview-and-Final-Rankings" rel="nofollow">Login</a> to comment</h4>
-                </div>
-                <div id="commentMessage" class="alert alert-danger" role="alert"></div>
-                <div id="comments" data-id="10829" data-type="article">
-
-                    <div class="card-header pt-0 pb-0 pr-0">
-                        <a href="/User/HfjNUlYZ"><b>HfjNUlYZ</b></a> <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time>
-                    </div>
-                    <div class="card-body">
-                        e
-                    </div>
-                </div>
-            </div>
-        </div> *@
     </div>
-
-
     <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
         <div class="card mb-2">
             <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Events</a></h4></div>
@@ -279,11 +168,6 @@
                             <div class="ff-display font-size-18">
                                 <b> <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" class="image-wrapper">@article.Title</a></b>
                             </div>
-                            @*    <p>
-                        <span class="text-muted">
-                        29.Jun
-                        </span>
-                        </p> *@
                         </div>
                     </div>
                 </div>
@@ -308,33 +192,16 @@
                     <form asp-controller="PlayCard" asp-action="Comment" asp-route-id="@Model.Id" method="post">
                         <div class="card-body">
                             <textarea asp-for="@Model.Name" id="titleText" placeholder="Title" class="form-control" rows="3" maxlength="500"></textarea>
+                            <span asp-validation-for="@Model.Name" class="small text-danger"></span>
                             <hr>
                             <textarea asp-for="@Model.AbilitiesAndFlavor" id="descriptionText" placeholder="Card Description" class="form-control" rows="3" maxlength="500"></textarea>
+                            <span asp-validation-for="@Model.AbilitiesAndFlavor" class="small text-danger"></span>
                             <hr>
                             <textarea asp-for="@Model.CommentReview" id="reviewText" placeholder="Review" class="form-control" rows="3" maxlength="500"></textarea>
+                            <span asp-validation-for="@Model.CommentReview" class="small text-danger"></span>
                             <hr>
                             <textarea asp-for="@Model.CommentSuggestions" id="suggestionText" placeholder="Type a suggestion" class="form-control" rows="3" maxlength="500"></textarea>
                             <div class="text-center"><button id="btnComment" data-type="deck" class="btn btn-light mt-1"><b>Post</b></button></div>
-                            @* <div id="commentMessage" class="alert alert-danger" role="alert"></div>
-                            <div id="comments" data-id="1021562" data-type="deck">
-                            <div class="firstfeed-flexbox">
-                            @foreach (var review in this.Model.CardReviews.Where(x => x.CardId == Model.Id))
-                            {
-                            <div class="article-card card border-0">
-                            <div class="card-body pt-0">
-                            <small class="yellow-line">
-                            <a href=""><i class="far fa-star"></i>@review.PostedByUser</a>
-                            </small>
-                            <div class="ff-display font-size-18">
-                            <b><a href="">@review.Review</a></b>
-                            </div>
-                            <div class="card-text d-none d-md-flex m-1">@review.Suggestions</div>
-                            </div>
-                            </div>
-
-                            }
-                            </div>
-                            </div> *@
                         </div>
                     </form>
                 </div>

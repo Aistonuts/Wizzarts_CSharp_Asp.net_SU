@@ -6,12 +6,17 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Home;
+    using Wizzarts.Web.ViewModels.WizzartsMember;
 
-    public class ArticleInListViewModel : IndexAuthenticationViewModel, IMapFrom<Article>, IHaveCustomMappings, ISingleArticleViewModel
+    public class ArticleInListViewModel : IndexAuthenticationViewModel, IMapFrom<Article>, IHaveCustomMappings, ISingleArticleViewModel, ISingleMemberViewModel
     {
         public int Id { get; set; }
 
         public string Title { get; set; } = string.Empty;
+
+        public string Nickname { get; set; } = string.Empty;
+
+        public string Username { get; set; }
 
         public string Description { get; set; } = string.Empty;
 
@@ -31,6 +36,12 @@
         {
             configuration.CreateMap<Article, ArticleInListViewModel>()
                .ForMember(x => x.ArticleCreatorName, opt =>
+                   opt.MapFrom(x =>
+                       x.ArticleCreator.UserName))
+               .ForMember(x => x.Nickname, opt =>
+                   opt.MapFrom(x =>
+                       x.ArticleCreator.Nickname))
+               .ForMember(x => x.Username, opt =>
                    opt.MapFrom(x =>
                        x.ArticleCreator.UserName))
                .ForMember(x => x.ImageUrl, opt =>

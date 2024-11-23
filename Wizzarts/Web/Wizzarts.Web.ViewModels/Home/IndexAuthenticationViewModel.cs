@@ -47,11 +47,7 @@
 
         public bool HasOpenDeck { get; set; }
 
-        [Phone]
-        [Required]
         public string PhoneNumber { get; set; } = string.Empty;
-
-        public IEnumerable<DeckStatusListViewModel> DeckStatuses { get; set; }
 
         public IEnumerable<DeckInListViewModel> Decks { get; set; }
 

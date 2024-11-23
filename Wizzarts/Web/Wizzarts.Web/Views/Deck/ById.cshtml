@@ -43,19 +43,19 @@
                                 </div>
                             }
                             else
+                            {
                                 @foreach (var card in this.Model.Cards)
                                 {
                                     <div class="inner-container">
                                         <div class="item-hidden-text">@card.Name</div>
-                                        <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink" data-name="@card.Name" data-number="@card.Id" data-img="@card.CardRemoteUrl">
+                                        <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id" asp-route-information="@card.GetCardName()" class="item ae-card-link cardLink" data-name="@card.Name" data-number="@card.Id" data-img="@card.CardRemoteUrl">
                                             <img class="lazy" src="@card.CardRemoteUrl" alt="@card.Name" style="">
                                         </a>
                                         <div class="item-footer">
                                         </div>
                                     </div>
                                 }
-
-
+                            }
                         </div>
                     </div>
                 </div>
@@ -70,12 +70,12 @@
                 {
                     <div class="metagroup-container">
                         <div class="mr-2 d-none d-lg-block">
-                            <a asp-controller="Deck" asp-action="ById" asp-route-id="@deck.Id">
+                            <a asp-controller="Deck" asp-action="ById" asp-route-id="@deck.Id" asp-route-id="@this.Model.Id" asp-route-information="@deck.GetDeckName()">
                                 <div class="meta-cardimg" style="background-image: url('@deck.ImageUrl')"></div>
                             </a>
                         </div>
                         <div>
-                            <a asp-controller="Deck" asp-action="ById" asp-route-id="@deck.Id" class="metagroup-link">
+                            <a asp-controller="Deck" asp-action="ById" asp-route-id="@deck.Id" asp-route-id="@this.Model.Id" asp-route-information="@deck.GetDeckName()" class="metagroup-link">
                                 <b class="text-primary">@deck.Name</b>
                             </a>
                         </div>

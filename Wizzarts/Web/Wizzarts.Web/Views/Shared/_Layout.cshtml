@@ -1,6 +1,8 @@
 ﻿@using Wizzarts.Common
 @using Wizzarts.Data.Models
 @using Microsoft.AspNetCore.Identity
+@using Wizzarts.Web.Infrastructure.Extensions
+@using static Wizzarts.Common.GlobalConstants
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
@@ -56,9 +58,12 @@
                                 <li>
                                     <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Art" asp-action="All">Art</a>
                                 </li>
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="User" asp-action="AllByArtistRole">Artists</a>
-                                </li>
+                                @if (this.SignInManager.IsSignedIn(this.User))
+                                {
+                                    <li>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="User" asp-action="All">Members portfolio</a>
+                                    </li>
+                                }
                             </ul>
                             <a href="#MetaHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>Magic cards</b></a>
                             <ul class="list-unstyled collapse show" id="MetaHubSubmenu" style="">
@@ -97,11 +102,14 @@
                                     </li>
                                 </ul>
 
-                                <a href="#TourneySubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Magic Cardsmither</b></a>
+                                <a href="#TourneySubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="false"> <b>Tools</b></a>
                                 <ul class="collapse list-unstyled" id="TourneySubmenu">
-                                    <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="PlayCard" asp-action="Add"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
-                                    </li>
+                                    @if (this.User.IsArtist() || this.User.IsPremiumUser() || this.User.IsAdmin())
+                                    {
+                                        <li>
+                                            <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="PlayCard" asp-action="Add"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Card</b></a>
+                                        </li>
+                                    }                                 
                                     <li>
                                         <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Article" asp-action="Create"><i class="fa fa-rss" aria-hidden="true"></i> <b>Create Article</b></a>
                                     </li>
@@ -157,6 +165,10 @@
                                                     <div class="ae-list-header">
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="All">Events</a>
+                                                        @if (this.SignInManager.IsSignedIn(this.User))
+                                                        {
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="All">User Events</a>
+                                                        }
                                                         <hr>
                                                     </div>
                                                 </div>
@@ -164,24 +176,27 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="ae-nav-dropdown">
-                                        <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Members</b></button>
-                                        <div class="ae-nav-dropdown-menu">
+                                @if (this.SignInManager.IsSignedIn(this.User))
+                                {
+                                    <li>
+                                        <div class="ae-nav-dropdown">
+                                            <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Members</b></button>
+                                            <div class="ae-nav-dropdown-menu">
 
-                                            <div class="ae-nav-dropdown-menu-wrapper">
-                                                <div class="">
-                                                    <div class="ae-list-header">
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="All">Members Portfolio</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="MyData">My portfolio</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="My">Orders</a>
-                                                        <hr>
+                                                <div class="ae-nav-dropdown-menu-wrapper">
+                                                    <div class="">
+                                                        <div class="ae-list-header">
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="All">Members Portfolio</a>
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="MyData">My portfolio</a>
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="My">Orders</a>
+                                                            <hr>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                }
                                 <li>
                                     <div class="ae-nav-dropdown">
                                         <button type="button" class="ae-nav-dropdown-btn pl-1 pr-1 text-nowrap ae-nav-dropdown-lazy"><b>Art</b></button>
@@ -190,8 +205,10 @@
                                                 <div class="">
                                                     <div class="ae-list-header">
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="All">Art</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="Add">Add</a>
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="All">Events</a>
+                                                        @if (this.SignInManager.IsSignedIn(this.User))
+                                                        {
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Art" asp-action="Add">Add</a>
+                                                        }
                                                     </div>
                                                 </div>
                                             </div>

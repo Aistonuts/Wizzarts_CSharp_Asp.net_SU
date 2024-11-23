@@ -1,8 +1,10 @@
 ﻿@model Wizzarts.Web.ViewModels.Event.MyEventSettingsViewModel
 @using Microsoft.AspNetCore.Identity
 @using Wizzarts.Data.Models
+@using static Wizzarts.Common.GlobalConstants
 @inject UserManager<ApplicationUser> UserManager
 @inject SignInManager<ApplicationUser> SignInManager
+
 <div class="row pt-2 ae-break-word">
     <div class="col-sm-12 col-md-12 col-lg-8 pl-0 pr-0 pr-lg-3">
         <div class="card p-lg-3">
@@ -19,7 +21,7 @@
                                 <div class="yellow-line w-100 mb-0">
                                     <img src="@Model.CreatorAvatar" width="50" height="50" class="rounded-circle">
                                     <a @* href="/User/ChrisCee" *@>@Model.EventCreator</a>
-@*                                     <span class="text-muted">October 4, 2024</span>
+                                    @*                                     <span class="text-muted">October 4, 2024</span>
                                     <span class="text-muted"><i class="far fa-clock"></i> 4 min</span> *@
                                 </div>
                             </div>
@@ -38,9 +40,13 @@
                             @foreach (var article in this.Model.EventComponents)
                             {
                                 <div class="article-card card border-0">
-                                    <div  aria-label="article" class="image-wrapper">
-                                        <img src="@article.ImageUrl" class="article-uimgheader lazy" alt="@article.Title">
-                                    </div>
+                                    @if (article.ImageUrl.Length != 0)
+                                    {
+                                        <div aria-label="article" class="image-wrapper">
+                                            <img src="@article.ImageUrl" class="article-uimgheader lazy" alt="@article.Title">
+                                        </div>
+                                    }
+
                                     <div class="card-body pt-0">
                                         <div class="ff-display font-size-18">
                                             <b>@article.Title</b>
@@ -57,17 +63,19 @@
         <div class="col-xl-9 col-12">
             <ul class="entry-meta">
 
-                    <li class="single-meta">
-                        <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.EventId">
-                        </form>
-                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                    </li>
+                <li class="single-meta">
+                    <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.EventId">
+                    </form>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                </li>
+                @if (this.User.IsInRole(AdministratorRoleName))
+                {
                     <li class="single-meta">
                         <form asp-area="" asp-controller="Event" method="post" asp-action="ApproveEvent" asp-route-id="@Model.EventId">
                             <button class="btn btn-danger">Approve</button>
                         </form>
                     </li>
-
+                }
                 <li class="single-meta">
                     <a asp-area="" asp-controller="Event" asp-action="Edit" asp-route-id="@Model.EventId">
                         <button class="btn btn-danger">Edit</button>
@@ -110,7 +118,7 @@
                 }
             </div>
         </div>
-        @if(this.Model.OwnerBrowsing)
+        @if (this.Model.OwnerBrowsing)
         {
             <div class="card mb-2">
                 <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Event content</a></h4></div>
@@ -156,8 +164,21 @@
                 </div>
             </div>
         }
-       
+
     </div>
 </div>
 
 
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Do you want to delete "@Model.EventTitle"?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>

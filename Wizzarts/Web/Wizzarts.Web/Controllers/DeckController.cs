@@ -92,7 +92,6 @@
         }
 
         [HttpPost]
-        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Shipping(SingleDeckViewModel input)
         {
 

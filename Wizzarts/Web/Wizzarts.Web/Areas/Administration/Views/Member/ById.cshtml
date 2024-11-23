@@ -26,10 +26,9 @@
                         <img class="article-uimgheader-preview" src="@Model.AvatarUrl" alt="@Model.Email">
                     </div>
                 </div>
-                @if (!Model.Articles.Any(x => x.ApprovedByAdmin == false) || !Model.Arts.Any(x => x.ApprovedByAdmin == false) || !Model.Cards.Any(x => x.ApprovedByAdmin == false) || !Model.Events.Any(x => x.ApprovedByAdmin == false) || !Model.Stores.Any(x => x.ApprovedByAdmin == false))
-                {
-                    <h1 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">There is nothing to approve!</h1>
-                }
+
+                    <h1 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Awaiting approval!</h1>
+
   
                 <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-3">
                     <div class="row">
@@ -45,7 +44,7 @@
                                     {
                                         <div class="article-card card border-0">
                                             <a href="" aria-label="article" class="image-wrapper">
-                                                <a asp-area="" asp-controller="Article" asp-action="ById" asp-route-id="@article.Id">
+                                                <a asp-area="" asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()">
                                                     <img src="@article.ImageUrl" class="article-uimgheader" alt="@article.Title">
                                                 </a>
                                             </a>
@@ -68,12 +67,12 @@
 
                             @if (Model.Arts.Any(x => x.ApprovedByAdmin == false))
                             {
-                                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Art</h4>
+                                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Art</h4>
                                 <div class="firstfeed-flexbox">
                                     @foreach (var art in this.Model.Arts.Where(x => x.ApprovedByAdmin == false))
                                     {
                                         <div class="inner-container">
-                                            <a asp-area="" asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" asp-route-data="@Model.Id"  class="item ae-card-link cardLink ">
+                                            <a asp-area="" asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" asp-route-data="@Model.Id" asp-route-information="@art.GetInformation()" class="item ae-card-link cardLink ">
                                                 <img width="300" height="300" class="lazy" src="@art.ImageUrl" alt="@art.Title" style="">
                                                 <div class="item-hidden-text">@art.Title</div>
                                             </a>
@@ -87,12 +86,12 @@
 
                             @if (Model.Cards.Any(x => x.ApprovedByAdmin == false))
                             {
-                                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Cards</h4>
+                                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Cards</h4>
                                 <div class="firstfeed-flexbox">
                                     @foreach (var card in this.Model.Cards.Where(x => x.ApprovedByAdmin == false))
                                     {
                                         <div class="inner-container">
-                                            <a asp-area="" asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id"  class="item ae-card-link cardLink ">
+                                            <a asp-area="" asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id" asp-route-information="@card.GetCardName()" class="item ae-card-link cardLink ">
                                                 <img class="lazy" src="@card.CardRemoteUrl" alt="@card.Name" style="">
                                                 <div class="item-hidden-text">@card.CardExpansion</div>
                                             </a>
@@ -111,7 +110,7 @@
                                 {
                                     <div class="article-card card border-0">
                                         <a href="" aria-label="article" class="image-wrapper">
-                                            <a asp-area="" asp-controller="Event" asp-action="ById" asp-route-id="@eventNow.Id" class="article-uimgheader">
+                                            <a asp-area="" asp-controller="Event" asp-action="ById" asp-route-id="@eventNow.Id" asp-route-information="@eventNow.GetEventTitle()" class="article-uimgheader">
                                                 <img src="@eventNow.ImageUrl" class="article-uimgheader" alt="@eventNow.Title">
                                             </a>
                                         </a>
@@ -190,22 +189,11 @@
                                                     </div>
                                                     <div class="col-xl-9 col-12">
                                                         <ul class="entry-meta">
-                                                            @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
-                                                            {
-                                                                <li class="single-meta">
-                                                                    <a asp-controller="Card" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary">Edit</a>
-                                                                </li>
-                                                                @*   <li class="single-meta">
-                                                    <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
-                                                    </form>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                                                    </li> *@
                                                                 <li class="single-meta">
                                                                     <form asp-area="" asp-controller="Store" method="post" asp-action="ApproveStore" asp-route-id="@store.Id">
                                                                         <button class="btn btn-danger">Approve</button>
                                                                     </form>
                                                                 </li>
-                                                            }
                                                         </ul>
                                                     </div>
                                                     <div class="modal-footer mt-0">

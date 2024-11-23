@@ -5,7 +5,7 @@
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Home;
 
-    public class SingleMemberViewModel : IndexAuthenticationViewModel, IMapFrom<ApplicationUser>
+    public class SingleMemberViewModel : IndexAuthenticationViewModel, IMapFrom<ApplicationUser>, ISingleMemberViewModel
     {
         public string UserId { get; set; } = string.Empty;
 
@@ -27,7 +27,10 @@
                        x.AvatarUrl))
             .ForMember(x => x.Username, opt =>
                     opt.MapFrom(x =>
-                       x.UserName));
+                       x.UserName))
+            .ForMember(x => x.Nickname, opt =>
+                opt.MapFrom(x =>
+                    x.Nickname));
         }
     }
 }

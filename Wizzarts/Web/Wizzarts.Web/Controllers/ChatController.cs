@@ -33,6 +33,7 @@
         [HttpPost]
         public async Task<IActionResult> Post(MessageViewModel viewModel)
         {
+
             try
             {
                 var user = await this.userManager.GetUserAsync(this.User);
@@ -40,7 +41,7 @@
                 {
                     ChatId = viewModel.ChatId,
                     Text = viewModel.Text,
-                    Name = user.UserName,
+                    Name = user.Nickname,
                     Timestamp = DateTime.Now,
                 };
                 _ = this.dbContext.ChatMessages.AddAsync(message);

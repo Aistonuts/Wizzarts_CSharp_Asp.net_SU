@@ -152,7 +152,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
              .Instance(instance => instance
                  .WithUser()
                  .WithData(data.PlayCards.FirstOrDefault(x => x.Id == "c330fecf-61a9-4e03-8052-cd2b9583a251")))
-             .Calling(c => c.ById("c330fecf-61a9-4e03-8052-cd2b9583a251"))
+             .Calling(c => c.ById("c330fecf-61a9-4e03-8052-cd2b9583a251", With.No<string>()))
              .ShouldReturn()
              .View(view => view
                  .WithModelOfType<SingleCardViewModel>());

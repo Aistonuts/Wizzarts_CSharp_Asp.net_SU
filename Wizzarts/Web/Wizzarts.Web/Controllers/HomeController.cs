@@ -103,6 +103,8 @@
                 {
                     viewModel.IsProfileUpToDate = false;
                 }
+
+                viewModel.MembershipStatus = await this.userService.UpdateRoleAsync(user, user.Id);
             }
 
             return this.View(viewModel);

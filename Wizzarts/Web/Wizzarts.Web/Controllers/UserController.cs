@@ -147,6 +147,7 @@
                 {
                     Id = x.Id,
                     Nickname = x.Nickname,
+                    Username = x.UserName,
                     Bio = x.Bio,
                     AvatarUrl = x.AvatarUrl,
                     Role = GlobalConstants.ArtistRoleName,
@@ -159,6 +160,7 @@
                 {
                     Id = x.Id,
                     Nickname = x.Nickname,
+                    Username = x.UserName,
                     Bio = x.Bio,
                     AvatarUrl = x.AvatarUrl,
                     Role = GlobalConstants.MemberRoleName,
@@ -171,6 +173,7 @@
                 {
                     Id = x.Id,
                     Nickname = x.Nickname,
+                    Username = x.UserName,
                     Bio = x.Bio,
                     AvatarUrl = x.AvatarUrl,
                     Role = GlobalConstants.PremiumRoleName,
@@ -184,13 +187,20 @@
             return this.View(viewModel);
         }
 
-        public IActionResult ById(string id)
+        public IActionResult ById(string id, string information)
         {
-            if(id == null)
+            if (id == null)
             {
                 return this.Unauthorized();
             }
+
             var member = this.userService.GetById<SingleMemberViewModel>(id);
+
+            if (information != member.GetWizzartsMemberName())
+            {
+                return this.BadRequest(information);
+            }
+
             member.Arts = this.artService.GetAllArtByUserId<ArtInListViewModel>(id, 1, 50);
             member.Articles = this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(id, 1, 50);
             member.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(id, 1, 50);

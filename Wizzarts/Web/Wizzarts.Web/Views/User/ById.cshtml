@@ -1,43 +1,14 @@
 ﻿@model Wizzarts.Web.ViewModels.WizzartsMember.SingleMemberViewModel
+@using Wizzarts.Web.Infrastructure.Extensions
+
+@{
+    this.ViewData["Title"] = "Member portfolio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <div class="row pt-2">
     <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-1">
 
-
-
-
-        @*         <div class="row text-center no-gutters mb-3">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="btn-group w-100 flex-wrap">
-        <a asp-area="" asp-controller="PlayCard" asp-action="All"
-        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">All Cards</a>
-        <span> | </span>
-        <a asp-area="" asp-controller="PlayCard" asp-action="Create"
-        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">Add Card</a>
-        <span> | </span>
-        <a asp-area="" asp-controller="Art" asp-action="All"
-        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">All Art pieces</a>
-        <span> | </span>
-        <a asp-area="" asp-controller="Art" asp-action="Add"
-        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">Add Art</a>
-        <span> | </span>
-        <a asp-area="" asp-controller="Event" asp-action="All"
-        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">All Events</a>
-        <span> | </span>
-        <a asp-area="" asp-controller="Event" asp-action="Create"
-        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">Add Event</a>
-        <span> | </span>
-        <a asp-area="" asp-controller="Article" asp-action="All"
-        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">All Articles</a>
-        <span> | </span>
-        <a asp-area="" asp-controller="Article" asp-action="Create"
-        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">Add Article</a>
-        <span> | </span>
-        <a asp-area="" asp-controller="User" asp-action="Update"
-        class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1 active">Update Profile</a>
-        </div>
-        </div>
-        </div> *@
         <div class="h-oneKpx mb-4">
             <div id="metaHubTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                 <div class="row">
@@ -64,7 +35,11 @@
                                 <div class="card-body p-2">
                                     @foreach (var gameEvent in this.Model.Events)
                                     {
-                                        <a asp-controller="Event" asp-action="ById" asp-route-id="@gameEvent.Id" class="text-decoration-none"><i class="ss ss-parl3"></i>@gameEvent.Title</a>
+                                        <a asp-controller="Event" asp-action="ById" asp-route-id="@gameEvent.Id" class="text-decoration-none" asp-route-information="@gameEvent.GetEventTitle()" ><i class="ss ss-parl3"></i>
+
+                                        @gameEvent.Title
+
+                                        </a>
 
                                         <br>
                                     }
@@ -77,7 +52,7 @@
                                 </div>
                                 <div class="card-body p-2">
                                     <a asp-controller="Art" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Art</a><br>
-                                    <a asp-controller="Card" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game Cards</a><br>
+                                    <a asp-controller="PlayCard" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game Cards</a><br>
                                     <a asp-controller="Wizzarts" asp-action="GetRules" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game rules</a><br>
                                     <a asp-controller="Wizzarts" asp-action="Membership" class="text-decoration-none"><i class="ss ss-parl3"></i> Membership</a><br>
                                 </div>
@@ -91,7 +66,7 @@
                                     <a asp-controller="Article" asp-action="Create" class="text-decoration-none"><i class="fas fa-trophy"></i> Create article</a><br>
                                     <a asp-controller="Art" asp-action="Add" class="text-decoration-none"><i class="fas fa-briefcase"></i> Add art</a><br>
                                     <a asp-controller="Event" asp-action="Create" class="text-decoration-none"><i class="ss ss-parl3"></i> Create event</a><br>
-                                    <a asp-controller="User" asp-action="Mine" class="text-decoration-none"><i class="fas fa-eye"></i> My content</a>
+                                    <a asp-controller="User" asp-action="MyData" class="text-decoration-none"><i class="fas fa-eye"></i> My content</a>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +76,7 @@
                             @foreach (var article in this.Model.Articles.ToList().Take(4).Where(x => x.ApprovedByAdmin == true))
                             {
                                 <div class="article-card card border-0">
-                                    <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" aria-label="article" class="image-wrapper">
+                                    <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()"  aria-label="article" class="image-wrapper">
                                         <img src="@article.ImageUrl" class="article-uimgheader lazy" alt="@article.Title">
                                     </a>
                                     <div class="card-body pt-0">
@@ -123,7 +98,7 @@
                             @foreach (var art in this.Model.Arts.ToList().Where(x => x.ApprovedByAdmin == true))
                             {
                                 <div class="article-card card border-0">
-                                    <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" class="image-wrapper">
+                                    <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" asp-route-information="@art.GetInformation()" class="image-wrapper">
                                         <img width="600" height="300" class="article-uimgheader lazy" src="@art.ImageUrl" alt="@art.Title" style="">
 
                                     </a>
@@ -140,7 +115,7 @@
                             @foreach (var card in this.Model.Cards.ToList().Where(x => x.ApprovedByAdmin == true))
                             {
                                 <div class="inner-container">
-                                    <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink ">
+                                    <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id" asp-route-information="@card.GetCardName()" class="item ae-card-link cardLink ">
                                         <img width="200" height="300" src="@card.CardRemoteUrl" alt="@card.Name" style="">
                                         <div class="item-hidden-text">@card.Name</div>
                                     </a>
@@ -155,7 +130,7 @@
                             @foreach (var events in this.Model.Events.ToList().Where(x => x.ApprovedByAdmin == true))
                             {
                                 <div class="inner-container">
-                                    <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" class="item ae-card-link cardLink ">
+                                    <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="item ae-card-link cardLink ">
                                         <img width="200" height="300" src="@events.ImageUrl" alt="@events.Title" style="">
                                         <div class="item-hidden-text">@events.Title</div>
                                     </a>
@@ -174,7 +149,7 @@
         <div class="card mb-2">
             <div class="ae-border-bottom-light pt-1 pb-1 text-center">
                 <b>
-                    @Model.UserName
+                    @Model.Nickname
                 </b>
             </div>
             <div class="card-body pt-1 pb-1">
@@ -184,13 +159,6 @@
                             <img src="@Model.AvatarUrl" width="80" height="80" class="rounded-circle" alt="@Model.Nickname">
                         </div>
                     </div>
-                    @*  <div class="w-100">
-                    <div id="ae-follower-buttons" class="w-100 text-center mt-2">
-                    <button id="ae-follow-login-btn" class="btn btn-sm btn-light" title="Log in to Follow"><i class="fas fa-user-plus"></i> <b>Follow</b></button>
-                    </div>
-                    <div class="w-100 mt-2 text-center">
-                    </div>
-                    </div> *@
                 </div>
                 <p>@Model.Bio</p>
                 <p><em>"Target bird is no longer available. Please leave a message after the last bounce."</em></p>

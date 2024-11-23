@@ -1,11 +1,14 @@
 ﻿@using Wizzarts.Common
 @using Wizzarts.Data.Models
 @using Microsoft.AspNetCore.Identity
+@using Wizzarts.Services.Data
 @using Wizzarts.Web.Infrastructure.Extensions
 @using static Wizzarts.Common.MembershipConstants
+@using static Wizzarts.Common.GlobalConstants
 @model Wizzarts.Web.ViewModels.Home.IndexAuthenticationViewModel
-@inject SignInManager<ApplicationUser> SignInManager
+@inject SignInManager<ApplicationUser> SignInManager;
 @inject UserManager<ApplicationUser> userManager;
+@inject IUserService userService;
 @{
     this.ViewData["Title"] = "Home Page";
 }
@@ -20,27 +23,34 @@
                     <div class="mb-2 firstfeed-flexbox ff-display">
                         <div class="card">
                             <div class="ae-border-bottom-light text-gold pl-2">
-                                <b>User profile</b>
+                                <b>Account progress</b>
                             </div>
-                            @if (this.User.IsInRole(GlobalConstants.ArtistRoleName) || this.User.IsInRole(GlobalConstants.PremiumRoleName) || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                            @if (this.User.IsArtist() || this.User.IsPremiumUser() || this.User.IsAdmin())
                             {
-                                <div class="ae-border-bottom-light pl-2">
-                                    <b><i class="ss ss-pmtg1"></i>You have premium access.</b>
-                                </div>
-                            }else
-                            {                                         
                                 <div class="card-body p-2">
-                                    <a asp-controller="Home" asp-action="Status" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Check status</b></a>
-                                    <b> to get latest updates</b>
+                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Articles :@Model.CountOfArticles</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Events : @Model.CountOfEvents</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Cards  : @Model.CountOfCards</b><br>
+                                     <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Art pieces: @Model.CountOfArts</b><br>
                                 </div>
-                                <div class="ae-border-bottom-light text-gold pl-2">
-                                    <b>Artist role progress : </b>
+                                <div class="card-body p-2">
+                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Articles :@Model.CountOfArticles</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Events : @Model.CountOfEvents</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Cards  : @Model.CountOfCards</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Art pieces: @Model.CountOfArts</b><br>
+                                </div>
+                               
+                            }
+                            else
+                            {
+                                <div class="ae-border-bottom-light  pl-2">
+                                    <b>Artist : </b>
                                 </div>
                                 <div class="card-body p-2">
                                     <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Arts needed : @Model.CountOfArts/@MembershipConstants.MemberToArtistRequiredArts</b><br>
                                 </div>
-                                <div class="ae-border-bottom-light text-gold pl-2">
-                                    <b>Premium account requirements</b>
+                                <div class="ae-border-bottom-light  pl-2">
+                                    <b>Content creator :  </b>
                                 </div>
                                 <div class="card-body p-2">
                                     <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Articles needed :@Model.CountOfArticles/@MembershipConstants.RequiredNumberArticles</b><br>
@@ -48,7 +58,7 @@
                                     <b class="text-decoration-none"><i class="ss ss-parl3"></i>Event cards needed : @Model.CountOfCards/@MembershipConstants.RequiredNumberEventCards</b><br>
                                 </div>
                             }
-                           
+
 
                         </div>
                         <div class="card">
@@ -100,8 +110,10 @@
                                 <a asp-controller="Deck" asp-action="Create" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Create deck</a><br>
                                 @if (!this.User.IsInRole(GlobalConstants.MemberRoleName))
                                 {
-                                    <a asp-controller="PlayCard" asp-action="Create" class="text-decoration-none"><i class="fas fa-tools"></i> Create Card</a><br>
-                                }                                                                                            
+                                    <a asp-controller="PlayCard" asp-action="Add" class="text-decoration-none"><i class="fas fa-tools"></i> Create Card</a>
+
+                                    <br>
+                                }
                             </div>
                         </div>
                     </div>
@@ -117,7 +129,7 @@
                             </a>
                             <div class="card-body pt-0">
                                 <small class="yellow-line">
-                                    <a @* asp-controller="Wizzarts" asp-action="ByStringId" asp-route-id="@article.ArticleCreatorId" *@><i class="far fa-star"></i>@article.ArticleCreatorName</a>
+                                    <a asp-controller="User" asp-action="ById" asp-route-id="@article.ArticleCreatorId" asp-route-information="@article.GetWizzartsMemberName()"><i class="far fa-star"></i>@article.ArticleCreatorName</a>
                                     <span>@article.CreatedOn</span>
                                 </small>
                                 <div class="ff-display font-size-18">
@@ -134,7 +146,7 @@
                     @foreach (var art in this.Model.Arts)
                     {
                         <div class="article-card card border-0">
-                            <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" asp-route-information="@art.GetInformation()"  class="image-wrapper">
+                            <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" asp-route-information="@art.GetInformation()" class="image-wrapper">
                                 <img width="600" height="300" class="article-uimgheader lazy" src="@art.ImageUrl" alt="@art.Title" style="">
                             </a>
 
@@ -208,58 +220,70 @@
         </div>
         @if (this.SignInManager.IsSignedIn(this.User))
         {
-            <div class="card mb-2 ">
+            if (this.userService.HasNickName(this.User.GetId()) || User.IsInRole(AdministratorRoleName))
+            {
+                <div class="card mb-2 ">
 
-                <div class="ae-border-bottom-light  p-0 text-center">
-                    <b><i class="fas fa-users"></i> Chat</b>
-                </div>
-                <div class="chat-box-main">
-                    <div class="chat" style="height:627px">
+                    <div class="ae-border-bottom-light  p-0 text-center">
+                        <b><i class="fas fa-users"></i> Chat</b>
+                    </div>
+                    <div class="chat-box-main">
+                        <div class="chat" style="height:627px">
 
-                        <div id="messagesList" class="chat-body">
-                            @foreach (var message in Model.ChatMessages)
-                            {
-                                <div class="message">
-                                    <header style="color:black">@message.Name:</header>
-                                    <p style="color:black">@message.Text</p>
-                                    <footer style="color:black">@message.Timestamp</footer>
-                                </div>
-                            }
-                        </div>
-                        <div class="row text-center no-gutters mb-3">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="btn-group w-100 flex-wrap">
-                                    @foreach (var room in Model.ChatRooms)
-                                    {
-                                        <a asp-controller="Chat" asp-action="ById" asp-route-id="@room.Id" id="formatId-15" data-id="15" data-format="Other" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>@room.Name</b></a>
-                                    }
+                            <div id="messagesList" class="chat-body">
+                                @foreach (var message in Model.ChatMessages)
+                                {
+                                    <div class="message">
+                                        <header style="color:black">@message.Name:</header>
+                                        <p style="color:black">@message.Text</p>
+                                        <footer style="color:black">@message.Timestamp</footer>
+                                    </div>
+                                }
+                            </div>
+                            <div class="row text-center no-gutters mb-3">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="btn-group w-100 flex-wrap">
+                                        @foreach (var room in Model.ChatRooms)
+                                        {
+                                            <a asp-controller="Chat" asp-action="ById" asp-route-id="@room.Id" id="formatId-15" data-id="15" data-format="Other" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>@room.Name</b></a>
+                                        }
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <hr />
+                            <hr />
 
-                        <form method="post" onsubmit="sendMessage(event)" id="chatMessage" class="ae-border-bottom-light  p-0 text-center">
-                            <div class="input-group ae-card-search">
-                                <input type="text" name="message" id="messageInput"
-                                       class="form-control d-print-none ui-autocomplete-input"
-                                       placeholder="Send your message >>>>>" aria-label="Search magic cards" />
-                                <div class="input-group-append">
-                                    <button type="submit" id="sendButton" class="btn btn-light" aria-label="Search">
-                                        <i class="fa-solid fa-pen"></i>
-                                    </button>
+                            <form method="post" onsubmit="sendMessage(event)" id="chatMessage" class="ae-border-bottom-light  p-0 text-center">
+                                <div class="input-group ae-card-search">
+                                    <input type="text" name="message" id="messageInput"
+                                           class="form-control d-print-none ui-autocomplete-input"
+                                           placeholder="Send your message >>>>>" aria-label="Search magic cards" />
+                                    <div class="input-group-append">
+                                        <button type="submit" id="sendButton" class="btn btn-light" aria-label="Search">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
 
-                        @*                 <form class="chat-input" onsubmit="sendMessage(event)" asp-controller="Home" asp-action="CreateMessage" asp-route-id="@Model.ChatId">
+                            @*                 <form class="chat-input" onsubmit="sendMessage(event)" asp-controller="Home" asp-action="CreateMessage" asp-route-id="@Model.ChatId">
                     <input type="hidden" name="chatId" value="@Model.ChatId">
                     <input type="text" name="message" id="message-input">
                     <button type="submit">Send</button>
                     </form> *@
+                        </div>
                     </div>
-                </div>
 
-            </div>
+                </div>
+            }
+            else
+            {
+                <div class="card-body p-2">
+                    <div class="ae-border-bottom-light  p-0 text-center">
+                        <b><i class="fas fa-users"></i>You need pick a nickname to join chat...</b>
+                    </div>
+                    <a asp-controller="User" asp-action="SelectAvatar" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Update your profile</b></a>
+                </div>
+            }
         }
         @*  <div id="zone18-300x600-card" class="mb-2 pt-1">
         <div>

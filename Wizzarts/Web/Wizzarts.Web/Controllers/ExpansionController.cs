@@ -79,8 +79,8 @@ namespace Wizzarts.Web.Controllers
         {
             var expansion = this.playCardExpansionService.GetById<SingleExpansionViewModel>(id);
 
-            expansion.PlayCards = this.cardService.GetAllCardsByExpansion<CardInListViewModel>(id);
-            expansion.Expansions = this.playCardExpansionService.GetAll<ExpansionInListViewModel>();
+            expansion.Cards = this.cardService.GetAllCardsByExpansion<CardInListViewModel>(id);
+            expansion.GameExpansions= this.playCardExpansionService.GetAll<ExpansionInListViewModel>();
 
             return this.View(expansion);
         }

@@ -1,5 +1,5 @@
 ﻿@model Wizzarts.Web.ViewModels.CardGameExpansion.SingleExpansionViewModel
-
+@using Wizzarts.Web.Infrastructure.Extensions
 
 
 
@@ -9,7 +9,7 @@
             <div class="row mt-2">
                 <div class="col-md-12">
                     <div id="cards" class="outer-container">
-                        @if (!Model.PlayCards.Any())
+                        @if (!Model.Cards.Any())
                         {
                             <div class="d-flex flex-row justify-content-center">
                                 <div class="font-weight-bold mt-5" style="max-width: 500px;">
@@ -18,17 +18,19 @@
                             </div>
                         }
                         else
-                            @foreach (var card in this.Model.PlayCards)
+                        {
+                            @foreach (var card in this.Model.Cards)
                             {
                                 <div class="inner-container">
                                     <div class="item-hidden-text">@card.Name</div>
-                                    <a asp-controller="PlayCard" asp-action="ById"asp-route-id="@card.Id" class="item ae-card-link cardLink" data-name="@card.Name" data-number="@card.Id" data-img="@card.CardRemoteUrl">
+                                    <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id" class="item ae-card-link cardLink" data-name="@card.Name" asp-route-information="@card.GetCardName()" data-number="@card.Id" data-img="@card.CardRemoteUrl">
                                         <img class="lazy" src="@card.CardRemoteUrl" alt="@card.Name" style="">
                                     </a>
                                     <div class="item-footer">
                                     </div>
                                 </div>
                             }
+                        }
                     </div>
                 </div>
             </div>
@@ -38,16 +40,16 @@
         <div class="card mb-2">
             <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Expansions</a></h4></div>
             <div class="card-body pl-1 pr-1 pt-2 pb-0">
-                @foreach (var expansion in this.Model.Expansions)
+                @foreach (var expansion in this.Model.GameExpansions)
                 {
                     <div class="metagroup-container">
                         <div class="mr-2 d-none d-lg-block">
-                            <a asp-controller="Expansion" asp-action="ById" asp-route-id="@expansion.Id" class="image-wrapper">
+                            <a asp-controller="Expansion" asp-action="ById" asp-route-id="@expansion.Id" asp-route-information="@expansion.GetExpansionTitle()" class="image-wrapper">
                                 <div class="meta-cardimg" style="background-image: url('@expansion.ExpansionSymbolUrl')"></div>
                             </a>
                         </div>
                         <div>
-                            <a asp-controller="Expansion" asp-action="ById" asp-route-id="@expansion.Id" class="image-wrapper">
+                            <a asp-controller="Expansion" asp-action="ById" asp-route-id="@expansion.Id" asp-route-information="@expansion.GetExpansionTitle()"  class="image-wrapper">
                                 <b class="text-primary">@expansion.Title</b>
                             </a>
                         </div>

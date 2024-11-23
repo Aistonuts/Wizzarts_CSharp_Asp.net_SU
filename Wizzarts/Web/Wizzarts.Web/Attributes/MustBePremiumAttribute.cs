@@ -21,24 +21,25 @@
 
         public async Task OnActionExecutingAsync(ActionExecutingContext context)
         {
-            base.OnActionExecuting(context);
+        //    // Not working
+        //    base.OnActionExecuting(context);
 
-            var user = context.HttpContext.User;
-            if (user == null)
-            {
-                context.Result = new StatusCodeResult(StatusCodes.Status500InternalServerError);
-            }
+        //    var user = context.HttpContext.User;
+        //    if (user == null)
+        //    {
+        //        context.Result = new StatusCodeResult(StatusCodes.Status500InternalServerError);
+        //    }
 
-            var loggedInUser = await this.userManager.GetUserAsync((System.Security.Claims.ClaimsPrincipal)user);
-            var currentRole = await this.userManager.GetRolesAsync(loggedInUser);
+        //    var loggedInUser = await this.userManager.GetUserAsync((System.Security.Claims.ClaimsPrincipal)user);
+        //    var currentRole = await this.userManager.GetRolesAsync(loggedInUser);
 
-            if (user != null)
-            {
-                if (!currentRole.Contains(ArtistRoleName) || !currentRole.Contains(PremiumRoleName) || !currentRole.Contains(AdministratorRoleName))
-                {
-                    context.Result = new StatusCodeResult(StatusCodes.Status400BadRequest);
-                }
-            }
+        //    if (user != null)
+        //    {
+        //        if (!currentRole.Contains(ArtistRoleName) || !currentRole.Contains(PremiumRoleName) || !currentRole.Contains(AdministratorRoleName))
+        //        {
+        //            context.Result = new StatusCodeResult(StatusCodes.Status400BadRequest);
+        //        }
+        //    }
         }
     }
 }

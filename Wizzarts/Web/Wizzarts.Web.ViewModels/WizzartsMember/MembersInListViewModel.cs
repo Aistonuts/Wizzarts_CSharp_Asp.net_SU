@@ -10,6 +10,8 @@
 
         public string Nickname { get; set; } = string.Empty;
 
+        public string Username { get; set; }
+
         public string AvatarUrl { get; set; } = string.Empty;
 
         public string Bio { get; set; } = string.Empty;
@@ -27,9 +29,16 @@
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<ApplicationUser, MembersInListViewModel>()
-            .ForMember(x => x.AvatarUrl, opt =>
+                .ForMember(x => x.AvatarUrl, opt =>
                     opt.MapFrom(x =>
-                       x.AvatarUrl));
+                        x.AvatarUrl))
+                .ForMember(x => x.Nickname, opt =>
+                    opt.MapFrom(x =>
+                        x.Nickname))
+                .ForMember(x => x.Username, opt =>
+                    opt.MapFrom(x =>
+                        x.UserName));
+            ;
         }
     }
 }

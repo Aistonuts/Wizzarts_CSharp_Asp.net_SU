@@ -1,4 +1,5 @@
 ﻿@using Wizzarts.Common
+@using Wizzarts.Web.Infrastructure.Extensions
 @model Wizzarts.Web.ViewModels.Article.SingleArticleViewModel
 
 @{
@@ -16,7 +17,7 @@
                             <div class="w-100 d-flex justify-content-start mb-1 mt-3">
                                 <div class="yellow-line w-100 mb-0">
                                     <img src="@Model.ArticleCreatorAvatar" width="50" height="50" class="rounded-circle">
-                                    <a asp-controller="User"asp-action="ById" asp-route-id="@Model.ArticleCreatorId">@Model.ArticleCreatorName</a>
+                                    <a asp-controller="User" asp-action="ById" asp-route-id="@Model.ArticleCreatorId" asp-route-information="@Model.GetWizzartsMemberName()">@Model.Nickname</a>
                                     <span class="text-muted">@Model.CreatedOn</span>
                                 </div>
                             </div>
@@ -34,7 +35,7 @@
                             <p>@Model.ShortDescription</p> 
                         </div>
                     </div>
-                    <h4 class="pl-2">About @Model.ArticleCreatorName:</h4>
+                    <h4 class="pl-2">About @Model.Nickname:</h4>
                     <div class="w-100 pl-2">
                         <p>@Model.ArticleCreatorBio</p>
                     </div>
@@ -57,28 +58,6 @@
                     </ul>
                 </div>
             </article>
-           @*  <div class="card mt-2 border-0">
-                <div class="card-header bg-light p-0 text-center">
-                    <b>Comments</b>
-                </div>
-                <div class="card-body">
-                    <div class="w-100 text-center">
-                        <h4><a href="/Account/Login/?ReturnUrl=/Article/MTG-Standard-Rotation-Guide-2024-Overview-and-Final-Rankings" rel="nofollow">Login</a> to comment</h4>
-                    </div>
-                    <div id="commentMessage" class="alert alert-danger" role="alert"></div>
-                    <p><span id="commentCount">1</span> comments</p>
-                    <div id="comments" data-id="10829" data-type="article">
-                        <div class="card mb-2">
-                            <div class="card-header pt-0 pb-0 pr-0">
-                                <a href="/User/HfjNUlYZ"><b>HfjNUlYZ</b></a> <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time>
-                            </div>
-                            <div class="card-body">
-                                e
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> *@
         </div>
 
     </div>
@@ -88,14 +67,14 @@
             <div class="card mt-2 mb-2 ">
                 <div class="w-100 d-flex justify-content-start">
                     <div class="mr-1">
-                        <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id">
+                        <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()">
                             <div class="article-imgheader-xs lazy uimg" style="background-image: url('@article.ImageUrl')">
                             </div>
                         </a>
                     </div>
                     <div>
                         <div class="ff-display font-size-18">
-                            <b><a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id">@article.Title</a></b>
+                            <b><a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()">@article.Title</a></b>
                         </div>
                        
                     </div>

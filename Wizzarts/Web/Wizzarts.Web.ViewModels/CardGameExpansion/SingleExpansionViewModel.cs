@@ -25,13 +25,9 @@
 
         public int StoreId { get; set; }
 
-        public IEnumerable<CardInListViewModel> PlayCards { get; set; }
-
-        public IEnumerable<ExpansionInListViewModel> Expansions { get; set; }
-
         public void CreateMappings(IProfileExpression configuration)
         {
-            configuration.CreateMap<CardGameExpansion, ExpansionInListViewModel>()
+            configuration.CreateMap<CardGameExpansion, SingleExpansionViewModel>()
                 .ForMember(x => x.ExpansionSymbolUrl, opt =>
                     opt.MapFrom(x =>
                         x.ExpansionSymbolUrl != null ?
