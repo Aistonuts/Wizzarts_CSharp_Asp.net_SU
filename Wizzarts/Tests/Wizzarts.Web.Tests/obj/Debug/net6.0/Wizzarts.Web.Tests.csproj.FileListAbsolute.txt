@@ -638,7 +638,6 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests\obj\Debug\net6.0\Wizzarts.Web.Tests.AssemblyInfoInputs.cache
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests\obj\Debug\net6.0\Wizzarts.Web.Tests.AssemblyInfo.cs
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests\obj\Debug\net6.0\Wizzarts.Web.Tests.csproj.CoreCompileInputs.cache
-C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests\obj\Debug\net6.0\Wizzarts.Web.Tests.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests\obj\Debug\net6.0\Wizzarts.Web.Tests.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests\obj\Debug\net6.0\Wizzarts.Web.Tests.sourcelink.json
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Wizzarts.Web.Tests\obj\Debug\net6.0\staticwebassets.build.json

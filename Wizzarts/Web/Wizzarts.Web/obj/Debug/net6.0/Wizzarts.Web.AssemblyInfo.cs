@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wizzarts.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a0b4edbbe48ee230855d3adcc75a80b9562a358")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17dfcad9dc8e46024824cc0a4b634beddb626a0c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wizzarts.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wizzarts.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

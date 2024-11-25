@@ -48,8 +48,8 @@
                 throw new Exception($"Invalid image extension {extension}");
             }
 
-            var physicalPath = $"{imagePath}/Stores/{store.Name}.{extension}";
-            store.Image = $"/images/Stores/{store.Name}.{extension}";
+            var physicalPath = $"{imagePath}/Stores/{store.Name.Replace(" ", "")}.{extension}";
+            store.Image = $"/images/Stores/{store.Name.Replace(" ", "")}.{extension}";
             using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.StoreImage.CopyToAsync(fileStream);
             await this.storeRepository.AddAsync(store);

@@ -160,6 +160,114 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             TearDownBase();
         }
 
+        [Fact]
+        public async Task GetCountShouldReturnCorrectCardCount()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+
+            var service = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+
+            var currentCount = await playCardRepository.All().CountAsync();
+
+            Assert.Equal(19, service.GetCount());
+
+            TearDownBase();
+        }
+
+        [Fact]
+        public async Task PromoteANewlyAddedCardShouldChangeTheExpansion()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+
+            var service = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+
+            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            await service.AddAsync(
+                new CreateCardViewModel
+                {
+                    Name = "TestTestTest",
+                    BlackManaId = 1,
+                    BlueManaId = 1,
+                    RedManaId = 1,
+                    WhiteManaId = 1,
+                    GreenManaId = 2,
+                    ColorlessManaId = 1,
+                    CardFrameColorId = 1,
+                    CardTypeId = 1,
+                    AbilitiesAndFlavor = "Test Test Test Test Test Test  TestTestTestTestTestTestTest",
+                    Power = "1",
+                    Toughness = "2",
+                    ArtId = "c048daf3-f4af-4a03-b65d-d6fc20d18092",
+                    GameExpansionId = 3,
+                }, UserId, path, true, "captured");
+
+            var testPlayCard = data.PlayCards.FirstOrDefault(x => x.Name == "TestTestTest");
+            var currentExpansion = testPlayCard.CardGameExpansion.Title;
+
+            await service.Promote(testPlayCard.Id);
+            var newExpansion = testPlayCard.CardGameExpansion.Title;
+
+            Assert.Equal("Beta", currentExpansion);
+            Assert.Equal("Second", newExpansion);
+
+            TearDownBase();
+        }
+
 
         [Fact]
         public async Task PlayCardGetAllShouldReturnCorrectPlayCardsCount()

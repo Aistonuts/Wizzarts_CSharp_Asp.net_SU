@@ -246,11 +246,11 @@
                                                                 </td>
                                                                 <td>
                                                                     <select asp-for="ArtId" id="artByArtist" onchange="artByArtistFunc(event);">
-                                                                         <option value="1" selected="true" hidden>
+                                                                        <option value="1" selected="true" hidden>
                                                                         </option>
                                                                         @foreach (var art in Model.ArtByUserId)
                                                                         {
-                                                                            <option data-container="@art.ImageUrl" value="@art.Id">@art.Title</option>
+                                                                            <option data-container="@art.ImageUrl" value="@art.Title">@art.Title</option>
                                                                         }
                                                                     </select>
                                                                 </td>
@@ -262,7 +262,21 @@
                                                                     <input asp-for="@Model.Images" type="hidden" value="" name="canvasCapture" class="form-control" id="imageData">
                                                                 </div>
                                                             </div>
+                                                            <tr id="cardTypeV2" class="row1">
+                                                                <td>
+                                                                    <label asp-for="CardTypeId">Type:</label>
+                                                                </td>
+                                                                <td>
+                                                                    <select asp-for="CardTypeId" id="newtype" onchange="cardTypeFunc(event)">
 
+                                                                        @foreach (var type in Model.SelectType)
+                                                                        {
+                                                                            <option value="@type.Id">@type.Name</option>
+                                                                        }
+                                                                    </select>
+                                                                </td>
+                                                                <span asp-validation-for="@Model.CardTypeId" class="small text-danger"></span>
+                                                            </tr>
                                                             <tr class="row2" hidden>
                                                                 <td>
                                                                     <label asp-for="GameExpansionId">Expansion Symbol:</label>
@@ -368,7 +382,7 @@
                             <div class="frame-type-line" id="frame-type-line">
                                 <h1 class="type" id="cardtype">@Model.CardDefaultType </h1>
                                 <div id="symbolHeader">
-                                    <img src="@Model.CardExpansionSymbolDefaultUrl"  />
+                                    <img src="@Model.CardExpansionSymbolDefaultUrl" />
                                 </div>
                             </div>
                             <div class="frame-text-box">
@@ -399,9 +413,9 @@
             {
                 <div id="card-container" class="card-container">
                     <div class="card-background" id="backgroundTwo" style="background-image: url('@Model.EventMilestoneImage')">
-                        <div  class="card-frame">
-                            <div id ="imageInput" class="frame-art-v2">
-                           </div>                          
+                        <div class="card-frame">
+                            <div id="imageInput" class="frame-art-v2">
+                            </div>
                         </div>
                         <div class="frame-header-v2">
                             <div class="symbolFrame" id="symbolHeader">
@@ -431,6 +445,7 @@
                     document.getElementById("submitEventTwo").hidden = false;
                     document.getElementById("startOver").hidden = false;
                     document.getElementById("artByArtistV2").hidden = true;
+                    document.getElementById("cardTypeV2").hidden = true;
                 });
             });
         };
@@ -503,10 +518,10 @@
     document.getElementById("cardData").hidden = true;
     document.getElementById("startOver").hidden = false;
     document.getElementById("cardTools").hidden = true;
-    } *@
+    }   </script> *@
 
 
-                        </script>
+
 
     <script type="text/javascript">
 

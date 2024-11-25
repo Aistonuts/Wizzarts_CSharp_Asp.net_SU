@@ -35,10 +35,14 @@
                             <p>@Model.ShortDescription</p> 
                         </div>
                     </div>
-                    <h4 class="pl-2">About @Model.Nickname:</h4>
-                    <div class="w-100 pl-2">
-                        <p>@Model.ArticleCreatorBio</p>
-                    </div>
+                    @if (@Model.ArticleCreatorBio.Length != 0)
+                    {
+                        <h4 class="pl-2">About @Model.Nickname:</h4>
+                        <div class="w-100 pl-2">
+                            <p>@Model.ArticleCreatorBio</p>
+                        </div>
+                    }
+                   
                 </div>
                 <div class="col-xl-9 col-12">
                     <ul class="entry-meta">

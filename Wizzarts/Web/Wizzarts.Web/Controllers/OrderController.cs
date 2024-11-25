@@ -61,11 +61,11 @@
         }
 
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
-        public IActionResult All()
+        public async Task<IActionResult> All()
         {
             var viewModel = new OrderListViewModel
             {
-                Orders = this.orderService.GetAll<OrderInListViewModel>(),
+                Orders = await this.orderService.GetAll<OrderInListViewModel>(),
                 Events = this.eventService.GetAll<EventInListViewModel>(),
             };
 
@@ -80,11 +80,11 @@
             return this.View(order);
         }
 
-        public IActionResult My()
+        public async Task<IActionResult> My()
         {
             var viewModel = new OrderListViewModel
             {
-                Orders = this.orderService.GetAllOrdersByUserId<OrderInListViewModel>(this.User.GetId()),
+                Orders = await this.orderService.GetAllOrdersByUserId<OrderInListViewModel>(this.User.GetId()),
                 Decks = this.deckService.GetAll<DeckInListViewModel>(),
             };
 

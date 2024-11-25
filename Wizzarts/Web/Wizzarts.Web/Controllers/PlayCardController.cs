@@ -109,6 +109,7 @@
 
             if (!this.ModelState.IsValid)
             {
+                var userArts = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
                 input.RedMana = this.playCardComponentsService.GetAllRedMana();
                 input.BlueMana = this.playCardComponentsService.GetAllBlueMana();
                 input.BlackMana = this.playCardComponentsService.GetAllBlackMana();
@@ -119,7 +120,7 @@
                 input.SelectFrameColor = this.playCardComponentsService.GetAllCardFrames();
                 input.SelectExpansion = this.playCardComponentsService.GetAllExpansionInListView();
 
-                input.ArtByUserId = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(user.Id);
+                input.ArtByUserId = userArts;
 
                 return this.View(input);
             }

@@ -10,16 +10,7 @@
         {
           "DockedHeight": 644,
           "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{290d74ba-151f-5f8b-b7df-7de2c7b571a7}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            }
-          ]
+          "Children": []
         }
       ]
     }

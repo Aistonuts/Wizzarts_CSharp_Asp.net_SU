@@ -35,6 +35,8 @@
 
         public string CreatedByMember { get; set; } = string.Empty;
 
+        public bool Locked { get; set; }
+
         public string IsLocked { get; set; } = string.Empty;
 
         public string SearchEvent { get; set; } = string.Empty;
@@ -51,6 +53,9 @@
                 .ForMember(x => x.IsLocked, opt =>
                     opt.MapFrom(x =>
                        x.IsLocked ? "Unlock" : "Lock"))
+                .ForMember(x => x.Locked, opt =>
+                    opt.MapFrom(x =>
+                        x.IsLocked))
                 .ForMember(x => x.DeliveryLocation, opt =>
                     opt.MapFrom(x =>
                        x.Store.Name.ToString()))

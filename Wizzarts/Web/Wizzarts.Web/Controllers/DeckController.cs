@@ -187,7 +187,11 @@
         public async Task<IActionResult> Order(int id)
         {
             var user = await this.userManager.GetUserAsync(this.User);
-
+            var deckStatus = this.deckService.IsLocked(id);
+            if (!deckStatus)
+            {
+                return this.RedirectToAction(nameof(this.Add), new { id = id });
+            }
             try
             {
                 await this.deckService.OrderAsync(id, this.User.GetId());

@@ -46,7 +46,7 @@
                                     @if (Model.HasOpenDeck)
                                     {
                                         <div class="card-body p-2">
-                                            <a asp-controller="Deck" asp-action="Edit" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Update deck</b></a>
+                                            <a asp-controller="Deck" asp-action="Create" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Update deck</b></a>
                                         </div>
                                     }
                                     @if (!Model.IsProfileUpToDate)
@@ -67,7 +67,9 @@
                                     <a asp-controller="PlayCard" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game Cards</a><br>
                                     <a asp-controller="Wizzarts" asp-action="GetRules" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game rules</a><br>
                                     <a asp-controller="Deck" asp-action="All" class="text-decoration-none"><i class="ss ss-parl3"></i> Card Decks</a><br>
-                                    <a asp-controller="Event" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i>Events</a>
+                                    <a asp-controller="Event" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i>Events</a><br>
+                                    <a asp-controller="Order" asp-action="My" class="text-decoration-none"><i class="ss ss-pmtg1"></i> My orders</a><br>
+                                    <a asp-controller="User" asp-action="MyData" class="text-decoration-none"><i class="ss ss-pmtg1"></i> My data</a><br>
                                 </div>
                             </div>
                             <div class="card">
@@ -84,8 +86,9 @@
 
                                         <br>
                                     }
-                                    <a asp-controller="Art" asp-action="Create" class="text-decoration-none"><i class="fas fa-briefcase"></i> Add art</a><br>
+                                    <a asp-controller="Art" asp-action="Add" class="text-decoration-none"><i class="fas fa-briefcase"></i> Add art</a><br>
                                     <a asp-controller="Event" asp-action="Create" class="text-decoration-none"><i class="ss ss-parl3"></i> Create event</a><br>
+                                    <a asp-controller="Deck" asp-action="Create" class="text-decoration-none"><i class="ss ss-pmtg1"></i> My card decks/Create a deck</a><br>
                                 </div>
                             </div>
                         </div>

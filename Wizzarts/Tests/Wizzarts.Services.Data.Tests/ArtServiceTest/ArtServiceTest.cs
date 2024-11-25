@@ -305,6 +305,51 @@
         }
 
         [Fact]
+        public async Task ApproveApprovedArtShouldReturnNull()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repository = new EfDeletableEntityRepository<Art>(data);
+            var service = new ArtService(repository, cache);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            var testArtPiece = new AddArtViewModel()
+            {
+                Title = "The newest ArtPiece",
+                Image = file,
+            };
+            bool isPremium = false;
+            await service.AddAsync(testArtPiece, UserId, path, isPremium);
+            var count = await repository.All().CountAsync();
+            var testArt = data.Arts.FirstOrDefault(x => x.Title == "The newest ArtPiece");
+            testArt.ApprovedByAdmin = true;
+            Assert.Null(await service.ApproveArt(testArt.Id));
+;
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task ApproveNonExistingArtShouldReturnNull()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repository = new EfDeletableEntityRepository<Art>(data);
+            var service = new ArtService(repository, cache);
+
+            Assert.Null(await service.ApproveArt("111-b-1"));
+            this.TearDownBase();
+        }
+
+        [Fact]
         public async Task HasUserWithIdShouldReturnTrue()
         {
             OneTimeSetup();

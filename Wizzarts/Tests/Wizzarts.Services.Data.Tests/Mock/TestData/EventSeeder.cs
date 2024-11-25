@@ -25,39 +25,43 @@
                 EventStatusId = 1,
                 ApprovedByAdmin = true,
                 EventCreatorId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Events.AddAsync(new Event
             {
                 Title = "Call to arts",
-                EventDescription = "We are providing you a set of flavours. Your taks is to draw an ar piece. Keep in mind that each flavour is for specific type of card" +
-                "such as land type, instant card spell type, enchantment type of card, creature type of card with power and toughness." +
+                EventDescription = "We are providing you a set of flavours. Your task is to draw an ar piece. Keep in mind that each flavour is for specific type of card such" +
+                " as land type, instant card spell type, enchantment type of card, creature type of card with power and toughness." +
                 "We will provide you with special tool for creating a new play card.",
                 RemoteImageUrl = "/images/event/Call_to_arts.jpg",
                 EventStatusId = 1,
                 ApprovedByAdmin = true,
                 EventCreatorId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Events.AddAsync(new Event
             {
                 Title = "Arena masters",
-                EventDescription = "This event is for those of you interested in becoming arena masters. To become an arena master you need to own a store where tournaments can be holded in future.",
+                EventDescription = "This event is for those of you interested in becoming arena masters. To become an arena master you need to own a store where tournaments can be held in future.",
                 RemoteImageUrl = "/images/event/ArenaMaster.jpg",
                 EventStatusId = 1,
                 ApprovedByAdmin = true,
                 EventCreatorId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Events.AddAsync(new Event
             {
                 Title = "Game play testers.",
-                EventDescription = "This event is for those of you interested in testing each one of the cards created during the ongoing events. Teaming up with arena masters will give you more" +
-                "access to cards to work with. You will be given access to each one of the newly created cards. All you will have to do is to download each one of the newly created cards, test its mechanics and playstyle during a game and submit your feedback.",
+                EventDescription = "This event is for those of you interested in testing each one of the cards created during the ongoing events. Teaming up with arena masters will give you more access" +
+                " to cards to work with. You will be given access to each one of the newly created cards. All you will have to do is to download each one of the newly created cards, test its mechanics and play style during a game and submit your feedback.",
                 RemoteImageUrl = "/images/event/Game_tester.jpg",
                 EventStatusId = 1,
                 ApprovedByAdmin = true,
                 EventCreatorId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.SaveChangesAsync();

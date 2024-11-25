@@ -32,9 +32,9 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var articleRepository = new EfDeletableEntityRepository<Article>(data);
             var articleService = new ArticleService(articleRepository, cache);
-            var articles = articleService.GetAll<ArticleInListViewModel>(1, 3);
+            var articles = articleService.GetAll<ArticleInListViewModel>(1, 6);
             int articleCount = articles.Count();
-            Assert.Equal(3, articleCount);
+            Assert.Equal(6, articleCount);
 
             this.TearDownBase();
         }
@@ -247,6 +247,110 @@
             Assert.Equal(7, count);
             Assert.False(approvalStatusBefore);
             Assert.True(testArticle.ApprovedByAdmin);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task ApproveApprovedArticleShouldReturnNull()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repository = new EfDeletableEntityRepository<Article>(data);
+            var service = new ArticleService(repository, cache);
+            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
+                          "/images";
+            bool isPremium = false;
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            await service.CreateAsync(
+                new CreateArticleViewModel
+                {
+                    Title = "New",
+                    ImageUrl = file,
+                    Description = "Test",
+                    ShortDescription = "Test",
+                }, UserId, path, isPremium);
+            var count = await repository.All().CountAsync();
+            var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
+            testArticle.ApprovedByAdmin = true;
+            int testArticleId = testArticle.Id;
+            Assert.Null(await service.ApproveArticle(testArticleId));
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task ApproveNonExistantArticleShouldReturnNull()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repository = new EfDeletableEntityRepository<Article>(data);
+            var service = new ArticleService(repository, cache);
+            Assert.Null(await service.ApproveArticle(10));
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task ArticleHasUserWithIdShouldReturnTrue()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repository = new EfDeletableEntityRepository<Article>(data);
+            var service = new ArticleService(repository, cache);
+            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
+                          "/images";
+            bool isPremium = false;
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            await service.CreateAsync(
+                new CreateArticleViewModel
+                {
+                    Title = "New",
+                    ImageUrl = file,
+                    Description = "Test",
+                    ShortDescription = "Test",
+                }, UserId, path, isPremium);
+            var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
+            testArticle.ApprovedByAdmin = true;
+            int testArticleId = testArticle.Id;
+            Assert.True(await service.HasUserWithIdAsync(testArticleId, UserId));
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task CheckingForExistingArticleShouldReturnTrue()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repository = new EfDeletableEntityRepository<Article>(data);
+            var service = new ArticleService(repository, cache);
+            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
+                          "/images";
+            bool isPremium = false;
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            await service.CreateAsync(
+                new CreateArticleViewModel
+                {
+                    Title = "New",
+                    ImageUrl = file,
+                    Description = "Test",
+                    ShortDescription = "Test",
+                }, UserId, path, isPremium);
+            var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
+            testArticle.ApprovedByAdmin = true;
+            int testArticleId = testArticle.Id;
+            Assert.True(await service.ArticleExist(testArticleId));
             this.TearDownBase();
         }
     }

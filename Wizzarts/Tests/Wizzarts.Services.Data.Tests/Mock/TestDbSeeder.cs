@@ -52,6 +52,7 @@
                               new ChatUserSeeder(),
                               new ChatMessageSeeder(),
                               new DeckStatusSeeder(),
+                              new DeckSeederTest(),
                           };
 
             foreach (var seeder in seeders)

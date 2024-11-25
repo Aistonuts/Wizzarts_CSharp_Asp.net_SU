@@ -86,7 +86,7 @@ namespace Wizzarts.Web
             services.AddTransient<ICommentService, CommentService>();
             services.AddTransient<IDeckService, DeckService>();
             services.AddTransient<ISearchService, SearchService>();
-            services.AddTransient<IOrderService,OrderService>();
+            services.AddTransient<IOrderService, OrderService>();
 
             services.AddCors(setup =>
             {

@@ -1,4 +1,7 @@
-﻿namespace Wizzarts.Web.Controllers
+﻿using Wizzarts.Web.ViewModels.Deck;
+using Wizzarts.Web.ViewModels.Order;
+
+namespace Wizzarts.Web.Controllers
 {
     using System;
     using System.Linq;
@@ -20,6 +23,8 @@
     public class UserController : BaseController
     {
         private readonly IArtService artService;
+        private readonly IDeckService deckService;
+        private readonly IOrderService orderService;
         private readonly IArticleService articleService;
         private readonly IUserService userService;
         private readonly IEventService eventService;
@@ -29,6 +34,8 @@
 
         public UserController(
            IArtService artService,
+           IDeckService deckService,
+           IOrderService orderService,
            IArticleService articleService,
            IUserService userService,
            IEventService eventService,
@@ -37,6 +44,8 @@
            UserManager<ApplicationUser> userManager)
         {
             this.artService = artService;
+            this.deckService = deckService;
+            this.orderService = orderService;
             this.articleService = articleService;
             this.userService = userService;
             this.eventService = eventService;
@@ -123,6 +132,8 @@
             view.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), id, ItemsPerPage);
             view.Cards = this.cardService.GetAllCardsByUserId<CardInListViewModel>(this.User.GetId(), id, ItemsPerPage);
             view.Stores = this.storeService.GetAllStoresByUserId<StoreInListViewModel>(this.User.GetId(), id, ItemsPerPage);
+            view.Decks = this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
+            view.Orders = await this.orderService.GetAllOrdersByUserId<OrderInListViewModel>(this.User.GetId());
             return this.View(view);
         }
 

@@ -86,7 +86,7 @@
             {
                 Title = "Our newest event is Game testers.",
                 ShortDescription = "Game testers will be invited to participate in the upcoming event which will take place at our Wizzarts stores.",
-                Description = "As a game tester you need to create a deck, pick a delivery location, add cards and lock it. Locked card decsk will be shipped to your local Wizzarts store.",
+                Description = "As a game tester you need to create a deck, pick a delivery location, add cards and lock it. Locked card decks will be shipped to your local Wizzarts store.",
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/AlphaBox.png",
                 ApprovedByAdmin = true,

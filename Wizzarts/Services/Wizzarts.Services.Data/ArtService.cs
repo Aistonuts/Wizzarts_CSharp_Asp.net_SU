@@ -104,8 +104,8 @@
             }
 
             art.Extension = extension;
-            var physicalPath = $"{imagePath}/art/userArt/{art.Title}.{extension}";
-            art.RemoteImageUrl = $"/images/art/userArt/{art.Title}.{extension}";
+            var physicalPath = $"{imagePath}/art/userArt/{art.Title.Replace(" ", "")}.{extension}";
+            art.RemoteImageUrl = $"/images/art/userArt/{art.Title.Replace(" ", "")}.{extension}";
             await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.Image.CopyToAsync(fileStream);
 

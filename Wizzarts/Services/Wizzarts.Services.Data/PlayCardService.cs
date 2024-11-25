@@ -244,7 +244,7 @@
 
             //string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
 
-            using (FileStream fs = new FileStream(physicalPath, FileMode.Create))
+            await using (FileStream fs = new FileStream(physicalPath, FileMode.Create))
             {
                 using (BinaryWriter bw = new BinaryWriter(fs))
                 {
@@ -543,12 +543,12 @@
             var physicalPath = " ";
 
             Directory.CreateDirectory($"{path}/cardsByExpansion/PremiumUserCards/");
-            physicalPath = $"{path}/cardsByExpansion/PremiumUserCards/{input.Name}.png";
-            card.CardRemoteUrl = $"/images/cardsByExpansion/PremiumUserCards/{input.Name}.png";
+            physicalPath = $"{path}/cardsByExpansion/PremiumUserCards/{input.Name.Replace(" ", "")}.png";
+            card.CardRemoteUrl = $"/images/cardsByExpansion/PremiumUserCards/{input.Name.Replace(" ", "")}.png";
 
             //string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
 
-            using (FileStream fs = new FileStream(physicalPath, FileMode.Create))
+            await using (FileStream fs = new FileStream(physicalPath, FileMode.Create))
             {
                 using (BinaryWriter bw = new BinaryWriter(fs))
                 {

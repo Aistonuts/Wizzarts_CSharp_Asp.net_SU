@@ -24,6 +24,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -35,6 +36,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "0ac1e577-c7ff-4aa3-83c3-e5acac9de281",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -46,6 +48,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -57,6 +60,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "f6f94be8-49e0-4a28-9e7f-797c40e7e169",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -68,6 +72,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "b4accad4-e878-4de3-a317-665d0a43fbd3",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -79,6 +84,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -90,6 +96,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -101,6 +108,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
+                ForMainPage = true,
             });
             await dbContext.Arts.AddAsync(new Art
             {
@@ -111,6 +119,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "5823bbf1-993c-416b-9bf1-c358fedf38a6",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -122,6 +131,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "ad8dada2-c947-4ad3-aaa1-e530f13d21c1",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -133,6 +143,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "799d728e-0c16-4e4a-81b3-48a113a88cf1",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -144,6 +155,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "eb49ba9d-5030-42b6-8aef-c93506943fde",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -155,6 +167,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -166,6 +179,7 @@
                 Extension = ".jpg",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -177,6 +191,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -188,6 +203,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -199,6 +215,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -210,6 +227,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.Arts.AddAsync(new Art
@@ -221,6 +239,7 @@
                 Extension = ".png",
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
             await dbContext.SaveChangesAsync();
         }

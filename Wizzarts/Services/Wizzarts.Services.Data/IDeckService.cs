@@ -31,7 +31,7 @@
 
         Task<int> RemoveAsync(int deckId, string cardId);
 
-        bool HasEventCards(int id);
+        bool IsLocked(int id);
 
         bool HasOpenDecks(string id);
 

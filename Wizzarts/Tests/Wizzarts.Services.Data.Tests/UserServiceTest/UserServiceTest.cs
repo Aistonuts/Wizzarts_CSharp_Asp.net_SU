@@ -189,5 +189,41 @@ namespace Wizzarts.Services.Data.Tests.UserServiceTest
             Assert.Equal(newUserData.Nickname, userNewData.Nickname);
             Assert.Equal(newUserData.AvatarId, userNewData.AvatarId);
         }
+
+        [Fact]
+        public async Task HasNickNameShouldReturnTrueWhenUserWithNickNameIsSelected()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryArticle = new EfDeletableEntityRepository<Article>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
+            using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
+
+            Assert.True(service.HasNickName("2738e787-5d57-4bc7-b0d2-287242f04695"));
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task HasNickNameShouldReturnFalseWhenUserWithoutNickNameIsSelected()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryArticle = new EfDeletableEntityRepository<Article>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
+            using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
+
+            Assert.False(service.HasNickName("0ac1e577-c7ff-4aa3-83c3-e5acac9de281"));
+            this.TearDownBase();
+        }
     }
 }

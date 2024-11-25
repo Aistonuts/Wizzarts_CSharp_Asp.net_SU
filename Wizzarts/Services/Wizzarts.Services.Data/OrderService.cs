@@ -38,7 +38,7 @@
 
         public async Task CancelOrder(int id)
         {
-            var deckOfCards = this.cardsInOrderRepository.AllAsNoTracking().Where(x => x.OrderId == id);
+            var deckOfCards = this.cardsInOrderRepository.All().Where(x => x.OrderId == id);
             var order = this.deckOrderRepository.All().FirstOrDefault(x => x.Id == id);
             foreach (var card in deckOfCards)
             {
@@ -49,17 +49,17 @@
             await this.deckOrderRepository.SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAll<T>()
+        public async Task<IEnumerable<T>> GetAll<T>()
         {
-            var orders = this.deckOrderRepository.AllAsNoTracking()
-                .To<T>().ToList();
+            var orders = await this.deckOrderRepository.AllAsNoTracking()
+                .To<T>().ToListAsync();
             return orders;
         }
 
         public IEnumerable<T> GetAllCardsInOrderId<T>(int id)
         {
             var listOfCards = new List<T>();
-            var deckOfCards = this.cardsInOrderRepository.AllAsNoTracking().Where(x => x.OrderId == id);
+            var deckOfCards = this.cardsInOrderRepository.AllAsNoTracking().Where(x => x.OrderId == id).ToList();
             foreach (var item in deckOfCards)
             {
                 var card = this.cardService.GetById<T>(item.PlayCardId);
@@ -69,11 +69,11 @@
             return listOfCards;
         }
 
-        public IEnumerable<T> GetAllOrdersByUserId<T>(string id)
+        public async Task<IEnumerable<T>> GetAllOrdersByUserId<T>(string id)
         {
-            var orders = this.deckOrderRepository.AllAsNoTracking()
+            var orders = await this.deckOrderRepository.AllAsNoTracking()
                 .Where(x => x.RecipientId == id)
-                 .To<T>().ToList();
+                 .To<T>().ToListAsync();
             return orders;
         }
 
@@ -92,31 +92,31 @@
                .AnyAsync(a => a.Id == orderId && a.RecipientId == userId);
         }
 
-        public async Task OrderAsync(SingleExpansionViewModel input, string userId)
-        {
+        //public async Task OrderAsync(SingleExpansionViewModel input, string userId)
+        //{
 
-            var deckOfCards = this.cardService.GetAllCardsByExpansion<CardInListViewModel>(input.Id);
-            var expansion = this.expansionService.GetById<ExpansionInListViewModel>(input.Id);
-            var order = new Order()
-            {
-                Title = expansion.Title,
-                OrderStatusId = 1,
-                IsCustomOrder = false,
-                DeckImageUrl = expansion.ExpansionSymbolUrl,
-                RecipientId = userId,
-                Description = expansion.Description,
-                EstimatedDeliveryDate = DateTime.Now.AddDays(new Random().Next(20, 40)),
-            };
+        //    var deckOfCards = this.cardService.GetAllCardsByExpansion<CardInListViewModel>(input.Id);
+        //    var expansion = this.expansionService.GetById<ExpansionInListViewModel>(input.Id);
+        //    var order = new Order()
+        //    {
+        //        Title = expansion.Title,
+        //        OrderStatusId = 1,
+        //        IsCustomOrder = false,
+        //        DeckImageUrl = expansion.ExpansionSymbolUrl,
+        //        RecipientId = userId,
+        //        Description = expansion.Description,
+        //        EstimatedDeliveryDate = DateTime.Now.AddDays(new Random().Next(20, 40)),
+        //    };
 
-            foreach (var item in deckOfCards)
-            {
-                var card = this.playCardRepository.All().FirstOrDefault(x => x.Id == item.Id);
-                order.CardsInOrder.Add(card);
-            }
+        //    foreach (var item in deckOfCards)
+        //    {
+        //        var card = this.playCardRepository.All().FirstOrDefault(x => x.Id == item.Id);
+        //        order.CardsInOrder.Add(card);
+        //    }
 
-            await this.deckOrderRepository.AddAsync(order);
-            await this.deckOrderRepository.SaveChangesAsync();
-        }
+        //    await this.deckOrderRepository.AddAsync(order);
+        //    await this.deckOrderRepository.SaveChangesAsync();
+        //}
 
         public async Task PauseOrder(int id)
         {

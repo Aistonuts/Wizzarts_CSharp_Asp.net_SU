@@ -12,11 +12,11 @@
     {
         Task<T> GetById<T>(int id);
 
-        IEnumerable<T> GetAllOrdersByUserId<T>(string id);
+        Task<IEnumerable<T>> GetAllOrdersByUserId<T>(string id);
 
-        IEnumerable<T> GetAll<T>();
+        Task<IEnumerable<T>> GetAll<T>();
 
-        Task OrderAsync(SingleExpansionViewModel input, string userId);
+        //Task OrderAsync(SingleExpansionViewModel input, string userId);
 
         Task PauseOrder(int id);
 

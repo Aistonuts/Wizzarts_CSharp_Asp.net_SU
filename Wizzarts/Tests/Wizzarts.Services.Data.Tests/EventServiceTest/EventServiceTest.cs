@@ -307,6 +307,56 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
             this.TearDownBase();
         }
 
+
+        [Fact]
+        public async Task ApproveApprovedEventShouldReturnNull()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            var service = new EventService(eventRepository, eventComponentsRepository);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            bool isContentCreator = false;
+            var testEvent = new CreateEventViewModel()
+            {
+                Title = "The newest Event",
+                Image = file,
+                EventDescription = "test",
+                EventStatusId = 1,
+            };
+
+            await service.CreateAsync(testEvent, UserId, path, isContentCreator);
+
+            var count = await eventRepository.All().CountAsync();
+            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            newTestEvent.ApprovedByAdmin = true;
+            Assert.Null(await service.ApproveEvent(newTestEvent.Id));
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task ApproveNonExistentEventShouldReturnNull()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            var service = new EventService(eventRepository, eventComponentsRepository);
+
+            Assert.Null(await service.ApproveEvent(15));
+            this.TearDownBase();
+        }
+
         [Fact]
         public async Task UpdateEventShouldEditTheCorrectEvent()
         {
@@ -475,6 +525,37 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
             var eventHasUserWithId = await service.HasUserWithIdAsync(newTestEvent.Id, UserId);
             Assert.True(eventHasUserWithId);
 
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task CheckingForExistingEventComponentShouldReturnTrue()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            var service = new EventService(eventRepository, eventComponentsRepository);
+
+            string UserId = "66030199-349f-4e35-846d-97685187a565";
+            string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
+
+            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            var testEvent = new MyEventSettingsViewModel()
+            {
+                ComponentTitle = "The newest Component",
+                EventId = 1,
+                ComponentDescription = "test",
+            };
+
+            await service.AddComponentAsync(testEvent, UserId, path);
+
+            var newTestEvent = data.EventComponents.FirstOrDefault(x => x.Title == "The newest Component");
+            Assert.True(await service.EventComponentExist(newTestEvent.Id));
             this.TearDownBase();
         }
     }

@@ -23,6 +23,7 @@
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/MagicTheGathering.jpg",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
@@ -33,6 +34,7 @@
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/SonsOfTheStorm.jpg",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
@@ -45,6 +47,7 @@
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/AlphaBox.png",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
@@ -58,6 +61,7 @@
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/Champion.png",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
@@ -69,6 +73,7 @@
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/Arena.jpg",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
 
             await dbContext.Articles.AddAsync(new Article
@@ -80,6 +85,7 @@
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/WrenchMan.jpg",
                 ApprovedByAdmin = true,
+                ForMainPage = true,
             });
             await dbContext.SaveChangesAsync();
         }

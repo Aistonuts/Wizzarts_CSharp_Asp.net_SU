@@ -43,8 +43,8 @@
                 throw new Exception($"Invalid image extension {extension}");
             }
 
-            var physicalPath = $"{imagePath}/event/UserEvent/{newEvent.Title}.{extension}";
-            newEvent.RemoteImageUrl = $"/images/event/UserEvent/{newEvent.Title}.{extension}";
+            var physicalPath = $"{imagePath}/event/UserEvent/{newEvent.Title.Replace(" ", "")}.{extension}";
+            newEvent.RemoteImageUrl = $"/images/event/UserEvent/{newEvent.Title.Replace(" ", "")}.{extension}";
             await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.Image.CopyToAsync(fileStream);
             await this.eventRepository.AddAsync(newEvent);
@@ -166,8 +166,8 @@
                     throw new Exception($"Invalid image extension {extension}");
                 }
 
-                var physicalPath = $"{imagePath}/event/UserEvent/Components/{component.Title}.{extension}";
-                component.ImageUrl = $"/images/event/UserEvent/Components/{component.Title}.{extension}";
+                var physicalPath = $"{imagePath}/event/UserEvent/Components/{component.Title.Replace(" ", "")}.{extension}";
+                component.ImageUrl = $"/images/event/UserEvent/Components/{component.Title.Replace(" ", "")}.{extension}";
                 await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
                 await input.Image.CopyToAsync(fileStream);
             }

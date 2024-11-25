@@ -34,6 +34,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -55,6 +56,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -76,6 +78,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -97,6 +100,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -118,6 +122,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -139,6 +144,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -160,6 +166,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -181,6 +188,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
             await dbContext.PlayCards.AddAsync(new PlayCard
             {
@@ -201,6 +209,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -222,6 +231,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -243,6 +253,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -264,6 +275,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -285,6 +297,7 @@
                 CardGameExpansionId = 1,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -306,6 +319,7 @@
                 CardGameExpansionId = 3,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -327,6 +341,7 @@
                 CardGameExpansionId = 3,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -348,6 +363,7 @@
                 CardGameExpansionId = 3,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -369,6 +385,7 @@
                 CardGameExpansionId = 3,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -390,6 +407,7 @@
                 CardGameExpansionId = 3,
                 ApprovedByAdmin = true,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.PlayCards.AddAsync(new PlayCard
@@ -411,6 +429,7 @@
                 CardGameExpansionId = 3,
                 ApprovedByAdmin = false,
                 AddedByMemberId = "2738e787-5d57-4bc7-b0d2-287242f04695",
+                ForMainPage = true,
             });
 
             await dbContext.SaveChangesAsync();

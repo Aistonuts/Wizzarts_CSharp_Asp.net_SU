@@ -9,6 +9,7 @@
     using Wizzarts.Data.Common.Models;
 
     using static Wizzarts.Common.DataConstants;
+
     public class Order : BaseDeletableModel<int>
     {
         public Order()

@@ -17,6 +17,7 @@
     {
         private readonly IDeletableEntityRepository<CardDeck> deckRepository;
         private readonly IDeletableEntityRepository<Order> deckOrderRepository;
+        private readonly IDeletableEntityRepository<CardOrder> cardOrderRepository;
         private readonly IDeletableEntityRepository<Event> eventRepository;
         private readonly IDeletableEntityRepository<PlayCard> playCardRepository;
         private readonly IDeletableEntityRepository<DeckStatus> deckStatusRepository;
@@ -28,6 +29,7 @@
         public DeckService(
             IDeletableEntityRepository<CardDeck> deckRepository,
             IDeletableEntityRepository<Order> deckOrderRepository,
+            IDeletableEntityRepository<CardOrder> cardOrderRepository,
             IDeletableEntityRepository<Event> eventRepository,
             IDeletableEntityRepository<PlayCard> playCardRepository,
             IDeletableEntityRepository<DeckOfCards> deckOfCardsRepository,
@@ -38,6 +40,7 @@
         {
             this.deckRepository = deckRepository;
             this.deckOrderRepository = deckOrderRepository;
+            this.cardOrderRepository = cardOrderRepository;
             this.eventRepository = eventRepository;
             this.playCardRepository = playCardRepository;
             this.deckOfCardsRepository = deckOfCardsRepository;
@@ -85,7 +88,7 @@
             {
                 deck.Name = input.Name;
                 deck.Description = input.Description;
-                deck.StoreId = input.Id;
+                deck.StoreId = input.StoreId;
 
                 await this.deckRepository.SaveChangesAsync();
             }
@@ -176,7 +179,7 @@
         public async Task<int> RemoveAsync(int deckId, string cardId)
         {
             var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == deckId);
-            var deckOfCards = this.deckOfCardsRepository.AllAsNoTracking().FirstOrDefault(x => x.DeckId == deckId && x.PlayCardId == cardId);
+            var deckOfCards = this.deckOfCardsRepository.All().FirstOrDefault(x => x.DeckId == deckId && x.PlayCardId == cardId);
             var card = this.playCardRepository.All().FirstOrDefault(x => x.Id == cardId);
             if (deck != null && card != null && !deck.IsLocked)
             {
@@ -213,21 +216,25 @@
         {
             var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == id);
 
-            if (deck != null && !deck.IsLocked)
+            if (deck != null)
             {
-                deck.IsLocked = true;
-                deck.StatusId = 2;
+                if (!deck.IsLocked)
+                {
+                    deck.IsLocked = true;
+                    deck.StatusId = 2;
+                }
+                else
+                {
+                    deck.IsLocked = false;
+                    deck.StatusId = 1;
+
+                }
+                await this.deckRepository.SaveChangesAsync();
+
+                return deck.Id;
             }
-            else
-            {
-                deck.IsLocked = false;
-                deck.StatusId = 1;
 
-            }
-
-            await this.deckRepository.SaveChangesAsync();
-
-            return deck.Id;
+            return id;
         }
 
         public IEnumerable<DeckStatusListViewModel> GetAllDeckStatuses()
@@ -271,6 +278,12 @@
             var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == input.Id);
             deck.StoreId = input.StoreId;
             await this.deckRepository.SaveChangesAsync();
+        }
+
+        public bool IsLocked(int id)
+        {
+            var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == id);
+            return deck.IsLocked;
         }
     }
 }

@@ -85,8 +85,8 @@
                 throw new Exception($"Invalid image extension {extension}");
             }
 
-            var physicalPath = $"{imagePath}/navigation/articles/{article.Title}.{extension}";
-            article.ImageUrl = $"/images/navigation/articles/{article.Title}.{extension}";
+            var physicalPath = $"{imagePath}/navigation/articles/{article.Title.Replace(" ", "")}.{extension}";
+            article.ImageUrl = $"/images/navigation/articles/{article.Title.Replace(" ", "")}.{extension}";
             await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.ImageUrl.CopyToAsync(fileStream);
             await this.articleRepository.AddAsync(article);

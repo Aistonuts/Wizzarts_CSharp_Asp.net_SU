@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using Wizzarts.Data.Models;
 using Wizzarts.Data.Repositories;
 using Wizzarts.Services.Mapping;
@@ -47,6 +48,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
 
             var playCardService = new PlayCardService(
                 playCardRepository,
@@ -61,7 +63,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -84,12 +86,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var deckOfCards = data.CardDecks.FirstOrDefault(x => x.Name == "Test");
 
             Assert.Equal("Test", deckOfCards.Name);
-            Assert.Equal(2, data.CardDecks.Count());
+            Assert.Equal(5, data.CardDecks.Count());
             this.TearDownBase();
         }
 
         [Fact]
-        public async Task GetAllDecksShouldReturnCorrectCountOfDecksWithCorrectNames()
+        public async Task GetAllLockedDecksShouldReturnCorrectCountOfDecksWithCorrectNames()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -113,6 +115,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
 
             var playCardService = new PlayCardService(
                 playCardRepository,
@@ -127,7 +130,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -152,7 +155,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var deckOfCards = deckService.GetAll<DeckInListViewModel>();
             var currentDeck = deckOfCards.FirstOrDefault(x => x.Name == "Test");
             Assert.Equal("Test", currentDeck.Name);
-            Assert.Equal(1, deckOfCards.Count());
+            Assert.Equal(3, deckOfCards.Count());
             this.TearDownBase();
         }
 
@@ -181,6 +184,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
 
             var playCardService = new PlayCardService(
                 playCardRepository,
@@ -195,7 +199,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -220,7 +224,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var deckOfCards = deckService.GetAllDecksByUserId<DeckInListViewModel>(userId);
             var currentDeck = deckOfCards.FirstOrDefault(x => x.Name == "Test");
             Assert.Equal("Test", currentDeck.Name);
-            Assert.Equal(2, deckOfCards.Count());
+            Assert.Equal(4, deckOfCards.Count());
             this.TearDownBase();
         }
 
@@ -249,6 +253,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
 
             var playCardService = new PlayCardService(
                 playCardRepository,
@@ -263,7 +268,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -315,6 +320,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
 
             var playCardService = new PlayCardService(
                 playCardRepository,
@@ -329,7 +335,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -383,6 +389,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
 
             var playCardService = new PlayCardService(
                 playCardRepository,
@@ -397,7 +404,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -428,78 +435,6 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             this.TearDownBase();
         }
 
-        //[Fact]
-        //public async Task RemoveAsyncShouldRemoveCorrectCardAndDecreaseCountOfCards()
-        //{
-        //    this.OneTimeSetup();
-        //    var data = this.dbContext;
-        //    var cache = new MemoryCache(new MemoryCacheOptions());
-
-        //    using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-        //    using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
-        //    using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
-        //    using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
-        //    using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-        //    using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
-        //    using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
-        //    using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-        //    using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-        //    using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-        //    using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-        //    using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-        //    using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-        //    using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
-        //    using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
-        //    using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
-        //    using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-
-        //    var playCardService = new PlayCardService(
-        //        playCardRepository,
-        //        cardManaRepository,
-        //        blackManaRepository,
-        //        blueManaRepository,
-        //        redManaRepository,
-        //        whiteManaRepository,
-        //        greenManaRepository,
-        //        colorlessManaRepository,
-        //        cardFrameColorRepository,
-        //        cardTypeRepository,
-        //        cache);
-        //    var artService = new ArtService(repositoryArt, cache);
-        //    var deckService = new DeckService(repositoryDeck, repositoryEvent, playCardRepository,
-        //        repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
-        //    string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
-        //    string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
-        //                  "/images";
-
-        //    var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-        //    IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
-
-        //    var deck = new CreateDeckViewModel()
-        //    {
-        //        Name = "Test",
-        //        Description = "Test",
-        //        ShippingAddress = "Test",
-        //        StoreId = 1,
-        //        Image = file,
-        //        EventId = 4,
-        //    };
-
-        //    await deckService.CreateAsync(deck, userId, path);
-
-
-        //    await deckService.AddAsync(1, "c330fecf-61a9-4e03-8052-cd2b9583a251");
-        //    await deckService.AddAsync(1, "f43639ef-5503-4e8a-a75d-5651c645a03d");
-        //    var currentCount = data.DeckOfCards.Count();
-        //    await deckService.RemoveAsync(1, "c330fecf-61a9-4e03-8052-cd2b9583a251");
-        //    var deckWithCards = deckService.GetAllCardsInDeckId<CardInListViewModel>(1);
-        //    var firstCard = deckWithCards.FirstOrDefault(x => x.Id == "f43639ef-5503-4e8a-a75d-5651c645a03d");
-        //    var newCount = data.DeckOfCards.Count();
-        //    Assert.Equal("Bad Moon", firstCard.Name);
-        //    Assert.Equal(2, currentCount);
-        //    Assert.Equal(1, newCount);
-        //    this.TearDownBase();
-        //}
 
         [Fact]
         public async Task HasEventCardsShouldReturnCorrectCountOfCardsAndTheirName()
@@ -526,6 +461,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
 
             var playCardService = new PlayCardService(
                 playCardRepository,
@@ -540,7 +476,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -595,6 +531,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
 
             var playCardService = new PlayCardService(
                 playCardRepository,
@@ -609,7 +546,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -664,6 +601,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
 
             var playCardService = new PlayCardService(
                 playCardRepository,
@@ -678,7 +616,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardTypeRepository,
                 cache);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck,repositoryOrder, repositoryEvent, playCardRepository,
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
                 repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
@@ -709,6 +647,601 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             Assert.Equal(1,currentStatus);
             Assert.Equal(3,newStatus);
             this.TearDownBase();
-        } 
+        }
+
+        [Fact]
+        public async Task HasOpenDeskShouldReturnTrue()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
+            using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
+            using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+
+            var playCardService = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+            var artService = new ArtService(repositoryArt, cache);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+
+            Assert.True(deckService.HasOpenDecks(userId));
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task CheckingUserWithClosedDecksShouldReturnFalse()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
+            using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
+            using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+
+            var playCardService = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+            var artService = new ArtService(repositoryArt, cache);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            string userId = "0ac1e577-c7ff-4aa3-83c3-e5acac9de281";
+
+            Assert.False(deckService.HasOpenDecks(userId));
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task LockingDeckShouldChangeItsStatusAndAlsoShouldRevertChangesAndUnlockAndSwitchStatusBetweenReadyAndOpen()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
+            using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
+            using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+
+            var playCardService = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+            var artService = new ArtService(repositoryArt, cache);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+
+            var testLockedDeck = data.CardDecks.FirstOrDefault(x => x.Id == 4);
+
+            var currentLockStatus = testLockedDeck.IsLocked;
+            var currentReadyStatus = testLockedDeck.StatusId;
+
+            await deckService.LockDeck(4);
+            var newLockStatus = testLockedDeck.IsLocked;
+            var newReadyStatus = testLockedDeck.StatusId;
+
+            var testUnlockedDeck = data.CardDecks.FirstOrDefault(x => x.Id == 1);
+
+            var currentLockStatusTwo = testUnlockedDeck.IsLocked;
+            var currentReadyStatusTwo = testUnlockedDeck.StatusId;
+
+            await deckService.LockDeck(1);
+            var newLockStatusTwo = testUnlockedDeck.IsLocked;
+            var newReadyStatusTwo = testUnlockedDeck.StatusId;
+
+            Assert.True(currentLockStatus);
+            Assert.Equal(3,currentReadyStatus);
+
+            Assert.False(newLockStatus);
+            Assert.Equal(1, newReadyStatus);
+
+            Assert.False(currentLockStatusTwo);
+            Assert.Equal(1, currentReadyStatusTwo);
+
+            Assert.True(newLockStatusTwo);
+            Assert.Equal(2, newReadyStatusTwo);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task GetAllDeckStatusesShouldReturnCorrectCorrectStatusCountAndValue()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
+            using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
+            using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+
+            var playCardService = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+            var artService = new ArtService(repositoryArt, cache);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+
+            var statuses = deckService.GetAllDeckStatuses().OrderByDescending(x => x.Id);
+
+            var firstDeckStatus = statuses.FirstOrDefault(x => x.Name == "Open");
+            var secondDeckStatus = statuses.FirstOrDefault(x => x.Name == "Ready");
+
+            Assert.Equal(1,firstDeckStatus.Id);
+            Assert.Equal(2, secondDeckStatus.Id);
+            Assert.Equal(4, statuses.Count());
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task CheckIfDeckIsLockedShouldReturnTrueIfLockedAndFalseIfUnlocked()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
+            using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
+            using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+
+            var playCardService = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+            var artService = new ArtService(repositoryArt, cache);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+
+
+            Assert.True(deckService.IsLocked(4));
+            Assert.False(deckService.IsLocked(1));
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task OrderDeckOfCardsShouldCreateAnOrderAndFillTheOrderWithCardsFromDeck()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
+            using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
+            using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+
+            var playCardService = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+            var artService = new ArtService(repositoryArt, cache);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+
+            var cardId = "c330fecf-61a9-4e03-8052-cd2b9583a251";
+            await deckService.AddAsync(1, cardId);
+
+            var userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            await deckService.OrderAsync(1, userId);
+
+            var deckOrder = data.CardOrders.FirstOrDefault(x => x.OrderId == 1);
+
+            Assert.Equal(cardId, deckOrder.PlayCardId);
+            this.TearDownBase();
+        }
+
+
+        [Fact]
+        public async Task RemovingCardFromCardDeckShouldRemoveTheCardAndLowerTheCountOfCardsInDeck()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
+            using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
+            using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+
+            var playCardService = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+            var artService = new ArtService(repositoryArt, cache);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+
+            var firstCardId = "c330fecf-61a9-4e03-8052-cd2b9583a251";
+            var secondCardId = "f43639ef-5503-4e8a-a75d-5651c645a03d";
+            await deckService.AddAsync(1, firstCardId);
+            await deckService.AddAsync(1, secondCardId);
+            var currentCountOfCardsInDeck = data.DeckOfCards.Count();
+            await deckService.RemoveAsync(1, firstCardId);
+            var newCountOfCardsInDeck = data.DeckOfCards.Count();
+
+            var currentCard = data.DeckOfCards.FirstOrDefault(x => x.PlayCardId == secondCardId && x.DeckId == 1);
+
+            Assert.Equal(2, currentCountOfCardsInDeck);
+
+            Assert.Equal(1, newCountOfCardsInDeck);
+            Assert.Equal(secondCardId, currentCard.PlayCardId);
+            this.TearDownBase();
+
+        }
+
+        [Fact]
+        public async Task UpdateDeckShouldChangeExistingDeckShippingAddress()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
+            using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
+            using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+
+            var playCardService = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+            var artService = new ArtService(repositoryArt, cache);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+
+            var testDeck = data.CardDecks.FirstOrDefault(x => x.Id == 1);
+            var testTitle = testDeck.Name;
+            var testDescription = testDeck.Description;
+            var testLocation = testDeck.StoreId;
+
+            var deck = new EditDeckViewModel()
+            {
+                Id = 1,
+                Name = "Changed",
+                Description = "Changed",
+                StoreId = 2,
+            };
+            await deckService.UpdateAsync(deck, 1);
+
+            var testDeckUpdate = data.CardDecks.FirstOrDefault(x => x.Id == 1);
+            var testTitleUpdate = testDeckUpdate.Name;
+            var testDescriptionUpdate = testDeckUpdate.Description;
+            var testLocationUpdate = testDeckUpdate.StoreId;
+
+            Assert.Equal(1,testLocation);
+            Assert.Equal("Test",testTitle);
+            Assert.Equal("Test", testDescription);
+            Assert.Equal(2, testLocationUpdate);
+            Assert.Equal("Changed", testTitleUpdate);
+            Assert.Equal("Changed", testDescriptionUpdate);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task UpdateDeckShouldUpdateTheExistingDeck()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
+            using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
+            using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+
+            var playCardService = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+            var artService = new ArtService(repositoryArt, cache);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+
+            var testDeck = data.CardDecks.FirstOrDefault(x => x.Id == 1);
+            var testTitle = testDeck.Name;
+            var testDescription = testDeck.Description;
+            var testLocation = testDeck.StoreId;
+
+            var deck = new EditDeckViewModel()
+            {
+                Id = 1,
+                Name = "Changed",
+                Description = "Changed",
+                StoreId = 2,
+            };
+            await deckService.UpdateAsync(deck, 1);
+
+            var testDeckUpdate = data.CardDecks.FirstOrDefault(x => x.Id == 1);
+            var testTitleUpdate = testDeckUpdate.Name;
+            var testDescriptionUpdate = testDeckUpdate.Description;
+            var testLocationUpdate = testDeckUpdate.StoreId;
+
+            Assert.Equal(1, testLocation);
+            Assert.Equal("Test", testTitle);
+            Assert.Equal("Test", testDescription);
+            Assert.Equal(2, testLocationUpdate);
+            Assert.Equal("Changed", testTitleUpdate);
+            Assert.Equal("Changed", testDescriptionUpdate);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task UpdateDeckShouldChangeExistingDeckShippingLocation()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
+            using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
+            using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+
+            var playCardService = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+            var artService = new ArtService(repositoryArt, cache);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+
+            var testDeck = data.CardDecks.FirstOrDefault(x => x.Id == 1);
+            var testLocation = testDeck.StoreId;
+
+            var deck = new SingleDeckViewModel()
+            {
+                Id = 1,
+                StoreId = 2,
+            };
+            await deckService.UpdateShippingAsync(deck);
+
+            var testDeckUpdate = data.CardDecks.FirstOrDefault(x => x.Id == 1);
+            var testLocationUpdate = testDeckUpdate.StoreId;
+
+            Assert.Equal(1, testLocation);
+            Assert.Equal(2, testLocationUpdate);
+            this.TearDownBase();
+        }
     }
 }

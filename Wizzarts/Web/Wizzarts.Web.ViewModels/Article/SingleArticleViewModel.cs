@@ -39,6 +39,9 @@
             configuration.CreateMap<Article, SingleArticleViewModel>()
                .ForMember(x => x.Nickname, opt =>
                    opt.MapFrom(x =>
+                       x.ArticleCreator.Nickname))
+               .ForMember(x => x.Username, opt =>
+                   opt.MapFrom(x =>
                        x.ArticleCreator.UserName))
             .ForMember(x => x.ArticleCreatorAvatar, opt =>
                    opt.MapFrom(x =>
