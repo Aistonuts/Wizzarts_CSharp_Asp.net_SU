@@ -15,9 +15,9 @@
 
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12);
 
-        IEnumerable<T> GetAllArtByUserId<T>(string id, int page, int itemsPerPage = 3);
+        Task<IEnumerable<T>> GetAllArtByUserId<T>(string id, int page, int itemsPerPage = 3);
 
-        IEnumerable<T> GetAllArtByUserIdPaginationless<T>(string id);
+        Task<IEnumerable<T>> GetAllArtByUserIdPaginationless<T>(string id);
 
         IEnumerable<T> GetRandom<T>(int count);
 

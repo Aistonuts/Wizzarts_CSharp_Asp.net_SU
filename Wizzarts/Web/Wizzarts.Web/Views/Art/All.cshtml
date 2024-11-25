@@ -82,12 +82,12 @@
                 {
                     <div class="metagroup-container">
                         <div class="mr-2 d-none d-lg-block">
-                            <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" class="image-wrapper">
+                            <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="image-wrapper">
                                 <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
                             </a>
                         </div>
                         <div>
-                            <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" class="image-wrapper">
+                            <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="image-wrapper">
                                 <b class="text-primary">@events.Title</b>
                             </a>
                         </div>

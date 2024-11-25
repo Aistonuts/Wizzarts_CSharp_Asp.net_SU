@@ -221,7 +221,7 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             var artService = new ArtService(repositoryArt, cache);
-            var artByUserDrawgoon = artService.GetAllArtByUserId<ArtInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695", 1, 8);
+            var artByUserDrawgoon = await artService.GetAllArtByUserId<ArtInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695", 1, 8);
             Assert.Equal(8, artByUserDrawgoon.Count());
             this.TearDownBase();
         }
@@ -234,7 +234,7 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             var artService = new ArtService(repositoryArt, cache);
-            var artByUserDrawgoon = artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695");
+            var artByUserDrawgoon = await artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695");
             Assert.Equal(8, artByUserDrawgoon.Count());
             this.TearDownBase();
         }

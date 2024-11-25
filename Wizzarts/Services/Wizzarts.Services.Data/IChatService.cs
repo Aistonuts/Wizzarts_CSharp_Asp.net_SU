@@ -1,15 +1,16 @@
 ﻿namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public interface IChatService
     {
-        IEnumerable<T> GetAllGeneralChatMessages<T>(int id);
+        Task<IEnumerable<T>> GetAllGeneralChatMessages<T>(int id);
 
-        IEnumerable<T> GetAllChatMessagesInChatRoom<T>(int id);
+        Task<IEnumerable<T>> GetAllChatMessagesInChatRoom<T>(int id);
 
-        IEnumerable<T> GetAllChatRooms<T>();
+        Task<IEnumerable<T>> GetAllChatRooms<T>();
 
-        T GetById<T>(int id);
+        Task<T> GetById<T>(int id);
     }
 }

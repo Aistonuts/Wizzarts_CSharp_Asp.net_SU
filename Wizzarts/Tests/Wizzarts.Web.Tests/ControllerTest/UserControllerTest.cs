@@ -4,6 +4,7 @@ using MyTested.AspNetCore.Mvc;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Wizzarts.Data.Models;
 using Wizzarts.Data.Repositories;
 using Wizzarts.Services.Data;
@@ -59,7 +60,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
         }
 
         [Fact]
-        public void UpdatePostShouldUpdateUserProfileAndSetTempDataMessageAndRedirectWhenValidModel()
+        public async Task UpdatePostShouldUpdateUserProfileAndSetTempDataMessageAndRedirectWhenValidModel()
         {
             OneTimeSetup();
             var data = this.dbContext;
@@ -71,7 +72,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
 
             var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
-
+            var avatars = await service.GetAllAvatars<AvatarInListViewModel>();
             MyController<UserController>
                 .Instance(instance => instance
                  .WithUser(X=>X.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
@@ -84,7 +85,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                        AvatarUrl = "test",
                        Bio = "test",
                        AvatarId = 2,
-                       Avatars = service.GetAllAvatars<AvatarInListViewModel>(),
+                       Avatars = avatars,
                    }))
                .ShouldHave()
                .ValidModelState()

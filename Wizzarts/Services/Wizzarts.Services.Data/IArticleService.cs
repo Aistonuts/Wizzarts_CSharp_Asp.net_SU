@@ -17,11 +17,11 @@
 
         Task DeleteAsync(int id);
 
-        T GetById<T>(int id);
+        Task<T> GetById<T>(int id);
 
         Task<int> GetCount();
 
-        IEnumerable<T> GetAllArticlesByUserId<T>(string id, int page, int itemsPerPage = 3);
+        Task<IEnumerable<T>> GetAllArticlesByUserId<T>(string id, int page, int itemsPerPage = 3);
 
         Task<string> ApproveArticle(int id);
 

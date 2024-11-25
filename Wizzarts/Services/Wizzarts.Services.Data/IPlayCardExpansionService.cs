@@ -5,8 +5,8 @@
 
     public interface IPlayCardExpansionService
     {
-        IEnumerable<T> GetAll<T>();
+        Task<IEnumerable<T>> GetAll<T>();
 
-        T GetById<T>(int id);
+        Task<T> GetById<T>(int id);
     }
 }

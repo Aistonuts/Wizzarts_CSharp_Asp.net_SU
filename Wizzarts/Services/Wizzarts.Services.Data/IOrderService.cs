@@ -26,7 +26,7 @@
 
         Task CancelOrder(int id);
 
-        IEnumerable<T> GetAllCardsInOrderId<T>(int id);
+        Task<IEnumerable<T>> GetAllCardsInOrderId<T>(int id);
 
         Task<bool> HasUserWithIdAsync(int orderId, string userId);
     }

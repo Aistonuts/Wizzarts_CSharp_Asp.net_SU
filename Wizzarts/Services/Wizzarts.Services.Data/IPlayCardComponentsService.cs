@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using System.Threading.Tasks;
+
+namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
 
@@ -7,22 +9,22 @@
 
     public interface IPlayCardComponentsService
     {
-        IEnumerable<BlackManaCostViewModel> GetAllBlackMana();
+        Task<IEnumerable<BlackManaCostViewModel>> GetAllBlackMana();
 
-        IEnumerable<BlueManCostViewModel> GetAllBlueMana();
+        Task<IEnumerable<BlueManCostViewModel>> GetAllBlueMana();
 
-        IEnumerable<GreenManaCostViewModel> GetAllGreenMana();
+        Task<IEnumerable<GreenManaCostViewModel>> GetAllGreenMana();
 
-        IEnumerable<RedManaCostViewModel> GetAllRedMana();
+        Task<IEnumerable<RedManaCostViewModel>> GetAllRedMana();
 
-        IEnumerable<WhiteManaCostViewModel> GetAllWhiteMana();
+        Task<IEnumerable<WhiteManaCostViewModel>> GetAllWhiteMana();
 
-        IEnumerable<ColorlessManaCostViewModel> GetAllColorlessMana();
+        Task<IEnumerable<ColorlessManaCostViewModel>> GetAllColorlessMana();
 
-        IEnumerable<CardTypeViewModel> GetAllCardType();
+        Task<IEnumerable<CardTypeViewModel>> GetAllCardType();
 
-        IEnumerable<FrameColorViewModel> GetAllCardFrames();
+        Task<IEnumerable<FrameColorViewModel>> GetAllCardFrames();
 
-        IEnumerable<ExpansionInListViewModel> GetAllExpansionInListView();
+        Task<IEnumerable<ExpansionInListViewModel>> GetAllExpansionInListView();
     }
 }

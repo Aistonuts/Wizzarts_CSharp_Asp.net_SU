@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Wizzarts.Services.Data
 {
     using System.Linq;
     using System.Threading.Tasks;

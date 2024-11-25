@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -24,27 +26,27 @@
             this.wizzartsTeamRepository = wizzartsTeamRepository;
         }
 
-        public IEnumerable<T> GetAllGameRulesData<T>()
+        public async Task<IEnumerable<T>> GetAllGameRulesData<T>()
         {
-            var components = this.gameRulesDataRepository.AllAsNoTracking()
+            var components = await this.gameRulesDataRepository.AllAsNoTracking()
                 .OrderByDescending(x => x.Id)
-                .To<T>().ToList();
+                .To<T>().ToListAsync();
             return components;
         }
 
-        public IEnumerable<T> GetAllWizzartsTeamMembers<T>()
+        public async Task<IEnumerable<T>> GetAllWizzartsTeamMembers<T>()
         {
-            var team = this.wizzartsTeamRepository.AllAsNoTracking().
+            var team = await this.wizzartsTeamRepository.AllAsNoTracking().
                 OrderByDescending(x => x.Id)
-                .To<T>().ToList();
+                .To<T>().ToListAsync();
             return team;
         }
 
-        public T GetGameRules<T>(int id = 1)
+        public async Task<T> GetGameRules<T>(int id = 1)
         {
-            var rules = this.gameRulesRepository.AllAsNoTracking()
+            var rules = await this.gameRulesRepository.AllAsNoTracking()
                 .Where(x => x.Id == id)
-                .To<T>().FirstOrDefault();
+                .To<T>().FirstOrDefaultAsync();
 
             return rules;
         }

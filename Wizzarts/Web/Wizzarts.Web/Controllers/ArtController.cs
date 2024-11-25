@@ -47,11 +47,11 @@
             this.environment = environment;
         }
 
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
             var viewModel = new AddArtViewModel
             {
-                Events = this.eventService.GetAll<EventInListViewModel>(),
+                Events = await this.eventService.GetAll<EventInListViewModel>(),
             };
             return this.View(viewModel);
         }
@@ -145,7 +145,7 @@
         }
 
         [AllowAnonymous]
-        public IActionResult All(int id = 1)
+        public async Task<IActionResult> All(int id = 1)
         {
             if (id <= 0)
             {
@@ -156,19 +156,19 @@
             {
                 Arts = this.artService.GetRandom<ArtInListViewModel>(20),
                 Articles = this.articlesService.GetRandom<ArticleInListViewModel>(3),
-                Events = this.eventService.GetAll<EventInListViewModel>(),
+                Events = await this.eventService.GetAll<EventInListViewModel>(),
                 Cards = this.playCardService.GetRandom<CardInListViewModel>(3),
             };
 
             return this.View(viewModel);
         }
 
-        public IActionResult ByUserId(int id)
+        public async Task<IActionResult> ByUserId(int id)
         {
             var userId = this.wizzartsServices.GetUserIdByArtistId(id);
             var viewModel = new ArtListViewModel
             {
-                Arts = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(userId),
+                Arts = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(userId),
             };
 
             return this.View(viewModel);
@@ -187,7 +187,7 @@
                 return this.BadRequest(information);
             }
 
-            art.Events = this.eventService.GetAll<EventInListViewModel>();
+            art.Events = await this.eventService.GetAll<EventInListViewModel>();
             art.Articles = this.articlesService.GetRandom<ArticleInListViewModel>(3);
             return this.View(art);
         }

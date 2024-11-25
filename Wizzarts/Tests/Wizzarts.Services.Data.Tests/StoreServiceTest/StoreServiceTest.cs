@@ -101,7 +101,7 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
             var service = new StoreService(repository);
-            var stores = service.GetAll<StoreInListViewModel>(1, 5);
+            var stores = await service.GetAll<StoreInListViewModel>(1, 5);
             int storeCount = stores.Count();
             Assert.Equal(5, storeCount);
 
@@ -116,7 +116,7 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
             var service = new StoreService(repository);
-            var stores = service.GetAll<StoreInListViewModel>();
+            var stores = await service.GetAll<StoreInListViewModel>();
             int storeCount = stores.Count();
             Assert.Equal(6, storeCount);
 
@@ -131,7 +131,7 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
             var service = new StoreService(repository);
-            var stores = service.GetAllStoresByUserId<StoreInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695",1,2);
+            var stores = await service.GetAllStoresByUserId<StoreInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695",1,2);
             int storeCount = stores.Count();
             Assert.Equal(2, storeCount);
 
@@ -146,7 +146,7 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
             var service = new StoreService(repository);
-            int storeCount = service.GetCount();
+            int storeCount = await service.GetCount();
 
             Assert.Equal(6, storeCount);
 
@@ -200,7 +200,7 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
             var service = new StoreService(repository);
-            var stores = service.GetAllApprovedStoresByUserId<StoreInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695");
+            var stores = await service.GetAllApprovedStoresByUserId<StoreInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695");
             int storeCount = stores.Count();
             Assert.Equal(2, storeCount);
 

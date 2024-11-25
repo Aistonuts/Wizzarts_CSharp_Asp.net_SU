@@ -157,7 +157,7 @@
             using var repository = new EfDeletableEntityRepository<Article>(data);
             var service = new ArticleService(repository, cache);
 
-            var article = service.GetById<SingleArticleViewModel>(1);
+            var article = await service.GetById<SingleArticleViewModel>(1);
 
             Assert.Equal("Wizzarts card game release announcement.", article.Title);
 
@@ -175,7 +175,7 @@
             var service = new ArticleService(repository, cache);
 
             var articlesByUserMetzen =
-                service.GetAllArticlesByUserId<ArticleInListViewModel>("2b346dc6-5bd7-4e64-8396-15a064aa27a7", 1, 4);
+              await service.GetAllArticlesByUserId<ArticleInListViewModel>("2b346dc6-5bd7-4e64-8396-15a064aa27a7", 1, 4);
             Assert.Equal(4, articlesByUserMetzen.Count());
             this.TearDownBase();
         }

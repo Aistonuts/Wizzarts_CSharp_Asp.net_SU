@@ -106,12 +106,12 @@
             }
         }
 
-        public IActionResult ById(int id)
+        public async Task<IActionResult> ById(int id)
         {
-            var view = this.chatService.GetById<SingleChatViewModel>(id);
+            var view = await this.chatService.GetById<SingleChatViewModel>(id);
             view.ChatId = id;
-            view.ChatRooms = this.chatService.GetAllChatRooms<SingleChatViewModel>();
-            view.Messages = this.chatService.GetAllChatMessagesInChatRoom<DbChatMessagesInListViewModel>(id);
+            view.ChatRooms = await this.chatService.GetAllChatRooms<SingleChatViewModel>();
+            view.Messages = await this.chatService.GetAllChatMessagesInChatRoom<DbChatMessagesInListViewModel>(id);
 
             return this.View(view);
         }

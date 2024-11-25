@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -17,21 +19,21 @@
             this.cardGameExpansionRepository = cardGameExpansionRepository;
         }
 
-        public IEnumerable<T> GetAll<T>()
+        public async Task<IEnumerable<T>> GetAll<T>()
         {
-            var expansions = this.cardGameExpansionRepository.AllAsNoTracking()
+            var expansions = await this.cardGameExpansionRepository.AllAsNoTracking()
                  .OrderBy(x => x.Id)
                  .Where(x => x.Cards.Any())
-                 .To<T>().ToList();
+                 .To<T>().ToListAsync();
 
             return expansions;
         }
 
-        public T GetById<T>(int id)
+        public async Task<T> GetById<T>(int id)
         {
-            var expansion = this.cardGameExpansionRepository.AllAsNoTracking()
+            var expansion = await this.cardGameExpansionRepository.AllAsNoTracking()
                     .Where(x => x.Id == id)
-                    .To<T>().FirstOrDefault();
+                    .To<T>().FirstOrDefaultAsync();
             return expansion;
         }
     }

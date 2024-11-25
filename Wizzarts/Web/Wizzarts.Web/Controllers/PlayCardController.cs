@@ -65,9 +65,9 @@
         }
 
         [Authorize(Roles = AdministratorRoleName + "," + PremiumRoleName + "," + ArtistRoleName)]
-        public IActionResult Add(int id)
+        public async Task<IActionResult> Add(int id)
         {
-            var userArts = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
+            var userArts =  await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
             if (!userArts.Any())
             {
 
@@ -75,15 +75,15 @@
             }
 
             var viewModel = new CreateCardViewModel();
-            viewModel.RedMana = this.playCardComponentsService.GetAllRedMana();
-            viewModel.BlueMana = this.playCardComponentsService.GetAllBlueMana();
-            viewModel.BlackMana = this.playCardComponentsService.GetAllBlackMana();
-            viewModel.GreenMana = this.playCardComponentsService.GetAllGreenMana();
-            viewModel.WhiteMana = this.playCardComponentsService.GetAllWhiteMana();
-            viewModel.ColorlessMana = this.playCardComponentsService.GetAllColorlessMana();
-            viewModel.SelectType = this.playCardComponentsService.GetAllCardType();
-            viewModel.SelectFrameColor = this.playCardComponentsService.GetAllCardFrames();
-            viewModel.SelectExpansion = this.playCardComponentsService.GetAllExpansionInListView();
+            viewModel.RedMana = await this.playCardComponentsService.GetAllRedMana();
+            viewModel.BlueMana = await this.playCardComponentsService.GetAllBlueMana();
+            viewModel.BlackMana = await this.playCardComponentsService.GetAllBlackMana();
+            viewModel.GreenMana = await this.playCardComponentsService.GetAllGreenMana();
+            viewModel.WhiteMana = await this.playCardComponentsService.GetAllWhiteMana();
+            viewModel.ColorlessMana = await this.playCardComponentsService.GetAllColorlessMana();
+            viewModel.SelectType = await this.playCardComponentsService.GetAllCardType();
+            viewModel.SelectFrameColor = await this.playCardComponentsService.GetAllCardFrames();
+            viewModel.SelectExpansion = await this.playCardComponentsService.GetAllExpansionInListView();
 
             viewModel.ArtByUserId = userArts;
 
@@ -100,7 +100,7 @@
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
 
-            var art = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
+            var art = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
 
             if(art.Any(x => x.Id == input.ArtId))
             {
@@ -109,16 +109,16 @@
 
             if (!this.ModelState.IsValid)
             {
-                var userArts = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
-                input.RedMana = this.playCardComponentsService.GetAllRedMana();
-                input.BlueMana = this.playCardComponentsService.GetAllBlueMana();
-                input.BlackMana = this.playCardComponentsService.GetAllBlackMana();
-                input.GreenMana = this.playCardComponentsService.GetAllGreenMana();
-                input.WhiteMana = this.playCardComponentsService.GetAllWhiteMana();
-                input.ColorlessMana = this.playCardComponentsService.GetAllColorlessMana();
-                input.SelectType = this.playCardComponentsService.GetAllCardType();
-                input.SelectFrameColor = this.playCardComponentsService.GetAllCardFrames();
-                input.SelectExpansion = this.playCardComponentsService.GetAllExpansionInListView();
+                var userArts = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
+                input.RedMana = await this.playCardComponentsService.GetAllRedMana();
+                input.BlueMana = await this.playCardComponentsService.GetAllBlueMana();
+                input.BlackMana = await this.playCardComponentsService.GetAllBlackMana();
+                input.GreenMana = await this.playCardComponentsService.GetAllGreenMana();
+                input.WhiteMana = await this.playCardComponentsService.GetAllWhiteMana();
+                input.ColorlessMana = await this.playCardComponentsService.GetAllColorlessMana();
+                input.SelectType = await this.playCardComponentsService.GetAllCardType();
+                input.SelectFrameColor = await this.playCardComponentsService.GetAllCardFrames();
+                input.SelectExpansion = await this.playCardComponentsService.GetAllExpansionInListView();
 
                 input.ArtByUserId = userArts;
 
@@ -147,21 +147,21 @@
         [HttpGet]
         public async Task<IActionResult> Create(int id)
         {
-            var eventComponent = this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
-            var currentEvent = this.eventService.GetById<EventInListViewModel>(eventComponent.EventId);
+            var eventComponent = await this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
+            var currentEvent = await this.eventService.GetById<EventInListViewModel>(eventComponent.EventId);
 
             var viewModel = new CreateCardViewModel();
-            viewModel.RedMana = this.playCardComponentsService.GetAllRedMana();
-            viewModel.BlueMana = this.playCardComponentsService.GetAllBlueMana();
-            viewModel.BlackMana = this.playCardComponentsService.GetAllBlackMana();
-            viewModel.GreenMana = this.playCardComponentsService.GetAllGreenMana();
-            viewModel.WhiteMana = this.playCardComponentsService.GetAllWhiteMana();
-            viewModel.ColorlessMana = this.playCardComponentsService.GetAllColorlessMana();
-            viewModel.SelectType = this.playCardComponentsService.GetAllCardType();
-            viewModel.SelectFrameColor = this.playCardComponentsService.GetAllCardFrames();
-            viewModel.SelectExpansion = this.playCardComponentsService.GetAllExpansionInListView();
+            viewModel.RedMana = await this.playCardComponentsService.GetAllRedMana();
+            viewModel.BlueMana = await this.playCardComponentsService.GetAllBlueMana();
+            viewModel.BlackMana = await this.playCardComponentsService.GetAllBlackMana();
+            viewModel.GreenMana = await this.playCardComponentsService.GetAllGreenMana();
+            viewModel.WhiteMana = await this.playCardComponentsService.GetAllWhiteMana();
+            viewModel.ColorlessMana = await this.playCardComponentsService.GetAllColorlessMana();
+            viewModel.SelectType = await this.playCardComponentsService.GetAllCardType();
+            viewModel.SelectFrameColor = await this.playCardComponentsService.GetAllCardFrames();
+            viewModel.SelectExpansion = await this.playCardComponentsService.GetAllExpansionInListView();
 
-            viewModel.ArtByUserId = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
+            viewModel.ArtByUserId = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
 
             viewModel.EventMilestoneImage = eventComponent.ImageUrl;
             viewModel.EventMilestoneTitle = eventComponent.Title;
@@ -175,7 +175,7 @@
         public async Task<IActionResult> Create(CreateCardViewModel input, int id, string canvasCapture)
         {
             var user = await this.userManager.GetUserAsync(this.User);
-            var eventComponent = this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
+            var eventComponent = await this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
 
             bool isEventCard = eventComponent != null;
 
@@ -192,19 +192,19 @@
 
             if (!this.ModelState.IsValid)
             {
-                input.RedMana = this.playCardComponentsService.GetAllRedMana();
-                input.BlueMana = this.playCardComponentsService.GetAllBlueMana();
-                input.BlackMana = this.playCardComponentsService.GetAllBlackMana();
-                input.GreenMana = this.playCardComponentsService.GetAllGreenMana();
-                input.WhiteMana = this.playCardComponentsService.GetAllWhiteMana();
-                input.ColorlessMana = this.playCardComponentsService.GetAllColorlessMana();
-                input.SelectType = this.playCardComponentsService.GetAllCardType();
-                input.SelectFrameColor = this.playCardComponentsService.GetAllCardFrames();
-                input.SelectExpansion = this.playCardComponentsService.GetAllExpansionInListView();
+                input.RedMana = await this.playCardComponentsService.GetAllRedMana();
+                input.BlueMana = await this.playCardComponentsService.GetAllBlueMana();
+                input.BlackMana = await this.playCardComponentsService.GetAllBlackMana();
+                input.GreenMana = await this.playCardComponentsService.GetAllGreenMana();
+                input.WhiteMana = await this.playCardComponentsService.GetAllWhiteMana();
+                input.ColorlessMana = await this.playCardComponentsService.GetAllColorlessMana();
+                input.SelectType = await this.playCardComponentsService.GetAllCardType();
+                input.SelectFrameColor = await this.playCardComponentsService.GetAllCardFrames();
+                input.SelectExpansion = await this.playCardComponentsService.GetAllExpansionInListView();
 
-                var currentEvent = this.eventService.GetById<EventInListViewModel>(eventComponent.EventId);
+                var currentEvent = await this.eventService.GetById<EventInListViewModel>(eventComponent.EventId);
 
-                input.ArtByUserId = this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(user.Id);
+                input.ArtByUserId = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(user.Id);
 
                 input.EventMilestoneImage = eventComponent.ImageUrl;
                 input.EventMilestoneTitle = eventComponent.Title;
@@ -235,7 +235,7 @@
         }
 
         [AllowAnonymous]
-        public IActionResult All(int id = 1)
+        public async Task<IActionResult> All(int id = 1)
         {
             if (id <= 0)
             {
@@ -247,9 +247,9 @@
             {
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
-                Count = this.cardService.GetCount(),
+                Count = await this.cardService.GetCount(),
                 Cards = this.cardService.GetRandom<CardInListViewModel>(20),
-                Events = this.eventService.GetAll<EventInListViewModel>(),
+                Events = await this.eventService.GetAll<EventInListViewModel>(),
                 Articles = this.articleService.GetRandom<ArticleInListViewModel>(4),
             };
 
@@ -257,7 +257,7 @@
         }
 
         [AllowAnonymous]
-        public IActionResult AllEventCards(int id = 1)
+        public async Task<IActionResult> AllEventCards(int id = 1)
         {
             if (id <= 0)
             {
@@ -269,16 +269,16 @@
             {
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
-                Count = this.cardService.GetCount(),
-                Cards = this.cardService.GetAllEventCards<CardInListViewModel>(),
+                Count = await this.cardService.GetCount(),
+                Cards = await this.cardService.GetAllEventCards<CardInListViewModel>(),
             };
 
             return this.View(viewModel);
         }
 
-        public IActionResult ById(string id, string information)
+        public async Task<IActionResult> ById(string id, string information)
         {
-            var card = this.cardService.GetById<SingleCardViewModel>(id);
+            var card = await this.cardService.GetById<SingleCardViewModel>(id);
             if (information != card.GetCardName())
             {
                 return this.BadRequest(information);
@@ -286,10 +286,10 @@
 
             if (card != null)
             {
-                card.Mana = this.cardService.GetAllCardManaByCardId<ManaListViewModel>(id);
+                card.Mana = await this.cardService.GetAllCardManaByCardId<ManaListViewModel>(id);
             }
-            card.Comments = this.commentService.GetCommentsByCardId<CardCommentInListViewModel>(id);
-            card.Events = this.eventService.GetAll<EventInListViewModel>();
+            card.Comments = await this.commentService.GetCommentsByCardId<CardCommentInListViewModel>(id);
+            card.Events = await this.eventService.GetAll<EventInListViewModel>();
             card.Articles = this.articleService.GetRandom<ArticleInListViewModel>(4);
             return this.View(card);
         }
@@ -305,6 +305,7 @@
 
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
+
             if (!this.ModelState.IsValid)
             {
                 return this.View(model);

@@ -39,11 +39,12 @@
         public async Task CancelOrder(int id)
         {
             var deckOfCards = this.cardsInOrderRepository.All().Where(x => x.OrderId == id);
-            var order = this.deckOrderRepository.All().FirstOrDefault(x => x.Id == id);
+            var order = await this.deckOrderRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             foreach (var card in deckOfCards)
             {
                 this.cardsInOrderRepository.Delete(card);
             }
+
             this.deckOrderRepository.Delete(order);
             await this.cardsInOrderRepository.SaveChangesAsync();
             await this.deckOrderRepository.SaveChangesAsync();
@@ -56,13 +57,14 @@
             return orders;
         }
 
-        public IEnumerable<T> GetAllCardsInOrderId<T>(int id)
+        public async Task<IEnumerable<T>> GetAllCardsInOrderId<T>(int id)
         {
             var listOfCards = new List<T>();
-            var deckOfCards = this.cardsInOrderRepository.AllAsNoTracking().Where(x => x.OrderId == id).ToList();
+            var deckOfCards = await this.cardsInOrderRepository.AllAsNoTracking().Where(x => x.OrderId == id).ToListAsync();
+
             foreach (var item in deckOfCards)
             {
-                var card = this.cardService.GetById<T>(item.PlayCardId);
+                var card = await this.cardService.GetById<T>(item.PlayCardId);
                 listOfCards.Add(card);
             }
 
@@ -120,21 +122,21 @@
 
         public async Task PauseOrder(int id)
         {
-            var order = this.deckOrderRepository.All().FirstOrDefault(x => x.Id == id);
+            var order = await this.deckOrderRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             order.OrderStatusId = 1;
             await this.deckOrderRepository.SaveChangesAsync();
         }
 
         public async Task ReadyOrder(int id)
         {
-            var order = this.deckOrderRepository.All().FirstOrDefault(x => x.Id == id);
+            var order = await this.deckOrderRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             order.OrderStatusId = 2;
             await this.deckOrderRepository.SaveChangesAsync();
         }
 
         public async Task ShipOrder(int id)
         {
-            var order = this.deckOrderRepository.All().FirstOrDefault(x => x.Id == id);
+            var order = await this.deckOrderRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             order.OrderStatusId = 3;
             await this.deckOrderRepository.SaveChangesAsync();
         }

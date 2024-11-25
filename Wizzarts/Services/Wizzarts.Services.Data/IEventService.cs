@@ -11,15 +11,15 @@
 
         Task UpdateAsync(EditEventViewModel input, int id);
 
-        IEnumerable<T> GetAll<T>();
+        Task<IEnumerable<T>> GetAll<T>();
 
-        IEnumerable<T> GetAllEventComponents<T>(int id);
+        Task<IEnumerable<T>> GetAllEventComponents<T>(int id);
 
-        T GetById<T>(int id);
+        Task<T> GetById<T>(int id);
 
-        T GetEventComponentById<T>(int id);
+        Task<T> GetEventComponentById<T>(int id);
 
-        IEnumerable<T> GetAllEventsByUserId<T>(string id, int page, int itemsPerPage = 3);
+        Task<IEnumerable<T>> GetAllEventsByUserId<T>(string id, int page, int itemsPerPage = 3);
 
         Task<bool> EventExist(int id);
 

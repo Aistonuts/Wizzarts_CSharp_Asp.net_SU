@@ -96,7 +96,7 @@
 
         public async Task UpdateAsync(int id, EditArticleViewModel input)
         {
-            var articles = this.articleRepository.All().FirstOrDefault(x => x.Id == id);
+            var articles = await this.articleRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             if (articles != null)
             {
                 articles.Title = input.Title;
@@ -108,28 +108,28 @@
 
         }
 
-        public T GetById<T>(int id)
+        public async Task<T> GetById<T>(int id)
         {
-            var article = this.articleRepository.AllAsNoTracking()
+            var article = await this.articleRepository.AllAsNoTracking()
                 .Where(x => x.Id == id)
-                .To<T>().FirstOrDefault();
+                .To<T>().FirstOrDefaultAsync();
 
             return article;
         }
 
-        public IEnumerable<T> GetAllArticlesByUserId<T>(string id, int page, int itemsPerPage = 3)
+        public async Task<IEnumerable<T>> GetAllArticlesByUserId<T>(string id, int page, int itemsPerPage = 3)
         {
-            var article = this.articleRepository.AllAsNoTracking()
+            var article = await this.articleRepository.AllAsNoTracking()
                .Where(x => x.ArticleCreatorId == id)
                .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
-               .To<T>().ToList();
+               .To<T>().ToListAsync();
 
             return article;
         }
 
         public async Task<string> ApproveArticle(int id)
         {
-            var article = this.articleRepository.All().FirstOrDefault(x => x.Id == id);
+            var article = await this.articleRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             if (article != null && article.ApprovedByAdmin == false)
             {
                 article.ApprovedByAdmin = true;
@@ -157,14 +157,13 @@
 
         public async Task DeleteAsync(int id)
         {
-            var art = this.articleRepository.All().FirstOrDefault(x => x.Id == id);
+            var art = await this.articleRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             if (art != null)
             {
                 this.articleRepository.Delete(art);
                 await this.articleRepository.SaveChangesAsync();
                 this.cache.Remove(ArticlesCacheKey);
             }
-
         }
     }
 }

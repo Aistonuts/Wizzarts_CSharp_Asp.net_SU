@@ -35,29 +35,35 @@
         }
 
         [AllowAnonymous]
-        public IActionResult All()
+        public async Task<IActionResult> All()
         {
             var viewModel = new EventListViewModel
             {
-                Events = this.eventService.GetAll<EventInListViewModel>(),
+                Events = await this.eventService.GetAll<EventInListViewModel>(),
             };
 
             return this.View(viewModel);
         }
 
         [AllowAnonymous]
-        public IActionResult ByUser()
+        public async Task<IActionResult> ByUser()
         {
             var viewModel = new EventListViewModel
             {
-                Events = this.eventService.GetAll<EventInListViewModel>(),
+                Events = await this.eventService.GetAll<EventInListViewModel>(),
             };
 
             return this.View(viewModel);
         }
 
-        public IActionResult ById(int id, int pageId = 1)
+        public async Task<IActionResult> ById(int id, string information, int pageId = 1)
         {
+            var newEvent = await this.eventService.GetById<SingleEventViewModel>(id);
+            if (information != newEvent.GetEventTitle())
+            {
+                return this.BadRequest(information);
+            }
+
             if (id == 3)
             {
                 return this.RedirectToAction("Create", "Store", new { id = id });
@@ -68,19 +74,18 @@
             }
             else
             {
-                var newEvent = this.eventService.GetById<SingleEventViewModel>(id);
-                newEvent.EventComponents = this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
+                newEvent.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
                 newEvent.EventId = id;
                 return this.View(newEvent);
             }
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             var viewModel = new CreateEventViewModel
             {
-                Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3),
+                Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3),
             };
             return this.View(viewModel);
         }
@@ -123,9 +128,9 @@
         public async Task<IActionResult> My(int id)
         {
             var user = await this.userManager.GetUserAsync(this.User);
-            var newEvent = this.eventService.GetById<MyEventSettingsViewModel>(id);
-            newEvent.EventComponents = this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
-            newEvent.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3);
+            var newEvent = await this.eventService.GetById<MyEventSettingsViewModel>(id);
+            newEvent.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
+            newEvent.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3);
             newEvent.EventId = id;
             newEvent.CreatorAvatar = user.AvatarUrl;
             newEvent.OwnerBrowsing = false;
@@ -146,9 +151,9 @@
             var user = await this.userManager.GetUserAsync(this.User);
             if (!this.ModelState.IsValid)
             {
-                var newEvent = this.eventService.GetById<MyEventSettingsViewModel>(input.EventId);
-                newEvent.EventComponents = this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(input.EventId);
-                newEvent.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3);
+                var newEvent = await this.eventService.GetById<MyEventSettingsViewModel>(input.EventId);
+                newEvent.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(input.EventId);
+                newEvent.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3);
                 newEvent.EventId = input.EventId;
                 newEvent.CreatorAvatar = user.AvatarUrl;
                 newEvent.OwnerBrowsing = false;
@@ -177,13 +182,13 @@
             return this.RedirectToAction(nameof(this.My), new { id = input.EventId });
         }
 
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            var inputModel = this.eventService.GetById<EditEventViewModel>(id);
+            var inputModel = await this.eventService.GetById<EditEventViewModel>(id);
 
             if (inputModel != null)
             {
-                inputModel.EventComponents = this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
+                inputModel.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
                 return this.View(inputModel);
             }
             else
@@ -200,7 +205,7 @@
             if (!this.ModelState.IsValid)
             {
 
-                inputModel.EventComponents = this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
+                inputModel.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
                 return this.View(inputModel);
             }
 
@@ -260,7 +265,7 @@
                 return this.BadRequest();
             }
 
-            var currentEventComponent = this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
+            var currentEventComponent = await this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
             var eventId = currentEventComponent.EventId;
             if (await this.eventService.HasUserWithIdAsync(currentEventComponent.EventId, this.User.GetId()) == false
                 && this.User.IsAdmin() == false)

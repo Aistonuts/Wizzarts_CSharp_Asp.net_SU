@@ -116,7 +116,7 @@
 
         public async Task UpdateAsync(EditArtViewModel input, string Id)
         {
-            var art = this.artRepository.All().FirstOrDefault(x => x.Id == Id);
+            var art = await this.artRepository.All().FirstOrDefaultAsync(x => x.Id == Id);
 
             if (art != null)
             {
@@ -129,7 +129,7 @@
 
         public async Task DeleteAsync(string id)
         {
-            var art = this.artRepository.All().FirstOrDefault(x => x.Id == id);
+            var art = await this.artRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             if (art != null)
             {
                 this.artRepository.Delete(art);
@@ -138,28 +138,28 @@
             }
         }
 
-        public IEnumerable<T> GetAllArtByUserId<T>(string id, int page, int itemsPerPage = 3)
+        public async Task<IEnumerable<T>> GetAllArtByUserId<T>(string id, int page, int itemsPerPage = 3)
         {
-            var art = this.artRepository.AllAsNoTracking()
+            var art = await this.artRepository.AllAsNoTracking()
               .Where(x => x.AddedByMemberId == id)
               .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
-              .To<T>().ToList();
+              .To<T>().ToListAsync();
 
             return art;
         }
 
-        public IEnumerable<T> GetAllArtByUserIdPaginationless<T>(string id)
+        public async Task<IEnumerable<T>> GetAllArtByUserIdPaginationless<T>(string id)
         {
-            var art = this.artRepository.AllAsNoTracking()
+            var art = await this.artRepository.AllAsNoTracking()
                .Where(x => x.AddedByMemberId == id)
-               .To<T>().ToList();
+               .To<T>().ToListAsync();
 
             return art;
         }
 
         public async Task<string> ApproveArt(string id)
         {
-            var art = this.artRepository.All().FirstOrDefault(x => x.Id == id);
+            var art = await this.artRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             if (art != null && art.ApprovedByAdmin == false)
             {
                 art.ApprovedByAdmin = true;
@@ -177,7 +177,6 @@
 
         public async Task<bool> ArtExist(string id)
         {
-
             return await this.artRepository
                 .AllAsNoTracking().AnyAsync(a => a.Id == id);
         }

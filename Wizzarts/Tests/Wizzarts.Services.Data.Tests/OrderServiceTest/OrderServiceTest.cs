@@ -212,7 +212,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
             var userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             await deckService.OrderAsync(1, userId);
 
-            var cardsInOrder = orderService.GetAllCardsInOrderId<CardInListViewModel>(1);
+            var cardsInOrder = await orderService.GetAllCardsInOrderId<CardInListViewModel>(1);
 
             var card = cardsInOrder.FirstOrDefault();
 

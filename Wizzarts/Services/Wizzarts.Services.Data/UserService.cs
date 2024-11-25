@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Wizzarts.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -42,28 +44,28 @@
             this.userRepository = userRepository;
         }
 
-        public T GetById<T>(string id)
+        public async Task<T> GetById<T>(string id)
         {
-            var user = this.userRepository.AllAsNoTracking()
+            var user = await this.userRepository.AllAsNoTracking()
                 .Where(x => x.Id == id)
-                .To<T>().FirstOrDefault();
+                .To<T>().FirstOrDefaultAsync();
 
             return user;
         }
 
-        public IEnumerable<T> GetAllArtByUserId<T>(string id)
+        public async Task<IEnumerable<T>> GetAllArtByUserId<T>(string id)
         {
-            var art = this.artRepository.AllAsNoTracking()
+            var art = await this.artRepository.AllAsNoTracking()
                .Where(x => x.AddedByMemberId == id)
-               .To<T>().ToList();
+               .To<T>().ToListAsync();
 
             return art;
         }
 
-        public IEnumerable<T> GetAllAvatars<T>()
+        public async Task<IEnumerable<T>> GetAllAvatars<T>()
         {
-            var avatars = this.avatarRepository.AllAsNoTracking()
-                .To<T>().ToList();
+            var avatars = await this.avatarRepository.AllAsNoTracking()
+                .To<T>().ToListAsync();
 
             return avatars;
         }
@@ -95,18 +97,18 @@
             return artCount;
         }
 
-        public T GetAvatarById<T>(int id)
+        public async Task<T> GetAvatarById<T>(int id)
         {
-            var avatar = this.avatarRepository.AllAsNoTracking()
+            var avatar = await this.avatarRepository.AllAsNoTracking()
                .Where(x => x.Id == id)
-               .To<T>().FirstOrDefault();
+               .To<T>().FirstOrDefaultAsync();
 
             return avatar;
         }
 
         public async Task UpdateAsync(string id, CreateMemberProfileViewModel input)
         {
-            var user = this.userRepository.All().FirstOrDefault(x => x.Id == id);
+            var user = await this.userRepository.All().FirstOrDefaultAsync(x => x.Id == id);
 
             user.Nickname = input.Nickname;
             user.AvatarUrl = input.AvatarUrl;
@@ -181,16 +183,16 @@
 
         public async Task<bool> IsPremium(string userId)
         {
-            var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
+            var user = await this.userRepository.All().FirstOrDefaultAsync(x => x.Id == userId);
             var currentRole = await this.userManager.GetRolesAsync(user);
 
             return currentRole.Contains(ArtistRoleName) || currentRole.Contains(PremiumRoleName);
 
         }
 
-        public bool HasNickName(string userId)
+        public async Task<bool> HasNickName(string userId)
         {
-            var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
+            var user = await this.userRepository.All().FirstOrDefaultAsync(x => x.Id == userId);
 
             return user.Nickname == null || user.Nickname.Length == 0 ? false : true;
         }

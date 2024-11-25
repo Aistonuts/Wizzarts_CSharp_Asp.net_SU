@@ -33,7 +33,7 @@ namespace Wizzarts.Services.Data.Tests.WizzartsServiceTest
             using var wizzartsTeamRepository = new EfDeletableEntityRepository<WizzartsTeam>(data);
             var service = new WizzartsServices(gameRulesRepository,gameRulesDataRepository,wizzartsTeamRepository);
 
-            var gameRules = service.GetAllGameRulesData<GameRulesDataViewModel>();
+            var gameRules = await service.GetAllGameRulesData<GameRulesDataViewModel>();
             var firstRule = data.WizzartsGameRulesData.FirstOrDefault(x => x.Id == 1);
             Assert.Equal(7,gameRules.Count());
             Assert.Equal("Creatures", firstRule.Title);
@@ -52,7 +52,7 @@ namespace Wizzarts.Services.Data.Tests.WizzartsServiceTest
             using var wizzartsTeamRepository = new EfDeletableEntityRepository<WizzartsTeam>(data);
             var service = new WizzartsServices(gameRulesRepository, gameRulesDataRepository, wizzartsTeamRepository);
 
-            var members = service.GetAllWizzartsTeamMembers<WizzartsTeamInListViewModel>();
+            var members = await service.GetAllWizzartsTeamMembers<WizzartsTeamInListViewModel>();
             var firstMember = data.WizzartsTeamMembers.FirstOrDefault(x => x.Id == 1);
             Assert.Equal(9, members.Count());
             Assert.Equal("Drawgoon", firstMember.Nickname);
@@ -71,7 +71,7 @@ namespace Wizzarts.Services.Data.Tests.WizzartsServiceTest
             using var wizzartsTeamRepository = new EfDeletableEntityRepository<WizzartsTeam>(data);
             var service = new WizzartsServices(gameRulesRepository, gameRulesDataRepository, wizzartsTeamRepository);
 
-            var gameRules = service.GetGameRules<GameRulesViewModel>();
+            var gameRules = await service.GetGameRules<GameRulesViewModel>();
 
             Assert.Equal("Wizzarts card game rules", gameRules.Title);
             TearDownBase();

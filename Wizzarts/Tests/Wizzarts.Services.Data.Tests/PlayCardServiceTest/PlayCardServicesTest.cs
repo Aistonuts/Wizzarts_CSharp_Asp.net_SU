@@ -194,7 +194,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
 
             var currentCount = await playCardRepository.All().CountAsync();
 
-            Assert.Equal(19, service.GetCount());
+            Assert.Equal(19, await service.GetCount());
 
             TearDownBase();
         }
@@ -378,7 +378,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-            var playCard = service.GetById<SingleCardViewModel>("5f3f96a8-836a-479c-93c8-6921feb79366");
+            var playCard = await service.GetById<SingleCardViewModel>("5f3f96a8-836a-479c-93c8-6921feb79366");
 
             Assert.Equal("Mox Sapphire", playCard.Name);
             TearDownBase();
@@ -416,7 +416,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-            var playCardMana = service.GetAllCardManaByCardId<ManaListViewModel>("7e1ef124-3c7f-4318-89b3-18315d7eaf81");
+            var playCardMana = await service.GetAllCardManaByCardId<ManaListViewModel>("7e1ef124-3c7f-4318-89b3-18315d7eaf81");
 
             // colorless x1, redmana x2//
             Assert.Equal(3, playCardMana.Count());
@@ -456,7 +456,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-            var playCardsByDrawgoon = service.GetAllCardsByUserId<CardInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695",1,19);
+            var playCardsByDrawgoon = await service.GetAllCardsByUserId<CardInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695",1,19);
             var specificCard = playCardsByDrawgoon.FirstOrDefault(x => x.Name == "Mox Sapphire");
 
             int playCardCount = playCardsByDrawgoon.Count();
@@ -564,24 +564,24 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             };
 
             // TestOne
-            var resultTestOne = service.GetAllCardsByCriteria<CardInListViewModel>(searchInputOne);
+            var resultTestOne = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputOne);
             var cardNameTestOne = resultTestOne.FirstOrDefault(x => x.Name == "Ancestral Recall");
             int countTestOne = resultTestOne.Count();
 
             // TestTwo
-            var resultTestTwo = service.GetAllCardsByCriteria<CardInListViewModel>(searchInputTwo);
+            var resultTestTwo = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputTwo);
             var firstCardNameTestTwo= resultTestTwo.FirstOrDefault(x => x.Name == "Ancestral Recall");
             var secondCardNameTestTwo = resultTestTwo.FirstOrDefault(x => x.Name == "Dark Ritual");
             int countTestTwo= resultTestTwo.Count();
 
             // TestThree
-            var resultTestThree = service.GetAllCardsByCriteria<CardInListViewModel>(searchInputThree);
+            var resultTestThree = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputThree);
             var firstCardNameTestThree = resultTestThree.FirstOrDefault(x => x.Name == "Ancestral Recall");
 
             int countTestThree= resultTestThree.Count();
 
             // TestFour
-            var resultTestFour = service.GetAllCardsByCriteria<CardInListViewModel>(searchInputFour);
+            var resultTestFour = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputFour);
             var firstCardNameTestFour= resultTestFour.FirstOrDefault(x => x.Name == "Ancestral Recall");
             var secondCardNameTestFour = resultTestFour.FirstOrDefault(x => x.Name == "Dark Ritual");
             var thirdCardNameTestFour = resultTestFour.FirstOrDefault(x => x.Name == "Bad Moon");
@@ -589,25 +589,25 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
 
 
             // TestOneOne
-            var resultTestOneOne = service.GetAllCardsByCriteria<CardInListViewModel>(searchInputOneOne);
+            var resultTestOneOne = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputOneOne);
             var cardNameTestOneOne = resultTestOneOne.FirstOrDefault(x => x.Name == "Crusade");
             int countTestOneOne = resultTestOneOne.Count();
 
             // TestTwoTwo
-            var resultTestTwoTwo = service.GetAllCardsByCriteria<CardInListViewModel>(searchInputTwoTwo);
+            var resultTestTwoTwo = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputTwoTwo);
             var firstCardNameTestTwoTwo = resultTestTwoTwo.FirstOrDefault(x => x.Name == "Gianth Growth");
             var secondCardNameTestTwoTwo = resultTestTwoTwo.FirstOrDefault(x => x.Name == "Healing Salve");
             var thirdCardNameTestTwoTwo = resultTestTwoTwo.FirstOrDefault(x => x.Name == "Lightning Bolt");
             int countTestTwoTwo = resultTestTwoTwo.Count();
 
             // TestThreeThree
-            var resultTestThreeThree = service.GetAllCardsByCriteria<CardInListViewModel>(searchInputThreeThree);
+            var resultTestThreeThree = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputThreeThree);
             var firstCardNameTestThreeThree = resultTestThreeThree.FirstOrDefault(x => x.Name == "Crusade");
 
             int countTestThreeThree = resultTestThreeThree.Count();
 
             // TestFourFour
-            var resultTestFourFour = service.GetAllCardsByCriteria<CardInListViewModel>(searchInputFourFour);
+            var resultTestFourFour = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputFourFour);
             var firstCardNameTestFourFour = resultTestFourFour.FirstOrDefault(x => x.Name == "Crusade");
             var secondCardNameTestFourFour = resultTestFourFour.FirstOrDefault(x => x.Name == "Dark Ritual");
             var thirdCardNameTestFourFour = resultTestFourFour.FirstOrDefault(x => x.Name == "Bad Moon");
@@ -617,7 +617,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
 
 
             // TestEmptyInput
-            var resultEmptyInput = service.GetAllCardsByCriteria<CardInListViewModel>(searchInputEmpty);
+            var resultEmptyInput = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputEmpty);
   
             int countTestEmpty = resultEmptyInput.Count();
 
@@ -1029,8 +1029,8 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cache);
 
 
-            var cardsFromExpansionOne = service.GetAllCardsByExpansion<CardInListViewModel>(1);
-            var cardsFromExpansionTwo = service.GetAllCardsByExpansion<CardInListViewModel>(3);
+            var cardsFromExpansionOne = await service.GetAllCardsByExpansion<CardInListViewModel>(1);
+            var cardsFromExpansionTwo = await service.GetAllCardsByExpansion<CardInListViewModel>(3);
             Assert.Equal(13, cardsFromExpansionOne.Count());
             Assert.Equal(6, cardsFromExpansionTwo.Count());
             TearDownBase();

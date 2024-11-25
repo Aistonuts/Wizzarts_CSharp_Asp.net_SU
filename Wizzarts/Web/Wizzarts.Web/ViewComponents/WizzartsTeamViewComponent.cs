@@ -29,7 +29,7 @@
             
             var viewModel = new WizzartsTeamListViewModel
             {
-                wizzartsTeam = this.wizzartsServices.GetAllWizzartsTeamMembers<WizzartsTeamInListViewModel>(),
+                wizzartsTeam = await this.wizzartsServices.GetAllWizzartsTeamMembers<WizzartsTeamInListViewModel>(),
             };
             if (user != null)
             {

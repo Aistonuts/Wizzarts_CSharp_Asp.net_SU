@@ -45,13 +45,13 @@
         }
 
         [AllowAnonymous]
-        public IActionResult GetRules()
+        public async Task<IActionResult> GetRules()
         {
             var wizzartsGame = new WizzartsCardGameViewModel()
             {
-                CardGameRules = this.wizzartsServices.GetGameRules<GameRulesViewModel>(),
-                GameRulesData = this.wizzartsServices.GetAllGameRulesData<GameRulesDataViewModel>(),
-                WizzartsTeamMembers = this.wizzartsServices.GetAllWizzartsTeamMembers<WizzartsTeamInListViewModel>(),
+                CardGameRules = await this.wizzartsServices.GetGameRules<GameRulesViewModel>(),
+                GameRulesData = await this.wizzartsServices.GetAllGameRulesData<GameRulesDataViewModel>(),
+                WizzartsTeamMembers = await this.wizzartsServices.GetAllWizzartsTeamMembers<WizzartsTeamInListViewModel>(),
             };
 
             return this.View(wizzartsGame);
@@ -121,13 +121,13 @@
             return this.View(view);
         }
 
-        public IActionResult ById(int id)
+        public async Task<IActionResult> ById(int id)
         {
             var userId = this.wizzartsServices.GetUserIdByArtistId(id);
-            var member = this.userService.GetById<SingleMemberViewModel>(userId);
-            member.Arts = this.artService.GetAllArtByUserId<ArtInListViewModel>(userId, 1, 50);
-            member.Articles = this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(userId, 1, 50);
-            member.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(userId, 1, 50);
+            var member = await this.userService.GetById<SingleMemberViewModel>(userId);
+            member.Arts = await this.artService.GetAllArtByUserId<ArtInListViewModel>(userId, 1, 50);
+            member.Articles = await this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(userId, 1, 50);
+            member.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(userId, 1, 50);
             return this.View(member);
         }
     }

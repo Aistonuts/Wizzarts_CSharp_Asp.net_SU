@@ -66,7 +66,7 @@
             var viewModel = new OrderListViewModel
             {
                 Orders = await this.orderService.GetAll<OrderInListViewModel>(),
-                Events = this.eventService.GetAll<EventInListViewModel>(),
+                Events = await this.eventService.GetAll<EventInListViewModel>(),
             };
 
             return this.View(viewModel);
@@ -75,8 +75,8 @@
         public async Task<IActionResult> ById(int id)
         {
             var order = await this.orderService.GetById<OrderInListViewModel>(id);
-            order.Cards = this.orderService.GetAllCardsInOrderId<CardInListViewModel>(id);
-            order.Decks = this.deckService.GetAll<DeckInListViewModel>();
+            order.Cards = await this.orderService.GetAllCardsInOrderId<CardInListViewModel>(id);
+            order.Decks = await this.deckService.GetAll<DeckInListViewModel>();
             return this.View(order);
         }
 
@@ -85,7 +85,7 @@
             var viewModel = new OrderListViewModel
             {
                 Orders = await this.orderService.GetAllOrdersByUserId<OrderInListViewModel>(this.User.GetId()),
-                Decks = this.deckService.GetAll<DeckInListViewModel>(),
+                Decks = await this.deckService.GetAll<DeckInListViewModel>(),
             };
 
             return View(viewModel);
@@ -149,7 +149,7 @@
         {
             var order = await this.orderService.GetById<OrderInListViewModel>(id);
             var html = new StringBuilder();
-            var user = this.userService.GetById<SingleMemberViewModel>(order.RecipientId);
+            var user = await this.userService.GetById<SingleMemberViewModel>(order.RecipientId);
             var uid = Regex.Replace(Convert.ToBase64String(Guid.NewGuid().ToByteArray()), "[/+=]", "");
             html.AppendLine($"<h1>{order.Title}</h1>");
             html.AppendLine($"<h3>{order.OrderStatus}</h3>");

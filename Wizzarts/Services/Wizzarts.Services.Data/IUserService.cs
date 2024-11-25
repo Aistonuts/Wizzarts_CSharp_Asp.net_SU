@@ -8,7 +8,7 @@
 
     public interface IUserService
     {
-        IEnumerable<T> GetAllAvatars<T>();
+        Task<IEnumerable<T>> GetAllAvatars<T>();
 
         int GetCountOfArt(string id);
 
@@ -18,11 +18,11 @@
 
         int GetCountOfCards(string id);
 
-        IEnumerable<T> GetAllArtByUserId<T>(string id);
+        Task<IEnumerable<T>> GetAllArtByUserId<T>(string id);
 
-        T GetAvatarById<T>(int id);
+        Task<T> GetAvatarById<T>(int id);
 
-        T GetById<T>(string id);
+        Task<T> GetById<T>(string id);
 
         Task UpdateAsync(string id, CreateMemberProfileViewModel input);
 
@@ -30,6 +30,6 @@
 
         Task<bool> IsPremium(string userId);
 
-        bool HasNickName(string userId);
+        Task<bool> HasNickName(string userId);
     }
 }

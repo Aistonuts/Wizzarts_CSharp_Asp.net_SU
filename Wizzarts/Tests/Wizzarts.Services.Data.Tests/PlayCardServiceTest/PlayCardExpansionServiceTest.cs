@@ -28,7 +28,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             var service = new PlayCardExpansionService(cardGameExpansionRepository);
 
-            var cardGameExpansion = service.GetAll<ExpansionInListViewModel>();
+            var cardGameExpansion = await service.GetAll<ExpansionInListViewModel>();
 
             Assert.Equal(2, cardGameExpansion.Count());
             TearDownBase();
@@ -42,7 +42,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             var service = new PlayCardExpansionService(cardGameExpansionRepository);
 
-            var cardGameExpansion = service.GetById<ExpansionInListViewModel>(1);
+            var cardGameExpansion = await service.GetById<ExpansionInListViewModel>(1);
 
             Assert.Equal("Alpha", cardGameExpansion.Title);
             TearDownBase();

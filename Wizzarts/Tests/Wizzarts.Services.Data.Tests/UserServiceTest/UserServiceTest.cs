@@ -34,7 +34,7 @@ namespace Wizzarts.Services.Data.Tests.UserServiceTest
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
             var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
 
-            var currentUser = service.GetById<SingleMemberViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695");
+            var currentUser = await service.GetById<SingleMemberViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695");
 
             Assert.Equal("Drawgoon", currentUser.UserName);
             this.TearDownBase();
@@ -54,7 +54,7 @@ namespace Wizzarts.Services.Data.Tests.UserServiceTest
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
             var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
 
-            var artByUserDrawgoon = service.GetAllArtByUserId<ArtInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695");
+            var artByUserDrawgoon = await service.GetAllArtByUserId<ArtInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695");
             Assert.Equal(8, artByUserDrawgoon.Count());
             this.TearDownBase();
         }
@@ -92,7 +92,7 @@ namespace Wizzarts.Services.Data.Tests.UserServiceTest
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
             var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
 
-            var avatars = service.GetAllAvatars<AvatarInListViewModel>();
+            var avatars = await service.GetAllAvatars<AvatarInListViewModel>();
 
             var avatar = data.Avatars.FirstOrDefault(x => x.Id == 1);
             Assert.Equal(6, avatars.Count());
@@ -154,7 +154,7 @@ namespace Wizzarts.Services.Data.Tests.UserServiceTest
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
             var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
 
-            var avatars = service.GetAvatarById<AvatarInListViewModel>(1);
+            var avatars = await service.GetAvatarById<AvatarInListViewModel>(1);
 
             Assert.Equal("Marvel One", avatars.Name);
             this.TearDownBase();
@@ -204,7 +204,7 @@ namespace Wizzarts.Services.Data.Tests.UserServiceTest
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
             var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
 
-            Assert.True(service.HasNickName("2738e787-5d57-4bc7-b0d2-287242f04695"));
+            Assert.True(await service.HasNickName("2738e787-5d57-4bc7-b0d2-287242f04695"));
             this.TearDownBase();
         }
 
@@ -222,7 +222,7 @@ namespace Wizzarts.Services.Data.Tests.UserServiceTest
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
             var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
 
-            Assert.False(service.HasNickName("0ac1e577-c7ff-4aa3-83c3-e5acac9de281"));
+            Assert.False(await service.HasNickName("0ac1e577-c7ff-4aa3-83c3-e5acac9de281"));
             this.TearDownBase();
         }
     }

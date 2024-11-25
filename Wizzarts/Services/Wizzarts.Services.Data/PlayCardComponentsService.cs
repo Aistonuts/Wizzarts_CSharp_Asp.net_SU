@@ -1,5 +1,9 @@
-﻿namespace Wizzarts.Services.Data
+﻿using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
+namespace Wizzarts.Services.Data
 {
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using Wizzarts.Data.Common.Repositories;
@@ -45,112 +49,112 @@
             this.cardGameExpansionRepository = cardGameExpansionRepository;
         }
 
-        public IEnumerable<BlackManaCostViewModel> GetAllBlackMana()
+        public async Task<IEnumerable<BlackManaCostViewModel>> GetAllBlackMana()
         {
-            return this.blackManaRepository.AllAsNoTracking()
+            return await this.blackManaRepository.AllAsNoTracking()
                 .Select(x => new BlackManaCostViewModel()
                 {
                     Id = x.Id,
                     Cost = x.Cost,
                 })
                 .OrderBy(x => x.Id)
-                .ToList();
+                .ToListAsync();
         }
 
-        public IEnumerable<BlueManCostViewModel> GetAllBlueMana()
+        public async Task<IEnumerable<BlueManCostViewModel>> GetAllBlueMana()
         {
-            return this.blueManaRepository.AllAsNoTracking()
+            return await this.blueManaRepository.AllAsNoTracking()
                .Select(x => new BlueManCostViewModel()
                {
                    Id = x.Id,
                    Cost = x.Cost,
                })
                .OrderBy(x => x.Id)
-               .ToList();
+               .ToListAsync();
         }
 
-        public IEnumerable<FrameColorViewModel> GetAllCardFrames()
+        public async Task<IEnumerable<FrameColorViewModel>> GetAllCardFrames()
         {
-            return this.cardFrameColorRepository.AllAsNoTracking()
+            return await this.cardFrameColorRepository.AllAsNoTracking()
                 .Select(x => new FrameColorViewModel()
                 {
                     Id = x.Id,
                     Name = x.Name,
                 })
                   .OrderBy(x => x.Id)
-                 .ToList();
+                 .ToListAsync();
         }
 
-        public IEnumerable<CardTypeViewModel> GetAllCardType()
+        public async Task<IEnumerable<CardTypeViewModel>> GetAllCardType()
         {
-            return this.cardTypeRepository.AllAsNoTracking()
+            return await this.cardTypeRepository.AllAsNoTracking()
                 .Select(x => new CardTypeViewModel()
                 {
                     Id = x.Id,
                     Name = x.Name,
                 })
                   .OrderBy(x => x.Id)
-                 .ToList();
+                 .ToListAsync();
         }
 
-        public IEnumerable<ColorlessManaCostViewModel> GetAllColorlessMana()
+        public async Task<IEnumerable<ColorlessManaCostViewModel>> GetAllColorlessMana()
         {
-            return this.colorlessManaRepository.AllAsNoTracking()
+            return await this.colorlessManaRepository.AllAsNoTracking()
                .Select(x => new ColorlessManaCostViewModel()
                {
                    Id = x.Id,
                    Cost = x.Cost,
                })
                .OrderBy(x => x.Id)
-               .ToList();
+               .ToListAsync();
         }
 
-        public IEnumerable<ExpansionInListViewModel> GetAllExpansionInListView()
+        public async Task<IEnumerable<ExpansionInListViewModel>> GetAllExpansionInListView()
         {
-            return this.cardGameExpansionRepository.AllAsNoTracking()
+            return await this.cardGameExpansionRepository.AllAsNoTracking()
                .Select(x => new ExpansionInListViewModel()
                {
                    Id = x.Id,
                    Title = x.Title,
                })
                .OrderBy(x => x.Title)
-               .ToList();
+               .ToListAsync();
         }
 
-        public IEnumerable<GreenManaCostViewModel> GetAllGreenMana()
+        public async Task<IEnumerable<GreenManaCostViewModel>> GetAllGreenMana()
         {
-            return this.greenManaRepository.AllAsNoTracking()
+            return await this.greenManaRepository.AllAsNoTracking()
                .Select(x => new GreenManaCostViewModel()
                {
                    Id = x.Id,
                    Cost = x.Cost,
                })
                .OrderBy(x => x.Id)
-               .ToList();
+               .ToListAsync();
         }
 
-        public IEnumerable<RedManaCostViewModel> GetAllRedMana()
+        public async Task<IEnumerable<RedManaCostViewModel>> GetAllRedMana()
         {
-            return this.redManaRepository.AllAsNoTracking()
+            return await this.redManaRepository.AllAsNoTracking()
                .Select(x => new RedManaCostViewModel()
                {
                    Id = x.Id,
                    Cost = x.Cost,
                })
                .OrderBy(x => x.Id)
-               .ToList();
+               .ToListAsync();
         }
 
-        public IEnumerable<WhiteManaCostViewModel> GetAllWhiteMana()
+        public async Task<IEnumerable<WhiteManaCostViewModel>> GetAllWhiteMana()
         {
-            return this.whiteManaRepository.AllAsNoTracking()
+            return await this.whiteManaRepository.AllAsNoTracking()
               .Select(x => new WhiteManaCostViewModel()
               {
                   Id = x.Id,
                   Cost = x.Cost,
               })
               .OrderBy(x => x.Id)
-              .ToList();
+              .ToListAsync();
         }
     }
 }

@@ -54,26 +54,26 @@ namespace Wizzarts.Web.Controllers
             this.userManager = userManager;
         }
 
-        public IActionResult SelectAvatar()
+        public async Task<IActionResult> SelectAvatar()
         {
             var viewModel = new AvatarListViewModel
             {
-                Avatars = this.userService.GetAllAvatars<AvatarInListViewModel>(),
+                Avatars = await this.userService.GetAllAvatars<AvatarInListViewModel>(),
             };
 
             return this.View(viewModel);
         }
 
         [HttpGet]
-        public IActionResult Update(int id)
+        public async Task<IActionResult> Update(int id)
         {
             if (id == 0)
             {
                 id = DefaultUserAvatarId;
             }
 
-            var avatar = this.userService.GetAvatarById<CreateMemberProfileViewModel>(id);
-            avatar.Avatars = this.userService.GetAllAvatars<AvatarInListViewModel>();
+            var avatar = await this.userService.GetAvatarById<CreateMemberProfileViewModel>(id);
+            avatar.Avatars = await this.userService.GetAllAvatars<AvatarInListViewModel>();
             avatar.AvatarId = id;
             return this.View(avatar);
         }
@@ -81,7 +81,7 @@ namespace Wizzarts.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(CreateMemberProfileViewModel input)
         {
-            input.Avatars = this.userService.GetAllAvatars<AvatarInListViewModel>();
+            input.Avatars = await this.userService.GetAllAvatars<AvatarInListViewModel>();
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
             if (!this.ModelState.IsValid)
@@ -127,12 +127,12 @@ namespace Wizzarts.Web.Controllers
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
             };
-            view.Arts = this.artService.GetAllArtByUserId<ArtInListViewModel>(this.User.GetId(), id, ItemsPerPage);
-            view.Articles = this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(this.User.GetId(), id, ItemsPerPage);
-            view.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), id, ItemsPerPage);
-            view.Cards = this.cardService.GetAllCardsByUserId<CardInListViewModel>(this.User.GetId(), id, ItemsPerPage);
-            view.Stores = this.storeService.GetAllStoresByUserId<StoreInListViewModel>(this.User.GetId(), id, ItemsPerPage);
-            view.Decks = this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
+            view.Arts = await this.artService.GetAllArtByUserId<ArtInListViewModel>(this.User.GetId(), id, ItemsPerPage);
+            view.Articles = await this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(this.User.GetId(), id, ItemsPerPage);
+            view.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), id, ItemsPerPage);
+            view.Cards = await this.cardService.GetAllCardsByUserId<CardInListViewModel>(this.User.GetId(), id, ItemsPerPage);
+            view.Stores = await this.storeService.GetAllStoresByUserId<StoreInListViewModel>(this.User.GetId(), id, ItemsPerPage);
+            view.Decks = await this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
             view.Orders = await this.orderService.GetAllOrdersByUserId<OrderInListViewModel>(this.User.GetId());
             return this.View(view);
         }
@@ -154,7 +154,7 @@ namespace Wizzarts.Web.Controllers
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
 
-                Artists = artists.Select(x => new MembersInListViewModel
+                Artists = artists.Select(x=> new MembersInListViewModel
                 {
                     Id = x.Id,
                     Nickname = x.Nickname,
@@ -198,23 +198,23 @@ namespace Wizzarts.Web.Controllers
             return this.View(viewModel);
         }
 
-        public IActionResult ById(string id, string information)
+        public async Task<IActionResult> ById(string id, string information)
         {
             if (id == null)
             {
                 return this.Unauthorized();
             }
 
-            var member = this.userService.GetById<SingleMemberViewModel>(id);
+            var member = await this.userService.GetById<SingleMemberViewModel>(id);
 
             if (information != member.GetWizzartsMemberName())
             {
                 return this.BadRequest(information);
             }
 
-            member.Arts = this.artService.GetAllArtByUserId<ArtInListViewModel>(id, 1, 50);
-            member.Articles = this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(id, 1, 50);
-            member.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(id, 1, 50);
+            member.Arts = await this.artService.GetAllArtByUserId<ArtInListViewModel>(id, 1, 50);
+            member.Articles = await this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(id, 1, 50);
+            member.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(id, 1, 50);
             return this.View(member);
         }
     }

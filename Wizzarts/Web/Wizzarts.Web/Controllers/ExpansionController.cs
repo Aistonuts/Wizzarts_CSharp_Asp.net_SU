@@ -62,25 +62,25 @@ namespace Wizzarts.Web.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult All()
+        public async Task<IActionResult> All()
         {
             var viewModel = new ExpansionListViewModel
             {
-                CardGameExpansions = this.playCardExpansionService.GetAll<ExpansionInListViewModel>(),
+                CardGameExpansions = await this.playCardExpansionService.GetAll<ExpansionInListViewModel>(),
                 Articles = this.articleService.GetRandom<ArticleInListViewModel>(4),
-                Events = this.eventService.GetAll<EventInListViewModel>(),
+                Events = await this.eventService.GetAll<EventInListViewModel>(),
             };
 
             return this.View(viewModel);
         }
 
         [AllowAnonymous]
-        public IActionResult ById(int id)
+        public async Task<IActionResult> ById(int id)
         {
-            var expansion = this.playCardExpansionService.GetById<SingleExpansionViewModel>(id);
+            var expansion = await this.playCardExpansionService.GetById<SingleExpansionViewModel>(id);
 
-            expansion.Cards = this.cardService.GetAllCardsByExpansion<CardInListViewModel>(id);
-            expansion.GameExpansions= this.playCardExpansionService.GetAll<ExpansionInListViewModel>();
+            expansion.Cards = await this.cardService.GetAllCardsByExpansion<CardInListViewModel>(id);
+            expansion.GameExpansions = await this.playCardExpansionService.GetAll<ExpansionInListViewModel>();
 
             return this.View(expansion);
         }

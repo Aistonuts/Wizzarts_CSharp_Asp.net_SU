@@ -150,7 +150,7 @@
             return this.View(viewModel);
         }
 
-        public IActionResult ById(string id, int idPage = 1)
+        public async Task<IActionResult> ById(string id, int idPage = 1)
         {
             if (idPage <= 0)
             {
@@ -170,11 +170,11 @@
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = idPage,
             };
-            user.Arts = this.artService.GetAllArtByUserId<ArtInListViewModel>(user.Id, idPage, ItemsPerPage);
-            user.Articles = this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(user.Id, idPage, ItemsPerPage);
-            user.Events = this.eventService.GetAllEventsByUserId<EventInListViewModel>(user.Id, idPage, ItemsPerPage);
-            user.Cards = this.cardService.GetAllCardsByUserId<CardInListViewModel>(user.Id, idPage, ItemsPerPage);
-            user.Stores = this.storeService.GetAllStoresByUserId<StoreInListViewModel>(user.Id, idPage, ItemsPerPage);
+            user.Arts = await this.artService.GetAllArtByUserId<ArtInListViewModel>(user.Id, idPage, ItemsPerPage);
+            user.Articles = await this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(user.Id, idPage, ItemsPerPage);
+            user.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(user.Id, idPage, ItemsPerPage);
+            user.Cards = await this.cardService.GetAllCardsByUserId<CardInListViewModel>(user.Id, idPage, ItemsPerPage);
+            user.Stores = await this.storeService.GetAllStoresByUserId<StoreInListViewModel>(user.Id, idPage, ItemsPerPage);
             return this.View(user);
         }
     }

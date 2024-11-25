@@ -15,6 +15,7 @@ using Wizzarts.Web.ViewModels.Art;
 using Wizzarts.Web.ViewModels.Article;
 using Wizzarts.Web.ViewModels.Event;
 using Xunit;
+using Moq;
 
 namespace Wizzarts.Web.Tests.ControllerTest
 {
@@ -47,7 +48,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
              .Instance(instance => instance
                  .WithUser()
                  .WithData(data.Events.FirstOrDefault(x => x.Id == 1)))
-             .Calling(c => c.ById(1, With.No<int>()))
+             .Calling(c => c.ById(1, With.No<string>(), With.No<int>()))
              .ShouldReturn()
              .View(view => view
                  .WithModelOfType<SingleEventViewModel>());

@@ -24,7 +24,7 @@
 
         public async Task<string> ApproveStore(int id)
         {
-            var store = this.storeRepository.All().FirstOrDefault(x => x.Id == id);
+            var store = await this.storeRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             store.ApprovedByAdmin = true;
             await this.storeRepository.SaveChangesAsync();
             return store.StoreOwnerId;
@@ -56,40 +56,40 @@
             await this.storeRepository.SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAll<T>()
+        public async Task<IEnumerable<T>> GetAll<T>()
         {
-            var stores = this.storeRepository.AllAsNoTracking()
+            var stores = await this.storeRepository.AllAsNoTracking()
                 .OrderByDescending(x => x.Id)
-                .To<T>().ToList();
+                .To<T>().ToListAsync();
 
             return stores;
         }
 
-        public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12)
+        public async Task<IEnumerable<T>> GetAll<T>(int page, int itemsPerPage = 12)
         {
-            var store = this.storeRepository.AllAsNoTracking()
+            var store = await this.storeRepository.AllAsNoTracking()
                 .OrderByDescending(x => x.Id)
                 .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
-                .To<T>().ToList();
+                .To<T>().ToListAsync();
             return store;
         }
 
-        public IEnumerable<T> GetAllApprovedStoresByUserId<T>(string id)
+        public async Task<IEnumerable<T>> GetAllApprovedStoresByUserId<T>(string id)
         {
-            var stores = this.storeRepository.AllAsNoTracking()
+            var stores = await this.storeRepository.AllAsNoTracking()
                  .OrderByDescending(x => x.Id)
                  .Where(x => x.ApprovedByAdmin == true && x.StoreOwnerId == id)
-                 .To<T>().ToList();
+                 .To<T>().ToListAsync();
 
             return stores;
         }
 
-        public IEnumerable<T> GetAllStoresByUserId<T>(string id, int page, int itemsPerPage = 3)
+        public async Task<IEnumerable<T>> GetAllStoresByUserId<T>(string id, int page, int itemsPerPage = 3)
         {
-            var store = this.storeRepository.AllAsNoTracking()
+            var store = await this.storeRepository.AllAsNoTracking()
            .Where(x => x.StoreOwnerId == id)
            .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
-           .To<T>().ToList();
+           .To<T>().ToListAsync();
 
             return store;
         }
@@ -103,9 +103,9 @@
             return store;
         }
 
-        public int GetCount()
+        public Task<int> GetCount()
         {
-            return this.storeRepository.All().Count();
+            return this.storeRepository.All().CountAsync();
         }
     }
 }

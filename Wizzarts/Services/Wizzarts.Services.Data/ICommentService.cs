@@ -9,8 +9,8 @@
     {
         Task CommentAsync(SingleCardViewModel input, string userId, string cardId, bool byAdmin);
 
-        IEnumerable<T> GetAllCommentsByUser<T>(string userId);
+        Task<IEnumerable<T>> GetAllCommentsByUser<T>(string userId);
 
-        IEnumerable<T> GetCommentsByCardId<T>(string id);
+        Task<IEnumerable<T>> GetCommentsByCardId<T>(string id);
     }
 }

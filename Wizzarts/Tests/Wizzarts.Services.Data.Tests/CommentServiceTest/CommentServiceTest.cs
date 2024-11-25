@@ -65,7 +65,7 @@ namespace Wizzarts.Services.Data.Tests.CommentServiceTest
 
             await commentService.CommentAsync(comment, userId, cardId, true);
 
-            var adminComments = commentService.GetAllCommentsByUser<CardCommentInListViewModel>(userId);
+            var adminComments = await commentService.GetAllCommentsByUser<CardCommentInListViewModel>(userId);
             var adminComment = adminComments.FirstOrDefault( x => x.PostedByUserId == userId);
             Assert.Equal(1, adminComments.Count());
             Assert.Equal("Tested Great", adminComment.Review);
@@ -92,7 +92,7 @@ namespace Wizzarts.Services.Data.Tests.CommentServiceTest
 
             await commentService.CommentAsync(comment, userId, cardId, true);
 
-            var cardComments = commentService.GetCommentsByCardId<CardCommentInListViewModel>(cardId);
+            var cardComments = await commentService.GetCommentsByCardId<CardCommentInListViewModel>(cardId);
             var cardComment = cardComments.FirstOrDefault(x => x.CardId == cardId);
             Assert.Equal(1, cardComments.Count());
             Assert.Equal("Tested Great", cardComment.Review);

@@ -220,7 +220,7 @@
         </div>
         @if (this.SignInManager.IsSignedIn(this.User))
         {
-            if (this.userService.HasNickName(this.User.GetId()) || User.IsInRole(AdministratorRoleName))
+            if (await this.userService.HasNickName(this.User.GetId()) || User.IsInRole(AdministratorRoleName))
             {
                 <div class="card mb-2 ">
 

@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Wizzarts.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -25,37 +27,37 @@
 
         }
 
-        public IEnumerable<T> GetAllChatMessagesInChatRoom<T>(int id)
+        public async Task<IEnumerable<T>> GetAllChatMessagesInChatRoom<T>(int id)
         {
-            var messages = this.chatMessageRepository.AllAsNoTracking()
+            var messages = await this.chatMessageRepository.AllAsNoTracking()
                 .Where(x => x.ChatId == id)
-                .To<T>().ToList();
+                .To<T>().ToListAsync();
 
             return messages;
         }
 
-        public IEnumerable<T> GetAllChatRooms<T>()
+        public async Task<IEnumerable<T>> GetAllChatRooms<T>()
         {
-            var chatRooms = this.chatRepository.AllAsNoTracking()
-               .To<T>().ToList();
+            var chatRooms = await this.chatRepository.AllAsNoTracking()
+               .To<T>().ToListAsync();
 
             return chatRooms;
         }
 
-        public IEnumerable<T> GetAllGeneralChatMessages<T>(int id = 1)
+        public async Task<IEnumerable<T>> GetAllGeneralChatMessages<T>(int id = 1)
         {
-            var messages = this.chatMessageRepository.AllAsNoTracking()
+            var messages = await this.chatMessageRepository.AllAsNoTracking()
                 .Where(x => x.ChatId == id)
-                .To<T>().ToList();
+                .To<T>().ToListAsync();
 
             return messages;
         }
 
-        public T GetById<T>(int id)
+        public async Task<T> GetById<T>(int id)
         {
-            var chatRoom = this.chatRepository.AllAsNoTracking()
+            var chatRoom = await this.chatRepository.AllAsNoTracking()
                 .Where(x => x.Id == id)
-               .To<T>().FirstOrDefault();
+               .To<T>().FirstOrDefaultAsync();
 
             return chatRoom;
         }

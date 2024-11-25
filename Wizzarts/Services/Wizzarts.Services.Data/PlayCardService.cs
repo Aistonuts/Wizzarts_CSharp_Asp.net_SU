@@ -67,9 +67,9 @@
             return card;
         }
 
-        public int GetCount()
+        public async Task<int> GetCount()
         {
-            return this.cardRepository.All().Count();
+            return await this.cardRepository.All().CountAsync();
         }
 
         public IEnumerable<T> GetRandom<T>(int count)
@@ -117,7 +117,7 @@
                 ForMainPage = false,
             };
 
-            var manaBlack = this.blackManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.BlackManaId);
+            var manaBlack = await this.blackManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.BlackManaId);
 
             if (manaBlack != null)
             {
@@ -131,7 +131,7 @@
                 }
             }
 
-            var manaBlue = this.blueManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.BlueManaId);
+            var manaBlue = await this.blueManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.BlueManaId);
 
             if (manaBlue != null)
             {
@@ -145,7 +145,7 @@
                 }
             }
 
-            var manaGreen = this.greenManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.GreenManaId);
+            var manaGreen = await this.greenManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.GreenManaId);
 
             if (manaGreen != null)
             {
@@ -159,7 +159,7 @@
                 }
             }
 
-            var manaRed = this.redManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.RedManaId);
+            var manaRed = await this.redManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.RedManaId);
 
             if (manaRed != null)
             {
@@ -173,7 +173,7 @@
                 }
             }
 
-            var colorlessMana = this.colorlessManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.ColorlessManaId);
+            var colorlessMana = await this.colorlessManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.ColorlessManaId);
 
             if (colorlessMana != null)
             {
@@ -187,7 +187,7 @@
                 }
             }
 
-            var manaWhite = this.whiteManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.WhiteManaId);
+            var manaWhite = await this.whiteManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.WhiteManaId);
 
             if (manaWhite != null)
             {
@@ -201,14 +201,14 @@
                 }
             }
 
-            var cardType = this.cardTypeRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.CardTypeId);
+            var cardType = await this.cardTypeRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.CardTypeId);
 
             if (cardType != null)
             {
                 card.CardTypeId = cardType.Id;
             }
 
-            var cardFrame = this.cardFrameColorRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.CardFrameId);
+            var cardFrame = await this.cardFrameColorRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.CardFrameId);
 
             if (cardFrame != null)
             {
@@ -257,7 +257,6 @@
             }
             //var extension = Path.GetExtension(input.Images.FileName).TrimStart('.');
 
-
             //if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
             //{
             //    throw new Exception($"Invalid image extension {extension}");
@@ -274,37 +273,37 @@
             this.cache.Remove(CardsCacheKey);
         }
 
-        public T GetById<T>(string id)
+        public async Task<T> GetById<T>(string id)
         {
-            var card = this.cardRepository.AllAsNoTracking()
+            var card = await this.cardRepository.AllAsNoTracking()
                 .Where(x => x.Id == id)
-                .To<T>().FirstOrDefault();
+                .To<T>().FirstOrDefaultAsync();
 
             return card;
         }
 
-        public IEnumerable<T> GetAllCardManaByCardId<T>(string id)
+        public async Task<IEnumerable<T>> GetAllCardManaByCardId<T>(string id)
         {
-            var mana = this.cardManaRepository.AllAsNoTracking()
+            var mana = await this.cardManaRepository.AllAsNoTracking()
               .Where(x => x.CardId == id)
-              .To<T>().ToList();
+              .To<T>().ToListAsync();
 
             return mana;
         }
 
-        public IEnumerable<T> GetAllCardsByUserId<T>(string id, int page, int itemsPerPage = 12)
+        public async Task<IEnumerable<T>> GetAllCardsByUserId<T>(string id, int page, int itemsPerPage = 12)
         {
-            var cards = this.cardRepository.AllAsNoTracking()
+            var cards = await this.cardRepository.AllAsNoTracking()
             .Where(x => x.AddedByMemberId == id)
             .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
-            .To<T>().ToList();
+            .To<T>().ToListAsync();
 
             return cards;
         }
 
         public async Task<string> ApproveCard(string id)
         {
-            var card = this.cardRepository.All().FirstOrDefault(x => x.Id == id);
+            var card = await this.cardRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             if (card != null && card.ApprovedByAdmin == false)
             {
                 card.ApprovedByAdmin = true;
@@ -331,7 +330,7 @@
 
         public async Task DeleteAsync(string id)
         {
-            var card = this.cardRepository.All().FirstOrDefault(x => x.Id == id);
+            var card = await this.cardRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             if (card != null)
             {
                 this.cardRepository.Delete(card);
@@ -340,11 +339,11 @@
             }
         }
 
-        public IEnumerable<T> GetAllEventCards<T>()
+        public async Task<IEnumerable<T>> GetAllEventCards<T>()
         {
-            return this.cardRepository.AllAsNoTracking()
+            return await this.cardRepository.AllAsNoTracking()
           .Where(x => x.IsEventCard == true)
-          .To<T>().ToList();
+          .To<T>().ToListAsync();
         }
 
         public IEnumerable<T> GetAllNoPagination<T>()
@@ -354,50 +353,50 @@
              return card;
         }
 
-        public IEnumerable<T> GetAllCardsByCriteria<T>(SingleDeckViewModel input)
+        public async Task<IEnumerable<T>> GetAllCardsByCriteria<T>(SingleDeckViewModel input)
         {
 
             if (input.SearchEvent == "Event" && input.SearchName != null && input.SearchType != null)
             {
-                return this.cardRepository.AllAsNoTracking()
+                return await this.cardRepository.AllAsNoTracking()
              .Where(x => x.IsEventCard == true && x.Name == input.SearchName && x.CardType.Id == input.SearchTypeId)
-             .To<T>().ToList();
+             .To<T>().ToListAsync();
             }
             else if (input.SearchEvent == "Event" && input.SearchName == null && input.SearchType != null)
             {
-                return this.cardRepository.AllAsNoTracking()
+                return await this.cardRepository.AllAsNoTracking()
              .Where(x => x.IsEventCard == true && x.CardType.Id == input.SearchTypeId)
-             .To<T>().ToList();
+             .To<T>().ToListAsync();
             }
             else if (input.SearchEvent == "Event" && input.SearchName != null && input.SearchType == null)
             {
-                return this.cardRepository.AllAsNoTracking()
+                return await this.cardRepository.AllAsNoTracking()
              .Where(x => x.IsEventCard == true && x.Name == input.SearchName)
-             .To<T>().ToList();
+             .To<T>().ToListAsync();
             }
             else if (input.SearchEvent == "Event" && input.SearchName == null && input.SearchType == null)
             {
-                return this.cardRepository.AllAsNoTracking()
+                return await this.cardRepository.AllAsNoTracking()
              .Where(x => x.IsEventCard == true)
-             .To<T>().ToList();
+             .To<T>().ToListAsync();
             }
             else if (input.SearchEvent == "Base" && input.SearchName != null && input.SearchType != null)
             {
-                return this.cardRepository.AllAsNoTracking()
+                return await this.cardRepository.AllAsNoTracking()
              .Where(x => x.IsEventCard != true && x.Name == input.SearchName && x.CardType.Id == input.SearchTypeId)
-             .To<T>().ToList();
+             .To<T>().ToListAsync();
             }
             else if (input.SearchEvent == "Base" && input.SearchName == null && input.SearchType != null)
             {
-                return this.cardRepository.AllAsNoTracking()
+                return await this.cardRepository.AllAsNoTracking()
              .Where(x => x.IsEventCard != true && x.CardType.Id == input.SearchTypeId)
-             .To<T>().ToList();
+             .To<T>().ToListAsync();
             }
             else if (input.SearchEvent == "Base" && input.SearchName != null && input.SearchType == null)
             {
-                return this.cardRepository.AllAsNoTracking()
+                return await this.cardRepository.AllAsNoTracking()
              .Where(x => x.IsEventCard != true && x.Name == input.SearchName)
-             .To<T>().ToList();
+             .To<T>().ToListAsync();
             }
             else
             {
@@ -414,11 +413,11 @@
                 .To<T>().FirstOrDefault();
         }
 
-        public IEnumerable<T> GetAllCardsByExpansion<T>(int id)
+        public async Task<IEnumerable<T>> GetAllCardsByExpansion<T>(int id)
         {
-            return this.cardRepository.AllAsNoTracking()
+            return await this.cardRepository.AllAsNoTracking()
             .Where(x => x.CardGameExpansionId == id)
-            .To<T>().ToList();
+            .To<T>().ToListAsync();
         }
 
         public async Task AddAsync(CreateCardViewModel input, string userId, string path, bool isEventCard, string canvasCapture)
@@ -443,7 +442,7 @@
                 ArtId = input.ArtId,
             };
 
-            var manaBlack = this.blackManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.BlackManaId);
+            var manaBlack = await this.blackManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.BlackManaId);
 
             if (manaBlack != null)
             {
@@ -457,7 +456,7 @@
                 }
             }
 
-            var manaBlue = this.blueManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.BlueManaId);
+            var manaBlue = await this.blueManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.BlueManaId);
 
             if (manaBlue != null)
             {
@@ -471,7 +470,7 @@
                 }
             }
 
-            var manaGreen = this.greenManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.GreenManaId);
+            var manaGreen = await this.greenManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.GreenManaId);
 
             if (manaGreen != null)
             {
@@ -485,7 +484,7 @@
                 }
             }
 
-            var manaRed = this.redManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.RedManaId);
+            var manaRed = await this.redManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.RedManaId);
 
             if (manaRed != null)
             {
@@ -499,7 +498,7 @@
                 }
             }
 
-            var colorlessMana = this.colorlessManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.ColorlessManaId);
+            var colorlessMana = await this.colorlessManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.ColorlessManaId);
 
             if (colorlessMana != null)
             {
@@ -513,7 +512,7 @@
                 }
             }
 
-            var manaWhite = this.whiteManaRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.WhiteManaId);
+            var manaWhite = await this.whiteManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.WhiteManaId);
 
             if (manaWhite != null)
             {
@@ -527,14 +526,14 @@
                 }
             }
 
-            var cardType = this.cardTypeRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.CardTypeId);
+            var cardType = await this.cardTypeRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.CardTypeId);
 
             if (cardType != null)
             {
                 card.CardTypeId = cardType.Id;
             }
 
-            var cardFrame = this.cardFrameColorRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == input.CardFrameId);
+            var cardFrame = await this.cardFrameColorRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.CardFrameId);
 
             if (cardFrame != null)
             {
@@ -580,7 +579,7 @@
 
         public async Task Promote(string id)
         {
-            var card = this.cardRepository.All().FirstOrDefault(x => x.Id == id);
+            var card = await this.cardRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             if (card != null)
             {
                 card.CardGameExpansionId = SecondExpansion;

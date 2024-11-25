@@ -54,9 +54,9 @@
         {
             var arts = this.artService.GetRandom<ArtInListViewModel>(1);
             var artUrl = arts.FirstOrDefault()?.ImageUrl;
-            var currentEvent = this.eventRepository.All().FirstOrDefault(x => x.Id == input.EventId);
+            var currentEvent = await this.eventRepository.All().FirstOrDefaultAsync(x => x.Id == input.EventId);
 
-            var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
+            var user = await this.userRepository.All().FirstOrDefaultAsync(x => x.Id == userId);
 
             var deck = new CardDeck
             {
@@ -83,7 +83,7 @@
 
         public async Task UpdateAsync(EditDeckViewModel input, int id)
         {
-            var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == input.Id);
+            var deck = await this.deckRepository.All().FirstOrDefaultAsync(x => x.Id == input.Id);
             if (deck != null)
             {
                 deck.Name = input.Name;
@@ -94,19 +94,19 @@
             }
         }
 
-        public IEnumerable<T> GetAll<T>()
+        public async Task<IEnumerable<T>> GetAll<T>()
         {
-            var decks = this.deckRepository.AllAsNoTracking()
+            var decks = await this.deckRepository.AllAsNoTracking()
                 .Where(x => x.IsLocked == true)
-                .To<T>().ToList();
+                .To<T>().ToListAsync();
             return decks;
         }
 
-        public IEnumerable<T> GetAllDecksByUserId<T>(string id)
+        public async Task<IEnumerable<T>> GetAllDecksByUserId<T>(string id)
         {
-            var decks = this.deckRepository.AllAsNoTracking()
+            var decks = await this.deckRepository.AllAsNoTracking()
                 .Where(x => x.CreatedByMemberId == id)
-                .To<T>().ToList();
+                .To<T>().ToListAsync();
 
             return decks;
         }
@@ -122,9 +122,9 @@
 
         public async Task<int> AddAsync(int deckId, string cardId)
         {
-            var card = this.playCardRepository.All().FirstOrDefault(x => x.Id == cardId);
+            var card = await this.playCardRepository.All().FirstOrDefaultAsync(x => x.Id == cardId);
 
-            var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == deckId);
+            var deck = await this.deckRepository.All().FirstOrDefaultAsync(x => x.Id == deckId);
             if (deck != null && card != null && !deck.IsLocked)
             {
                 deck.PlayCards.Add(card);
@@ -134,13 +134,13 @@
             return deckId;
         }
 
-        public IEnumerable<T> GetAllCardsInDeckId<T>(int id)
+        public async Task<IEnumerable<T>> GetAllCardsInDeckId<T>(int id)
         {
             var listOfCards = new List<T>();
-            var deckOfCards = this.deckOfCardsRepository.AllAsNoTracking().Where(x => x.DeckId == id);
+            var deckOfCards = await this.deckOfCardsRepository.AllAsNoTracking().Where(x => x.DeckId == id).ToListAsync();
             foreach (var item in deckOfCards)
             {
-                var card = this.cardService.GetById<T>(item.PlayCardId);
+                var card = await this.cardService.GetById<T>(item.PlayCardId);
                 listOfCards.Add(card);
             }
 
@@ -168,7 +168,7 @@
 
             foreach (var item in deckOfCards)
             {
-                var card = this.playCardRepository.All().FirstOrDefault(x => x.Id == item.PlayCardId);
+                var card = await this.playCardRepository.All().FirstOrDefaultAsync(x => x.Id == item.PlayCardId);
                 order.CardsInOrder.Add(card);
             }
 
@@ -178,9 +178,9 @@
 
         public async Task<int> RemoveAsync(int deckId, string cardId)
         {
-            var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == deckId);
+            var deck = await this.deckRepository.All().FirstOrDefaultAsync(x => x.Id == deckId);
             var deckOfCards = this.deckOfCardsRepository.All().FirstOrDefault(x => x.DeckId == deckId && x.PlayCardId == cardId);
-            var card = this.playCardRepository.All().FirstOrDefault(x => x.Id == cardId);
+            var card = await this.playCardRepository.All().FirstOrDefaultAsync(x => x.Id == cardId);
             if (deck != null && card != null && !deck.IsLocked)
             {
                 this.deckOfCardsRepository.Delete(deckOfCards);
@@ -190,11 +190,11 @@
             return deckId;
         }
 
-        public bool HasEventCards(int id)
+        public async Task<bool> HasEventCards(int id)
         {
-            var deckOfCards = this.deckOfCardsRepository.AllAsNoTracking().Where(x => x.DeckId == id);
+            var deckOfCards = await this.deckOfCardsRepository.AllAsNoTracking().Where(x => x.DeckId == id).ToListAsync();
 
-            var eventCards = this.cardService.GetAllEventCards<CardInListViewModel>();
+            var eventCards = await this.cardService.GetAllEventCards<CardInListViewModel>();
 
             bool hasEventCards = false;
 
@@ -214,7 +214,7 @@
 
         public async Task<int> LockDeck(int id)
         {
-            var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == id);
+            var deck = await this.deckRepository.All().FirstOrDefaultAsync(x => x.Id == id);
 
             if (deck != null)
             {
@@ -237,31 +237,16 @@
             return id;
         }
 
-        public IEnumerable<DeckStatusListViewModel> GetAllDeckStatuses()
-        {
-            var deckStatuses = this.deckStatusRepository
-                .AllAsNoTracking()
-                .Select(x => new DeckStatusListViewModel
-                {
-                    Id = x.Id,
-                    Name = x.Name,
-                })
-                .OrderBy(x => x.Id)
-               .ToList();
-
-            return deckStatuses;
-        }
-
         public async Task ChangeStatusAsync(SingleDeckViewModel input)
         {
-            var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == input.Id);
+            var deck = await this.deckRepository.All().FirstOrDefaultAsync(x => x.Id == input.Id);
             deck.StatusId = input.DeckStatusId;
             await this.deckRepository.SaveChangesAsync();
         }
 
-        public bool HasOpenDecks(string id)
+        public async Task<bool> HasOpenDecks(string id)
         {
-            var deck = this.deckRepository.All().FirstOrDefault(x => x.CreatedByMemberId == id && x.IsLocked == false);
+            var deck = await this.deckRepository.All().FirstOrDefaultAsync(x => x.CreatedByMemberId == id && x.IsLocked == false);
 
             if (deck != null)
             {
@@ -275,14 +260,14 @@
 
         public async Task UpdateShippingAsync(SingleDeckViewModel input)
         {
-            var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == input.Id);
+            var deck = await this.deckRepository.All().FirstOrDefaultAsync(x => x.Id == input.Id);
             deck.StoreId = input.StoreId;
             await this.deckRepository.SaveChangesAsync();
         }
 
-        public bool IsLocked(int id)
+        public async Task<bool> IsLocked(int id)
         {
-            var deck = this.deckRepository.All().FirstOrDefault(x => x.Id == id);
+            var deck = await this.deckRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             return deck.IsLocked;
         }
     }

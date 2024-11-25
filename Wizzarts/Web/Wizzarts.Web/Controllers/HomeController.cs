@@ -83,18 +83,18 @@
                 Articles = this.articlesService.GetRandom<ArticleInListViewModel>(8),
                 Arts = this.artService.GetRandom<ArtInListViewModel>(4),
                 Cards = this.playCardService.GetRandom<CardInListViewModel>(4),
-                Stores = this.storeService.GetAll<StoreInListViewModel>(),
-                Events = this.eventService.GetAll<EventInListViewModel>(),
-                GameExpansions = this.cardExpansionService.GetAll<ExpansionInListViewModel>(),
-                ChatMessages = this.chatService.GetAllGeneralChatMessages<DbChatMessagesInListViewModel>(GeneralChatId),
-                ChatRooms = this.chatService.GetAllChatRooms<SingleChatViewModel>(),
+                Stores = await this.storeService.GetAll<StoreInListViewModel>(),
+                Events = await this.eventService.GetAll<EventInListViewModel>(),
+                GameExpansions = await this.cardExpansionService.GetAll<ExpansionInListViewModel>(),
+                ChatMessages = await this.chatService.GetAllGeneralChatMessages<DbChatMessagesInListViewModel>(GeneralChatId),
+                ChatRooms = await this.chatService.GetAllChatRooms<SingleChatViewModel>(),
                 ChatId = GeneralChatId,
                 MembershipStatus = welcomeMessage,
                 CountOfArts = this.userService.GetCountOfArt(this.User.GetId()),
                 CountOfArticles = this.userService.GetCountOfArticles(this.User.GetId()),
                 CountOfCards = this.userService.GetCountOfCards(this.User.GetId()),
                 CountOfEvents = this.userService.GetCountOfEvents(this.User.GetId()),
-                HasOpenDeck = this.deckService.HasOpenDecks(this.User.GetId()),
+                HasOpenDeck = await this.deckService.HasOpenDecks(this.User.GetId()),
             };
             var user = await this.userManager.GetUserAsync(this.User);
             if (user != null)
@@ -148,10 +148,10 @@
                 Articles = this.articlesService.GetRandom<ArticleInListViewModel>(8),
                 Arts = this.artService.GetRandom<ArtInListViewModel>(4),
                 Cards = this.playCardService.GetRandom<CardInListViewModel>(4),
-                Stores = this.storeService.GetAll<StoreInListViewModel>(),
-                Events = this.eventService.GetAll<EventInListViewModel>(),
-                GameExpansions = this.cardExpansionService.GetAll<ExpansionInListViewModel>(),
-                ChatMessages = this.chatService.GetAllGeneralChatMessages<DbChatMessagesInListViewModel>(GeneralChatId),
+                Stores = await this.storeService.GetAll<StoreInListViewModel>(),
+                Events = await this.eventService.GetAll<EventInListViewModel>(),
+                GameExpansions = await this.cardExpansionService.GetAll<ExpansionInListViewModel>(),
+                ChatMessages = await this.chatService.GetAllGeneralChatMessages<DbChatMessagesInListViewModel>(GeneralChatId),
             };
 
             if (this.ModelState.IsValid)

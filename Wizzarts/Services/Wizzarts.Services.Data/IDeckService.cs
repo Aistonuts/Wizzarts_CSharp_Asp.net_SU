@@ -17,13 +17,11 @@
 
         Task<int> LockDeck(int id);
 
-        IEnumerable<T> GetAllDecksByUserId<T>(string id);
+        Task<IEnumerable<T>> GetAllDecksByUserId<T>(string id);
 
-        IEnumerable<T> GetAllCardsInDeckId<T>(int id);
+        Task<IEnumerable<T>> GetAllCardsInDeckId<T>(int id);
 
-        IEnumerable<DeckStatusListViewModel> GetAllDeckStatuses();
-
-        IEnumerable<T> GetAll<T>();
+        Task<IEnumerable<T>> GetAll<T>();
 
         Task<T> GetById<T>(int id);
 
@@ -31,9 +29,9 @@
 
         Task<int> RemoveAsync(int deckId, string cardId);
 
-        bool IsLocked(int id);
+        Task<bool> IsLocked(int id);
 
-        bool HasOpenDecks(string id);
+        Task<bool> HasOpenDecks(string id);
 
         Task OrderAsync(int deckId, string userId);
     }

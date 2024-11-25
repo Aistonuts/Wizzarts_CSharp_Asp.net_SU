@@ -31,7 +31,7 @@
             using var repositoryChatMessage = new EfDeletableEntityRepository<ChatMessage>(data);
             using var repositoryChat = new EfDeletableEntityRepository<Chat>(data);
             var chatService = new ChatService(repositoryChatMessage,repositoryChat);
-            var chat = chatService.GetAllGeneralChatMessages<DbChatMessagesInListViewModel>(1);
+            var chat = await chatService.GetAllGeneralChatMessages<DbChatMessagesInListViewModel>(1);
             int chatCount = chat.Count();
             var firstChatMessage = chat.First();
             Assert.Equal(1, chatCount);
@@ -48,7 +48,7 @@
             using var repositoryChatMessage = new EfDeletableEntityRepository<ChatMessage>(data);
             using var repositoryChat = new EfDeletableEntityRepository<Chat>(data);
             var chatService = new ChatService(repositoryChatMessage, repositoryChat);
-            var rooms = chatService.GetAllChatRooms<SingleChatViewModel>();
+            var rooms = await chatService.GetAllChatRooms<SingleChatViewModel>();
             var secondRoom = rooms.FirstOrDefault(x => x.Id == 2);
             int roomsCount = rooms.Count();
             Assert.Equal(8, roomsCount);
@@ -65,7 +65,7 @@
             using var repositoryChatMessage = new EfDeletableEntityRepository<ChatMessage>(data);
             using var repositoryChat = new EfDeletableEntityRepository<Chat>(data);
             var chatService = new ChatService(repositoryChatMessage, repositoryChat);
-            var chat = chatService.GetAllChatMessagesInChatRoom<DbChatMessagesInListViewModel>(1);
+            var chat = await chatService.GetAllChatMessagesInChatRoom<DbChatMessagesInListViewModel>(1);
             int chatCount = chat.Count();
             var firstChatMessage = chat.First();
             var message = "Welcome to Wizzarts General chat.";
@@ -84,7 +84,7 @@
             using var repositoryChatMessage = new EfDeletableEntityRepository<ChatMessage>(data);
             using var repositoryChat = new EfDeletableEntityRepository<Chat>(data);
             var chatService = new ChatService(repositoryChatMessage, repositoryChat);
-            var chat = chatService.GetById<SingleChatViewModel>(1);
+            var chat = await chatService.GetById<SingleChatViewModel>(1);
             var message = "Welcome to Wizzarts General chat.";
             Assert.Equal(1, chat.Id);
             Assert.Equal("General", chat.Name);

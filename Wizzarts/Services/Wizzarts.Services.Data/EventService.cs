@@ -53,7 +53,7 @@
 
         public async Task DeleteAsync(int id)
         {
-            var currentEvent = this.eventRepository.All().FirstOrDefault(x => x.Id == id);
+            var currentEvent = await this.eventRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             if (currentEvent != null)
             {
                 this.eventRepository.Delete(currentEvent);
@@ -67,49 +67,49 @@
                 .AllAsNoTracking().AnyAsync(a => a.Id == id);
         }
 
-        public IEnumerable<T> GetAll<T>()
+        public async Task<IEnumerable<T>> GetAll<T>()
         {
-            var events = this.eventRepository.AllAsNoTracking()
+            var events = await this.eventRepository.AllAsNoTracking()
                 .Where(x => x.ForMainPage == true && x.ApprovedByAdmin == true)
           .OrderByDescending(x => x.Id)
-          .To<T>().ToList();
+          .To<T>().ToListAsync();
 
             return events;
         }
 
-        public IEnumerable<T> GetAllEventComponents<T>(int id)
+        public async Task<IEnumerable<T>> GetAllEventComponents<T>(int id)
         {
-            var eventComponents = this.eventComponentsRepository.AllAsNoTracking()
+            var eventComponents = await this.eventComponentsRepository.AllAsNoTracking()
                .Where(x => x.EventId == id)
                .OrderByDescending(x => x.Id)
-               .To<T>().ToList();
+               .To<T>().ToListAsync();
 
             return eventComponents;
         }
 
-        public IEnumerable<T> GetAllEventsByUserId<T>(string id, int page, int itemsPerPage = 3)
+        public async Task<IEnumerable<T>> GetAllEventsByUserId<T>(string id, int page, int itemsPerPage = 3)
         {
-            var events = this.eventRepository.AllAsNoTracking()
+            var events = await this.eventRepository.AllAsNoTracking()
             .Where(x => x.EventCreatorId == id)
             .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
-            .To<T>().ToList();
+            .To<T>().ToListAsync();
 
             return events;
         }
 
-        public T GetById<T>(int id)
+        public async Task<T> GetById<T>(int id)
         {
-            var newEvent = this.eventRepository.AllAsNoTracking()
+            var newEvent = await this.eventRepository.AllAsNoTracking()
                 .Where(x => x.Id == id)
-                .To<T>().FirstOrDefault();
+                .To<T>().FirstOrDefaultAsync();
             return newEvent;
         }
 
-        public T GetEventComponentById<T>(int id)
+        public async Task<T> GetEventComponentById<T>(int id)
         {
-            var component = this.eventComponentsRepository.AllAsNoTracking()
+            var component = await this.eventComponentsRepository.AllAsNoTracking()
                .Where(x => x.Id == id)
-               .To<T>().FirstOrDefault();
+               .To<T>().FirstOrDefaultAsync();
             return component;
         }
 
@@ -121,7 +121,7 @@
 
         public async Task UpdateAsync(EditEventViewModel input, int id)
         {
-            var currentEvent = this.eventRepository.All().FirstOrDefault(x => x.Id == id);
+            var currentEvent = await this.eventRepository.All().FirstOrDefaultAsync(x => x.Id == id);
 
             if (currentEvent != null)
             {
@@ -134,7 +134,7 @@
 
         public async Task<string> ApproveEvent(int id)
         {
-            var currentEvent = this.eventRepository.All().FirstOrDefault(x => x.Id == id);
+            var currentEvent = await this.eventRepository.All().FirstOrDefaultAsync(x => x.Id == id);
 
             if (currentEvent != null && currentEvent.ApprovedByAdmin == false)
             {
@@ -178,7 +178,7 @@
 
         public async Task DeleteComponentAsync(int id)
         {
-            var thisEvent = this.eventComponentsRepository.All().FirstOrDefault(x => x.Id == id);
+            var thisEvent = await this.eventComponentsRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             if (thisEvent != null)
             {
                 this.eventComponentsRepository.Delete(thisEvent);

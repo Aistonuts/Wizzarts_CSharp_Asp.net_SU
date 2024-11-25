@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -35,20 +37,20 @@
             await this.commentRepository.SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAllCommentsByUser<T>(string userId)
+        public async Task<IEnumerable<T>> GetAllCommentsByUser<T>(string userId)
         {
-            var comment = this.commentRepository.AllAsNoTracking()
+            var comment = await this.commentRepository.AllAsNoTracking()
                 .Where(x => x.PostedByUserId == userId)
-                .To<T>().ToList();
+                .To<T>().ToListAsync();
 
             return comment;
         }
 
-        public IEnumerable<T> GetCommentsByCardId<T>(string id)
+        public async Task<IEnumerable<T>> GetCommentsByCardId<T>(string id)
         {
-            var comment = this.commentRepository.AllAsNoTracking()
+            var comment = await this.commentRepository.AllAsNoTracking()
                 .Where(x => x.CardId == id)
-                .To<T>().ToList();
+                .To<T>().ToListAsync();
 
             return comment;
         }

@@ -101,7 +101,7 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
             var service = new EventService(eventRepository, eventComponentsRepository);
-            var events = service.GetAll<EventInListViewModel>();
+            var events = await service.GetAll<EventInListViewModel>();
             int eventCount = events.Count();
             Assert.Equal(4, eventCount);
 
@@ -117,7 +117,7 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
             var service = new EventService(eventRepository, eventComponentsRepository);
-            var components = service.GetAllEventComponents<EventComponentsInListViewModel>(1);
+            var components = await service.GetAllEventComponents<EventComponentsInListViewModel>(1);
             int componentsCount = components.Count();
             Assert.Equal(7, componentsCount);
 
@@ -133,7 +133,7 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
             var service = new EventService(eventRepository, eventComponentsRepository);
-            var events = service.GetAllEventsByUserId<EventInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695",1,3);
+            var events = await service.GetAllEventsByUserId<EventInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695",1,3);
             int eventsCount = events.Count();
             var firstEvent = data.Events.FirstOrDefault(x => x.Id == 1);
             Assert.Equal(3, eventsCount);
@@ -150,7 +150,7 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
             var service = new EventService(eventRepository, eventComponentsRepository);
-            var events = service.GetById<SingleEventViewModel>(1);
+            var events = await service.GetById<SingleEventViewModel>(1);
             var firstEvent = data.Events.FirstOrDefault(x => x.Id == 1);
             Assert.Equal(firstEvent.Title,events.Title);
             this.TearDownBase();
@@ -165,7 +165,7 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
             var service = new EventService(eventRepository, eventComponentsRepository);
-            var components = service.GetEventComponentById<EventComponentsInListViewModel>(1);
+            var components = await service.GetEventComponentById<EventComponentsInListViewModel>(1);
 
             Assert.Equal("Shady pond under the moonlight", components.Description);
 

@@ -32,10 +32,10 @@
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             var viewModel = new CreateStoreViewModel();
-            viewModel.Stores = this.storeService.GetAll<StoreInListViewModel>();
+            viewModel.Stores = await this.storeService.GetAll<StoreInListViewModel>();
             return this.View(viewModel);
         }
 
@@ -75,7 +75,7 @@
         }
 
         [AllowAnonymous]
-        public IActionResult All(int id = 1)
+        public async Task<IActionResult> All(int id = 1)
         {
             if (id <= 0)
             {
@@ -86,8 +86,8 @@
             {
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
-                Count = this.storeService.GetCount(),
-                Stores = this.storeService.GetAll<StoreInListViewModel>(id, ItemsPerPage),
+                Count = await this.storeService.GetCount(),
+                Stores = await this.storeService.GetAll<StoreInListViewModel>(id, ItemsPerPage),
             };
 
             return this.View(viewModel);

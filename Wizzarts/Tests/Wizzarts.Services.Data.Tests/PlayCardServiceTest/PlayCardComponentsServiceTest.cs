@@ -50,15 +50,15 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cardGameExpansionRepository
                 );
-            var redCardMana = service.GetAllRedMana();
-            var blueCardMana = service.GetAllBlueMana();
-            var greenCardMana = service.GetAllGreenMana();
-            var blackCardMana = service.GetAllBlackMana();
-            var whiteCardMana = service.GetAllWhiteMana();
-            var cardFrameColor = service.GetAllCardFrames();
-            var colorlessCardMana = service.GetAllColorlessMana();
-            var cardType = service.GetAllCardType();
-            var cardGameExpansion = service.GetAllExpansionInListView();
+            var redCardMana = await service.GetAllRedMana();
+            var blueCardMana = await service.GetAllBlueMana();
+            var greenCardMana = await service.GetAllGreenMana();
+            var blackCardMana = await service.GetAllBlackMana();
+            var whiteCardMana = await service.GetAllWhiteMana();
+            var cardFrameColor = await service.GetAllCardFrames();
+            var colorlessCardMana = await service.GetAllColorlessMana();
+            var cardType = await service.GetAllCardType();
+            var cardGameExpansion = await service.GetAllExpansionInListView();
             Assert.Equal(6, redCardMana.Count());
             Assert.Equal(6, blueCardMana.Count());
             Assert.Equal(6, greenCardMana.Count());

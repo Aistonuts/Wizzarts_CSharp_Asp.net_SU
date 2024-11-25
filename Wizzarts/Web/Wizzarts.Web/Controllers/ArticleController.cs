@@ -111,10 +111,10 @@
             return this.RedirectToAction("MyData", "User");
         }
 
-        public IActionResult ById(int id, string information)
+        public async Task<IActionResult> ById(int id, string information)
         {
 
-            var article = this.articleService.GetById<SingleArticleViewModel>(id);
+            var article = await this.articleService.GetById<SingleArticleViewModel>(id);
             if (information != article.GetArticleTitle())
             {
                 return this.BadRequest(information);

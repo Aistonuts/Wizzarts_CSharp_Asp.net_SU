@@ -5,11 +5,11 @@
 
     public interface IWizzartsServices
     {
-        T GetGameRules<T>(int id = 1);
+        Task<T> GetGameRules<T>(int id = 1);
 
-        IEnumerable<T> GetAllGameRulesData<T>();
+        Task<IEnumerable<T>> GetAllGameRulesData<T>();
 
-        IEnumerable<T> GetAllWizzartsTeamMembers<T>();
+        Task<IEnumerable<T>> GetAllWizzartsTeamMembers<T>();
 
         string GetUserIdByArtistId(int artistId);
     }

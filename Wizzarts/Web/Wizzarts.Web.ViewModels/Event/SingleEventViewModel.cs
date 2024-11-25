@@ -8,7 +8,7 @@
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.PlayCard;
 
-    public class SingleEventViewModel : IndexAuthenticationViewModel, IMapFrom<Event>, IHaveCustomMappings
+    public class SingleEventViewModel : IndexAuthenticationViewModel, IMapFrom<Event>, IHaveCustomMappings, ISingleEventViewModel
     {
         public int EventId { get; set; }
 
