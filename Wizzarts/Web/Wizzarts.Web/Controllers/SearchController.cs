@@ -3,11 +3,10 @@
     using System;
     using System.Threading.Tasks;
 
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Wizzarts.Services.Data;
-    using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.Infrastructure.Extensions;
+    using Wizzarts.Web.ViewModels.PlayCard;
 
     [ApiController]
     [Route("api/[controller]/[action]")]
@@ -21,7 +20,6 @@
         {
             this.searchService = searchService;
             this.playCardService = playCardService;
-
         }
 
         [Produces("application/json")]
@@ -33,15 +31,13 @@
                 string term = this.HttpContext.Request.Query["CardName"].ToString();
                 var names = await this.searchService.GetAllCardsByTerm(term);
 
-                return Ok(names);
+                return this.Ok(names);
             }
             catch (Exception)
             {
-
                 return this.BadRequest();
             }
         }
-
 
         [HttpGet]
         public async Task<IActionResult> Advanced(string cardName)

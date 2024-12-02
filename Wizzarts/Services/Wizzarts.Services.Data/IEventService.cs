@@ -34,5 +34,7 @@
         Task AddComponentAsync(MyEventSettingsViewModel input, string userId, string imagePath);
 
         Task DeleteComponentAsync(int id);
+
+        Task<bool> EventHasUserWithId(int eventId, string userId);
     }
 }

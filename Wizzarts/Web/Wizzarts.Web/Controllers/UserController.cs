@@ -1,11 +1,9 @@
-﻿using Wizzarts.Web.ViewModels.Deck;
-using Wizzarts.Web.ViewModels.Order;
-
-namespace Wizzarts.Web.Controllers
+﻿namespace Wizzarts.Web.Controllers
 {
     using System;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Wizzarts.Common;
@@ -14,12 +12,15 @@ namespace Wizzarts.Web.Controllers
     using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.Event;
+    using Wizzarts.Web.ViewModels.Order;
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.Store;
     using Wizzarts.Web.ViewModels.WizzartsMember;
 
     using static Wizzarts.Common.HardCodedConstants;
+
     public class UserController : BaseController
     {
         private readonly IArtService artService;
@@ -82,6 +83,11 @@ namespace Wizzarts.Web.Controllers
         public async Task<IActionResult> Update(CreateMemberProfileViewModel input)
         {
             input.Avatars = await this.userService.GetAllAvatars<AvatarInListViewModel>();
+            if (await this.userService.NickNameExist(input.Nickname))
+            {
+                this.ModelState.AddModelError(nameof(input.Nickname), "Nickname already exist!");
+            }
+
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
             if (!this.ModelState.IsValid)
@@ -121,7 +127,6 @@ namespace Wizzarts.Web.Controllers
             var view = new MemberDataViewModel
             {
                 Nickname = user.Nickname,
-                Id = this.User.GetId(),
                 Email = user.Email,
                 AvatarUrl = user.AvatarUrl,
                 ItemsPerPage = ItemsPerPage,
@@ -154,7 +159,7 @@ namespace Wizzarts.Web.Controllers
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
 
-                Artists = artists.Select(x=> new MembersInListViewModel
+                Artists = artists.Select(x => new MembersInListViewModel
                 {
                     Id = x.Id,
                     Nickname = x.Nickname,
@@ -207,9 +212,9 @@ namespace Wizzarts.Web.Controllers
 
             var member = await this.userService.GetById<SingleMemberViewModel>(id);
 
-            if (information != member.GetWizzartsMemberName())
+            if (member == null || information != member.GetWizzartsMemberName())
             {
-                return this.BadRequest(information);
+                return this.BadRequest();
             }
 
             member.Arts = await this.artService.GetAllArtByUserId<ArtInListViewModel>(id, 1, 50);

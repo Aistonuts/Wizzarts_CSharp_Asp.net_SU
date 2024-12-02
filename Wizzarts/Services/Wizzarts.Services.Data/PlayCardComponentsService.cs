@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-
-namespace Wizzarts.Services.Data
+﻿namespace Wizzarts.Services.Data
 {
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
+
+    using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
@@ -47,6 +47,38 @@ namespace Wizzarts.Services.Data
             this.cardFrameColorRepository = cardFrameColorRepository;
             this.cardTypeRepository = cardTypeRepository;
             this.cardGameExpansionRepository = cardGameExpansionRepository;
+        }
+
+        public Task<bool> BlackManaExistsAsync(int id)
+        {
+            return this.blackManaRepository.AllAsNoTracking()
+                .AnyAsync(x => x.Id == id);
+        }
+
+        public Task<bool> BlueManaExistsAsync(int id)
+        {
+            return this.blueManaRepository.AllAsNoTracking()
+                .AnyAsync(x => x.Id == id);
+        }
+
+        public Task<bool> CardFrameExistsAsync(int id)
+        {
+            return this.cardFrameColorRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
+        }
+
+        public Task<bool> CardTypeExistsAsync(int id)
+        {
+            return this.cardTypeRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
+        }
+
+        public Task<bool> ColorlessManaExistsAsync(int id)
+        {
+            return this.colorlessManaRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
+        }
+
+        public Task<bool> ExpansionExistsAsync(int id)
+        {
+            return this.cardGameExpansionRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<BlackManaCostViewModel>> GetAllBlackMana()
@@ -155,6 +187,21 @@ namespace Wizzarts.Services.Data
               })
               .OrderBy(x => x.Id)
               .ToListAsync();
+        }
+
+        public Task<bool> GreenManaExistsAsync(int id)
+        {
+            return this.greenManaRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
+        }
+
+        public Task<bool> RedManaExistsAsync(int id)
+        {
+            return this.redManaRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
+        }
+
+        public Task<bool> WhiteManaExistsAsync(int id)
+        {
+            return this.whiteManaRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
         }
     }
 }

@@ -33,7 +33,6 @@
         [HttpPost]
         public async Task<IActionResult> Post(MessageViewModel viewModel)
         {
-
             try
             {
                 var user = await this.userManager.GetUserAsync(this.User);
@@ -63,7 +62,6 @@
                 {
                     Name = name,
                     Type = ChatType.Event,
-
                 };
                 var user = await this.userManager.GetUserAsync(this.User);
                 chat.Users.Add(new ChatUser
@@ -109,6 +107,11 @@
         public async Task<IActionResult> ById(int id)
         {
             var view = await this.chatService.GetById<SingleChatViewModel>(id);
+            if (view == null)
+            {
+                return this.BadRequest();
+            }
+
             view.ChatId = id;
             view.ChatRooms = await this.chatService.GetAllChatRooms<SingleChatViewModel>();
             view.Messages = await this.chatService.GetAllChatMessagesInChatRoom<DbChatMessagesInListViewModel>(id);

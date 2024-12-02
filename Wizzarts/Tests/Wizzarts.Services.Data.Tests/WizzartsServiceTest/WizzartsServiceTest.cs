@@ -1,20 +1,21 @@
-﻿using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Mapping;
-using Wizzarts.Web.ViewModels;
-using Wizzarts.Web.ViewModels.GameRules;
-using Wizzarts.Web.ViewModels.WizzartsMember;
-using Xunit;
-
-namespace Wizzarts.Services.Data.Tests.WizzartsServiceTest
+﻿namespace Wizzarts.Services.Data.Tests.WizzartsServiceTest
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Microsoft.Extensions.Caching.Memory;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels;
+    using Wizzarts.Web.ViewModels.GameRules;
+    using Wizzarts.Web.ViewModels.WizzartsMember;
+    using Xunit;
+
     public class WizzartsServiceTest : UnitTestBase
     {
         public WizzartsServiceTest()
@@ -31,19 +32,18 @@ namespace Wizzarts.Services.Data.Tests.WizzartsServiceTest
             using var gameRulesRepository = new EfDeletableEntityRepository<WizzartsGameRules>(data);
             using var gameRulesDataRepository = new EfDeletableEntityRepository<WizzartsGameRulesData>(data);
             using var wizzartsTeamRepository = new EfDeletableEntityRepository<WizzartsTeam>(data);
-            var service = new WizzartsServices(gameRulesRepository,gameRulesDataRepository,wizzartsTeamRepository);
+            var service = new WizzartsServices(gameRulesRepository, gameRulesDataRepository, wizzartsTeamRepository);
 
             var gameRules = await service.GetAllGameRulesData<GameRulesDataViewModel>();
             var firstRule = data.WizzartsGameRulesData.FirstOrDefault(x => x.Id == 1);
-            Assert.Equal(7,gameRules.Count());
+            Assert.Equal(7, gameRules.Count());
             Assert.Equal("Creatures", firstRule.Title);
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public async Task GetAllWizzartsTeamMembersShouldReturnCorrectCountAndTheFirstMemberNameShouldBeCorrect()
         {
-
             this.OneTimeSetup();
             var data = this.dbContext;
 
@@ -57,7 +57,7 @@ namespace Wizzarts.Services.Data.Tests.WizzartsServiceTest
             Assert.Equal(9, members.Count());
             Assert.Equal("Drawgoon", firstMember.Nickname);
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -74,7 +74,7 @@ namespace Wizzarts.Services.Data.Tests.WizzartsServiceTest
             var gameRules = await service.GetGameRules<GameRulesViewModel>();
 
             Assert.Equal("Wizzarts card game rules", gameRules.Title);
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]

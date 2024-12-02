@@ -25,6 +25,7 @@
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
         private readonly IPlayCardService cardService;
         private readonly IArtService artService;
+        private readonly IEventService eventService;
 
         public DeckService(
             IDeletableEntityRepository<CardDeck> deckRepository,
@@ -36,7 +37,8 @@
             IDeletableEntityRepository<DeckStatus> deckStatusRepository,
             IDeletableEntityRepository<ApplicationUser> userRepository,
             IPlayCardService cardService,
-            IArtService artService)
+            IArtService artService,
+            IEventService eventService)
         {
             this.deckRepository = deckRepository;
             this.deckOrderRepository = deckOrderRepository;
@@ -48,6 +50,7 @@
             this.userRepository = userRepository;
             this.cardService = cardService;
             this.artService = artService;
+            this.eventService = eventService;
         }
 
         public async Task CreateAsync(CreateDeckViewModel input, string userId, string imagePath)
@@ -69,8 +72,8 @@
                 ImageUrl = artUrl,
                 IsLocked = false,
             };
-
-            if (currentEvent != null)
+            var isParticipant = await this.eventService.EventHasUserWithId(currentEvent.Id, user.Id);
+            if (currentEvent != null && isParticipant == false)
             {
                 currentEvent.Participants.Add(user);
             }
@@ -227,8 +230,8 @@
                 {
                     deck.IsLocked = false;
                     deck.StatusId = 1;
-
                 }
+
                 await this.deckRepository.SaveChangesAsync();
 
                 return deck.Id;

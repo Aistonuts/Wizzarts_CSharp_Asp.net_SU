@@ -1,8 +1,7 @@
-﻿using System.Threading.Tasks;
-
-namespace Wizzarts.Services.Data
+﻿namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
@@ -26,5 +25,23 @@ namespace Wizzarts.Services.Data
         Task<IEnumerable<FrameColorViewModel>> GetAllCardFrames();
 
         Task<IEnumerable<ExpansionInListViewModel>> GetAllExpansionInListView();
+
+        Task<bool> BlackManaExistsAsync(int id);
+
+        Task<bool> BlueManaExistsAsync(int id);
+
+        Task<bool> GreenManaExistsAsync(int id);
+
+        Task<bool> RedManaExistsAsync(int id);
+
+        Task<bool> WhiteManaExistsAsync(int id);
+
+        Task<bool> ColorlessManaExistsAsync(int id);
+
+        Task<bool> CardTypeExistsAsync(int id);
+
+        Task<bool> CardFrameExistsAsync(int id);
+
+        Task<bool> ExpansionExistsAsync(int id);
     }
 }

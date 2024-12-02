@@ -1,21 +1,24 @@
-﻿using System.IO;
-using System.Linq;
-using Microsoft.Extensions.Caching.Memory;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Mapping;
-using Wizzarts.Web.ViewModels;
-using Wizzarts.Web.ViewModels.Deck;
-using Wizzarts.Web.ViewModels.PlayCard;
-using Xunit;
-
-namespace Wizzarts.Services.Data.Tests.DeckServiceTest
+﻿namespace Wizzarts.Services.Data.Tests.DeckServiceTest
 {
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.Extensions.Caching.Memory;
+    using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
+    using Moq;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels;
+    using Wizzarts.Web.ViewModels.Deck;
+    using Wizzarts.Web.ViewModels.PlayCard;
+    using Xunit;
+
     public class DeckServiceTest : UnitTestBase
     {
         public DeckServiceTest()
@@ -24,20 +27,21 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
         }
 
         [Fact]
-        public async Task CreateDeckShouldAddNewDeckWithCorrectName()
+        public async Task Create_Deck_Should_Add_New_Deck_With_Correct_Name()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -48,9 +52,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -62,9 +67,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -91,20 +99,21 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
         }
 
         [Fact]
-        public async Task GetAllLockedDecksShouldReturnCorrectCountOfDecksWithCorrectNames()
+        public async Task Get_All_Locked_Decks_Should_Return_Correct_Count_Of_Decks_With_Correct_Names()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -115,9 +124,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -129,9 +139,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -160,20 +173,21 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
         }
 
         [Fact]
-        public async Task GetAllDecksByUserShouldReturnCorrectCountOfDecksWithCorrectNames()
+        public async Task Get_All_Decks_By_User_Should_Return_Correct_Count_Of_Decks_With_Correct_Names()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -184,9 +198,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -198,9 +213,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -229,20 +247,21 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
         }
 
         [Fact]
-        public async Task GetDecksByIdShouldReturnCorrectCountOfDecksWithCorrectNames()
+        public async Task Get_Decks_By_Id_Should_Return_Correct_Count_Of_Decks_With_Correct_Names()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -253,9 +272,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -267,9 +287,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -296,20 +319,21 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
         }
 
         [Fact]
-        public async Task AddCardToNewDeckShouldAddCorrectCardAndIncreaseCountOfCards()
+        public async Task Add_Card_To_New_Deck_Should_Add_Correct_Card_And_Increase_Count_Of_Cards()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -320,9 +344,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -334,9 +359,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -355,7 +383,6 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             };
 
             await deckService.CreateAsync(deck, userId, path);
-
 
             await deckService.AddAsync(1, "c330fecf-61a9-4e03-8052-cd2b9583a251");
             var deckWithCards = data.DeckOfCards.FirstOrDefault(x => x.DeckId == 1);
@@ -365,20 +392,21 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
         }
 
         [Fact]
-        public async Task GetAllCardsInDeckIdShouldAddCorrectCardAndIncreaseCountOfCards()
+        public async Task Add_Cards_In_Deck_Should_Add_Correct_Card_And_Increase_Count_Of_Cards()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -389,9 +417,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -403,9 +432,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -424,7 +456,6 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             };
 
             await deckService.CreateAsync(deck, userId, path);
-
 
             await deckService.AddAsync(1, "c330fecf-61a9-4e03-8052-cd2b9583a251");
             var deckWithCards = await deckService.GetAllCardsInDeckId<CardInListViewModel>(1);
@@ -435,22 +466,22 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             this.TearDownBase();
         }
 
-
         [Fact]
-        public async Task HasEventCardsShouldReturnCorrectCountOfCardsAndTheirName()
+        public async Task Has_Event_Cards_Should_Return_Correct_Count_Of_Cards_And_Their_Name()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -461,9 +492,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -475,9 +507,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -497,7 +532,6 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
 
             await deckService.CreateAsync(deck, userId, path);
 
-
             await deckService.AddAsync(1, "c330fecf-61a9-4e03-8052-cd2b9583a251");
             var currentCount = data.DeckOfCards.Count();
             var newDeck = await deckService.HasEventCards(1);
@@ -507,20 +541,21 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
         }
 
         [Fact]
-        public async Task LockDeckShouldLockDeckAdnReturnTrue()
+        public async Task Lock_Dec_kShould_Lock_Deck_And_Return_True()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -531,9 +566,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -545,9 +581,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -575,22 +614,22 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             this.TearDownBase();
         }
 
-
         [Fact]
-        public async Task ChangeStatusAsyncShouldChangeDeckCurrentStatus()
+        public async Task Change_Status_Async_Should_Change_Deck_Current_Status()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -601,9 +640,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -615,9 +655,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -644,26 +687,27 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var currentStatus = data.CardDecks.FirstOrDefault(x => x.Id == 1).StatusId;
             await deckService.ChangeStatusAsync(currentDeck);
             var newStatus = data.CardDecks.FirstOrDefault(x => x.Id == 1).StatusId;
-            Assert.Equal(1,currentStatus);
-            Assert.Equal(3,newStatus);
+            Assert.Equal(1, currentStatus);
+            Assert.Equal(3, newStatus);
             this.TearDownBase();
         }
 
         [Fact]
-        public async Task HasOpenDeskShouldReturnTrue()
+        public async Task Has_Open_Deck_Should_Return_True()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -674,9 +718,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -688,9 +733,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
 
             Assert.True(await deckService.HasOpenDecks(userId));
@@ -698,20 +746,21 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
         }
 
         [Fact]
-        public async Task CheckingUserWithClosedDecksShouldReturnFalse()
+        public async Task Checking_User_For_Closed_Decks_Should_Return_False()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -722,9 +771,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -736,30 +786,34 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
             string userId = "0ac1e577-c7ff-4aa3-83c3-e5acac9de281";
 
-            Assert.False( await deckService.HasOpenDecks(userId));
+            Assert.False(await deckService.HasOpenDecks(userId));
             this.TearDownBase();
         }
 
         [Fact]
-        public async Task LockingDeckShouldChangeItsStatusAndAlsoShouldRevertChangesAndUnlockAndSwitchStatusBetweenReadyAndOpen()
+        public async Task Locking_Deck_ShouldChangeItsStatusAndAlsoShouldRevertChangesAndUnlockAndSwitchStatusBetweenReadyAndOpen()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -770,9 +824,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -784,9 +839,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
 
             var testLockedDeck = data.CardDecks.FirstOrDefault(x => x.Id == 4);
@@ -808,7 +866,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             var newReadyStatusTwo = testUnlockedDeck.StatusId;
 
             Assert.True(currentLockStatus);
-            Assert.Equal(3,currentReadyStatus);
+            Assert.Equal(3, currentReadyStatus);
 
             Assert.False(newLockStatus);
             Assert.Equal(1, newReadyStatus);
@@ -821,14 +879,14 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             this.TearDownBase();
         }
 
-        //[Fact]
-        //public async Task GetAllDeckStatusesShouldReturnCorrectCorrectStatusCountAndValue()
-        //{
+        // [Fact]
+        // public async Task GetAllDeckStatusesShouldReturnCorrectCorrectStatusCountAndValue()
+        // {
         //    this.OneTimeSetup();
         //    var data = this.dbContext;
         //    var cache = new MemoryCache(new MemoryCacheOptions());
 
-        //    using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+        // using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
         //    using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
         //    using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
         //    using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
@@ -848,7 +906,7 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
         //    using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
         //    using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
 
-        //    var playCardService = new PlayCardService(
+        // var playCardService = new PlayCardService(
         //        playCardRepository,
         //        cardManaRepository,
         //        blackManaRepository,
@@ -864,32 +922,32 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
         //    var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
         //        repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
 
-        //    var statuses = deckService.GetAllDeckStatuses().OrderByDescending(x => x.Id);
+        // var statuses = deckService.GetAllDeckStatuses().OrderByDescending(x => x.Id);
 
-        //    var firstDeckStatus = statuses.FirstOrDefault(x => x.Name == "Open");
+        // var firstDeckStatus = statuses.FirstOrDefault(x => x.Name == "Open");
         //    var secondDeckStatus = statuses.FirstOrDefault(x => x.Name == "Ready");
 
-        //    Assert.Equal(1,firstDeckStatus.Id);
+        // Assert.Equal(1,firstDeckStatus.Id);
         //    Assert.Equal(2, secondDeckStatus.Id);
         //    Assert.Equal(4, statuses.Count());
         //    this.TearDownBase();
-        //}
-
+        // }
         [Fact]
-        public async Task CheckIfDeckIsLockedShouldReturnTrueIfLockedAndFalseIfUnlocked()
+        public async Task Check_If_Deck_I_sLocked_Should_Return_True_If_Locked_And_False_If_Unlocked()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -900,9 +958,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -914,10 +973,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
-            var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
 
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
+            var artService = new ArtService(repositoryArt, cache);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
 
             Assert.True(await deckService.IsLocked(4));
             Assert.False(await deckService.IsLocked(1));
@@ -925,20 +986,21 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
         }
 
         [Fact]
-        public async Task OrderDeckOfCardsShouldCreateAnOrderAndFillTheOrderWithCardsFromDeck()
+        public async Task Order_Deck_Of_Cards_Should_Create_a_new_Order_And_Fill_The_Order_With_Cards_From_Deck()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -949,9 +1011,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -963,9 +1026,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
 
             var cardId = "c330fecf-61a9-4e03-8052-cd2b9583a251";
             await deckService.AddAsync(1, cardId);
@@ -979,22 +1045,22 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             this.TearDownBase();
         }
 
-
         [Fact]
-        public async Task RemovingCardFromCardDeckShouldRemoveTheCardAndLowerTheCountOfCardsInDeck()
+        public async Task Removing_Card_From_Card_Deck_Should_Remove_The_Card_And_Decrease_The_Count_Of_Cards_In_Deck()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -1005,9 +1071,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -1019,9 +1086,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
 
             var firstCardId = "c330fecf-61a9-4e03-8052-cd2b9583a251";
             var secondCardId = "f43639ef-5503-4e8a-a75d-5651c645a03d";
@@ -1038,24 +1108,24 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             Assert.Equal(1, newCountOfCardsInDeck);
             Assert.Equal(secondCardId, currentCard.PlayCardId);
             this.TearDownBase();
-
         }
 
         [Fact]
-        public async Task UpdateDeckShouldChangeExistingDeckShippingAddress()
+        public async Task Update_Deck_Should_Change_Existing_Deck_Shipping_Address()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -1066,9 +1136,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -1080,80 +1151,12 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
-
-            var testDeck = data.CardDecks.FirstOrDefault(x => x.Id == 1);
-            var testTitle = testDeck.Name;
-            var testDescription = testDeck.Description;
-            var testLocation = testDeck.StoreId;
-
-            var deck = new EditDeckViewModel()
-            {
-                Id = 1,
-                Name = "Changed",
-                Description = "Changed",
-                StoreId = 2,
-            };
-            await deckService.UpdateAsync(deck, 1);
-
-            var testDeckUpdate = data.CardDecks.FirstOrDefault(x => x.Id == 1);
-            var testTitleUpdate = testDeckUpdate.Name;
-            var testDescriptionUpdate = testDeckUpdate.Description;
-            var testLocationUpdate = testDeckUpdate.StoreId;
-
-            Assert.Equal(1,testLocation);
-            Assert.Equal("Test",testTitle);
-            Assert.Equal("Test", testDescription);
-            Assert.Equal(2, testLocationUpdate);
-            Assert.Equal("Changed", testTitleUpdate);
-            Assert.Equal("Changed", testDescriptionUpdate);
-            this.TearDownBase();
-        }
-
-        [Fact]
-        public async Task UpdateDeckShouldUpdateTheExistingDeck()
-        {
-            this.OneTimeSetup();
-            var data = this.dbContext;
-            var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
-            using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
-            using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
-            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
-            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
-            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
-            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
-            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
-            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
-            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
-
-            var playCardService = new PlayCardService(
-                playCardRepository,
-                cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
-                cardFrameColorRepository,
-                cardTypeRepository,
-                cache);
-            var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
 
             var testDeck = data.CardDecks.FirstOrDefault(x => x.Id == 1);
             var testTitle = testDeck.Name;
@@ -1184,20 +1187,21 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
         }
 
         [Fact]
-        public async Task UpdateDeckShouldChangeExistingDeckShippingLocation()
+        public async Task Update_Deck_Should_Update_The_Existing_Deck()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
-
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
             using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
             using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
             using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
             using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
             using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
@@ -1208,9 +1212,10 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
-            using var cardOrderRepository = new EfDeletableEntityRepository<CardOrder>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
 
-            var playCardService = new PlayCardService(
+            var cardService = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
                 blackManaRepository,
@@ -1222,9 +1227,88 @@ namespace Wizzarts.Services.Data.Tests.DeckServiceTest
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var deckService = new DeckService(repositoryDeck, repositoryOrder, cardOrderRepository, repositoryEvent, playCardRepository,
-                repositoryDeckOfCards, repositoryStatus, repositoryUser, playCardService, artService);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
+
+            var testDeck = data.CardDecks.FirstOrDefault(x => x.Id == 1);
+            var testTitle = testDeck.Name;
+            var testDescription = testDeck.Description;
+            var testLocation = testDeck.StoreId;
+
+            var deck = new EditDeckViewModel()
+            {
+                Id = 1,
+                Name = "Changed",
+                Description = "Changed",
+                StoreId = 2,
+            };
+            await deckService.UpdateAsync(deck, 1);
+
+            var testDeckUpdate = data.CardDecks.FirstOrDefault(x => x.Id == 1);
+            var testTitleUpdate = testDeckUpdate.Name;
+            var testDescriptionUpdate = testDeckUpdate.Description;
+            var testLocationUpdate = testDeckUpdate.StoreId;
+
+            Assert.Equal(1, testLocation);
+            Assert.Equal("Test", testTitle);
+            Assert.Equal("Test", testDescription);
+            Assert.Equal(2, testLocationUpdate);
+            Assert.Equal("Changed", testTitleUpdate);
+            Assert.Equal("Changed", testDescriptionUpdate);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task Update_Deck_Should_Change_Existing_Deck_Shipping_Location()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+            var mockUser = new Mock<UserManager<ApplicationUser>>();
+            using var repositoryOrder = new EfDeletableEntityRepository<Order>(data);
+            using var repositoryDeck = new EfDeletableEntityRepository<CardDeck>(data);
+            using var repositoryDeckOfCards = new EfDeletableEntityRepository<DeckOfCards>(data);
+            using var repositoryCardsInOrder = new EfDeletableEntityRepository<CardOrder>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
+            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
+            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryStatus = new EfDeletableEntityRepository<DeckStatus>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
+
+            var cardService = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache);
+
+            var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
+            var artService = new ArtService(repositoryArt, cache);
+            var eventService = new EventService(repositoryEvent, eventParticipantRepository, eventComponentsRepository);
+            var deckService = new DeckService(repositoryDeck, repositoryOrder, repositoryCardsInOrder, repositoryEvent, playCardRepository,
+                repositoryDeckOfCards, repositoryStatus, repositoryUser, cardService, artService, eventService);
 
             var testDeck = data.CardDecks.FirstOrDefault(x => x.Id == 1);
             var testLocation = testDeck.StoreId;

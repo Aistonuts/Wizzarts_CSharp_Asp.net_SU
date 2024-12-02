@@ -59,9 +59,9 @@
         public async Task<IActionResult> ById(int id, string information, int pageId = 1)
         {
             var newEvent = await this.eventService.GetById<SingleEventViewModel>(id);
-            if (information != newEvent.GetEventTitle())
+            if (newEvent == null || information != newEvent.GetEventTitle())
             {
-                return this.BadRequest(information);
+                return this.BadRequest();
             }
 
             if (id == 3)
@@ -105,10 +105,11 @@
             var currentRole = await this.userManager.GetRolesAsync(user);
             bool isContentCreator = false;
 
-            if(currentRole.Contains(AdministratorRoleName) || currentRole.Contains(AdministratorRoleName))
+            if (currentRole.Contains(PremiumRoleName) || currentRole.Contains(ArtistRoleName))
             {
                 isContentCreator = true;
             }
+
             try
             {
                 await this.eventService.CreateAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images", isContentCreator);
@@ -204,7 +205,6 @@
             this.ModelState.Remove("Password");
             if (!this.ModelState.IsValid)
             {
-
                 inputModel.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
                 return this.View(inputModel);
             }

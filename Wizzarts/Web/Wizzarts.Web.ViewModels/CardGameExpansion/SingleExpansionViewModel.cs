@@ -9,7 +9,7 @@
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.PlayCard;
 
-    public class SingleExpansionViewModel : IndexAuthenticationViewModel, IMapFrom<CardGameExpansion>, IHaveCustomMappings
+    public class SingleExpansionViewModel : IndexAuthenticationViewModel, IMapFrom<CardGameExpansion>, IHaveCustomMappings, ISingleExpansionViewModel
     {
         public int Id { get; set; }
 

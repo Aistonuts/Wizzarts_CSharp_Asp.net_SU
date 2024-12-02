@@ -1,22 +1,23 @@
-﻿using MyTested.AspNetCore.Mvc;
-using Shouldly;
-using System.Collections.Generic;
-using System.Linq;
-using Wizzarts.Data.Models;
-using Wizzarts.Services.Data.Tests;
-using Wizzarts.Web.Controllers;
-using Wizzarts.Web.ViewModels.Art;
-using Wizzarts.Web.ViewModels.Article;
-using Wizzarts.Web.ViewModels.Chat;
-using Wizzarts.Web.ViewModels.Event;
-using Wizzarts.Web.ViewModels.Expansion;
-using Wizzarts.Web.ViewModels.Home;
-using Wizzarts.Web.ViewModels.PlayCard;
-using Wizzarts.Web.ViewModels.Store;
-using Xunit;
-
-namespace Wizzarts.Web.Tests.ControllerTest
+﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using MyTested.AspNetCore.Mvc;
+    using Shouldly;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Services.Data.Tests;
+    using Wizzarts.Web.Controllers;
+    using Wizzarts.Web.ViewModels.Art;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Chat;
+    using Wizzarts.Web.ViewModels.Event;
+    using Wizzarts.Web.ViewModels.Expansion;
+    using Wizzarts.Web.ViewModels.Home;
+    using Wizzarts.Web.ViewModels.PlayCard;
+    using Wizzarts.Web.ViewModels.Store;
+    using Xunit;
+
     public class HomeControllerTest : UnitTestBase
     {
         [Fact]
@@ -41,8 +42,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
         public void IndexPostShouldReturnViewWithSameModelWhenInvalidModelState(string url)
         {
             MyController<HomeController>
-                       .Calling(c => c.Index(With.Default<IndexAuthenticationViewModel>()
-                          ,
+                       .Calling(c => c.Index(With.Default<IndexAuthenticationViewModel>(),
                            url))
                        .ShouldHave()
                        .ModelState(modelstate => modelstate
@@ -52,7 +52,6 @@ namespace Wizzarts.Web.Tests.ControllerTest
                        .AndAlso()
                         .ShouldReturn()
                         .View();
-
         }
 
         [Fact]
@@ -61,7 +60,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
             var model = new IndexAuthenticationViewModel
             {
                 UserName = SignInManagerMock.ValidUser,
-                Password = SignInManagerMock.ValidUser
+                Password = SignInManagerMock.ValidUser,
             };
 
             MyMvc
@@ -72,18 +71,16 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .ShouldReturn()
                 .LocalRedirect(redirect => redirect
                 .To<HomeController>(c => c.Index(With.No<string>())));
-
-
         }
-        //[Fact]
 
-        //public void ErrorShouldReturnView()
+        // [Fact]
+
+        // public void ErrorShouldReturnView()
         //    => MyController<HomeController>
         //        .Instance()
         //        .Calling(c => c.Error())
         //        .ShouldReturn()
         //        .View();
-
         [Fact]
         public void PrivacyShouldReturnDefaultView()
             => MyController<HomeController>
@@ -94,13 +91,12 @@ namespace Wizzarts.Web.Tests.ControllerTest
         [Fact]
         public void IndexPostSignInShouldReturnViewWithSameModelWhenInvalidModelState()
         {
-
             MyController<HomeController>
                 .Calling(c => c.Index(
                     new IndexAuthenticationViewModel
                     {
                         UserName = SignInManagerMock.ValidUser,
-                        Password = SignInManagerMock.ValidUser
+                        Password = SignInManagerMock.ValidUser,
                     }, With.No<string>()))
                 .ShouldHave()
                 .ValidModelState()
@@ -108,7 +104,6 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .ShouldReturn()
                 .LocalRedirect(redirect => redirect
                     .To<HomeController>(c => c.Index(With.No<string>())));
-
         }
 
         [Fact]

@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Wizzarts.Data;
     using Wizzarts.Data.Models;
 
@@ -55,7 +56,7 @@
                 ImageUrl = "/images/mana/5.png",
             });
 
-            await dbContext.ColorlessMana   .AddAsync(new ColorlessMana
+            await dbContext.ColorlessMana.AddAsync(new ColorlessMana
             {
                 Cost = 6,
                 ColorName = "6 mana of any color",

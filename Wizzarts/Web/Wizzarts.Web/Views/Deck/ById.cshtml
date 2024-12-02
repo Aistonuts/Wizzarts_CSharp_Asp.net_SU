@@ -23,11 +23,14 @@
                             </a>
                         </li>
                     }
-                    <li class="nav-item">
-                        <a asp-controller="Deck" asp-action="Create" class="metagroup-link ff-display">
-                            <span class="btn btn-light font-weight-bold">New Deck</span>
-                        </a>
-                    </li>
+                    @if (this.SignInManager.IsSignedIn(this.User))
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="Deck" asp-action="Create" class="metagroup-link ff-display">
+                                <span class="btn btn-light font-weight-bold">New Deck</span>
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
             <div class="card-body pt-1">
@@ -83,19 +86,21 @@
                 }
             </div>
             <hr />
-            <div class="card mb-2 pb-1 text-center ff-display">
-                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Lock your deck and join the event. Once your deck is at "@Model.DeliveryLocation" store the status of your deck will change to "Delivered"</h4>
-                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Your deck status is : @Model.DeckStatus</h4>
-            </div>
-            <hr />
-            <div class="card mb-2">
-                <div class="w-100 text-center ae-border-bottom-light"><h4>Shipping location</h4></div>
-                <div class="card-body pl-1 pr-1 pt-2 pb-0">
+            @if (this.SignInManager.IsSignedIn(this.User))
+            {
+                <div class="card mb-2 pb-1 text-center ff-display">
+                    <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Lock your deck and join the event. Once your deck is at "@Model.DeliveryLocation" store the status of your deck will change to "Delivered"</h4>
+                    <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Deck status is : @Model.DeckStatus</h4>
+                </div>
+                <hr />
+                <div class="card mb-2">
+                    <div class="w-100 text-center ae-border-bottom-light"><h4>Ship my deck</h4></div>
+                    <div class="card-body pl-1 pr-1 pt-2 pb-0">
 
 
                         <form asp-controller="Deck" asp-action="Shipping" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
                             <div class="form-group row mb-1">
-                                <label class="col-sm-2 col-lg-2 col-form-label" type = hidden asp-for="StoreId"></label>
+                                <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreId">To</label>
                                 <div class="col-sm-8 col-lg-6">
                                     <select asp-for="StoreId" class="form-control" placeholder="Deck status is">
                                         <option value="@Model.StoreId" selected="true">
@@ -109,13 +114,13 @@
                                 </div>
                                 <span asp-validation-for="StoreId" class="small text-danger"></span>
                             </div>
-                        <div class="form-group row mb-1" hidden>
-                            <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Name"></label>
-                            <div class="col-sm-8 col-lg-6">
-                                <input asp-for="@Model.Name" class="form-control" placeholder="Name">
+                            <div class="form-group row mb-1" hidden>
+                                <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Name"></label>
+                                <div class="col-sm-8 col-lg-6">
+                                    <input asp-for="@Model.Name" class="form-control" placeholder="Name">
+                                </div>
+                                <span asp-validation-for="@Model.Name" class="small text-danger"></span>
                             </div>
-                            <span asp-validation-for="@Model.Name" class="small text-danger"></span>
-                        </div>
                             <div class="form-group row mb-1">
                                 <div class="col-sm-8">
                                     <button type="submit" class="btn btn-light">
@@ -124,50 +129,52 @@
                                 </div>
                             </div>
                         </form>
+                    </div>
                 </div>
-            </div>
-            <hr />
-            <div class="w-100 text-center ae-border-bottom-light">
-                <h4>
-                    <a asp-controller="Deck" asp-action="Order" asp-route-id="@this.Model.Id" asp-route-information="@this.Model.GetDeckName()" class="metagroup-link ff-display">
-                        <span class="btn btn-light font-weight-bold">Order</span>
-                    </a>
-                </h4>
-            </div>
+                <hr />
+                <div class="w-100 text-center ae-border-bottom-light">
+                    <h4>
+                        <a asp-controller="Deck" asp-action="Order" asp-route-id="@this.Model.Id" asp-route-information="@this.Model.GetDeckName()" class="metagroup-link ff-display">
+                            <span class="btn btn-light font-weight-bold">Order</span>
+                        </a>
+                    </h4>
+                </div>
+            }
+        </div>
     </div>
+    <hr />
 </div>
-<hr />
-@* 
+@*
 
-<div class="col-xl-9 col-12">
+    <div class="col-xl-9 col-12">
     <ul class="entry-meta">
-        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
-        {
-            <form asp-controller="Deck" asp-action="Dispatch" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
-                <div class="form-group row mb-1">
-                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="DeckStatusId">Deck Status</label>
-                    <div class="col-sm-8 col-lg-6">
-                        <select asp-for="DeckStatusId" class="form-control" placeholder="Deck status is">
-                            <option value="@Model.DeckStatusId" selected="true">
-                                @Model.DeckStatus
-                            </option>
-                            @foreach (var status in Model.DeckStatuses)
-                            {
-                                <option value="@status.Id">@status.Name</option>
-                            }
-                        </select>
-                    </div>
-                    <span asp-validation-for="DeckStatusId" class="small text-danger"></span>
-                </div>
-                <div class="form-group row mb-1">
-                    <label class="col-sm-2 col-form-label"></label>
-                    <div class="col-sm-8">
-                        <button type="submit" class="btn btn-light">
-                            <span class="fas fa-plus"></span> <b>Dispatch</b>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        }
+    @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+    {
+    <form asp-controller="Deck" asp-action="Dispatch" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
+    <div class="form-group row mb-1">
+    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="DeckStatusId">Deck Status</label>
+    <div class="col-sm-8 col-lg-6">
+    <select asp-for="DeckStatusId" class="form-control" placeholder="Deck status is">
+    <option value="@Model.DeckStatusId" selected="true">
+    @Model.DeckStatus
+    </option>
+    @foreach (var status in Model.DeckStatuses)
+    {
+    <option value="@status.Id">@status.Name</option>
+    }
+    </select>
+    </div>
+    <span asp-validation-for="DeckStatusId" class="small text-danger"></span>
+    </div>
+    <div class="form-group row mb-1">
+    <label class="col-sm-2 col-form-label"></label>
+    <div class="col-sm-8">
+    <button type="submit" class="btn btn-light">
+    <span class="fas fa-plus"></span> <b>Dispatch</b>
+    </button>
+    </div>
+    </div>
+    </form>
+    }
     </ul>
-</div> *@
+    </div> *@

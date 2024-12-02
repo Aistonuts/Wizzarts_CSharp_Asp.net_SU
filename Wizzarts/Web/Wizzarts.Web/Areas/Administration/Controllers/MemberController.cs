@@ -96,7 +96,7 @@
                     .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
                 this.cache.Set(AdminsCacheKey, admins, cacheOptions);
             }
- 
+
             var artists = this.cache
               .Get<IEnumerable<ApplicationUser>>(ArtistsCacheKey);
 
@@ -121,7 +121,6 @@
                     Nickname = x.Nickname,
                     AvatarUrl = x.AvatarUrl,
                 }),
-
 
                 Premium = premiumUser.Select(x => new UserInListViewModelAdminArea
                 {

@@ -15,7 +15,6 @@
     using Wizzarts.Web.ViewModels.PlayCard;
 
     using static Wizzarts.Common.AdminConstants;
-
     using static Wizzarts.Common.HardCodedConstants;
 
     public class PlayCardService : IPlayCardService
@@ -111,7 +110,7 @@
                 AbilitiesAndFlavor = input.AbilitiesAndFlavor,
                 Power = input.Power,
                 Toughness = input.Toughness,
-                CardGameExpansionId = input.GameExpansionId,
+                CardGameExpansionId = BetaExpansion,
                 AddedByMemberId = userId,
                 IsEventCard = isEventCard,
                 ForMainPage = false,
@@ -242,8 +241,7 @@
                 }
             }
 
-            //string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
-
+            // string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
             await using (FileStream fs = new FileStream(physicalPath, FileMode.Create))
             {
                 using (BinaryWriter bw = new BinaryWriter(fs))
@@ -255,17 +253,18 @@
                     bw.Close();
                 }
             }
-            //var extension = Path.GetExtension(input.Images.FileName).TrimStart('.');
 
-            //if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
-            //{
+            // var extension = Path.GetExtension(input.Images.FileName).TrimStart('.');
+
+            // if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
+            // {
             //    throw new Exception($"Invalid image extension {extension}");
-            //}
+            // }
 
-            //var physicalPath = $"{path}/cardsByExpansion/EventCards/{input.Name}.{extension}";
+            // var physicalPath = $"{path}/cardsByExpansion/EventCards/{input.Name}.{extension}";
 
-            //using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-            //await input.Images.CopyToAsync(fileStream);
+            // using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            // await input.Images.CopyToAsync(fileStream);
 ;
 
             await this.cardRepository.AddAsync(card);
@@ -313,7 +312,6 @@
             }
 
             return null;
-
         }
 
         public async Task<bool> CardExist(string id)
@@ -348,14 +346,13 @@
 
         public IEnumerable<T> GetAllNoPagination<T>()
         {
-             var card = this.GetCachedData<T>()
-             .ToList();
-             return card;
+            var card = this.GetCachedData<T>()
+            .ToList();
+            return card;
         }
 
         public async Task<IEnumerable<T>> GetAllCardsByCriteria<T>(SingleDeckViewModel input)
         {
-
             if (input.SearchEvent == "Event" && input.SearchName != null && input.SearchType != null)
             {
                 return await this.cardRepository.AllAsNoTracking()
@@ -436,7 +433,7 @@
                 AbilitiesAndFlavor = input.AbilitiesAndFlavor,
                 Power = input.Power,
                 Toughness = input.Toughness,
-                CardGameExpansionId = input.GameExpansionId,
+                CardGameExpansionId = BetaExpansion,
                 AddedByMemberId = userId,
                 IsEventCard = isEventCard,
                 ArtId = input.ArtId,
@@ -539,14 +536,14 @@
             {
                 card.CardFrameColorId = cardFrame.Id;
             }
+
             var physicalPath = " ";
 
             Directory.CreateDirectory($"{path}/cardsByExpansion/PremiumUserCards/");
-            physicalPath = $"{path}/cardsByExpansion/PremiumUserCards/{input.Name.Replace(" ", "")}.png";
-            card.CardRemoteUrl = $"/images/cardsByExpansion/PremiumUserCards/{input.Name.Replace(" ", "")}.png";
+            physicalPath = $"{path}/cardsByExpansion/PremiumUserCards/{input.Name.Replace(" ", string.Empty)}.png";
+            card.CardRemoteUrl = $"/images/cardsByExpansion/PremiumUserCards/{input.Name.Replace(" ", string.Empty)}.png";
 
-            //string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
-
+            // string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
             await using (FileStream fs = new FileStream(physicalPath, FileMode.Create))
             {
                 using (BinaryWriter bw = new BinaryWriter(fs))
@@ -558,20 +555,18 @@
                     bw.Close();
                 }
             }
-            //var extension = Path.GetExtension(input.Images.FileName).TrimStart('.');
 
+            // var extension = Path.GetExtension(input.Images.FileName).TrimStart('.');
 
-            //if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
-            //{
+            // if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
+            // {
             //    throw new Exception($"Invalid image extension {extension}");
-            //}
+            // }
 
-            //var physicalPath = $"{path}/cardsByExpansion/EventCards/{input.Name}.{extension}";
+            // var physicalPath = $"{path}/cardsByExpansion/EventCards/{input.Name}.{extension}";
 
-            //using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-            //await input.Images.CopyToAsync(fileStream);
-;
-
+            // using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            // await input.Images.CopyToAsync(fileStream);
             await this.cardRepository.AddAsync(card);
             await this.cardRepository.SaveChangesAsync();
             this.cache.Remove(CardsCacheKey);

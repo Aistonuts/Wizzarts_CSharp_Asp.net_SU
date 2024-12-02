@@ -11,8 +11,8 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
-    using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.Store;
+
     using static Wizzarts.Common.GlobalConstants;
 
     public class StoreController : BaseController
@@ -47,23 +47,21 @@
 
             if (!this.ModelState.IsValid)
             {
-
                 return this.View(input);
             }
 
             var user = await this.userManager.GetUserAsync(this.User);
-            var currentRole = await this.userManager.GetRolesAsync(user);
+
             try
             {
                 await this.storeService.CreateAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images");
-                if (!currentRole.Contains(PremiumRoleName))
+                if (this.User.IsPremiumUser() == false)
                 {
                     await this.userManager.AddToRoleAsync(user, PremiumRoleName);
                 }
             }
             catch (Exception ex)
             {
-
                 this.ModelState.AddModelError(string.Empty, ex.Message);
                 return this.View(input);
             }
@@ -81,6 +79,7 @@
             {
                 return this.NotFound();
             }
+
             const int ItemsPerPage = 4;
             var viewModel = new StoreListViewModel
             {
@@ -97,9 +96,9 @@
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> ApproveStore(int id)
         {
-          var userId = await this.storeService.ApproveStore(id);
+            var userId = await this.storeService.ApproveStore(id);
 
-          return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
+            return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
         }
     }
 }

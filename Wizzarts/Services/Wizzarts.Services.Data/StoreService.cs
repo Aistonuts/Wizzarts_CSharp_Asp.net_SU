@@ -1,12 +1,12 @@
 ﻿namespace Wizzarts.Services.Data
 {
-    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
+    using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
@@ -48,12 +48,18 @@
                 throw new Exception($"Invalid image extension {extension}");
             }
 
-            var physicalPath = $"{imagePath}/Stores/{store.Name.Replace(" ", "")}.{extension}";
-            store.Image = $"/images/Stores/{store.Name.Replace(" ", "")}.{extension}";
+            var physicalPath = $"{imagePath}/Stores/{store.Name.Replace(" ", string.Empty)}.{extension}";
+            store.Image = $"/images/Stores/{store.Name.Replace(" ", string.Empty)}.{extension}";
             using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.StoreImage.CopyToAsync(fileStream);
             await this.storeRepository.AddAsync(store);
             await this.storeRepository.SaveChangesAsync();
+        }
+
+        public async Task<bool> ExistsAsync(int id)
+        {
+            return await this.storeRepository.AllAsNoTracking()
+                .AnyAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<T>> GetAll<T>()

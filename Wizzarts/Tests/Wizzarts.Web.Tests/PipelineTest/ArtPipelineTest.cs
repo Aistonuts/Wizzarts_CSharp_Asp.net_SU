@@ -1,20 +1,22 @@
-﻿using Microsoft.AspNetCore.Http;
-using MyTested.AspNetCore.Mvc;
-using MyTested.AspNetCore.Mvc.Utilities.Validators;
-using Shouldly;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using Wizzarts.Data.Models;
-using Wizzarts.Services.Data.Tests;
-using Wizzarts.Web.Controllers;
-using Wizzarts.Web.ViewModels.Art;
-using Xunit;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace Wizzarts.Web.Tests.PipelineTest
+﻿namespace Wizzarts.Web.Tests.PipelineTest
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+
+    using Microsoft.AspNetCore.Http;
+    using MyTested.AspNetCore.Mvc;
+    using MyTested.AspNetCore.Mvc.Utilities.Validators;
+    using Shouldly;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Services.Data.Tests;
+    using Wizzarts.Web.Controllers;
+    using Wizzarts.Web.ViewModels.Art;
+    using Xunit;
+
+    using static System.Net.Mime.MediaTypeNames;
+
     public class ArtPipelineTest : UnitTestBase
     {
         [Fact]
@@ -36,7 +38,6 @@ namespace Wizzarts.Web.Tests.PipelineTest
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
-
             MyMvc
                .Pipeline()
                .ShouldMap(request => request
@@ -53,7 +54,6 @@ namespace Wizzarts.Web.Tests.PipelineTest
                {
                    Title = title,
                    Description = content,
-
                }))
                .Which()
                .ShouldHave()
@@ -66,7 +66,7 @@ namespace Wizzarts.Web.Tests.PipelineTest
         [Fact]
         public void GetEditShouldShouldReturnNotFound()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyMvc
@@ -79,14 +79,14 @@ namespace Wizzarts.Web.Tests.PipelineTest
                .ShouldReturn()
                 .View();
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Theory]
         [InlineData(1, 19)]
         public void GetAllWithPageShouldReturnDefaultViewWithCorrectModel(int page, int expectedCount)
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             MyMvc
                 .Pipeline()
@@ -101,13 +101,13 @@ namespace Wizzarts.Web.Tests.PipelineTest
                     {
                         articleListing.Arts.Count().ShouldBe(expectedCount);
                     }));
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void GetByIdShouldReturnViewWithCorrectModel()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             MyMvc
                .Pipeline()
@@ -120,7 +120,7 @@ namespace Wizzarts.Web.Tests.PipelineTest
                .ShouldReturn()
                .View(view => view
                    .WithModelOfType<SingleArtViewModel>());
-            TearDownBase();
+            this.TearDownBase();
         }
     }
 }

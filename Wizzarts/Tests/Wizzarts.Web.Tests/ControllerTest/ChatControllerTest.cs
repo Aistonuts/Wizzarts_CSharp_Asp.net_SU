@@ -1,18 +1,19 @@
-﻿using System.Linq;
-using MyTested.AspNetCore.Mvc;
-using Wizzarts.Services.Data.Tests;
-using Wizzarts.Web.Controllers;
-using Wizzarts.Web.ViewModels.Chat;
-using Xunit;
-
-namespace Wizzarts.Web.Tests.ControllerTest
+﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
+    using System.Linq;
+
+    using MyTested.AspNetCore.Mvc;
+    using Wizzarts.Services.Data.Tests;
+    using Wizzarts.Web.Controllers;
+    using Wizzarts.Web.ViewModels.Chat;
+    using Xunit;
+
     public class ChatControllerTest : UnitTestBase
     {
         [Fact]
         public void PostShouldReturnOk()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             MyController<ChatController>
                 .Instance(instance => instance
@@ -26,14 +27,14 @@ namespace Wizzarts.Web.Tests.ControllerTest
                     }))
                 .ShouldReturn()
                 .Ok();
-            TearDownBase();
+            this.TearDownBase();
         }
+
         [Fact]
         public void ByIdShouldReturnView()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
-        
 
             MyController<ChatController>
                 .Instance(instance => instance
@@ -44,7 +45,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .View(view => view
                     .WithModelOfType<SingleChatViewModel>());
 
-            TearDownBase();
+            this.TearDownBase();
         }
     }
 }

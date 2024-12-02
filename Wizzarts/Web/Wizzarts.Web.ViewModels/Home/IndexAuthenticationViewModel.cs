@@ -47,8 +47,6 @@
 
         public bool HasOpenDeck { get; set; }
 
-        public string PhoneNumber { get; set; } = string.Empty;
-
         public IEnumerable<DeckInListViewModel> Decks { get; set; }
 
         public IEnumerable<EventComponentsInListViewModel> EventComponents { get; set; }

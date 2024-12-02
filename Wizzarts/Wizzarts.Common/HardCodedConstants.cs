@@ -22,5 +22,11 @@
         public const int SecondExpansion = 2;
 
         public const int BetaExpansion = 3;
+
+        public string Alpha = "Alpha";
+
+        public string Beta = "Beta";
+
+        public string Second = "Second";
     }
 }

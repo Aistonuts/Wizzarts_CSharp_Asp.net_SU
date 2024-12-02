@@ -108,7 +108,7 @@
                                 <a asp-controller="Event" asp-action="Create" class="text-decoration-none"><i class="ss ss-parl3"></i> Create event</a><br>
                                 <a asp-controller="Article" asp-action="Create" class="text-decoration-none"><i class="fas fa-trophy"></i> Create article</a><br>
                                 <a asp-controller="Deck" asp-action="Create" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Create deck</a><br>
-                                @if (!this.User.IsInRole(GlobalConstants.MemberRoleName))
+                                @if (this.User.IsInRole(GlobalConstants.ArtistRoleName) || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
                                 {
                                     <a asp-controller="PlayCard" asp-action="Add" class="text-decoration-none"><i class="fas fa-tools"></i> Create Card</a>
 
@@ -185,7 +185,7 @@
                     The MagicCardsmith database contains a full list of <a asp-controller="PlayCard" asp-action="All">all card sets</a> in MTG,ordered by  <a asp-controller="Expansion" asp-action="All">expansions</a>, user created <a asp-controller="Deck" asp-action="All">card decks.</a>
                     @foreach (var gameExpansion in this.Model.GameExpansions)
                     {
-                        <a asp-controller="Deck" asp-action="ById" asp-route-id="@gameExpansion.Id" asp-route-information="@gameExpansion.GetExpansionTitle()">The @gameExpansion.Title @gameExpansion.Description.</a>
+                        <a asp-controller="Expansion" asp-action="ById" asp-route-id="@gameExpansion.Id" asp-route-information="@gameExpansion.GetExpansionTitle()">The @gameExpansion.Title @gameExpansion.Description.</a>
                     }
                 </p>
             </div>

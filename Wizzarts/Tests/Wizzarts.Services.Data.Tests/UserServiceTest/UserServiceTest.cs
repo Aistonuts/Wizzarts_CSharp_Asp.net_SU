@@ -1,18 +1,19 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Moq;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Mapping;
-using Wizzarts.Web.ViewModels;
-using Wizzarts.Web.ViewModels.Art;
-using Wizzarts.Web.ViewModels.WizzartsMember;
-using Xunit;
-
-namespace Wizzarts.Services.Data.Tests.UserServiceTest
+﻿namespace Wizzarts.Services.Data.Tests.UserServiceTest
 {
+    using System.Linq;
+    using System.Reflection;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Identity;
+    using Moq;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels;
+    using Wizzarts.Web.ViewModels.Art;
+    using Wizzarts.Web.ViewModels.WizzartsMember;
+    using Xunit;
+
     public class UserServiceTest : UnitTestBase
     {
         public UserServiceTest()
@@ -28,9 +29,9 @@ namespace Wizzarts.Services.Data.Tests.UserServiceTest
             var mockUser = new Mock<UserManager<ApplicationUser>>();
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
             using var repositoryArticle = new EfDeletableEntityRepository<Article>(data);
-            using var repositoryEvent= new EfDeletableEntityRepository<Event>(data);
+            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryAvatar= new EfDeletableEntityRepository<Avatar>(data);
+            using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
             var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
 
@@ -71,7 +72,7 @@ namespace Wizzarts.Services.Data.Tests.UserServiceTest
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar,null, repositoryUser);
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
 
             int artCount = service.GetCountOfArt("2738e787-5d57-4bc7-b0d2-287242f04695");
             Assert.Equal(8, artCount);
@@ -96,7 +97,7 @@ namespace Wizzarts.Services.Data.Tests.UserServiceTest
 
             var avatar = data.Avatars.FirstOrDefault(x => x.Id == 1);
             Assert.Equal(6, avatars.Count());
-            Assert.Equal("Marvel One",avatar.Name);
+            Assert.Equal("Marvel One", avatar.Name);
             this.TearDownBase();
         }
 

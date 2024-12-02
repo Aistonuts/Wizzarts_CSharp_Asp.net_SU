@@ -31,18 +31,18 @@
                                     </div>
                                     <span asp-validation-for="Description" class="small text-danger"></span>
                                 </div>
-                                <div class="form-group row mb-1">
+                               @*  <div class="form-group row mb-1">
                                     <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Image"></label>
                                     <div class="col-sm-8 col-lg-6">
                                         <input asp-for="Image" class="form-control" placeholder="Your Art Image">
                                     </div>
                                     <span asp-validation-for="Image" class="small text-danger"></span>
-                                </div>
+                                </div> *@
                                 <div class="form-group row mb-1">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-8">
                                         <button type="submit" class="btn btn-light">
-                                            <span class="fas fa-plus"></span> <b>Create</b>
+                                            <span class="fas fa-plus"></span> <b>Edit</b>
                                         </button>
                                     </div>
                                 </div>
@@ -60,6 +60,20 @@
                         <div class="text-center"><i>Binders help you organize your collection</i></div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Do you want to delete "@Model.Title"?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
             </div>
         </div>
     </div>

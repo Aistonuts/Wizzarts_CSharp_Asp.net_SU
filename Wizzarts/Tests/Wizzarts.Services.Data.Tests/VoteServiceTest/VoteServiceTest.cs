@@ -1,15 +1,16 @@
-﻿using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Common.Repositories;
-using Wizzarts.Data.Models;
-using Xunit;
-
-namespace Wizzarts.Services.Data.Tests.VoteServiceTest
+﻿namespace Wizzarts.Services.Data.Tests.VoteServiceTest
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Moq;
+    using Wizzarts.Data.Common.Repositories;
+    using Wizzarts.Data.Models;
+    using Xunit;
+
     public class VoteServiceTest : UnitTestBase
     {
         [Fact]
@@ -31,7 +32,6 @@ namespace Wizzarts.Services.Data.Tests.VoteServiceTest
             Assert.Equal(1, list.Count);
             Assert.Equal(5, list.First().Value);
         }
-
 
         [Fact]
         public async Task When2UsersVoteForTheSameRecipeTheAverageVoteShouldBeCorrect()

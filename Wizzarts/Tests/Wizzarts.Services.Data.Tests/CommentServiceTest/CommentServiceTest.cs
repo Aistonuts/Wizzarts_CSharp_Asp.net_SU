@@ -1,16 +1,17 @@
-﻿using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Mapping;
-using Wizzarts.Web.ViewModels;
-using Wizzarts.Web.ViewModels.CardComments;
-using Wizzarts.Web.ViewModels.PlayCard;
-using Xunit;
-
-namespace Wizzarts.Services.Data.Tests.CommentServiceTest
+﻿namespace Wizzarts.Services.Data.Tests.CommentServiceTest
 {
+    using System.Linq;
+    using System.Reflection;
+    using System.Threading.Tasks;
+
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels;
+    using Wizzarts.Web.ViewModels.CardComments;
+    using Wizzarts.Web.ViewModels.PlayCard;
+    using Xunit;
+
     public class CommentServiceTest : UnitTestBase
     {
         public CommentServiceTest()
@@ -19,7 +20,7 @@ namespace Wizzarts.Services.Data.Tests.CommentServiceTest
         }
 
         [Fact]
-        public async Task CommentAsyncShouldCreateACommentAndAddAttachItToCorrectCard()
+        public async Task Comment_Async_Should_Create_A_Comment_And_Attach_It_To_Correct_Card()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -40,13 +41,13 @@ namespace Wizzarts.Services.Data.Tests.CommentServiceTest
 
             var newComments = data.CardComments.FirstOrDefault(x => x.PostedByUserId == userId);
 
-            Assert.Equal(newComments.CardId,cardId);
-            Assert.Equal(1,data.CardComments.Count());
+            Assert.Equal(newComments.CardId, cardId);
+            Assert.Equal(1, data.CardComments.Count());
             this.TearDownBase();
         }
 
         [Fact]
-        public async Task GetAllCommentsByUserShouldReturnTheRightCommentsAndCount()
+        public async Task Get_All_Comments_By_User_Should_Return_The_Correct_Comments_And_Count()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -66,14 +67,14 @@ namespace Wizzarts.Services.Data.Tests.CommentServiceTest
             await commentService.CommentAsync(comment, userId, cardId, true);
 
             var adminComments = await commentService.GetAllCommentsByUser<CardCommentInListViewModel>(userId);
-            var adminComment = adminComments.FirstOrDefault( x => x.PostedByUserId == userId);
+            var adminComment = adminComments.FirstOrDefault(x => x.PostedByUserId == userId);
             Assert.Equal(1, adminComments.Count());
             Assert.Equal("Tested Great", adminComment.Review);
             this.TearDownBase();
         }
 
         [Fact]
-        public async Task GetAllCommentsCardIdShouldReturnTheRightCommentsAndCount()
+        public async Task Get_All_Card_Comments_Id_Should_Return_The_Correct_Comments_And_Count()
         {
             this.OneTimeSetup();
             var data = this.dbContext;

@@ -66,6 +66,7 @@
             {
                 return this.View(input);
             }
+
             bool isPremium = await this.userService.IsPremium(this.User.GetId());
             try
             {
@@ -83,7 +84,6 @@
             return this.RedirectToAction("MyData", "User");
         }
 
-        [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
             if (await this.artService.ArtExist(id) == false)
@@ -97,16 +97,9 @@
                 return this.Unauthorized();
             }
 
-            var inputModel = this.artService.GetById<EditArtViewModel>(id);
+            var inputModel = await this.artService.GetById<EditArtViewModel>(id);
 
-            if (inputModel != null)
-            {
-                return this.View(inputModel);
-            }
-            else
-            {
-                return this.NotFound();
-            }
+            return this.View(inputModel);
         }
 
         [HttpPost]
@@ -123,25 +116,15 @@
                 return this.Unauthorized();
             }
 
+            this.ModelState.Remove("UserName");
+            this.ModelState.Remove("Password");
             if (!this.ModelState.IsValid)
             {
-
                 return this.View(inputModel);
             }
 
-            if (await this.artService.ArtExist(id) == false)
-            {
-                return this.BadRequest();
-            }
-
-            if (await this.artService.HasUserWithIdAsync(id, this.User.GetId()) == false
-                && this.User.IsAdmin() == false)
-            {
-                return this.Unauthorized();
-            }
-
             await this.artService.UpdateAsync(inputModel, id);
-            return this.RedirectToAction(nameof(this.ById), new { id });
+            return this.RedirectToAction(nameof(this.ById), new { id, information = inputModel.GetInformation() });
         }
 
         [AllowAnonymous]
@@ -178,13 +161,13 @@
         {
             if (id == null)
             {
-                return this.Unauthorized();
+                return this.BadRequest();
             }
 
             var art = await this.artService.GetById<SingleArtViewModel>(id);
             if (information != art.GetInformation())
             {
-                return this.BadRequest(information);
+                return this.BadRequest();
             }
 
             art.Events = await this.eventService.GetAll<EventInListViewModel>();
@@ -196,14 +179,15 @@
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> ApproveArt(string id)
         {
-           var userId = await this.artService.ApproveArt(id);
-           if (userId != null)
-           {
-               return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
-           }else
-           {
-               return this.BadRequest();
-           }
+            var userId = await this.artService.ApproveArt(id);
+            if (userId != null)
+            {
+                return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
+            }
+            else
+            {
+                return this.BadRequest();
+            }
         }
 
         [HttpPost]

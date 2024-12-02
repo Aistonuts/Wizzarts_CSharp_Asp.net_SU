@@ -1,14 +1,15 @@
-﻿using Microsoft.AspNetCore.Http;
-using Moq;
-using MyTested.AspNetCore.Mvc;
-using System.IO;
-using System.Text;
-using Wizzarts.Web.Controllers;
-using Wizzarts.Web.ViewModels.Art;
-using Xunit;
-
-namespace Wizzarts.Web.Tests.RoutingTest
+﻿namespace Wizzarts.Web.Tests.RoutingTest
 {
+    using System.IO;
+    using System.Text;
+
+    using Microsoft.AspNetCore.Http;
+    using Moq;
+    using MyTested.AspNetCore.Mvc;
+    using Wizzarts.Web.Controllers;
+    using Wizzarts.Web.ViewModels.Art;
+    using Xunit;
+
     public class ArtRouteTest
     {
         [Fact]
@@ -24,7 +25,6 @@ namespace Wizzarts.Web.Tests.RoutingTest
         .Configuration()
                 .ShouldMap("/Art/Add")
                 .To<ArtController>(c => c.Add());
-
 
         [Fact]
         public void GetEditShouldBeRoutedCorrectly()
@@ -49,7 +49,6 @@ namespace Wizzarts.Web.Tests.RoutingTest
                     {
                         Title = title,
                         Description = content,
-
                     }))
                 .To<ArtController>(c => c.Edit(
                     new EditArtViewModel

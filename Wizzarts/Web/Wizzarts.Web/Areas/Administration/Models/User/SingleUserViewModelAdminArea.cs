@@ -32,7 +32,6 @@
 
         public IEnumerable<StoreInListViewModel> Stores { get; set; }
 
-
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<ApplicationUser, SingleUserViewModelAdminArea>()

@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data;
-using Wizzarts.Data.Models;
-
-namespace Wizzarts.Services.Data.Tests.Mock.TestData
+﻿namespace Wizzarts.Services.Data.Tests.Mock.TestData
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Wizzarts.Data;
+    using Wizzarts.Data.Models;
+
     public class DeckSeederTest : ITestDbSeeder
 
     {

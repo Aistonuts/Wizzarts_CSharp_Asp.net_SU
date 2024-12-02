@@ -151,5 +151,10 @@
         public const string DefaultCardDescription = "Unknown Abilites and Flavour.";
 
         public const string DefaultCardImage = "/images/navigation/noImage.jpg";
+
+        // Member Values
+        public const int AgentPhoneMaxLength = 15;
+
+        public const int AgentPhoneMinLength = 7;
     }
 }

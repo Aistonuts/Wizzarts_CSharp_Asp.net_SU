@@ -1,9 +1,9 @@
 ﻿namespace Wizzarts.Web.Controllers
 {
-    using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Mvc;
     using System.Security.Claims;
     using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Mvc;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.ViewModels.Votes;
 

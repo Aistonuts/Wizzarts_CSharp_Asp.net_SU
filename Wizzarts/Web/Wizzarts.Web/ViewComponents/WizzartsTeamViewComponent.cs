@@ -1,6 +1,7 @@
 ﻿namespace Wizzarts.Web.ViewComponents
 {
     using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Wizzarts.Data.Models;
@@ -26,7 +27,7 @@
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var user = await this.userManager.GetUserAsync((System.Security.Claims.ClaimsPrincipal)this.User);
-            
+
             var viewModel = new WizzartsTeamListViewModel
             {
                 wizzartsTeam = await this.wizzartsServices.GetAllWizzartsTeamMembers<WizzartsTeamInListViewModel>(),

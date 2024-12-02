@@ -286,7 +286,7 @@
             .WithOne(a => a.Event)
             .HasForeignKey(a => a.EventId);
 
-            //Needed for Identity models configuration
+            // Needed for Identity models configuration
             base.OnModelCreating(builder);
 
             this.ConfigureUserIdentityRelations(builder);

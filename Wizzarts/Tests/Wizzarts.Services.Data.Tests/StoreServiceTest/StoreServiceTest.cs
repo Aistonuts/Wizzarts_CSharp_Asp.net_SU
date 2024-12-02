@@ -1,23 +1,24 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Mapping;
-using Wizzarts.Web.ViewModels;
-using Wizzarts.Web.ViewModels.Article;
-using Wizzarts.Web.ViewModels.Store;
-using Xunit;
-
-namespace Wizzarts.Services.Data.Tests.StoreServiceTest
+﻿namespace Wizzarts.Services.Data.Tests.StoreServiceTest
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Caching.Memory;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Store;
+    using Xunit;
+
     public class StoreServiceTest : UnitTestBase
     {
         public StoreServiceTest()
@@ -28,13 +29,13 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
         [Fact]
         public async Task CreateStoreShouldChangeTheTotalCountOfStoresInDbAndShouldAddTheCorrectStore()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
             var service = new StoreService(repository);
 
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
@@ -51,26 +52,26 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
                 StoreImage = file,
             };
 
-            await service.CreateAsync(newStore, UserId, path);
+            await service.CreateAsync(newStore, userId, path);
 
             var count = await repository.All().CountAsync();
             var testStore = data.Stores.FirstOrDefault(x => x.Name == "test");
 
             Assert.Equal(7, count);
             Assert.Equal(newStore.StoreName, testStore.Name);
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public async Task CreateStoreWithWrongFileTypeShouldThrowAnException()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
             var service = new StoreService(repository);
 
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
@@ -86,17 +87,17 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
                 StorePhoneNumber = "00000100000",
                 StoreImage = file,
             };
-            var exception = await Assert.ThrowsAsync<Exception>(() => service.CreateAsync(newStore, UserId, path));
+            var exception = await Assert.ThrowsAsync<Exception>(() => service.CreateAsync(newStore, userId, path));
 
             Assert.Equal("Invalid image extension nft", exception.Message);
             this.TearDownBase();
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public async Task StoresGetAllShouldReturnCorrectStoreCount()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
@@ -111,7 +112,7 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
         [Fact]
         public async Task StoresGetAllNoPaginationShouldReturnCorrectStoreCount()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
@@ -126,12 +127,12 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
         [Fact]
         public async Task StoresGetAllByUserIdShouldReturnCorrectStoreCount()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
             var service = new StoreService(repository);
-            var stores = await service.GetAllStoresByUserId<StoreInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695",1,2);
+            var stores = await service.GetAllStoresByUserId<StoreInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695", 1, 2);
             int storeCount = stores.Count();
             Assert.Equal(2, storeCount);
 
@@ -141,7 +142,7 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
         [Fact]
         public async Task StoresCountShouldReturnCorrectStoreCount()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
@@ -156,13 +157,13 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
         [Fact]
         public async Task ApproveStoreShouldChangeNewStoreApprovalStatusToApproved()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
             var service = new StoreService(repository);
 
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
@@ -179,7 +180,7 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
                 StoreImage = file,
             };
 
-            await service.CreateAsync(newStore, UserId, path);
+            await service.CreateAsync(newStore, userId, path);
 
             var count = await repository.All().CountAsync();
             var testStore = data.Stores.FirstOrDefault(x => x.Name == "test");
@@ -189,13 +190,13 @@ namespace Wizzarts.Services.Data.Tests.StoreServiceTest
             Assert.Equal(newStore.StoreName, testStore.Name);
             Assert.False(storeApprovedStatusBefore);
             Assert.True(testStore.ApprovedByAdmin);
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public async Task StoresGetAllApprovedStoresByUserIdShouldReturnCorrectStoreCount()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);

@@ -1,13 +1,14 @@
-﻿using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Web.ViewModels.Article;
-
-namespace Wizzarts.Services.Data.Tests.Mock.ServicesMock
+﻿namespace Wizzarts.Services.Data.Tests.Mock.ServicesMock
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Moq;
+    using Wizzarts.Web.ViewModels.Article;
+
     public class ArticleServiceMock
     {
         public static IArticleService MockArticleService

@@ -64,14 +64,14 @@
                 return this.BadRequest();
             }
 
-            if (await this.articleService.HasUserWithIdAsync(id,this.User.GetId()) == false
+            if (await this.articleService.HasUserWithIdAsync(id, this.User.GetId()) == false
                 && this.User.IsAdmin() == false)
             {
                 return this.Unauthorized();
             }
 
             await this.articleService.UpdateAsync(id, input);
-            return this.RedirectToAction(nameof(this.ById), new { id });
+            return this.RedirectToAction(nameof(this.ById), new { id, information = input.GetArticleTitle() });
         }
 
         [HttpGet]
@@ -94,6 +94,7 @@
             {
                 return this.View(input);
             }
+
             bool isPremium = await this.userService.IsPremium(this.User.GetId());
             try
             {
@@ -113,11 +114,10 @@
 
         public async Task<IActionResult> ById(int id, string information)
         {
-
             var article = await this.articleService.GetById<SingleArticleViewModel>(id);
-            if (information != article.GetArticleTitle())
+            if (article == null || information != article.GetArticleTitle())
             {
-                return this.BadRequest(information);
+                return this.BadRequest();
             }
 
             if (article != null)
@@ -132,14 +132,15 @@
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> ApproveArticle(int id)
         {
-          var userId = await this.articleService.ApproveArticle(id);
-          if (userId != null)
-          {
-              return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
-          }else
-          {
-              return this.BadRequest();
-          }
+            var userId = await this.articleService.ApproveArticle(id);
+            if (userId != null)
+            {
+                return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
+            }
+            else
+            {
+                return this.BadRequest();
+            }
         }
 
         [HttpPost]

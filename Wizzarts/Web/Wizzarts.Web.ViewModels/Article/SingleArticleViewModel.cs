@@ -22,6 +22,8 @@
 
         public string ArticleCreatorId { get; set; } = string.Empty;
 
+        public string ArticleCreator { get; set; } = string.Empty;
+
         public string Nickname { get; set; } = string.Empty;
 
         public string Username { get; set; }
@@ -41,6 +43,9 @@
                    opt.MapFrom(x =>
                        x.ArticleCreator.Nickname))
                .ForMember(x => x.Username, opt =>
+                   opt.MapFrom(x =>
+                       x.ArticleCreator.UserName))
+               .ForMember(x => x.ArticleCreator, opt =>
                    opt.MapFrom(x =>
                        x.ArticleCreator.UserName))
             .ForMember(x => x.ArticleCreatorAvatar, opt =>

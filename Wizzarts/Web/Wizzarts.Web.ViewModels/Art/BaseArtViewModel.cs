@@ -4,12 +4,13 @@
 
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.Home;
 
     using static Wizzarts.Common.DataConstants;
     using static Wizzarts.Common.MessageConstants;
 
-    public class BaseArtViewModel : IndexAuthenticationViewModel, IMapFrom<Art>
+    public class BaseArtViewModel : IndexAuthenticationViewModel, IMapFrom<Art>, ISingleArtViewModel, ISingleEventViewModel
     {
         [Required(ErrorMessage = RequiredMessage)]
         [StringLength(ArtTitleMaxLength, MinimumLength = ArtTitleMinLength, ErrorMessage = LengthMessage)]

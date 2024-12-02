@@ -3,6 +3,9 @@
     using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels.Art;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.Home;
 
     public class SingleMemberViewModel : IndexAuthenticationViewModel, IMapFrom<ApplicationUser>, ISingleMemberViewModel
@@ -18,6 +21,8 @@
         public string Email { get; set; } = string.Empty;
 
         public string Bio { get; set; } = string.Empty;
+
+        public string Title { get; set; } = string.Empty;
 
         public void CreateMappings(IProfileExpression configuration)
         {

@@ -26,5 +26,10 @@ namespace Wizzarts.Web.Infrastructure.Extensions
         {
             return user.IsInRole(PremiumRoleName);
         }
+
+        public static bool IsMember(this ClaimsPrincipal user)
+        {
+            return user.IsInRole(MemberRoleName);
+        }
     }
 }

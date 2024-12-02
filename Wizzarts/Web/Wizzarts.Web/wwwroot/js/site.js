@@ -79,6 +79,7 @@ var globalJS =
 
 function search() {
     var autocompleteInput = document.getElementById("searchM");
+    var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
     if (autocompleteInput) {
         $("#searchM").autocomplete({
             autoFocus: true,
@@ -93,6 +94,9 @@ function search() {
                     dataType: "json",
                     data: { cardName: request.term },
                     autoFocus: true,
+                    headers: {
+                        'X-CSRF-TOKEN': antiForgeryToken
+                    },
                     success: function (data) {
                         response($.map(data, function (item) {
                             return { label: item.combinedName, value: item.cardName , text: item.text };
@@ -110,6 +114,7 @@ function search() {
 
 function searchAdv() {
     var autocompleteInput = document.getElementById("#searchCards");
+    var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
     if (autocompleteInput) {
         $("#searchCards").autocomplete({
             autoFocus: true,
@@ -124,6 +129,9 @@ function searchAdv() {
                     dataType: "json",
                     data: { cardName: request.term },
                     autoFocus: true,
+                    headers: {
+                        'X-CSRF-TOKEN': antiForgeryToken
+                    },
                     success: function (data) {
                         response($.map(data, function (item) {
                             return { label: item.combinedName, value: item.cardName, text: item.text };

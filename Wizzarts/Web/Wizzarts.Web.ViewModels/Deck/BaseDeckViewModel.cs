@@ -21,8 +21,8 @@
         [StringLength(CardDeckDescriptionMaxMaxLength, MinimumLength = CardDeckDescriptionMinLength, ErrorMessage = LengthMessage)]
         public string Description { get; set; }
 
-        //[Required(ErrorMessage = RequiredMessage)]
-        //[StringLength(CardDeckShippingAddressMaxLength, MinimumLength = CardDeckShippingAddressMinLength, ErrorMessage = LengthMessage)]
+        // [Required(ErrorMessage = RequiredMessage)]
+        // [StringLength(CardDeckShippingAddressMaxLength, MinimumLength = CardDeckShippingAddressMinLength, ErrorMessage = LengthMessage)]
         public string ShippingAddress { get; set; }
 
         public int StoreId { get; set; }

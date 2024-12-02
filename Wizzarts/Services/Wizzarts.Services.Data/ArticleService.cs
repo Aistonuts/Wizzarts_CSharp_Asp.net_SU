@@ -85,8 +85,8 @@
                 throw new Exception($"Invalid image extension {extension}");
             }
 
-            var physicalPath = $"{imagePath}/navigation/articles/{article.Title.Replace(" ", "")}.{extension}";
-            article.ImageUrl = $"/images/navigation/articles/{article.Title.Replace(" ", "")}.{extension}";
+            var physicalPath = $"{imagePath}/navigation/articles/{article.Title.Replace(" ", string.Empty)}.{extension}";
+            article.ImageUrl = $"/images/navigation/articles/{article.Title.Replace(" ", string.Empty)}.{extension}";
             await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.ImageUrl.CopyToAsync(fileStream);
             await this.articleRepository.AddAsync(article);
@@ -105,7 +105,6 @@
                 await this.articleRepository.SaveChangesAsync();
                 this.cache.Remove(ArticlesCacheKey);
             }
-
         }
 
         public async Task<T> GetById<T>(int id)

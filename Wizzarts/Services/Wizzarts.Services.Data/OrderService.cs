@@ -1,11 +1,12 @@
 ﻿namespace Wizzarts.Services.Data
 {
-    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+
+    using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
@@ -33,7 +34,6 @@
             this.cardService = cardService;
             this.expansionService = expansionService;
             this.playCardRepository = playCardRepository;
-
         }
 
         public async Task CancelOrder(int id)
@@ -94,10 +94,10 @@
                .AnyAsync(a => a.Id == orderId && a.RecipientId == userId);
         }
 
-        //public async Task OrderAsync(SingleExpansionViewModel input, string userId)
-        //{
+        // public async Task OrderAsync(SingleExpansionViewModel input, string userId)
+        // {
 
-        //    var deckOfCards = this.cardService.GetAllCardsByExpansion<CardInListViewModel>(input.Id);
+        // var deckOfCards = this.cardService.GetAllCardsByExpansion<CardInListViewModel>(input.Id);
         //    var expansion = this.expansionService.GetById<ExpansionInListViewModel>(input.Id);
         //    var order = new Order()
         //    {
@@ -110,16 +110,15 @@
         //        EstimatedDeliveryDate = DateTime.Now.AddDays(new Random().Next(20, 40)),
         //    };
 
-        //    foreach (var item in deckOfCards)
+        // foreach (var item in deckOfCards)
         //    {
         //        var card = this.playCardRepository.All().FirstOrDefault(x => x.Id == item.Id);
         //        order.CardsInOrder.Add(card);
         //    }
 
-        //    await this.deckOrderRepository.AddAsync(order);
+        // await this.deckOrderRepository.AddAsync(order);
         //    await this.deckOrderRepository.SaveChangesAsync();
-        //}
-
+        // }
         public async Task PauseOrder(int id)
         {
             var order = await this.deckOrderRepository.All().FirstOrDefaultAsync(x => x.Id == id);

@@ -1,7 +1,8 @@
 ﻿namespace Wizzarts.Web.Extensions
 {
     using System.Security.Claims;
-    using static Common.GlobalConstants;
+
+    using static Wizzarts.Common.GlobalConstants;
 
     public static class ClaimsPrincipalExtensions
     {

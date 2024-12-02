@@ -5,10 +5,9 @@
     using Wizzarts.Web.ViewModels.Home;
 
     using static Wizzarts.Common.DataConstants;
-
     using static Wizzarts.Common.MessageConstants;
 
-    public class BaseArticleViewModel : IndexAuthenticationViewModel
+    public class BaseArticleViewModel : IndexAuthenticationViewModel, ISingleArticleViewModel
     {
         [Required(ErrorMessage = "Article title is required!")]
         [StringLength(ArticleTitleMaxLength, MinimumLength = ArticleTitleMinLength, ErrorMessage = "Article title should be between 5 and 50 characters long")]

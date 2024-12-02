@@ -163,8 +163,7 @@
                 {
                     this._logger.LogInformation("User logged in.");
 
-
-                    return LocalRedirect(returnUrl);
+                    return this.LocalRedirect(returnUrl);
                 }
                 else
                 {
@@ -173,8 +172,9 @@
                 }
             }
 
+            this.ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             // If we got this far, something failed, redisplay form
-            return this.View();
+            return this.View(viewModel);
         }
 
         [AllowAnonymous]
@@ -233,7 +233,7 @@
         [AllowAnonymous]
         public IActionResult SetLanguage(string culture, string returnUrl)
         {
-            Response.Cookies.Append(
+            this.Response.Cookies.Append(
                 CookieRequestCultureProvider.DefaultCookieName,
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
                 new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }

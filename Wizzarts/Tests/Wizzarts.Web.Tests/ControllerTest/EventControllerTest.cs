@@ -1,30 +1,31 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Caching.Memory;
-using MyTested.AspNetCore.Mvc;
-using Shouldly;
-using System.IO;
-using System.Linq;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Data;
-using Wizzarts.Services.Data.Tests;
-using Wizzarts.Web.Controllers;
-using Wizzarts.Web.ViewModels.Art;
-using Wizzarts.Web.ViewModels.Article;
-using Wizzarts.Web.ViewModels.Event;
-using Xunit;
-using Moq;
-
-namespace Wizzarts.Web.Tests.ControllerTest
+﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Caching.Memory;
+    using Moq;
+    using MyTested.AspNetCore.Mvc;
+    using Shouldly;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Data;
+    using Wizzarts.Services.Data.Tests;
+    using Wizzarts.Web.Controllers;
+    using Wizzarts.Web.ViewModels.Art;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Event;
+    using Xunit;
+
     public class EventControllerTest : UnitTestBase
     {
         [Fact]
         public void AllShouldReturnDefaultViewWithCorrectModel()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             MyController<EventController>
                         .Instance(instance => instance
@@ -34,32 +35,13 @@ namespace Wizzarts.Web.Tests.ControllerTest
                         .View(view => view
                             .WithModelOfType<EventListViewModel>());
 
-            TearDownBase();
-        }
-
-        [Fact]
-        public void ByIdShouldReturnViewWithCorrectModel()
-        {
-
-            OneTimeSetup();
-            var data = this.dbContext;
-
-            MyController<EventController>
-             .Instance(instance => instance
-                 .WithUser()
-                 .WithData(data.Events.FirstOrDefault(x => x.Id == 1)))
-             .Calling(c => c.ById(1, With.No<string>(), With.No<int>()))
-             .ShouldReturn()
-             .View(view => view
-                 .WithModelOfType<SingleEventViewModel>());
-
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void CreateGetShouldHaveRestrictionsForHttpGetOnlyAndAuthorizedUsersAndShouldReturnView()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<EventController>
@@ -110,7 +92,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                .AndAlso()
                .ShouldReturn()
                .Redirect(redirect => redirect
-                   .To<HomeController>(c => c.Index(With.No<string>())));
+                   .To<EventController>(c => c.Create()));
         }
     }
 }

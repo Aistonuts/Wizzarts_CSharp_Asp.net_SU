@@ -42,7 +42,7 @@ namespace Wizzarts.Web.ViewModels.PlayCard
 
         public int ColorlessManaId { get; set; } = DefaultManaValue;
 
-        [Range(2,8, ErrorMessage = "Card type should be defined!")]
+        [Range(2, 8, ErrorMessage = "Card type should be defined!")]
         public int CardTypeId { get; set; } = DefaultCardTypeValue;
 
         public int CardFrameId { get; set; } = DefaultCardFrameValue;

@@ -104,8 +104,8 @@
             }
 
             art.Extension = extension;
-            var physicalPath = $"{imagePath}/art/userArt/{art.Title.Replace(" ", "")}.{extension}";
-            art.RemoteImageUrl = $"/images/art/userArt/{art.Title.Replace(" ", "")}.{extension}";
+            var physicalPath = $"{imagePath}/art/userArt/{art.Title.Replace(" ", string.Empty)}.{extension}";
+            art.RemoteImageUrl = $"/images/art/userArt/{art.Title.Replace(" ", string.Empty)}.{extension}";
             await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.Image.CopyToAsync(fileStream);
 
@@ -172,7 +172,6 @@
             {
                 return null;
             }
-
         }
 
         public async Task<bool> ArtExist(string id)

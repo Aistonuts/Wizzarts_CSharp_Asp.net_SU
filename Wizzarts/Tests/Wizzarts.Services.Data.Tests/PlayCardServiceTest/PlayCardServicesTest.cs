@@ -1,26 +1,27 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Mapping;
-using Wizzarts.Web.ViewModels;
-using Wizzarts.Web.ViewModels.Article;
-using Wizzarts.Web.ViewModels.Deck;
-using Wizzarts.Web.ViewModels.PlayCard;
-using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
-using Xunit;
-
-namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
+﻿namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Xml.Linq;
+
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Caching.Memory;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Deck;
+    using Wizzarts.Web.ViewModels.PlayCard;
+    using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
+    using Xunit;
+
     public class PlayCardServicesTest : UnitTestBase
     {
         public PlayCardServicesTest()
@@ -29,7 +30,6 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
         }
 
         // 19 cards in total, 19 owned by Drawgoon, 18 approved, 1 is not approved
-
         [Fact]
         public async Task CreateNewCardShouldChangeTheTotalCountOfCardsInTheDb()
         {
@@ -62,7 +62,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
@@ -84,18 +84,18 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                     Power = "1",
                     Toughness = "2",
                     ArtId = "c048daf3-f4af-4a03-b65d-d6fc20d18092",
-                }, UserId, 1, path, true, true, "captured");
+                }, userId, 1, path, true, true, "captured");
 
             var currentCount = await playCardRepository.All().CountAsync();
-            var testPlayCard = data.PlayCards.FirstOrDefault(x=> x.Name == "TestTestTest");
+            var testPlayCard = data.PlayCards.FirstOrDefault(x => x.Name == "TestTestTest");
 
             Assert.Equal(20, currentCount);
             Assert.Equal("TestTestTest", testPlayCard.Name);
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
-         [Fact]
+        [Fact]
         public async Task AddNewCardShouldChangeTheTotalCountOfCardsInTheDb()
         {
             this.OneTimeSetup();
@@ -127,7 +127,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
@@ -149,15 +149,15 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                     Power = "1",
                     Toughness = "2",
                     ArtId = "c048daf3-f4af-4a03-b65d-d6fc20d18092",
-                }, UserId,  path,  true, "captured");
+                }, userId, path, true, "captured");
 
             var currentCount = await playCardRepository.All().CountAsync();
-            var testPlayCard = data.PlayCards.FirstOrDefault(x=> x.Name == "TestTestTest");
+            var testPlayCard = data.PlayCards.FirstOrDefault(x => x.Name == "TestTestTest");
 
             Assert.Equal(20, currentCount);
             Assert.Equal("TestTestTest", testPlayCard.Name);
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -196,7 +196,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
 
             Assert.Equal(19, await service.GetCount());
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -231,7 +231,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
@@ -254,7 +254,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                     Toughness = "2",
                     ArtId = "c048daf3-f4af-4a03-b65d-d6fc20d18092",
                     GameExpansionId = 3,
-                }, UserId, path, true, "captured");
+                }, userId, path, true, "captured");
 
             var testPlayCard = data.PlayCards.FirstOrDefault(x => x.Name == "TestTestTest");
             var currentExpansion = testPlayCard.CardGameExpansion.Title;
@@ -265,9 +265,8 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             Assert.Equal("Beta", currentExpansion);
             Assert.Equal("Second", newExpansion);
 
-            TearDownBase();
+            this.TearDownBase();
         }
-
 
         [Fact]
         public async Task PlayCardGetAllShouldReturnCorrectPlayCardsCount()
@@ -303,9 +302,9 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
 
             var playCards = service.GetAll<CardInListViewModel>(1, 18);
             int playCardCount = playCards.Count();
-            Assert.Equal(18,playCardCount);
+            Assert.Equal(18, playCardCount);
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -343,7 +342,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             var playCards = service.GetRandom<CardInListViewModel>(5);
             int playCardCount = playCards.Count();
             Assert.Equal(5, playCardCount);
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -381,7 +380,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             var playCard = await service.GetById<SingleCardViewModel>("5f3f96a8-836a-479c-93c8-6921feb79366");
 
             Assert.Equal("Mox Sapphire", playCard.Name);
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -420,9 +419,8 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
 
             // colorless x1, redmana x2//
             Assert.Equal(3, playCardMana.Count());
-            TearDownBase();
+            this.TearDownBase();
         }
-
 
         [Fact]
         public async Task PlayCardGetAllPlayCardsByUserIdShouldReturnCorrectCountOfPlayCardsAndTheFirstShouldHavTheCorrectId()
@@ -456,15 +454,14 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-            var playCardsByDrawgoon = await service.GetAllCardsByUserId<CardInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695",1,19);
+            var playCardsByDrawgoon = await service.GetAllCardsByUserId<CardInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695", 1, 19);
             var specificCard = playCardsByDrawgoon.FirstOrDefault(x => x.Name == "Mox Sapphire");
 
             int playCardCount = playCardsByDrawgoon.Count();
             Assert.Equal(19, playCardCount);
             Assert.Equal("5f3f96a8-836a-479c-93c8-6921feb79366", specificCard.Id);
-            TearDownBase();
+            this.TearDownBase();
         }
-
 
         [Fact]
         public async Task PlayCardGetAllCardsByCriteriaShouldReturnCorrectPlayCardsC()
@@ -570,23 +567,22 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
 
             // TestTwo
             var resultTestTwo = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputTwo);
-            var firstCardNameTestTwo= resultTestTwo.FirstOrDefault(x => x.Name == "Ancestral Recall");
+            var firstCardNameTestTwo = resultTestTwo.FirstOrDefault(x => x.Name == "Ancestral Recall");
             var secondCardNameTestTwo = resultTestTwo.FirstOrDefault(x => x.Name == "Dark Ritual");
-            int countTestTwo= resultTestTwo.Count();
+            int countTestTwo = resultTestTwo.Count();
 
             // TestThree
             var resultTestThree = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputThree);
             var firstCardNameTestThree = resultTestThree.FirstOrDefault(x => x.Name == "Ancestral Recall");
 
-            int countTestThree= resultTestThree.Count();
+            int countTestThree = resultTestThree.Count();
 
             // TestFour
             var resultTestFour = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputFour);
-            var firstCardNameTestFour= resultTestFour.FirstOrDefault(x => x.Name == "Ancestral Recall");
+            var firstCardNameTestFour = resultTestFour.FirstOrDefault(x => x.Name == "Ancestral Recall");
             var secondCardNameTestFour = resultTestFour.FirstOrDefault(x => x.Name == "Dark Ritual");
             var thirdCardNameTestFour = resultTestFour.FirstOrDefault(x => x.Name == "Bad Moon");
             int countTestFour = resultTestFour.Count();
-
 
             // TestOneOne
             var resultTestOneOne = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputOneOne);
@@ -615,10 +611,9 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             var fifthCardNameTestFourFour = resultTestFourFour.FirstOrDefault(x => x.Name == "Black Lotus");
             int countTestFourFour = resultTestFourFour.Count();
 
-
             // TestEmptyInput
             var resultEmptyInput = await service.GetAllCardsByCriteria<CardInListViewModel>(searchInputEmpty);
-  
+
             int countTestEmpty = resultEmptyInput.Count();
 
             // TestOne
@@ -664,7 +659,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             // TestEmpty
             Assert.Equal(18, countTestEmpty);
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -708,7 +703,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             var statusAfter = playCardAfter.ApprovedByAdmin;
             Assert.False(statusBefore);
             Assert.True(statusAfter);
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -743,11 +738,10 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-
             var result = await service.ApproveCard("5f3f96a8-836a-479c-93c8-6921feb79");
 
             Assert.Null(result);
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -793,7 +787,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             Assert.Equal(19, count);
             Assert.Equal(18, countAfterDeletion);
             Assert.Null(specificCardNull);
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -832,7 +826,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             int playCardCount = playCards.Count();
             Assert.Equal(18, playCardCount);
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -867,14 +861,13 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-
             var cards = playCardRepository.AllAsNoTracking();
             var specificCard = cards.FirstOrDefault(x => x.Name == "Mox Sapphire");
             var cardExist = await service.CardExist("5f3f96a8-836a-479c-93c8-6921feb79366");
             Assert.Equal("5f3f96a8-836a-479c-93c8-6921feb79366", specificCard.Id);
             Assert.True(cardExist);
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -913,7 +906,7 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
             var cardId = "5f3f96a8-836a-479c-93c8-6921feb79366"; ;
             bool cardExistByUserId = await service.HasUserWithIdAsync(cardId, drawgoonId);
             Assert.True(cardExistByUserId);
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -948,12 +941,11 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-
             var eventCards = playCardRepository.AllAsNoTracking().Where(x => x.IsEventCard == true);
             var specificEventCard = eventCards.FirstOrDefault(x => x.Name == "Ancestral Recall");
             Assert.Equal(3, eventCards.Count());
             Assert.Equal("Ancestral Recall", specificEventCard.Name);
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -988,12 +980,11 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-
             var cards = playCardRepository.AllAsNoTracking();
             var eventCards = playCardRepository.AllAsNoTracking().Where(x => x.IsEventCard == true);
             var specificEventCard = service.GetByName<SingleCardViewModel>("Mox Sapphire");
             Assert.Equal("Mox Sapphire", specificEventCard.Name);
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -1028,12 +1019,11 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-
             var cardsFromExpansionOne = await service.GetAllCardsByExpansion<CardInListViewModel>(1);
             var cardsFromExpansionTwo = await service.GetAllCardsByExpansion<CardInListViewModel>(3);
             Assert.Equal(13, cardsFromExpansionOne.Count());
             Assert.Equal(6, cardsFromExpansionTwo.Count());
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -1068,12 +1058,11 @@ namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
                 cardTypeRepository,
                 cache);
 
-
             var eventCards = playCardRepository.AllAsNoTracking().Where(x => x.IsEventCard == true);
             var specificEventCard = eventCards.FirstOrDefault(x => x.Name == "Ancestral Recall");
             Assert.Equal(3, eventCards.Count());
             Assert.Equal("Ancestral Recall", specificEventCard.Name);
-            TearDownBase();
+            this.TearDownBase();
         }
     }
 }

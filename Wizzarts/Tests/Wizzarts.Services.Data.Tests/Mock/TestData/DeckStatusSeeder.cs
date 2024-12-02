@@ -13,7 +13,6 @@
     {
         public async Task SeedAsync(ApplicationDbContext dbContext)
         {
-
             if (dbContext.DeckStatuses.Any())
             {
                 return;

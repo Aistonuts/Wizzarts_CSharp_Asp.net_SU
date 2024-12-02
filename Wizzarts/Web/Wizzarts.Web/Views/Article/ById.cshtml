@@ -32,7 +32,7 @@
                     <div class="row mt-2 mb-2">
                         <div id="article-text" class="col-md-12">
                             <p>@Model.Description</p>
-                            <p>@Model.ShortDescription</p> 
+                            <p>@Model.ShortDescription</p>
                         </div>
                     </div>
                     @if (@Model.ArticleCreatorBio.Length != 0)
@@ -42,17 +42,26 @@
                             <p>@Model.ArticleCreatorBio</p>
                         </div>
                     }
-                   
+
                 </div>
                 <div class="col-xl-9 col-12">
                     <ul class="entry-meta">
-                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName) || this.User.Identity.Name == Model.ArticleCreator)
                         {
                             <li class="single-meta">
                                 <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
                                 </form>
                                 <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
                             </li>
+                            <li class="single-meta">
+                                <a asp-controller="Article" asp-action="Edit" asp-route-id="@Model.Id">
+                                    <button class="btn btn-danger">Edit</button>
+                                </a>
+                            </li>
+                        }
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        {
                             <li class="single-meta">
                                 <form asp-area="" asp-controller="Article" method="post" asp-action="ApproveArticle" asp-route-id="@Model.Id">
                                     <button class="btn btn-danger">Approve</button>
@@ -66,7 +75,7 @@
 
     </div>
     <div class="col-sm-12 col-md-12 col-lg-4 pl-0 pr-0 mt-2 mt-lg-0">
-        @foreach(var article in this.Model.Articles)
+        @foreach (var article in this.Model.Articles)
         {
             <div class="card mt-2 mb-2 ">
                 <div class="w-100 d-flex justify-content-start">
@@ -80,11 +89,24 @@
                         <div class="ff-display font-size-18">
                             <b><a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()">@article.Title</a></b>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
         }
-       
+
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Do you want to delete "@Model.Title"?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
     </div>
 </div>

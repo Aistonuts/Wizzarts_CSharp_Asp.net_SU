@@ -120,9 +120,12 @@
                                             <a class="dropdown-item" asp-area="" asp-controller="Wizzarts" asp-action="Membership"><b>Membership</b></a>
                                             @*                                             <a class="dropdown-item" href="/Artist"><b>Content Creators</b></a>
                                             <a class="dropdown-item" href="/Team"><b>Team</b></a> *@
-                                            <form class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">
-                                                <button type="submit" class="dropdown-item"> <i class="fas fa-sign-out-alt"></i> <b>Logout</b></button>
-                                            </form>
+                                            @if (this.SignInManager.IsSignedIn(this.User))
+                                            {
+                                                <form class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">
+                                                    <button type="submit" class="dropdown-item"> <i class="fas fa-sign-out-alt"></i> <b>Logout</b></button>
+                                                </form>
+                                            }
                                         </div>
                                         
                                     </li>

@@ -18,9 +18,9 @@
 
             await dbContext.Chats.AddAsync(new Chat
             {
-               Name = "General",
-               RelationKey = "General",
-               Type = ChatType.Room,
+                Name = "General",
+                RelationKey = "General",
+                Type = ChatType.Room,
             });
 
             await dbContext.Chats.AddAsync(new Chat

@@ -1,9 +1,9 @@
-﻿using AutoMapper;
-using Wizzarts.Data.Models;
-using Wizzarts.Services.Mapping;
-
-namespace Wizzarts.Web.Areas.Administration.Models.User
+﻿namespace Wizzarts.Web.Areas.Administration.Models.User
 {
+    using AutoMapper;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Services.Mapping;
+
     public class UserInListViewModelAdminArea : IMapFrom<ApplicationUser>, IHaveCustomMappings
     {
         public string Id { get; set; }

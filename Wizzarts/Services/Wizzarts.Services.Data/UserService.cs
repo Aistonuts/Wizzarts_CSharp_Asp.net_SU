@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace Wizzarts.Services.Data
+﻿namespace Wizzarts.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -8,6 +6,7 @@ namespace Wizzarts.Services.Data
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
@@ -187,7 +186,6 @@ namespace Wizzarts.Services.Data
             var currentRole = await this.userManager.GetRolesAsync(user);
 
             return currentRole.Contains(ArtistRoleName) || currentRole.Contains(PremiumRoleName);
-
         }
 
         public async Task<bool> HasNickName(string userId)
@@ -195,6 +193,11 @@ namespace Wizzarts.Services.Data
             var user = await this.userRepository.All().FirstOrDefaultAsync(x => x.Id == userId);
 
             return user.Nickname == null || user.Nickname.Length == 0 ? false : true;
+        }
+
+        public async Task<bool> NickNameExist(string nickname)
+        {
+            return await this.userRepository.All().AnyAsync(x => x.Nickname == nickname);
         }
     }
 }

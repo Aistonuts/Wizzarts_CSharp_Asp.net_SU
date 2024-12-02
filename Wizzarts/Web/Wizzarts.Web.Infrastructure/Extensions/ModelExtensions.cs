@@ -53,7 +53,6 @@
         public static string GetWizzartsMemberNickName(this ISingleMemberViewModel currentMember)
         {
             return currentMember.Nickname.Replace(" ", "-");
-
         }
 
         public static string GetDeckName(this ISingleDeckViewModel currentDeck)

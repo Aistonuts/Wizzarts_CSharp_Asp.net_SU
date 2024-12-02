@@ -6,11 +6,9 @@
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Identity;
+
     using Microsoft.AspNetCore.Mvc;
     using Wizzarts.Common;
-    using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Services.Messaging;
     using Wizzarts.Web.Infrastructure.Extensions;
@@ -22,41 +20,23 @@
 
     public class OrderController : Controller
     {
-        private readonly IPlayCardService cardService;
-        private readonly IArticleService articleService;
         private readonly IEventService eventService;
-        private readonly IPlayCardComponentsService playCardComponentsService;
-        private readonly IStoreService storeService;
         private readonly IDeckService deckService;
         private readonly IOrderService orderService;
         private readonly IUserService userService;
-        private readonly UserManager<ApplicationUser> userManager;
-        private readonly IWebHostEnvironment environment;
         private readonly IEmailSender emailSender;
 
         public OrderController(
-              IPlayCardService cardService,
-              IArticleService articleService,
               IEventService eventService,
-              IPlayCardComponentsService playCardComponentsService,
-              IStoreService storeService,
               IDeckService deckService,
               IOrderService orderService,
               IUserService userService,
-              UserManager<ApplicationUser> userManager,
-              IWebHostEnvironment environment,
               IEmailSender emailSender)
         {
-            this.cardService = cardService;
-            this.articleService = articleService;
             this.eventService = eventService;
-            this.playCardComponentsService = playCardComponentsService;
-            this.storeService = storeService;
             this.deckService = deckService;
             this.orderService = orderService;
             this.userService = userService;
-            this.userManager = userManager;
-            this.environment = environment;
             this.emailSender = emailSender;
         }
 
@@ -75,6 +55,11 @@
         public async Task<IActionResult> ById(int id)
         {
             var order = await this.orderService.GetById<OrderInListViewModel>(id);
+            if (order == null)
+            {
+                return this.BadRequest();
+            }
+
             order.Cards = await this.orderService.GetAllCardsInOrderId<CardInListViewModel>(id);
             order.Decks = await this.deckService.GetAll<DeckInListViewModel>();
             return this.View(order);
@@ -88,7 +73,7 @@
                 Decks = await this.deckService.GetAll<DeckInListViewModel>(),
             };
 
-            return View(viewModel);
+            return this.View(viewModel);
         }
 
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
@@ -97,7 +82,7 @@
             var order = await this.orderService.GetById<OrderInListViewModel>(id);
             if (order != null)
             {
-               await this.orderService.PauseOrder(id);
+                await this.orderService.PauseOrder(id);
             }
 
             return this.RedirectToAction("All", "Order");
@@ -109,7 +94,7 @@
             var order = await this.orderService.GetById<OrderInListViewModel>(id);
             if (order != null)
             {
-               await this.orderService.ShipOrder(id);
+                await this.orderService.ShipOrder(id);
             }
 
             return this.RedirectToAction("All", "Order");
@@ -144,13 +129,12 @@
             return this.RedirectToAction("All", "Deck");
         }
 
-
         public async Task<IActionResult> SendToEmail(int id)
         {
             var order = await this.orderService.GetById<OrderInListViewModel>(id);
             var html = new StringBuilder();
             var user = await this.userService.GetById<SingleMemberViewModel>(order.RecipientId);
-            var uid = Regex.Replace(Convert.ToBase64String(Guid.NewGuid().ToByteArray()), "[/+=]", "");
+            var uid = Regex.Replace(Convert.ToBase64String(Guid.NewGuid().ToByteArray()), "[/+=]", string.Empty);
             html.AppendLine($"<h1>{order.Title}</h1>");
             html.AppendLine($"<h3>{order.OrderStatus}</h3>");
             html.AppendLine($"<h3>Confirmation key : {uid}</h3>");

@@ -12,7 +12,7 @@
                             <h1 class="ff-display">Wizzarts Game rules</h1>
                             <div class="w-100 d-flex justify-content-start mb-1 mt-3">
                                 <div class="yellow-line w-100 mb-0">
-@*                                     <img src="" width="50" height="50" class="rounded-circle">
+                                    @*                                     <img src="" width="50" height="50" class="rounded-circle">
                                     <a href=""></a> *@
                                     <span class="text-muted">@Model.CardGameRules.CreatedOn</span>
                                     <span class="text-muted"><i class="far fa-clock"></i> 4 min</span>
@@ -164,15 +164,15 @@
     </div>
 
     <div class="col-sm-12 col-md-12 col-lg-4 pl-0 pr-0 mt-2 mt-lg-0">
-       
-        <div class="text-center"><h4>Cards Overview</h4></div>
-        @foreach (var rules in this.Model.GameRulesData)
-        {
-            <div class="card mt-2 mr-2 mb-2">
+        <div class="card mt-2 mr-2 mb-2">
+            <div class="text-center"><h4>Cards Overview</h4></div>
+            @foreach (var rules in this.Model.GameRulesData)
+            {
+
                 <div class="w-100 d-flex justify-content-start">
                     <div class="mr-1">
                         <a>
-                            <div  class="article-imgheader-xs lazy uimg" style="background-image: url(@rules.ImageUrl);padding-top : 134%; width:274px">
+                            <div class="article-imgheader-xs lazy uimg" style="background-image: url(@rules.ImageUrl);padding-top : 134%; width:274px">
                             </div>
                         </a>
                     </div>
@@ -185,8 +185,9 @@
                 <div class="card-body p-0">
                     <p class="card-text m-1">@rules.Description</p>
                 </div>
-            </div>
-        }
+
+            }
+        </div>
     </div>
 
 

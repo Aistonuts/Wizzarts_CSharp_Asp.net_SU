@@ -1,64 +1,48 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Wizzarts.Data.Common.Repositories;
-using Wizzarts.Data.Models;
-using Wizzarts.Data;
-using Wizzarts.Services.Data;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Wizzarts.Web.ViewModels.CardGameExpansion;
-using Wizzarts.Web.ViewModels.Expansion;
-using Wizzarts.Web.ViewModels.Art;
-using Wizzarts.Web.ViewModels.PlayCard;
-using Wizzarts.Web.ViewModels.Article;
-using Wizzarts.Web.ViewModels.Event;
-using System.Threading.Tasks;
-using System;
-using Wizzarts.Web.Infrastructure.Extensions;
-
-namespace Wizzarts.Web.Controllers
+﻿namespace Wizzarts.Web.Controllers
 {
+    using System;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Wizzarts.Data;
+    using Wizzarts.Data.Common.Repositories;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Services.Data;
+    using Wizzarts.Web.Infrastructure.Extensions;
+    using Wizzarts.Web.ViewModels.Art;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.CardGameExpansion;
+    using Wizzarts.Web.ViewModels.Event;
+    using Wizzarts.Web.ViewModels.Expansion;
+    using Wizzarts.Web.ViewModels.PlayCard;
+
     public class ExpansionController : BaseController
     {
-        private readonly ApplicationDbContext dbContext;
         private readonly IPlayCardService cardService;
         private readonly IDeckService deckService;
-        private readonly ICommentService commentService;
-        private readonly IPlayCardComponentsService playCardComponentsService;
         private readonly IPlayCardExpansionService playCardExpansionService;
         private readonly IEventService eventService;
         private readonly IArticleService articleService;
-        private readonly IArtService artService;
         private readonly UserManager<ApplicationUser> userManager;
-        private readonly IWebHostEnvironment environment;
-        private readonly IDeletableEntityRepository<PlayCard> cardRepository;
 
         public ExpansionController(
-             ApplicationDbContext dbContext,
              IPlayCardService cardService,
              IDeckService deckService,
-             ICommentService commentService,
-             IPlayCardComponentsService playCardComponentsService,
              IPlayCardExpansionService playCardExpansionService,
              IEventService eventService,
              IArticleService articleService,
-             IArtService artService,
-             UserManager<ApplicationUser> userManager,
-             IWebHostEnvironment environment,
-             IDeletableEntityRepository<PlayCard> cardRepository)
+
+             UserManager<ApplicationUser> userManager)
         {
-            this.dbContext = dbContext;
             this.cardService = cardService;
             this.deckService = deckService;
-            this.commentService = commentService;
-            this.playCardComponentsService = playCardComponentsService;
             this.playCardExpansionService = playCardExpansionService;
             this.eventService = eventService;
             this.articleService = articleService;
-            this.artService = artService;
             this.userManager = userManager;
-            this.environment = environment;
-            this.cardRepository = cardRepository;
         }
 
         [AllowAnonymous]
@@ -75,9 +59,14 @@ namespace Wizzarts.Web.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<IActionResult> ById(int id)
+        public async Task<IActionResult> ById(int id, string information)
         {
             var expansion = await this.playCardExpansionService.GetById<SingleExpansionViewModel>(id);
+
+            if (expansion == null || information != expansion.GetExpansionTitle())
+            {
+                return this.BadRequest();
+            }
 
             expansion.Cards = await this.cardService.GetAllCardsByExpansion<CardInListViewModel>(id);
             expansion.GameExpansions = await this.playCardExpansionService.GetAll<ExpansionInListViewModel>();
@@ -95,7 +84,7 @@ namespace Wizzarts.Web.Controllers
             }
             catch (Exception ex)
             {
-                //return this.RedirectToAction(nameof(this.Add), new { id = id });
+                // return this.RedirectToAction(nameof(this.Add), new { id = id });
             }
 
             this.TempData["Message"] = "Order added successfully.";

@@ -24,7 +24,7 @@
 
                                             <div class="video-card card border-0">
                                                 <div class="yt-img-exp">
-                                                    <a asp-controller="Expansion" asp-action="ById" asp-route-id="@this.Model.CardGameExpansions.ToList()[i].Id">
+                                                    <a asp-controller="Expansion" asp-action="ById" asp-route-id="@this.Model.CardGameExpansions.ToList()[i].Id" asp-route-information="@this.Model.CardGameExpansions.ToList()[i].GetExpansionTitle()">
                                                         <img src="@this.Model.CardGameExpansions.ToList()[i].ExpansionSymbolUrl" alt="@this.Model.CardGameExpansions.ToList()[i].Title" class="lazy" alt="video" style="">
 
                                                     </a>
@@ -40,7 +40,7 @@
 
                                             <div class="video-card card border-0">
                                                 <div class="yt-img-exp">
-                                                    <a asp-controller="Expansion" asp-action="ById" asp-route-id="@this.Model.CardGameExpansions.ToList()[i].Id">
+                                                    <a asp-controller="Expansion" asp-action="ById" asp-route-id="@this.Model.CardGameExpansions.ToList()[i].Id" asp-route-information="@this.Model.CardGameExpansions.ToList()[i].GetExpansionTitle()">
                                                         <img src="@this.Model.CardGameExpansions.ToList()[i].ExpansionSymbolUrl" alt="@this.Model.CardGameExpansions.ToList()[i].Title" class="lazy" alt="video" style="">
                                                     </a>
                                                 </div>

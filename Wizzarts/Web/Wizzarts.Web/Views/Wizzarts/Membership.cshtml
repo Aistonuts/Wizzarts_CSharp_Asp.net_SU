@@ -1,10 +1,9 @@
 ﻿@using Wizzarts.Data.Models
 @using Wizzarts.Common
 @using Microsoft.AspNetCore.Identity
-
+@using Wizzarts.Web.Infrastructure.Extensions;
 @model Wizzarts.Web.ViewModels.WizzartsMember.MembershipViewModel
 @inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
 
 @{
     this.ViewData["Title"] = "Membership";
@@ -53,8 +52,11 @@
                                         <li><b>Unlimited</b> access to our tools</li>
                                         <li><b>Unlimited</b> access to your work.Your art will be published on our main page </li>
                                         <li><b>Unlimited </b> access to all chat rooms </li>
+                                        <li><b>Eligible </b>to join Wizzart's team</li>
                                     </ul>
-                                    <p>Only artist's accounts portfolio will be rated by the Wizzarts's team and those of you getting high scores will be join our team and become part of the devolpement of our game </p>
+                                    <p>Only artist's portfolio will be reviewedd by Wizzart's team.</p>
+                                    <p>Get in contact with us by sending an email to wizzarts@game.com</p>
+                                    <p>You can also reach us via chat once you are signed in.</p>
                                     <p>
                                         Requirements.
                                     </p>
@@ -68,16 +70,18 @@
                                         <a class="btn btn-light font-weight-bold" id="register" asp-area="Identity" asp-page="/Account/Register">Start as a member</a>
                                     </div>
                                 }
-                                @if (this.User.IsInRole(GlobalConstants.MemberRoleName))
+                                
+                                @if (this.User.IsMember() && this.User.IsAdmin() == false && this.User.IsArtist() == false && this.User.IsPremiumUser() == false)
                                 {
                                     <div class="mb-2 text-center">
-                                        <a class="btn btn-light font-weight-bold">You need @Model.ArtNeeded art pieces to become an Artist</a>
+                                        <a class="btn btn-light font-weight-bold">You need @Model.ArtistRoleNeededArts/@Model.CountOfArts art pieces to become an Artist</a>
                                     </div>
                                 }
-                                else if (this.User.IsInRole(GlobalConstants.ArtistRoleName))
+                                @if (this.User.IsArtist())
                                 {
                                     <div class="mb-2 text-center">
                                         <a class="btn btn-light font-weight-bold">You own the artist role.</a>
+                                        <a class="btn btn-light font-weight-bold">Please contact us at wizzarts@game.com </a>
                                     </div>
                                 }
                             </div>
@@ -112,10 +116,22 @@
                                         <a class="btn btn-light font-weight-bold" id="register" asp-area="Identity" asp-page="/Account/Register">Start as a member</a>
                                     </div>
                                 }
-                                @if (this.User.IsInRole(GlobalConstants.PremiumRoleName))
+                                @if (this.User.IsMember() && this.User.IsAdmin() == false && this.User.IsArtist() == false && this.User.IsPremiumUser() == false)
                                 {
                                     <div class="mb-2 text-center">
-                                        <button class="btn btn-light btn-outline-content-creator font-weight-bold">Artist role unlocked!</button>
+                                        <a class="btn btn-light font-weight-bold">You need @Model.AllRolesEvents/@Model.CountOfEvents events for premium.</a>
+                                    </div>
+                                    <div class="mb-2 text-center">
+                                        <a class="btn btn-light font-weight-bold">You need @Model.AllRolesRequiredArticles/@Model.CountOfArticles events for premium.</a>
+                                    </div>
+                                    <div class="mb-2 text-center">
+                                        <a class="btn btn-light font-weight-bold">You need @Model.AllRolesCards/@Model.CountOfCards event cards for premium.</a>
+                                    </div>
+                                }
+                                @if (this.User.IsMember() && this.User.IsAdmin() == false && this.User.IsArtist() == false && this.User.IsPremiumUser())
+                                {
+                                    <div class="mb-2 text-center">
+                                        <button class="btn btn-light btn-outline-content-creator font-weight-bold">Premium role unlocked!</button>
                                     </div>
                                 }
                             </div>

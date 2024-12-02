@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace Wizzarts.Services.Data
+﻿namespace Wizzarts.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -8,6 +6,7 @@ namespace Wizzarts.Services.Data
     using System.Text;
     using System.Threading.Tasks;
 
+    using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
@@ -24,7 +23,6 @@ namespace Wizzarts.Services.Data
         {
             this.chatMessageRepository = chatMessageRepository;
             this.chatRepository = chatRepository;
-
         }
 
         public async Task<IEnumerable<T>> GetAllChatMessagesInChatRoom<T>(int id)

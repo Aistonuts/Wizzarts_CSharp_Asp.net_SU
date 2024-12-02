@@ -32,7 +32,7 @@
                 Email = "drawgoon@aol.com",
                 NormalizedEmail = "DRAWGOO@AOL.COM",
                 PasswordHash = hasher.HashPassword(null, "Pa$$w0rd1"),
-                Role =  new ApplicationRole() {  Name = "Admin"},
+                Role = new ApplicationRole() { Name = "Admin" },
             });
 
             await dbContext.Users.AddAsync(new ApplicationUser
@@ -131,6 +131,17 @@
                 PasswordHash = hasher.HashPassword(null, "Pa$$w0rd8"),
             });
 
+            await dbContext.Users.AddAsync(new ApplicationUser
+            {
+                Id = "4a50fd21-682d-42b8-9b30-168d120ad224",
+                CreatedOn = DateTime.UtcNow,
+                UserName = "Test",
+                AvatarUrl = "/images/avatar/Portrait_Twincruiser.png",
+                NormalizedUserName = "test",
+                Email = "test@aol.com",
+                NormalizedEmail = "TEST",
+                PasswordHash = hasher.HashPassword(null, "Pa$$w0rd9"),
+            });
             await dbContext.SaveChangesAsync();
         }
     }

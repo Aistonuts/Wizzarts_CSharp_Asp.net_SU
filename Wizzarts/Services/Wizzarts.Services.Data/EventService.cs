@@ -16,13 +16,16 @@
     {
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<Event> eventRepository;
+        private readonly IDeletableEntityRepository<EventParticipant> eventParticipantRepository;
         private readonly IDeletableEntityRepository<EventComponent> eventComponentsRepository;
 
         public EventService(
             IDeletableEntityRepository<Event> eventRepository,
+            IDeletableEntityRepository<EventParticipant> eventParticipantRepository,
             IDeletableEntityRepository<EventComponent> eventComponentsRepository)
         {
             this.eventRepository = eventRepository;
+            this.eventParticipantRepository = eventParticipantRepository;
             this.eventComponentsRepository = eventComponentsRepository;
         }
 
@@ -43,8 +46,8 @@
                 throw new Exception($"Invalid image extension {extension}");
             }
 
-            var physicalPath = $"{imagePath}/event/UserEvent/{newEvent.Title.Replace(" ", "")}.{extension}";
-            newEvent.RemoteImageUrl = $"/images/event/UserEvent/{newEvent.Title.Replace(" ", "")}.{extension}";
+            var physicalPath = $"{imagePath}/event/UserEvent/{newEvent.Title.Replace(" ", string.Empty)}.{extension}";
+            newEvent.RemoteImageUrl = $"/images/event/UserEvent/{newEvent.Title.Replace(" ", string.Empty)}.{extension}";
             await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await input.Image.CopyToAsync(fileStream);
             await this.eventRepository.AddAsync(newEvent);
@@ -166,8 +169,8 @@
                     throw new Exception($"Invalid image extension {extension}");
                 }
 
-                var physicalPath = $"{imagePath}/event/UserEvent/Components/{component.Title.Replace(" ", "")}.{extension}";
-                component.ImageUrl = $"/images/event/UserEvent/Components/{component.Title.Replace(" ", "")}.{extension}";
+                var physicalPath = $"{imagePath}/event/UserEvent/Components/{component.Title.Replace(" ", string.Empty)}.{extension}";
+                component.ImageUrl = $"/images/event/UserEvent/Components/{component.Title.Replace(" ", string.Empty)}.{extension}";
                 await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
                 await input.Image.CopyToAsync(fileStream);
             }
@@ -183,13 +186,20 @@
             {
                 this.eventComponentsRepository.Delete(thisEvent);
                 await this.eventComponentsRepository.SaveChangesAsync();
-            };
+            }
+;
         }
 
         public async Task<bool> EventComponentExist(int id)
         {
             return await this.eventComponentsRepository
                .AllAsNoTracking().AnyAsync(a => a.Id == id);
+        }
+
+        public async Task<bool> EventHasUserWithId(int eventId, string userId)
+        {
+            return await this.eventParticipantRepository.AllAsNoTracking()
+                .AnyAsync(a => a.EventId == eventId && a.UserId == userId);
         }
     }
 }

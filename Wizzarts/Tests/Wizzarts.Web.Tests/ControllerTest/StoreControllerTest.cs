@@ -1,20 +1,23 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using MyTested.AspNetCore.Mvc;
-using System.IO;
-using System.Linq;
-using System.Text;
-using Microsoft.AspNetCore.Identity;
-using Wizzarts.Data.Models;
-using Wizzarts.Services.Data.Tests;
-using Wizzarts.Web.Controllers;
-using Wizzarts.Web.ViewModels.Article;
-using Wizzarts.Web.ViewModels.PlayCard;
-using Wizzarts.Web.ViewModels.Store;
-using Xunit;
-using static Wizzarts.Common.GlobalConstants;
-namespace Wizzarts.Web.Tests.ControllerTest
+﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.Extensions.DependencyInjection;
+    using MyTested.AspNetCore.Mvc;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Services.Data.Tests;
+    using Wizzarts.Web.Controllers;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.PlayCard;
+    using Wizzarts.Web.ViewModels.Store;
+    using Xunit;
+
+    using static Wizzarts.Common.GlobalConstants;
+
     public class StoreControllerTest : UnitTestBase
     {
         [Fact]
@@ -32,7 +35,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
         [Fact]
         public void CreatePostShouldHaveRestrictionsForHttpPostOnlyAndAuthorizedUsers()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             MyController<StoreController>
                 .Instance(instance => instance
@@ -42,13 +45,13 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .ShouldHave()
                 .ActionAttributes(attrs => attrs
                     .RestrictingForHttpMethod(HttpMethod.Post));
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void CreatePostShouldReturnViewWithSameModelWhenInvalidModelState()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 1, bytes.Length, "Data", "dummy.jpg");
@@ -72,7 +75,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .AndAlso()
                 .ShouldReturn()
                 .View(view => view.WithModelOfType<CreateStoreViewModel>());
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -84,36 +87,36 @@ namespace Wizzarts.Web.Tests.ControllerTest
             IFormFile file = new FormFile(new MemoryStream(bytes), 1, bytes.Length, "Data", "dummy.jpg");
 
             MyController<StoreController>
-                .Instance(instance => instance
-                    .WithUser(x=>x.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
-                    .WithData(data.Users))
-               .Calling(c => c.Create(new CreateStoreViewModel
-               {
-                   StoreName = "testTestTest",
-                   StoreOwnerId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
-                   StoreAddress = "testtesttesttestaaaa",
-                   StoreCity = "Sofia",
-                   StoreCountry = "Bulgaria",
-                   StorePhoneNumber = "0359222222222",
-                   StoreImage = file,
-               }))
-               .ShouldHave()
-               .ValidModelState()
-               .AndAlso()
-               .ShouldHave()
-               .TempData(tempData => tempData
-                   .ContainingEntryWithValue("Store added successfully."))
-               .AndAlso()
-               .ShouldReturn()
-               .Redirect(redirect => redirect
-                   .To<StoreController>(c => c.All(With.No<int>())));
+                   .Instance(instance => instance
+                       .WithUser(x => x.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").AndAlso().InRole(PremiumRoleName))
+                       .WithData(data.Users))
+                  .Calling(c => c.Create(new CreateStoreViewModel
+                  {
+                      StoreName = "testTestTest",
+                      StoreOwnerId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
+                      StoreAddress = "testtesttesttestaaaa",
+                      StoreCity = "Sofia",
+                      StoreCountry = "Bulgaria",
+                      StorePhoneNumber = "0359222222222",
+                      StoreImage = file,
+                  }))
+                  .ShouldHave()
+                  .ValidModelState()
+                  .AndAlso()
+                  .ShouldHave()
+                  .TempData(tempData => tempData
+                      .ContainingEntryWithValue("Store added successfully."))
+                  .AndAlso()
+                  .ShouldReturn()
+                  .Redirect(redirect => redirect
+                      .To<StoreController>(c => c.All(With.No<int>())));
             TearDownBase();
         }
 
         [Fact]
         public void AllShouldReturnDefaultViewWithCorrectModel()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             MyController<StoreController>
                         .Instance(instance => instance
@@ -123,7 +126,23 @@ namespace Wizzarts.Web.Tests.ControllerTest
                         .View(view => view
                             .WithModelOfType<StoreListViewModel>());
 
-            TearDownBase();
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public void Approve_Store_Should_Redirect_To_Correct_Location()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var storeOwner = data.Stores.FirstOrDefault(s => s.Id == 1).StoreOwnerId;
+            MyController<StoreController>
+                        .Instance(instance => instance
+                            .WithData(data.Stores.ToList()))
+                        .Calling(c => c.ApproveStore(1))
+                        .ShouldReturn()
+                        .RedirectToAction("ById", "Member", new { id = $"{storeOwner}", Area = "Administration" });
+
+            this.TearDownBase();
         }
     }
 }

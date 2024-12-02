@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MyTested.AspNetCore.Mvc;
-using Wizzarts.Services.Data.Tests;
-using Wizzarts.Web.Controllers;
-using Xunit;
-
-namespace Wizzarts.Web.Tests.ControllerTest
+﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
+    using Microsoft.AspNetCore.Mvc;
+    using MyTested.AspNetCore.Mvc;
+    using Wizzarts.Services.Data.Tests;
+    using Wizzarts.Web.Controllers;
+    using Xunit;
+
     public class SearchControllerTest : UnitTestBase
     {
         [Fact]

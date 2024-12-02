@@ -59,29 +59,29 @@
                     </div>
                 </div>
             </article>
-        </div>
-        <div class="col-xl-9 col-12">
-            <ul class="entry-meta">
+            <div class="col-xl-9 col-12">
+                <ul class="entry-meta">
 
-                <li class="single-meta">
-                    <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.EventId">
-                    </form>
-                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                </li>
-                @if (this.User.IsInRole(AdministratorRoleName))
-                {
                     <li class="single-meta">
-                        <form asp-area="" asp-controller="Event" method="post" asp-action="ApproveEvent" asp-route-id="@Model.EventId">
-                            <button class="btn btn-danger">Approve</button>
+                        <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.EventId">
                         </form>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
                     </li>
-                }
-                <li class="single-meta">
-                    <a asp-area="" asp-controller="Event" asp-action="Edit" asp-route-id="@Model.EventId">
-                        <button class="btn btn-danger">Edit</button>
-                    </a>
-                </li>
-            </ul>
+                    @if (this.User.IsInRole(AdministratorRoleName))
+                    {
+                        <li class="single-meta">
+                            <form asp-area="" asp-controller="Event" method="post" asp-action="ApproveEvent" asp-route-id="@Model.EventId">
+                                <button class="btn btn-danger">Approve</button>
+                            </form>
+                        </li>
+                    }
+                    <li class="single-meta">
+                        <a asp-area="" asp-controller="Event" asp-action="Edit" asp-route-id="@Model.EventId">
+                            <button class="btn btn-danger">Edit</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 

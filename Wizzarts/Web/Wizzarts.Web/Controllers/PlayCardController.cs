@@ -9,8 +9,6 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Wizzarts.Common;
-    using Wizzarts.Data;
-    using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Attributes;
@@ -18,11 +16,10 @@
     using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.CardComments;
-    using Wizzarts.Web.ViewModels.CardGameExpansion;
     using Wizzarts.Web.ViewModels.Event;
-    using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
+
     using static Wizzarts.Common.GlobalConstants;
 
     public class PlayCardController : BaseController
@@ -30,47 +27,44 @@
         private readonly IPlayCardService cardService;
         private readonly ICommentService commentService;
         private readonly IPlayCardComponentsService playCardComponentsService;
-        private readonly IPlayCardExpansionService playCardExpansionService;
         private readonly IEventService eventService;
         private readonly IArticleService articleService;
         private readonly IArtService artService;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IWebHostEnvironment environment;
-        private readonly IDeletableEntityRepository<PlayCard> cardRepository;
-
 
         public PlayCardController(
             IPlayCardService cardService,
             ICommentService commentService,
             IPlayCardComponentsService playCardComponentsService,
-            IPlayCardExpansionService playCardExpansionService,
             IEventService eventService,
             IArticleService articleService,
             IArtService artService,
             UserManager<ApplicationUser> userManager,
-            IWebHostEnvironment environment,
-            IDeletableEntityRepository<PlayCard> cardRepository)
+            IWebHostEnvironment environment)
         {
             this.cardService = cardService;
             this.commentService = commentService;
             this.playCardComponentsService = playCardComponentsService;
-            this.playCardExpansionService = playCardExpansionService;
             this.eventService = eventService;
             this.articleService = articleService;
             this.artService = artService;
             this.userManager = userManager;
             this.environment = environment;
-            this.cardRepository = cardRepository;
-
         }
 
-        [Authorize(Roles = AdministratorRoleName + "," + PremiumRoleName + "," + ArtistRoleName)]
-        public async Task<IActionResult> Add(int id)
+        [HttpGet]
+        [MustBeAnArtist]
+        public async Task<IActionResult> Add()
         {
-            var userArts =  await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
+            if (this.User == null || (this.User.IsAdmin() == false && this.User.IsArtist() == false ))
+            {
+                return this.Unauthorized();
+            }
+
+            var userArts = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
             if (!userArts.Any())
             {
-
                 return this.RedirectToAction("Add", "Art");
             }
 
@@ -90,11 +84,12 @@
             return this.View(viewModel);
         }
 
-        [MustBePremium]
         [HttpPost]
-        public async Task<IActionResult> Add(CreateCardViewModel input, int id, string canvasCapture)
+        [MustBeAnArtist]
+        public async Task<IActionResult> Add(CreateCardViewModel input, string canvasCapture)
         {
             var user = await this.userManager.GetUserAsync(this.User);
+
             bool isEventCard = false;
 
             this.ModelState.Remove("UserName");
@@ -102,9 +97,21 @@
 
             var art = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
 
-            if(art.Any(x => x.Id == input.ArtId))
+            if (await this.playCardComponentsService.BlackManaExistsAsync(input.BlackManaId) == false ||
+                await this.playCardComponentsService.BlueManaExistsAsync(input.BlueManaId) == false ||
+                await this.playCardComponentsService.CardFrameExistsAsync(input.CardFrameId) == false ||
+                await this.playCardComponentsService.CardTypeExistsAsync(input.CardTypeId) == false ||
+                await this.playCardComponentsService.ColorlessManaExistsAsync(input.ColorlessManaId) == false ||
+                await this.playCardComponentsService.GreenManaExistsAsync(input.GreenManaId) == false ||
+                await this.playCardComponentsService.RedManaExistsAsync(input.RedManaId) == false ||
+                await this.playCardComponentsService.WhiteManaExistsAsync(input.WhiteManaId) == false)
             {
-                this.ModelState.AddModelError(nameof(input.ArtId), "Play card with this Art already exist");
+                this.ModelState.AddModelError(nameof(input.CardTypeId), "Category does not exist");
+            }
+
+            if (art.Any(x => x.Id == input.ArtId) == false)
+            {
+                this.ModelState.AddModelError(nameof(input.ArtId), "Art with this id does not exist");
             }
 
             if (!this.ModelState.IsValid)
@@ -187,6 +194,18 @@
                 input.AbilitiesAndFlavor = cardDescription;
             }
 
+            if (await this.playCardComponentsService.BlackManaExistsAsync(input.BlackManaId) == false ||
+                await this.playCardComponentsService.BlueManaExistsAsync(input.BlueManaId) == false ||
+                await this.playCardComponentsService.CardFrameExistsAsync(input.CardFrameId) == false ||
+                await this.playCardComponentsService.CardTypeExistsAsync(input.CardTypeId) == false ||
+                await this.playCardComponentsService.ColorlessManaExistsAsync(input.ColorlessManaId) == false ||
+                await this.playCardComponentsService.GreenManaExistsAsync(input.GreenManaId) == false ||
+                await this.playCardComponentsService.RedManaExistsAsync(input.RedManaId) == false ||
+                await this.playCardComponentsService.WhiteManaExistsAsync(input.WhiteManaId) == false)
+            {
+                this.ModelState.AddModelError(nameof(input.CardTypeId), "Category does not exist");
+            }
+
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
 
@@ -265,12 +284,13 @@
             }
 
             const int ItemsPerPage = 5;
+            var cards = await this.cardService.GetAllEventCards<CardInListViewModel>();
             var viewModel = new CardListViewModel
             {
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
-                Count = await this.cardService.GetCount(),
-                Cards = await this.cardService.GetAllEventCards<CardInListViewModel>(),
+                Cards = cards,
+                Count = cards.Count(),
             };
 
             return this.View(viewModel);
@@ -279,15 +299,16 @@
         public async Task<IActionResult> ById(string id, string information)
         {
             var card = await this.cardService.GetById<SingleCardViewModel>(id);
-            if (information != card.GetCardName())
+            if (card == null || information != card.GetCardName())
             {
-                return this.BadRequest(information);
+                return this.BadRequest();
             }
 
             if (card != null)
             {
                 card.Mana = await this.cardService.GetAllCardManaByCardId<ManaListViewModel>(id);
             }
+
             card.Comments = await this.commentService.GetCommentsByCardId<CardCommentInListViewModel>(id);
             card.Events = await this.eventService.GetAll<EventInListViewModel>();
             card.Articles = this.articleService.GetRandom<ArticleInListViewModel>(4);
@@ -297,6 +318,11 @@
         [HttpPost]
         public async Task<IActionResult> Comment(SingleCardViewModel model, string id)
         {
+            if (this.User == null || (this.User.IsAdmin() == false && this.User.IsArtist() == false && this.User.IsPremiumUser() == false))
+            {
+                return this.Unauthorized();
+            }
+
             var user = await this.userManager.GetUserAsync(this.User);
             if (user.Nickname.Length == 0 || user.Nickname == null)
             {
@@ -311,21 +337,12 @@
                 return this.View(model);
             }
 
-            var currentRole = await this.userManager.GetRolesAsync(user);
-            bool isAdmin = false;
-
-            if(currentRole.Contains(AdministratorRoleName))
-            {
-                isAdmin = true;
-            }
-
             try
             {
-                await this.commentService.CommentAsync(model, user.Id, id, isAdmin);
+                await this.commentService.CommentAsync(model, user.Id, id, this.User.IsAdmin());
             }
             catch (Exception ex)
             {
-
                 this.ModelState.AddModelError(string.Empty, ex.Message);
 
                 return this.View(model);
@@ -333,7 +350,7 @@
 
             this.TempData["Message"] = "Comment added successfully.";
 
-            return this.RedirectToAction("ById", "PlayCard", new { id = $"{model.Id}",information = model.GetCardName(), Area = "" });
+            return this.RedirectToAction("ById", "PlayCard", new { id = $"{id}", information = model.GetCardName(), Area = string.Empty });
         }
 
         [HttpPost]
@@ -360,9 +377,10 @@
                 return this.BadRequest();
             }
 
+            var card = await this.cardService.GetById<SingleCardViewModel>(id);
             await this.cardService.Promote(id);
 
-            return this.RedirectToAction("ById", "PlayCard", new { id = $"{id}", Area = "" });
+            return this.RedirectToAction("ById", "PlayCard", new { id = $"{id}", information = card.GetCardName(), Area = string.Empty });
         }
 
         [HttpPost]

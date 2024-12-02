@@ -1,30 +1,32 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using MyTested.AspNetCore.Mvc;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Data;
-using Wizzarts.Services.Data.Tests;
-using Wizzarts.Web.Controllers;
-using Wizzarts.Web.ViewModels.PlayCard;
-using Wizzarts.Web.ViewModels.WizzartsMember;
-using Xunit;
-
-namespace Wizzarts.Web.Tests.ControllerTest
+﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Identity;
+    using MyTested.AspNetCore.Mvc;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Data;
+    using Wizzarts.Services.Data.Tests;
+    using Wizzarts.Web.Controllers;
+    using Wizzarts.Web.ViewModels.PlayCard;
+    using Wizzarts.Web.ViewModels.WizzartsMember;
+    using Xunit;
+
     public class UserControllerTest : UnitTestBase
     {
         public UserControllerTest()
         {
         }
+
         [Fact]
-        public void SelectAvatarhouldReturnViewWithCorrectModel()
+        public void Select_Avatar_Should_Return_View_With_Correct_Model()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<UserController>
@@ -35,13 +37,13 @@ namespace Wizzarts.Web.Tests.ControllerTest
              .View(view => view
                  .WithModelOfType<AvatarListViewModel>());
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
-        public void UpdateGetShouldHaveRestrictionsForHttpGetOnlyAndAuthorizedUsersAndShouldReturnView()
+        public void Update_Get_Should_Have_Restrictions_For_HttpGet_Only_And_Authorized_Users_And_Should_Return_View()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<UserController>
@@ -56,26 +58,18 @@ namespace Wizzarts.Web.Tests.ControllerTest
              .AndAlso()
              .ShouldReturn()
              .View();
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
-        public async Task UpdatePostShouldUpdateUserProfileAndSetTempDataMessageAndRedirectWhenValidModel()
+        public void Update_Post_Should_Update_User_Profile_And_Set_Temp_Data_Message_And_Redirect_When_Valid_Model()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
-            using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-            using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
-            using var repositoryArticle = new EfDeletableEntityRepository<Article>(data);
-            using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
-            using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-            using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
 
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
-            var avatars = await service.GetAllAvatars<AvatarInListViewModel>();
             MyController<UserController>
                 .Instance(instance => instance
-                 .WithUser(X=>X.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
+                 .WithUser(X => X.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
                  .WithData(data.Avatars)
                  .WithData(data.Users))
                .Calling(c => c.Update(
@@ -84,8 +78,8 @@ namespace Wizzarts.Web.Tests.ControllerTest
                        Nickname = "Test",
                        AvatarUrl = "test",
                        Bio = "test",
+                       PhoneNumber = "12345678",
                        AvatarId = 2,
-                       Avatars = avatars,
                    }))
                .ShouldHave()
                .ValidModelState()
@@ -97,64 +91,128 @@ namespace Wizzarts.Web.Tests.ControllerTest
                .ShouldReturn()
                .Redirect(redirect => redirect
                    .To<HomeController>(c => c.Index(With.No<string>())));
-            TearDownBase();
+            this.TearDownBase();
         }
 
-        //[Fact]
-        //public void UpdatePostShouldReturnViewWithSameModelWhenInvalidModelState()
-        //{
-        //    OneTimeSetup();
-        //    var data = this.dbContext;
+        [Fact]
+        public void Update_Post_Should_Return_View_When_Invalid_Model_State()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
 
-        //    using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-        //    using var repositoryArticle = new EfDeletableEntityRepository<Article>(data);
-        //    using var repositoryEvent = new EfDeletableEntityRepository<Event>(data);
-        //    using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
-        //    using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
+            MyController<UserController>
+                .Instance(instance => instance
+                 .WithUser(X => X.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
+                 .WithData(data.Avatars)
+                 .WithData(data.Users))
+               .Calling(c => c.Update(
+                   new CreateMemberProfileViewModel
+                   {
+                       Nickname = "Test",
+                       AvatarUrl = "test",
+                       Bio = "test",
+                       AvatarId = 2,
+                   }))
+               .ShouldHave()
+               .InvalidModelState()
+               .AndAlso()
+               .ShouldReturn()
+               .View(view => view
+                .WithModelOfType<CreateMemberProfileViewModel>());
+            this.TearDownBase();
+        }
 
-        //    var service = new UserService(repositoryArt, repositoryArticle, repositoryEvent, repositoryAvatar, repositoryUser);
-
-        //    MyController<UserController>
-        //        .Instance(instance => instance
-        //         .WithUser(X => X.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
-        //         .WithData(data.Avatars)
-        //         .WithData(data.Users))
-        //      .Calling(c => c.Update(
-        //            new CreateMemberProfileViewModel
-        //            {
-        //                Avatars = service.GetAllAvatars<AvatarInListViewModel>(),
-        //            }))
-        //      .ShouldHave()
-        //      .InvalidModelState()
-        //      .AndAlso()
-        //      .ShouldReturn()
-        //      .View(With.Default<CreateMemberProfileViewModel>());
-        //    TearDownBase();
-        //}
 
         [Fact]
-        public void UpdatePostShouldHaveRestrictionsForHttpPostOnlyAndAuthorizedUsers()
+        public void Update_Post_Should_Have_Restrictions_Fo_rHttp_Post_Only_And_Authorized_Users()
           => MyController<UserController>
               .Calling(c => c.Update(With.Default<CreateMemberProfileViewModel>()))
               .ShouldHave()
               .ActionAttributes(attrs => attrs
                   .RestrictingForHttpMethod(HttpMethod.Post));
 
-        //[Fact]
-        //public void MyDataShouldReturnCorrectModel()
-        //{
-        //    OneTimeSetup();
-        //    var data = this.dbContext;
+        [Fact]
+        public void My_Data_Should_Return_Correct_Model_And_Data()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
 
-          
+            MyController<UserController>
+                   .Instance(instance => instance
+                 .WithUser(X => X.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
+                 .WithData(data.Users))
+                 .Calling(c => c.MyData(1))
+                 .ShouldReturn()
+                  .View(view => view
+                .WithModelOfType<MemberDataViewModel>()
+                  .Passing(model =>
+                  {
+                      Assert.Equal("drawgoon@aol.com", model.Email);
+                      Assert.Equal(8, model.Arts.Count());
+                  }));
+            TearDownBase();
+        }
 
-        //    MyController<UserController>
-        //        .Instance(instance => instance
-        //         .WithUser())
-        //      .Calling(c => c.MyData(With.No<int>()))
-        //      .ShouldReturn()
-        //      .View(With.Default<MemberDataViewModel>());
-        //    TearDownBase();
-        //}
+        [Fact]
+        public void All_Should_Return_Correct_Model_And_Data()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+
+            MyController<UserController>
+                   .Instance(instance => instance
+                 .WithData(data.Users))
+                 .Calling(c => c.All(1))
+                 .ShouldReturn()
+                  .View(view => view
+                .WithModelOfType<MembersListViewModel>());
+            TearDownBase();
+        }
+
+        [Fact]
+        public void By_Id_Should_Return_Correct_Model_And_Data()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+
+            MyController<UserController>
+                   .Instance(instance => instance
+                 .WithData(data.Users))
+                 .Calling(c => c.ById("2738e787-5d57-4bc7-b0d2-287242f04695","Drawgoon"))
+                 .ShouldReturn()
+                  .View(view => view
+                .WithModelOfType<SingleMemberViewModel>());
+            TearDownBase();
+        }
+
+        [Fact]
+        public void ById_Should_Return_Bad_Request_When_Bad_In_formation()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+
+            MyController<UserController>
+                   .Instance(instance => instance
+                 .WithData(data.Users))
+                 .Calling(c => c.ById("2738e787-5d57-4bc7-b0d2-287242f04695", "Dra"))
+                 .ShouldReturn()
+                 .BadRequest();
+            TearDownBase();
+        }
+
+        [Fact]
+        public void ById_Should_Return_Bad_Request_When_Non_Existing_User()
+        {
+            OneTimeSetup();
+            var data = this.dbContext;
+
+            MyController<UserController>
+                   .Instance(instance => instance
+                 .WithData(data.Users))
+                 .Calling(c => c.ById("2738e787-5d57-4bc7-b0d2-287242f04694", "Drawgoon"))
+                 .ShouldReturn()
+                 .BadRequest();
+            TearDownBase();
+        }
     }
 }

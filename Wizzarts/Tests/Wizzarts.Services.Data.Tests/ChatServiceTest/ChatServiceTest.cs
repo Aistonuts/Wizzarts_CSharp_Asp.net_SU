@@ -1,12 +1,13 @@
 ﻿namespace Wizzarts.Services.Data.Tests.ChatServiceTest
 {
-    using Microsoft.Extensions.Caching.Memory;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using System.Text;
     using System.Threading.Tasks;
+
+    using Microsoft.Extensions.Caching.Memory;
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;
     using Wizzarts.Services.Mapping;
@@ -23,26 +24,26 @@
         }
 
         [Fact]
-        public async Task ChatGetAllMessagesFromChatIdShouldReturnCorrectChatAndMessagesCount()
+        public async Task Chat_Get_All_Messages_From_Chat_Id_Should_Return_Correct_Chat_And_Messages_Count()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             using var repositoryChatMessage = new EfDeletableEntityRepository<ChatMessage>(data);
             using var repositoryChat = new EfDeletableEntityRepository<Chat>(data);
-            var chatService = new ChatService(repositoryChatMessage,repositoryChat);
+            var chatService = new ChatService(repositoryChatMessage, repositoryChat);
             var chat = await chatService.GetAllGeneralChatMessages<DbChatMessagesInListViewModel>(1);
             int chatCount = chat.Count();
             var firstChatMessage = chat.First();
             Assert.Equal(1, chatCount);
-            Assert.Equal("General",firstChatMessage.Name);
+            Assert.Equal("General", firstChatMessage.Name);
             this.TearDownBase();
         }
 
         [Fact]
-        public async Task GetAllChatRoomsShouldReturnCorrectCountAndSecondRoomShouldBeFrench()
+        public async Task Get_All_Chat_Rooms_Should_Return_Correct_Count_And_Second_Room_Should_Be_For_French_Language()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             using var repositoryChatMessage = new EfDeletableEntityRepository<ChatMessage>(data);
@@ -57,9 +58,9 @@
         }
 
         [Fact]
-        public async Task GetAllChatMessagesInRoomShouldReturnCorrectCountAndMessageContent()
+        public async Task Get_All_Chat_Messages_In_Room_Should_Return_Correct_Count_And_Message_Content()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             using var repositoryChatMessage = new EfDeletableEntityRepository<ChatMessage>(data);
@@ -76,9 +77,9 @@
         }
 
         [Fact]
-        public async Task GetChatByIdShouldReturnCorrectChat()
+        public async Task Get_Chat_By_Id_Should_Return_Correct_Chat()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             using var repositoryChatMessage = new EfDeletableEntityRepository<ChatMessage>(data);

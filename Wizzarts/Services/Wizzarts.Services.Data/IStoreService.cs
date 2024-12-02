@@ -22,5 +22,7 @@
         Task<string> ApproveStore(int id);
 
         Task<T> GetById<T>(int id);
+
+        Task<bool> ExistsAsync(int id);
     }
 }

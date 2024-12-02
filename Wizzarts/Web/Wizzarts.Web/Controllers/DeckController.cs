@@ -55,6 +55,11 @@
         public async Task<IActionResult> Add(SingleDeckViewModel input, int id, string information)
         {
             var deck = await this.deckService.GetById<SingleDeckViewModel>(id);
+            if (deck == null)
+            {
+                return this.BadRequest();
+            }
+
             var user = await this.userManager.GetUserAsync(this.User);
 
             var currentRole = await this.userManager.GetRolesAsync(user);
@@ -64,10 +69,6 @@
             }
 
             var decks = await this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
-            if (!currentRole.Contains(AdministratorRoleName) && !decks.Any())
-            {
-                return this.RedirectToAction("Create", "Deck");
-            }
 
             input.Id = id;
             input.Name = deck.Name;
@@ -85,7 +86,6 @@
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Dispatch(SingleDeckViewModel input)
         {
-
             await this.deckService.ChangeStatusAsync(input);
 
             return this.RedirectToAction(nameof(this.ById), new { id = input.Id, information = input.GetDeckName() });
@@ -94,6 +94,19 @@
         [HttpPost]
         public async Task<IActionResult> Shipping(SingleDeckViewModel input)
         {
+            if (await this.storeService.ExistsAsync(input.StoreId) == false)
+            {
+                this.ModelState.AddModelError(nameof(input.StoreId), "Store does not exist does not exist");
+            }
+
+            this.ModelState.Remove("UserName");
+            this.ModelState.Remove("Password");
+            if (!this.ModelState.IsValid)
+            {
+                input.Decks = await this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
+                input.Stores = await this.storeService.GetAll<StoreInListViewModel>();
+                return this.View(input);
+            }
 
             await this.deckService.UpdateShippingAsync(input);
 
@@ -115,7 +128,6 @@
 
         public async Task<IActionResult> Remove(string data, int Id)
         {
-
             var decks = await this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
             if (!decks.Any())
             {
@@ -145,6 +157,11 @@
         {
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
+
+            if (await this.storeService.ExistsAsync(model.StoreId) == false)
+            {
+                this.ModelState.AddModelError(nameof(model.StoreId), "Store does not exist!");
+            }
 
             if (!this.ModelState.IsValid)
             {
@@ -192,6 +209,7 @@
             {
                 return this.RedirectToAction(nameof(this.Add), new { id = id });
             }
+
             try
             {
                 await this.deckService.OrderAsync(id, this.User.GetId());
@@ -224,12 +242,13 @@
             return this.RedirectToAction(nameof(this.Add), new { id = deckId });
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> ById(int id, string information)
         {
             var deck = await this.deckService.GetById<SingleDeckViewModel>(id);
-            if (information != deck.GetDeckName())
+            if (deck == null || information != deck.GetDeckName())
             {
-                return this.BadRequest(information);
+                return this.BadRequest();
             }
 
             deck.Stores = await this.storeService.GetAll<StoreInListViewModel>();

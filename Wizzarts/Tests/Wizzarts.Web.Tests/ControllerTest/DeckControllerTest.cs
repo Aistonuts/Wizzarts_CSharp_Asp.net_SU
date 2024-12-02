@@ -1,42 +1,45 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Caching.Memory;
-using Moq;
-using MyTested.AspNetCore.Mvc;
-using System.IO;
-using System.Linq;
-using System.Text;
-using OpenQA.Selenium.DevTools.V123.Input;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Data;
-using Wizzarts.Services.Data.Tests;
-using Wizzarts.Web.Controllers;
-using Wizzarts.Web.ViewModels.Art;
-using Wizzarts.Web.ViewModels.Deck;
-using Xunit;
-using Wizzarts.Web.ViewModels.Article;
-
-namespace Wizzarts.Web.Tests.ControllerTest
+﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.Extensions.Caching.Memory;
+    using Moq;
+    using MyTested.AspNetCore.Mvc;
+    using OpenQA.Selenium.DevTools.V123.Input;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Data;
+    using Wizzarts.Services.Data.Tests;
+    using Wizzarts.Web.Controllers;
+    using Wizzarts.Web.ViewModels.Art;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.Deck;
+    using Xunit;
+
     public class DeckControllerTest : UnitTestBase
     {
         [Fact]
-        public void AddWhenUserHasNoDecksShouldReturnRedirectToActionCreate()
+        public void AddWhenUserIsNotTheDeckOwnerShouldReturnUnauthorized()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var cards = data.PlayCards;
             MyController<DeckController>
+                .Instance(instance => instance
+                    .WithData(data.Arts)
+                    .WithUser(x => x.WithIdentifier("eb49ba9d-5030-42b6-8aef-c93506943fde")))
                 .Calling(c => c.Add(
                     new SingleDeckViewModel()
-                {
-                    SearchEvent = "Event",
-                },With.No<int>(), With.No<string>()))
+                    {
+                        SearchEvent = "Event",
+                    }, 1, With.No<string>()))
                 .ShouldReturn()
-                .Redirect(redirect => redirect
-                    .To<DeckController>(c => c.Create(With.No<int>())));
+                .Unauthorized();
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -46,20 +49,20 @@ namespace Wizzarts.Web.Tests.ControllerTest
             var data = this.dbContext;
             MyController<DeckController>
                 .Instance(instance => instance
-                    .WithUser(c=> c.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
+                    .WithUser(c => c.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
                     .WithData(data.Users))
                 .Calling(c => c.Add(
                     new SingleDeckViewModel()
-                {
-                    SearchEvent = "Event",
-                    SearchName = "Ancestral Recall",
-                    SearchType = "Instant",
-                }, 1, With.No<string>()))
+                    {
+                        SearchEvent = "Event",
+                        SearchName = "Ancestral Recall",
+                        SearchType = "Instant",
+                    }, 1, With.No<string>()))
                 .ShouldReturn()
                 .View(view => view
                     .WithModelOfType<SingleDeckViewModel>());
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -72,14 +75,13 @@ namespace Wizzarts.Web.Tests.ControllerTest
                     .WithData(data.CardDecks))
                 .Calling(c => c.Dispatch(new SingleDeckViewModel()
                 {
-
                     Id = 1,
                 }))
                 .ShouldReturn()
                 .Redirect(redirect => redirect
                     .To<DeckController>(c => c.ById(1, With.No<string>())));
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -101,9 +103,9 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .Calling(c => c.AddCard("c330fecf-61a9-4e03-8052-cd2b9583a251", 1))
                 .ShouldReturn()
                 .Redirect(redirect => redirect
-                    .To<DeckController>(c => c.Add(With.No<SingleDeckViewModel>(),1, With.No<string>())));
+                    .To<DeckController>(c => c.Add(With.No<SingleDeckViewModel>(), 1, With.No<string>())));
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -116,12 +118,12 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .Instance(instance => instance
                     .WithUser(c => c.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
                     .WithData(data.CardDecks))
-                .Calling(c => c.Remove("c330fecf-61a9-4e03-8052-cd2b9583a251", 1))
+                .Calling(c => c.Remove("2b346dc6-5bd7-4e64-8396-15a064aa27a7", 1))
                 .ShouldReturn()
                 .Redirect(redirect => redirect
                     .To<DeckController>(c => c.Add(With.No<SingleDeckViewModel>(), 1, With.No<string>())));
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -140,7 +142,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .ShouldReturn()
                 .View();
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -159,7 +161,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .ShouldReturn()
                 .View(view => view.WithModelOfType<CreateDeckViewModel>());
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -176,6 +178,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 ShippingAddress = "testtesttesttesttest",
                 Image = file,
                 EventId = 4,
+                StoreId = 1,
             };
             MyController<DeckController>
                 .Instance(instance => instance
@@ -193,7 +196,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .Redirect(redirect => redirect
                     .To<DeckController>(c => c.Create(With.Any<int>())));
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -212,7 +215,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .ShouldReturn()
                 .View(view => view.WithModelOfType<CreateDeckViewModel>());
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -235,22 +238,22 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .ShouldReturn()
                 .View(view => view.WithModelOfType<DeckListViewModel>());
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
-        public void ByIdShouldReturnViewWithCorrectModel()
+        public void ByIdShouldReturnBadRequestDueToMissingInformation()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
             MyController<DeckController>
                 .Instance(instance => instance
-                    .WithData(c=>c.WithEntities(data.CardDecks)))
+                    .WithData(c => c.WithEntities(data.CardDecks)))
                 .Calling(c => c.ById(1, With.No<string>()))
                 .ShouldReturn()
-                .View(view => view.WithModelOfType<SingleDeckViewModel>());
+                .BadRequest();
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -267,7 +270,7 @@ namespace Wizzarts.Web.Tests.ControllerTest
                 .Redirect(redirect => redirect
                     .To<DeckController>(c => c.Add(With.No<SingleDeckViewModel>(), 1, With.No<string>())));
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
@@ -276,14 +279,14 @@ namespace Wizzarts.Web.Tests.ControllerTest
             this.OneTimeSetup();
             var data = this.dbContext;
             MyController<DeckController>
-                .Instance(instance => instance.WithUser(c => c.WithIdentifier("3b346dc6-5bd7-4e64-8396-15a064aa27a7"))
+                .Instance(instance => instance.WithUser(c => c.WithIdentifier("eb49ba9d-5030-42b6-8aef-c93506943fde"))
                     .WithData(c => c.WithEntities(data.CardDecks)))
                 .Calling(c => c.Change(1))
                 .ShouldReturn()
                 .Redirect(redirect => redirect
                     .To<DeckController>(c => c.Create(With.No<int>())));
 
-            TearDownBase();
+            this.TearDownBase();
         }
     }
 }

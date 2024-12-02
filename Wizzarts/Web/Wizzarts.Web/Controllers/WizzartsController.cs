@@ -1,9 +1,10 @@
 ﻿namespace Wizzarts.Web.Controllers
 {
+    using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using System.Threading.Tasks;
     using Wizzarts.Common;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
@@ -15,8 +16,6 @@
     using Wizzarts.Web.ViewModels.WizzartsMember;
 
     using static Wizzarts.Common.GlobalConstants;
-    using static Wizzarts.Common.MessageConstants;
-    using static Wizzarts.Common.NotificationMessagesConstants;
 
     public class WizzartsController : BaseController
     {
@@ -25,6 +24,7 @@
         private readonly IArtService artService;
         private readonly IEventService eventService;
         private readonly IArticleService articleService;
+        private readonly IPlayCardService cardService;
 
         private readonly UserManager<ApplicationUser> userManager;
 
@@ -34,6 +34,7 @@
             IArtService artService,
             IEventService eventService,
             IArticleService articleService,
+            IPlayCardService cardService,
             UserManager<ApplicationUser> userManager)
         {
             this.wizzartsServices = wizzartsServices;
@@ -41,6 +42,7 @@
             this.artService = artService;
             this.eventService = eventService;
             this.articleService = articleService;
+            this.cardService = cardService;
             this.userManager = userManager;
         }
 
@@ -64,57 +66,30 @@
 
             var view = new MembershipViewModel();
 
-            if (user == null)
-            {
-                view.IsMember = false;
-            }
-
             if (user != null)
             {
-
                 var countOfArts = this.userService.GetCountOfArt(this.User.GetId());
 
                 var countOfArticles = this.userService.GetCountOfArticles(this.User.GetId());
 
                 var countOfEvents = this.userService.GetCountOfEvents(this.User.GetId());
 
-                var userRole = await this.userManager.GetRolesAsync(user);
+                var countOfCards = this.userService.GetCountOfCards(this.User.GetId());
 
-                if (userRole.Contains(MemberRoleName))
+                if (this.User.IsMember() == true && this.User.IsArtist() == false && this.User.IsPremiumUser() == false && this.User.IsAdmin() == false)
                 {
-                    view.IsMember = true;
+                    view.ArtNeeded = countOfArts;
+
+                    view.EventsNeeded = countOfEvents;
+
+                    view.ArticlesNeeded = countOfArticles;
+
+                    view.CardsNeeded = countOfCards;
                 }
 
-                if (userRole.Contains(ArtistRoleName))
+                if (this.User.IsMember() && this.User.IsPremiumUser() && this.User.IsArtist() == false && this.User.IsAdmin() == false)
                 {
-                    view.IsArtist = true;
-                }
-
-                if (userRole.Contains(PremiumRoleName))
-                {
-                    view.IsPremiumUser = true;
-                }
-
-                if (view.IsMember)
-                {
-                    view.CurrentRole = GlobalConstants.MemberRoleName;
-
-                    view.ArtNeeded = view.ArtistRoleNeededArts - countOfArts;
-
-                    view.EventsNeeded = view.AllRolesEvents - countOfEvents;
-
-                    view.ArticlesNeeded = view.AllRolesRequiredArticles - countOfArticles;
-                }
-
-                if (view.IsArtist)
-                {
-                    view.CurrentRole = GlobalConstants.ArtistRoleName;
-
-                }
-
-                if (view.IsPremiumUser)
-                {
-                    view.CurrentRole = GlobalConstants.PremiumRoleName;
+                    view.ArtNeeded = countOfArts;
                 }
             }
 
@@ -124,6 +99,11 @@
         public async Task<IActionResult> ById(int id)
         {
             var userId = this.wizzartsServices.GetUserIdByArtistId(id);
+            if (userId == null)
+            {
+                return this.BadRequest();
+            }
+
             var member = await this.userService.GetById<SingleMemberViewModel>(userId);
             member.Arts = await this.artService.GetAllArtByUserId<ArtInListViewModel>(userId, 1, 50);
             member.Articles = await this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(userId, 1, 50);

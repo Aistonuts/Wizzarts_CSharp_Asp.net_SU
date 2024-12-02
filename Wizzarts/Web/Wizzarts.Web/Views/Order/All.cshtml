@@ -31,14 +31,14 @@
                                     <i class="fa fa-hourglass-half"></i> <b>Pause</b>
                                 </button>
                             </a>
-                            <a asp-controller="Order" asp-action="Ship" asp-route-id="@order.Id">
-                                <button type="button" class="btn btn-light">
-                                    <i class="fa fa-paper-plane"></i> <b>Ship</b>
-                                </button>
-                            </a>
                             <a asp-controller="Order"  asp-action="Ready" asp-route-id="@order.Id">
                                 <button type="button" class="btn btn-light">
-                                    <i class="fa fa-university"></i> <b>Pickup</b>
+                                    <i class="fa fa-university"></i> <b>Ship</b>
+                                </button>
+                            </a>
+                            <a asp-controller="Order" asp-action="Ship" asp-route-id="@order.Id">
+                                <button type="button" class="btn btn-light">
+                                    <i class="fa fa-paper-plane"></i> <b>Pickup</b>
                                 </button>
                             </a>
                             <a asp-controller="Order" asp-action="SendToEmail" asp-route-id="@order.Id">

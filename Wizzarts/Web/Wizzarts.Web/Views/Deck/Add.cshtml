@@ -1,7 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Wizzarts.Services.Data
 @using Wizzarts.Web.Infrastructure.Extensions
 @model Wizzarts.Web.ViewModels.Deck.SingleDeckViewModel
-
+@inject IDeckService deckService;
 
 @{
     ViewData["Title"] = "Advanced Search";
@@ -173,9 +174,12 @@
         <div class="card mb-2 pb-1 text-center ff-display">
             <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Lock your deck and join the event. Once your deck is at "@Model.DeliveryLocation" store the status of your deck will change to "Delivered"</h4>
             <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Your deck status is : @Model.DeckStatus</h4>
-            <a asp-controller="Deck" asp-action="ById" asp-route-id="@this.Model.Id" asp-route-information="@this.Model.GetDeckName()" class="metagroup-link ff-display">
-                <span class="btn btn-light font-weight-bold">Order</span>
-            </a>
+            @if (await deckService.IsLocked(Model.Id))
+            {
+                <a asp-controller="Deck" asp-action="ById" asp-route-id="@this.Model.Id" asp-route-information="@this.Model.GetDeckName()" class="metagroup-link ff-display">
+                    <span class="btn btn-light font-weight-bold">Order</span>
+                </a>
+            }
         </div>
         <div class="card mb-2">
             <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Cards in @Model.Name </a></h4></div>

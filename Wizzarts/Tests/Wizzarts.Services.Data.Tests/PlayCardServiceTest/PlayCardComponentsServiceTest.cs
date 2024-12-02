@@ -1,21 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Mapping;
-using Wizzarts.Web.ViewModels;
-using Wizzarts.Web.ViewModels.Article;
-using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
-using Xunit;
-
-namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
+﻿namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Caching.Memory;
+    using Wizzarts.Data.Models;
+    using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels;
+    using Wizzarts.Web.ViewModels.Article;
+    using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
+    using Xunit;
+
     public class PlayCardComponentsServiceTest : UnitTestBase
     {
         public PlayCardComponentsServiceTest()

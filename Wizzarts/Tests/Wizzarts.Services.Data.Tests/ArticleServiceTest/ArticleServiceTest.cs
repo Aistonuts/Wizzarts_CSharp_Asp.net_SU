@@ -25,7 +25,7 @@
         }
 
         [Fact]
-        public async Task ArticleGetAllShouldReturnCorrectArtCount()
+        public async Task Article_Get_All_Should_Return_Correct_Art_Count()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -40,7 +40,7 @@
         }
 
         [Fact]
-        public async Task ArticlesGetCountShouldReturnCorrectArticleCount()
+        public async Task Articles_Get_Count_Should_Return_Correct_Article_Count()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -54,7 +54,7 @@
         }
 
         [Fact]
-        public async Task ArticleGetRandomCountShouldReturnCorrectArticleCount()
+        public async Task Article_Get_Random_Count_Should_Return_Correct_Article_Count()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -69,15 +69,15 @@
         }
 
         [Fact]
-        public async Task CreateArticleShouldChangeTheTotalCountOfArticlesAndAddTheCorrectArt()
+        public async Task Create_Article_Should_Change_The_Total_Count_Of_Articles_And_Add_The_Correct_Art()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
             var service = new ArticleService(repository, cache);
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
@@ -90,7 +90,10 @@
                     ImageUrl = file,
                     Description = "Test",
                     ShortDescription = "Test",
-                }, UserId, path, isPremium);
+                },
+                userId,
+                path,
+                isPremium);
             var count = await repository.All().CountAsync();
             var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
             Assert.Equal(7, count);
@@ -99,15 +102,15 @@
         }
 
         [Fact]
-        public async Task CreateArticleWithWrongFileFormatShouldThrowAnException()
+        public async Task Create_Article_With_Wrong_File_Format_Should_Throw_An_Exception()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
             var service = new ArticleService(repository, cache);
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
@@ -121,15 +124,18 @@
                     ImageUrl = file,
                     Description = "Test",
                     ShortDescription = "Test",
-                }, UserId, path,isPremium));
+                },
+                userId,
+                path,
+                isPremium));
             Assert.Equal("Invalid image extension nft", exception.Message);
             this.TearDownBase();
         }
 
         [Fact]
-        public async Task UpdateArticleShouldChangeTheCorrectArticleTitle()
+        public async Task Update_Article_Should_Change_The_Correct_Article_Title()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
 
@@ -149,9 +155,9 @@
         }
 
         [Fact]
-        public async Task ArticleGetByIdShouldReturnCorrectArt()
+        public async Task Article_GetBy_Id_Should_Return_Correct_Art()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repository = new EfDeletableEntityRepository<Article>(data);
@@ -165,9 +171,9 @@
         }
 
         [Fact]
-        public async Task ArticleGetAllArtByUserIdShouldReturnTheCorrectCount()
+        public async Task Article_Get_All_Art_By_UserId_Should_Return_The_Correct_Count()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             var cache = new MemoryCache(new MemoryCacheOptions());
@@ -181,15 +187,15 @@
         }
 
         [Fact]
-        public async Task DeleteArticleShouldChangeTheTotalCountOfArticlesAndShouldRemoveTheCorrectItem()
+        public async Task Delete_Article_Should_Change_The_Total_Count_Of_Articles_And_Should_Remove_The_Correct_Item()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
             var service = new ArticleService(repository, cache);
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
@@ -202,7 +208,10 @@
                     ImageUrl = file,
                     Description = "Test",
                     ShortDescription = "Test",
-                }, UserId, path, isPremium);
+                },
+                userId,
+                path,
+                isPremium);
             var count = await repository.All().CountAsync();
             var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
             int testArticleId = testArticle.Id;
@@ -215,15 +224,15 @@
         }
 
         [Fact]
-        public async Task ApproveArticleShouldChangeNewArticleStatusToApprovedByAdminToTrue()
+        public async Task Approve_Article_Should_Change_New_Article_Status_To_Approve_ByAdmin_And_True()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
             var service = new ArticleService(repository, cache);
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
@@ -236,7 +245,10 @@
                     ImageUrl = file,
                     Description = "Test",
                     ShortDescription = "Test",
-                }, UserId, path, isPremium);
+                },
+                userId,
+                path,
+                isPremium);
             var count = await repository.All().CountAsync();
             var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
             int testArticleId = testArticle.Id;
@@ -251,15 +263,15 @@
         }
 
         [Fact]
-        public async Task ApproveApprovedArticleShouldReturnNull()
+        public async Task Approve_Approved_Article_Should_Return_Null()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
             var service = new ArticleService(repository, cache);
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
@@ -272,7 +284,7 @@
                     ImageUrl = file,
                     Description = "Test",
                     ShortDescription = "Test",
-                }, UserId, path, isPremium);
+                }, userId, path, isPremium);
             var count = await repository.All().CountAsync();
             var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
             testArticle.ApprovedByAdmin = true;
@@ -282,9 +294,9 @@
         }
 
         [Fact]
-        public async Task ApproveNonExistantArticleShouldReturnNull()
+        public async Task Approve_Un_Existing_Article_Should_Return_Null()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
 
@@ -295,15 +307,15 @@
         }
 
         [Fact]
-        public async Task ArticleHasUserWithIdShouldReturnTrue()
+        public async Task Article_Has_User_With_Id_Should_Return_True()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
             var service = new ArticleService(repository, cache);
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
@@ -316,24 +328,24 @@
                     ImageUrl = file,
                     Description = "Test",
                     ShortDescription = "Test",
-                }, UserId, path, isPremium);
+                }, userId, path, isPremium);
             var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
             testArticle.ApprovedByAdmin = true;
             int testArticleId = testArticle.Id;
-            Assert.True(await service.HasUserWithIdAsync(testArticleId, UserId));
+            Assert.True(await service.HasUserWithIdAsync(testArticleId, userId));
             this.TearDownBase();
         }
 
         [Fact]
-        public async Task CheckingForExistingArticleShouldReturnTrue()
+        public async Task Checking_For_Existing_Article_Should_Return_True()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
             var service = new ArticleService(repository, cache);
-            string UserId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
+            string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
@@ -346,7 +358,7 @@
                     ImageUrl = file,
                     Description = "Test",
                     ShortDescription = "Test",
-                }, UserId, path, isPremium);
+                }, userId, path, isPremium);
             var testArticle = data.Articles.FirstOrDefault(x => x.Title == "New");
             testArticle.ApprovedByAdmin = true;
             int testArticleId = testArticle.Id;

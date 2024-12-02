@@ -12,6 +12,7 @@
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
     using Wizzarts.Web.ViewModels.WizzartsMember;
+
     using static Wizzarts.Common.DataConstants;
     using static Wizzarts.Common.MessageConstants;
 
@@ -60,6 +61,8 @@
 
         public string AddedByMemberId { get; set; } = string.Empty;
 
+        public string AddedByMember { get; set; } = string.Empty;
+
         public bool ApprovedByAdmin { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
@@ -81,7 +84,10 @@
                       x.AddedByMember.UserName))
               .ForMember(x => x.Nickname, opt =>
                   opt.MapFrom(x =>
-                      x.AddedByMember.Nickname)); ;
+                      x.AddedByMember.Nickname))
+              .ForMember(x => x.AddedByMember, opt =>
+                  opt.MapFrom(x =>
+                      x.AddedByMember.UserName));
         }
     }
 }

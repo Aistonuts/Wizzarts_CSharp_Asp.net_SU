@@ -6,12 +6,6 @@
 
     public class MembershipViewModel : IndexAuthenticationViewModel
     {
-        public bool IsMember { get; set; }
-
-        public bool IsArtist { get; set; }
-
-        public bool IsPremiumUser { get; set; }
-
         public int ArtistRoleNeededArts { get; set; } = MemberToArtistRequiredArts;
 
         public int AllRolesRequiredArticles { get; set; } = RequiredNumberArticles;

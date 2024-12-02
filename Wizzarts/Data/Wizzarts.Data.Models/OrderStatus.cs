@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
     using Wizzarts.Data.Common.Models;
 
     public class OrderStatus : BaseDeletableModel<int>

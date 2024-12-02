@@ -31,5 +31,7 @@
         Task<bool> IsPremium(string userId);
 
         Task<bool> HasNickName(string userId);
+
+        Task<bool> NickNameExist(string nickname);
     }
 }

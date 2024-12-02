@@ -166,7 +166,7 @@
                                                             </td>
                                                             <span asp-validation-for="@Model.CardTypeId" class="small text-danger"></span>
                                                         </tr>
-                                                        <tr class="row2" hidden>
+                                                        @* <tr class="row2" hidden>
                                                             <td>
                                                                 <label asp-for="GameExpansionId">Expansion Symbol:</label>
                                                             </td>
@@ -181,7 +181,7 @@
                                                                 </select>
                                                             </td>
                                                             <span asp-validation-for="@Model.GameExpansionId" class="small text-danger"></span>
-                                                        </tr>
+                                                        </tr> *@
                                                         <tr class="row1">
                                                             <td>
                                                                 <label asp-for="AbilitiesAndFlavor">Abilities &amp; Flavor:</label>
@@ -403,10 +403,10 @@
     document.getElementById("cardData").hidden = true;
     document.getElementById("startOver").hidden = false;
     document.getElementById("cardTools").hidden = true;
-    } *@
+    }   </script>*@
 
 
-                        </script>
+                      
 
     <script type="text/javascript">
 

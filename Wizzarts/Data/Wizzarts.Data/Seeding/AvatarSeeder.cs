@@ -1,10 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Wizzarts.Data.Models;
-
-namespace Wizzarts.Data.Seeding
+﻿namespace Wizzarts.Data.Seeding
 {
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Wizzarts.Data.Models;
+
     public class AvatarSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)

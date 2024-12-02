@@ -77,15 +77,11 @@
                                     <b>Tools</b>
                                 </div>
                                 <div class="card-body p-2">
-                                    @if (!this.User.IsInRole(GlobalConstants.MemberRoleName))
+                                    @if (this.User.IsInRole(GlobalConstants.ArtistRoleName) || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
                                     {
-                                        <a asp-controller="PlayCard" asp-action="Create" class="text-decoration-none"><i class="fas fa-tools"></i> Create Card</a>
-
-                                        <br>
-                                        <a asp-controller="Article" asp-action="Create" class="text-decoration-none"><i class="fas fa-trophy"></i> Create article</a>
-
-                                        <br>
+                                        <a asp-controller="PlayCard" asp-action="Add" class="text-decoration-none"><i class="fas fa-tools"></i> Create Card</a><br>
                                     }
+                                    <a asp-controller="Article" asp-action="Create" class="text-decoration-none"><i class="fas fa-trophy"></i> Create article</a><br>
                                     <a asp-controller="Art" asp-action="Add" class="text-decoration-none"><i class="fas fa-briefcase"></i> Add art</a><br>
                                     <a asp-controller="Event" asp-action="Create" class="text-decoration-none"><i class="ss ss-parl3"></i> Create event</a><br>
                                     <a asp-controller="Deck" asp-action="Create" class="text-decoration-none"><i class="ss ss-pmtg1"></i> My card decks/Create a deck</a><br>

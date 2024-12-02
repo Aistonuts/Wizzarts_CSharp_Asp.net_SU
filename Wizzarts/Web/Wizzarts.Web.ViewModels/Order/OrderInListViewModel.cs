@@ -1,8 +1,9 @@
 ﻿namespace Wizzarts.Web.ViewModels.Order
 {
-    using AutoMapper;
     using System;
     using System.Collections.Generic;
+
+    using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Deck;

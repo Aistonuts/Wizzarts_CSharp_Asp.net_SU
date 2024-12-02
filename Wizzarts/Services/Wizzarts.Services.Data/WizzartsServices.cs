@@ -1,11 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace Wizzarts.Services.Data
+﻿namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
+    using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
@@ -21,8 +20,8 @@ namespace Wizzarts.Services.Data
             IDeletableEntityRepository<WizzartsGameRulesData> gameRulesDataRepository,
             IDeletableEntityRepository<WizzartsTeam> wizzartsTeamRepository)
         {
-             this.gameRulesRepository = gameRulesRepository;
-             this.gameRulesDataRepository = gameRulesDataRepository;
+            this.gameRulesRepository = gameRulesRepository;
+            this.gameRulesDataRepository = gameRulesDataRepository;
             this.wizzartsTeamRepository = wizzartsTeamRepository;
         }
 
