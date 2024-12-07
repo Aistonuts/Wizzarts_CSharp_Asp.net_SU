@@ -1,7 +1,6 @@
 ﻿namespace Wizzarts.Services.Data.Tests.StoreServiceTest
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Reflection;
@@ -10,12 +9,10 @@
 
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Caching.Memory;
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels;
-    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Store;
     using Xunit;
 

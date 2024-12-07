@@ -20,6 +20,7 @@
             await SeedRoleAsync(roleManager, GlobalConstants.MemberRoleName, GlobalConstants.MemberRoleGuid);
             await SeedRoleAsync(roleManager, GlobalConstants.ArtistRoleName, GlobalConstants.ArtistRoleGuid);
             await SeedRoleAsync(roleManager, GlobalConstants.PremiumRoleName, GlobalConstants.PremiumRoleGuid);
+
             // await SeedRoleAsync(roleManager, GlobalConstants.StoreOwnerRoleName, GlobalConstants.StoreOwnerRoleGuid);
             // await SeedRoleAsync(roleManager, GlobalConstants.ContentCreatorRoleName, GlobalConstants.ContentCreatorRoleGuid);
         }

@@ -1,10 +1,7 @@
 ﻿namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-    using System.Text;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Identity;
@@ -14,10 +11,8 @@
     using Wizzarts.Data.Repositories;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels;
-    using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.Order;
     using Wizzarts.Web.ViewModels.PlayCard;
-    using Wizzarts.Web.ViewModels.WizzartsMember;
     using Xunit;
 
     public class OrderServiceTest : UnitTestBase

@@ -12,7 +12,7 @@
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Event;
-
+    using Wizzarts.Web.ViewModels.TagHelper;
     using static Wizzarts.Common.GlobalConstants;
 
     public class EventController : BaseController
@@ -45,7 +45,6 @@
             return this.View(viewModel);
         }
 
-        [AllowAnonymous]
         public async Task<IActionResult> ByUser()
         {
             var viewModel = new EventListViewModel
@@ -64,20 +63,9 @@
                 return this.BadRequest();
             }
 
-            if (id == 3)
-            {
-                return this.RedirectToAction("Create", "Store", new { id = id });
-            }
-            else if (id == 4)
-            {
-                return this.RedirectToAction("Create", "Deck", new { id = id });
-            }
-            else
-            {
-                newEvent.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
-                newEvent.EventId = id;
-                return this.View(newEvent);
-            }
+            newEvent.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
+            newEvent.EventId = id;
+            return this.View(newEvent);
         }
 
         [HttpGet]
@@ -86,6 +74,8 @@
             var viewModel = new CreateEventViewModel
             {
                 Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3),
+                TagHelpControllers = await this.eventService.GetAllTagHelpControllers<SingleTagHelpControllerViewModel>(),
+                TagHelperActions = await this.eventService.GetAllTagHelpActions<SingleTagHelperActionViewModel>(),
             };
             return this.View(viewModel);
         }

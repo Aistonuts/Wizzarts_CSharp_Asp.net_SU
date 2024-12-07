@@ -5,7 +5,6 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using Wizzarts.Common;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
@@ -14,8 +13,6 @@
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.GameRules;
     using Wizzarts.Web.ViewModels.WizzartsMember;
-
-    using static Wizzarts.Common.GlobalConstants;
 
     public class WizzartsController : BaseController
     {

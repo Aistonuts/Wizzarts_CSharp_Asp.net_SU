@@ -43,5 +43,7 @@
         T GetByName<T>(string name);
 
         Task Promote(string id);
+
+        Task<bool> CardTitleExist(string title);
     }
 }

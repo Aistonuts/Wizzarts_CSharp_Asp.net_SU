@@ -53,21 +53,7 @@
 
             await dbContext.Chats.AddAsync(new Chat
             {
-                Name = "Help. Order confirmations.",
-                RelationKey = "How to.",
-                Type = ChatType.Room,
-            });
-
-            await dbContext.Chats.AddAsync(new Chat
-            {
                 Name = "How to manage a game store ?",
-                RelationKey = "How to.",
-                Type = ChatType.Room,
-            });
-
-            await dbContext.Chats.AddAsync(new Chat
-            {
-                Name = "How to play Wizzarts the card game ?",
                 RelationKey = "How to.",
                 Type = ChatType.Room,
             });
@@ -82,6 +68,27 @@
             await dbContext.Chats.AddAsync(new Chat
             {
                 Name = "How to design a game and what is a game engine?",
+                RelationKey = "How to.",
+                Type = ChatType.Room,
+            });
+
+            await dbContext.Chats.AddAsync(new Chat
+            {
+                Name = "Join Wizzarts team.",
+                RelationKey = "How to.",
+                Type = ChatType.Room,
+            });
+
+            await dbContext.Chats.AddAsync(new Chat
+            {
+                Name = "Help. Order confirmations.",
+                RelationKey = "How to.",
+                Type = ChatType.Room,
+            });
+
+            await dbContext.Chats.AddAsync(new Chat
+            {
+                Name = "How to play Wizzarts the card game ?",
                 RelationKey = "How to.",
                 Type = ChatType.Room,
             });

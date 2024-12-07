@@ -1,16 +1,12 @@
 ﻿namespace Wizzarts.Web.Attributes
 {
-    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Filters;
-    using Microsoft.Extensions.DependencyInjection;
     using Wizzarts.Data.Models;
-    using Wizzarts.Services.Data;
-    using Wizzarts.Web.Extensions;
 
     using static Wizzarts.Common.GlobalConstants;
 

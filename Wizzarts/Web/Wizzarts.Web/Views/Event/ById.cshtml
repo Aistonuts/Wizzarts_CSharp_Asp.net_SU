@@ -2,7 +2,8 @@
 @model Wizzarts.Web.ViewModels.Event.SingleEventViewModel
 
 @{
-    this.ViewData["Title"] = "Event Milestones";
+    this.ViewData["Title"] = "Event by id";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row pt-2 ae-break-word">
     <div class="col-sm-12 col-md-12 col-lg-12 pl-0 pr-0 pr-lg-3">
@@ -48,7 +49,7 @@
 
                                                             <div class="video-card card border-0">
                                                                 <div class="yt-img">
-                                                                    <a  asp-controller="PlayCard" asp-action="Create" asp-route-id="@this.Model.EventComponents.ToList()[i].Id">
+                                                                    <a asp-controller="@this.Model.EventComponents.ToList()[i].ControllerName" asp-action="@this.Model.EventComponents.ToList()[i].ActionName" asp-route-id="@this.Model.EventComponents.ToList()[i].Id">
                                                                         <img src="@this.Model.EventComponents.ToList()[i].ImageUrl" alt="@this.Model.EventComponents.ToList()[i].Title" class="lazy" alt="video" style="">
 
                                                                     </a>
@@ -72,7 +73,7 @@
 
                                                             <div class="video-card card border-0">
                                                                 <div class="yt-img">
-                                                                    <a asp-controller="PlayCard" asp-action="Create" asp-route-id="@this.Model.EventComponents.ToList()[i].Id">
+                                                                    <a asp-controller="@this.Model.EventComponents.ToList()[i].ControllerName" asp-action="@this.Model.EventComponents.ToList()[i].ActionName" asp-route-id="@this.Model.EventComponents.ToList()[i].Id">
                                                                         <img src="@this.Model.EventComponents.ToList()[i].ImageUrl" alt="@this.Model.EventComponents.ToList()[i].Title" class="lazy" alt="video" style="">
                                                                     </a>
                                                                 </div>
@@ -88,10 +89,7 @@
                                                         </div>
                                                     </div>
                                                 }
-
                                             }
-
-
                                         </div>
                                         <a class="carousel-control-prev" href="#creatorCarousel" role="button" data-slide="prev">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -103,7 +101,6 @@
                                         </a>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -117,18 +114,20 @@
                                 </form>
                                 <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
                             </li>
-                            <li class="single-meta">
-                                <form asp-area="" asp-controller="Event" method="post" asp-action="ApproveEvent" asp-route-id="@Model.EventId">
-                                    <button class="btn btn-danger">Approve</button>
-                                </form>
-                            </li>
+                            if(Model.ApprovedByAdmin == false)
+                            {
+                                <li class="single-meta">
+                                    <form asp-area="" asp-controller="Event" method="post" asp-action="ApproveEvent" asp-route-id="@Model.EventId">
+                                        <button class="btn btn-danger">Approve</button>
+                                    </form>
+                                </li>
+                            }
                             <li class="single-meta">
                                 <a asp-area="" asp-controller="Event" asp-action="Edit" asp-route-id="@Model.EventId">
-                                    <button class="btn btn-danger">Edit</button>
+                                    <div class="btn btn-danger">Edit</div>
                                 </a>
                             </li>
                         }
-                       
                     </ul>
                 </div>
             </article>

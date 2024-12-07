@@ -6,7 +6,6 @@
 
     using Wizzarts.Data;
     using Wizzarts.Data.Models;
-    using Wizzarts.Data.Models.Enums;
 
     public class ChatMessageSeeder : ITestDbSeeder
     {

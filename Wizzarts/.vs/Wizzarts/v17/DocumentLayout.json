@@ -1,7 +1,76 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\home\\error405.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\home\\error405.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\event\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\event\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web.viewmodels\\taghelper\\singletaghelpcontrollerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|solutionrelative:web\\wizzarts.web.viewmodels\\taghelper\\singletaghelpcontrollerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web.viewmodels\\taghelper\\singletaghelperactionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|solutionrelative:web\\wizzarts.web.viewmodels\\taghelper\\singletaghelperactionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\services\\wizzarts.services.data\\eventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|solutionrelative:services\\wizzarts.services.data\\eventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web.viewmodels\\event\\baseeventviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|solutionrelative:web\\wizzarts.web.viewmodels\\event\\baseeventviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\services\\wizzarts.services.data\\ieventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|solutionrelative:services\\wizzarts.services.data\\ieventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web.viewmodels\\playcard\\singlecardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|solutionrelative:web\\wizzarts.web.viewmodels\\playcard\\singlecardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\event\\byid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\event\\byid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\event\\all.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\event\\all.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web.viewmodels\\event\\eventcomponentsinlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|solutionrelative:web\\wizzarts.web.viewmodels\\event\\eventcomponentsinlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web.viewmodels\\event\\singleeventviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|solutionrelative:web\\wizzarts.web.viewmodels\\event\\singleeventviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B844ECB-E845-49A6-8B31-85E577933598}|Data\\Wizzarts.Data\\Wizzarts.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\data\\wizzarts.data\\seeding\\applicationdbcontextseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B844ECB-E845-49A6-8B31-85E577933598}|Data\\Wizzarts.Data\\Wizzarts.Data.csproj|solutionrelative:data\\wizzarts.data\\seeding\\applicationdbcontextseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web.viewmodels\\event\\eventinlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|solutionrelative:web\\wizzarts.web.viewmodels\\event\\eventinlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web.viewmodels\\event\\eventlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}|Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj|solutionrelative:web\\wizzarts.web.viewmodels\\event\\eventlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -9,8 +78,255 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": -1,
-          "Children": []
+          "SelectedChildIndex": 17,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{290d74ba-151f-5f8b-b7df-7de2c7b571a7}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Error405.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Home\\Error405.cshtml",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Home\\Error405.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Home\\Error405.cshtml",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Home\\Error405.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-06T08:35:13.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAMoAAAAAAAAAAAAAANwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T08:32:58.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Event\\Create.cshtml",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Event\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Event\\Create.cshtml",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Event\\Create.cshtml",
+              "ViewState": "AQIAABYAAAAAAAAAAADwvyYAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-06T08:21:43.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EventService.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\EventService.cs",
+              "RelativeDocumentMoniker": "Services\\Wizzarts.Services.Data\\EventService.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\EventService.cs",
+              "RelativeToolTip": "Services\\Wizzarts.Services.Data\\EventService.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAC4AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T08:09:46.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IEventService.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\IEventService.cs",
+              "RelativeDocumentMoniker": "Services\\Wizzarts.Services.Data\\IEventService.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\IEventService.cs",
+              "RelativeToolTip": "Services\\Wizzarts.Services.Data\\IEventService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T08:08:29.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SingleCardViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\PlayCard\\SingleCardViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web.ViewModels\\PlayCard\\SingleCardViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\PlayCard\\SingleCardViewModel.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web.ViewModels\\PlayCard\\SingleCardViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T08:03:51.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SingleTagHelperActionViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\TagHelper\\SingleTagHelperActionViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web.ViewModels\\TagHelper\\SingleTagHelperActionViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\TagHelper\\SingleTagHelperActionViewModel.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web.ViewModels\\TagHelper\\SingleTagHelperActionViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T08:03:38.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SingleTagHelpControllerViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\TagHelper\\SingleTagHelpControllerViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web.ViewModels\\TagHelper\\SingleTagHelpControllerViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\TagHelper\\SingleTagHelpControllerViewModel.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web.ViewModels\\TagHelper\\SingleTagHelpControllerViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T08:03:18.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ById.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Event\\ById.cshtml",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Event\\ById.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Event\\ById.cshtml",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Event\\ById.cshtml",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAEIAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-06T07:57:52.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EventComponentsInListViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Event\\EventComponentsInListViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web.ViewModels\\Event\\EventComponentsInListViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Event\\EventComponentsInListViewModel.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web.ViewModels\\Event\\EventComponentsInListViewModel.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAADwvxEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T07:55:57.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ApplicationDbContextSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data\\Seeding\\ApplicationDbContextSeeder.cs",
+              "RelativeDocumentMoniker": "Data\\Wizzarts.Data\\Seeding\\ApplicationDbContextSeeder.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data\\Seeding\\ApplicationDbContextSeeder.cs",
+              "RelativeToolTip": "Data\\Wizzarts.Data\\Seeding\\ApplicationDbContextSeeder.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACgAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T07:52:12.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "All.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Event\\All.cshtml",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Event\\All.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Event\\All.cshtml",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Event\\All.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-06T07:34:09.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EventInListViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Event\\EventInListViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web.ViewModels\\Event\\EventInListViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Event\\EventInListViewModel.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web.ViewModels\\Event\\EventInListViewModel.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACAAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T07:30:18.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SingleEventViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Event\\SingleEventViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web.ViewModels\\Event\\SingleEventViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Event\\SingleEventViewModel.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web.ViewModels\\Event\\SingleEventViewModel.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAACgAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T07:22:29.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EventListViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Event\\EventListViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web.ViewModels\\Event\\EventListViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Event\\EventListViewModel.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web.ViewModels\\Event\\EventListViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T07:22:14.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EventController.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\EventController.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Controllers\\EventController.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\EventController.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Controllers\\EventController.cs",
+              "ViewState": "AQIAAM4AAAAAAAAAAAAAAOUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T07:21:01.3Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "c1748955-2449-4d2d-a4d3-6110f3b81a45",
+        "Display": 0,
+        "X": 51,
+        "Y": 383,
+        "Width": 1277,
+        "Height": 629,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BaseEventViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Event\\BaseEventViewModel.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web.ViewModels\\Event\\BaseEventViewModel.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Event\\BaseEventViewModel.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web.ViewModels\\Event\\BaseEventViewModel.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAABoAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T07:23:12.904Z",
+              "EditorCaption": ""
+            }
+          ]
         }
       ]
     }

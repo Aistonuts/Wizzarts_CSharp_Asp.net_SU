@@ -36,5 +36,9 @@
         Task DeleteComponentAsync(int id);
 
         Task<bool> EventHasUserWithId(int eventId, string userId);
+
+        Task<IEnumerable<T>> GetAllTagHelpControllers<T>();
+
+        Task<IEnumerable<T>> GetAllTagHelpActions<T>();
     }
 }

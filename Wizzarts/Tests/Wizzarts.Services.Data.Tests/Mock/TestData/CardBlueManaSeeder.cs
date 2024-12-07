@@ -1,12 +1,10 @@
 ﻿namespace Wizzarts.Services.Data.Tests.Mock
 {
-    using System;
     using System.Linq;
     using System.Threading.Tasks;
 
     using Wizzarts.Data;
     using Wizzarts.Data.Models;
-    using Wizzarts.Services.Data.Tests.Mock;
 
     public class CardBlueManaSeeder : ITestDbSeeder
     {

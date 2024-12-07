@@ -5,19 +5,10 @@
     using System.Text;
 
     using Microsoft.AspNetCore.Http;
-    using Microsoft.Extensions.Caching.Memory;
     using MyTested.AspNetCore.Mvc;
-    using Wizzarts.Data.Models;
-    using Wizzarts.Data.Repositories;
-    using Wizzarts.Services.Data;
     using Wizzarts.Services.Data.Tests;
     using Wizzarts.Web.Controllers;
-    using Wizzarts.Web.ViewModels.Article;
-    using Wizzarts.Web.ViewModels.CardGameExpansion;
-    using Wizzarts.Web.ViewModels.Event;
-    using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.PlayCard;
-    using Wizzarts.Web.ViewModels.WizzartsMember;
     using Xunit;
 
     using static Wizzarts.Common.GlobalConstants;
@@ -397,7 +388,7 @@
                    .ContainingEntryWithValue("Comment added successfully."))
                .AndAlso()
                .ShouldReturn()
-               .RedirectToAction("ById", "PlayCard", new { id = "c330fecf-61a9-4e03-8052-cd2b9583a251",information = "Ancestral-Recall", Area = string.Empty });
+               .RedirectToAction("ById", "PlayCard", new { id = "c330fecf-61a9-4e03-8052-cd2b9583a251", information = "Ancestral-Recall", Area = string.Empty });
 
             TearDownBase();
         }

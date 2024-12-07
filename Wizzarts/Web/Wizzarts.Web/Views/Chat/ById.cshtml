@@ -2,17 +2,13 @@
 
 @{
     this.ViewData["Title"] = "Various Chat ById";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row pt-2">
     <div class="col-md-12 pl-0 pr-0">
-
-
-
         <div class="card border-0">
-
             <div class="card mb-2 ">
-
                 <div class="ae-border-bottom-light  p-0 text-center">
                     <b><i class="fas fa-users"></i> Chat</b>
                 </div>
@@ -40,7 +36,6 @@
                             </div>
                         </div>
                         <hr />
-
                         <form method="post" onsubmit="sendMessage(event)" id="chatMessage" class="ae-border-bottom-light  p-0 text-center">
                             <div  class="input-group ae-card-search-v1">
                                 <input type="text" name="message" id="messageInput"
@@ -55,7 +50,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

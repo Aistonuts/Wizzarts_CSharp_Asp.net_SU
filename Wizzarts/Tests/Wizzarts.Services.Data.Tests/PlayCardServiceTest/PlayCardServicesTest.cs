@@ -1,13 +1,10 @@
 ﻿namespace Wizzarts.Services.Data.Tests.PlayCardTypeOfServiceTest
 {
-    using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Reflection;
     using System.Text;
     using System.Threading.Tasks;
-    using System.Xml.Linq;
 
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
@@ -16,7 +13,6 @@
     using Wizzarts.Data.Repositories;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels;
-    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
@@ -644,6 +640,7 @@
             Assert.Equal("Gianth Growth", firstCardNameTestTwoTwo.Name);
             Assert.Equal("Healing Salve", secondCardNameTestTwoTwo.Name);
             Assert.Equal("Lightning Bolt", thirdCardNameTestTwoTwo.Name);
+
             // TestThreeThree
             Assert.Equal(1, countTestThreeThree);
             Assert.Equal("Crusade", firstCardNameTestThreeThree.Name);

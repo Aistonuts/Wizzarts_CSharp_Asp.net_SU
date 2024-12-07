@@ -11,6 +11,7 @@
 @inject IUserService userService;
 @{
     this.ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row ae-break-word">
@@ -93,6 +94,7 @@
                             </div>
                             <div class="card-body p-2">
                                 <a asp-controller="Art" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Art</a><br>
+                                <a asp-controller="Article" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Articles</a><br>
                                 <a asp-controller="PlayCard" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game Cards</a><br>
                                 <a asp-controller="Wizzarts" asp-action="GetRules" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Game rules</a><br>
                                 <a asp-controller="Deck" asp-action="All" class="text-decoration-none"><i class="ss ss-parl3"></i> Card Decks</a><br>

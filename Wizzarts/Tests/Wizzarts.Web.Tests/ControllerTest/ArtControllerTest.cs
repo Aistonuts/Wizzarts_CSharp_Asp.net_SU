@@ -1,24 +1,19 @@
 ﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
-    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Security.Claims;
     using System.Text;
 
     using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.Caching.Memory;
     using MyTested.AspNetCore.Mvc;
     using Shouldly;
-    using Wizzarts.Common;
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;
     using Wizzarts.Services.Data;
     using Wizzarts.Services.Data.Tests;
     using Wizzarts.Web.Controllers;
     using Wizzarts.Web.ViewModels.Art;
-    using Wizzarts.Web.ViewModels.Article;
     using Xunit;
 
     using static Wizzarts.Common.GlobalConstants;

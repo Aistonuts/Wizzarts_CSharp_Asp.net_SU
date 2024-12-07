@@ -5,8 +5,8 @@
 
 @{
     this.ViewData["Title"] = "Art By Id";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <div class="row pt-2">
     <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-1">
@@ -14,8 +14,6 @@
             <div class="card-body">
                 <div class="w-100 span-all mb-5 mt-5">
                     <h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">@Model.Title</h4>
-
-
                     <div id="cardInfo" class="row mb-4">
                         <div class="col-sm-12 col-md-6 cardModal">
                             <a class="" data-toggle="modal" data-target="#imageModal">
@@ -29,7 +27,6 @@
                             <p></p>
                             <p><i></i></p>
                             <hr>
-
                             <p>
                                 <i>Illustrated by: @Model.AddedByMember</i><br>
                             </p>
@@ -39,9 +36,7 @@
                                 </button>
                             </div>
                         </div>
-                       
                     </div>
-
                 </div>
                 <div class="col-xl-9 col-12">
                     <ul class="entry-meta">
@@ -70,10 +65,8 @@
                     </ul>
                 </div>
             </div>
-
         </div>
     </div>
-
 
     <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
         <div class="card mb-2">
@@ -94,7 +87,6 @@
                         </div>
                     </div>
                 }
-
             </div>
         </div>
         <div class="card mb-2">

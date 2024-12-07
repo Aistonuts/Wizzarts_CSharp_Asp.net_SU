@@ -1,6 +1,7 @@
 ﻿namespace Wizzarts.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Models;
@@ -33,5 +34,17 @@
 
         [Comment("Does it require art input")]
         public bool RequireArtInput { get; set; }
+
+        [Comment("Action name")]
+        public string ActionId { get; set; } = string.Empty;
+
+        [ForeignKey(nameof(ActionId))]
+        public TagHelpAction ActionName { get; set; }
+
+        [Comment("Controller name")]
+        public string ControllerId { get; set; } = string.Empty;
+
+        [ForeignKey(nameof(ControllerId))]
+        public TagHelpController ControllerName { get; set; }
     }
 }

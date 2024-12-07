@@ -36,7 +36,20 @@
         [Comment("Event status")]
         public int EventStatusId { get; set; }
 
+        [ForeignKey(nameof(EventStatusId))]
         public EventStatus Status { get; set; }
+
+        [Comment("Action name")]
+        public string ActionId { get; set; } = string.Empty;
+
+        [ForeignKey(nameof(ActionId))]
+        public TagHelpAction ActionName{ get; set; }
+
+        [Comment("Controller name")]
+        public string ControllerId { get; set; } = string.Empty;
+
+        [ForeignKey(nameof(ControllerId))]
+        public TagHelpController ControllerName { get; set; }
 
         [Comment("Is event approved by admin.")]
         public bool ApprovedByAdmin { get; set; }

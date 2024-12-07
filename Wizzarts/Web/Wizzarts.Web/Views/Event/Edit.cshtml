@@ -1,15 +1,12 @@
 ﻿@model Wizzarts.Web.ViewModels.Event.EditEventViewModel
 @{
-    this.ViewData["Title"] = "Create event";
+    this.ViewData["Title"] = "Edit event";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row pt-2">
     <div class="col-md-12 pl-0 pr-0">
-
-
-
         <div class="card border-0">
-
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-7">
@@ -45,26 +42,24 @@
                         <div class="card mb-2">
                             <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Event components</a></h4></div>
                             <div class="card-body pl-1 pr-1 pt-2 pb-0">
-
-                                    @foreach (var events in this.Model.EventComponents)
-                                    {
-                                        <div class="metagroup-container">
-                                            <div class="mr-2 d-none d-lg-block">
-                                                <a asp-controller="Event" asp-action="Remove" asp-route-id="@events.Id" class="image-wrapper">
-                                                    <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a asp-controller="Event" asp-action="Remove" asp-route-id="@events.Id" class="image-wrapper">
-                                                    <b class="text-primary">@events.Title</b>
+                                @foreach (var events in this.Model.EventComponents)
+                                {
+                                    <div class="metagroup-container">
+                                        <div class="mr-2 d-none d-lg-block">
+                                            <a asp-controller="Event" asp-action="Remove" asp-route-id="@events.Id" class="image-wrapper">
+                                                <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a asp-controller="Event" asp-action="Remove" asp-route-id="@events.Id" class="image-wrapper">
+                                                <b class="text-primary">@events.Title</b>
                                                 <button type="submit" class="btn btn-light">
                                                     <span class="fas fa-plus"></span> <b>Delete</b>
                                                 </button>
-                                                </a>
-                                            </div>
+                                            </a>
                                         </div>
-                                    }
-
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -72,3 +67,4 @@
             </div>
         </div>
     </div>
+</div>

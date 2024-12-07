@@ -1,15 +1,8 @@
 ﻿namespace Wizzarts.Web.ViewModels.PlayCard
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
     using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
-    using Wizzarts.Web.ViewModels.Art;
 
     public class CardInListViewModel : IMapFrom<PlayCard>, IHaveCustomMappings, ISingleCardViewModel
     {

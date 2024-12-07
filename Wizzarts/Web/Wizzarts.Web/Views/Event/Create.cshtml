@@ -3,15 +3,13 @@
 @model Wizzarts.Web.ViewModels.Event.CreateEventViewModel
 @{
     this.ViewData["Title"] = "Create event";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row pt-2">
     <div class="col-md-12 pl-0 pr-0">
 
-
-
         <div class="card border-0">
-
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-7">
@@ -31,6 +29,34 @@
                                         <textarea asp-for="EventDescription" style="height:100px;" cols="60" rows="10" class="form-control" placeholder="Event Description"></textarea>
                                     </div>
                                     <span asp-validation-for="EventDescription" class="small text-danger"></span>
+                                </div>
+                                <div class="form-group row mb-1">
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="ControllerId">Select Controller</label>
+                                    <div class="col-sm-8 col-lg-6">
+                                        <select asp-for="ControllerId" class="form-control" placeholder="Select Controller">
+                                            <option value="0" selected="true">
+                                            </option>
+                                            @foreach (var controller in Model.TagHelpControllers)
+                                            {
+                                                <option value="@controller.Id">@controller.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="ControllerId" class="small text-danger"></span>
+                                </div>
+                                <div class="form-group row mb-1">
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="ActionId">Select Action</label>
+                                    <div class="col-sm-8 col-lg-6">
+                                        <select asp-for="ActionId" class="form-control" placeholder="Select Action">
+                                            <option value="0" selected="true">
+                                            </option>
+                                            @foreach (var action in Model.TagHelperActions)
+                                            {
+                                                <option value="@action.Id">@action.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="ActionId" class="small text-danger"></span>
                                 </div>
                                 <div class="form-group row mb-1">
                                     <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Image"></label>

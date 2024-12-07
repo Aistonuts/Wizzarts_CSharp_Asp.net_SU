@@ -22,12 +22,22 @@
 
         public bool RequireArtInput { get; set; }
 
+        public string ActionName { get; set; } = string.Empty;
+
+        public string ControllerName { get; set; } = string.Empty;
+
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<EventComponent, EventComponentsInListViewModel>()
               .ForMember(x => x.ImageUrl, opt =>
                   opt.MapFrom(x =>
-                     x.ImageUrl));
+                     x.ImageUrl))
+              .ForMember(x => x.ActionName, opt =>
+                  opt.MapFrom(x =>
+                     x.ActionName.Name.ToString()))
+                .ForMember(x => x.ControllerName, opt =>
+                  opt.MapFrom(x =>
+                     x.ControllerName.Name.ToString()));
         }
     }
 }

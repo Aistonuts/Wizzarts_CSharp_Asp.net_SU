@@ -489,7 +489,7 @@
                 CardRemoteUrl = "/images/cardsByExpansion/Unlimited/Wheel_of_Fortune.png",
                 CardFrameColorId = 4,
                 CardTypeId = 7,
-                AbilitiesAndFlavor = "Both players must discard their hands and draw sevent new cards.",
+                AbilitiesAndFlavor = "Both players must discard their hands and draw seven new cards.",
                 IsEventCard = false,
                 ArtId = "13285a39-964b-46af-9b91-2e2a62bea2af",
                 CardGameExpansionId = 3,

@@ -1,0 +1,108 @@
+﻿@model Wizzarts.Web.ViewModels.PlayCard.CreateCardViewModel
+@using static Wizzarts.Common.HardCodedConstants;
+
+@if (Model.ArtByUserId.Where(x => x.ApprovedByAdmin == true).Any())
+{
+    <form method="post" id="cardinfo" enctype="multipart/form-data">
+        <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
+            <tbody>
+                <tr id="artByArtistV2" class="row1">
+                    <td>
+                        <label asp-for="ArtId">Art:</label>
+                    </td>
+                    <td>
+                        <select asp-for="ArtId" id="artByArtist" onchange="artByArtistFunc(event);">
+                            <option value="1" selected="true" hidden>
+                            </option>
+                            @foreach (var art in Model.ArtByUserId)
+                            {
+                                <option data-container="@art.ImageUrl" value="@art.Title">@art.Title</option>
+                            }
+                        </select>
+                    </td>
+                    <span asp-validation-for="@Model.ArtId" class="small text-danger"></span>
+                </tr>
+                <div class="form-group row mb-1" hidden>
+                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="@Model.Images"></label>
+                    <div class="col-sm-8 col-lg-6">
+                        <input asp-for="@Model.Images" type="hidden" value="" name="canvasCapture" class="form-control" id="imageData">
+                    </div>
+                </div>
+                <tr id="cardTypeV2" class="row1">
+                    <td>
+                        <label asp-for="CardTypeId">Type:</label>
+                    </td>
+                    <td>
+                        <select asp-for="CardTypeId" id="newtype" onchange="cardTypeFunc(event)">
+
+                            @foreach (var type in Model.SelectType)
+                            {
+                                <option value="@type.Id">@type.Name</option>
+                            }
+                        </select>
+                    </td>
+                    <span asp-validation-for="@Model.CardTypeId" class="small text-danger"></span>
+                </tr>
+                <tr class="row2" hidden>
+                    <td>
+                        <label asp-for="GameExpansionId">Expansion Symbol:</label>
+                    </td>
+                    <td>
+                        <select asp-for="GameExpansionId" id="expansion" onchange="expansionSymbolFunc(event)">
+                            <option value="3" selected="true">
+                            </option>
+                            @foreach (var type in Model.SelectExpansion)
+                            {
+                                <option value="@type.Id">@type.Title</option>
+                            }
+                        </select>
+                    </td>
+                    <span asp-validation-for="@Model.GameExpansionId" class="small text-danger"></span>
+                </tr>
+
+                <input type="submit" id="submitEventTwo" value="Submit" class="btn btn-warning" hidden>
+            </tbody>
+        </table>
+
+    </form>
+
+
+    <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
+        <tbody>
+
+            <tr class="row1">
+                <td>
+                    <div id="previewEventTwo" style="font-size:16px;min-width:0px">
+                        <button class="btn btn-info">Preview</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    @if (Model.ArtByUserId.Any())
+    {
+        <div class="row text-center no-gutters">
+            <div class="col-md-12">
+                <h2 class="text-header-gold">You have @Model.ArtByUserId.Count() art piece(s) waiting for approval.Click below to add new art piece.</h2>
+                <p>
+                    <a class="dropdown-item" asp-area="" asp-controller="Art" asp-action="Add"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
+                </p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row text-center no-gutters">
+            <div class="col-md-12">
+                <h2 class="text-header-gold">You do not own any art. Click below to add a new art piece</h2>
+                <p>
+                    <a class="dropdown-item" asp-area="" asp-controller="Art" asp-action="Add"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
+                </p>
+            </div>
+        </div>
+    }
+
+}

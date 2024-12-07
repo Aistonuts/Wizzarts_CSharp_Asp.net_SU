@@ -24,7 +24,13 @@
 
         public bool ApprovedByAdmin { get; set; }
 
+        public bool ForMainPage { get; set; }
+
         public DateTime CreatedOn { get; set; }
+
+        public string ActionName { get; set; } = string.Empty;
+
+        public string ControllerName { get; set; } = string.Empty;
 
         public void CreateMappings(IProfileExpression configuration)
         {
@@ -32,6 +38,12 @@
               .ForMember(x => x.ImageUrl, opt =>
                   opt.MapFrom(x =>
                      x.RemoteImageUrl))
+               .ForMember(x => x.ActionName, opt =>
+                  opt.MapFrom(x =>
+                     x.ActionName.Name.ToString()))
+                .ForMember(x => x.ControllerName, opt =>
+                  opt.MapFrom(x =>
+                     x.ControllerName.Name.ToString()))
             .ForMember(x => x.Creator, opt =>
                   opt.MapFrom(x =>
                      x.EventCreator.UserName.ToString()))

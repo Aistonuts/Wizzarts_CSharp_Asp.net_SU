@@ -19,7 +19,7 @@
             {
                 Name = "Bright",
                 Country = "France",
-                City = "Montpellier",
+                City = "Montpelier",
                 Address = "23 Gabriel Peri 32000",
                 PhoneNumber = "5674322111",
                 Image = "/images/Stores/Bright.jpg",

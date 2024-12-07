@@ -5,14 +5,9 @@
     using System.Text;
 
     using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.Extensions.DependencyInjection;
     using MyTested.AspNetCore.Mvc;
-    using Wizzarts.Data.Models;
     using Wizzarts.Services.Data.Tests;
     using Wizzarts.Web.Controllers;
-    using Wizzarts.Web.ViewModels.Article;
-    using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.Store;
     using Xunit;
 
@@ -40,7 +35,7 @@
             MyController<StoreController>
                 .Instance(instance => instance
                     .WithData(data.Users.FirstOrDefault(x => x.Id == "2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
-                    .WithUser(X => X.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").WithRoleType(AdministratorRoleName)))
+                    .WithUser(x1 => x1.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").WithRoleType(AdministratorRoleName)))
                 .Calling(c => c.Create(With.Empty<CreateStoreViewModel>()))
                 .ShouldHave()
                 .ActionAttributes(attrs => attrs

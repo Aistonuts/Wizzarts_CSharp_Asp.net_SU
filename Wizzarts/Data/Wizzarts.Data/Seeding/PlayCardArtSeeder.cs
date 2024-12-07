@@ -126,7 +126,7 @@
             {
                 Id = "4ecbc030-6746-4799-a7c3-6dc9da062150",
                 Title = "Goblin King",
-                Description = "Only a fool will lead those golbins",
+                Description = "Only a fool will lead those goblins",
                 RemoteImageUrl = "/images/art/Alpha/Goblin_King.png",
                 Extension = ".png",
                 ApprovedByAdmin = true,

@@ -1,19 +1,9 @@
 ﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
-    using System.IO;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Identity;
     using MyTested.AspNetCore.Mvc;
-    using Wizzarts.Data.Models;
-    using Wizzarts.Data.Repositories;
-    using Wizzarts.Services.Data;
     using Wizzarts.Services.Data.Tests;
     using Wizzarts.Web.Controllers;
-    using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.WizzartsMember;
     using Xunit;
 
@@ -178,7 +168,7 @@
             MyController<UserController>
                    .Instance(instance => instance
                  .WithData(data.Users))
-                 .Calling(c => c.ById("2738e787-5d57-4bc7-b0d2-287242f04695","Drawgoon"))
+                 .Calling(c => c.ById("2738e787-5d57-4bc7-b0d2-287242f04695", "Drawgoon"))
                  .ShouldReturn()
                   .View(view => view
                 .WithModelOfType<SingleMemberViewModel>());

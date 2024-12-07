@@ -16,7 +16,6 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;
     using Wizzarts.Data.Seeding;
-    using Wizzarts.Services.Data;
     using Wizzarts.Services.Messaging;
 
     public static class Program

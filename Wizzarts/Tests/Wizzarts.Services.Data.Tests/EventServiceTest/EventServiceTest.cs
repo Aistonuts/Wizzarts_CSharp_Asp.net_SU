@@ -1,7 +1,6 @@
 ﻿namespace Wizzarts.Services.Data.Tests.EventServiceTest
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Reflection;
@@ -11,12 +10,10 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Caching.Memory;
-    using NuGet.Protocol.Core.Types;
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels;
-    using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Event;
     using Xunit;
 

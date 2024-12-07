@@ -1,5 +1,6 @@
 ﻿@model Wizzarts.Web.ViewModels.Event.EventListViewModel
 @using Wizzarts.Web.Infrastructure.Extensions
+
 @{
     this.ViewData["Title"] = "Ongoing Events";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,7 +8,6 @@
 
 <div class="col-md-12 col-lg-12 col-xl-12 pl-0 pr-0 pr-xl-3">
     <div class="row">
-
         <div class="col-sm-12 col-md-12 pl-0 pr-0">
             <h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">Events</h4>
             <div class="mb-2 firstfeed-flexbox ff-display">
@@ -15,12 +15,9 @@
                 <div class="firstfeed-flexbox">
                     @foreach (var eventNow in this.Model.Events)
                     {
-
                         <div class="article-card card border-0">
 
-                            @if (eventNow.Id == 1)
-                            {
-                                <a asp-controller="Event" asp-action="ById" asp-route-id="@eventNow.Id" asp-route-information="@eventNow.GetEventTitle()" class="image-wrapper">
+                                <a asp-controller="@eventNow.ControllerName" asp-action="@eventNow.ActionName" asp-route-id="@eventNow.Id" asp-route-information="@eventNow.GetEventTitle()" class="image-wrapper">
                                     <img src="@eventNow.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@eventNow.Title">
                                 </a>
                                 <div class="card-body pt-0">
@@ -29,61 +26,10 @@
                                         <span>@eventNow.CreatedOn</span>
                                     </small>
                                     <div class="ff-display font-size-18">
-                                        <a asp-controller="Event" asp-action="ById" asp-route-id="@eventNow.Id" asp-route-information="@eventNow.GetEventTitle()"><b>@eventNow.Title</b></a>
+                                    <a asp-controller="@eventNow.ControllerName" asp-action="@eventNow.ActionName" asp-route-id="@eventNow.Id" asp-route-id="@eventNow.Id" asp-route-information="@eventNow.GetEventTitle()"><b>@eventNow.Title</b></a>
                                     </div>
                                     <div class="card-text d-none d-md-flex m-1">@eventNow.EventDescription</div>
                                 </div>
-                            }
-                            @if (eventNow.Id == 2)
-                            {
-                                <a asp-controller="Event" asp-action="ById" asp-route-id="@eventNow.Id" asp-route-information="@eventNow.GetEventTitle()" class="image-wrapper">
-                                    <img src="@eventNow.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@eventNow.Title">
-                                </a>
-                                <div class="card-body pt-0">
-                                    <small class="yellow-line">
-                                        <a asp-controller="User" asp-action="ById" asp-route-id="@eventNow.CreatorId">@eventNow.Creator<i class="far fa-star"></i></a>
-                                        <span>@eventNow.CreatedOn</span>
-                                    </small>
-                                    <div class="ff-display font-size-18">
-                                        <a asp-controller="Event" asp-action="ById" asp-route-id="@eventNow.Id" asp-route-information="@eventNow.GetEventTitle()"><b>@eventNow.Title</b></a>
-                                    </div>
-                                    <div class="card-text d-none d-md-flex m-1">@eventNow.EventDescription</div>
-                                </div>
-                            }
-                            @if (eventNow.Id == 3)
-                            {
-                                <a asp-controller="Store" asp-action="Create" asp-route-id="@eventNow.Id" class="image-wrapper">
-                                    <img src="@eventNow.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@eventNow.Title">
-                                </a>
-                                <div class="card-body pt-0">
-                                    <small class="yellow-line">
-                                        <a asp-controller="User" asp-action="ById" asp-route-id="@eventNow.CreatorId">@eventNow.Creator<i class="far fa-star"></i></a>
-                                        <span>@eventNow.CreatedOn</span>
-                                    </small>
-                                    <div class="ff-display font-size-18">
-                                        <a asp-controller="Store" asp-action="Create" asp-route-id="@eventNow.Id"><b>@eventNow.Title</b></a>
-                                    </div>
-                                    <div class="card-text d-none d-md-flex m-1">@eventNow.EventDescription</div>
-                                </div>
-                            }
-                            @if (eventNow.Id == 4)
-                            {
-                                <a asp-controller="Deck" asp-action="Create" asp-route-id="@eventNow.Id" class="image-wrapper">
-                                    <img src="@eventNow.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@eventNow.Title">
-                                </a>
-                                <div class="card-body pt-0">
-                                    <small class="yellow-line">
-                                        <a asp-controller="User" asp-action="ById" asp-route-id="@eventNow.CreatorId">@eventNow.Creator<i class="far fa-star"></i></a>
-                                        <span>@eventNow.CreatedOn</span>
-                                    </small>
-                                    <div class="ff-display font-size-18">
-                                        <a asp-controller="Deck" asp-action="Create" asp-route-id="@eventNow.Id"><b>@eventNow.Title</b></a>
-                                    </div>
-                                    <div class="card-text d-none d-md-flex m-1">@eventNow.EventDescription</div>
-                                </div>
-                            }
-
-
                         </div>
                     }
                 </div>

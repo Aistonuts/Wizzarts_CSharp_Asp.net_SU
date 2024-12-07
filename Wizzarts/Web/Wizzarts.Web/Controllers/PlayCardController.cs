@@ -20,8 +20,6 @@
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
 
-    using static Wizzarts.Common.GlobalConstants;
-
     public class PlayCardController : BaseController
     {
         private readonly IPlayCardService cardService;
@@ -57,7 +55,7 @@
         [MustBeAnArtist]
         public async Task<IActionResult> Add()
         {
-            if (this.User == null || (this.User.IsAdmin() == false && this.User.IsArtist() == false ))
+            if (this.User == null || (this.User.IsAdmin() == false && this.User.IsArtist() == false))
             {
                 return this.Unauthorized();
             }
@@ -91,6 +89,11 @@
             var user = await this.userManager.GetUserAsync(this.User);
 
             bool isEventCard = false;
+
+            if (await this.cardService.CardTitleExist(input.Name))
+            {
+                this.ModelState.AddModelError(nameof(input.Name), "Card name exist.");
+            }
 
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
@@ -183,15 +186,15 @@
         {
             var user = await this.userManager.GetUserAsync(this.User);
             var eventComponent = await this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
-
-            bool isEventCard = eventComponent != null;
-
-            if (eventComponent != null && eventComponent.RequireArtInput)
+            var isArtByUser = await this.artService.HasUserWithIdAsync(input.ArtId, this.User.GetId());
+            if (eventComponent.RequireArtInput && isArtByUser == false)
             {
-                var cardTitle = eventComponent.Title;
-                var cardDescription = eventComponent.Description;
-                input.Name = cardTitle;
-                input.AbilitiesAndFlavor = cardDescription;
+                this.ModelState.AddModelError(nameof(input.ArtId), "Art does not exist");
+            }
+
+            if (await this.cardService.CardTitleExist(input.Name))
+            {
+                this.ModelState.AddModelError(nameof(input.Name), "Card name exist.");
             }
 
             if (await this.playCardComponentsService.BlackManaExistsAsync(input.BlackManaId) == false ||
@@ -232,6 +235,16 @@
                 input.EventId = eventComponent.EventId;
 
                 return this.View(input);
+            }
+
+            bool isEventCard = eventComponent != null;
+
+            if (eventComponent != null && eventComponent.RequireArtInput)
+            {
+                var cardTitle = eventComponent.Title;
+                var cardDescription = eventComponent.Description;
+                input.Name = cardTitle;
+                input.AbilitiesAndFlavor = cardDescription;
             }
 
             if (!this.artService.IsBase64String(canvasCapture))

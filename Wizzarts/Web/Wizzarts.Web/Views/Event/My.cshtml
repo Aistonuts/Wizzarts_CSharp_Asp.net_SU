@@ -4,6 +4,10 @@
 @using static Wizzarts.Common.GlobalConstants
 @inject UserManager<ApplicationUser> UserManager
 @inject SignInManager<ApplicationUser> SignInManager
+@{
+    this.ViewData["Title"] = "My events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <div class="row pt-2 ae-break-word">
     <div class="col-sm-12 col-md-12 col-lg-8 pl-0 pr-0 pr-lg-3">
@@ -27,7 +31,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-sm-5 col-md-6">
-                            <img class="article-uimgheader-preview" src="@Model.ImageUrl" alt="A Tip and Nod to Abhorrent Oculus Decks (in Standard)">
+                            <img class="article-uimgheader-preview" src="@Model.ImageUrl">
                         </div>
                     </div>
                     <div class="card-header bg-light p-0 text-center">
@@ -164,7 +168,6 @@
                 </div>
             </div>
         }
-
     </div>
 </div>
 

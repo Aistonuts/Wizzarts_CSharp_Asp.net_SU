@@ -1,15 +1,11 @@
 ﻿namespace Wizzarts.Web.ViewModels.Order
 {
     using System;
-    using System.Collections.Generic;
 
     using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
-    using Wizzarts.Web.ViewModels.Deck;
-    using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.Home;
-    using Wizzarts.Web.ViewModels.PlayCard;
 
     public class OrderInListViewModel : IndexAuthenticationViewModel, IMapFrom<Order>, IHaveCustomMappings
     {

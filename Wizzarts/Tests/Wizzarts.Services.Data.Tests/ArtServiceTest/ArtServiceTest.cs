@@ -1,7 +1,6 @@
 ﻿namespace Wizzarts.Services.Data.Tests.ArtServiceTest
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Reflection;
@@ -9,7 +8,6 @@
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Routing;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Caching.Memory;
     using Wizzarts.Data.Models;
@@ -17,9 +15,7 @@
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels;
     using Wizzarts.Web.ViewModels.Art;
-    using Wizzarts.Web.ViewModels.Article;
     using Xunit;
-    using Xunit.Sdk;
 
     public class ArtServiceTest : UnitTestBase
     {

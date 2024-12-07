@@ -4,7 +4,6 @@
 @using Wizzarts.Web.Infrastructure.Extensions
 @using static Wizzarts.Common.GlobalConstants
 @inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +41,7 @@
                     <ul class="list-unstyled components mobile-menu">
                         <li>
                             <a href="#DeckHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>General</b></a>
-                            <ul class="list-unstyled collapse show" id="DeckHubSubmenu" style="">
+                            <ul class="list-unstyled collapse" id="DeckHubSubmenu" style="">
                                 <li>
                                     <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
@@ -61,12 +60,15 @@
                                 @if (this.SignInManager.IsSignedIn(this.User))
                                 {
                                     <li>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Article" asp-action="All">Article</a>
+                                    </li>
+                                    <li>
                                         <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="User" asp-action="All">Members portfolio</a>
                                     </li>
                                 }
                             </ul>
                             <a href="#MetaHubSubmenu" class="pt-2 pb-2 pl-4 nav-link" data-toggle="collapse" aria-expanded="true"> <b>Magic cards</b></a>
-                            <ul class="list-unstyled collapse show" id="MetaHubSubmenu" style="">
+                            <ul class="list-unstyled collapse" id="MetaHubSubmenu" style="">
                                 <li>
                                     <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="PlayCard" asp-action="All">Magic Cards</a>
                                 </li>
@@ -170,6 +172,7 @@
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="All">Events</a>
                                                         @if (this.SignInManager.IsSignedIn(this.User))
                                                         {
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="All">Articles</a>
                                                             <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="All">User Events</a>
                                                         }
                                                         <hr>

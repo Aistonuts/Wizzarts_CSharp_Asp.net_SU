@@ -97,7 +97,7 @@
             };
 
             Directory.CreateDirectory($"{imagePath}/art/userArt/");
-            var extension = Path.GetExtension(input.Image.FileName)!.TrimStart('.');
+            var extension = Path.GetExtension(input.Image.FileName) !.TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
             {
                 throw new Exception($"Invalid image extension {extension}");
@@ -114,9 +114,9 @@
             this.cache.Remove(ArtsCacheKey);
         }
 
-        public async Task UpdateAsync(EditArtViewModel input, string Id)
+        public async Task UpdateAsync(EditArtViewModel input, string id)
         {
-            var art = await this.artRepository.All().FirstOrDefaultAsync(x => x.Id == Id);
+            var art = await this.artRepository.All().FirstOrDefaultAsync(x => x.Id == id);
 
             if (art != null)
             {
@@ -184,6 +184,12 @@
         {
             return await this.artRepository.AllAsNoTracking()
                  .AnyAsync(a => a.Id == artId && a.AddedByMemberId == userId);
+        }
+
+        public async Task<bool> ArtTitleExist(string title)
+        {
+            return await this.artRepository
+               .AllAsNoTracking().AnyAsync(a => a.Title == title);
         }
     }
 }

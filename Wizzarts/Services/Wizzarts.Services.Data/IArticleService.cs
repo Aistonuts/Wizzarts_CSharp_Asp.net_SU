@@ -11,6 +11,8 @@
 
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 3);
 
+        Task<IEnumerable<T>> GetAllUserArticles<T>();
+
         IEnumerable<T> GetRandom<T>(int count);
 
         Task UpdateAsync(int id, EditArticleViewModel input);
@@ -28,5 +30,7 @@
         Task<bool> ArticleExist(int id);
 
         Task<bool> HasUserWithIdAsync(int articleId, string userId);
+
+        Task<bool> ArticleTitleExist(string title);
     }
 }

@@ -1,6 +1,5 @@
 ﻿namespace Wizzarts.Web.ViewModels.Event
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using AutoMapper;

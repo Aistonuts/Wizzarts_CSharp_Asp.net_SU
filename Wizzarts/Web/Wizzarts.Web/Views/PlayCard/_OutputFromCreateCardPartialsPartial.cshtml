@@ -1,0 +1,69 @@
+﻿@model Wizzarts.Web.ViewModels.PlayCard.CreateCardViewModel
+@using static Wizzarts.Common.HardCodedConstants;
+
+<div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
+    <div class="second" id="second">
+        @if (Model.EventId == InputTextEventIdValue)
+        {
+            <div id="card-container" class="card-container">
+                <div class="card-background" id="background" style="background-image: url('@Model.CardFrameDefaultUrl')">
+                    <div class="card-frame">
+                        <div class="frame-header">
+                            <div class="name">
+                                <p id="cardName">
+                                    @Model.CardDefaultName
+                                </p>
+                            </div>
+                            <div id="imgHeader" class="card-imageframe">
+                            </div>
+
+                        </div>
+                        <img class="frame-art" src="@Model.EventMilestoneImage" alt="Nature">
+
+                        <div class="frame-type-line" id="frame-type-line">
+                            <h1 class="type" id="cardtype">@Model.CardDefaultType </h1>
+                            <div id="symbolHeader">
+                                <img src="@Model.CardExpansionSymbolDefaultUrl" />
+                            </div>
+                        </div>
+                        <div class="frame-text-box">
+                            <div class="description" id="description">
+                                <p>
+                                    @Model.EventDescription
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="frame-bottom-info inner-margin">
+                    <div class="fbi-left">
+                    </div>
+                    <div class="fbi-center"></div>
+                    <div class="fbi-right">
+                    </div>
+                </div>
+                <div class="container-power" id="container-power">
+                    <img id="power-frame" src="~/images/frames/whiteValue.png" alt="Nature">
+                    <div class="centered-power"></div>
+                </div>
+            </div>
+
+        }
+        @if (Model.EventId == InputImageEventIdValue)
+        {
+            <div id="card-container" class="card-container">
+                <div class="card-background" id="backgroundTwo" style="background-image: url('@Model.EventMilestoneImage')">
+                    <div class="card-frame">
+                        <div id="imageInput" class="frame-art-v2">
+                        </div>
+                    </div>
+                    <div class="frame-header-v2">
+                        <div class="symbolFrame" id="symbolHeader">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

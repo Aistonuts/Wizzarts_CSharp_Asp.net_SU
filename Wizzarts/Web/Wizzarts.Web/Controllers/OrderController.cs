@@ -6,7 +6,6 @@
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
-
     using Microsoft.AspNetCore.Mvc;
     using Wizzarts.Common;
     using Wizzarts.Services.Data;

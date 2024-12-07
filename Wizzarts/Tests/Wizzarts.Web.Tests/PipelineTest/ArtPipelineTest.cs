@@ -1,21 +1,16 @@
 ﻿namespace Wizzarts.Web.Tests.PipelineTest
 {
-    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Text;
 
     using Microsoft.AspNetCore.Http;
     using MyTested.AspNetCore.Mvc;
-    using MyTested.AspNetCore.Mvc.Utilities.Validators;
     using Shouldly;
-    using Wizzarts.Data.Models;
     using Wizzarts.Services.Data.Tests;
     using Wizzarts.Web.Controllers;
     using Wizzarts.Web.ViewModels.Art;
     using Xunit;
-
-    using static System.Net.Mime.MediaTypeNames;
 
     public class ArtPipelineTest : UnitTestBase
     {

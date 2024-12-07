@@ -11,7 +11,6 @@
     using Wizzarts.Common;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
-    using Wizzarts.Web.Extensions;
     using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.Event;
@@ -113,7 +112,7 @@
             return this.RedirectToAction(nameof(this.ById), new { id = input.Id, information = input.GetDeckName() });
         }
 
-        public async Task<IActionResult> AddCard(string data, int Id)
+        public async Task<IActionResult> AddCard(string data, int id)
         {
             var decks = await this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
             if (!decks.Any())
@@ -121,12 +120,12 @@
                 return this.RedirectToAction("Create", "Deck");
             }
 
-            int currentDeckId = await this.deckService.AddAsync(Id, data);
+            int currentDeckId = await this.deckService.AddAsync(id, data);
 
             return this.RedirectToAction(nameof(this.Add), new { id = currentDeckId });
         }
 
-        public async Task<IActionResult> Remove(string data, int Id)
+        public async Task<IActionResult> Remove(string data, int id)
         {
             var decks = await this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
             if (!decks.Any())
@@ -134,7 +133,7 @@
                 return this.RedirectToAction("Create", "Deck");
             }
 
-            int currentDeckId = await this.deckService.RemoveAsync(Id, data);
+            int currentDeckId = await this.deckService.RemoveAsync(id, data);
 
             return this.RedirectToAction(nameof(this.Add), new { id = currentDeckId });
         }

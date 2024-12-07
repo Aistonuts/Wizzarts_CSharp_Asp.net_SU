@@ -4,15 +4,11 @@
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using Wizzarts.Data;
-    using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
-    using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.CardGameExpansion;
     using Wizzarts.Web.ViewModels.Event;

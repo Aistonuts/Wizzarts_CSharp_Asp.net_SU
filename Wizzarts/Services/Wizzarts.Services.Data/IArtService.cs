@@ -32,5 +32,7 @@
         Task<bool> ArtExist(string id);
 
         Task<bool> HasUserWithIdAsync(string artId, string userId);
+
+        Task<bool> ArtTitleExist(string title);
     }
 }

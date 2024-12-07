@@ -91,6 +91,10 @@
 
         public DbSet<OrderStatus> OrderStatuses { get; set; }
 
+        public DbSet<TagHelpAction> TagHelpActions { get; set; }
+
+        public DbSet<TagHelpController> TagHelpControllers { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -280,6 +284,26 @@
             .HasMany(a => a.Votes)
             .WithOne(a => a.Card)
             .HasForeignKey(a => a.CardId);
+
+            builder.Entity<TagHelpAction>()
+            .HasMany(a => a.Events)
+            .WithOne(a => a.ActionName)
+            .HasForeignKey(a => a.ActionId);
+
+            builder.Entity<TagHelpController>()
+            .HasMany(a => a.Events)
+            .WithOne(a => a.ControllerName)
+            .HasForeignKey(a => a.ControllerId);
+
+            builder.Entity<TagHelpAction>()
+            .HasMany(a => a.EventComponents)
+            .WithOne(a => a.ActionName)
+            .HasForeignKey(a => a.ActionId);
+
+            builder.Entity<TagHelpController>()
+            .HasMany(a => a.EventComponents)
+            .WithOne(a => a.ControllerName)
+            .HasForeignKey(a => a.ControllerId);
 
             builder.Entity<Event>()
             .HasMany(a => a.EventComponents)

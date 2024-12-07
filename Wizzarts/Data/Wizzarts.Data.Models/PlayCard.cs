@@ -6,7 +6,6 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.VisualBasic;
     using Wizzarts.Data.Common.Models;
 
     using static Wizzarts.Common.DataConstants;

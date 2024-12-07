@@ -5,18 +5,11 @@
     using System.Text;
 
     using Microsoft.AspNetCore.Http;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Caching.Memory;
-    using Moq;
     using MyTested.AspNetCore.Mvc;
     using Shouldly;
     using Wizzarts.Data.Models;
-    using Wizzarts.Data.Repositories;
-    using Wizzarts.Services.Data;
     using Wizzarts.Services.Data.Tests;
     using Wizzarts.Web.Controllers;
-    using Wizzarts.Web.ViewModels.Art;
-    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Event;
     using Xunit;
 

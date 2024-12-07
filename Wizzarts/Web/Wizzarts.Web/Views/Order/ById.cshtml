@@ -1,6 +1,9 @@
 ﻿@model Wizzarts.Web.ViewModels.Order.OrderInListViewModel
 @using Wizzarts.Web.Infrastructure.Extensions
-
+@{
+    this.ViewData["Title"] = "Orders by id";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <div class="row pt-2">
     <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-1">
         <div class="card h-oneKpx">

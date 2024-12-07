@@ -4,8 +4,6 @@
     using System.Linq;
 
     using MyTested.AspNetCore.Mvc;
-    using Shouldly;
-    using Wizzarts.Data.Models;
     using Wizzarts.Services.Data.Tests;
     using Wizzarts.Web.Controllers;
     using Wizzarts.Web.ViewModels.Art;

@@ -3,7 +3,8 @@
 @model Wizzarts.Web.ViewModels.Article.SingleArticleViewModel
 
 @{
-    this.ViewData["Title"] = "Article";
+    this.ViewData["Title"] = "Article by id";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row pt-2 ae-break-word">
@@ -42,7 +43,6 @@
                             <p>@Model.ArticleCreatorBio</p>
                         </div>
                     }
-
                 </div>
                 <div class="col-xl-9 col-12">
                     <ul class="entry-meta">
@@ -72,7 +72,6 @@
                 </div>
             </article>
         </div>
-
     </div>
     <div class="col-sm-12 col-md-12 col-lg-4 pl-0 pr-0 mt-2 mt-lg-0">
         @foreach (var article in this.Model.Articles)
@@ -94,7 +93,6 @@
                 </div>
             </div>
         }
-
     </div>
 </div>
 <div class="modal" tabindex="-1" role="dialog" id="deleteModal">

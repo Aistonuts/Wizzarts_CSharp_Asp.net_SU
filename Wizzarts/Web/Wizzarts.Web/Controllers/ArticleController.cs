@@ -54,6 +54,12 @@
         {
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
+
+            if (await this.articleService.ArticleTitleExist(input.Title))
+            {
+                this.ModelState.AddModelError(nameof(input.Title), "Article title exist.");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
@@ -89,6 +95,11 @@
         {
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
+
+            if (await this.articleService.ArticleTitleExist(input.Title))
+            {
+                this.ModelState.AddModelError(nameof(input.Title), "Article title exist.");
+            }
 
             if (!this.ModelState.IsValid)
             {
@@ -160,6 +171,17 @@
             await this.articleService.DeleteAsync(id);
 
             return this.RedirectToAction("MyData", "User");
+        }
+
+        public async Task<IActionResult> All()
+        {
+            var viewModel = new ArticleListViewModel()
+            {
+                Articles = this.articleService.GetRandom<ArticleInListViewModel>(4),
+                UserArticles = await this.articleService.GetAllUserArticles<ArticleInListViewModel>(),
+            };
+
+            return this.View(viewModel);
         }
     }
 }

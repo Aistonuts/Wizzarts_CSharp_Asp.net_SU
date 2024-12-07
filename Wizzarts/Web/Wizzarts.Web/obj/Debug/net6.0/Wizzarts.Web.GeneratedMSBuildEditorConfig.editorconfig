@@ -194,6 +194,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvcjQwNC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Home/Error405.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvcjQwNS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Home/Error500.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvcjUwMC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -250,8 +254,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUNhcmRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/PlayCard/CreateOffEvent.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUNhcmRcQ3JlYXRlT2ZmRXZlbnQuY3NodG1s
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/PlayCard/_CreateCardWithArtInputPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUNhcmRcX0NyZWF0ZUNhcmRXaXRoQXJ0SW5wdXRQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/PlayCard/_CreateCardWithFlavourInputPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUNhcmRcX0NyZWF0ZUNhcmRXaXRoRmxhdm91cklucHV0UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/PlayCard/_OutputFromCreateCardPartialsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUNhcmRcX091dHB1dEZyb21DcmVhdGVDYXJkUGFydGlhbHNQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Views/Shared/Components/WizzartsTeam/Default.cshtml]

@@ -1,10 +1,6 @@
 ﻿namespace Wizzarts.Web.ViewModels.GameRules
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;

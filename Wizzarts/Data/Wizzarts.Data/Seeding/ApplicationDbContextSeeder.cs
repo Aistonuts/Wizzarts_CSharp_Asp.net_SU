@@ -44,6 +44,8 @@
                               new ArticleSeeder(),
                               new AvatarSeeder(),
                               new EventStatusSeeder(),
+                              new TagHelpActionSeeder(),
+                              new TagHelpControllerSeeder(),
                               new EventSeeder(),
                               new EventComponentSeeder(),
                               new StoreSeeder(),

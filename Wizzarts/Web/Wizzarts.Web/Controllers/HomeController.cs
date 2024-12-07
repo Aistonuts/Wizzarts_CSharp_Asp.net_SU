@@ -9,7 +9,6 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Localization;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Routing;
     using Microsoft.Extensions.Caching.Memory;
     using Microsoft.Extensions.Logging;
     using Wizzarts.Data.Models;
@@ -26,7 +25,6 @@
     using Wizzarts.Web.ViewModels.Store;
 
     using static Wizzarts.Common.GlobalConstants;
-    using static Wizzarts.Common.HardCodedConstants;
 
     public class HomeController : BaseController
     {
@@ -173,6 +171,7 @@
             }
 
             this.ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+
             // If we got this far, something failed, redisplay form
             return this.View(viewModel);
         }
@@ -225,6 +224,11 @@
                 return this.View("Error404");
             }
 
+            if (statusCode == 405)
+            {
+                return this.View("Error405");
+            }
+
             return this.View(
                 new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
@@ -236,8 +240,7 @@
             this.Response.Cookies.Append(
                 CookieRequestCultureProvider.DefaultCookieName,
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
-            );
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) });
 
             return this.LocalRedirect(returnUrl);
         }

@@ -16,15 +16,21 @@
     {
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<Event> eventRepository;
+        private readonly IDeletableEntityRepository<TagHelpController> tagHelpControllers;
+        private readonly IDeletableEntityRepository<TagHelpAction> tagHelpActions;
         private readonly IDeletableEntityRepository<EventParticipant> eventParticipantRepository;
         private readonly IDeletableEntityRepository<EventComponent> eventComponentsRepository;
 
         public EventService(
             IDeletableEntityRepository<Event> eventRepository,
+            IDeletableEntityRepository<TagHelpController> tagHelpControllers,
+            IDeletableEntityRepository<TagHelpAction> tagHelpActions,
             IDeletableEntityRepository<EventParticipant> eventParticipantRepository,
             IDeletableEntityRepository<EventComponent> eventComponentsRepository)
         {
             this.eventRepository = eventRepository;
+            this.tagHelpControllers = tagHelpControllers;
+            this.tagHelpActions = tagHelpActions;
             this.eventParticipantRepository = eventParticipantRepository;
             this.eventComponentsRepository = eventComponentsRepository;
         }
@@ -38,6 +44,8 @@
                 EventCreatorId = userId,
                 EventStatusId = 1,
                 ForMainPage = false,
+                ControllerId = input.ControllerId,
+                ActionId = input.ActionId,
             };
             Directory.CreateDirectory($"{imagePath}/event/UserEvent/");
             var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
@@ -116,10 +124,10 @@
             return component;
         }
 
-        public async Task<bool> HasUserWithIdAsync(int eventId, string userId)
+        public async Task<bool> HasUserWithIdAsync(int articleId, string userId)
         {
             return await this.eventRepository.AllAsNoTracking()
-                .AnyAsync(a => a.Id == eventId && a.EventCreatorId == userId);
+                .AnyAsync(a => a.Id == articleId && a.EventCreatorId == userId);
         }
 
         public async Task UpdateAsync(EditEventViewModel input, int id)
@@ -187,7 +195,6 @@
                 this.eventComponentsRepository.Delete(thisEvent);
                 await this.eventComponentsRepository.SaveChangesAsync();
             }
-;
         }
 
         public async Task<bool> EventComponentExist(int id)
@@ -200,6 +207,22 @@
         {
             return await this.eventParticipantRepository.AllAsNoTracking()
                 .AnyAsync(a => a.EventId == eventId && a.UserId == userId);
+        }
+
+        public async Task<IEnumerable<T>> GetAllTagHelpControllers<T>()
+        {
+            var controllers = await this.tagHelpControllers.AllAsNoTracking()
+          .To<T>().ToListAsync();
+
+            return controllers;
+        }
+
+        public async Task<IEnumerable<T>> GetAllTagHelpActions<T>()
+        {
+            var actions = await this.tagHelpActions.AllAsNoTracking()
+          .To<T>().ToListAsync();
+
+            return actions;
         }
     }
 }

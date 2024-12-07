@@ -963,9 +963,17 @@ namespace Wizzarts.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("ActionId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("Action name");
+
                     b.Property<bool>("ApprovedByAdmin")
                         .HasColumnType("bit")
                         .HasComment("Is event approved by admin.");
+
+                    b.Property<string>("ControllerId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("Controller name");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -1011,6 +1019,10 @@ namespace Wizzarts.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ActionId");
+
+                    b.HasIndex("ControllerId");
+
                     b.HasIndex("EventCreatorId");
 
                     b.HasIndex("EventStatusId");
@@ -1027,6 +1039,14 @@ namespace Wizzarts.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ActionId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("Action name");
+
+                    b.Property<string>("ControllerId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("Controller name");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -1070,6 +1090,10 @@ namespace Wizzarts.Data.Migrations
                         .HasComment("Title");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ActionId");
+
+                    b.HasIndex("ControllerId");
 
                     b.HasIndex("EventId");
 
@@ -1635,6 +1659,60 @@ namespace Wizzarts.Data.Migrations
                     b.ToTable("Stores");
                 });
 
+            modelBuilder.Entity("Wizzarts.Data.Models.TagHelpAction", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("TagHelpActions");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.TagHelpController", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("TagHelpControllers");
+                });
+
             modelBuilder.Entity("Wizzarts.Data.Models.Vote", b =>
                 {
                     b.Property<int>("Id")
@@ -2189,6 +2267,14 @@ namespace Wizzarts.Data.Migrations
 
             modelBuilder.Entity("Wizzarts.Data.Models.Event", b =>
                 {
+                    b.HasOne("Wizzarts.Data.Models.TagHelpAction", "ActionName")
+                        .WithMany("Events")
+                        .HasForeignKey("ActionId");
+
+                    b.HasOne("Wizzarts.Data.Models.TagHelpController", "ControllerName")
+                        .WithMany("Events")
+                        .HasForeignKey("ControllerId");
+
                     b.HasOne("Wizzarts.Data.Models.ApplicationUser", "EventCreator")
                         .WithMany("Events")
                         .HasForeignKey("EventCreatorId")
@@ -2201,6 +2287,10 @@ namespace Wizzarts.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.Navigation("ActionName");
+
+                    b.Navigation("ControllerName");
+
                     b.Navigation("EventCreator");
 
                     b.Navigation("Status");
@@ -2208,11 +2298,23 @@ namespace Wizzarts.Data.Migrations
 
             modelBuilder.Entity("Wizzarts.Data.Models.EventComponent", b =>
                 {
+                    b.HasOne("Wizzarts.Data.Models.TagHelpAction", "ActionName")
+                        .WithMany("EventComponents")
+                        .HasForeignKey("ActionId");
+
+                    b.HasOne("Wizzarts.Data.Models.TagHelpController", "ControllerName")
+                        .WithMany("EventComponents")
+                        .HasForeignKey("ControllerId");
+
                     b.HasOne("Wizzarts.Data.Models.Event", "Event")
                         .WithMany("EventComponents")
                         .HasForeignKey("EventId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("ActionName");
+
+                    b.Navigation("ControllerName");
 
                     b.Navigation("Event");
                 });
@@ -2511,6 +2613,20 @@ namespace Wizzarts.Data.Migrations
             modelBuilder.Entity("Wizzarts.Data.Models.RedMana", b =>
                 {
                     b.Navigation("Cards");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.TagHelpAction", b =>
+                {
+                    b.Navigation("EventComponents");
+
+                    b.Navigation("Events");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.TagHelpController", b =>
+                {
+                    b.Navigation("EventComponents");
+
+                    b.Navigation("Events");
                 });
 
             modelBuilder.Entity("Wizzarts.Data.Models.WhiteMana", b =>

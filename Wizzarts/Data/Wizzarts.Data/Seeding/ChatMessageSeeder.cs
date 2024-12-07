@@ -73,10 +73,34 @@
 
             await dbContext.ChatMessages.AddAsync(new ChatMessage
             {
-                Name = "How to design a game and create game mechanics ?",
-                Text = "Welcome to Wizzarts << How to design a game and create game mechanics ? >> chat.",
+                Name = "How to design a game and create game engine?",
+                Text = "Welcome to Wizzarts << How to design a game and create game engine? >> chat.",
                 Timestamp = DateTime.Now,
                 ChatId = 8,
+            });
+
+            await dbContext.ChatMessages.AddAsync(new ChatMessage
+            {
+                Name = "Request review of your Artist repository",
+                Text = "All approved artist are invited to to join Wizzarts team.",
+                Timestamp = DateTime.Now,
+                ChatId = 9,
+            });
+
+            await dbContext.ChatMessages.AddAsync(new ChatMessage
+            {
+                Name = "Where is my order ? ",
+                Text = "All about orders.",
+                Timestamp = DateTime.Now,
+                ChatId = 10,
+            });
+
+            await dbContext.ChatMessages.AddAsync(new ChatMessage
+            {
+                Name = "How to play Wizzarts the card game ? ",
+                Text = "Everything about the rules of Wizzarts card game.",
+                Timestamp = DateTime.Now,
+                ChatId = 11,
             });
             await dbContext.SaveChangesAsync();
         }

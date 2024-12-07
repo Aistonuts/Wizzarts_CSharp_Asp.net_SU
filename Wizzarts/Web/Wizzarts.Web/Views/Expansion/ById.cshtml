@@ -1,7 +1,10 @@
 ﻿@model Wizzarts.Web.ViewModels.CardGameExpansion.SingleExpansionViewModel
 @using Wizzarts.Web.Infrastructure.Extensions
 
-
+@{
+    this.ViewData["Title"] = "Expansions by Id";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <div class="row pt-2">
     <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-1">
@@ -55,10 +58,8 @@
                         </div>
                     </div>
                 }
-
             </div>
         </div>
     </div>
 </div>
-
 <hr />

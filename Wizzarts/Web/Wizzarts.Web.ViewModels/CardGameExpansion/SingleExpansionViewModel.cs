@@ -1,13 +1,10 @@
 ﻿namespace Wizzarts.Web.ViewModels.CardGameExpansion
 {
-    using System.Collections.Generic;
-
     using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Expansion;
     using Wizzarts.Web.ViewModels.Home;
-    using Wizzarts.Web.ViewModels.PlayCard;
 
     public class SingleExpansionViewModel : IndexAuthenticationViewModel, IMapFrom<CardGameExpansion>, IHaveCustomMappings, ISingleExpansionViewModel
     {

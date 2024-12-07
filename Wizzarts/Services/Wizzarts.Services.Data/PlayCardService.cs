@@ -265,8 +265,6 @@
 
             // using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             // await input.Images.CopyToAsync(fileStream);
-;
-
             await this.cardRepository.AddAsync(card);
             await this.cardRepository.SaveChangesAsync();
             this.cache.Remove(CardsCacheKey);
@@ -320,10 +318,10 @@
                 .AllAsNoTracking().AnyAsync(a => a.Id == id);
         }
 
-        public async Task<bool> HasUserWithIdAsync(string cardId, string userId)
+        public async Task<bool> HasUserWithIdAsync(string artId, string userId)
         {
             return await this.cardRepository.AllAsNoTracking()
-                 .AnyAsync(a => a.Id == cardId && a.AddedByMemberId == userId);
+                 .AnyAsync(a => a.Id == artId && a.AddedByMemberId == userId);
         }
 
         public async Task DeleteAsync(string id)
@@ -580,6 +578,12 @@
                 card.CardGameExpansionId = SecondExpansion;
                 await this.cardRepository.SaveChangesAsync();
             }
+        }
+
+        public async Task<bool> CardTitleExist(string title)
+        {
+            return await this.cardRepository
+              .AllAsNoTracking().AnyAsync(a => a.Name == title);
         }
     }
 }

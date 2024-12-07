@@ -5,7 +5,6 @@
     using Wizzarts.Web.ViewModels.Home;
 
     using static Wizzarts.Common.DataConstants;
-    using static Wizzarts.Common.MessageConstants;
 
     public class BaseArticleViewModel : IndexAuthenticationViewModel, ISingleArticleViewModel
     {

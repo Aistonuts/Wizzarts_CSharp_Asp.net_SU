@@ -4,7 +4,6 @@
     using System.Text;
 
     using Microsoft.AspNetCore.Http;
-    using Moq;
     using MyTested.AspNetCore.Mvc;
     using Wizzarts.Web.Controllers;
     using Wizzarts.Web.ViewModels.Art;

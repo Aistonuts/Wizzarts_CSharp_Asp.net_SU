@@ -1,11 +1,7 @@
 ﻿namespace Wizzarts.Data.Models
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     using Wizzarts.Data.Common.Models;
     using Wizzarts.Data.Models.Enums;

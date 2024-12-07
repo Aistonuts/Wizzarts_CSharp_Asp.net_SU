@@ -1,7 +1,7 @@
 ﻿@model Wizzarts.Web.ViewModels.Deck.DeckListViewModel
 @using Wizzarts.Web.Infrastructure.Extensions
 @{
-    this.ViewData["Title"] = "All card game expansions";
+    this.ViewData["Title"] = "All card decks";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row pt-2">
@@ -19,7 +19,6 @@
                     }
                     else
                     {
-                       
                         <div id="creatorCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
                             <div class="carousel-inner">
 
@@ -105,7 +104,6 @@
                         </div>
                     </div>
                 }
-
             </div>
         </div>
     </div>
@@ -123,5 +121,4 @@
             });
         });
     </script>
-
 }

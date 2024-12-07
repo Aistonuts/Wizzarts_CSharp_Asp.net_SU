@@ -9,7 +9,6 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.Caching.Memory;
-    using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
     using Moq;
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;

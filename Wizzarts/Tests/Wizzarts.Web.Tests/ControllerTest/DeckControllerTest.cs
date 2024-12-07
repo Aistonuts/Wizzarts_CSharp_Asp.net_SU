@@ -1,21 +1,12 @@
 ﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
     using System.IO;
-    using System.Linq;
     using System.Text;
 
     using Microsoft.AspNetCore.Http;
-    using Microsoft.Extensions.Caching.Memory;
-    using Moq;
     using MyTested.AspNetCore.Mvc;
-    using OpenQA.Selenium.DevTools.V123.Input;
-    using Wizzarts.Data.Models;
-    using Wizzarts.Data.Repositories;
-    using Wizzarts.Services.Data;
     using Wizzarts.Services.Data.Tests;
     using Wizzarts.Web.Controllers;
-    using Wizzarts.Web.ViewModels.Art;
-    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Deck;
     using Xunit;
 

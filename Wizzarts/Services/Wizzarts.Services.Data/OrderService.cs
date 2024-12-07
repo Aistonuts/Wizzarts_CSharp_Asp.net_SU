@@ -1,18 +1,13 @@
 ﻿namespace Wizzarts.Services.Data
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
 
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
-    using Wizzarts.Web.ViewModels.CardGameExpansion;
-    using Wizzarts.Web.ViewModels.Expansion;
-    using Wizzarts.Web.ViewModels.PlayCard;
 
     public class OrderService : IOrderService
     {

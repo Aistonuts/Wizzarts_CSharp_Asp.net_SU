@@ -1,15 +1,10 @@
 ﻿namespace Wizzarts.Web.ViewModels.CardComments
 {
-    using System.ComponentModel.DataAnnotations;
-
     using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.WizzartsMember;
-
-    using static Wizzarts.Common.DataConstants;
-    using static Wizzarts.Common.MessageConstants;
 
     public class CardCommentInListViewModel : IMapFrom<CommentCard>, IHaveCustomMappings, ISingleMemberViewModel
     {

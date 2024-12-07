@@ -62,6 +62,11 @@
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
 
+            if (await this.artService.ArtTitleExist(input.Title))
+            {
+                this.ModelState.AddModelError(nameof(input.Title), "Art title exist.");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
@@ -118,6 +123,12 @@
 
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
+
+            if (await this.artService.ArtTitleExist(inputModel.Title))
+            {
+                this.ModelState.AddModelError(nameof(inputModel.Title), "Art title exist.");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 return this.View(inputModel);

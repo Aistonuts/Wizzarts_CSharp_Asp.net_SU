@@ -1,7 +1,6 @@
 ﻿namespace Wizzarts.Data.Models
 {
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
 
     using Wizzarts.Data.Common.Models;
 

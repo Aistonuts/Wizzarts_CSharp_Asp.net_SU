@@ -1,22 +1,17 @@
 ﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
-    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Text;
 
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Caching.Memory;
-    using Moq;
     using MyTested.AspNetCore.Mvc;
-    using Shouldly;
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;
     using Wizzarts.Services.Data;
     using Wizzarts.Services.Data.Tests;
     using Wizzarts.Web.Controllers;
-    using Wizzarts.Web.Infrastructure.Extensions;
-    using Wizzarts.Web.ViewModels.Art;
     using Wizzarts.Web.ViewModels.Article;
     using Xunit;
 
@@ -118,7 +113,7 @@
 
             MyController<ArticleController>
                 .Instance(instance => instance
-                    .WithUser(X => X.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").WithRoleType(AdministratorRoleName))
+                    .WithUser(x1 => x1.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").WithRoleType(AdministratorRoleName))
                    .WithData(data.Articles.FirstOrDefault(x => x.Id == 1)))
                 .Calling(c => c.Edit(1, model))
                 .ShouldHave()

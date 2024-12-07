@@ -1,6 +1,5 @@
 ﻿namespace Wizzarts.Web.ViewModels.PlayCard
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
 
@@ -8,9 +7,7 @@
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
-    using Wizzarts.Web.ViewModels.CardComments;
     using Wizzarts.Web.ViewModels.Home;
-    using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
     using Wizzarts.Web.ViewModels.WizzartsMember;
 
     using static Wizzarts.Common.DataConstants;

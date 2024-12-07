@@ -9,6 +9,8 @@
 
         public const int InputTextEventIdValue = 1;
 
+        public const int ArenaMastersEventValue = 3;
+
         // Profile constants
         public const int DefaultUserAvatarId = 1;
 

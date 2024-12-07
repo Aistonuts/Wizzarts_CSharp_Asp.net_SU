@@ -2,14 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
-
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
     using Wizzarts.Data;
-    using Wizzarts.Data.Seeding;
     using Wizzarts.Services.Data.Tests.Mock.TestData;
     using WWizzarts.Services.Data.Tests.Mock;
 
@@ -27,6 +21,7 @@
                               // new RoleSeederTest(),
                               new UserTestSeeder(),
                               new WizzartsCardGameSeeder(),
+
                               // new WizzartsTeamRoleSeederTest(),
                               new CardGameExpansionSeeder(),
                               new WizzartsTeamSeeder(),
