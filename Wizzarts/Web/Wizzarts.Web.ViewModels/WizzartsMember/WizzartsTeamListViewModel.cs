@@ -6,6 +6,6 @@
 
     public class WizzartsTeamListViewModel : IndexAuthenticationViewModel
     {
-        public IEnumerable<WizzartsTeamInListViewModel> wizzartsTeam { get; set; }
+        public IEnumerable<WizzartsTeamInListViewModel> WizzartsTeam { get; set; }
     }
 }

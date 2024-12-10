@@ -21,7 +21,7 @@
                 Description = "Shady pond under the moonlight",
                 ImageUrl = "/images/event/milestones/EventOneMilestones/Abandoned_Mire.png",
                 EventId = 1,
-                RequireArtInput = false,
+                EventCategoryId = 1,
                 ControllerId = "63c9da9d-5b64-4b08-95a9-b4e5f9ec38b6",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
             });
@@ -31,7 +31,7 @@
                 Description = "The glorious Adeline",
                 ImageUrl = "/images/event/milestones/EventOneMilestones/Adeline.png",
                 EventId = 1,
-                RequireArtInput = false,
+                EventCategoryId = 1,
                 ControllerId = "63c9da9d-5b64-4b08-95a9-b4e5f9ec38b6",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
             });
@@ -41,7 +41,7 @@
                 Description = "Some items can be purchased only from the shady corners.",
                 ImageUrl = "/images/event/milestones/EventOneMilestones/Black_Market.png",
                 EventId = 1,
-                RequireArtInput = false,
+                EventCategoryId = 1,
                 ControllerId = "63c9da9d-5b64-4b08-95a9-b4e5f9ec38b6",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
             });
@@ -51,7 +51,7 @@
                 Description = "The rise of the empire",
                 ImageUrl = "/images/event/milestones/EventOneMilestones/Empire.png",
                 EventId = 1,
-                RequireArtInput = false,
+                EventCategoryId = 1,
                 ControllerId = "63c9da9d-5b64-4b08-95a9-b4e5f9ec38b6",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
             });
@@ -61,7 +61,7 @@
                 Description = "Almost visible creature creeping in the night.",
                 ImageUrl = "/images/event/milestones/EventOneMilestones/Ghast.png",
                 EventId = 1,
-                RequireArtInput = false,
+                EventCategoryId = 1,
                 ControllerId = "63c9da9d-5b64-4b08-95a9-b4e5f9ec38b6",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
             });
@@ -71,7 +71,7 @@
                 Description = "Fear the uknown.",
                 ImageUrl = "/images/event/milestones/EventOneMilestones/InfernalGrasp.png",
                 EventId = 1,
-                RequireArtInput = false,
+                EventCategoryId = 1,
                 ControllerId = "63c9da9d-5b64-4b08-95a9-b4e5f9ec38b6",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
             });
@@ -81,7 +81,7 @@
                 Description = "Pesky scavengers",
                 ImageUrl = "/images/event/milestones/EventOneMilestones/Scavengers.png",
                 EventId = 1,
-                RequireArtInput = false,
+                EventCategoryId = 1,
                 ControllerId = "63c9da9d-5b64-4b08-95a9-b4e5f9ec38b6",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
             });
@@ -91,7 +91,7 @@
                 Description = "Search your library for a card and put that card into your hand. Then shuffle your library.",
                 ImageUrl = "/images/event/milestones/EventTwoMilestones/Demonic_Tutor.png",
                 EventId = 2,
-                RequireArtInput = true,
+                EventCategoryId = 2,
                 ControllerId = "63c9da9d-5b64-4b08-95a9-b4e5f9ec38b6",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
             });
@@ -101,7 +101,7 @@
                 Description = "Destroy all creatures. They can't be regenerated.",
                 ImageUrl = "/images/event/milestones/EventTwoMilestones/Wrath_of_God.png",
                 EventId = 2,
-                RequireArtInput = true,
+                EventCategoryId = 2,
                 ControllerId = "63c9da9d-5b64-4b08-95a9-b4e5f9ec38b6",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
             });
@@ -112,7 +112,7 @@
                 Description = "Each player shuffles their hand and graveyard into their library, then draws seven cards. (Then put Timetwister into its owner's graveyard.)",
                 ImageUrl = "/images/event/milestones/EventTwoMilestones/Timetwister.png",
                 EventId = 2,
-                RequireArtInput = true,
+                EventCategoryId = 2,
                 ControllerId = "63c9da9d-5b64-4b08-95a9-b4e5f9ec38b6",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
             });
@@ -123,7 +123,7 @@
                 Description = "Whenever a land enters the battlefield, Ankh of Mishra deals 2 damage to that land's controller.",
                 ImageUrl = "/images/event/milestones/EventTwoMilestones/Ankh_Of_Mishra.png",
                 EventId = 2,
-                RequireArtInput = true,
+                EventCategoryId = 2,
                 ControllerId = "63c9da9d-5b64-4b08-95a9-b4e5f9ec38b6",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
             });

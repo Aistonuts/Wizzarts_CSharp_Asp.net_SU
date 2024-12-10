@@ -5,5 +5,6 @@
 
     public class EditEventViewModel : BaseEventViewModel, IMapFrom<Event>
     {
+        public int Id { get; set; }
     }
 }

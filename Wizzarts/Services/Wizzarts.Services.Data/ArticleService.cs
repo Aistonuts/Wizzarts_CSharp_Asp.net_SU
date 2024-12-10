@@ -79,7 +79,7 @@
                 ForMainPage = isPremium,
             };
             Directory.CreateDirectory($"{imagePath}/navigation/articles");
-            var extension = Path.GetExtension(input.ImageUrl.FileName) !.TrimStart('.');
+            var extension = Path.GetExtension(input.ImageUrl.FileName)!.TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
             {
                 throw new Exception($"Invalid image extension {extension}");
@@ -174,7 +174,7 @@
         public async Task<IEnumerable<T>> GetAllUserArticles<T>()
         {
             var articles = await this.articleRepository.AllAsNoTracking()
-                .Where(x=> x.ForMainPage == false)
+                .Where(x => x.ForMainPage == false)
                 .To<T>().ToListAsync();
             return articles;
         }

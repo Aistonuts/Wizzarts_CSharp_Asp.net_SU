@@ -12,12 +12,15 @@
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Event;
 
+    using static Wizzarts.Common.HardCodedConstants;
+
     public class EventService : IEventService
     {
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<Event> eventRepository;
         private readonly IDeletableEntityRepository<TagHelpController> tagHelpControllers;
         private readonly IDeletableEntityRepository<TagHelpAction> tagHelpActions;
+        private readonly IDeletableEntityRepository<EventCategory> eventCategories;
         private readonly IDeletableEntityRepository<EventParticipant> eventParticipantRepository;
         private readonly IDeletableEntityRepository<EventComponent> eventComponentsRepository;
 
@@ -25,12 +28,14 @@
             IDeletableEntityRepository<Event> eventRepository,
             IDeletableEntityRepository<TagHelpController> tagHelpControllers,
             IDeletableEntityRepository<TagHelpAction> tagHelpActions,
+            IDeletableEntityRepository<EventCategory> eventCategories,
             IDeletableEntityRepository<EventParticipant> eventParticipantRepository,
             IDeletableEntityRepository<EventComponent> eventComponentsRepository)
         {
             this.eventRepository = eventRepository;
             this.tagHelpControllers = tagHelpControllers;
             this.tagHelpActions = tagHelpActions;
+            this.eventCategories = eventCategories;
             this.eventParticipantRepository = eventParticipantRepository;
             this.eventComponentsRepository = eventComponentsRepository;
         }
@@ -44,8 +49,9 @@
                 EventCreatorId = userId,
                 EventStatusId = 1,
                 ForMainPage = false,
-                ControllerId = input.ControllerId,
-                ActionId = input.ActionId,
+                ControllerId = PlayCardControllerId,
+                ActionId = ByIdActionId,
+                EventCategoryId = RedirectType,
             };
             Directory.CreateDirectory($"{imagePath}/event/UserEvent/");
             var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
@@ -67,6 +73,15 @@
             var currentEvent = await this.eventRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             if (currentEvent != null)
             {
+                var eventComponents = this.eventComponentsRepository.AllAsNoTracking()
+                    .Where(x => x.EventId == id);
+
+                foreach (var component in eventComponents)
+                {
+                    this.eventComponentsRepository.Delete(component);
+                }
+
+                await this.eventComponentsRepository.SaveChangesAsync();
                 this.eventRepository.Delete(currentEvent);
                 await this.eventRepository.SaveChangesAsync();
             }
@@ -164,12 +179,12 @@
                 Title = input.ComponentTitle,
                 Description = input.ComponentDescription,
                 EventId = input.EventId,
-                RequireArtInput = false,
+                ControllerId = PlayCardControllerId,
+                ActionId = ByIdActionId,
             };
             if (input.Image != null)
             {
-                component.RequireArtInput = true;
-
+                component.EventCategoryId = ImageType;
                 Directory.CreateDirectory($"{imagePath}/event/UserEvent/Components");
                 var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
                 if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
@@ -181,6 +196,10 @@
                 component.ImageUrl = $"/images/event/UserEvent/Components/{component.Title.Replace(" ", string.Empty)}.{extension}";
                 await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
                 await input.Image.CopyToAsync(fileStream);
+            }
+            else
+            {
+                component.EventCategoryId = TextType;
             }
 
             await this.eventComponentsRepository.AddAsync(component);
@@ -223,6 +242,45 @@
           .To<T>().ToListAsync();
 
             return actions;
+        }
+
+        public async Task<IEnumerable<T>> GetAllEventCategories<T>()
+        {
+            var categories = await this.eventCategories.AllAsNoTracking()
+          .To<T>().ToListAsync();
+
+            return categories;
+        }
+
+        public async Task<bool> TagHelpControllerExist(string id)
+        {
+            return await this.tagHelpControllers
+              .AllAsNoTracking().AnyAsync(a => a.Id == id);
+        }
+
+        public async Task<bool> TagHelpActionExist(string id)
+        {
+            return await this.tagHelpActions
+              .AllAsNoTracking().AnyAsync(a => a.Id == id);
+        }
+
+        public async Task<bool> EventCategoryExist(int id)
+        {
+            return await this.eventCategories
+              .AllAsNoTracking().AnyAsync(a => a.Id == id);
+        }
+
+        public async Task<bool> EventTypeRequireArt(int id)
+        {
+            var thisEvent = await this.eventRepository.All().FirstOrDefaultAsync(x => x.Id == id);
+            if (thisEvent.EventCategoryId == FlavorlessType || thisEvent.EventCategoryId == ImagelessType || thisEvent.EventCategoryId == ImageType)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -57,6 +57,8 @@
 
         public DbSet<Event> Events { get; set; }
 
+        public DbSet<EventCategory> EventCategories { get; set; }
+
         public DbSet<CardDeck> CardDecks { get; set; }
 
         public DbSet<DeckOfCards> DeckOfCards { get; set; }
@@ -149,6 +151,11 @@
             .HasMany(a => a.Events)
             .WithOne(a => a.Status)
             .HasForeignKey(a => a.EventStatusId);
+
+            builder.Entity<EventCategory>()
+            .HasMany(a => a.Events)
+            .WithOne(a => a.EventCategory)
+            .HasForeignKey(a => a.EventCategoryId);
 
             builder.Entity<DeckStatus>()
             .HasMany(a => a.Decks)

@@ -20,6 +20,8 @@
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.PlayCard.PlayCardComponents;
 
+    using static Wizzarts.Common.HardCodedConstants;
+
     public class PlayCardController : BaseController
     {
         private readonly IPlayCardService cardService;
@@ -178,6 +180,7 @@
             viewModel.EventMilestoneDescription = eventComponent.Description;
             viewModel.EventDescription = currentEvent.EventDescription;
             viewModel.EventId = eventComponent.EventId;
+            viewModel.EventCategoryId = currentEvent.EventCategoryId;
             return this.View(viewModel);
         }
 
@@ -187,7 +190,7 @@
             var user = await this.userManager.GetUserAsync(this.User);
             var eventComponent = await this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
             var isArtByUser = await this.artService.HasUserWithIdAsync(input.ArtId, this.User.GetId());
-            if (eventComponent.RequireArtInput && isArtByUser == false)
+            if (eventComponent.EventCategoryId == ImagelessType && isArtByUser == false)
             {
                 this.ModelState.AddModelError(nameof(input.ArtId), "Art does not exist");
             }
@@ -233,13 +236,14 @@
                 input.EventMilestoneDescription = eventComponent.Description;
                 input.EventDescription = currentEvent.EventDescription;
                 input.EventId = eventComponent.EventId;
+                input.EventCategoryId = currentEvent.EventCategoryId;
 
                 return this.View(input);
             }
 
             bool isEventCard = eventComponent != null;
 
-            if (eventComponent != null && eventComponent.RequireArtInput)
+            if (eventComponent != null && eventComponent.EventCategoryId == ImagelessType)
             {
                 var cardTitle = eventComponent.Title;
                 var cardDescription = eventComponent.Description;
@@ -254,7 +258,7 @@
 
             try
             {
-                await this.cardService.CreateAsync(input, this.User.GetId(), eventComponent.EventId, $"{this.environment.WebRootPath}/images", isEventCard, eventComponent.RequireArtInput, canvasCapture);
+                await this.cardService.CreateAsync(input, this.User.GetId(), eventComponent.EventId, $"{this.environment.WebRootPath}/images", isEventCard, eventComponent.EventCategoryId, canvasCapture);
             }
             catch (Exception ex)
             {

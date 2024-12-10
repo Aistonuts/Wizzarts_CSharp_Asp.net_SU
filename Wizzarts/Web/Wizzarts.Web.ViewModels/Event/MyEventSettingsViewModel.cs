@@ -1,5 +1,6 @@
 ﻿namespace Wizzarts.Web.ViewModels.Event
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using AutoMapper;
@@ -8,6 +9,7 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Home;
+    using Wizzarts.Web.ViewModels.TagHelper;
 
     using static Wizzarts.Common.DataConstants;
     using static Wizzarts.Common.MessageConstants;
@@ -30,6 +32,8 @@
 
         public IFormFile Image { get; set; }
 
+        public int EventCategoryId { get; set; }
+
         public int EventId { get; set; }
 
         public string EventTitle { get; set; } = string.Empty;
@@ -43,6 +47,12 @@
         public string ImageUrl { get; set; } = string.Empty;
 
         public bool OwnerBrowsing { get; set; }
+
+        public string ActionId { get; set; } = string.Empty;
+
+        public string ControllerId { get; set; } = string.Empty;
+
+        public IEnumerable<EventCategoryInListViewModel> EventCategories { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
         {

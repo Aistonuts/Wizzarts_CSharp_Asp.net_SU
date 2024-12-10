@@ -1,4 +1,5 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
+
 namespace Wizzarts.Data.Models
 {
     using System;

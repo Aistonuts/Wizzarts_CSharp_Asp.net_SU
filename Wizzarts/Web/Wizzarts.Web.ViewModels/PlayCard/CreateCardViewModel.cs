@@ -23,6 +23,8 @@
 
         public string EventDescription { get; set; } = string.Empty;
 
+        public int EventCategoryId { get; set; }
+
         public IEnumerable<ArtInListViewModel> ArtByUserId { get; set; } = new List<ArtInListViewModel>();
 
         public IEnumerable<BlackManaCostViewModel> BlackMana { get; set; } = new List<BlackManaCostViewModel>();

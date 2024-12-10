@@ -6,6 +6,6 @@
 
     public class ArticleListViewModel : IndexAuthenticationViewModel
     {
-        public IEnumerable<ArticleInListViewModel> UserArticles{ get; set; }
+        public IEnumerable<ArticleInListViewModel> UserArticles { get; set; }
     }
 }

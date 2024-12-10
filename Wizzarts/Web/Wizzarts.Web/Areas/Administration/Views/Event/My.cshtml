@@ -1,0 +1,205 @@
+﻿@model Wizzarts.Web.ViewModels.Event.MyEventSettingsViewModel
+@using Microsoft.AspNetCore.Identity
+@using Wizzarts.Data.Models
+@using static Wizzarts.Common.GlobalConstants
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    this.ViewData["Title"] = "My events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row pt-2 ae-break-word">
+    <div class="col-sm-12 col-md-12 col-lg-8 pl-0 pr-0 pr-lg-3">
+        <div class="card p-lg-3">
+            <div>
+                <div id="zone01-flex" class="mx-auto"></div>
+            </div>
+            <article id="article-body">
+                <div class="h-oneKpx pl-0 pr-0">
+                    <div class="mt-3 mb-3 d-sm-flex justify-content-between align-items-end">
+                        <div class="col-12 col-sm-7 col-md-6">
+                            <h1 class="ff-display">@Model.EventTitle</h1>
+                            <div class="card-text d-none d-md-flex m-1">@Model.EventDescription</div>
+                            <div class="w-100 d-flex justify-content-start mb-1 mt-3">
+                                <div class="yellow-line w-100 mb-0">
+                                    <img src="@Model.CreatorAvatar" width="50" height="50" class="rounded-circle">
+                                    <a @* href="/User/ChrisCee" *@>@Model.EventCreator</a>
+                                    @*                                     <span class="text-muted">October 4, 2024</span>
+                                    <span class="text-muted"><i class="far fa-clock"></i> 4 min</span> *@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-5 col-md-6">
+                            <img class="article-uimgheader-preview" src="@Model.ImageUrl">
+                        </div>
+                    </div>
+                    <div class="card-header bg-light p-0 text-center">
+                        <b>Event info</b>
+
+                    </div>
+                    <br />
+                    <div class="col-sm-12 col-md-12 pl-0 pr-0">
+                        <div class="firstfeed-flexbox">
+                            @foreach (var article in this.Model.EventComponents)
+                            {
+                                <div class="article-card card border-0">
+                                    @if (article.ImageUrl.Length != 0)
+                                    {
+                                        <a asp-controller="@article.ControllerName" asp-action="@article.ActionName" asp-route-id="@article.Id">
+                                            <img src="@article.ImageUrl" alt="@article.Title" class="lazy" alt="video" style="">
+
+                                        </a>
+                                       @*  <div aria-label="article" class="image-wrapper">
+                                            <img src="@article.ImageUrl" class="article-uimgheader lazy" alt="@article.Title">
+                                        </div> *@
+                                    }
+
+                                    <div class="card-body pt-0">
+                                        <div class="ff-display font-size-18">
+                                            <b>@article.Title</b>
+                                        </div>
+                                        <div class="card-text d-none d-md-flex m-1">@article.Description</div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div class="col-xl-9 col-12">
+                <ul class="entry-meta">
+
+                    <li class="single-meta">
+                        <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.EventId">
+                        </form>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                    </li>
+                    @if (this.User.IsInRole(AdministratorRoleName))
+                    {
+                        <li class="single-meta">
+                            <form asp-area="" asp-controller="Event" method="post" asp-action="ApproveEvent" asp-route-id="@Model.EventId">
+                                <button class="btn btn-danger">Approve</button>
+                            </form>
+                        </li>
+                    }
+                    <li class="single-meta">
+                        <a asp-area="" asp-controller="Event" asp-action="Edit" asp-route-id="@Model.EventId">
+                            <button class="btn btn-danger">Edit</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-4 pl-0 pr-0 mt-2 mt-lg-0">
+
+        <div class="card mb-2">
+            <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Events</a></h4></div>
+            <div class="card-body pl-1 pr-1 pt-2 pb-0">
+                @if (!Model.Events.Any())
+                {
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="font-weight-bold mt-5" style="max-width: 500px;">
+                            You have not created any events.
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    @foreach (var events in this.Model.Events)
+                    {
+                        <div class="metagroup-container">
+                            <div class="mr-2 d-none d-lg-block">
+                                <a asp-controller="Event" asp-action="My" asp-route-id="@events.Id" class="image-wrapper">
+                                    <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
+                                </a>
+                            </div>
+                            <div>
+                                <a asp-controller="Event" asp-action="My" asp-route-id="@events.Id" class="image-wrapper">
+                                    <b class="text-primary">@events.Title</b>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        @if (this.Model.OwnerBrowsing || this.User.IsInRole(AdministratorRoleName))
+        {
+            <div class="card mb-2">
+                <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Event content</a></h4></div>
+                <div class="card-body pl-1 pr-1 pt-2 pb-0">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="form-group row mb-1" hidden>
+                            <label class="col-sm-2 col-lg-2 col-form-label" asp-for="EventId"></label>
+                            <div class="col-sm-8 col-lg-6">
+                                <input asp-for="EventId" value="@Model.EventId" class="form-control" placeholder="Title">
+                            </div>
+                            <span asp-validation-for="EventId" class="small text-danger"></span>
+                        </div>
+                        <div class="form-group row mb-1">
+                            <label class="col-sm-2 col-lg-2 col-form-label" asp-for="ComponentTitle">Title</label>
+                            <div class="col-sm-8 col-lg-6">
+                                <input asp-for="ComponentTitle" class="form-control" placeholder="Title">
+                            </div>
+                            <span asp-validation-for="ComponentTitle" class="small text-danger"></span>
+                        </div>
+                        <div class="form-group row mb-1">
+                            <label class="col-sm-2 col-lg-2 col-form-label" asp-for="ComponentDescription">Info</label>
+                            <div class="col-sm-8 col-lg-6">
+                                <textarea asp-for="ComponentDescription" style="height:100px;" cols="60" rows="10" class="form-control" placeholder="Event Description"></textarea>
+                            </div>
+                            <span asp-validation-for="ComponentDescription" class="small text-danger"></span>
+                        </div>
+                        <div class="form-group row mb-1">
+                            <label class="col-sm-2 col-lg-2 col-form-label" asp-for="EventCategoryId">Select Event Category</label>
+                            <div class="col-sm-8 col-lg-6">
+                                <select asp-for="EventCategoryId" class="form-control" placeholder="Select Action">
+                                    <option value="0" selected="true">
+                                    </option>
+                                    @foreach (var category in Model.EventCategories)
+                                    {
+                                        <option value="@category.Id">@category.Title</option>
+                                    }
+                                </select>
+                            </div>
+                            <span asp-validation-for="EventCategoryId" class="small text-danger"></span>
+                        </div>
+                        <div class="form-group row mb-1">
+                            <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Image"></label>
+                            <div class="col-sm-8 col-lg-6">
+                                <input asp-for="Image" class="form-control" placeholder="Your event Image">
+                            </div>
+                            <span asp-validation-for="Image" class="small text-danger"></span>
+                        </div>
+                        <div class="form-group row mb-1">
+                            <label class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-8">
+                                <button type="submit" class="btn btn-light">
+                                    <span class="fas fa-plus"></span> <b>Create</b>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Do you want to delete "@Model.EventTitle"?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>

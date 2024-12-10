@@ -20,7 +20,7 @@
 
         public bool IsCompleted { get; set; }
 
-        public bool RequireArtInput { get; set; }
+        public int EventCategoryId { get; set; }
 
         public string ActionName { get; set; } = string.Empty;
 

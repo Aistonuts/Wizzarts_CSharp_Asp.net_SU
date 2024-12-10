@@ -17,6 +17,8 @@
 
         public string ImageUrl { get; set; } = string.Empty;
 
+        public int EventCategoryId { get; set; }
+
         public bool ForMainPage { get; set; }
 
         public bool ApprovedByAdmin { get; set; }

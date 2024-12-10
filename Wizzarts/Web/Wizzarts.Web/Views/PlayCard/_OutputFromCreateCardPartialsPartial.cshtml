@@ -3,7 +3,7 @@
 
 <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
     <div class="second" id="second">
-        @if (Model.EventId == InputTextEventIdValue)
+        @if (Model.CardTypeId == FlavorlessType)
         {
             <div id="card-container" class="card-container">
                 <div class="card-background" id="background" style="background-image: url('@Model.CardFrameDefaultUrl')">
@@ -50,7 +50,7 @@
             </div>
 
         }
-        @if (Model.EventId == InputImageEventIdValue)
+        @if (Model.CardTypeId == ImagelessType)
         {
             <div id="card-container" class="card-container">
                 <div class="card-background" id="backgroundTwo" style="background-image: url('@Model.EventMilestoneImage')">

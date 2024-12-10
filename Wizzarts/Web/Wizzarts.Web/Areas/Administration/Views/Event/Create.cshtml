@@ -1,0 +1,130 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Wizzarts.Web.Infrastructure.Extensions
+@model Wizzarts.Web.ViewModels.Event.CreateEventViewModel
+@{
+    this.ViewData["Title"] = "Create event";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row pt-2">
+    <div class="col-md-12 pl-0 pr-0">
+
+        <div class="card border-0">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3 class="ff-display">Create new event</h3>
+                        <div class="card-body pt-2 pb-1">
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="form-group row mb-1">
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Title"></label>
+                                    <div class="col-sm-8 col-lg-6">
+                                        <input asp-for="Title" class="form-control" placeholder="Title">
+                                    </div>
+                                    <span asp-validation-for="Title" class="small text-danger"></span>
+                                </div>
+                                <div class="form-group row mb-1">
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="EventDescription">Description</label>
+                                    <div class="col-sm-8 col-lg-6">
+                                        <textarea asp-for="EventDescription" style="height:100px;" cols="60" rows="10" class="form-control" placeholder="Event Description"></textarea>
+                                    </div>
+                                    <span asp-validation-for="EventDescription" class="small text-danger"></span>
+                                </div>
+                                <div class="form-group row mb-1">
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="ControllerId">Select Controller</label>
+                                    <div class="col-sm-8 col-lg-6">
+                                        <select asp-for="ControllerId" class="form-control" placeholder="Select Controller">
+                                            <option value="0" selected="true">
+                                            </option>
+                                            @foreach (var controller in Model.TagHelpControllers)
+                                            {
+                                                <option value="@controller.Id">@controller.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="ControllerId" class="small text-danger"></span>
+                                </div>
+                                <div class="form-group row mb-1">
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="ActionId">Select Action</label>
+                                    <div class="col-sm-8 col-lg-6">
+                                        <select asp-for="ActionId" class="form-control" placeholder="Select Action">
+                                            <option value="0" selected="true">
+                                            </option>
+                                            @foreach (var action in Model.TagHelperActions)
+                                            {
+                                                <option value="@action.Id">@action.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="ActionId" class="small text-danger"></span>
+                                </div>
+                                <div class="form-group row mb-1">
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="CategoryId">Select Controller</label>
+                                    <div class="col-sm-8 col-lg-6">
+                                        <select asp-for="CategoryId" class="form-control" placeholder="Select Category">
+                                            <option value="0" selected="true">
+                                            </option>
+                                            @foreach (var category in Model.EventCategories)
+                                            {
+                                                <option value="@category.Id">@category.Title</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="CategoryId" class="small text-danger"></span>
+                                </div>
+                                <div class="form-group row mb-1">
+                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Image"></label>
+                                    <div class="col-sm-8 col-lg-6">
+                                        <input asp-for="Image" class="form-control" placeholder="Your event Image">
+                                    </div>
+                                    <span asp-validation-for="Image" class="small text-danger"></span>
+                                </div>
+                                <div class="form-group row mb-1">
+                                    <label class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-8">
+                                        <button type="submit" class="btn btn-light">
+                                            <span class="fas fa-plus"></span> <b>Create</b>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card mb-2">
+                            <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Update event or add content</a></h4></div>
+                            <div class="card-body pl-1 pr-1 pt-2 pb-0">
+                                @if (!Model.Events.Any())
+                                {
+                                    <div class="d-flex flex-row justify-content-center">
+                                        <div class="font-weight-bold mt-5" style="max-width: 500px;">
+                                            You have not created any events.
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    @foreach (var events in this.Model.Events)
+                                    {
+                                        <div class="metagroup-container">
+                                            <div class="mr-2 d-none d-lg-block">
+                                                <a asp-controller="Event" asp-action="My" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="image-wrapper">
+                                                    <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a asp-controller="Event" asp-action="My" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="image-wrapper">
+                                                    <b class="text-primary">@events.Title</b>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

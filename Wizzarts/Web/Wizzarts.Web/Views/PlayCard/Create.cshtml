@@ -17,7 +17,7 @@
                             <tbody>
                                 <tr style="width:100%">
                                     <td style="padding:0px;text-align:left;vertical-align:top;">
-                                        @if (Model.EventId == InputTextEventIdValue)
+                                        @if (Model.EventCategoryId == FlavorlessType)
                                         {
                                             <partial name="_CreateCardWithFlavourInputPartial" model="@Model" />
 
@@ -38,9 +38,13 @@
                                                 </tbody>
                                             </table>
                                         }
-                                        @if (Model.EventId == InputImageEventIdValue)
+                                        else if (Model.EventId == ImagelessType)
                                         {
                                             <partial name="_CreateCardWithArtInputPartial" model="@Model" />
+                                        }
+                                        else
+                                        {
+                                            <partial name="_CreateCardWithFlavourInputPartial" model="@Model" />
                                         }
                                     </td>
                                 </tr>

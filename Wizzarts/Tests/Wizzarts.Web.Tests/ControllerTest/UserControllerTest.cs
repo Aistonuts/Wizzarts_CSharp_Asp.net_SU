@@ -1,6 +1,7 @@
 ﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
     using System.Linq;
+
     using MyTested.AspNetCore.Mvc;
     using Wizzarts.Services.Data.Tests;
     using Wizzarts.Web.Controllers;

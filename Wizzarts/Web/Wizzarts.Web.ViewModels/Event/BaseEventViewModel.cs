@@ -7,6 +7,7 @@
     using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.TagHelper;
+
     using static Wizzarts.Common.DataConstants;
     using static Wizzarts.Common.MessageConstants;
 
@@ -30,9 +31,13 @@
 
         public string ControllerId { get; set; } = string.Empty;
 
+        public int CategoryId { get; set; }
+
         public IEnumerable<SingleTagHelpControllerViewModel> TagHelpControllers { get; set; }
 
         public IEnumerable<SingleTagHelperActionViewModel> TagHelperActions { get; set; }
+
+        public IEnumerable<EventCategoryInListViewModel> EventCategories { get; set; }
 
     }
 }

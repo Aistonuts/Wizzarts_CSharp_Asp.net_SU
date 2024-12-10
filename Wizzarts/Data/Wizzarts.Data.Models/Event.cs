@@ -43,7 +43,7 @@
         public string ActionId { get; set; } = string.Empty;
 
         [ForeignKey(nameof(ActionId))]
-        public TagHelpAction ActionName{ get; set; }
+        public TagHelpAction ActionName { get; set; }
 
         [Comment("Controller name")]
         public string ControllerId { get; set; } = string.Empty;
@@ -62,6 +62,13 @@
 
         [ForeignKey(nameof(EventCreatorId))]
         public ApplicationUser EventCreator { get; set; }
+
+        [Required]
+        [Comment("Event creator")]
+        public int EventCategoryId { get; set; }
+
+        [ForeignKey(nameof(EventCategoryId))]
+        public EventCategory EventCategory { get; set; }
 
         public virtual ICollection<EventComponent> EventComponents { get; set; }
 

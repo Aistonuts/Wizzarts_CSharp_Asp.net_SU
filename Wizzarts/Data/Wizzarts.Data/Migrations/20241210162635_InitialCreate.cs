@@ -1,11 +1,10 @@
-﻿#nullable disable
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
 
 namespace Wizzarts.Data.Migrations
 {
-    using System;
-
-    using Microsoft.EntityFrameworkCore.Migrations;
-
     public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -157,6 +156,23 @@ namespace Wizzarts.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DeckStatuses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EventCategories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventCategories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -698,6 +714,7 @@ namespace Wizzarts.Data.Migrations
                     ApprovedByAdmin = table.Column<bool>(type: "bit", nullable: false, comment: "Is event approved by admin."),
                     ForMainPage = table.Column<bool>(type: "bit", nullable: false),
                     EventCreatorId = table.Column<string>(type: "nvarchar(450)", nullable: false, comment: "Event creator"),
+                    EventCategoryId = table.Column<int>(type: "int", nullable: false, comment: "Event creator"),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -710,6 +727,12 @@ namespace Wizzarts.Data.Migrations
                         name: "FK_Events_AspNetUsers_EventCreatorId",
                         column: x => x.EventCreatorId,
                         principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Events_EventCategories_EventCategoryId",
+                        column: x => x.EventCategoryId,
+                        principalTable: "EventCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -840,7 +863,7 @@ namespace Wizzarts.Data.Migrations
                     Instructions = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true, comment: "Instructions"),
                     ImageUrl = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true, comment: "Image"),
                     EventId = table.Column<int>(type: "int", nullable: false),
-                    RequireArtInput = table.Column<bool>(type: "bit", nullable: false, comment: "Does it require art input"),
+                    EventCategoryId = table.Column<int>(type: "int", nullable: false, comment: "Component type according to event type"),
                     ActionId = table.Column<string>(type: "nvarchar(450)", nullable: true, comment: "Action name"),
                     ControllerId = table.Column<string>(type: "nvarchar(450)", nullable: true, comment: "Controller name"),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -1378,6 +1401,11 @@ namespace Wizzarts.Data.Migrations
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
+                name: "IX_EventCategories_IsDeleted",
+                table: "EventCategories",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_EventComponents_ActionId",
                 table: "EventComponents",
                 column: "ActionId");
@@ -1416,6 +1444,11 @@ namespace Wizzarts.Data.Migrations
                 name: "IX_Events_ControllerId",
                 table: "Events",
                 column: "ControllerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Events_EventCategoryId",
+                table: "Events",
+                column: "EventCategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Events_EventCreatorId",
@@ -1752,6 +1785,9 @@ namespace Wizzarts.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "EventCategories");
 
             migrationBuilder.DropTable(
                 name: "EventStatuses");

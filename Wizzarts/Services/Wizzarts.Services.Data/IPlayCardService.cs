@@ -22,7 +22,7 @@
 
         IEnumerable<T> GetRandom<T>(int count);
 
-        Task CreateAsync(CreateCardViewModel input, string userId, int id, string path, bool isEventCard, bool requireArtInput, string canvasCapture);
+        Task CreateAsync(CreateCardViewModel input, string userId, int id, string path, bool isEventCard, int eventCategoryId, string canvasCapture);
 
         Task AddAsync(CreateCardViewModel input, string userId, string path, bool isEventCard, string canvasCapture);
 

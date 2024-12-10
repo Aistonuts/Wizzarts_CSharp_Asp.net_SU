@@ -94,7 +94,7 @@
             return cachedCards;
         }
 
-        public async Task CreateAsync(CreateCardViewModel input, string userId, int id, string path, bool isEventCard, bool requireArtInput, string canvasCapture)
+        public async Task CreateAsync(CreateCardViewModel input, string userId, int id, string path, bool isEventCard, int eventCategoryId, string canvasCapture)
         {
             var card = new PlayCard
             {
@@ -227,17 +227,24 @@
             {
                 card.EventId = id;
                 card.ArtId = null;
-                if (requireArtInput)
+                if (eventCategoryId == ImagelessType)
                 {
                     Directory.CreateDirectory($"{path}/cardsByExpansion/EventCards/Flavor");
                     physicalPath = $"{path}/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
                     card.CardRemoteUrl = $"/images/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
                 }
-                else
+                else if (eventCategoryId == FlavorlessType)
                 {
                     Directory.CreateDirectory($"{path}/cardsByExpansion/EventCards/Flavorless");
                     physicalPath = $"{path}/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
                     card.CardRemoteUrl = $"/images/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
+                }
+                else
+                {
+                    Directory.CreateDirectory($"{path}/cardsByExpansion/PremiumUserCards");
+                    physicalPath = $"{path}/cardsByExpansion/PremiumUserCards/{input.Name}.png";
+                    card.CardRemoteUrl = $"/images/cardsByExpansion/PremiumUserCards/{input.Name}.png";
+                    card.ArtId = input.ArtId;
                 }
             }
 

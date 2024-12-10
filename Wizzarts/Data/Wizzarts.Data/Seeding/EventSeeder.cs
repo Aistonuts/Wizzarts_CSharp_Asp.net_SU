@@ -28,6 +28,7 @@
                 ForMainPage = true,
                 ControllerId = "4c78da1b-5bfb-4f7a-92de-77d80295863e",
                 ActionId = "cf3494ef-93cc-42d2-bf8d-fc733adc3973",
+                EventCategoryId = 1,
             });
 
             await dbContext.Events.AddAsync(new Event
@@ -41,6 +42,7 @@
                 ForMainPage = true,
                 ControllerId = "4c78da1b-5bfb-4f7a-92de-77d80295863e",
                 ActionId = "cf3494ef-93cc-42d2-bf8d-fc733adc3973",
+                EventCategoryId = 2,
             });
 
             await dbContext.Events.AddAsync(new Event
@@ -54,7 +56,7 @@
                 ForMainPage = true,
                 ControllerId = "8b072d65-5fb5-4d4c-b1e8-e2da7ba495f0",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
-
+                EventCategoryId = 3,
             });
 
             await dbContext.Events.AddAsync(new Event
@@ -70,6 +72,7 @@
                 ForMainPage = true,
                 ControllerId = "07810f5f-3b38-44ba-858a-ef1bdeae4325",
                 ActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70",
+                EventCategoryId = 3,
             });
 
             await dbContext.SaveChangesAsync();

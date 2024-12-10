@@ -22,6 +22,26 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = 
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Areas/Administration/Views/Event/All.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRpb25cVmlld3NcRXZlbnRcQWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Areas/Administration/Views/Event/ById.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRpb25cVmlld3NcRXZlbnRcQnlJZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Areas/Administration/Views/Event/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRpb25cVmlld3NcRXZlbnRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Areas/Administration/Views/Event/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRpb25cVmlld3NcRXZlbnRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Areas/Administration/Views/Event/My.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRpb25cVmlld3NcRXZlbnRcTXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Cmpt/Downloads/ASPNetCore/ASP.NET_try/Wizzarts/Web/Wizzarts.Web/Areas/Administration/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRpb25cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

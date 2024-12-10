@@ -18,6 +18,8 @@
 
         public string Status { get; set; } = string.Empty;
 
+        public int EventCategoryId { get; set; }
+
         public string Creator { get; set; } = string.Empty;
 
         public string CreatorId { get; set; } = string.Empty;

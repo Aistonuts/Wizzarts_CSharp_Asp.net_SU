@@ -148,14 +148,28 @@
                         <div class="firstfeed-flexbox">
                             @foreach (var events in this.Model.Events.ToList().Where(x => x.ApprovedByAdmin == true))
                             {
-                                <div class="inner-container">
-                                    <a asp-controller="Event" asp-action="My" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="item ae-card-link cardLink ">
-                                        <img width="200" height="300" src="@events.ImageUrl" alt="@events.Title" style="">
-                                        <div class="item-hidden-text">@events.Title</div>
+                                <div class="article-card card border-0">
+
+                                    <a asp-controller="@events.ControllerName" asp-action="@events.ActionName" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="image-wrapper">
+                                        <img src="@events.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@events.Title">
                                     </a>
-                                    <div class="item-footer">
+                                    <div class="card-body pt-0">
+                                        <small class="yellow-line">
+                                            <a asp-controller="Wizzarts" asp-action="ById" asp-route-id="@events.CreatorId">@events.Creator<i class="far fa-star"></i></a>
+                                            <span>@events.CreatedOn</span>
+                                        </small>
+                                        <div class="ff-display font-size-18">
+                                            <a asp-controller="@events.ControllerName" asp-action="@events.ActionName" asp-route-id="@events.Id" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()"><b>@events.Title</b></a>
+                                        </div>
+                                        <div class="card-text d-none d-md-flex m-1">@events.EventDescription</div>
+                                    </div>
+                                    <div class="single-meta">
+                                        <a asp-controller="Event" asp-action="My" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()">
+                                            <button class="btn btn-light font-weight-bold">Edit</button>
+                                        </a>
                                     </div>
                                 </div>
+ 
                             }
                         </div>
                         <hr />
@@ -240,6 +254,7 @@
                                 </div>
                             </div>
                         }
+
                     </div>
                 </div>
                 <hr />
@@ -328,3 +343,4 @@
         </div>
     </div>
 </div>
+

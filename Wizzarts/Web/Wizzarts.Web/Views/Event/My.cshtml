@@ -45,7 +45,7 @@
                             {
                                 <div class="article-card card border-0">
                                     @if (article.ImageUrl.Length != 0)
-                                    {
+                                    {  
                                         <div aria-label="article" class="image-wrapper">
                                             <img src="@article.ImageUrl" class="article-uimgheader lazy" alt="@article.Title">
                                         </div>
@@ -122,7 +122,7 @@
                 }
             </div>
         </div>
-        @if (this.Model.OwnerBrowsing)
+        @if (this.Model.OwnerBrowsing || this.User.IsInRole(AdministratorRoleName))
         {
             <div class="card mb-2">
                 <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Event content</a></h4></div>

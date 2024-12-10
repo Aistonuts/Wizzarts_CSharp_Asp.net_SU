@@ -1,6 +1,7 @@
 ﻿namespace Wizzarts.Services.Data.Tests.Mock
 {
     using System;
+
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data;
 

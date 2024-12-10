@@ -32,8 +32,8 @@
 
         public Event Event { get; set; }
 
-        [Comment("Does it require art input")]
-        public bool RequireArtInput { get; set; }
+        [Comment("Component type according to event type")]
+        public int EventCategoryId { get; set; }
 
         [Comment("Action name")]
         public string ActionId { get; set; } = string.Empty;

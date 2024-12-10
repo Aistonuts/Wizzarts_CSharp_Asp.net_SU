@@ -12,7 +12,7 @@ using Wizzarts.Data;
 namespace Wizzarts.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241206071815_InitialCreate")]
+    [Migration("20241210162635_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -983,6 +983,10 @@ namespace Wizzarts.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("EventCategoryId")
+                        .HasColumnType("int")
+                        .HasComment("Event creator");
+
                     b.Property<string>("EventCreatorId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)")
@@ -1025,6 +1029,8 @@ namespace Wizzarts.Data.Migrations
 
                     b.HasIndex("ControllerId");
 
+                    b.HasIndex("EventCategoryId");
+
                     b.HasIndex("EventCreatorId");
 
                     b.HasIndex("EventStatusId");
@@ -1032,6 +1038,36 @@ namespace Wizzarts.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.EventCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("EventCategories");
                 });
 
             modelBuilder.Entity("Wizzarts.Data.Models.EventComponent", b =>
@@ -1062,6 +1098,10 @@ namespace Wizzarts.Data.Migrations
                         .HasColumnType("nvarchar(1000)")
                         .HasComment("Description");
 
+                    b.Property<int>("EventCategoryId")
+                        .HasColumnType("int")
+                        .HasComment("Component type according to event type");
+
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
@@ -1080,10 +1120,6 @@ namespace Wizzarts.Data.Migrations
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("RequireArtInput")
-                        .HasColumnType("bit")
-                        .HasComment("Does it require art input");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -2277,6 +2313,12 @@ namespace Wizzarts.Data.Migrations
                         .WithMany("Events")
                         .HasForeignKey("ControllerId");
 
+                    b.HasOne("Wizzarts.Data.Models.EventCategory", "EventCategory")
+                        .WithMany("Events")
+                        .HasForeignKey("EventCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("Wizzarts.Data.Models.ApplicationUser", "EventCreator")
                         .WithMany("Events")
                         .HasForeignKey("EventCreatorId")
@@ -2292,6 +2334,8 @@ namespace Wizzarts.Data.Migrations
                     b.Navigation("ActionName");
 
                     b.Navigation("ControllerName");
+
+                    b.Navigation("EventCategory");
 
                     b.Navigation("EventCreator");
 
@@ -2576,6 +2620,11 @@ namespace Wizzarts.Data.Migrations
             modelBuilder.Entity("Wizzarts.Data.Models.Event", b =>
                 {
                     b.Navigation("EventComponents");
+                });
+
+            modelBuilder.Entity("Wizzarts.Data.Models.EventCategory", b =>
+                {
+                    b.Navigation("Events");
                 });
 
             modelBuilder.Entity("Wizzarts.Data.Models.EventStatus", b =>
