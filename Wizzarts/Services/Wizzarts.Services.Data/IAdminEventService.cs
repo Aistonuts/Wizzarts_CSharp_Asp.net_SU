@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Wizzarts.Web.ViewModels.Event;
-
 namespace Wizzarts.Services.Data
 {
     public interface IAdminEventService
@@ -13,7 +12,9 @@ namespace Wizzarts.Services.Data
 
         Task UpdateAsync(EditEventViewModel input, int id);
 
-        Task<IEnumerable<T>> GetAll<T>();
+        Task<IEnumerable<T>> GetAll<T>(int page, int itemsPerPage = 3);
+
+        Task<IEnumerable<T>> GetAllPaginationless<T>();
 
         Task<IEnumerable<T>> GetAllEventComponents<T>(int id);
 
@@ -52,5 +53,9 @@ namespace Wizzarts.Services.Data
         Task<bool> EventCategoryExist(int id);
 
         Task<bool> EventTypeRequireArt(int id);
+
+        Task<string> PromoteEvent(int id);
+
+        Task<int> GetCount();
     }
 }

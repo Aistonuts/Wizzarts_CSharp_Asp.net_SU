@@ -4,58 +4,69 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="col-md-12 col-lg-12 col-xl-12 pl-0 pr-0 pr-xl-3">
-    <div class="col-sm-12 col-md-12 pl-0 pr-0">
-        <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Orders</h4>
+@if(Model.Orders.Any())
+{
+    <div class="col-md-12 col-lg-12 col-xl-12 pl-0 pr-0 pr-xl-3">
+        <div class="col-sm-12 col-md-12 pl-0 pr-0">
+            <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Orders</h4>
 
-        <div class="firstfeed-flexbox">
-            @foreach (var order in this.Model.Orders)
-            {
-                <div class="article-card card border-0">
-                    <div aria-label="article" class="image-wrapper">
+            <div class="firstfeed-flexbox">
+                @foreach (var order in this.Model.Orders)
+                {
+                    <div class="article-card card border-0">
+                        <div aria-label="article" class="image-wrapper">
 
-                        <div class="article-uimgheader"><img id="previewCardModal" class="article-uimgheader" style="width : 366px" src="@order.DeckImageUrl" alt="Card" onerror="this.onerror=null;this.src='@order.DeckImageUrl';"></div>
+                            <div class="article-uimgheader"><img id="previewCardModal" class="article-uimgheader" style="width : 366px" src="@order.DeckImageUrl" alt="Card" onerror="this.onerror=null;this.src='@order.DeckImageUrl';"></div>
 
+                        </div>
+                        <div class="card-body pt-0">
+                            <small class="yellow-line font-size-18">
+                                <i class="far fa-star"></i>@order.OrderStatus
+                            </small>
+                            <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
+                                <p>@order.ShippingAddress</p>
+                                <hr>
+                                <p>
+                                    <i>Ordered by:</i><br>
+                                </p>
+                            </div>
+                            <div class="text-sm-center">
+                                <a asp-controller="Order" asp-action="Pause" asp-route-id="@order.Id">
+                                    <button type="button" class="btn btn-light">
+                                        <i class="fa fa-hourglass-half"></i> <b>Pause</b>
+                                    </button>
+                                </a>
+                                <a asp-controller="Order" asp-action="Ready" asp-route-id="@order.Id">
+                                    <button type="button" class="btn btn-light">
+                                        <i class="fa fa-university"></i> <b>Ship</b>
+                                    </button>
+                                </a>
+                                <a asp-controller="Order" asp-action="Ship" asp-route-id="@order.Id">
+                                    <button type="button" class="btn btn-light">
+                                        <i class="fa fa-paper-plane"></i> <b>Pickup</b>
+                                    </button>
+                                </a>
+                                <a asp-controller="Order" asp-action="SendToEmail" asp-route-id="@order.Id">
+                                    <button type="button" class="btn btn-light">
+                                        <i class="fa fa-university"></i> <b>Send Mail</b>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body pt-0">
-                        <small class="yellow-line font-size-18">
-                            <i class="far fa-star"></i>@order.OrderStatus
-                        </small>
-                        <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
-                            <p>@order.ShippingAddress</p>
-                            <hr>
-                            <p>
-                                <i>Ordered by:</i><br>
-                            </p>
-                        </div>
-                        <div class="text-sm-center">
-                            <a asp-controller="Order" asp-action="Pause" asp-route-id="@order.Id">
-                                <button type="button" class="btn btn-light">
-                                    <i class="fa fa-hourglass-half"></i> <b>Pause</b>
-                                </button>
-                            </a>
-                            <a asp-controller="Order"  asp-action="Ready" asp-route-id="@order.Id">
-                                <button type="button" class="btn btn-light">
-                                    <i class="fa fa-university"></i> <b>Ship</b>
-                                </button>
-                            </a>
-                            <a asp-controller="Order" asp-action="Ship" asp-route-id="@order.Id">
-                                <button type="button" class="btn btn-light">
-                                    <i class="fa fa-paper-plane"></i> <b>Pickup</b>
-                                </button>
-                            </a>
-                            <a asp-controller="Order" asp-action="SendToEmail" asp-route-id="@order.Id">
-                                <button type="button" class="btn btn-light">
-                                    <i class="fa fa-university"></i> <b>Send Mail</b>
-                                </button>
-                            </a>
-                        </div>
-                    </div>                    
-                </div>  
-            }
+                }
+            </div>
         </div>
     </div>
-</div>
 
 
-<partial name="_PagingPartial" model="@Model" />
+    <partial name="_PagingPartial" model="@Model" />
+}else
+{
+    <div class="row text-center no-gutters">
+        <div class="col-md-12">
+            <h2 class="text-header-gold">Currently, there are no new orders.</h2>
+        </div>
+    </div>
+
+}

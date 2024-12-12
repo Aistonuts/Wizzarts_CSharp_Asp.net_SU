@@ -2,11 +2,12 @@
 @using Microsoft.AspNetCore.Identity
 @using Wizzarts.Data.Models
 @using static Wizzarts.Common.GlobalConstants
+@using static Wizzarts.Common.HardCodedConstants
 @inject UserManager<ApplicationUser> UserManager
 @inject SignInManager<ApplicationUser> SignInManager
 @{
     this.ViewData["Title"] = "My events";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutIdentity.cshtml";
 }
 
 <div class="row pt-2 ae-break-word">
@@ -43,25 +44,46 @@
                         <div class="firstfeed-flexbox">
                             @foreach (var article in this.Model.EventComponents)
                             {
-                                <div class="article-card card border-0">
-                                    @if (article.ImageUrl.Length != 0)
-                                    {
-                                        <a asp-controller="@article.ControllerName" asp-action="@article.ActionName" asp-route-id="@article.Id">
-                                            <img src="@article.ImageUrl" alt="@article.Title" class="lazy" alt="video" style="">
+                                if (article.EventCategoryId == ImageType || article.EventCategoryId == TextType)
+                                {
+                                    <div class="article-card card border-0">
+                                        @if (article.ImageUrl.Length != 0)
+                                        {
+                                            <div>
+                                                <img src="@article.ImageUrl" alt="@article.Title" class="lazy" alt="video" style="">
 
-                                        </a>
-                                       @*  <div aria-label="article" class="image-wrapper">
-                                            <img src="@article.ImageUrl" class="article-uimgheader lazy" alt="@article.Title">
-                                        </div> *@
-                                    }
-
-                                    <div class="card-body pt-0">
-                                        <div class="ff-display font-size-18">
-                                            <b>@article.Title</b>
+                                            </div>
+                                            @*  <div aria-label="article" class="image-wrapper">
+                                <img src="@article.ImageUrl" class="article-uimgheader lazy" alt="@article.Title">
+                                </div> *@
+                                        }
+                                        <div class="card-body pt-0">
+                                            <div class="ff-display font-size-18">
+                                                <b>@article.Title</b>
+                                            </div>
+                                            <div class="card-text d-none d-md-flex m-1">@article.Description</div>
                                         </div>
-                                        <div class="card-text d-none d-md-flex m-1">@article.Description</div>
                                     </div>
-                                </div>
+                                }
+                                else
+                                {
+                                    <div class="article-card card border-0">
+                                        @if (article.ImageUrl.Length != 0)
+                                        {
+                                            <a asp-area="" asp-controller="@article.ControllerName" asp-action="@article.ActionName" asp-route-id="@article.Id">
+                                                <img src="@article.ImageUrl" alt="@article.Title" class="lazy" alt="video" style="">
+                                            </a>
+                                        }
+
+                                        <div class="card-body pt-0">
+                                            <div class="ff-display font-size-18">
+                                                <b>@article.Title</b>
+                                            </div>
+                                            <div class="card-text d-none d-md-flex m-1">@article.Description</div>
+                                        </div>
+                                    </div>
+                                }
+
                             }
                         </div>
                     </div>
@@ -69,22 +91,29 @@
             </article>
             <div class="col-xl-9 col-12">
                 <ul class="entry-meta">
-
                     <li class="single-meta">
-                        <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.EventId">
+                        <form asp-area="Administration" method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.EventId">
                         </form>
                         <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
                     </li>
-                    @if (this.User.IsInRole(AdministratorRoleName))
+                    @if (this.User.IsInRole(AdministratorRoleName) && this.Model.ApprovedByAdmin == false)
                     {
                         <li class="single-meta">
-                            <form asp-area="" asp-controller="Event" method="post" asp-action="ApproveEvent" asp-route-id="@Model.EventId">
+                            <form asp-area="Administration" asp-controller="Event" method="post" asp-action="ApproveEvent" asp-route-id="@Model.EventId">
                                 <button class="btn btn-danger">Approve</button>
                             </form>
                         </li>
                     }
+                    @if (this.User.IsInRole(AdministratorRoleName) && this.Model.ForMainPage == false)
+                    {
                     <li class="single-meta">
-                        <a asp-area="" asp-controller="Event" asp-action="Edit" asp-route-id="@Model.EventId">
+                        <form asp-area="Administration" asp-controller="Event" method="post" asp-action="Promote" asp-route-id="@Model.EventId">
+                                <button class="btn btn-danger">Promote</button>
+                        </form>
+                    </li>
+                    }
+                    <li class="single-meta">
+                        <a asp-area="Administration" asp-controller="Event" asp-action="Edit" asp-route-id="@Model.EventId">
                             <button class="btn btn-danger">Edit</button>
                         </a>
                     </li>
@@ -112,12 +141,12 @@
                     {
                         <div class="metagroup-container">
                             <div class="mr-2 d-none d-lg-block">
-                                <a asp-controller="Event" asp-action="My" asp-route-id="@events.Id" class="image-wrapper">
+                                <a asp-controller="Event" asp-action="Mine" asp-route-id="@events.Id" class="image-wrapper">
                                     <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
                                 </a>
                             </div>
                             <div>
-                                <a asp-controller="Event" asp-action="My" asp-route-id="@events.Id" class="image-wrapper">
+                                <a asp-controller="Event" asp-action="Mine" asp-route-id="@events.Id" class="image-wrapper">
                                     <b class="text-primary">@events.Title</b>
                                 </a>
                             </div>
@@ -152,20 +181,6 @@
                                 <textarea asp-for="ComponentDescription" style="height:100px;" cols="60" rows="10" class="form-control" placeholder="Event Description"></textarea>
                             </div>
                             <span asp-validation-for="ComponentDescription" class="small text-danger"></span>
-                        </div>
-                        <div class="form-group row mb-1">
-                            <label class="col-sm-2 col-lg-2 col-form-label" asp-for="EventCategoryId">Select Event Category</label>
-                            <div class="col-sm-8 col-lg-6">
-                                <select asp-for="EventCategoryId" class="form-control" placeholder="Select Action">
-                                    <option value="0" selected="true">
-                                    </option>
-                                    @foreach (var category in Model.EventCategories)
-                                    {
-                                        <option value="@category.Id">@category.Title</option>
-                                    }
-                                </select>
-                            </div>
-                            <span asp-validation-for="EventCategoryId" class="small text-danger"></span>
                         </div>
                         <div class="form-group row mb-1">
                             <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Image"></label>

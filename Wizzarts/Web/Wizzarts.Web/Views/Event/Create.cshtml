@@ -15,7 +15,7 @@
                     <div class="col-md-7">
                         <h3 class="ff-display">Create new event</h3>
                         <div class="card-body pt-2 pb-1">
-                            <form method="post" enctype="multipart/form-data">
+                            <form  method="post" enctype="multipart/form-data">
                                 <div class="form-group row mb-1">
                                     <label class="col-sm-2 col-lg-2 col-form-label" asp-for="Title"></label>
                                     <div class="col-sm-8 col-lg-6">
@@ -66,7 +66,7 @@
                                     {
                                         <div class="metagroup-container">
                                             <div class="mr-2 d-none d-lg-block">
-                                                <a asp-controller="Event" asp-action="My" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="image-wrapper">
+                                                <a asp-area="" asp-controller="Event" asp-action="My" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="image-wrapper">
                                                     <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
                                                 </a>
                                             </div>

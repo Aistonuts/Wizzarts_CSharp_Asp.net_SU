@@ -1,7 +1,7 @@
 ﻿@model Wizzarts.Web.ViewModels.Event.EditEventViewModel
 @{
     this.ViewData["Title"] = "Edit event";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutIdentity.cshtml";
 }
 
 <div class="row pt-2">
@@ -49,12 +49,12 @@
                                     {
                                         <div class="metagroup-container">
                                             <div class="mr-2 d-none d-lg-block">
-                                                <a asp-controller="Event" asp-action="Remove" asp-route-id="@events.Id" class="image-wrapper">
+                                                <a asp-area="Administration" asp-controller="Event" asp-action="Remove" asp-route-id="@events.Id" class="image-wrapper">
                                                     <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
                                                 </a>
                                             </div>
                                             <div>
-                                                <a asp-controller="Event" asp-action="Remove" asp-route-id="@events.Id" class="image-wrapper">
+                                                <a asp-area="Administration" asp-controller="Event" asp-action="Remove" asp-route-id="@events.Id" class="image-wrapper">
                                                     <b class="text-primary">@events.Title</b>
                                                     <button type="submit" class="btn btn-light">
                                                         <span class="fas fa-plus"></span> <b>Delete</b>
@@ -66,7 +66,7 @@
                                 </div>
                             }
                             <div class="col-sm-8">
-                                <a asp-controller="Event" asp-action="My" asp-route-id="@Model.Id" class="image-wrapper">
+                                <a asp-area="Administration" asp-controller="Event" asp-action="Mine" asp-route-id="@Model.Id" class="image-wrapper">
                                     <div class="btn btn-light">
                                         <span class="fas fa-plus"></span> <b>Add component</b>
                                     </div>

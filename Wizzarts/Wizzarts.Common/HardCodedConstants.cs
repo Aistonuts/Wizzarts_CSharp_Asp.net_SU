@@ -16,11 +16,21 @@
 
         public const int ImagelessType = 2;
 
-        public const int RedirectType = 3;
+        public const int CreateArticleType = 3;
 
-        public const int ImageType = 4;
+        public const int AddPlayCardType = 4;
 
-        public const int TextType = 5;
+        public const int AddArtType = 5;
+
+        public const int CreateDeckType = 6;
+
+        public const int AddStoreType = 7;
+
+        public const int CreateEventType = 8;
+
+        public const int ImageType = 9;
+
+        public const int TextType = 10;
 
         // Profile constants
         public const int DefaultUserAvatarId = 1;
@@ -53,7 +63,7 @@
 
         public const string StoreControllerId = "8b072d65-5fb5-4d4c-b1e8-e2da7ba495f0";
 
-        public const string EventControllerId = "8b072d65-5fb5-4d4c-b1e8-e2da7ba495f0";
+        public const string EventControllerId = "4c78da1b-5bfb-4f7a-92de-77d80295863e";
 
         // Actions
         public const string CreateActionId = "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70";

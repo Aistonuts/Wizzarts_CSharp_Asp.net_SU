@@ -13,6 +13,8 @@
 
         Task<IEnumerable<T>> GetAll<T>();
 
+        Task<IEnumerable<T>> GetAllPagination<T>(int page, int itemsPerPage = 3);
+
         Task<IEnumerable<T>> GetAllEventComponents<T>(int id);
 
         Task<T> GetById<T>(int id);
@@ -20,6 +22,8 @@
         Task<T> GetEventComponentById<T>(int id);
 
         Task<IEnumerable<T>> GetAllEventsByUserId<T>(string id, int page, int itemsPerPage = 3);
+
+        Task<IEnumerable<T>> GetAllEventsByUsers<T>();
 
         Task<bool> EventExist(int id);
 
@@ -50,5 +54,9 @@
         Task<bool> EventCategoryExist(int id);
 
         Task<bool> EventTypeRequireArt(int id);
+
+        Task<string> PromoteEvent(int id);
+
+        Task<int> GetCount();
     }
 }

@@ -17,16 +17,16 @@
                     {
                         <div class="article-card card border-0">
 
-                                <a asp-controller="@eventNow.ControllerName" asp-action="@eventNow.ActionName" asp-route-id="@eventNow.Id" asp-route-information="@eventNow.GetEventTitle()" class="image-wrapper">
+                            <a asp-area="" asp-controller="@eventNow.ControllerName" asp-action="@eventNow.ActionName" asp-route-id="@eventNow.Id" asp-route-information="@eventNow.GetEventTitle()" class="image-wrapper">
                                     <img src="@eventNow.ImageUrl" class="article-uimgheader" style="width : 366px" alt="@eventNow.Title">
                                 </a>
                                 <div class="card-body pt-0">
                                     <small class="yellow-line">
-                                        <a asp-controller="Wizzarts" asp-action="ById" asp-route-id="@eventNow.CreatorId" >@eventNow.Creator<i class="far fa-star"></i></a>
+                                    <a asp-area="" asp-controller="Wizzarts" asp-action="ById" asp-route-id="@eventNow.CreatorId">@eventNow.Creator<i class="far fa-star"></i></a>
                                         <span>@eventNow.CreatedOn</span>
                                     </small>
                                     <div class="ff-display font-size-18">
-                                    <a asp-controller="@eventNow.ControllerName" asp-action="@eventNow.ActionName" asp-route-id="@eventNow.Id" asp-route-id="@eventNow.Id" asp-route-information="@eventNow.GetEventTitle()"><b>@eventNow.Title</b></a>
+                                    <a asp-area="" asp-controller="@eventNow.ControllerName" asp-action="@eventNow.ActionName" asp-route-id="@eventNow.Id" asp-route-id="@eventNow.Id" asp-route-information="@eventNow.GetEventTitle()"><b>@eventNow.Title</b></a>
                                     </div>
                                     <div class="card-text d-none d-md-flex m-1">@eventNow.EventDescription</div>
                                 </div>
@@ -37,3 +37,4 @@
         </div>
     </div>
 </div>
+<partial name="_PagingPartial" model="@Model" />

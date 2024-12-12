@@ -11,7 +11,6 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Event;
-
     using static Wizzarts.Common.HardCodedConstants;
 
     public class AdminEventService : IAdminEventService
@@ -49,10 +48,46 @@
                 EventCreatorId = userId,
                 EventStatusId = 1,
                 ForMainPage = false,
-                ControllerId = input.ControllerId,
-                ActionId = input.ActionId,
+                ApprovedByAdmin = true,
                 EventCategoryId = input.CategoryId,
             };
+
+            if (input.CategoryId == FlavorlessType || input.CategoryId == ImagelessType || input.CategoryId == ImageType || input.CategoryId == TextType)
+            {
+                newEvent.ControllerId = EventControllerId;
+                newEvent.ActionId = ByIdActionId;
+            }
+            else if (input.CategoryId == CreateArticleType)
+            {
+                newEvent.ControllerId = ArticleControllerId;
+                newEvent.ActionId = CreateActionId;
+            }
+            else if (input.CategoryId == AddArtType)
+            {
+                newEvent.ControllerId = ArtControllerId;
+                newEvent.ActionId = CreateActionId;
+            }
+            else if (input.CategoryId == AddPlayCardType)
+            {
+                newEvent.ControllerId = PlayCardControllerId;
+                newEvent.ActionId = AddActionId;
+            }
+            else if (input.CategoryId == CreateDeckType)
+            {
+                newEvent.ControllerId = DeckControllerId;
+                newEvent.ActionId = CreateActionId;
+            }
+            else if (input.CategoryId == CreateEventType)
+            {
+                newEvent.ControllerId = EventControllerId;
+                newEvent.ActionId = CreateActionId;
+            }
+            else
+            {
+                newEvent.ControllerId = EventControllerId;
+                newEvent.ActionId = ByIdActionId;
+            }
+
             Directory.CreateDirectory($"{imagePath}/event/UserEvent/");
             var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
@@ -93,11 +128,11 @@
                 .AllAsNoTracking().AnyAsync(a => a.Id == id);
         }
 
-        public async Task<IEnumerable<T>> GetAll<T>()
+        public async Task<IEnumerable<T>> GetAll<T>(int page, int itemsPerPage = 3)
         {
             var events = await this.eventRepository.AllAsNoTracking()
-                .Where(x => x.ForMainPage == true && x.ApprovedByAdmin == true)
           .OrderByDescending(x => x.Id)
+          .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
           .To<T>().ToListAsync();
 
             return events;
@@ -174,18 +209,23 @@
 
         public async Task AddComponentAsync(MyEventSettingsViewModel input, string userId, string imagePath)
         {
+            var currentEvent = await this.eventRepository.All().FirstOrDefaultAsync(x => x.Id == input.EventId);
             var component = new EventComponent
             {
                 Title = input.ComponentTitle,
                 Description = input.ComponentDescription,
                 EventId = input.EventId,
-                EventCategoryId = input.EventCategoryId,
-                ControllerId = input.ControllerId,
-                ActionId = input.ActionId,
+                EventCategoryId = currentEvent.EventCategoryId,
             };
-            if (input.EventCategoryId == FlavorlessType || input.EventCategoryId == ImagelessType || input.EventCategoryId == ImageType)
-            {
 
+            if (currentEvent.EventCategoryId == FlavorlessType || currentEvent.EventCategoryId == ImagelessType)
+            {
+                component.ControllerId = PlayCardControllerId;
+                component.ActionId = CreateActionId;
+            }
+
+            if (currentEvent.EventCategoryId == FlavorlessType || currentEvent.EventCategoryId == ImagelessType || currentEvent.EventCategoryId == ImageType)
+            {
                 Directory.CreateDirectory($"{imagePath}/event/UserEvent/Components");
                 var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
                 if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
@@ -236,6 +276,7 @@
         public async Task<IEnumerable<T>> GetAllTagHelpActions<T>()
         {
             var actions = await this.tagHelpActions.AllAsNoTracking()
+            .Where(x => x.Name != "ById")
           .To<T>().ToListAsync();
 
             return actions;
@@ -279,6 +320,34 @@
                 return false;
             }
         }
+
+        public async Task<string> PromoteEvent(int id)
+        {
+            var currentEvent = await this.eventRepository.All().FirstOrDefaultAsync(x => x.Id == id);
+
+            if (currentEvent != null && currentEvent.ForMainPage == false)
+            {
+                currentEvent.ForMainPage = true;
+                await this.eventRepository.SaveChangesAsync();
+
+                return currentEvent.EventCreatorId;
+            }
+
+            return null;
+        }
+
+        public Task<int> GetCount()
+        {
+            return this.eventRepository.All().CountAsync();
+        }
+
+        public async Task<IEnumerable<T>> GetAllPaginationless<T>()
+        {
+            var events = await this.eventRepository.AllAsNoTracking()
+          .OrderByDescending(x => x.Id)
+          .To<T>().ToListAsync();
+
+            return events;
+        }
     }
 }
-

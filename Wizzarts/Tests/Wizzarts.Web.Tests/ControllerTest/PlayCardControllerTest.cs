@@ -259,7 +259,7 @@
                .AndAlso()
                .ShouldReturn()
                .Redirect(redirect => redirect
-                   .To<EventController>(c => c.All()));
+                   .To<EventController>(c => c.All(1)));
             this.TearDownBase();
         }
 

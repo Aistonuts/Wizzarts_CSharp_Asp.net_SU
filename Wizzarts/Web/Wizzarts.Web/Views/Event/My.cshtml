@@ -79,8 +79,16 @@
                             </form>
                         </li>
                     }
+                    @if (this.User.IsInRole(AdministratorRoleName))
+                    {
+                        <li class="single-meta">
+                            <form asp-area="" asp-controller="Event" method="post" asp-action="Promote" asp-route-id="@Model.EventId">
+                                <button class="btn btn-danger">Promote</button>
+                            </form>
+                        </li>
+                    }
                     <li class="single-meta">
-                        <a asp-area="" asp-controller="Event" asp-action="Edit" asp-route-id="@Model.EventId">
+                        <a asp-controller="Event" asp-action="Edit" asp-route-id="@Model.EventId">
                             <button class="btn btn-danger">Edit</button>
                         </a>
                     </li>
@@ -108,7 +116,7 @@
                     {
                         <div class="metagroup-container">
                             <div class="mr-2 d-none d-lg-block">
-                                <a asp-controller="Event" asp-action="My" asp-route-id="@events.Id" class="image-wrapper">
+                                <a asp-area="" asp-controller="Event" asp-action="My" asp-route-id="@events.Id" class="image-wrapper">
                                     <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
                                 </a>
                             </div>

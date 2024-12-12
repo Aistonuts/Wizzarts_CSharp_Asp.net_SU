@@ -149,6 +149,7 @@
             return this.View(viewModel);
         }
 
+        [Route("[controller]/[action]")]
         public async Task<IActionResult> ById(string id, int idPage = 1)
         {
             if (idPage <= 0)

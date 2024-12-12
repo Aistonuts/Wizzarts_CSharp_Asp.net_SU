@@ -45,10 +45,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Services\Wizzarts.Services.Data\Wizzarts.Services.Data.csproj" />
     <ProjectReference Include="..\..\Wizzarts.Common\Wizzarts.Common.csproj" />
     <ProjectReference Include="..\..\Data\Wizzarts.Data.Models\Wizzarts.Data.Models.csproj" />
     <ProjectReference Include="..\..\Data\Wizzarts.Data\Wizzarts.Data.csproj" />
-    <ProjectReference Include="..\..\Services\Wizzarts.Services.Data\Wizzarts.Services.Data.csproj" />
     <ProjectReference Include="..\..\Services\Wizzarts.Services.Mapping\Wizzarts.Services.Mapping.csproj" />
     <ProjectReference Include="..\..\Services\Wizzarts.Services.Messaging\Wizzarts.Services.Messaging.csproj" />
     <ProjectReference Include="..\..\Services\Wizzarts.Services\Wizzarts.Services.csproj" />
@@ -57,7 +57,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Administration\Models\Event\" />
     <Folder Include="Areas\Administration\Views\Dashboard\" />
     <Folder Include="wwwroot\images\art\Beta\" />
     <Folder Include="wwwroot\images\art\userArt\" />

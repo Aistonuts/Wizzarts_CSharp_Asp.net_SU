@@ -49,6 +49,9 @@
                                     <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="All">Events</a>
                                 </li>
                                 <li>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="ByUser">User Events</a>
+                                </li>
+                                <li>
                                     <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Wizzarts" asp-action="Membership">Membership</a>
                                 </li>
                                 <li>
@@ -166,18 +169,16 @@
                                         <div class="ae-nav-dropdown-menu">
 
                                             <div class="ae-nav-dropdown-menu-wrapper">
-                                                <div class="">
                                                     <div class="ae-list-header">
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="All">Events</a>
                                                         @if (this.SignInManager.IsSignedIn(this.User))
                                                         {
                                                             <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="All">Articles</a>
-                                                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="All">User Events</a>
+                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="ByUser">User Events</a>
                                                         }
                                                         <hr>
                                                     </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -39,11 +39,15 @@
         }
 
         [AllowAnonymous]
-        public async Task<IActionResult> All()
+        public async Task<IActionResult> All(int id = 1)
         {
+            const int ItemsPerPage = 4;
             var viewModel = new EventListViewModel
             {
-                Events = await this.eventService.GetAll<EventInListViewModel>(),
+                ItemsPerPage = ItemsPerPage,
+                PageNumber = id,
+                Count = await this.eventService.GetCount(),
+                Events = await this.eventService.GetAllPagination<EventInListViewModel>(id, ItemsPerPage),
             };
 
             return this.View(viewModel);
@@ -53,7 +57,7 @@
         {
             var viewModel = new EventListViewModel
             {
-                Events = await this.eventService.GetAll<EventInListViewModel>(),
+                Events = await this.eventService.GetAllEventsByUsers<EventInListViewModel>(),
             };
 
             return this.View(viewModel);
@@ -270,6 +274,21 @@
             await this.eventService.DeleteComponentAsync(id);
 
             return this.RedirectToAction(nameof(this.Edit), new { id = eventId });
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> Promote(int id)
+        {
+            var userId = await this.eventService.PromoteEvent(id);
+            if (userId != null)
+            {
+                return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
+            }
+            else
+            {
+                return this.BadRequest();
+            }
         }
     }
 }

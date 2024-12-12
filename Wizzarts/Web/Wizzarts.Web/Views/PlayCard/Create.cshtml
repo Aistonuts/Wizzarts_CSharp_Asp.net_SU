@@ -38,14 +38,15 @@
                                                 </tbody>
                                             </table>
                                         }
-                                        else if (Model.EventId == ImagelessType)
+                                        else if (Model.EventCategoryId == ImagelessType)
                                         {
+                                           
                                             <partial name="_CreateCardWithArtInputPartial" model="@Model" />
                                         }
-                                        else
+                                       @*  else
                                         {
                                             <partial name="_CreateCardWithFlavourInputPartial" model="@Model" />
-                                        }
+                                        } *@
                                     </td>
                                 </tr>
                                 <tr id="startOver" class="row1" hidden>
@@ -61,7 +62,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>  
     <partial name="_OutputFromCreateCardPartialsPartial" model="@Model" />
 </div>
 

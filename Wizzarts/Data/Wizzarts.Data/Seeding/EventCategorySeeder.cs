@@ -29,7 +29,32 @@ namespace Wizzarts.Data.Seeding
 
             await dbContext.EventCategories.AddAsync(new EventCategory
             {
-                Title = "Redirect",
+                Title = "Create_article",
+            });
+
+            await dbContext.EventCategories.AddAsync(new EventCategory
+            {
+                Title = "Add_playCard",
+            });
+
+            await dbContext.EventCategories.AddAsync(new EventCategory
+            {
+                Title = "Add_art",
+            });
+
+            await dbContext.EventCategories.AddAsync(new EventCategory
+            {
+                Title = "Create_deck",
+            });
+
+            await dbContext.EventCategories.AddAsync(new EventCategory
+            {
+                Title = "Add_store",
+            });
+
+            await dbContext.EventCategories.AddAsync(new EventCategory
+            {
+                Title = "Create_event",
             });
 
             await dbContext.EventCategories.AddAsync(new EventCategory

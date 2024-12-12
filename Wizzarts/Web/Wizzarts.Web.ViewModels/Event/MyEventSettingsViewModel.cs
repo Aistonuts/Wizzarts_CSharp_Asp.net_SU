@@ -48,9 +48,13 @@
 
         public bool OwnerBrowsing { get; set; }
 
-        public string ActionId { get; set; } = string.Empty;
+        public string ActionId { get; set; }
 
-        public string ControllerId { get; set; } = string.Empty;
+        public string ControllerId { get; set; }
+
+        public bool ApprovedByAdmin { get; set; }
+
+        public bool ForMainPage { get; set; }
 
         public IEnumerable<EventCategoryInListViewModel> EventCategories { get; set; }
 

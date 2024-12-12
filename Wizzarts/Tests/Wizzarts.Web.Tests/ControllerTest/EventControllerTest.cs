@@ -23,7 +23,7 @@
             MyController<EventController>
                         .Instance(instance => instance
                             .WithData(data.Events.ToList()))
-                        .Calling(c => c.All())
+                        .Calling(c => c.All(1))
                         .ShouldReturn()
                         .View(view => view
                             .WithModelOfType<EventListViewModel>());

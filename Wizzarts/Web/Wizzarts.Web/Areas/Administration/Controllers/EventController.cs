@@ -6,6 +6,7 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Wizzarts.Common;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Controllers;
@@ -19,13 +20,13 @@
     public class EventController : AdministrationController
     {
         private readonly UserManager<ApplicationUser> userManager;
-        private readonly IEventService eventService;
+        private readonly IAdminEventService eventService;
         private readonly IStoreService storeService;
         private readonly IWebHostEnvironment environment;
 
         public EventController(
             UserManager<ApplicationUser> userManager,
-            IEventService eventService,
+            IAdminEventService eventService,
             IStoreService storeService,
             IWebHostEnvironment environment)
         {
@@ -35,12 +36,84 @@
             this.environment = environment;
         }
 
+        [HttpPost]
+        [Route("[area]/[controller]/[action]/{id}")]
+        public async Task<IActionResult> ApproveEvent(int id)
+        {
+            var userId = await this.eventService.ApproveEvent(id);
+            if (userId != null)
+            {
+                return this.RedirectToAction("Mine", "Event", new { id = $"{id}", area = "Administration" });
+            }
+            else
+            {
+                return this.RedirectToAction("Mine", "Event", new { id = $"{id}", area = "Administration" });
+            }
+        }
+
+        [HttpPost]
+        [Route("[area]/[controller]/[action]/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (await this.eventService.EventExist(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            if (await this.eventService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
+            await this.eventService.DeleteAsync(id);
+
+            return this.RedirectToAction("All", "Event", new { area = "Administration" } );
+        }
+
+        [Route("[controller]/[action]")]
+        public async Task<IActionResult> Remove(int id)
+        {
+            if (await this.eventService.EventComponentExist(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            var currentEventComponent = await this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
+            var eventId = currentEventComponent.EventId;
+            if (await this.eventService.HasUserWithIdAsync(currentEventComponent.EventId, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
+            await this.eventService.DeleteComponentAsync(id);
+
+            return this.RedirectToAction(nameof(this.Edit), new { id = eventId });
+        }
+
+        [HttpPost]
+        [Route("[area]/[controller]/[action]/{id}")]
+        public async Task<IActionResult> Promote(int id)
+        {
+            var userId = await this.eventService.PromoteEvent(id);
+            if (userId != null)
+            {
+                return this.RedirectToAction("Mine", "Event", new { id = $"{userId}", Area = "Administration" });
+            }
+            else
+            {
+                return this.BadRequest();
+            }
+        }
+
         [HttpGet]
-        public async Task<IActionResult> Create()
+        [Route("[controller]/[action]")]
+        public async Task<IActionResult> Publish()
         {
             var viewModel = new CreateEventViewModel
             {
-                Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3),
+                Events = await this.eventService.GetAllPaginationless<EventInListViewModel>(),
                 TagHelpControllers = await this.eventService.GetAllTagHelpControllers<SingleTagHelpControllerViewModel>(),
                 TagHelperActions = await this.eventService.GetAllTagHelpActions<SingleTagHelperActionViewModel>(),
                 EventCategories = await this.eventService.GetAllEventCategories<EventCategoryInListViewModel>(),
@@ -49,64 +122,15 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateEventViewModel input)
+        [Route("[controller]/[action]")]
+        public async Task<IActionResult> Publish(CreateEventViewModel input)
         {
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
 
-            if (input.ControllerId == PlayCardControllerId && input.ActionId == CreateActionId)
-            {
-                this.ModelState.AddModelError(nameof(input.ActionId), "Impossible Combination PlayCard and Create");
-            }
-
-            if (input.ActionId == ByIdActionId && input.ControllerId != EventControllerId)
-            {
-                this.ModelState.AddModelError(nameof(input.ActionId), "Impossible Controller Action");
-            }
-
-            if (input.ActionId == CreateActionId && input.CategoryId != RedirectType)
-            {
-                this.ModelState.AddModelError(nameof(input.ActionId), "Impossible combination");
-            }
-
-            if (input.CategoryId == ImageType && input.ActionId != ByIdActionId)
-            {
-                this.ModelState.AddModelError(nameof(input.ActionId), "Impossible combination");
-            }
-
-            if (input.CategoryId == TextType && input.ActionId != ByIdActionId)
-            {
-                this.ModelState.AddModelError(nameof(input.ActionId), "Impossible combination");
-            }
-
-            if (input.CategoryId == FlavorlessType && input.ActionId != ByIdActionId)
-            {
-                this.ModelState.AddModelError(nameof(input.ActionId), "Impossible combination");
-            }
-
-            if (input.CategoryId == ImagelessType && input.ActionId != ByIdActionId)
-            {
-                this.ModelState.AddModelError(nameof(input.ActionId), "Impossible combination");
-            }
-
-            if (input.ControllerId == PlayCardControllerId && input.ActionId == CreateActionId)
-            {
-                this.ModelState.AddModelError(nameof(input.ActionId), "Impossible Combination PlayCard and Create");
-            }
-
-            if (await this.eventService.TagHelpControllerExist(input.ControllerId) == false)
-            {
-                this.ModelState.AddModelError(nameof(input.ControllerId), "Controller title does not exist.");
-            }
-
-            if (await this.eventService.TagHelpActionExist(input.ActionId) == false)
-            {
-                this.ModelState.AddModelError(nameof(input.ActionId), "Action title does not exist.");
-            }
-
             if (await this.eventService.EventCategoryExist(input.CategoryId) == false)
             {
-                this.ModelState.AddModelError(nameof(input.ControllerId), "Category title does not exist.");
+                this.ModelState.AddModelError(nameof(input.ControllerId), "Category does not exist.");
             }
 
             if (!this.ModelState.IsValid)
@@ -140,10 +164,12 @@
 
             this.TempData["Message"] = "Event added successfully.";
 
-            return this.RedirectToAction("Create", "Event");
+            return this.RedirectToAction("Publish", "Event", new { area = "Administration" });
         }
 
-        public async Task<IActionResult> My(int id)
+        [HttpGet]
+        [Route("[area]/[controller]/[action]/{id}")]
+        public async Task<IActionResult> Mine(int id)
         {
             var user = await this.userManager.GetUserAsync(this.User);
             var newEvent = await this.eventService.GetById<MyEventSettingsViewModel>(id);
@@ -163,7 +189,8 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> My(MyEventSettingsViewModel input)
+        [Route("[area]/[controller]/[action]/{id}")]
+        public async Task<IActionResult> Mine(MyEventSettingsViewModel input)
         {
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
@@ -174,12 +201,6 @@
                 this.ModelState.AddModelError(nameof(input.Image), "Event content require image.");
             }
 
-            if (input.EventCategoryId == ImagelessType || input.EventCategoryId == FlavorlessType)
-            {
-                input.ControllerId = PlayCardControllerId;
-                input.ActionId = CreateActionId;
-            }
-
             if (!this.ModelState.IsValid)
             {
                 newEvent.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(input.EventId);
@@ -187,6 +208,7 @@
                 newEvent.EventId = input.EventId;
                 newEvent.CreatorAvatar = user.AvatarUrl;
                 newEvent.OwnerBrowsing = false;
+                newEvent.EventCategoryId = input.EventCategoryId;
                 newEvent.EventCategories = await this.eventService.GetAllEventCategories<EventCategoryInListViewModel>();
                 bool isOwner = await this.eventService.HasUserWithIdAsync(newEvent.EventId, this.User.GetId());
                 if (isOwner)
@@ -210,9 +232,11 @@
 
             this.TempData["Message"] = "Event added successfully.";
 
-            return this.RedirectToAction(nameof(this.My), new { id = input.EventId });
+            return this.RedirectToAction(nameof(this.Mine), new { id = input.EventId, area= "Administration"});
         }
 
+        [HttpGet]
+        [Route("[area]/[controller]/[action]/{id}")]
         public async Task<IActionResult> Edit(int id)
         {
             var inputModel = await this.eventService.GetById<EditEventViewModel>(id);
@@ -229,6 +253,7 @@
         }
 
         [HttpPost]
+        [Route("[area]/[controller]/[action]/{id}")]
         public async Task<IActionResult> Edit(EditEventViewModel inputModel, int id)
         {
             this.ModelState.Remove("UserName");
@@ -251,7 +276,38 @@
             }
 
             await this.eventService.UpdateAsync(inputModel, id);
-            return this.RedirectToAction(nameof(this.My), new { id });
+            return this.RedirectToAction(nameof(this.Mine), new { id });
+        }
+
+        [HttpGet]
+        [Route("[area]/[controller]/[action]/{id}")]
+        public async Task<IActionResult> ById(int id, int pageId = 1)
+        {
+            var newEvent = await this.eventService.GetById<SingleEventViewModel>(id);
+
+            newEvent.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
+            newEvent.EventId = id;
+            return this.View(newEvent);
+        }
+
+        [Route("[area]/[controller]/[action]")]
+        public async Task<IActionResult> All(int id = 1)
+        {
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+
+            const int ItemsPerPage = 4;
+            var viewModel = new EventListViewModel
+            {
+                ItemsPerPage = ItemsPerPage,
+                PageNumber = id,
+                Count = await this.eventService.GetCount(),
+                Events = await this.eventService.GetAll<EventInListViewModel>(id, ItemsPerPage),
+            };
+
+            return this.View(viewModel);
         }
     }
 }

@@ -49,9 +49,9 @@
                 EventCreatorId = userId,
                 EventStatusId = 1,
                 ForMainPage = false,
-                ControllerId = PlayCardControllerId,
+                ControllerId = EventControllerId,
                 ActionId = ByIdActionId,
-                EventCategoryId = RedirectType,
+                EventCategoryId = ImageType,
             };
             Directory.CreateDirectory($"{imagePath}/event/UserEvent/");
             var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
@@ -95,12 +95,11 @@
 
         public async Task<IEnumerable<T>> GetAll<T>()
         {
-            var events = await this.eventRepository.AllAsNoTracking()
-                .Where(x => x.ForMainPage == true && x.ApprovedByAdmin == true)
+           var events = await this.eventRepository.AllAsNoTracking()
           .OrderByDescending(x => x.Id)
           .To<T>().ToListAsync();
 
-            return events;
+           return events;
         }
 
         public async Task<IEnumerable<T>> GetAllEventComponents<T>(int id)
@@ -179,8 +178,8 @@
                 Title = input.ComponentTitle,
                 Description = input.ComponentDescription,
                 EventId = input.EventId,
-                ControllerId = PlayCardControllerId,
-                ActionId = ByIdActionId,
+                ControllerId = EventControllerId,
+                ActionId = CreateActionId,
             };
             if (input.Image != null)
             {
@@ -281,6 +280,46 @@
             {
                 return false;
             }
+        }
+
+        public async Task<string> PromoteEvent(int id)
+        {
+            var currentEvent = await this.eventRepository.All().FirstOrDefaultAsync(x => x.Id == id);
+
+            if (currentEvent != null && currentEvent.ForMainPage == false)
+            {
+                currentEvent.ForMainPage = true;
+                await this.eventRepository.SaveChangesAsync();
+
+                return currentEvent.EventCreatorId;
+            }
+
+            return null;
+        }
+
+        public Task<int> GetCount()
+        {
+            return this.eventRepository.All().CountAsync();
+        }
+
+        public async Task<IEnumerable<T>> GetAllEventsByUsers<T>()
+        {
+            var events = await this.eventRepository.AllAsNoTracking()
+            .Where(x => x.ForMainPage == false)
+            .To<T>().ToListAsync();
+
+            return events;
+        }
+
+        public async Task<IEnumerable<T>> GetAllPagination<T>(int page, int itemsPerPage = 3)
+        {
+            var events = await this.eventRepository.AllAsNoTracking()
+               .Where(x => x.ForMainPage == true && x.ApprovedByAdmin == true)
+         .OrderByDescending(x => x.Id)
+         .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+         .To<T>().ToListAsync();
+
+            return events;
         }
     }
 }
