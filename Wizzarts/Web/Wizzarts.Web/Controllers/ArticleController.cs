@@ -103,6 +103,7 @@
 
             if (!this.ModelState.IsValid)
             {
+                input.Articles = this.articleService.GetRandom<ArticleInListViewModel>(5);
                 return this.View(input);
             }
 
@@ -114,7 +115,7 @@
             catch (Exception ex)
             {
                 this.ModelState.AddModelError(string.Empty, ex.Message);
-
+                input.Articles = this.articleService.GetRandom<ArticleInListViewModel>(5);
                 return this.View(input);
             }
 

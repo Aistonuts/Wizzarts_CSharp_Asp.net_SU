@@ -48,7 +48,5 @@
         Task Promote(string id);
 
         Task<bool> CardTitleExist(string title);
-
-        Task<bool> IsValidImage(Stream stream);
     }
 }

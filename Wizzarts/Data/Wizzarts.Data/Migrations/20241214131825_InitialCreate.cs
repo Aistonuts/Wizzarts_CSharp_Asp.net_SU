@@ -380,7 +380,7 @@ namespace Wizzarts.Data.Migrations
                     Nickname = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     AvatarId = table.Column<int>(type: "int", nullable: true, comment: "Avatar Identifier.Picked after signing in"),
                     AvatarUrl = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false, comment: "Avatar remote URL.Picked after signing in"),
-                    Bio = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true, comment: "Information about the artist"),
+                    Bio = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true, comment: "Information about the artist"),
                     AdminFeedBack = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true, comment: "Admin might want to remind client about name policies, missing profile details, missing avatar..."),
                     RequestFeedback = table.Column<bool>(type: "bit", nullable: false, comment: "Admin Request notification"),
                     HasBeenUpdated = table.Column<bool>(type: "bit", nullable: false, comment: "Customer acknowledged admin request and fulfilled it"),
@@ -826,7 +826,7 @@ namespace Wizzarts.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nickname = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    Bio = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true, comment: "Information about the artist"),
+                    Bio = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true, comment: "Information about the artist"),
                     AvatarUrl = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false, comment: "Avatar remote URL.Picked after signing in"),
                     WizzartsCardGameId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true, comment: "Wizzarts Team user id"),

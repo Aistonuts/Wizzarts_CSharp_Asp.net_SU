@@ -7,6 +7,7 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Caching.Memory;
     using MyTested.AspNetCore.Mvc;
+    using NuGet.Protocol.Core.Types;
     using Shouldly;
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;
@@ -165,7 +166,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-            var artService = new ArtService(repositoryArt, cache);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
 
             var model = new EditArtViewModel
             {
@@ -286,7 +288,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-            var artService = new ArtService(repositoryArt, cache);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
 
             var model = new EditArtViewModel
             {

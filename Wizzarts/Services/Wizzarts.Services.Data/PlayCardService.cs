@@ -594,20 +594,5 @@ namespace Wizzarts.Services.Data
 
             return cards;
         }
-
-        public async Task<bool> IsValidImage(Stream stream)
-        {
-            try
-            {
-                using (var image = Image.FromStream(stream))
-                {
-                    return true;
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
     }
 }

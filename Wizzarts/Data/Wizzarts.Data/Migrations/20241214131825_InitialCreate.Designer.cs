@@ -12,7 +12,7 @@ using Wizzarts.Data;
 namespace Wizzarts.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241214124007_InitialCreate")]
+    [Migration("20241214131825_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -195,8 +195,8 @@ namespace Wizzarts.Data.Migrations
                         .HasComment("Avatar remote URL.Picked after signing in");
 
                     b.Property<string>("Bio")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
                         .HasComment("Information about the artist");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -2034,8 +2034,8 @@ namespace Wizzarts.Data.Migrations
                         .HasComment("Avatar remote URL.Picked after signing in");
 
                     b.Property<string>("Bio")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
                         .HasComment("Information about the artist");
 
                     b.Property<DateTime>("CreatedOn")

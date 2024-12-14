@@ -34,7 +34,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArticle = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repositoryArticle, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repositoryArticle, cache);
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
@@ -66,7 +67,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArticle = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repositoryArticle, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repositoryArticle, cache);
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
@@ -99,7 +101,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArticle = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repositoryArticle, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repositoryArticle, cache);
             var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 

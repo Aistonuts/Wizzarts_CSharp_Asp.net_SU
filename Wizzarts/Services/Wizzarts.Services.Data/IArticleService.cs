@@ -2,6 +2,7 @@
 
 namespace Wizzarts.Services.Data
 {
+    using Microsoft.AspNetCore.Http;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -36,7 +37,5 @@ namespace Wizzarts.Services.Data
         Task<bool> HasUserWithIdAsync(int articleId, string userId);
 
         Task<bool> ArticleTitleExist(string title);
-
-        Task<bool> IsValidImage(Stream stream);
     }
 }

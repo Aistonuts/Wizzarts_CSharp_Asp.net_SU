@@ -119,7 +119,7 @@
             catch (Exception ex)
             {
                 this.ModelState.AddModelError(string.Empty, ex.Message);
-
+                input.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3);
                 return this.View(input);
             }
 
@@ -177,6 +177,16 @@
             catch (Exception ex)
             {
                 this.ModelState.AddModelError(string.Empty, ex.Message);
+                newEvent.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(input.EventId);
+                newEvent.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3);
+                newEvent.EventId = input.EventId;
+                newEvent.CreatorAvatar = user.AvatarUrl;
+                newEvent.OwnerBrowsing = false;
+                bool isOwner = await this.eventService.HasUserWithIdAsync(newEvent.EventId, this.User.GetId());
+                if (isOwner)
+                {
+                    newEvent.OwnerBrowsing = true;
+                }
 
                 return this.View(input);
             }

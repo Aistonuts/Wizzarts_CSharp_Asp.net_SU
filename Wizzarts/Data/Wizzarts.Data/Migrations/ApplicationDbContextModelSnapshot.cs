@@ -193,8 +193,8 @@ namespace Wizzarts.Data.Migrations
                         .HasComment("Avatar remote URL.Picked after signing in");
 
                     b.Property<string>("Bio")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
                         .HasComment("Information about the artist");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -2032,8 +2032,8 @@ namespace Wizzarts.Data.Migrations
                         .HasComment("Avatar remote URL.Picked after signing in");
 
                     b.Property<string>("Bio")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
                         .HasComment("Information about the artist");
 
                     b.Property<DateTime>("CreatedOn")

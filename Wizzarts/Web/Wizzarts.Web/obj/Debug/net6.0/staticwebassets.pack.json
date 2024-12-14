@@ -137,10 +137,6 @@
       "PackagePath": "staticwebassets\\images\\Stores\\Daytona_Magic.jpg"
     },
     {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\New store.jpg",
-      "PackagePath": "staticwebassets\\images\\Stores\\New store.jpg"
-    },
-    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\Wizards.jpg",
       "PackagePath": "staticwebassets\\images\\Stores\\Wizards.jpg"
     },
@@ -151,10 +147,6 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\Yokohama.jpg",
       "PackagePath": "staticwebassets\\images\\Stores\\Yokohama.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\test.jpg",
-      "PackagePath": "staticwebassets\\images\\Stores\\test.jpg"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Ancestral_Recall.png",

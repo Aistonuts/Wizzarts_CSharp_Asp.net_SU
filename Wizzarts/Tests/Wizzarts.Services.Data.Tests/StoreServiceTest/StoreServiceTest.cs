@@ -30,7 +30,8 @@
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
-            var service = new StoreService(repository);
+            var fileService = new FileService();
+            var service = new StoreService(repository, fileService);
 
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -65,7 +66,8 @@
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
-            var service = new StoreService(repository);
+            var fileService = new FileService();
+            var service = new StoreService(repository, fileService);
 
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -96,7 +98,8 @@
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
-            var service = new StoreService(repository);
+            var fileService = new FileService();
+            var service = new StoreService(repository, fileService);
             var stores = await service.GetAll<StoreInListViewModel>(1, 5);
             int storeCount = stores.Count();
             Assert.Equal(5, storeCount);
@@ -111,7 +114,8 @@
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
-            var service = new StoreService(repository);
+            var fileService = new FileService();
+            var service = new StoreService(repository, fileService);
             var stores = await service.GetAll<StoreInListViewModel>();
             int storeCount = stores.Count();
             Assert.Equal(6, storeCount);
@@ -126,7 +130,8 @@
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
-            var service = new StoreService(repository);
+            var fileService = new FileService();
+            var service = new StoreService(repository, fileService);
             var stores = await service.GetAllStoresByUserId<StoreInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695", 1, 2);
             int storeCount = stores.Count();
             Assert.Equal(2, storeCount);
@@ -141,7 +146,8 @@
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
-            var service = new StoreService(repository);
+            var fileService = new FileService();
+            var service = new StoreService(repository, fileService);
             int storeCount = await service.GetCount();
 
             Assert.Equal(6, storeCount);
@@ -156,7 +162,8 @@
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
-            var service = new StoreService(repository);
+            var fileService = new FileService();
+            var service = new StoreService(repository, fileService);
 
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -194,7 +201,8 @@
             var data = this.dbContext;
 
             using var repository = new EfDeletableEntityRepository<Store>(data);
-            var service = new StoreService(repository);
+            var fileService = new FileService();
+            var service = new StoreService(repository, fileService);
             var stores = await service.GetAllApprovedStoresByUserId<StoreInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695");
             int storeCount = stores.Count();
             Assert.Equal(2, storeCount);

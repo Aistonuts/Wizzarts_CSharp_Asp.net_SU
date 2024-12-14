@@ -8,6 +8,7 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using Wizzarts.Common;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
@@ -52,6 +53,7 @@
         }
 
         // this is a page where on the left are the play cards from the db, on the right is the deck created by the user. Clicking on each card will place it the user's deck
+        // this is also a form, it will search for cards by criteria
         public async Task<IActionResult> Add(SingleDeckViewModel input, int id, string information)
         {
             var deck = await this.deckService.GetById<SingleDeckViewModel>(id);
@@ -82,7 +84,6 @@
             return this.View(input);
         }
 
-
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Dispatch(SingleDeckViewModel input)
@@ -92,6 +93,7 @@
             return this.RedirectToAction(nameof(this.ById), new { id = input.Id, information = input.GetDeckName() });
         }
 
+        //this will change the shipping location
         [HttpPost]
         public async Task<IActionResult> Shipping(SingleDeckViewModel input)
         {
@@ -172,6 +174,8 @@
             {
                 model.Decks = await this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
                 model.Stores = await this.storeService.GetAll<StoreInListViewModel>();
+                model.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(GameTestersEventValue);
+                model.EventId = GameTestersEventValue;
                 return this.View(model);
             }
 
@@ -184,7 +188,8 @@
                 this.ModelState.AddModelError(string.Empty, ex.Message);
                 model.Decks = await this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
                 model.Stores = await this.storeService.GetAll<StoreInListViewModel>();
-
+                model.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(GameTestersEventValue);
+                model.EventId = GameTestersEventValue;
                 return this.View(model);
             }
 

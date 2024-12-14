@@ -69,6 +69,7 @@
 
             if (!this.ModelState.IsValid)
             {
+                input.Events = await this.eventService.GetAll<EventInListViewModel>();
                 return this.View(input);
             }
 
@@ -80,6 +81,7 @@
             catch (Exception ex)
             {
                 this.ModelState.AddModelError(string.Empty, ex.Message);
+                input.Events = await this.eventService.GetAll<EventInListViewModel>();
                 return this.View(input);
             }
 

@@ -20,13 +20,16 @@ namespace Wizzarts.Services.Data
     public class ArticleService : IArticleService
     {
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
+        private readonly IFileService fileService;
         private readonly IDeletableEntityRepository<Article> articleRepository;
         private readonly IMemoryCache cache;
 
         public ArticleService(
+            IFileService fileService,
             IDeletableEntityRepository<Article> articleRepository,
             IMemoryCache cache)
         {
+            this.fileService = fileService;
             this.articleRepository = articleRepository;
             this.cache = cache;
         }
@@ -80,6 +83,12 @@ namespace Wizzarts.Services.Data
                 ArticleCreatorId = userId,
                 ForMainPage = isPremium,
             };
+
+            if (await this.fileService.IsValidImage(input.ImageUrl) == false)
+            {
+                throw new Exception($"Invalid image");
+            }
+
             Directory.CreateDirectory($"{imagePath}/navigation/articles");
             var extension = Path.GetExtension(input.ImageUrl.FileName)!.TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
@@ -90,14 +99,9 @@ namespace Wizzarts.Services.Data
             var physicalPath = $"{imagePath}/navigation/articles/{article.Title.Replace(" ", string.Empty)}.{extension}";
             article.ImageUrl = $"/images/navigation/articles/{article.Title.Replace(" ", string.Empty)}.{extension}";
             await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-            if (await IsValidImage(fileStream))
-            {
-                await input.ImageUrl.CopyToAsync(fileStream);
-            }
-            else
-            {
-                throw new Exception($"Invalid image");
-            }
+
+            await input.ImageUrl.CopyToAsync(fileStream);
+
             await this.articleRepository.AddAsync(article);
             await this.articleRepository.SaveChangesAsync();
             this.cache.Remove(ArticlesCacheKey);
@@ -195,21 +199,6 @@ namespace Wizzarts.Services.Data
              .To<T>().ToListAsync();
 
             return article;
-        }
-
-        public async Task<bool> IsValidImage(Stream stream)
-        {
-            try
-            {
-                using (var image = Image.FromStream(stream))
-                {
-                    return true;
-                }
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

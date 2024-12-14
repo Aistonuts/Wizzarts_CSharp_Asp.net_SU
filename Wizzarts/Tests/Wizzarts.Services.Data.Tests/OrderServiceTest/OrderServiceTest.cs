@@ -68,8 +68,9 @@
                 cache);
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
-            var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache,fileService);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository, fileService);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -154,8 +155,9 @@
                 cache);
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
-            var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository, fileService);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -228,8 +230,9 @@
                 cache);
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
-            var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository, fileService);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -305,8 +308,9 @@
                 cache);
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
-            var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository, fileService);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -379,8 +383,9 @@
                 cache);
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
-            var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository, fileService);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -458,8 +463,9 @@
                 cache);
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
-            var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository, fileService);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -532,8 +538,9 @@
                 cache);
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
-            var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository, fileService);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -608,8 +615,9 @@
                 cache);
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
-            var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository, fileService);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -687,8 +695,9 @@
                 cache);
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
-            var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository, fileService);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,

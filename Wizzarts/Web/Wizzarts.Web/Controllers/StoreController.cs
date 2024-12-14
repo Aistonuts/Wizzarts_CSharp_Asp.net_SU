@@ -47,6 +47,7 @@
 
             if (!this.ModelState.IsValid)
             {
+                input.Stores = await this.storeService.GetAll<StoreInListViewModel>();
                 return this.View(input);
             }
 
@@ -63,6 +64,7 @@
             catch (Exception ex)
             {
                 this.ModelState.AddModelError(string.Empty, ex.Message);
+                input.Stores = await this.storeService.GetAll<StoreInListViewModel>();
                 return this.View(input);
             }
 

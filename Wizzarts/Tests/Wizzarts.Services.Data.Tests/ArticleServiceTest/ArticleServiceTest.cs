@@ -31,7 +31,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var articleRepository = new EfDeletableEntityRepository<Article>(data);
-            var articleService = new ArticleService(articleRepository, cache);
+            var fileService = new FileService();
+            var articleService = new ArticleService(fileService, articleRepository, cache);
             var articles = articleService.GetAll<ArticleInListViewModel>(1, 6);
             int articleCount = articles.Count();
             Assert.Equal(6, articleCount);
@@ -46,7 +47,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var articleRepository = new EfDeletableEntityRepository<Article>(data);
-            var articleService = new ArticleService(articleRepository, cache);
+            var fileService = new FileService();
+            var articleService = new ArticleService(fileService, articleRepository, cache);
             int articleCount = await articleService.GetCount();
             Assert.Equal(6, articleCount);
 
@@ -60,7 +62,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var articleRepository = new EfDeletableEntityRepository<Article>(data);
-            var articleService = new ArticleService(articleRepository, cache);
+            var fileService = new FileService();
+            var articleService = new ArticleService(fileService, articleRepository, cache);
             var articles = articleService.GetRandom<ArticleInListViewModel>(3);
             int articleCount = articles.Count();
             Assert.Equal(3, articleCount);
@@ -76,7 +79,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repository, cache);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -109,7 +113,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repository, cache);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -140,7 +145,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repository, cache);
 
             var testArticle = new EditArticleViewModel()
             {
@@ -161,7 +167,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repository, cache);
 
             var article = await service.GetById<SingleArticleViewModel>(1);
 
@@ -178,7 +185,8 @@
 
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repository, cache);
 
             var articlesByUserMetzen =
               await service.GetAllArticlesByUserId<ArticleInListViewModel>("2b346dc6-5bd7-4e64-8396-15a064aa27a7", 1, 4);
@@ -194,7 +202,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repository, cache);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -231,7 +240,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repository, cache);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -270,7 +280,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repository, cache);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -301,7 +312,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repository, cache);
             Assert.Null(await service.ApproveArticle(10));
             this.TearDownBase();
         }
@@ -314,7 +326,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repository, cache);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
@@ -344,7 +357,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Article>(data);
-            var service = new ArticleService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArticleService(fileService, repository, cache);
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";

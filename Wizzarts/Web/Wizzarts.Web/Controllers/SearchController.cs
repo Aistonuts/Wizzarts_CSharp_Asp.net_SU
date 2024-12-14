@@ -2,7 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
-
+    using Ganss.Xss;
     using Microsoft.AspNetCore.Mvc;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
@@ -29,7 +29,9 @@
             try
             {
                 string term = this.HttpContext.Request.Query["CardName"].ToString();
-                var names = await this.searchService.GetAllCardsByTerm(term);
+                var sanitizer = new HtmlSanitizer();
+                var sanitizedText = sanitizer.Sanitize(term);
+                var names = await this.searchService.GetAllCardsByTerm(sanitizedText);
 
                 return this.Ok(names);
             }
@@ -42,9 +44,18 @@
         [HttpGet]
         public async Task<IActionResult> Advanced(string cardName)
         {
-            var card = this.playCardService.GetByName<SingleCardViewModel>(cardName);
+            var sanitizer = new HtmlSanitizer();
+            var sanitizedText = sanitizer.Sanitize(cardName);
+            var card = this.playCardService.GetByName<SingleCardViewModel>(sanitizedText);
 
-            return this.RedirectToAction("ById", "PlayCard", new { id = card.Id, information = card.GetCardName() });
+            if (card != null)
+            {
+                return this.RedirectToAction("ById", "PlayCard", new { id = card.Id, information = card.GetCardName() });
+            }
+            else
+            {
+                return this.RedirectToAction("All", "PlayCard");
+            }
         }
     }
 }

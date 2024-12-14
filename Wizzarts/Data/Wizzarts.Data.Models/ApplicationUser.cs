@@ -42,8 +42,8 @@ namespace Wizzarts.Data.Models
         [MaxLength(RemoteImageUrlMaxLength)]
         public string AvatarUrl { get; set; } = string.Empty;
 
-        [MaxLength(ArtistBioMaxLength)]
         [Comment("Information about the artist")]
+        [MaxLength(ArtistBioMaxLength)]
         public string Bio { get; set; } = string.Empty;
 
         [ForeignKey(nameof(AvatarId))]

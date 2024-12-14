@@ -22,13 +22,16 @@ namespace Wizzarts.Services.Data
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<Art> artRepository;
         private readonly IMemoryCache cache;
+        private readonly IFileService fileService;
 
         public ArtService(
             IDeletableEntityRepository<Art> artRepository,
-            IMemoryCache cache)
+            IMemoryCache cache,
+            IFileService fileService)
         {
             this.artRepository = artRepository;
             this.cache = cache;
+            this.fileService = fileService;
         }
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 3)
@@ -98,6 +101,11 @@ namespace Wizzarts.Services.Data
                 ForMainPage = isPremium,
             };
 
+            if (await this.fileService.IsValidImage(input.Image) == false)
+            {
+                throw new Exception($"Invalid image");
+            }
+
             Directory.CreateDirectory($"{imagePath}/art/userArt/");
             var extension = Path.GetExtension(input.Image.FileName)!.TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
@@ -109,14 +117,9 @@ namespace Wizzarts.Services.Data
             var physicalPath = $"{imagePath}/art/userArt/{art.Title.Replace(" ", string.Empty)}.{extension}";
             art.RemoteImageUrl = $"/images/art/userArt/{art.Title.Replace(" ", string.Empty)}.{extension}";
             await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-            if (await IsValidImage(fileStream))
-            {
-                await input.Image.CopyToAsync(fileStream);
-            }
-            else
-            {
-                throw new Exception($"Invalid image");
-            }
+
+            await input.Image.CopyToAsync(fileStream);
+
             await this.artRepository.AddAsync(art);
             await this.artRepository.SaveChangesAsync();
             this.cache.Remove(ArtsCacheKey);
@@ -198,21 +201,6 @@ namespace Wizzarts.Services.Data
         {
             return await this.artRepository
                .AllAsNoTracking().AnyAsync(a => a.Title == title);
-        }
-
-        public async Task<bool> IsValidImage(Stream stream)
-        {
-            try
-            {
-                using (var image = Image.FromStream(stream))
-                {
-                    return true;
-                }
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

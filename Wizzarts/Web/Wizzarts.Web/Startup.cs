@@ -85,6 +85,7 @@ namespace Wizzarts.Web
             services.AddTransient<ISearchService, SearchService>();
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IAdminEventService, AdminEventService>();
+            services.AddTransient<IFileService, FileService>();
 
             services.AddCors(setup =>
             {

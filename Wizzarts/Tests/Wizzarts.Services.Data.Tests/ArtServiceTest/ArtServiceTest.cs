@@ -10,6 +10,7 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Caching.Memory;
+    using NuGet.Protocol.Core.Types;
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;
     using Wizzarts.Services.Mapping;
@@ -31,7 +32,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-            var artService = new ArtService(repositoryArt, cache);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
             string base64 = "ZXhhbXBsZQ==";
             string notBase64 = "ZXhhbXBsZQ==11111123";
             bool isBase64 = artService.IsBase64String(base64);
@@ -48,7 +50,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-            var artService = new ArtService(repositoryArt, cache);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
             var art = await artService.GetById<SingleArtViewModel>("ab8532f9-2a2f-4b65-96f1-90e5468fbed2");
 
             Assert.Equal("Ancestral recall", art.Title);
@@ -63,7 +66,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-            var artService = new ArtService(repositoryArt, cache);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
             var art = artService.GetAll<ArtInListViewModel>(1, 19);
             int artCount = art.Count();
             Assert.Equal(19, artCount);
@@ -78,7 +82,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-            var artService = new ArtService(repositoryArt, cache);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
             int artCount = await artService.GetCountAsync();
             Assert.Equal(19, artCount);
 
@@ -93,7 +98,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Art>(data);
-            var service = new ArtService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArtService(repository, cache, fileService);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -122,7 +128,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Art>(data);
-            var service = new ArtService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArtService(repository, cache, fileService);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -149,7 +156,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Art>(data);
-            var service = new ArtService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArtService(repository, cache, fileService);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -178,7 +186,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Art>(data);
-            var service = new ArtService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArtService(repository, cache, fileService);
 
             var testArtPiece = new EditArtViewModel()
             {
@@ -199,7 +208,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-            var artService = new ArtService(repositoryArt, cache);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
             await artService.DeleteAsync("ab8532f9-2a2f-4b65-96f1-90e5468fbed2");
             int artCount = await artService.GetCountAsync();
             var artPiece = await data.Arts.FirstOrDefaultAsync(x => x.Id == "ab8532f9-2a2f-4b65-96f1-90e5468fbed2");
@@ -215,7 +225,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-            var artService = new ArtService(repositoryArt, cache);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
             var artByUserDrawgoon = await artService.GetAllArtByUserId<ArtInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695", 1, 8);
             Assert.Equal(8, artByUserDrawgoon.Count());
             this.TearDownBase();
@@ -228,7 +239,8 @@
             var data = this.dbContext;
             var cache = new MemoryCache(new MemoryCacheOptions());
             using var repositoryArt = new EfDeletableEntityRepository<Art>(data);
-            var artService = new ArtService(repositoryArt, cache);
+            var fileService = new FileService();
+            var artService = new ArtService(repositoryArt, cache, fileService);
             var artByUserDrawgoon = await artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695");
             Assert.Equal(8, artByUserDrawgoon.Count());
             this.TearDownBase();
@@ -242,7 +254,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Art>(data);
-            var service = new ArtService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArtService(repository, cache, fileService);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -273,7 +286,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Art>(data);
-            var service = new ArtService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArtService(repository, cache, fileService);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -307,7 +321,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Art>(data);
-            var service = new ArtService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArtService(repository, cache, fileService);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -338,7 +353,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Art>(data);
-            var service = new ArtService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArtService(repository, cache, fileService);
 
             Assert.Null(await service.ApproveArt("111-b-1"));
             this.TearDownBase();
@@ -352,7 +368,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var repository = new EfDeletableEntityRepository<Art>(data);
-            var service = new ArtService(repository, cache);
+            var fileService = new FileService();
+            var service = new ArtService(repository, cache, fileService);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";

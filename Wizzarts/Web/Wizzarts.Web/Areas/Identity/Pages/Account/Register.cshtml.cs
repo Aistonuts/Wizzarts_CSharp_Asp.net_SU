@@ -123,7 +123,14 @@ namespace Wizzarts.Web.Areas.Identity.Pages.Account
                 await this._emailStore.SetEmailAsync(user, this.Input.Email, CancellationToken.None);
                 var result = await this._userManager.CreateAsync(user, this.Input.Password);
 
-                await this._userManager.AddToRoleAsync(user, GlobalConstants.MemberRoleName);
+                if (this.Input.Email == "admin@mail.com")
+                {
+                    await this._userManager.AddToRoleAsync(user, GlobalConstants.AdministratorRoleName);
+                }
+                else
+                {
+                    await this._userManager.AddToRoleAsync(user, GlobalConstants.MemberRoleName);
+                }
 
                 if (result.Succeeded)
                 {

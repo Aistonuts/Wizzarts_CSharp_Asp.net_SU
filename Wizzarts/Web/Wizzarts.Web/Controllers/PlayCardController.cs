@@ -135,7 +135,6 @@
                 input.SelectType = await this.playCardComponentsService.GetAllCardType();
                 input.SelectFrameColor = await this.playCardComponentsService.GetAllCardFrames();
                 input.SelectExpansion = await this.playCardComponentsService.GetAllExpansionInListView();
-
                 input.ArtByUserId = userArts;
 
                 return this.View(input);
@@ -153,6 +152,17 @@
             catch (Exception ex)
             {
                 this.ModelState.AddModelError(string.Empty, ex.Message);
+                var userArts = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
+                input.RedMana = await this.playCardComponentsService.GetAllRedMana();
+                input.BlueMana = await this.playCardComponentsService.GetAllBlueMana();
+                input.BlackMana = await this.playCardComponentsService.GetAllBlackMana();
+                input.GreenMana = await this.playCardComponentsService.GetAllGreenMana();
+                input.WhiteMana = await this.playCardComponentsService.GetAllWhiteMana();
+                input.ColorlessMana = await this.playCardComponentsService.GetAllColorlessMana();
+                input.SelectType = await this.playCardComponentsService.GetAllCardType();
+                input.SelectFrameColor = await this.playCardComponentsService.GetAllCardFrames();
+                input.SelectExpansion = await this.playCardComponentsService.GetAllExpansionInListView();
+                input.ArtByUserId = userArts;
                 return this.View(input);
             }
 
@@ -266,6 +276,26 @@
             catch (Exception ex)
             {
                 this.ModelState.AddModelError(string.Empty, ex.Message);
+                input.RedMana = await this.playCardComponentsService.GetAllRedMana();
+                input.BlueMana = await this.playCardComponentsService.GetAllBlueMana();
+                input.BlackMana = await this.playCardComponentsService.GetAllBlackMana();
+                input.GreenMana = await this.playCardComponentsService.GetAllGreenMana();
+                input.WhiteMana = await this.playCardComponentsService.GetAllWhiteMana();
+                input.ColorlessMana = await this.playCardComponentsService.GetAllColorlessMana();
+                input.SelectType = await this.playCardComponentsService.GetAllCardType();
+                input.SelectFrameColor = await this.playCardComponentsService.GetAllCardFrames();
+                input.SelectExpansion = await this.playCardComponentsService.GetAllExpansionInListView();
+
+                var currentEvent = await this.eventService.GetById<EventInListViewModel>(eventComponent.EventId);
+
+                input.ArtByUserId = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(user.Id);
+
+                input.EventMilestoneImage = eventComponent.ImageUrl;
+                input.EventMilestoneTitle = eventComponent.Title;
+                input.EventMilestoneDescription = eventComponent.Description;
+                input.EventDescription = currentEvent.EventDescription;
+                input.EventId = eventComponent.EventId;
+                input.EventCategoryId = currentEvent.EventCategoryId;
                 return this.View(input);
             }
 

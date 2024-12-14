@@ -28,7 +28,7 @@
 
         public const int ArtistBioMinLength = 20;
 
-        public const int ArtistBioMaxLength = 500;
+        public const int ArtistBioMaxLength = 1000;
 
         // Expansion Constants
         public const int ExpansionTitleMaxLength = 30;

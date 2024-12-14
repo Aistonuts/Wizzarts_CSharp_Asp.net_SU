@@ -7,7 +7,7 @@ namespace Wizzarts.Services.Data
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
@@ -18,10 +18,14 @@ namespace Wizzarts.Services.Data
     {
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<Store> storeRepository;
+        private readonly IFileService fileService;
 
-        public StoreService(IDeletableEntityRepository<Store> storeRepository)
+        public StoreService(
+            IDeletableEntityRepository<Store> storeRepository,
+            IFileService fileService)
         {
             this.storeRepository = storeRepository;
+            this.fileService = fileService;
         }
 
         public async Task<string> ApproveStore(int id)
@@ -43,6 +47,12 @@ namespace Wizzarts.Services.Data
                 Country = input.StoreCountry,
                 PhoneNumber = input.StorePhoneNumber,
             };
+
+            if (await this.fileService.IsValidImage(input.StoreImage) == false)
+            {
+                throw new Exception($"Invalid image");
+            }
+
             Directory.CreateDirectory($"{imagePath}/Stores/");
             var extension = Path.GetExtension(input.StoreImage.FileName).TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
@@ -54,14 +64,7 @@ namespace Wizzarts.Services.Data
             store.Image = $"/images/Stores/{store.Name.Replace(" ", string.Empty)}.{extension}";
             using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
 
-            if (await IsValidImage(fileStream))
-            {
-                await input.StoreImage.CopyToAsync(fileStream);
-            }
-            else
-            {
-                throw new Exception($"Invalid image");
-            }
+            await input.StoreImage.CopyToAsync(fileStream);
 
             await this.storeRepository.AddAsync(store);
             await this.storeRepository.SaveChangesAsync();
@@ -132,21 +135,6 @@ namespace Wizzarts.Services.Data
         public Task<int> GetCount()
         {
             return this.storeRepository.All().CountAsync();
-        }
-
-        public async Task<bool> IsValidImage(Stream stream)
-        {
-            try
-            {
-                using (var image = Image.FromStream(stream))
-                {
-                    return true;
-                }
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

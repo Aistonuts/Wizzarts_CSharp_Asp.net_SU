@@ -24,12 +24,6 @@
             await dbContext.UserRoles.AddAsync(new IdentityUserRole<string>
             {
                 RoleId = "7932748b-a6a7-480d-b8d7-a689b6e29221",
-                UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
-            });
-
-            await dbContext.UserRoles.AddAsync(new IdentityUserRole<string>
-            {
-                RoleId = "7932748b-a6a7-480d-b8d7-a689b6e29221",
                 UserId = "5823bbf1-993c-416b-9bf1-c358fedf38a6",
             });
 
@@ -55,12 +49,6 @@
             {
                 RoleId = "7932748b-a6a7-480d-b8d7-a689b6e29221",
                 UserId = "b4accad4-e878-4de3-a317-665d0a43fbd3",
-            });
-
-            await dbContext.UserRoles.AddAsync(new IdentityUserRole<string>
-            {
-                RoleId = "7932748b-a6a7-480d-b8d7-a689b6e29221",
-                UserId = "5823bbf1-993c-416b-9bf1-c358fedf38a6",
             });
 
             await dbContext.UserRoles.AddAsync(new IdentityUserRole<string>

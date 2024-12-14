@@ -92,6 +92,7 @@
             this.ModelState.Remove("Password");
             if (!this.ModelState.IsValid)
             {
+                input.Avatars = await this.userService.GetAllAvatars<AvatarInListViewModel>();
                 return this.View(input);
             }
 
@@ -104,6 +105,7 @@
             catch (Exception ex)
             {
                 this.ModelState.AddModelError(string.Empty, ex.Message);
+                input.Avatars = await this.userService.GetAllAvatars<AvatarInListViewModel>();
                 return this.View(input);
             }
 

@@ -24,19 +24,23 @@ namespace Wizzarts.Services.Data
         private readonly IDeletableEntityRepository<TagHelpAction> tagHelpActions;
         private readonly IDeletableEntityRepository<EventCategory> eventCategories;
         private readonly IDeletableEntityRepository<EventComponent> eventComponentsRepository;
+        private readonly IFileService fileService;
 
         public EventService(
             IDeletableEntityRepository<Event> eventRepository,
             IDeletableEntityRepository<TagHelpController> tagHelpControllers,
             IDeletableEntityRepository<TagHelpAction> tagHelpActions,
             IDeletableEntityRepository<EventCategory> eventCategories,
-            IDeletableEntityRepository<EventComponent> eventComponentsRepository)
+            IDeletableEntityRepository<EventComponent> eventComponentsRepository,
+            IFileService fileService)
         {
             this.eventRepository = eventRepository;
             this.tagHelpControllers = tagHelpControllers;
             this.tagHelpActions = tagHelpActions;
             this.eventCategories = eventCategories;
             this.eventComponentsRepository = eventComponentsRepository;
+            this.fileService = fileService;
+
         }
 
         public async Task CreateAsync(CreateEventViewModel input, string userId, string imagePath, bool isContentCreator)
@@ -52,6 +56,12 @@ namespace Wizzarts.Services.Data
                 ActionId = ByIdActionId,
                 EventCategoryId = ImageType,
             };
+
+            if (await this.fileService.IsValidImage(input.Image) == false)
+            {
+                throw new Exception($"Invalid image");
+            }
+
             Directory.CreateDirectory($"{imagePath}/event/UserEvent/");
             var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
@@ -62,15 +72,6 @@ namespace Wizzarts.Services.Data
             var physicalPath = $"{imagePath}/event/UserEvent/{newEvent.Title.Replace(" ", string.Empty)}.{extension}";
             newEvent.RemoteImageUrl = $"/images/event/UserEvent/{newEvent.Title.Replace(" ", string.Empty)}.{extension}";
             await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-
-            if (await IsValidImage(fileStream))
-            {
-                await input.Image.CopyToAsync(fileStream);
-            }
-            else
-            {
-                throw new Exception($"Invalid image");
-            }
 
             await input.Image.CopyToAsync(fileStream);
             await this.eventRepository.AddAsync(newEvent);
@@ -192,6 +193,11 @@ namespace Wizzarts.Services.Data
             };
             if (input.Image != null)
             {
+                if (await this.fileService.IsValidImage(input.Image) == false)
+                {
+                    throw new Exception($"Invalid image");
+                }
+
                 component.EventCategoryId = ImageType;
                 Directory.CreateDirectory($"{imagePath}/event/UserEvent/Components");
                 var extension = Path.GetExtension(input.Image.FileName).TrimStart('.');
@@ -203,14 +209,6 @@ namespace Wizzarts.Services.Data
                 var physicalPath = $"{imagePath}/event/UserEvent/Components/{component.Title.Replace(" ", string.Empty)}.{extension}";
                 component.ImageUrl = $"/images/event/UserEvent/Components/{component.Title.Replace(" ", string.Empty)}.{extension}";
                 await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-                if (await IsValidImage(fileStream))
-                {
-                    await input.Image.CopyToAsync(fileStream);
-                }
-                else
-                {
-                    throw new Exception($"Invalid image");
-                }
 
                 await input.Image.CopyToAsync(fileStream);
             }
@@ -292,21 +290,6 @@ namespace Wizzarts.Services.Data
         {
             return await this.eventRepository
              .AllAsNoTracking().AnyAsync(a => a.Title == title);
-        }
-
-        public async Task<bool> IsValidImage(Stream stream)
-        {
-            try
-            {
-                using (var image = Image.FromStream(stream))
-                {
-                    return true;
-                }
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

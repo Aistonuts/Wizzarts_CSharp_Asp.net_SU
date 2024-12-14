@@ -1,5 +1,6 @@
 ﻿namespace Wizzarts.Services.Data
 {
+    using Microsoft.AspNetCore.Http;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
@@ -27,7 +28,5 @@
         Task<T> GetById<T>(int id);
 
         Task<bool> ExistsAsync(int id);
-
-        Task<bool> IsValidImage(Stream stream);
     }
 }

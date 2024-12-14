@@ -47,7 +47,5 @@
         Task<int> GetCount();
 
         Task<bool> EventTitleExist(string title);
-
-        Task<bool> IsValidImage(Stream stream);
     }
 }

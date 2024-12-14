@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wizzarts.Web.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d978fcb6c2d81ae0e2d6f7032664418fe8745de")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a175cf3b5ca0d643e0feb7fe190042e54cc9c3f0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wizzarts.Web.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wizzarts.Web.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
