@@ -23,13 +23,13 @@
 
             await dbContext.UserRoles.AddAsync(new IdentityUserRole<string>
             {
-                RoleId = "c3233260-ea67-47fe-a8f0-7785bb31c136",
+                RoleId = "7932748b-a6a7-480d-b8d7-a689b6e29221",
                 UserId = "2738e787-5d57-4bc7-b0d2-287242f04695",
             });
 
             await dbContext.UserRoles.AddAsync(new IdentityUserRole<string>
             {
-                RoleId = "c3233260-ea67-47fe-a8f0-7785bb31c136",
+                RoleId = "7932748b-a6a7-480d-b8d7-a689b6e29221",
                 UserId = "5823bbf1-993c-416b-9bf1-c358fedf38a6",
             });
 

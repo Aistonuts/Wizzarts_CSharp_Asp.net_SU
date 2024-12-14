@@ -7,8 +7,6 @@
 
     public class SingleMemberViewModel : IndexAuthenticationViewModel, IMapFrom<ApplicationUser>, ISingleMemberViewModel
     {
-        public string UserId { get; set; } = string.Empty;
-
         public string Nickname { get; set; } = string.Empty;
 
         public string Username { get; set; } = string.Empty;

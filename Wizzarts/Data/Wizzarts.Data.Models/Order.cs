@@ -27,10 +27,6 @@
 #nullable enable
         public int? DeckId { get; set; }
 
-        public int? ExpansionId { get; set; }
-
-        public bool IsCustomOrder { get; set; }
-
         public string DeckImageUrl { get; set; } = string.Empty;
 
         [Required]

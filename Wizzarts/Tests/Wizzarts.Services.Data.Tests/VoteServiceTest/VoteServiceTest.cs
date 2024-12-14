@@ -27,7 +27,7 @@
             await service.SetVoteAsync("c330fecf-61a9-4e03-8052-cd2b9583a251", "1", 5);
             await service.SetVoteAsync("c330fecf-61a9-4e03-8052-cd2b9583a251", "1", 5);
 
-            Assert.Equal(1, list.Count);
+            Assert.Single(list);
             Assert.Equal(5, list.First().Value);
         }
 

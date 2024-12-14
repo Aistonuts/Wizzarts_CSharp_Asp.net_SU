@@ -55,7 +55,7 @@
 
         [HttpGet]
         [MustBeAnArtist]
-        public async Task<IActionResult> Add()
+        public async Task<IActionResult> Add(int id = 0)
         {
             if (this.User == null || (this.User.IsAdmin() == false && this.User.IsArtist() == false))
             {
@@ -78,8 +78,12 @@
             viewModel.SelectType = await this.playCardComponentsService.GetAllCardType();
             viewModel.SelectFrameColor = await this.playCardComponentsService.GetAllCardFrames();
             viewModel.SelectExpansion = await this.playCardComponentsService.GetAllExpansionInListView();
-
             viewModel.ArtByUserId = userArts;
+
+            if (id != 0)
+            {
+                viewModel.EventId = id;
+            }
 
             return this.View(viewModel);
         }
@@ -190,6 +194,7 @@
             var user = await this.userManager.GetUserAsync(this.User);
             var eventComponent = await this.eventService.GetEventComponentById<EventComponentsInListViewModel>(id);
             var isArtByUser = await this.artService.HasUserWithIdAsync(input.ArtId, this.User.GetId());
+
             if (eventComponent.EventCategoryId == ImagelessType && isArtByUser == false)
             {
                 this.ModelState.AddModelError(nameof(input.ArtId), "Art does not exist");
@@ -241,8 +246,6 @@
                 return this.View(input);
             }
 
-            bool isEventCard = eventComponent != null;
-
             if (eventComponent != null && eventComponent.EventCategoryId == ImagelessType)
             {
                 var cardTitle = eventComponent.Title;
@@ -258,7 +261,7 @@
 
             try
             {
-                await this.cardService.CreateAsync(input, this.User.GetId(), eventComponent.EventId, $"{this.environment.WebRootPath}/images", isEventCard, eventComponent.EventCategoryId, canvasCapture);
+                await this.cardService.CreateAsync(input, this.User.GetId(), eventComponent.EventId, $"{this.environment.WebRootPath}/images", eventComponent.EventCategoryId, canvasCapture);
             }
             catch (Exception ex)
             {

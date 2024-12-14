@@ -12,7 +12,7 @@ using Wizzarts.Data;
 namespace Wizzarts.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241210162635_InitialCreate")]
+    [Migration("20241214124007_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -834,17 +834,19 @@ namespace Wizzarts.Data.Migrations
 
                     b.Property<string>("CardFlavor")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
                         .HasComment("Card Description");
 
                     b.Property<string>("CardId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)")
-                        .HasComment("Review of which card");
+                        .HasComment("Review of which card?");
 
                     b.Property<string>("CardName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)")
                         .HasComment("Card title");
 
                     b.Property<DateTime>("CreatedOn")
@@ -1140,38 +1142,6 @@ namespace Wizzarts.Data.Migrations
                     b.ToTable("EventComponents");
                 });
 
-            modelBuilder.Entity("Wizzarts.Data.Models.EventParticipant", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("EventId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("UserId", "EventId");
-
-                    b.HasIndex("EventId");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.ToTable("EventParticipants");
-                });
-
             modelBuilder.Entity("Wizzarts.Data.Models.EventStatus", b =>
                 {
                     b.Property<int>("Id")
@@ -1313,12 +1283,6 @@ namespace Wizzarts.Data.Migrations
                     b.Property<DateTime?>("EstimatedDeliveryDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ExpansionId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsCustomOrder")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -1417,7 +1381,7 @@ namespace Wizzarts.Data.Migrations
 
                     b.Property<int?>("CardFrameColorId")
                         .HasColumnType("int")
-                        .HasComment("Framecolor Id. There is a default value.");
+                        .HasComment("Frame color Id. There is a default value.");
 
                     b.Property<int>("CardGameExpansionId")
                         .HasColumnType("int")
@@ -2070,7 +2034,8 @@ namespace Wizzarts.Data.Migrations
                         .HasComment("Avatar remote URL.Picked after signing in");
 
                     b.Property<string>("Bio")
-                        .HasColumnType("nvarchar(max)")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
                         .HasComment("Information about the artist");
 
                     b.Property<DateTime>("CreatedOn")
@@ -2363,25 +2328,6 @@ namespace Wizzarts.Data.Migrations
                     b.Navigation("ControllerName");
 
                     b.Navigation("Event");
-                });
-
-            modelBuilder.Entity("Wizzarts.Data.Models.EventParticipant", b =>
-                {
-                    b.HasOne("Wizzarts.Data.Models.Event", "Event")
-                        .WithMany()
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Wizzarts.Data.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Event");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Wizzarts.Data.Models.ManaInCard", b =>

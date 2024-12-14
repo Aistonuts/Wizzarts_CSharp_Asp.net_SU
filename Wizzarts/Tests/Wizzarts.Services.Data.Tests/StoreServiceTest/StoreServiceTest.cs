@@ -41,7 +41,6 @@
             var newStore = new CreateStoreViewModel
             {
                 StoreName = "test",
-                StoreOwnerId = "testtesttest",
                 StoreAddress = "testtesttesttest",
                 StoreCity = "testtesttesttest",
                 StoreCountry = "testtesttesttest",
@@ -77,7 +76,6 @@
             var newStore = new CreateStoreViewModel
             {
                 StoreName = "test",
-                StoreOwnerId = "testtesttest",
                 StoreAddress = "testtesttesttest",
                 StoreCity = "testtesttesttest",
                 StoreCountry = "testtesttesttest",
@@ -169,7 +167,6 @@
             var newStore = new CreateStoreViewModel
             {
                 StoreName = "test",
-                StoreOwnerId = "testtesttest",
                 StoreAddress = "testtesttesttest",
                 StoreCity = "testtesttesttest",
                 StoreCountry = "testtesttesttest",

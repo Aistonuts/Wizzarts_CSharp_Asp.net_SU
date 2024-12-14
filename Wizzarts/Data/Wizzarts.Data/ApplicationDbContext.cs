@@ -67,8 +67,6 @@
 
         public DbSet<EventComponent> EventComponents { get; set; }
 
-        public DbSet<EventParticipant> EventParticipants { get; set; }
-
         public DbSet<Store> Stores { get; set; }
 
         public DbSet<ManaInCard> ManaInCard { get; set; }
@@ -118,16 +116,8 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<EventParticipant>()
-            .HasKey(c => new { c.UserId, c.EventId });
-
             builder.Entity<CardOrder>()
             .HasKey(c => new { c.OrderId, c.PlayCardId });
-
-            builder.Entity<Event>()
-            .HasMany(s => s.Participants)
-            .WithMany(c => c.JoinedEvents)
-            .UsingEntity<EventParticipant>();
 
             builder.Entity<Order>()
             .HasMany(s => s.CardsInOrder)

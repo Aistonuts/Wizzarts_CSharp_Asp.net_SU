@@ -20,9 +20,11 @@
 
         public string IsLocked { get; set; } = string.Empty;
 
-        public string CreatedByMemberId { get; set; } = string.Empty;
+        //public string CreatedByMemberId { get; set; } = string.Empty;
 
         public string CreatedByMember { get; set; } = string.Empty;
+
+        public string CreatedByUser { get; set; } = string.Empty;
 
         public void CreateMappings(IProfileExpression configuration)
         {
@@ -35,7 +37,10 @@
                        x.Store.Name.ToString()))
                 .ForMember(x => x.CreatedByMember, opt =>
                     opt.MapFrom(x =>
-                       x.CreatedByMember.Nickname));
+                       x.CreatedByMember.Nickname))
+                .ForMember(x => x.CreatedByUser, opt =>
+                    opt.MapFrom(x =>
+                        x.CreatedByMember.UserName));
         }
     }
 }

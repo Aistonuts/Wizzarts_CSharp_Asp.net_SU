@@ -21,12 +21,12 @@
         [Required(ErrorMessage = RequiredMessage)]
         [StringLength(EventTitleMaxLength, MinimumLength = EventTitleMinLength, ErrorMessage = LengthMessage)]
         [Comment("Event Component Title")]
-        public string ComponentTitle { get; set; } = string.Empty;
+        public string ComponentTitle { get; set; } = null!;
 
         [Required(ErrorMessage = RequiredMessage)]
         [StringLength(EventDescriptionMaxLength, MinimumLength = EventDescriptionMinLength, ErrorMessage = LengthMessage)]
         [Comment("Event Description")]
-        public string ComponentDescription { get; set; } = string.Empty;
+        public string ComponentDescription { get; set; } = null!;
 
         public string ComponentImageUrl { get; set; }
 

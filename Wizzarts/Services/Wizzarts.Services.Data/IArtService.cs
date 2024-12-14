@@ -1,6 +1,7 @@
 ﻿namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
+    using System.IO;
     using System.Threading.Tasks;
 
     using Wizzarts.Web.ViewModels.Art;
@@ -34,5 +35,7 @@
         Task<bool> HasUserWithIdAsync(string artId, string userId);
 
         Task<bool> ArtTitleExist(string title);
+
+        Task<bool> IsValidImage(Stream stream);
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace Wizzarts.Services.Data
+﻿using System.Drawing;
+using OpenQA.Selenium;
+
+namespace Wizzarts.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -94,7 +97,7 @@
             return cachedCards;
         }
 
-        public async Task CreateAsync(CreateCardViewModel input, string userId, int id, string path, bool isEventCard, int eventCategoryId, string canvasCapture)
+        public async Task CreateAsync(CreateCardViewModel input, string userId, int id, string path, int eventCategoryId, string canvasCapture)
         {
             var card = new PlayCard
             {
@@ -112,7 +115,7 @@
                 Toughness = input.Toughness,
                 CardGameExpansionId = BetaExpansion,
                 AddedByMemberId = userId,
-                IsEventCard = isEventCard,
+                IsEventCard = true,
                 ForMainPage = false,
             };
 
@@ -216,36 +219,26 @@
 
             var physicalPath = string.Empty;
 
-            if (!isEventCard)
+            card.EventId = id;
+            card.ArtId = null;
+            if (eventCategoryId == ImagelessType)
+            {
+                Directory.CreateDirectory($"{path}/cardsByExpansion/EventCards/Flavor");
+                physicalPath = $"{path}/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
+                card.CardRemoteUrl = $"/images/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
+            }
+            else if (eventCategoryId == FlavorlessType)
+            {
+                Directory.CreateDirectory($"{path}/cardsByExpansion/EventCards/Flavorless");
+                physicalPath = $"{path}/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
+                card.CardRemoteUrl = $"/images/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
+            }
+            else
             {
                 Directory.CreateDirectory($"{path}/cardsByExpansion/PremiumUserCards");
                 physicalPath = $"{path}/cardsByExpansion/PremiumUserCards/{input.Name}.png";
                 card.CardRemoteUrl = $"/images/cardsByExpansion/PremiumUserCards/{input.Name}.png";
                 card.ArtId = input.ArtId;
-            }
-            else
-            {
-                card.EventId = id;
-                card.ArtId = null;
-                if (eventCategoryId == ImagelessType)
-                {
-                    Directory.CreateDirectory($"{path}/cardsByExpansion/EventCards/Flavor");
-                    physicalPath = $"{path}/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
-                    card.CardRemoteUrl = $"/images/cardsByExpansion/EventCards/Flavor/{input.Name}.png";
-                }
-                else if (eventCategoryId == FlavorlessType)
-                {
-                    Directory.CreateDirectory($"{path}/cardsByExpansion/EventCards/Flavorless");
-                    physicalPath = $"{path}/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
-                    card.CardRemoteUrl = $"/images/cardsByExpansion/EventCards/Flavorless/{input.Name}.png";
-                }
-                else
-                {
-                    Directory.CreateDirectory($"{path}/cardsByExpansion/PremiumUserCards");
-                    physicalPath = $"{path}/cardsByExpansion/PremiumUserCards/{input.Name}.png";
-                    card.CardRemoteUrl = $"/images/cardsByExpansion/PremiumUserCards/{input.Name}.png";
-                    card.ArtId = input.ArtId;
-                }
             }
 
             // string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
@@ -295,7 +288,7 @@
             return mana;
         }
 
-        public async Task<IEnumerable<T>> GetAllCardsByUserId<T>(string id, int page, int itemsPerPage = 12)
+        public async Task<IEnumerable<T>> GetAllCardsByUserId<T>(string id, int page, int itemsPerPage = 30)
         {
             var cards = await this.cardRepository.AllAsNoTracking()
             .Where(x => x.AddedByMemberId == id)
@@ -591,6 +584,30 @@
         {
             return await this.cardRepository
               .AllAsNoTracking().AnyAsync(a => a.Name == title);
+        }
+
+        public async Task<IEnumerable<T>> GetAllCardsByUserIdPageless<T>(string id)
+        {
+            var cards = await this.cardRepository.AllAsNoTracking()
+            .Where(x => x.AddedByMemberId == id)
+            .To<T>().ToListAsync();
+
+            return cards;
+        }
+
+        public async Task<bool> IsValidImage(Stream stream)
+        {
+            try
+            {
+                using (var image = Image.FromStream(stream))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

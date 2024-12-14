@@ -162,9 +162,13 @@
             {
                 message = $"You are an artist.If you are interested in working with us, contact us by mail at team@wizzarts.com or check for available wizzarts team members in chat and we will check your portfolio.";
             }
+            else if (currentRole.Contains(AdministratorRoleName))
+            {
+                message = $"You are Admin.";
+            }
             else
             {
-                message = $"You are a member.";
+                message = $"You have no role.";
             }
 
             return message;
@@ -197,6 +201,15 @@
         public async Task<bool> NickNameExist(string nickname)
         {
             return await this.userRepository.All().AnyAsync(x => x.Nickname == nickname);
+        }
+
+        public async Task<T> GetByUserName<T>(string userName)
+        {
+            var user = await this.userRepository.AllAsNoTracking()
+                .Where(x => x.UserName == userName)
+                .To<T>().FirstOrDefaultAsync();
+
+            return user;
         }
     }
 }

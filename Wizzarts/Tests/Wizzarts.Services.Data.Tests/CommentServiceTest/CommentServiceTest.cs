@@ -62,13 +62,14 @@
                 CommentSuggestions = "Go Test",
             };
             var userId = "2738e787-5d57-4bc7-b0d2-287242f04695";
+            var userName = "Drawgoon";
             var cardId = "c330fecf-61a9-4e03-8052-cd2b9583a251";
 
             await commentService.CommentAsync(comment, userId, cardId, true);
 
             var adminComments = await commentService.GetAllCommentsByUser<CardCommentInListViewModel>(userId);
-            var adminComment = adminComments.FirstOrDefault(x => x.PostedByUserId == userId);
-            Assert.Equal(1, adminComments.Count());
+            var adminComment = adminComments.FirstOrDefault(x => x.PostedByUser == userName);
+            Assert.Single(adminComments);
             Assert.Equal("Tested Great", adminComment.Review);
             this.TearDownBase();
         }
@@ -95,7 +96,7 @@
 
             var cardComments = await commentService.GetCommentsByCardId<CardCommentInListViewModel>(cardId);
             var cardComment = cardComments.FirstOrDefault(x => x.CardId == cardId);
-            Assert.Equal(1, cardComments.Count());
+            Assert.Single(cardComments);
             Assert.Equal("Tested Great", cardComment.Review);
             this.TearDownBase();
         }

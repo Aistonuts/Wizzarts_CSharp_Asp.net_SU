@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using System.Drawing;
+
+namespace Wizzarts.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -21,7 +23,6 @@
         private readonly IDeletableEntityRepository<TagHelpController> tagHelpControllers;
         private readonly IDeletableEntityRepository<TagHelpAction> tagHelpActions;
         private readonly IDeletableEntityRepository<EventCategory> eventCategories;
-        private readonly IDeletableEntityRepository<EventParticipant> eventParticipantRepository;
         private readonly IDeletableEntityRepository<EventComponent> eventComponentsRepository;
 
         public EventService(
@@ -29,14 +30,12 @@
             IDeletableEntityRepository<TagHelpController> tagHelpControllers,
             IDeletableEntityRepository<TagHelpAction> tagHelpActions,
             IDeletableEntityRepository<EventCategory> eventCategories,
-            IDeletableEntityRepository<EventParticipant> eventParticipantRepository,
             IDeletableEntityRepository<EventComponent> eventComponentsRepository)
         {
             this.eventRepository = eventRepository;
             this.tagHelpControllers = tagHelpControllers;
             this.tagHelpActions = tagHelpActions;
             this.eventCategories = eventCategories;
-            this.eventParticipantRepository = eventParticipantRepository;
             this.eventComponentsRepository = eventComponentsRepository;
         }
 
@@ -63,6 +62,16 @@
             var physicalPath = $"{imagePath}/event/UserEvent/{newEvent.Title.Replace(" ", string.Empty)}.{extension}";
             newEvent.RemoteImageUrl = $"/images/event/UserEvent/{newEvent.Title.Replace(" ", string.Empty)}.{extension}";
             await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+
+            if (await IsValidImage(fileStream))
+            {
+                await input.Image.CopyToAsync(fileStream);
+            }
+            else
+            {
+                throw new Exception($"Invalid image");
+            }
+
             await input.Image.CopyToAsync(fileStream);
             await this.eventRepository.AddAsync(newEvent);
             await this.eventRepository.SaveChangesAsync();
@@ -194,6 +203,15 @@
                 var physicalPath = $"{imagePath}/event/UserEvent/Components/{component.Title.Replace(" ", string.Empty)}.{extension}";
                 component.ImageUrl = $"/images/event/UserEvent/Components/{component.Title.Replace(" ", string.Empty)}.{extension}";
                 await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+                if (await IsValidImage(fileStream))
+                {
+                    await input.Image.CopyToAsync(fileStream);
+                }
+                else
+                {
+                    throw new Exception($"Invalid image");
+                }
+
                 await input.Image.CopyToAsync(fileStream);
             }
             else
@@ -219,67 +237,6 @@
         {
             return await this.eventComponentsRepository
                .AllAsNoTracking().AnyAsync(a => a.Id == id);
-        }
-
-        public async Task<bool> EventHasUserWithId(int eventId, string userId)
-        {
-            return await this.eventParticipantRepository.AllAsNoTracking()
-                .AnyAsync(a => a.EventId == eventId && a.UserId == userId);
-        }
-
-        public async Task<IEnumerable<T>> GetAllTagHelpControllers<T>()
-        {
-            var controllers = await this.tagHelpControllers.AllAsNoTracking()
-          .To<T>().ToListAsync();
-
-            return controllers;
-        }
-
-        public async Task<IEnumerable<T>> GetAllTagHelpActions<T>()
-        {
-            var actions = await this.tagHelpActions.AllAsNoTracking()
-          .To<T>().ToListAsync();
-
-            return actions;
-        }
-
-        public async Task<IEnumerable<T>> GetAllEventCategories<T>()
-        {
-            var categories = await this.eventCategories.AllAsNoTracking()
-          .To<T>().ToListAsync();
-
-            return categories;
-        }
-
-        public async Task<bool> TagHelpControllerExist(string id)
-        {
-            return await this.tagHelpControllers
-              .AllAsNoTracking().AnyAsync(a => a.Id == id);
-        }
-
-        public async Task<bool> TagHelpActionExist(string id)
-        {
-            return await this.tagHelpActions
-              .AllAsNoTracking().AnyAsync(a => a.Id == id);
-        }
-
-        public async Task<bool> EventCategoryExist(int id)
-        {
-            return await this.eventCategories
-              .AllAsNoTracking().AnyAsync(a => a.Id == id);
-        }
-
-        public async Task<bool> EventTypeRequireArt(int id)
-        {
-            var thisEvent = await this.eventRepository.All().FirstOrDefaultAsync(x => x.Id == id);
-            if (thisEvent.EventCategoryId == FlavorlessType || thisEvent.EventCategoryId == ImagelessType || thisEvent.EventCategoryId == ImageType)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
 
         public async Task<string> PromoteEvent(int id)
@@ -320,6 +277,36 @@
          .To<T>().ToListAsync();
 
             return events;
+        }
+
+        public async Task<IEnumerable<T>> GetAllEventsByUserIdPageless<T>(string id)
+        {
+            var events = await this.eventRepository.AllAsNoTracking()
+            .Where(x => x.EventCreatorId == id)
+            .To<T>().ToListAsync();
+
+            return events;
+        }
+
+        public async Task<bool> EventTitleExist(string title)
+        {
+            return await this.eventRepository
+             .AllAsNoTracking().AnyAsync(a => a.Title == title);
+        }
+
+        public async Task<bool> IsValidImage(Stream stream)
+        {
+            try
+            {
+                using (var image = Image.FromStream(stream))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

@@ -17,8 +17,6 @@
         public string Title { get; set; } = null!;
 
         [StringLength(ArtDescriptionMaxLength, MinimumLength = ArtDescriptionMinLength, ErrorMessage = LengthMessage)]
-        public string Description { get; set; } = null!;
-
-        public string RemoteImageUrl { get; set; } = null!;
+        public string Description { get; set; }
     }
 }

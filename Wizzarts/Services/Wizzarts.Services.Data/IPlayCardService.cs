@@ -1,6 +1,7 @@
 ﻿namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
+    using System.IO;
     using System.Threading.Tasks;
 
     using Wizzarts.Web.ViewModels.Deck;
@@ -22,7 +23,7 @@
 
         IEnumerable<T> GetRandom<T>(int count);
 
-        Task CreateAsync(CreateCardViewModel input, string userId, int id, string path, bool isEventCard, int eventCategoryId, string canvasCapture);
+        Task CreateAsync(CreateCardViewModel input, string userId, int id, string path, int eventCategoryId, string canvasCapture);
 
         Task AddAsync(CreateCardViewModel input, string userId, string path, bool isEventCard, string canvasCapture);
 
@@ -31,6 +32,8 @@
         Task<IEnumerable<T>> GetAllCardsByExpansion<T>(int id);
 
         Task<IEnumerable<T>> GetAllCardsByUserId<T>(string id, int page, int itemsPerPage = 12);
+
+        Task<IEnumerable<T>> GetAllCardsByUserIdPageless<T>(string id);
 
         Task<string> ApproveCard(string id);
 
@@ -45,5 +48,7 @@
         Task Promote(string id);
 
         Task<bool> CardTitleExist(string title);
+
+        Task<bool> IsValidImage(Stream stream);
     }
 }

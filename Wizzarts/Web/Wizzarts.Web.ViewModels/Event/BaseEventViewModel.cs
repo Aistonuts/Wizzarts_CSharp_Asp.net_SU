@@ -18,12 +18,12 @@
         [Required(ErrorMessage = RequiredMessage)]
         [StringLength(EventTitleMaxLength, MinimumLength = EventTitleMinLength, ErrorMessage = LengthMessage)]
         [Comment("Event Title")]
-        public string Title { get; set; } = string.Empty;
+        public string Title { get; set; } = null!;
 
         [Required(ErrorMessage = RequiredMessage)]
         [StringLength(EventDescriptionMaxLength, MinimumLength = EventDescriptionMinLength, ErrorMessage = LengthMessage)]
         [Comment("Event Description")]
-        public string EventDescription { get; set; } = string.Empty;
+        public string EventDescription { get; set; } = null!;
 
         public int EventStatusId { get; set; } = StatusId;
 

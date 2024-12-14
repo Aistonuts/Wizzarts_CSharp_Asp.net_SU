@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wizzarts.Web.ViewModels.Event;
-namespace Wizzarts.Services.Data
+﻿namespace Wizzarts.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Wizzarts.Web.ViewModels.Event;
+
     public interface IAdminEventService
     {
         Task CreateAsync(CreateEventViewModel input, string userId, string imagePath, bool isContentCreator);
@@ -37,8 +39,6 @@ namespace Wizzarts.Services.Data
         Task AddComponentAsync(MyEventSettingsViewModel input, string userId, string imagePath);
 
         Task DeleteComponentAsync(int id);
-
-        Task<bool> EventHasUserWithId(int eventId, string userId);
 
         Task<IEnumerable<T>> GetAllTagHelpControllers<T>();
 

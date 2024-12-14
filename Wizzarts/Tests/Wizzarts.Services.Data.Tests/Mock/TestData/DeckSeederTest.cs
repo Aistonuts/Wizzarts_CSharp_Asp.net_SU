@@ -7,7 +7,6 @@
     using Wizzarts.Data.Models;
 
     public class DeckSeederTest : ITestDbSeeder
-
     {
         public async Task SeedAsync(ApplicationDbContext dbContext)
         {

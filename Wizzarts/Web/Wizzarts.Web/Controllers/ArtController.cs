@@ -157,6 +157,7 @@
             return this.View(viewModel);
         }
 
+        // used for finding all TeamWizzarts art by int id and not string
         public async Task<IActionResult> ByUserId(int id)
         {
             var userId = this.wizzartsServices.GetUserIdByArtistId(id);

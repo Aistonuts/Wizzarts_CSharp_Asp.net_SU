@@ -24,6 +24,8 @@
 
         Task<T> GetById<T>(string id);
 
+        Task<T> GetByUserName<T>(string userName);
+
         Task UpdateAsync(string id, CreateMemberProfileViewModel input);
 
         Task<string> UpdateRoleAsync(ApplicationUser user, string id);

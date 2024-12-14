@@ -92,6 +92,11 @@
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
 
+            if (await this.eventService.EventTitleExist(input.Title))
+            {
+                this.ModelState.AddModelError(nameof(input.Title), "Event title exist.");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 input.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3);

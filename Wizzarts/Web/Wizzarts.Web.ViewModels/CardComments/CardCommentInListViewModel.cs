@@ -23,7 +23,7 @@
         [Comment("Card id this  comment is about")]
         public string CardId { get; set; }
 
-        public string PostedByUserId { get; set; } = string.Empty;
+        //public string PostedByUserId { get; set; } = string.Empty;
 
         public string PostedByUser { get; set; } = string.Empty;
 

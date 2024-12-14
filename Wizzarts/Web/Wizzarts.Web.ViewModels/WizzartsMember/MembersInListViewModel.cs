@@ -6,7 +6,7 @@
 
     public class MembersInListViewModel : IMapFrom<ApplicationUser>, IHaveCustomMappings, ISingleMemberViewModel
     {
-        public string Id { get; set; } = string.Empty;
+        //public string Id { get; set; } = string.Empty;
 
         public string Nickname { get; set; } = string.Empty;
 

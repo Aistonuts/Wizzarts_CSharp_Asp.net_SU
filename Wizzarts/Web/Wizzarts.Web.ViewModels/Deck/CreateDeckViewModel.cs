@@ -5,6 +5,6 @@
     public class CreateDeckViewModel : BaseDeckViewModel
     {
         // [Required(ErrorMessage = "Art image is required!")]
-        public IFormFile Image { get; set; }
+        public IFormFile Image { get; set; } = null!;
     }
 }

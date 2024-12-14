@@ -1,11 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Caching.Memory;
-using Moq;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Data;
-
-namespace Wizzarts.Services.Data.Tests.EventServiceTest
+﻿namespace Wizzarts.Services.Data.Tests.EventServiceTest
 {
     using System;
     using System.IO;
@@ -16,11 +9,16 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Caching.Memory;
     using Microsoft.Extensions.Caching.Memory;
     using Moq;
     using Wizzarts.Data.Models;
+    using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;
+    using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Data;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels;
     using Wizzarts.Web.ViewModels.Event;
@@ -42,11 +40,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -80,11 +77,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -115,11 +111,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository,eventComponentsRepository);
             var events = await service.GetAll<EventInListViewModel>();
             int eventCount = events.Count();
             Assert.Equal(4, eventCount);
@@ -136,11 +131,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var components = await service.GetAllEventComponents<EventComponentsInListViewModel>(1);
             int componentsCount = components.Count();
             Assert.Equal(7, componentsCount);
@@ -157,11 +151,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var events = await service.GetAllEventsByUserId<EventInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695", 1, 3);
             int eventsCount = events.Count();
             var firstEvent = data.Events.FirstOrDefault(x => x.Id == 1);
@@ -179,11 +172,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var events = await service.GetById<SingleEventViewModel>(1);
             var firstEvent = data.Events.FirstOrDefault(x => x.Id == 1);
             Assert.Equal(firstEvent.Title, events.Title);
@@ -199,11 +191,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var components = await service.GetEventComponentById<EventComponentsInListViewModel>(1);
 
             Assert.Equal("Shady pond under the moonlight", components.Description);
@@ -220,11 +211,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -246,6 +236,7 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
             var newComponent = data.EventComponents.FirstOrDefault(x => x.Title == "The newest Component");
             Assert.Equal(8, count);
             Assert.Equal(testEvent.ComponentTitle, newComponent.Title);
+
             //Assert.True(newComponent.RequireArtInput);
             this.TearDownBase();
         }
@@ -259,11 +250,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -291,11 +281,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -316,6 +305,7 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
             var newComponent = data.EventComponents.FirstOrDefault(x => x.Title == "The newest Component");
             Assert.Equal(8, count);
             Assert.Equal(testEvent.ComponentTitle, newComponent.Title);
+
             //Assert.False(newComponent.RequireArtInput);
             this.TearDownBase();
         }
@@ -329,11 +319,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -371,11 +360,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -409,11 +397,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository,eventComponentsRepository);
 
             Assert.Null(await service.ApproveEvent(15));
             this.TearDownBase();
@@ -428,11 +415,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var testEvent = new EditEventViewModel()
             {
                 Title = "Test",
@@ -458,11 +444,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -499,11 +484,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -542,11 +526,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -580,11 +563,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -618,11 +600,10 @@ namespace Wizzarts.Services.Data.Tests.EventServiceTest
 
             using var eventRepository = new EfDeletableEntityRepository<Event>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
-            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";

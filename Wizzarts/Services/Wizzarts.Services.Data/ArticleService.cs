@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using System.Drawing;
+
+namespace Wizzarts.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -88,7 +90,14 @@
             var physicalPath = $"{imagePath}/navigation/articles/{article.Title.Replace(" ", string.Empty)}.{extension}";
             article.ImageUrl = $"/images/navigation/articles/{article.Title.Replace(" ", string.Empty)}.{extension}";
             await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-            await input.ImageUrl.CopyToAsync(fileStream);
+            if (await IsValidImage(fileStream))
+            {
+                await input.ImageUrl.CopyToAsync(fileStream);
+            }
+            else
+            {
+                throw new Exception($"Invalid image");
+            }
             await this.articleRepository.AddAsync(article);
             await this.articleRepository.SaveChangesAsync();
             this.cache.Remove(ArticlesCacheKey);
@@ -177,6 +186,30 @@
                 .Where(x => x.ForMainPage == false)
                 .To<T>().ToListAsync();
             return articles;
+        }
+
+        public async Task<IEnumerable<T>> GetAllArticlesByUserIdPageless<T>(string id)
+        {
+            var article = await this.articleRepository.AllAsNoTracking()
+             .Where(x => x.ArticleCreatorId == id)
+             .To<T>().ToListAsync();
+
+            return article;
+        }
+
+        public async Task<bool> IsValidImage(Stream stream)
+        {
+            try
+            {
+                using (var image = Image.FromStream(stream))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

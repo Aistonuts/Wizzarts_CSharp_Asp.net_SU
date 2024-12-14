@@ -25,7 +25,7 @@
                 .Instance(instance => instance
                     .WithUser(c => c.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").InRole(AdministratorRoleName))
                  .WithData(data.Users))
-             .Calling(c => c.Add())
+             .Calling(c => c.Add(0))
              .ShouldHave()
              .ActionAttributes(attrs => attrs
                  .RestrictingForHttpMethod(HttpMethod.Get))
@@ -46,7 +46,7 @@
                 .Instance(instance => instance
                     .WithUser(c => c.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").InRole(MemberRoleName))
                  .WithData(data.Users))
-             .Calling(c => c.Add())
+             .Calling(c => c.Add(0))
              .ShouldReturn()
              .Unauthorized();
             this.TearDownBase();
@@ -62,7 +62,7 @@
                 .Instance(instance => instance
                     .WithUser(c => c.WithIdentifier("4a50fd21-682d-42b8-9b30-168d120ad224").InRole(ArtistRoleName))
                  .WithData(data.Users))
-             .Calling(c => c.Add())
+             .Calling(c => c.Add(0))
              .ShouldReturn()
               .RedirectToAction("Add", "Art");
             this.TearDownBase();

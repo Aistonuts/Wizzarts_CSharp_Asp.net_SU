@@ -17,15 +17,16 @@
 
         [Required]
         [StringLength(10, MinimumLength = 3, ErrorMessage = "The field {0} must be between {2} and {1} characters long")]
-        public string Nickname { get; set; }
+        public string Nickname { get; set; } = null!;
 
         public string AvatarUrl { get; set; }
 
-        [Comment("Information about the artist")]
+        [Comment("Information about the user")]
         public string Bio { get; set; }
 
+        [Required]
         [StringLength(AgentPhoneMaxLength, MinimumLength = AgentPhoneMinLength, ErrorMessage = "The field {0} must be between {2} and {1} characters long")]
-        public string PhoneNumber { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = null!;
 
         public IEnumerable<AvatarInListViewModel> Avatars { get; set; }
 

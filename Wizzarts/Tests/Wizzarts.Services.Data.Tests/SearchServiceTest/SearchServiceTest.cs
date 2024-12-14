@@ -25,7 +25,7 @@
 
             var cards = await service.GetAllCardsByTerm("Mox Sapphire");
             var card = cards.FirstOrDefault(x => x.CardName == "Mox Sapphire");
-            Assert.Equal(1, cards.Count());
+            Assert.Single(cards);
             Assert.Equal("Mox Sapphire", card.CardName);
             this.TearDownBase();
         }

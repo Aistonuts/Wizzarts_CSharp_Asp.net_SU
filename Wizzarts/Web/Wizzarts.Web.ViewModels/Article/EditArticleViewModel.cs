@@ -7,6 +7,6 @@
     public class EditArticleViewModel : BaseArticleViewModel
     {
         [Required(ErrorMessage = "Article image is required!")]
-        public IFormFile ImageUrl { get; set; }
+        public IFormFile ImageUrl { get; set; } = null!;
     }
 }

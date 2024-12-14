@@ -72,13 +72,6 @@
                 ImageUrl = artUrl,
                 IsLocked = false,
             };
-            var isParticipant = await this.eventService.EventHasUserWithId(currentEvent.Id, user.Id);
-            if (currentEvent != null && isParticipant == false)
-            {
-                currentEvent.Participants.Add(user);
-            }
-
-            await this.eventRepository.SaveChangesAsync();
 
             await this.deckRepository.AddAsync(deck);
             await this.deckRepository.SaveChangesAsync();
@@ -161,7 +154,6 @@
                 Title = deck.Name,
                 DeckId = deckId,
                 OrderStatusId = 1,
-                IsCustomOrder = true,
                 DeckImageUrl = deck.ImageUrl,
                 RecipientId = userId,
                 Description = deck.Description,

@@ -1,11 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Caching.Memory;
-using Moq;
-using Wizzarts.Data.Models;
-using Wizzarts.Data.Repositories;
-using Wizzarts.Services.Data;
-
-namespace Wizzarts.Services.Data.Tests.OrderServiceTest
+﻿namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 {
     using System.Linq;
     using System.Reflection;
@@ -16,6 +9,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
     using Moq;
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;
+    using Wizzarts.Services.Data;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels;
     using Wizzarts.Web.ViewModels.Order;
@@ -56,7 +50,6 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -76,7 +69,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -143,7 +136,6 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -163,7 +155,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -187,7 +179,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 
             var deckOrder = await orderService.GetAll<BaseOrderViewModel>();
 
-            Assert.Equal(1, deckOrder.Count());
+            Assert.Single(deckOrder);
             this.TearDownBase();
         }
 
@@ -218,7 +210,6 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -238,7 +229,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -264,7 +255,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 
             var card = cardsInOrder.FirstOrDefault();
 
-            Assert.Equal(1, cardsInOrder.Count());
+            Assert.Single(cardsInOrder);
             Assert.Equal(cardId, card.Id);
             this.TearDownBase();
         }
@@ -296,7 +287,6 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -316,7 +306,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -340,7 +330,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 
             var deckOrder = await orderService.GetAllOrdersByUserId<BaseOrderViewModel>("2b346dc6-5bd7-4e64-8396-15a064aa27a7");
 
-            Assert.Equal(1, deckOrder.Count());
+            Assert.Single(deckOrder);
             this.TearDownBase();
         }
 
@@ -371,7 +361,6 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -391,7 +380,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -451,7 +440,6 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -471,7 +459,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -526,7 +514,6 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -546,7 +533,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -603,7 +590,6 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -623,7 +609,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -683,7 +669,6 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -703,7 +688,7 @@ namespace Wizzarts.Services.Data.Tests.OrderServiceTest
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,

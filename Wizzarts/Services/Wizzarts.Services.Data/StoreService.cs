@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using System.Drawing;
+
+namespace Wizzarts.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -51,7 +53,16 @@
             var physicalPath = $"{imagePath}/Stores/{store.Name.Replace(" ", string.Empty)}.{extension}";
             store.Image = $"/images/Stores/{store.Name.Replace(" ", string.Empty)}.{extension}";
             using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-            await input.StoreImage.CopyToAsync(fileStream);
+
+            if (await IsValidImage(fileStream))
+            {
+                await input.StoreImage.CopyToAsync(fileStream);
+            }
+            else
+            {
+                throw new Exception($"Invalid image");
+            }
+
             await this.storeRepository.AddAsync(store);
             await this.storeRepository.SaveChangesAsync();
         }
@@ -100,6 +111,15 @@
             return store;
         }
 
+        public async Task<IEnumerable<T>> GetAllStoresByUserIdPageless<T>(string id)
+        {
+            var store = await this.storeRepository.AllAsNoTracking()
+           .Where(x => x.StoreOwnerId == id)
+           .To<T>().ToListAsync();
+
+            return store;
+        }
+
         public async Task<T> GetById<T>(int id)
         {
             var store = await this.storeRepository.AllAsNoTracking()
@@ -112,6 +132,21 @@
         public Task<int> GetCount()
         {
             return this.storeRepository.All().CountAsync();
+        }
+
+        public async Task<bool> IsValidImage(Stream stream)
+        {
+            try
+            {
+                using (var image = Image.FromStream(stream))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

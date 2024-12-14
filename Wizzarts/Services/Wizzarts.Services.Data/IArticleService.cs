@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using System.IO;
+
+namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -25,6 +27,8 @@
 
         Task<IEnumerable<T>> GetAllArticlesByUserId<T>(string id, int page, int itemsPerPage = 3);
 
+        Task<IEnumerable<T>> GetAllArticlesByUserIdPageless<T>(string id);
+
         Task<string> ApproveArticle(int id);
 
         Task<bool> ArticleExist(int id);
@@ -32,5 +36,7 @@
         Task<bool> HasUserWithIdAsync(int articleId, string userId);
 
         Task<bool> ArticleTitleExist(string title);
+
+        Task<bool> IsValidImage(Stream stream);
     }
 }

@@ -111,7 +111,7 @@
                     @foreach (var comment in this.Model.Comments.Where(x => x.IsAdminComment == false))
                     {
                         <div class="card-header pt-0 pb-0 pr-0">
-                            <a asp-controller="User" asp-action="ById" asp-route-id="@comment.PostedByUserId" asp-route-information="@comment.GetWizzartsMemberName()"><b>@comment.Nickname</b></a> <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time>
+                            <a asp-controller="User" asp-action="ById" asp-route-id="@comment.PostedByUser" asp-route-information="@comment.GetWizzartsMemberName()"><b>@comment.Nickname</b></a> <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time>
                         </div>
                         <div class="card-body">
                             @comment.Review

@@ -51,6 +51,7 @@
             this.environment = environment;
         }
 
+        // this is a page where on the left are the play cards from the db, on the right is the deck created by the user. Clicking on each card will place it the user's deck
         public async Task<IActionResult> Add(SingleDeckViewModel input, int id, string information)
         {
             var deck = await this.deckService.GetById<SingleDeckViewModel>(id);
@@ -62,7 +63,7 @@
             var user = await this.userManager.GetUserAsync(this.User);
 
             var currentRole = await this.userManager.GetRolesAsync(user);
-            if (!currentRole.Contains(AdministratorRoleName) && deck.CreatedByMemberId != user.Id)
+            if (!currentRole.Contains(AdministratorRoleName) && deck.CreatedByMember != user.UserName)
             {
                 return this.Unauthorized();
             }
@@ -81,6 +82,7 @@
             return this.View(input);
         }
 
+
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Dispatch(SingleDeckViewModel input)
@@ -95,7 +97,7 @@
         {
             if (await this.storeService.ExistsAsync(input.StoreId) == false)
             {
-                this.ModelState.AddModelError(nameof(input.StoreId), "Store does not exist does not exist");
+                this.ModelState.AddModelError(nameof(input.StoreId), "Store does not exist");
             }
 
             this.ModelState.Remove("UserName");
@@ -112,6 +114,7 @@
             return this.RedirectToAction(nameof(this.ById), new { id = input.Id, information = input.GetDeckName() });
         }
 
+        // this will take a copy of a card and place it the user deck
         public async Task<IActionResult> AddCard(string data, int id)
         {
             var decks = await this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
@@ -125,6 +128,7 @@
             return this.RedirectToAction(nameof(this.Add), new { id = currentDeckId });
         }
 
+        // this will remove the deck from the connection table (deck-play cards)
         public async Task<IActionResult> Remove(string data, int id)
         {
             var decks = await this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
@@ -138,6 +142,7 @@
             return this.RedirectToAction(nameof(this.Add), new { id = currentDeckId });
         }
 
+        // this will be used to create a new deck
         [HttpGet]
         public async Task<IActionResult> Create(int id = GameTestersEventValue)
         {
@@ -151,6 +156,7 @@
             return this.View(viewModel);
         }
 
+        // this will be used to create a new deck
         [HttpPost]
         public async Task<IActionResult> Create(CreateDeckViewModel model)
         {

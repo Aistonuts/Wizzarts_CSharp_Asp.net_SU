@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Web.Controllers
+﻿using Ganss.Xss;
+
+namespace Wizzarts.Web.Controllers
 {
     using System;
     using System.Threading.Tasks;
@@ -29,16 +31,19 @@
             this.userManager = userManager;
         }
 
+        // SignalR will show the message, this will save it in db and then will replace the signalR generated message
         [HttpPost]
         public async Task<IActionResult> Post(MessageViewModel viewModel)
         {
             try
             {
                 var user = await this.userManager.GetUserAsync(this.User);
+                var sanitizer = new HtmlSanitizer();
+                var sanitizedText = sanitizer.Sanitize(viewModel.Text);
                 var message = new ChatMessage
                 {
                     ChatId = viewModel.ChatId,
-                    Text = viewModel.Text,
+                    Text = sanitizedText,
                     Name = user.Nickname,
                     Timestamp = DateTime.Now,
                 };
@@ -52,6 +57,7 @@
             }
         }
 
+        // not used
         [HttpPost]
         public async Task<IActionResult> CreateRoom(string name)
         {
@@ -80,6 +86,7 @@
             }
         }
 
+        // not used
         [HttpPost]
         public async Task<IActionResult> JoinRoom(int id)
         {
@@ -103,6 +110,7 @@
             }
         }
 
+        // this will redirect user to new page with all chats and this one will be the current one
         public async Task<IActionResult> ById(int id)
         {
             var view = await this.chatService.GetById<SingleChatViewModel>(id);

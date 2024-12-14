@@ -57,7 +57,7 @@
 
         public ColorlessMana ColorlessMana { get; set; }
 
-        [Comment("Framecolor Id. There is a default value.")]
+        [Comment("Frame color Id. There is a default value.")]
         public int? CardFrameColorId { get; set; }
 
         public PlayCardFrameColor CardFrameColor { get; set; }

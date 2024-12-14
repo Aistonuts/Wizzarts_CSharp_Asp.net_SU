@@ -34,12 +34,6 @@
                                     <b class="text-decoration-none"><i class="ss ss-parl3"></i>Cards  : @Model.CountOfCards</b><br>
                                      <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Art pieces: @Model.CountOfArts</b><br>
                                 </div>
-                                <div class="card-body p-2">
-                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Articles :@Model.CountOfArticles</b><br>
-                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Events : @Model.CountOfEvents</b><br>
-                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Cards  : @Model.CountOfCards</b><br>
-                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Art pieces: @Model.CountOfArts</b><br>
-                                </div>
                                
                             }
                             else
@@ -131,7 +125,7 @@
                             </a>
                             <div class="card-body pt-0">
                                 <small class="yellow-line">
-                                    <a asp-controller="User" asp-action="ById" asp-route-id="@article.ArticleCreatorId" asp-route-information="@article.GetWizzartsMemberName()"><i class="far fa-star"></i>@article.ArticleCreatorName</a>
+                                    <a asp-controller="User" asp-action="ById" asp-route-id="@article.ArticleCreatorName" asp-route-information="@article.GetWizzartsMemberName()"><i class="far fa-star"></i>@article.ArticleCreatorName</a>
                                     <span>@article.CreatedOn</span>
                                 </small>
                                 <div class="ff-display font-size-18">
@@ -143,7 +137,7 @@
                     }
                 </div>
                 <hr />
-                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Art</h4>
+                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Art</h4>
                 <div class="firstfeed-flexbox">
                     @foreach (var art in this.Model.Arts)
                     {
@@ -159,7 +153,7 @@
                     }
                 </div>
                 <hr />
-                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Random Cards</h4>
+                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Cards</h4>
                 <div class="firstfeed-flexbox">
                     @foreach (var card in this.Model.Cards)
                     {
@@ -305,7 +299,7 @@
         var sendMessage = function (event) {
             event.preventDefault();
             var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
-            var text = $('#messageInput').val();
+            var text = escapeHtml($('#messageInput').val());
             var data = { userId: 1, text: text, chatId: @Model.ChatId};
             console.log(data);
             document.getElementById('messageInput').value = '';
@@ -318,6 +312,15 @@
                 },
                 contentType: 'application/json',
             });
+        }
+
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
         }
     </script>
 }

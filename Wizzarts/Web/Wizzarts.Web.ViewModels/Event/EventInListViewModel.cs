@@ -22,7 +22,7 @@
 
         public string Creator { get; set; } = string.Empty;
 
-        public string CreatorId { get; set; } = string.Empty;
+        //public string CreatorId { get; set; } = string.Empty;
 
         public bool ApprovedByAdmin { get; set; }
 
@@ -48,10 +48,10 @@
                      x.ControllerName.Name.ToString()))
             .ForMember(x => x.Creator, opt =>
                   opt.MapFrom(x =>
-                     x.EventCreator.UserName.ToString()))
-            .ForMember(x => x.CreatorId, opt =>
-                  opt.MapFrom(x =>
-                     x.EventCreator.Id));
+                     x.EventCreator.UserName.ToString()));
+            //.ForMember(x => x.CreatorId, opt =>
+            //      opt.MapFrom(x =>
+            //         x.EventCreator.Id));
         }
     }
 }

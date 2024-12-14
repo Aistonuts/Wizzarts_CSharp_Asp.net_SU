@@ -11,6 +11,7 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Event;
+
     using static Wizzarts.Common.HardCodedConstants;
 
     public class AdminEventService : IAdminEventService
@@ -20,7 +21,6 @@
         private readonly IDeletableEntityRepository<TagHelpController> tagHelpControllers;
         private readonly IDeletableEntityRepository<TagHelpAction> tagHelpActions;
         private readonly IDeletableEntityRepository<EventCategory> eventCategories;
-        private readonly IDeletableEntityRepository<EventParticipant> eventParticipantRepository;
         private readonly IDeletableEntityRepository<EventComponent> eventComponentsRepository;
 
         public AdminEventService(
@@ -28,14 +28,12 @@
             IDeletableEntityRepository<TagHelpController> tagHelpControllers,
             IDeletableEntityRepository<TagHelpAction> tagHelpActions,
             IDeletableEntityRepository<EventCategory> eventCategories,
-            IDeletableEntityRepository<EventParticipant> eventParticipantRepository,
             IDeletableEntityRepository<EventComponent> eventComponentsRepository)
         {
             this.eventRepository = eventRepository;
             this.tagHelpControllers = tagHelpControllers;
             this.tagHelpActions = tagHelpActions;
             this.eventCategories = eventCategories;
-            this.eventParticipantRepository = eventParticipantRepository;
             this.eventComponentsRepository = eventComponentsRepository;
         }
 
@@ -257,12 +255,6 @@
         {
             return await this.eventComponentsRepository
                .AllAsNoTracking().AnyAsync(a => a.Id == id);
-        }
-
-        public async Task<bool> EventHasUserWithId(int eventId, string userId)
-        {
-            return await this.eventParticipantRepository.AllAsNoTracking()
-                .AnyAsync(a => a.EventId == eventId && a.UserId == userId);
         }
 
         public async Task<IEnumerable<T>> GetAllTagHelpControllers<T>()

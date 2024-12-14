@@ -16,7 +16,7 @@
         public string Nickname { get; set; } = string.Empty;
 
         [Comment("Information about the artist")]
-
+        [MaxLength(ArtistBioMaxLength)]
         public string Bio { get; set; } = string.Empty;
 
         [Required]

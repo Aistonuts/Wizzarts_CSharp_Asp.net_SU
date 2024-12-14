@@ -11,8 +11,6 @@
     {
         public int EventId { get; set; }
 
-        public string CreatorId { get; set; } = string.Empty;
-
         public string EventCreator { get; set; } = string.Empty;
 
         public string ImageUrl { get; set; } = string.Empty;

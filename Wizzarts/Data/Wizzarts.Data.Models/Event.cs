@@ -14,7 +14,6 @@
         public Event()
         {
             this.EventComponents = new HashSet<EventComponent>();
-            this.Participants = new HashSet<ApplicationUser>();
         }
 
         [Required]
@@ -71,7 +70,5 @@
         public EventCategory EventCategory { get; set; }
 
         public virtual ICollection<EventComponent> EventComponents { get; set; }
-
-        public virtual ICollection<ApplicationUser> Participants { get; set; }
     }
 }

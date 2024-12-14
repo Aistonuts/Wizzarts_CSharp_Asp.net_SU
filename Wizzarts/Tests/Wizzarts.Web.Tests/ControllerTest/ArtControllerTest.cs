@@ -56,7 +56,6 @@
                {
                    Title = title,
                    Description = content,
-                   RemoteImageUrl = "test",
                    Image = file,
                }))
                .ShouldHave()

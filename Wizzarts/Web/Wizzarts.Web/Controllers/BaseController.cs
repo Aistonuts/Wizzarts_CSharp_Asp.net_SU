@@ -5,7 +5,6 @@
     using Wizzarts.Web.Attributes;
 
     [Authorize]
-    [MustBePremium]
     public class BaseController : Controller
     {
     }

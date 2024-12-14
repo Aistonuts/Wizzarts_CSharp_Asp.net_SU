@@ -21,7 +21,7 @@
 
         public string ArtistName { get; set; } = string.Empty;
 
-        public string AddedByMemberId { get; set; } = string.Empty;
+        //public string AddedByMemberId { get; set; } = string.Empty;
 
         public bool ApprovedByAdmin { get; set; }
 

@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using System.Drawing;
+
+namespace Wizzarts.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -107,8 +109,14 @@
             var physicalPath = $"{imagePath}/art/userArt/{art.Title.Replace(" ", string.Empty)}.{extension}";
             art.RemoteImageUrl = $"/images/art/userArt/{art.Title.Replace(" ", string.Empty)}.{extension}";
             await using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-            await input.Image.CopyToAsync(fileStream);
-
+            if (await IsValidImage(fileStream))
+            {
+                await input.Image.CopyToAsync(fileStream);
+            }
+            else
+            {
+                throw new Exception($"Invalid image");
+            }
             await this.artRepository.AddAsync(art);
             await this.artRepository.SaveChangesAsync();
             this.cache.Remove(ArtsCacheKey);
@@ -190,6 +198,21 @@
         {
             return await this.artRepository
                .AllAsNoTracking().AnyAsync(a => a.Title == title);
+        }
+
+        public async Task<bool> IsValidImage(Stream stream)
+        {
+            try
+            {
+                using (var image = Image.FromStream(stream))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

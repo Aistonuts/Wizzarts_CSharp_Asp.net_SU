@@ -17,7 +17,7 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
                             <div class="card h-100">
                                 <div class="card-header p-0 text-center">
-                                    <a class="text-dark" asp-controller="User" asp-action="ById" asp-route-id="@member.Id" asp-route-information="@member.GetWizzartsMemberName()">
+                                    <a class="text-dark" asp-controller="User" asp-action="ById" asp-route-id="@member.Username" asp-route-information="@member.GetWizzartsMemberName()">
                                         <b>
                                             <i class="fas fa-star" title="Member"></i>@member.Nickname
                                         </b>
@@ -27,7 +27,7 @@
                                     <div class="w-100 d-flex justify-content-start text-center">
                                         <div>
                                             <div class="ae-profile-image-container mt-1" title="Image ©Wizards of the Coast">
-                                                <a asp-controller="User" asp-action="ById" asp-route-id="@member.Id" asp-route-information="@member.GetWizzartsMemberName()">
+                                                <a asp-controller="User" asp-action="ById" asp-route-id="@member.Username" asp-route-information="@member.GetWizzartsMemberName()">
                                                     <img src="@member.AvatarUrl" alt="Copyright Wizzarts" class="ae-profile-image-card" onerror="this.onerror=null;this.src='@member.AvatarUrl';">
                                                 </a>
                                             </div>
@@ -70,7 +70,7 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
                             <div class="card h-100">
                                 <div class="card-header p-0 text-center">
-                                    <a class="text-dark" asp-controller="User" asp-action="ById" asp-route-id="@member.Id" asp-route-information="@member.GetWizzartsMemberName()">
+                                    <a class="text-dark" asp-controller="User" asp-action="ById" asp-route-id="@member.Username" asp-route-information="@member.GetWizzartsMemberName()">
                                         <b>
                                             <i class="fas fa-star" title="Member"></i>
                                             <i class="far fa-star" title="Artist"></i> @member.Nickname
@@ -81,7 +81,7 @@
                                     <div class="w-100 d-flex justify-content-start text-center">
                                         <div>
                                             <div class="ae-profile-image-container mt-1" title="Image ©Wizards of the Coast">
-                                                <a asp-controller="User" asp-action="ById" asp-route-id="@member.Id" asp-route-information="@member.GetWizzartsMemberName()">
+                                                <a asp-controller="User" asp-action="ById" asp-route-id="@member.Username" asp-route-information="@member.GetWizzartsMemberName()">
                                                     <img src="@member.AvatarUrl" alt="Copyright Wizzarts" class="ae-profile-image-card" onerror="this.onerror=null;this.src='@member.AvatarUrl';">
                                                 </a>
                                             </div>
@@ -124,7 +124,7 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
                             <div class="card h-100">
                                 <div class="card-header p-0 text-center">
-                                    <a class="text-dark" asp-controller="User" asp-action="ById" asp-route-id="@member.Id" asp-route-information="@member.GetWizzartsMemberName()">
+                                    <a class="text-dark" asp-controller="User" asp-action="ById" asp-route-id="@member.Username" asp-route-information="@member.GetWizzartsMemberName()">
                                         <b>
                                             <i class="fas fa-star" title="Member"></i>
                                             <i class="far fa-star" title="Premium account"></i> @member.Nickname
@@ -135,7 +135,7 @@
                                     <div class="w-100 d-flex justify-content-start text-center">
                                         <div>
                                             <div class="ae-profile-image-container mt-1" title="Image ©Wizards of the Coast">
-                                                <a asp-controller="User" asp-action="ById" asp-route-id="@member.Id" asp-route-information="@member.GetWizzartsMemberName()">
+                                                <a asp-controller="User" asp-action="ById" asp-route-id="@member.Username" asp-route-information="@member.GetWizzartsMemberName()">
                                                     <img src="@member.AvatarUrl" alt="Copyright Wizzarts" class="ae-profile-image-card" onerror="this.onerror=null;this.src='@member.AvatarUrl';">
                                                 </a>
                                             </div>

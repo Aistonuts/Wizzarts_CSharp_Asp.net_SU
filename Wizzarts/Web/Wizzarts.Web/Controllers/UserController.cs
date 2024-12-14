@@ -122,21 +122,17 @@
 
             var user = await this.userManager.GetUserAsync(this.User);
 
-            const int ItemsPerPage = 10;
-
             var view = new MemberDataViewModel
             {
                 Nickname = user.Nickname,
                 Email = user.Email,
                 AvatarUrl = user.AvatarUrl,
-                ItemsPerPage = ItemsPerPage,
-                PageNumber = id,
             };
-            view.Arts = await this.artService.GetAllArtByUserId<ArtInListViewModel>(this.User.GetId(), id, ItemsPerPage);
-            view.Articles = await this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(this.User.GetId(), id, ItemsPerPage);
-            view.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), id, ItemsPerPage);
-            view.Cards = await this.cardService.GetAllCardsByUserId<CardInListViewModel>(this.User.GetId(), id, ItemsPerPage);
-            view.Stores = await this.storeService.GetAllStoresByUserId<StoreInListViewModel>(this.User.GetId(), id, ItemsPerPage);
+            view.Arts = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
+            view.Articles = await this.articleService.GetAllArticlesByUserIdPageless<ArticleInListViewModel>(this.User.GetId());
+            view.Events = await this.eventService.GetAllEventsByUserIdPageless<EventInListViewModel>(this.User.GetId());
+            view.Cards = await this.cardService.GetAllCardsByUserIdPageless<CardInListViewModel>(this.User.GetId());
+            view.Stores = await this.storeService.GetAllStoresByUserIdPageless<StoreInListViewModel>(this.User.GetId());
             view.Decks = await this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
             view.Orders = await this.orderService.GetAllOrdersByUserId<OrderInListViewModel>(this.User.GetId());
             return this.View(view);
@@ -161,7 +157,6 @@
 
                 Artists = artists.Select(x => new MembersInListViewModel
                 {
-                    Id = x.Id,
                     Nickname = x.Nickname,
                     Username = x.UserName,
                     Bio = x.Bio,
@@ -174,7 +169,6 @@
                 }),
                 Members = members.Select(x => new MembersInListViewModel
                 {
-                    Id = x.Id,
                     Nickname = x.Nickname,
                     Username = x.UserName,
                     Bio = x.Bio,
@@ -187,7 +181,6 @@
                 }),
                 PremiumUsers = contentCreators.Select(x => new MembersInListViewModel
                 {
-                    Id = x.Id,
                     Nickname = x.Nickname,
                     Username = x.UserName,
                     Bio = x.Bio,
@@ -210,7 +203,7 @@
                 return this.Unauthorized();
             }
 
-            var member = await this.userService.GetById<SingleMemberViewModel>(id);
+            var member = await this.userService.GetByUserName<SingleMemberViewModel>(id);
 
             if (member == null || information != member.GetWizzartsMemberName())
             {

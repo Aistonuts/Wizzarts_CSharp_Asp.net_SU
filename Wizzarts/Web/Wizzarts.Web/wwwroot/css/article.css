@@ -1,6 +1,7 @@
 .article-card {
   width: 100%;
 }
+
 #article-body {
   font-family: var(--default-font);
 }

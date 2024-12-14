@@ -58,7 +58,6 @@
                 .Calling(c => c.Create(new CreateStoreViewModel
                 {
                     StoreName = "test",
-                    StoreOwnerId = "testtesttest",
                     StoreAddress = "testtesttesttest",
                     StoreCity = "testtesttesttest",
                     StoreCountry = "testtesttesttest",
@@ -88,7 +87,6 @@
                   .Calling(c => c.Create(new CreateStoreViewModel
                   {
                       StoreName = "testTestTest",
-                      StoreOwnerId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                       StoreAddress = "testtesttesttestaaaa",
                       StoreCity = "Sofia",
                       StoreCountry = "Bulgaria",

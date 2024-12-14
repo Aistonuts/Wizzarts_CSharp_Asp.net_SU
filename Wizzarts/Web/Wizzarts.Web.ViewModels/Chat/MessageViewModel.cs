@@ -2,9 +2,9 @@
 {
     public class MessageViewModel
     {
-        public string User { get; set; } = string.Empty;
+        public string User { get; set; }
 
-        public string Text { get; set; } = string.Empty;
+        public string Text { get; set; }
 
         public int ChatId { get; set; }
     }

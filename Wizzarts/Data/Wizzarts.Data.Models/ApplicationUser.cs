@@ -28,7 +28,6 @@ namespace Wizzarts.Data.Models
             this.Votes = new HashSet<Vote>();
             this.Art = new HashSet<Art>();
             this.Comments = new HashSet<CommentCard>();
-            this.JoinedEvents = new HashSet<Event>();
         }
 
         [MaxLength(UserNickNameMaxLength)]
@@ -95,8 +94,6 @@ namespace Wizzarts.Data.Models
         public virtual ICollection<CommentCard> Comments { get; set; }
 
         public virtual ICollection<ChatUser> Chats { get; set; }
-
-        public virtual ICollection<Event> JoinedEvents { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
     }

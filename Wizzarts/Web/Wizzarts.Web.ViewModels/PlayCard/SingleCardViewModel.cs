@@ -19,7 +19,7 @@
 
         [Required(ErrorMessage = "Card Name is required!")]
         [StringLength(CardNameMaxLength, MinimumLength = CardNameMinLength, ErrorMessage = "Card name should be between 5 and 30 characters long")]
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; } = null!;
 
         public string CardRemoteUrl { get; set; } = string.Empty;
 

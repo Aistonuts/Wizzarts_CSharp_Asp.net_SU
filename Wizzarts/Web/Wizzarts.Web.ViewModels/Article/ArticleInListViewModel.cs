@@ -26,7 +26,7 @@
 
         public string ArticleCreatorName { get; set; } = string.Empty;
 
-        public string ArticleCreatorId { get; set; } = string.Empty;
+        //public string ArticleCreatorId { get; set; } = string.Empty;
 
         public bool ApprovedByAdmin { get; set; }
 

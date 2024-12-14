@@ -52,7 +52,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -72,7 +71,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent,eventTagHelpControllerRepository,eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent,eventTagHelpControllerRepository,eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -137,7 +136,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -157,7 +155,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -224,7 +222,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -244,7 +241,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -311,7 +308,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -331,7 +327,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -396,7 +392,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -416,7 +411,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -482,7 +477,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -502,7 +496,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -539,7 +533,7 @@
 
             var firstCard = deckWithCards.FirstOrDefault(x => x.Id == "c330fecf-61a9-4e03-8052-cd2b9583a251");
             Assert.Equal("Ancestral Recall", firstCard.Name);
-            Assert.Equal(1, deckWithCards.Count());
+            Assert.Single(deckWithCards);
             this.TearDownBase();
         }
 
@@ -570,7 +564,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -590,7 +583,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository,eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -657,7 +650,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -677,7 +669,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -744,7 +736,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -764,7 +755,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -835,7 +826,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -855,7 +845,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -901,7 +891,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -921,7 +910,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -967,7 +956,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -987,7 +975,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -1114,7 +1102,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -1134,7 +1121,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -1180,7 +1167,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -1200,7 +1186,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -1253,7 +1239,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -1273,7 +1258,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -1330,7 +1315,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -1350,7 +1334,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -1419,7 +1403,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -1439,7 +1422,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,
@@ -1508,7 +1491,6 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
             using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
-            using var eventParticipantRepository = new EfDeletableEntityRepository<EventParticipant>(data);
             using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
@@ -1528,7 +1510,7 @@
 
             var cardExpansionService = new PlayCardExpansionService(cardGameExpansionRepository);
             var artService = new ArtService(repositoryArt, cache);
-            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventParticipantRepository, eventComponentsRepository);
+            var eventService = new EventService(repositoryEvent, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var deckService = new DeckService(
                 repositoryDeck,
                 repositoryOrder,

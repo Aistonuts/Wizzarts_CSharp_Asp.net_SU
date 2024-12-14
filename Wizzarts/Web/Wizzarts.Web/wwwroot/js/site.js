@@ -92,7 +92,7 @@ function search() {
                     url: '/api/Search/Search',
                     type: "GET",
                     dataType: "json",
-                    data: { cardName: request.term },
+                    data: { cardName: escapeHtml(request.term) },
                     autoFocus: true,
                     headers: {
                         'X-CSRF-TOKEN': antiForgeryToken
@@ -127,7 +127,7 @@ function searchAdv() {
                     url: 'https://localhost:5001/api/searchCard/',
                     type: "GET",
                     dataType: "json",
-                    data: { cardName: request.term },
+                    data: { cardName: escapeHtml(request.term) },
                     autoFocus: true,
                     headers: {
                         'X-CSRF-TOKEN': antiForgeryToken
@@ -144,5 +144,14 @@ function searchAdv() {
                 .append("<div><b>" + item.label + (item.text !== undefined && item.text !== null ? "</b><br><small class='autocomplete-desc'><i>" + globalJS.mtgSymbolConverter(item.text, false) + "</i></small>" : "") + "</div>")
                 .appendTo(ul);
         };
+    }
+
+    function escapeHtml(unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
     }
 }

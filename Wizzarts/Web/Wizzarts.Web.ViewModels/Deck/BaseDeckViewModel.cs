@@ -15,11 +15,11 @@
 
         [Required(ErrorMessage = RequiredMessage)]
         [StringLength(CardDeckNameMaxLength, MinimumLength = CardDeckNameMinLength, ErrorMessage = LengthMessage)]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required(ErrorMessage = RequiredMessage)]
         [StringLength(CardDeckDescriptionMaxMaxLength, MinimumLength = CardDeckDescriptionMinLength, ErrorMessage = LengthMessage)]
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
 
         // [Required(ErrorMessage = RequiredMessage)]
         // [StringLength(CardDeckShippingAddressMaxLength, MinimumLength = CardDeckShippingAddressMinLength, ErrorMessage = LengthMessage)]

@@ -18,7 +18,7 @@
                             <div class="w-100 d-flex justify-content-start mb-1 mt-3">
                                 <div class="yellow-line w-100 mb-0">
                                     <img src="@Model.ArticleCreatorAvatar" width="50" height="50" class="rounded-circle">
-                                    <a asp-controller="User" asp-action="ById" asp-route-id="@Model.ArticleCreatorId" asp-route-information="@Model.GetWizzartsMemberName()">@Model.Nickname</a>
+                                    <a asp-controller="User" asp-action="ById" asp-route-id="@Model.ArticleCreator" asp-route-information="@Model.GetWizzartsMemberName()">@Model.Nickname</a>
                                     <span class="text-muted">@Model.CreatedOn</span>
                                 </div>
                             </div>

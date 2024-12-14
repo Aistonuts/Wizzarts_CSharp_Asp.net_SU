@@ -79,8 +79,8 @@
             var viewModel = new IndexAuthenticationViewModel()
             {
                 Articles = this.articlesService.GetRandom<ArticleInListViewModel>(8),
-                Arts = this.artService.GetRandom<ArtInListViewModel>(4),
-                Cards = this.playCardService.GetRandom<CardInListViewModel>(4),
+                Arts = this.artService.GetRandom<ArtInListViewModel>(8),
+                Cards = this.playCardService.GetRandom<CardInListViewModel>(8),
                 Stores = await this.storeService.GetAll<StoreInListViewModel>(),
                 Events = await this.eventService.GetAll<EventInListViewModel>(),
                 GameExpansions = await this.cardExpansionService.GetAll<ExpansionInListViewModel>(),

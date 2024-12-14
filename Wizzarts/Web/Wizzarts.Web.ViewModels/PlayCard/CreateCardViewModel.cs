@@ -11,8 +11,6 @@
     {
         public IFormFile Images { get; set; }
 
-        public bool IsEventCard { get; set; }
-
         public int EventId { get; set; }
 
         public string EventMilestoneImage { get; set; } = string.Empty;

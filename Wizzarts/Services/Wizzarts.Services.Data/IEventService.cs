@@ -1,6 +1,7 @@
 ﻿namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
+    using System.IO;
     using System.Threading.Tasks;
 
     using Wizzarts.Web.ViewModels.Event;
@@ -23,6 +24,8 @@
 
         Task<IEnumerable<T>> GetAllEventsByUserId<T>(string id, int page, int itemsPerPage = 3);
 
+        Task<IEnumerable<T>> GetAllEventsByUserIdPageless<T>(string id);
+
         Task<IEnumerable<T>> GetAllEventsByUsers<T>();
 
         Task<bool> EventExist(int id);
@@ -39,24 +42,12 @@
 
         Task DeleteComponentAsync(int id);
 
-        Task<bool> EventHasUserWithId(int eventId, string userId);
-
-        Task<IEnumerable<T>> GetAllTagHelpControllers<T>();
-
-        Task<IEnumerable<T>> GetAllTagHelpActions<T>();
-
-        Task<IEnumerable<T>> GetAllEventCategories<T>();
-
-        Task<bool> TagHelpControllerExist(string id);
-
-        Task<bool> TagHelpActionExist(string id);
-
-        Task<bool> EventCategoryExist(int id);
-
-        Task<bool> EventTypeRequireArt(int id);
-
         Task<string> PromoteEvent(int id);
 
         Task<int> GetCount();
+
+        Task<bool> EventTitleExist(string title);
+
+        Task<bool> IsValidImage(Stream stream);
     }
 }

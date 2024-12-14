@@ -80,7 +80,7 @@
                     Power = "1",
                     Toughness = "2",
                     ArtId = "c048daf3-f4af-4a03-b65d-d6fc20d18092",
-                }, userId, 1, path, true, 1, "captured");
+                }, userId, 1, path, 1, "captured");
 
             var currentCount = await playCardRepository.All().CountAsync();
             var testPlayCard = data.PlayCards.FirstOrDefault(x => x.Name == "TestTestTest");

@@ -29,7 +29,7 @@
 
             if (user != null)
             {
-                if (currentRole.Contains(ArtistRoleName) == false || !currentRole.Contains(PremiumRoleName) == false || !currentRole.Contains(AdministratorRoleName) == false)
+                if (currentRole.Contains(ArtistRoleName) == false || !currentRole.Contains(PremiumRoleName) == false || !currentRole.Contains(AdministratorRoleName) == false || !currentRole.Contains(WizzartsTeamRoleName) == false)
                 {
                     context.Result = new StatusCodeResult(StatusCodes.Status400BadRequest);
                 }

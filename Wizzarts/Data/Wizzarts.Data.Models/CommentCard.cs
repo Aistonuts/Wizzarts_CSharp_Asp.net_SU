@@ -11,11 +11,13 @@
     public class CommentCard : BaseDeletableModel<int>
     {
         [Required]
+        [MaxLength(CardNameMaxLength)]
         [Comment("Card title")]
         public string CardName { get; set; } = string.Empty;
 
         [Required]
         [Comment("Card Description")]
+        [MaxLength(CardAbilitiesAndFlavorMaxLength)]
         public string CardFlavor { get; set; } = string.Empty;
 
         [Required]
@@ -28,9 +30,10 @@
         public string Suggestions { get; set; } = string.Empty;
 
         [Required]
-        [Comment("Review of which card")]
+        [Comment("Review of which card?")]
         public string CardId { get; set; }
 
+        [ForeignKey(nameof(CardId))]
         public PlayCard Card { get; set; }
 
         [Required]

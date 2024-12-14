@@ -568,8 +568,8 @@ namespace Wizzarts.Data.Migrations
                     RemoteImageUrl = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false, comment: "Art url"),
                     Extension = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "Image extension"),
                     ApprovedByAdmin = table.Column<bool>(type: "bit", nullable: false, comment: "New art piece  has been approved or not"),
-                    AddedByMemberId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     ForMainPage = table.Column<bool>(type: "bit", nullable: false, comment: "Premium account only"),
+                    AddedByMemberId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -762,8 +762,6 @@ namespace Wizzarts.Data.Migrations
                     Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     DeckId = table.Column<int>(type: "int", nullable: true),
-                    ExpansionId = table.Column<int>(type: "int", nullable: true),
-                    IsCustomOrder = table.Column<bool>(type: "bit", nullable: false),
                     DeckImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ShippingAddress = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     EstimatedDeliveryDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -828,7 +826,7 @@ namespace Wizzarts.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nickname = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    Bio = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "Information about the artist"),
+                    Bio = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true, comment: "Information about the artist"),
                     AvatarUrl = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false, comment: "Avatar remote URL.Picked after signing in"),
                     WizzartsCardGameId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true, comment: "Wizzarts Team user id"),
@@ -893,35 +891,6 @@ namespace Wizzarts.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EventParticipants",
-                columns: table => new
-                {
-                    EventId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_EventParticipants", x => new { x.UserId, x.EventId });
-                    table.ForeignKey(
-                        name: "FK_EventParticipants_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_EventParticipants_Events_EventId",
-                        column: x => x.EventId,
-                        principalTable: "Events",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "PlayCards",
                 columns: table => new
                 {
@@ -933,7 +902,7 @@ namespace Wizzarts.Data.Migrations
                     WhiteManaId = table.Column<int>(type: "int", nullable: true, comment: "Mana cost Id"),
                     GreenManaId = table.Column<int>(type: "int", nullable: true, comment: "Mana cost Id"),
                     ColorlessManaId = table.Column<int>(type: "int", nullable: true, comment: "Mana cost Id"),
-                    CardFrameColorId = table.Column<int>(type: "int", nullable: true, comment: "Framecolor Id. There is a default value."),
+                    CardFrameColorId = table.Column<int>(type: "int", nullable: true, comment: "Frame color Id. There is a default value."),
                     CardRemoteUrl = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true, comment: "Image of the card saved locally upon creation."),
                     CardTypeId = table.Column<int>(type: "int", nullable: true, comment: "Card type identifier."),
                     AbilitiesAndFlavor = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false, comment: "Card use requirements and effects. Card power description."),
@@ -1066,11 +1035,11 @@ namespace Wizzarts.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CardName = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Card title"),
-                    CardFlavor = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Card Description"),
+                    CardName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false, comment: "Card title"),
+                    CardFlavor = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false, comment: "Card Description"),
                     Review = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false, comment: "CardReview"),
                     Suggestions = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true, comment: "What can be done to resolve the issue."),
-                    CardId = table.Column<string>(type: "nvarchar(450)", nullable: false, comment: "Review of which card"),
+                    CardId = table.Column<string>(type: "nvarchar(450)", nullable: false, comment: "Review of which card?"),
                     PostedByUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     IsAdminComment = table.Column<bool>(type: "bit", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -1426,16 +1395,6 @@ namespace Wizzarts.Data.Migrations
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EventParticipants_EventId",
-                table: "EventParticipants",
-                column: "EventId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_EventParticipants_IsDeleted",
-                table: "EventParticipants",
-                column: "IsDeleted");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Events_ActionId",
                 table: "Events",
                 column: "ActionId");
@@ -1707,9 +1666,6 @@ namespace Wizzarts.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "EventComponents");
-
-            migrationBuilder.DropTable(
-                name: "EventParticipants");
 
             migrationBuilder.DropTable(
                 name: "ManaInCard");
