@@ -153,6 +153,10 @@
       "PackagePath": "staticwebassets\\images\\Stores\\Yokohama.jpg"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\test.jpg",
+      "PackagePath": "staticwebassets\\images\\Stores\\test.jpg"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Ancestral_Recall.png",
       "PackagePath": "staticwebassets\\images\\art\\Alpha\\Ancestral_Recall.png"
     },
@@ -417,6 +421,10 @@
       "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavor\\Ankh of Mishra.png"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\Angel.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavorless\\Angel.png"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\PeskyScavenger.png",
       "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavorless\\PeskyScavenger.png"
     },
@@ -525,12 +533,24 @@
       "PackagePath": "staticwebassets\\images\\event\\UserEvent\\Components\\Newstaddition.jpg"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\Components\\ThenewestComponent.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\Components\\ThenewestComponent.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\Components\\ThenewestEvent.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\Components\\ThenewestEvent.jpg"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\Createnewcard.jpg",
       "PackagePath": "staticwebassets\\images\\event\\UserEvent\\Createnewcard.jpg"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\OnlyText.jpg",
       "PackagePath": "staticwebassets\\images\\event\\UserEvent\\OnlyText.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\ThenewestEvent.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\ThenewestEvent.jpg"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\createart.jpg",
@@ -783,6 +803,10 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\articles\\New.jpg",
       "PackagePath": "staticwebassets\\images\\navigation\\articles\\New.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\articles\\newnewnew.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\articles\\newnewnew.jpg"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\clouds.png",

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wizzarts.Services.Mapping")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5502a3273c214320c760a328c14f594182d2a3a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77cc0e3a9004e28dfca548f2cddf785fa618ae12")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wizzarts.Services.Mapping")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wizzarts.Services.Mapping")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

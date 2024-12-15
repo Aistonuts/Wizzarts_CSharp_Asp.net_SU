@@ -292,18 +292,6 @@
             return categories;
         }
 
-        public async Task<bool> TagHelpControllerExist(string id)
-        {
-            return await this.tagHelpControllers
-              .AllAsNoTracking().AnyAsync(a => a.Id == id);
-        }
-
-        public async Task<bool> TagHelpActionExist(string id)
-        {
-            return await this.tagHelpActions
-              .AllAsNoTracking().AnyAsync(a => a.Id == id);
-        }
-
         public async Task<bool> EventCategoryExist(int id)
         {
             return await this.eventCategories

@@ -48,10 +48,6 @@
 
         Task<IEnumerable<T>> GetAllEventCategories<T>();
 
-        Task<bool> TagHelpControllerExist(string id);
-
-        Task<bool> TagHelpActionExist(string id);
-
         Task<bool> EventCategoryExist(int id);
 
         Task<bool> EventTypeRequireArt(int id);

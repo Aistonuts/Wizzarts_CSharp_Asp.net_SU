@@ -1,6 +1,8 @@
 ﻿namespace Wizzarts.Services.Data.Tests.StoreServiceTest
 {
     using System;
+    using System.Drawing.Imaging;
+    using System.Drawing;
     using System.IO;
     using System.Linq;
     using System.Reflection;
@@ -36,8 +38,28 @@
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
-            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            Bitmap bitmapImage = new Bitmap(50, 50);
+            Graphics imageData = Graphics.FromImage(bitmapImage);
+            imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
+
+            MemoryStream memoryStream = new MemoryStream();
+            byte[] byteArray;
+
+            using (memoryStream)
+            {
+                bitmapImage.Save(memoryStream, ImageFormat.Jpeg);
+                byteArray = memoryStream.ToArray();
+            }
+
+            var imageStream = new MemoryStream(byteArray);
+            var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "image/jpeg"
+            };
 
             var newStore = new CreateStoreViewModel
             {
@@ -72,8 +94,28 @@
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
-            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.nft");
+            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.nft");
+
+            Bitmap bitmapImage = new Bitmap(50, 50);
+            Graphics imageData = Graphics.FromImage(bitmapImage);
+            imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
+
+            MemoryStream memoryStream = new MemoryStream();
+            byte[] byteArray;
+
+            using (memoryStream)
+            {
+                bitmapImage.Save(memoryStream, ImageFormat.Jpeg);
+                byteArray = memoryStream.ToArray();
+            }
+
+            var imageStream = new MemoryStream(byteArray);
+            var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.nft")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "image/jpeg"
+            };
 
             var newStore = new CreateStoreViewModel
             {
@@ -168,8 +210,28 @@
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
-            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            Bitmap bitmapImage = new Bitmap(50, 50);
+            Graphics imageData = Graphics.FromImage(bitmapImage);
+            imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
+
+            MemoryStream memoryStream = new MemoryStream();
+            byte[] byteArray;
+
+            using (memoryStream)
+            {
+                bitmapImage.Save(memoryStream, ImageFormat.Jpeg);
+                byteArray = memoryStream.ToArray();
+            }
+
+            var imageStream = new MemoryStream(byteArray);
+            var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "image/jpeg"
+            };
 
             var newStore = new CreateStoreViewModel
             {

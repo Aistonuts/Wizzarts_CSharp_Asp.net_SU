@@ -1,6 +1,8 @@
 ﻿namespace Wizzarts.Services.Data.Tests.ArticleServiceTest
 {
     using System;
+    using System.Drawing.Imaging;
+    using System.Drawing;
     using System.IO;
     using System.Linq;
     using System.Reflection;
@@ -85,8 +87,28 @@
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
-            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            Bitmap bitmapImage = new Bitmap(50, 50);
+            Graphics imageData = Graphics.FromImage(bitmapImage);
+            imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
+
+            MemoryStream memoryStream = new MemoryStream();
+            byte[] byteArray;
+
+            using (memoryStream)
+            {
+                bitmapImage.Save(memoryStream, ImageFormat.Jpeg);
+                byteArray = memoryStream.ToArray();
+            }
+
+            var imageStream = new MemoryStream(byteArray);
+            var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "image/jpeg"
+            };
             await service.CreateAsync(
                 new CreateArticleViewModel
                 {
@@ -133,7 +155,7 @@
                 userId,
                 path,
                 isPremium));
-            Assert.Equal("Invalid image extension nft", exception.Message);
+            Assert.Equal("Invalid image", exception.Message);
             this.TearDownBase();
         }
 
@@ -208,8 +230,27 @@
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
-            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            Bitmap bitmapImage = new Bitmap(50, 50);
+            Graphics imageData = Graphics.FromImage(bitmapImage);
+            imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
+
+            MemoryStream memoryStream = new MemoryStream();
+            byte[] byteArray;
+
+            using (memoryStream)
+            {
+                bitmapImage.Save(memoryStream, ImageFormat.Jpeg);
+                byteArray = memoryStream.ToArray();
+            }
+
+            var imageStream = new MemoryStream(byteArray);
+            var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "image/jpeg"
+            };
             await service.CreateAsync(
                 new CreateArticleViewModel
                 {
@@ -246,8 +287,29 @@
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
-            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            Bitmap bitmapImage = new Bitmap(50, 50);
+            Graphics imageData = Graphics.FromImage(bitmapImage);
+            imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
+
+            MemoryStream memoryStream = new MemoryStream();
+            byte[] byteArray;
+
+            using (memoryStream)
+            {
+                bitmapImage.Save(memoryStream, ImageFormat.Jpeg);
+                byteArray = memoryStream.ToArray();
+            }
+
+            var imageStream = new MemoryStream(byteArray);
+            var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "image/jpeg"
+            };
+
             await service.CreateAsync(
                 new CreateArticleViewModel
                 {
@@ -286,8 +348,31 @@
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
-            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            // not working with new  image verification
+            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            Bitmap bitmapImage = new Bitmap(50, 50);
+            Graphics imageData = Graphics.FromImage(bitmapImage);
+            imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
+
+            MemoryStream memoryStream = new MemoryStream();
+            byte[] byteArray;
+
+            using (memoryStream)
+            {
+                bitmapImage.Save(memoryStream, ImageFormat.Jpeg);
+                byteArray = memoryStream.ToArray();
+            }
+
+            var imageStream = new MemoryStream(byteArray);
+            var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "image/jpeg"
+            };
+
             await service.CreateAsync(
                 new CreateArticleViewModel
                 {
@@ -305,7 +390,7 @@
         }
 
         [Fact]
-        public async Task Approve_Un_Existing_Article_Should_Return_Null()
+        public async Task Approve_Non_Existing_Article_Should_Return_Null()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -332,8 +417,28 @@
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
-            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            Bitmap bitmapImage = new Bitmap(50, 50);
+            Graphics imageData = Graphics.FromImage(bitmapImage);
+            imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
+
+            MemoryStream memoryStream = new MemoryStream();
+            byte[] byteArray;
+
+            using (memoryStream)
+            {
+                bitmapImage.Save(memoryStream, ImageFormat.Jpeg);
+                byteArray = memoryStream.ToArray();
+            }
+
+            var imageStream = new MemoryStream(byteArray);
+            var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "image/jpeg"
+            };
             await service.CreateAsync(
                 new CreateArticleViewModel
                 {
@@ -363,8 +468,28 @@
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
-            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            Bitmap bitmapImage = new Bitmap(50, 50);
+            Graphics imageData = Graphics.FromImage(bitmapImage);
+            imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
+
+            MemoryStream memoryStream = new MemoryStream();
+            byte[] byteArray;
+
+            using (memoryStream)
+            {
+                bitmapImage.Save(memoryStream, ImageFormat.Jpeg);
+                byteArray = memoryStream.ToArray();
+            }
+
+            var imageStream = new MemoryStream(byteArray);
+            var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "image/jpeg"
+            };
             await service.CreateAsync(
                 new CreateArticleViewModel
                 {
