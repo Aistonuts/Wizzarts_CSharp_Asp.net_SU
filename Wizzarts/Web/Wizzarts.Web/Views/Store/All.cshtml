@@ -13,14 +13,14 @@
             @foreach (var store in this.Model.Stores.Where(x => x.ApprovedByAdmin == true))
             {
                 <div class="article-card card border-0">
-                    <div aria-label="article" class="image-wrapper" data-toggle="modal" data-target="#@store.Name.Replace(" ","")">
+                    <div aria-label="article" class="image-wrapper" data-toggle="modal" data-target="#@store.Name.Replace(" ", "")">
 
                         <div class="article-uimgheader"><img id="previewCardModal" class="article-uimgheader" style="width : 366px" src="@store.Image" alt="Card" onerror="this.onerror=null;this.src='@store.Image';"></div>
 
                     </div>
                     <div class="card-body pt-0">
                         <small class="yellow-line">
-                            <a href=""><i class="far fa-star"></i></a>
+                            <i class="far fa-star"></i>
                         </small>
                         <div class="ff-display font-size-18">
                             <b>@store.Name</b>
@@ -43,25 +43,25 @@
                             </div>
                             <div class="modal-body ui-front d-flex flex-row justify-content-center">
                                 <div>
-                                    <div class="ae-img-byid"><img id="previewCardModal" class="ae-img-byid" src="@store.Image" alt="Store" onerror="this.onerror=null;this.src='@store.Image';"></div>
+                                    <div class="ae-img-header-byid"><img id="previewCardModal" class="ae-img-byid" src="@store.Image" alt="Store" onerror="this.onerror=null;this.src='@store.Image';"></div>
                                 </div>
-                                <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
-                                    <h2>@store.Name</h2> @* <span class="pull-right"><i class="ms ms-4 ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i></span> *@
-                                    <p>@store.Address</p>
-                                    <hr>
-                                    <p>@store.PhoneNumber</p>
-                                    <p>@store.City</p>
-                                    <p>@store.Country</p>
-                                    <p><i></i></p>
-                                    <hr>
-                                    <p>
-                                        <i>Owned by:</i><br>
-                                    </p>
-                                </div>
-                                <ul id="ui-id-1" tabindex="0"
-                                    class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" unselectable="on"
-                                    style="display: none;"></ul>
+                                
                             </div>
+                            <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
+                                <h2>@store.Name</h2> @* <span class="pull-right"><i class="ms ms-4 ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i></span> *@
+                                <p>@store.Address</p>
+                                <hr>
+                                <p>@store.PhoneNumber</p>
+                                <p>@store.City</p>
+                                <p>@store.Country</p>
+                                <hr>
+                                <p>
+                                    <i>Owned by: @store.StoreOwner</i><br>
+                                </p>
+                            </div>
+                            <ul id="ui-id-1" tabindex="0"
+                                class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" unselectable="on"
+                                style="display: none;"></ul>
                             <div class="modal-footer mt-0">
                                 <div class="text-right">
                                     <button type="button" class="btn btn-light" data-dismiss="modal">

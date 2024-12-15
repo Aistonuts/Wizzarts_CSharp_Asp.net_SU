@@ -34,6 +34,7 @@ namespace Wizzarts.Services.Data
         private readonly IDeletableEntityRepository<PlayCardFrameColor> cardFrameColorRepository;
         private readonly IDeletableEntityRepository<PlayCardType> cardTypeRepository;
         private readonly IMemoryCache cache;
+        private readonly IFileService fileService;
 
         public PlayCardService(
             IDeletableEntityRepository<PlayCard> cardRepository,
@@ -46,7 +47,8 @@ namespace Wizzarts.Services.Data
             IDeletableEntityRepository<ColorlessMana> colorlessManaRepository,
             IDeletableEntityRepository<PlayCardFrameColor> cardFrameColorRepository,
             IDeletableEntityRepository<PlayCardType> cardTypeRepository,
-            IMemoryCache cache)
+            IMemoryCache cache,
+            IFileService fileService)
         {
             this.cardRepository = cardRepository;
             this.cardManaRepository = cardManaRepository;
@@ -59,6 +61,8 @@ namespace Wizzarts.Services.Data
             this.cardFrameColorRepository = cardFrameColorRepository;
             this.cardTypeRepository = cardTypeRepository;
             this.cache = cache;
+            this.fileService = fileService;
+
         }
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12)
@@ -101,7 +105,7 @@ namespace Wizzarts.Services.Data
         {
             var card = new PlayCard
             {
-                Name = input.Name,
+                Name = await this.fileService.Sanitize(input.Name),
                 BlackManaId = input.BlackManaId,
                 BlueManaId = input.BlueManaId,
                 RedManaId = input.RedManaId,
@@ -110,7 +114,7 @@ namespace Wizzarts.Services.Data
                 ColorlessManaId = input.ColorlessManaId,
                 CardFrameColorId = input.CardFrameColorId,
                 CardTypeId = input.CardTypeId,
-                AbilitiesAndFlavor = input.AbilitiesAndFlavor,
+                AbilitiesAndFlavor = await this.fileService.Sanitize(input.AbilitiesAndFlavor),
                 Power = input.Power,
                 Toughness = input.Toughness,
                 CardGameExpansionId = BetaExpansion,
@@ -419,7 +423,7 @@ namespace Wizzarts.Services.Data
         {
             var card = new PlayCard
             {
-                Name = input.Name,
+                Name = await this.fileService.Sanitize(input.Name),
                 BlackManaId = input.BlackManaId,
                 BlueManaId = input.BlueManaId,
                 RedManaId = input.RedManaId,
@@ -428,7 +432,7 @@ namespace Wizzarts.Services.Data
                 ColorlessManaId = input.ColorlessManaId,
                 CardFrameColorId = input.CardFrameColorId,
                 CardTypeId = input.CardTypeId,
-                AbilitiesAndFlavor = input.AbilitiesAndFlavor,
+                AbilitiesAndFlavor = await this.fileService.Sanitize(input.AbilitiesAndFlavor),
                 Power = input.Power,
                 Toughness = input.Toughness,
                 CardGameExpansionId = BetaExpansion,

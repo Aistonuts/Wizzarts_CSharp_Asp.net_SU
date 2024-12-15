@@ -44,6 +44,7 @@
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+            var fileService = new FileService();
 
             var service = new PlayCardService(
                 playCardRepository,
@@ -56,7 +57,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -110,6 +112,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -121,7 +125,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -175,6 +180,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -186,7 +193,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var currentCount = await playCardRepository.All().CountAsync();
 
@@ -214,6 +222,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -225,7 +235,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             string userId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
@@ -283,6 +294,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -294,7 +307,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var playCards = service.GetAll<CardInListViewModel>(1, 18);
             int playCardCount = playCards.Count();
@@ -322,6 +336,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -333,7 +349,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var playCards = service.GetRandom<CardInListViewModel>(5);
             int playCardCount = playCards.Count();
@@ -360,6 +377,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -371,7 +390,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var playCard = await service.GetById<SingleCardViewModel>("5f3f96a8-836a-479c-93c8-6921feb79366");
 
@@ -398,6 +418,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -409,7 +431,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var playCardMana = await service.GetAllCardManaByCardId<ManaListViewModel>("7e1ef124-3c7f-4318-89b3-18315d7eaf81");
 
@@ -437,6 +460,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -448,7 +473,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var playCardsByDrawgoon = await service.GetAllCardsByUserId<CardInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695", 1, 19);
             var specificCard = playCardsByDrawgoon.FirstOrDefault(x => x.Name == "Mox Sapphire");
@@ -478,6 +504,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -489,7 +517,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var searchInputOne = new SingleDeckViewModel
             {
@@ -678,6 +707,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -689,7 +720,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var playCard = playCardRepository.AllAsNoTracking()
                 .FirstOrDefault(x => x.Id == "5f3f96a8-836a-479c-93c8-6921feb79366");
@@ -722,6 +754,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -733,7 +767,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var result = await service.ApproveCard("5f3f96a8-836a-479c-93c8-6921feb79");
 
@@ -760,6 +795,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -771,7 +808,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var cards = playCardRepository.AllAsNoTracking();
             var count = cards.Count();
@@ -806,6 +844,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -817,7 +857,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var playCards = service.GetAllNoPagination<CardInListViewModel>();
             int playCardCount = playCards.Count();
@@ -845,6 +886,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -856,7 +899,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var cards = playCardRepository.AllAsNoTracking();
             var specificCard = cards.FirstOrDefault(x => x.Name == "Mox Sapphire");
@@ -886,6 +930,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -897,7 +943,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var drawgoonId = "2738e787-5d57-4bc7-b0d2-287242f04695";
             var cardId = "5f3f96a8-836a-479c-93c8-6921feb79366"; ;
@@ -925,6 +972,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -936,7 +985,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var eventCards = playCardRepository.AllAsNoTracking().Where(x => x.IsEventCard == true);
             var specificEventCard = eventCards.FirstOrDefault(x => x.Name == "Ancestral Recall");
@@ -964,6 +1014,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -975,7 +1027,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var cards = playCardRepository.AllAsNoTracking();
             var eventCards = playCardRepository.AllAsNoTracking().Where(x => x.IsEventCard == true);
@@ -1003,6 +1056,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -1014,7 +1069,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var cardsFromExpansionOne = await service.GetAllCardsByExpansion<CardInListViewModel>(1);
             var cardsFromExpansionTwo = await service.GetAllCardsByExpansion<CardInListViewModel>(3);
@@ -1042,6 +1098,8 @@
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
 
+            var fileService = new FileService();
+
             var service = new PlayCardService(
                 playCardRepository,
                 cardManaRepository,
@@ -1053,7 +1111,8 @@
                 colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
-                cache);
+                cache,
+                fileService);
 
             var eventCards = playCardRepository.AllAsNoTracking().Where(x => x.IsEventCard == true);
             var specificEventCard = eventCards.FirstOrDefault(x => x.Name == "Ancestral Recall");

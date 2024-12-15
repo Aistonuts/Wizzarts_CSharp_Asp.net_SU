@@ -77,9 +77,9 @@ namespace Wizzarts.Services.Data
         {
             var article = new Article
             {
-                Title = input.Title,
-                Description = input.Description,
-                ShortDescription = input.ShortDescription,
+                Title = await this.fileService.Sanitize(input.Title),
+                Description = await this.fileService.Sanitize(input.Description),
+                ShortDescription = await this.fileService.Sanitize(input.ShortDescription),
                 ArticleCreatorId = userId,
                 ForMainPage = isPremium,
             };

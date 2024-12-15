@@ -40,11 +40,11 @@ namespace Wizzarts.Services.Data
         {
             var store = new Store
             {
-                Name = input.StoreName,
+                Name = await this.fileService.Sanitize(input.StoreName),
                 StoreOwnerId = storeOwner,
-                Address = input.StoreAddress,
-                City = input.StoreCity,
-                Country = input.StoreCountry,
+                Address = await this.fileService.Sanitize(input.StoreAddress),
+                City = await this.fileService.Sanitize(input.StoreCity),
+                Country = await this.fileService.Sanitize(input.StoreCountry),
                 PhoneNumber = input.StorePhoneNumber,
             };
 
@@ -89,6 +89,7 @@ namespace Wizzarts.Services.Data
         {
             var store = await this.storeRepository.AllAsNoTracking()
                 .OrderByDescending(x => x.Id)
+                .Where(x => x.ApprovedByAdmin == true)
                 .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
                 .To<T>().ToListAsync();
             return store;

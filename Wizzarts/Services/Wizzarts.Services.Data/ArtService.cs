@@ -95,8 +95,8 @@ namespace Wizzarts.Services.Data
         {
             var art = new Art
             {
-                Title = input.Title,
-                Description = input.Description,
+                Title = await this.fileService.Sanitize(input.Title),
+                Description = await this.fileService.Sanitize(input.Description),
                 AddedByMemberId = userId,
                 ForMainPage = isPremium,
             };

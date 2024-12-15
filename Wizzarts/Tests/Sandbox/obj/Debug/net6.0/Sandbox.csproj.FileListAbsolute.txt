@@ -88,3 +88,7 @@ C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Sandbox\bin\Debug\
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Sandbox\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Sandbox\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Sandbox\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Sandbox\bin\Debug\net6.0\AngleSharp.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Sandbox\bin\Debug\net6.0\AngleSharp.Css.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Sandbox\bin\Debug\net6.0\HtmlSanitizer.dll
+C:\Users\Cmpt\Downloads\ASPNetCore\ASP.NET_try\Wizzarts\Tests\Sandbox\bin\Debug\net6.0\System.Collections.Immutable.dll

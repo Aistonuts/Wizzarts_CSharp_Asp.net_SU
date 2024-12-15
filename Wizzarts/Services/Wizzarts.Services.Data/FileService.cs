@@ -6,7 +6,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-
+    using Ganss.Xss;
     using Microsoft.AspNetCore.Http;
 
     public class FileService : IFileService
@@ -52,6 +52,16 @@
                 //    return false;
                 //}
             }
+        }
+
+        public async Task<string> Sanitize(string input)
+        {
+            var sanitizer = new HtmlSanitizer();
+            sanitizer.AllowedTags.Clear();
+            sanitizer.KeepChildNodes = true;
+            var sanitizedText = sanitizer.Sanitize(input);
+
+            return sanitizedText;
         }
     }
 }

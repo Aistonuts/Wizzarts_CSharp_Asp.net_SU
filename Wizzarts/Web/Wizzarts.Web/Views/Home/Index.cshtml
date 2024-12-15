@@ -26,7 +26,7 @@
                             <div class="ae-border-bottom-light text-gold pl-2">
                                 <b>Account progress</b>
                             </div>
-                            @if (this.User.IsArtist() || this.User.IsPremiumUser() || this.User.IsAdmin())
+                            @if (this.User.IsInRole(ArtistRoleName) || this.User.IsInRole(AdministratorRoleName) || this.User.IsInRole(PremiumRoleName))
                             {
                                 <div class="card-body p-2">
                                     <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Articles :@Model.CountOfArticles</b><br>

@@ -46,12 +46,6 @@
                                     <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
                                 <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="All">Events</a>
-                                </li>
-                                <li>
-                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="ByUser">User Events</a>
-                                </li>
-                                <li>
                                     <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Wizzarts" asp-action="Membership">Membership</a>
                                 </li>
                                 <li>
@@ -60,8 +54,14 @@
                                 <li>
                                     <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Art" asp-action="All">Art</a>
                                 </li>
+                                <li>
+                                    <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="All">Events</a>
+                                </li>
                                 @if (this.SignInManager.IsSignedIn(this.User))
                                 {
+                                    <li>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Event" asp-action="ByUser">User Events</a>
+                                    </li>
                                     <li>
                                         <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Article" asp-action="All">Article</a>
                                     </li>
@@ -128,7 +128,7 @@
                                         <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Art" asp-action="Add"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
                                     </li>
                                     <li>
-                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Deck" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Art</b></a>
+                                        <a class="pl-5 pt-1 pb-2 nav-link" asp-area="" asp-controller="Deck" asp-action="Create"><i class="fa fa-picture-o" aria-hidden="true"></i> <b>Create Deck</b></a>
                                     </li>
                                 </ul>
                             }

@@ -39,6 +39,7 @@ namespace Wizzarts.Web.Controllers
             {
                 var user = await this.userManager.GetUserAsync(this.User);
                 var sanitizer = new HtmlSanitizer();
+                sanitizer.AllowedTags.Clear();
                 var sanitizedText = sanitizer.Sanitize(viewModel.Text);
                 var message = new ChatMessage
                 {

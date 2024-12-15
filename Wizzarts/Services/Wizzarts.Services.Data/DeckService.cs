@@ -25,7 +25,7 @@
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
         private readonly IPlayCardService cardService;
         private readonly IArtService artService;
-        private readonly IEventService eventService;
+        private readonly IFileService fileService;
 
         public DeckService(
             IDeletableEntityRepository<CardDeck> deckRepository,
@@ -38,7 +38,7 @@
             IDeletableEntityRepository<ApplicationUser> userRepository,
             IPlayCardService cardService,
             IArtService artService,
-            IEventService eventService)
+            IFileService fileService)
         {
             this.deckRepository = deckRepository;
             this.deckOrderRepository = deckOrderRepository;
@@ -50,7 +50,8 @@
             this.userRepository = userRepository;
             this.cardService = cardService;
             this.artService = artService;
-            this.eventService = eventService;
+            this.fileService = fileService;
+
         }
 
         public async Task CreateAsync(CreateDeckViewModel input, string userId, string imagePath)
@@ -63,8 +64,8 @@
 
             var deck = new CardDeck
             {
-                Name = input.Name,
-                Description = input.Description,
+                Name = await this.fileService.Sanitize(input.Name),
+                Description = await this.fileService.Sanitize(input.Description),
 
                 StoreId = input.StoreId,
                 CreatedByMemberId = userId,
@@ -82,8 +83,8 @@
             var deck = await this.deckRepository.All().FirstOrDefaultAsync(x => x.Id == input.Id);
             if (deck != null)
             {
-                deck.Name = input.Name;
-                deck.Description = input.Description;
+                deck.Name = await this.fileService.Sanitize(input.Name);
+                deck.Description = await this.fileService.Sanitize(input.Description);
                 deck.StoreId = input.StoreId;
 
                 await this.deckRepository.SaveChangesAsync();

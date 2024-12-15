@@ -13,21 +13,25 @@
     public class CommentService : ICommentService
     {
         private readonly IDeletableEntityRepository<CommentCard> commentRepository;
+        private readonly IFileService fileService;
 
         public CommentService(
-            IDeletableEntityRepository<CommentCard> commentRepository)
+            IDeletableEntityRepository<CommentCard> commentRepository,
+            IFileService fileService)
         {
             this.commentRepository = commentRepository;
+            this.fileService = fileService;
+
         }
 
         public async Task CommentAsync(SingleCardViewModel input, string userId, string cardId, bool byAdmin)
         {
             var comment = new CommentCard
             {
-                CardName = input.Name,
-                CardFlavor = input.AbilitiesAndFlavor,
-                Review = input.CommentReview,
-                Suggestions = input.CommentSuggestions,
+                CardName = await this.fileService.Sanitize(input.Name),
+                CardFlavor = await this.fileService.Sanitize(input.AbilitiesAndFlavor),
+                Review = await this.fileService.Sanitize(input.CommentReview),
+                Suggestions = await this.fileService.Sanitize(input.CommentSuggestions),
                 CardId = cardId,
                 PostedByUserId = userId,
                 IsAdminComment = byAdmin,

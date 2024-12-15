@@ -6527,6 +6527,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "HtmlSanitizer": "8.1.870",
           "Microsoft.AspNetCore.Http.Features": "3.1.32",
           "Selenium.WebDriver": "4.21.0",
           "System.Drawing.Common": "6.0.0",

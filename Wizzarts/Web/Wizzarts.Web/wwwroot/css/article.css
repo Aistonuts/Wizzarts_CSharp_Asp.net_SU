@@ -27,13 +27,29 @@
   font-size: 0.6875rem;
   text-transform: lowercase;
 }
+
+.ae-img-header-byid {
+    width: 450px;
+}
+
+.ae-img-byid {
+    width: 400px;
+    margin-left: 40px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    border: 3px #e5dacf solid;
+    display: block;
+    float: left;
+    display: block;
+}
+
 .article-uimgheader {
-  width: 283px;
-  height: 159px;
-  min-width: 100px;
-  min-height: 100px;
-  max-height: 159px;
-  object-fit: cover;
+    width: 283px;
+    height: 159px;
+    min-width: 100px;
+    min-height: 100px;
+    max-height: 159px;
+    object-fit: cover;
 }
 .article-imgheader-xs {
   width: 197px;

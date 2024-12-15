@@ -33,7 +33,8 @@
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
+            var fileService = new FileService();
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser, fileService);
 
             var currentUser = await service.GetById<SingleMemberViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695");
 
@@ -53,7 +54,8 @@
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
+            var fileService = new FileService();
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser, fileService);
 
             var artByUserDrawgoon = await service.GetAllArtByUserId<ArtInListViewModel>("2738e787-5d57-4bc7-b0d2-287242f04695");
             Assert.Equal(8, artByUserDrawgoon.Count());
@@ -72,7 +74,8 @@
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
+            var fileService = new FileService();
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser, fileService);
 
             int artCount = service.GetCountOfArt("2738e787-5d57-4bc7-b0d2-287242f04695");
             Assert.Equal(8, artCount);
@@ -91,7 +94,8 @@
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
+            var fileService = new FileService();
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser, fileService);
 
             var avatars = await service.GetAllAvatars<AvatarInListViewModel>();
 
@@ -113,7 +117,8 @@
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
+            var fileService = new FileService();
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser, fileService);
 
             int articles = service.GetCountOfArticles("2b346dc6-5bd7-4e64-8396-15a064aa27a7");
 
@@ -133,7 +138,8 @@
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
+            var fileService = new FileService();
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser, fileService);
 
             int events = service.GetCountOfEvents("2738e787-5d57-4bc7-b0d2-287242f04695");
 
@@ -153,7 +159,8 @@
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
+            var fileService = new FileService();
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser, fileService);
 
             var avatars = await service.GetAvatarById<AvatarInListViewModel>(1);
 
@@ -173,7 +180,8 @@
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
+            var fileService = new FileService();
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser, fileService);
 
             var newUserData = new CreateMemberProfileViewModel
             {
@@ -203,7 +211,8 @@
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
+            var fileService = new FileService();
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser, fileService);
 
             Assert.True(await service.HasNickName("2738e787-5d57-4bc7-b0d2-287242f04695"));
             this.TearDownBase();
@@ -221,7 +230,8 @@
             using var repositoryUser = new EfDeletableEntityRepository<ApplicationUser>(data);
             using var repositoryAvatar = new EfDeletableEntityRepository<Avatar>(data);
             using var repositoryPlayCard = new EfDeletableEntityRepository<PlayCard>(data);
-            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser);
+            var fileService = new FileService();
+            var service = new UserService(repositoryArt, repositoryArticle, repositoryPlayCard, repositoryEvent, repositoryAvatar, null, repositoryUser, fileService);
 
             Assert.False(await service.HasNickName("0ac1e577-c7ff-4aa3-83c3-e5acac9de281"));
             this.TearDownBase();

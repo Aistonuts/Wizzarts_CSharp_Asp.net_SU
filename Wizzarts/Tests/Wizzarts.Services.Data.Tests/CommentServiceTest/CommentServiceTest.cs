@@ -24,8 +24,9 @@
         {
             this.OneTimeSetup();
             var data = this.dbContext;
-            using var commentRepostiory = new EfDeletableEntityRepository<CommentCard>(data);
-            var commentService = new CommentService(commentRepostiory);
+            using var commentRepository = new EfDeletableEntityRepository<CommentCard>(data);
+            var fileService = new FileService();
+            var commentService = new CommentService(commentRepository, fileService);
 
             var comment = new SingleCardViewModel()
             {
@@ -52,7 +53,8 @@
             this.OneTimeSetup();
             var data = this.dbContext;
             using var commentRepository = new EfDeletableEntityRepository<CommentCard>(data);
-            var commentService = new CommentService(commentRepository);
+            var fileService = new FileService();
+            var commentService = new CommentService(commentRepository, fileService);
 
             var comment = new SingleCardViewModel()
             {
@@ -80,7 +82,8 @@
             this.OneTimeSetup();
             var data = this.dbContext;
             using var commentRepository = new EfDeletableEntityRepository<CommentCard>(data);
-            var commentService = new CommentService(commentRepository);
+            var fileService = new FileService();
+            var commentService = new CommentService(commentRepository, fileService);
 
             var comment = new SingleCardViewModel()
             {

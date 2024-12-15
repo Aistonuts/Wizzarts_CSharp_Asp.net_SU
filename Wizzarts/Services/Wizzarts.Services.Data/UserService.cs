@@ -23,6 +23,7 @@
         private readonly IDeletableEntityRepository<Avatar> avatarRepository;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
+        private readonly IFileService fileService;
 
         public UserService(
            IDeletableEntityRepository<Art> artRepository,
@@ -31,7 +32,8 @@
            IDeletableEntityRepository<Event> eventRepository,
            IDeletableEntityRepository<Avatar> avatarRepository,
            UserManager<ApplicationUser> userManager,
-           IDeletableEntityRepository<ApplicationUser> userRepository)
+           IDeletableEntityRepository<ApplicationUser> userRepository,
+           IFileService fileService)
         {
             this.artRepository = artRepository;
             this.articleRepository = articleRepository;
@@ -40,6 +42,7 @@
             this.avatarRepository = avatarRepository;
             this.userManager = userManager;
             this.userRepository = userRepository;
+            this.fileService = fileService;
         }
 
         public async Task<T> GetById<T>(string id)
@@ -108,9 +111,9 @@
         {
             var user = await this.userRepository.All().FirstOrDefaultAsync(x => x.Id == id);
 
-            user.Nickname = input.Nickname;
+            user.Nickname = await this.fileService.Sanitize(input.Nickname);
             user.AvatarUrl = input.AvatarUrl;
-            user.Bio = input.Bio;
+            user.Bio = await this.fileService.Sanitize(input.Bio);
             user.AvatarId = input.AvatarId;
             user.PhoneNumber = input.PhoneNumber;
 

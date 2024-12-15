@@ -11,5 +11,7 @@
     public interface IFileService
     {
         Task<bool> IsValidImage(IFormFile file);
+
+        Task<string> Sanitize(string input);
     }
 }

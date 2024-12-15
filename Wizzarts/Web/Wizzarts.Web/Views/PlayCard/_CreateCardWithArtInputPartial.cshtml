@@ -16,7 +16,7 @@
                             </option>
                             @foreach (var art in Model.ArtByUserId)
                             {
-                                <option data-container="@art.ImageUrl" value="@art.Title">@art.Title</option>
+                                <option data-container="@art.ImageUrl" value="@art.Id">@art.Title</option>
                             }
                         </select>
                     </td>

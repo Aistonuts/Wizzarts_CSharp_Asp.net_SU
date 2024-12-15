@@ -47,8 +47,8 @@ namespace Wizzarts.Services.Data
         {
             var newEvent = new Event
             {
-                Title = input.Title,
-                EventDescription = input.EventDescription,
+                Title = await this.fileService.Sanitize(input.Title),
+                EventDescription = await this.fileService.Sanitize(input.EventDescription),
                 EventCreatorId = userId,
                 EventStatusId = 1,
                 ForMainPage = false,
@@ -160,8 +160,8 @@ namespace Wizzarts.Services.Data
 
             if (currentEvent != null)
             {
-                currentEvent.Title = input.Title;
-                currentEvent.EventDescription = input.EventDescription;
+                currentEvent.Title = await this.fileService.Sanitize(input.Title);
+                currentEvent.EventDescription = await this.fileService.Sanitize(input.EventDescription);
 
                 await this.eventRepository.SaveChangesAsync();
             }
@@ -185,8 +185,8 @@ namespace Wizzarts.Services.Data
         {
             var component = new EventComponent
             {
-                Title = input.ComponentTitle,
-                Description = input.ComponentDescription,
+                Title = await this.fileService.Sanitize(input.ComponentTitle),
+                Description = await this.fileService.Sanitize(input.ComponentDescription),
                 EventId = input.EventId,
                 ControllerId = EventControllerId,
                 ActionId = CreateActionId,
