@@ -33,6 +33,11 @@
                                     </div>
                                     <div class="card-text d-none d-md-flex m-1">@eventNow.EventDescription</div>
                                 </div>
+                                <li class="single-meta">
+                                    <a asp-area="Administration" asp-controller="Event" asp-action="Mine" asp-route-id="@eventNow.Id">
+                                        <div class="btn btn-danger">Edit</div>
+                                    </a>
+                                </li>
                             </div>
                         }
                         else
@@ -52,6 +57,11 @@
                                     </div>
                                     <div class="card-text d-none d-md-flex m-1">@eventNow.EventDescription</div>
                                 </div>
+                                <li class="single-meta">
+                                    <a asp-area="Administration" asp-controller="Event" asp-action="Mine" asp-route-id="@eventNow.Id">
+                                        <div class="btn btn-danger">Edit</div>
+                                    </a>
+                                </li>
                             </div>
                         }
                     }

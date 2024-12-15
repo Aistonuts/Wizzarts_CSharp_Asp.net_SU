@@ -214,5 +214,12 @@
 
             return user;
         }
+
+        public async Task<string> GetMemberIdByUserName(string userName)
+        {
+            var user = await this.userRepository.All().FirstOrDefaultAsync(x => x.UserName == userName);
+
+            return user?.Id;
+        }
     }
 }

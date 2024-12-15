@@ -1,6 +1,7 @@
 ﻿namespace Wizzarts.Web.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -150,6 +151,20 @@
             var members = this.userManager.GetUsersInRoleAsync(GlobalConstants.MemberRoleName).Result;
             var contentCreators = this.userManager.GetUsersInRoleAsync(GlobalConstants.PremiumRoleName).Result;
             var artists = this.userManager.GetUsersInRoleAsync(GlobalConstants.ArtistRoleName).Result;
+
+            var filteredMembers = new List<ApplicationUser>();
+            foreach (var item in members)
+            {
+                if (await this.userManager.IsInRoleAsync(item, GlobalConstants.AdministratorRoleName)
+                    || await this.userManager.IsInRoleAsync(item, GlobalConstants.ArtistRoleName)
+                    || await this.userManager.IsInRoleAsync(item, GlobalConstants.PremiumRoleName))
+                {
+                    continue;
+                }
+
+                filteredMembers.Add(item);
+            }
+
             const int ItemsPerPage = 12;
 
             var viewModel = new MembersListViewModel
@@ -169,7 +184,7 @@
                     CountOfEvents = this.userService.GetCountOfEvents(x.Id),
                     CountOfCards = this.userService.GetCountOfCards(x.Id),
                 }),
-                Members = members.Select(x => new MembersInListViewModel
+                Members = filteredMembers.Select(x => new MembersInListViewModel
                 {
                     Nickname = x.Nickname,
                     Username = x.UserName,
@@ -212,9 +227,11 @@
                 return this.BadRequest();
             }
 
-            member.Arts = await this.artService.GetAllArtByUserId<ArtInListViewModel>(id, 1, 50);
-            member.Articles = await this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(id, 1, 50);
-            member.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(id, 1, 50);
+            var memberId = await this.userService.GetMemberIdByUserName(member.UserName);
+            member.Cards = await this.cardService.GetAllCardsByUserIdPageless<CardInListViewModel>(memberId);
+            member.Arts = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(memberId);
+            member.Articles = await this.articleService.GetAllArticlesByUserIdPageless<ArticleInListViewModel>(memberId);
+            member.Events = await this.eventService.GetAllEventsByUserIdPageless<EventInListViewModel>(memberId);
             return this.View(member);
         }
     }

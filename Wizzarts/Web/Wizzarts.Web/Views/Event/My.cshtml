@@ -71,7 +71,7 @@
                         </form>
                         <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
                     </li>
-                    @if (this.User.IsInRole(AdministratorRoleName))
+                    @if (this.User.IsInRole(AdministratorRoleName) && Model.ApprovedByAdmin == false)
                     {
                         <li class="single-meta">
                             <form asp-area="" asp-controller="Event" method="post" asp-action="ApproveEvent" asp-route-id="@Model.EventId">

@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-xl-9 col-12">
                     <ul class="entry-meta">
-                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName) && Model.ApprovedByAdmin == false)
                         {
                             
                             <li class="single-meta">

@@ -10,10 +10,10 @@
 
         public IEnumerable<UserInListViewModelAdminArea> Artists { get; set; }
 
-        public IEnumerable<UserInListViewModelAdminArea> StoreOwners { get; set; }
-
         public IEnumerable<UserInListViewModelAdminArea> Admins { get; set; }
 
         public IEnumerable<UserInListViewModelAdminArea> Premium { get; set; }
+
+        public IEnumerable<UserInListViewModelAdminArea> Wizzarts { get; set; }
     }
 }

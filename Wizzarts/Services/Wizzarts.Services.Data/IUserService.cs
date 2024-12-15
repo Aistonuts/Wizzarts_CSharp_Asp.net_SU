@@ -35,5 +35,7 @@
         Task<bool> HasNickName(string userId);
 
         Task<bool> NickNameExist(string nickname);
+
+        Task<string> GetMemberIdByUserName(string userName);
     }
 }

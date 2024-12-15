@@ -517,6 +517,50 @@
       "PackagePath": "staticwebassets\\images\\event\\Game_tester.jpg"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\Components\\Addthis.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\Components\\Addthis.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\Components\\Newstaddition.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\Components\\Newstaddition.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\Createnewcard.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\Createnewcard.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\OnlyText.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\OnlyText.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\createart.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\createart.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\createdeck.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\createdeck.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\createstore.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\createstore.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\createstorecreatestorecreate.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\createstorecreatestorecreate.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\creeateart.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\creeateart.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\newstorenewstore.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\newstorenewstore.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\texttexttext.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\texttexttext.jpg"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Abandoned_Mire.png",
       "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Abandoned_Mire.png"
     },

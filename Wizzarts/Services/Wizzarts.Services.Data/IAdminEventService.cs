@@ -24,6 +24,8 @@
 
         Task<T> GetEventComponentById<T>(int id);
 
+        Task<IEnumerable<T>> GetAllEventsByUserIdPageless<T>(string id);
+
         Task<IEnumerable<T>> GetAllEventsByUserId<T>(string id, int page, int itemsPerPage = 3);
 
         Task<bool> EventExist(int id);

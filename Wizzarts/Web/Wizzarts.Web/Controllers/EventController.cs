@@ -248,7 +248,7 @@
             }
             else
             {
-                return this.BadRequest();
+                return this.RedirectToAction("All", "Member", new { Area = "Administration" });
             }
         }
 

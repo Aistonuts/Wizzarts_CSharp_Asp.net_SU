@@ -60,7 +60,7 @@
                                 </a>
                             </li>
                         }
-                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName) && Model.ApprovedByAdmin == false)
                         {
                             <li class="single-meta">
                                 <form asp-area="" asp-controller="Article" method="post" asp-action="ApproveArticle" asp-route-id="@Model.Id">

@@ -92,7 +92,7 @@
                         <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Articles</h4>
 
                         <div class="firstfeed-flexbox">
-                            @foreach (var article in this.Model.Articles.ToList().Take(4).Where(x => x.ApprovedByAdmin == true))
+                            @foreach (var article in this.Model.Articles.ToList().Where(x => x.ApprovedByAdmin == true))
                             {
                                 <div class="article-card card border-0">
                                     <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()" aria-label="article" class="image-wrapper">
@@ -219,7 +219,7 @@
             <div class="card mb-2">
                 <div class="w-100 text-center ae-border-bottom-light"><h4>Articles</h4></div>
                 <div class="card-body pl-1 pr-1 pt-2 pb-0">
-                    @foreach (var article in this.Model.Articles.ToList().Take(4).Where(x => x.ApprovedByAdmin == false))
+                    @foreach (var article in this.Model.Articles.ToList().Where(x => x.ApprovedByAdmin == false))
                     {
                         <div class="metagroup-container">
                             <div class="mr-2 d-none d-lg-block">

@@ -7,6 +7,7 @@
 
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore.Metadata;
     using Microsoft.Extensions.Caching.Memory;
     using Wizzarts.Common;
     using Wizzarts.Data.Models;
@@ -18,7 +19,7 @@
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.Store;
 
-    using static Wizzarts.Common.AdminConstants;
+
 
     public class MemberController : AdministrationController
     {
@@ -38,8 +39,7 @@
             IEventService eventService,
             IPlayCardService cardService,
             IStoreService storeService,
-            UserManager<ApplicationUser> userManager,
-            IMemoryCache cache)
+            UserManager<ApplicationUser> userManager)
         {
             this.artService = artService;
             this.articleService = articleService;
@@ -48,73 +48,33 @@
             this.cardService = cardService;
             this.storeService = storeService;
             this.userManager = userManager;
-            this.cache = cache;
         }
 
         [Route("[controller]/[action]")]
-        public IActionResult All(int id = 1)
+        public async Task<IActionResult> All()
         {
-            if (id <= 0)
+            var users = this.userManager.GetUsersInRoleAsync(GlobalConstants.MemberRoleName).Result;
+            var premiumUser = this.userManager.GetUsersInRoleAsync(GlobalConstants.PremiumRoleName).Result;
+            var admins = this.userManager.GetUsersInRoleAsync(GlobalConstants.AdministratorRoleName).Result;
+            var artists = this.userManager.GetUsersInRoleAsync(GlobalConstants.ArtistRoleName).Result;
+            var wizzarts = this.userManager.GetUsersInRoleAsync(GlobalConstants.WizzartsTeamRoleName).Result;
+            var filtered = new List<ApplicationUser>();
+            foreach (var item in users)
             {
-                return this.NotFound();
-            }
+                if (await this.userManager.IsInRoleAsync(item, GlobalConstants.AdministratorRoleName)
+                    || await this.userManager.IsInRoleAsync(item, GlobalConstants.ArtistRoleName)
+                    || await this.userManager.IsInRoleAsync(item, GlobalConstants.PremiumRoleName)
+                    || await this.userManager.IsInRoleAsync(item, GlobalConstants.WizzartsTeamRoleName))
+                {
+                    continue;
+                }
 
-            const int ItemsPerPage = 12;
-
-            var users = this.cache
-                .Get<IEnumerable<ApplicationUser>>(UsersCacheKey);
-
-            if (users == null)
-            {
-                users = this.userManager.GetUsersInRoleAsync(GlobalConstants.MemberRoleName).Result;
-
-                var cacheOptions = new MemoryCacheEntryOptions()
-                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
-                this.cache.Set(UsersCacheKey, users, cacheOptions);
-            }
-
-            var premiumUser = this.cache
-               .Get<IEnumerable<ApplicationUser>>(PremiumCacheKey);
-
-            if (premiumUser == null)
-            {
-                premiumUser = this.userManager.GetUsersInRoleAsync(GlobalConstants.PremiumRoleName).Result;
-
-                var cacheOptions = new MemoryCacheEntryOptions()
-                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
-                this.cache.Set(PremiumCacheKey, premiumUser, cacheOptions);
-            }
-
-            var admins = this.cache
-               .Get<IEnumerable<ApplicationUser>>(AdminsCacheKey);
-
-            if (admins == null)
-            {
-                admins = this.userManager.GetUsersInRoleAsync(GlobalConstants.AdministratorRoleName).Result;
-
-                var cacheOptions = new MemoryCacheEntryOptions()
-                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
-                this.cache.Set(AdminsCacheKey, admins, cacheOptions);
-            }
-
-            var artists = this.cache
-              .Get<IEnumerable<ApplicationUser>>(ArtistsCacheKey);
-
-            if (artists == null)
-            {
-                artists = this.userManager.GetUsersInRoleAsync(GlobalConstants.ArtistRoleName).Result;
-
-                var cacheOptions = new MemoryCacheEntryOptions()
-                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
-                this.cache.Set(ArtistsCacheKey, artists, cacheOptions);
+                filtered.Add(item);
             }
 
             var viewModel = new UserListViewModelAdminArea
             {
-                ItemsPerPage = ItemsPerPage,
-                PageNumber = id,
-
-                Users = users.Select(x => new UserInListViewModelAdminArea
+                Users = filtered.Select(x => new UserInListViewModelAdminArea
                 {
                     Id = x.Id,
                     Email = x.Email,
@@ -138,6 +98,14 @@
                     AvatarUrl = x.AvatarUrl,
                 }),
 
+                Wizzarts = wizzarts.Select(x => new UserInListViewModelAdminArea
+                {
+                    Id = x.Id,
+                    Email = x.Email,
+                    Nickname = x.Nickname,
+                    AvatarUrl = x.AvatarUrl,
+                }),
+
                 Admins = admins.Select(x => new UserInListViewModelAdminArea
                 {
                     Id = x.Id,
@@ -146,20 +114,14 @@
                     AvatarUrl = x.AvatarUrl,
                 }),
             };
+
             return this.View(viewModel);
         }
 
         [Route("[controller]/[action]")]
-        public async Task<IActionResult> ById(string id, int idPage = 1)
+        public async Task<IActionResult> ById(string id)
         {
-            if (idPage <= 0)
-            {
-                return this.NotFound();
-            }
-
             var users = this.userManager.FindByIdAsync(id).Result;
-
-            const int ItemsPerPage = 5;
 
             var user = new SingleUserViewModelAdminArea
             {
@@ -167,14 +129,13 @@
                 Id = users.Id,
                 Email = users.Email,
                 AvatarUrl = users.AvatarUrl,
-                ItemsPerPage = ItemsPerPage,
-                PageNumber = idPage,
+
             };
-            user.Arts = await this.artService.GetAllArtByUserId<ArtInListViewModel>(user.Id, idPage, ItemsPerPage);
-            user.Articles = await this.articleService.GetAllArticlesByUserId<ArticleInListViewModel>(user.Id, idPage, ItemsPerPage);
-            user.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(user.Id, idPage, ItemsPerPage);
-            user.Cards = await this.cardService.GetAllCardsByUserId<CardInListViewModel>(user.Id, idPage, ItemsPerPage);
-            user.Stores = await this.storeService.GetAllStoresByUserId<StoreInListViewModel>(user.Id, idPage, ItemsPerPage);
+            user.Arts = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(user.Id);
+            user.Articles = await this.articleService.GetAllArticlesByUserIdPageless<ArticleInListViewModel>(user.Id);
+            user.Events = await this.eventService.GetAllEventsByUserIdPageless<EventInListViewModel>(user.Id);
+            user.Cards = await this.cardService.GetAllCardsByUserIdPageless<CardInListViewModel>(user.Id);
+            user.Stores = await this.storeService.GetAllStoresByUserIdPageless<StoreInListViewModel>(user.Id);
             return this.View(user);
         }
     }

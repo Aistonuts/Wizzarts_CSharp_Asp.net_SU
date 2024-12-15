@@ -45,9 +45,18 @@ namespace Wizzarts.Web.Controllers
                 {
                     ChatId = viewModel.ChatId,
                     Text = sanitizedText,
-                    Name = user.Nickname,
                     Timestamp = DateTime.Now,
                 };
+                if (user.Nickname.Length > 0)
+                {
+                    message.Name = user.Nickname;
+
+                }
+                else
+                {
+                    message.Name = user.UserName;
+                }
+
                 _ = this.dbContext.ChatMessages.AddAsync(message);
                 await this.dbContext.SaveChangesAsync();
                 return this.Ok();

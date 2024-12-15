@@ -99,7 +99,7 @@
             var userId = await this.eventService.PromoteEvent(id);
             if (userId != null)
             {
-                return this.RedirectToAction("Mine", "Event", new { id = $"{userId}", Area = "Administration" });
+                return this.RedirectToAction("Mine", "Event", new { id = $"{id}", Area = "Administration" });
             }
             else
             {
@@ -146,7 +146,7 @@
             var currentRole = await this.userManager.GetRolesAsync(user);
             bool isContentCreator = false;
 
-            if (currentRole.Contains(PremiumRoleName) || currentRole.Contains(ArtistRoleName))
+            if (currentRole.Contains(PremiumRoleName) || currentRole.Contains(ArtistRoleName) || currentRole.Contains(AdministratorRoleName))
             {
                 isContentCreator = true;
             }
@@ -174,7 +174,7 @@
             var user = await this.userManager.GetUserAsync(this.User);
             var newEvent = await this.eventService.GetById<MyEventSettingsViewModel>(id);
             newEvent.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
-            newEvent.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3);
+            newEvent.Events = await this.eventService.GetAllEventsByUserIdPageless<EventInListViewModel>(this.User.GetId());
             newEvent.EventId = id;
             newEvent.CreatorAvatar = user.AvatarUrl;
             newEvent.OwnerBrowsing = false;
@@ -225,6 +225,18 @@
             }
             catch (Exception ex)
             {
+                newEvent.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(input.EventId);
+                newEvent.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3);
+                newEvent.EventId = input.EventId;
+                newEvent.CreatorAvatar = user.AvatarUrl;
+                newEvent.OwnerBrowsing = false;
+                newEvent.EventCategoryId = input.EventCategoryId;
+                newEvent.EventCategories = await this.eventService.GetAllEventCategories<EventCategoryInListViewModel>();
+                bool isOwner = await this.eventService.HasUserWithIdAsync(newEvent.EventId, this.User.GetId());
+                if (isOwner)
+                {
+                    newEvent.OwnerBrowsing = true;
+                }
                 this.ModelState.AddModelError(string.Empty, ex.Message);
 
                 return this.View(input);

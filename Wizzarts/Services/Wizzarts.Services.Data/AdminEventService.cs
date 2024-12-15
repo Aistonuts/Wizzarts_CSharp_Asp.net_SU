@@ -63,7 +63,7 @@
             else if (input.CategoryId == AddArtType)
             {
                 newEvent.ControllerId = ArtControllerId;
-                newEvent.ActionId = CreateActionId;
+                newEvent.ActionId = AddActionId;
             }
             else if (input.CategoryId == AddPlayCardType)
             {
@@ -78,6 +78,11 @@
             else if (input.CategoryId == CreateEventType)
             {
                 newEvent.ControllerId = EventControllerId;
+                newEvent.ActionId = CreateActionId;
+            }
+            else if (input.CategoryId == AddStoreType)
+            {
+                newEvent.ControllerId = StoreControllerId;
                 newEvent.ActionId = CreateActionId;
             }
             else
@@ -221,6 +226,11 @@
                 component.ControllerId = PlayCardControllerId;
                 component.ActionId = CreateActionId;
             }
+            else
+            {
+                component.ControllerId = EventControllerId;
+                component.ActionId = CreateActionId;
+            }
 
             if (currentEvent.EventCategoryId == FlavorlessType || currentEvent.EventCategoryId == ImagelessType || currentEvent.EventCategoryId == ImageType)
             {
@@ -338,6 +348,15 @@
             var events = await this.eventRepository.AllAsNoTracking()
           .OrderByDescending(x => x.Id)
           .To<T>().ToListAsync();
+
+            return events;
+        }
+
+        public async Task<IEnumerable<T>> GetAllEventsByUserIdPageless<T>(string id)
+        {
+            var events = await this.eventRepository.AllAsNoTracking()
+           .Where(x => x.EventCreatorId == id)
+           .To<T>().ToListAsync();
 
             return events;
         }
