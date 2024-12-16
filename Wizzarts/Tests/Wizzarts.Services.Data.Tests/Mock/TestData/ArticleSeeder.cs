@@ -85,7 +85,7 @@
                 ArticleCreatorId = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",
                 ImageUrl = "/images/navigation/WrenchMan.jpg",
                 ApprovedByAdmin = true,
-                ForMainPage = true,
+                ForMainPage = false,
             });
             await dbContext.SaveChangesAsync();
         }

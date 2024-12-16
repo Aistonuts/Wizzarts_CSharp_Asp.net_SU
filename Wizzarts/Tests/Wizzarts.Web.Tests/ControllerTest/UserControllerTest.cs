@@ -169,7 +169,7 @@
             MyController<UserController>
                    .Instance(instance => instance
                  .WithData(data.Users))
-                 .Calling(c => c.ById("2738e787-5d57-4bc7-b0d2-287242f04695", "Drawgoon"))
+                 .Calling(c => c.ById("Drawgoon", "Drawgoon"))
                  .ShouldReturn()
                   .View(view => view
                 .WithModelOfType<SingleMemberViewModel>());

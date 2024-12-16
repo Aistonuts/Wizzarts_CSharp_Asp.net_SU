@@ -37,7 +37,25 @@
             var articleService = new ArticleService(fileService, articleRepository, cache);
             var articles = articleService.GetAll<ArticleInListViewModel>(1, 6);
             int articleCount = articles.Count();
-            Assert.Equal(6, articleCount);
+            Assert.Equal(5, articleCount);
+
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task Article_Get_All_Not_For_Main_Page_Should_Return_Correct_Art_Count()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+            using var articleRepository = new EfDeletableEntityRepository<Article>(data);
+            var fileService = new FileService();
+            var articleService = new ArticleService(fileService, articleRepository, cache);
+            var articles = await articleService.GetAllUserArticles<ArticleInListViewModel>();
+            int articleCount = articles.Count();
+            var testArticle = data.Articles.FirstOrDefault();
+            Assert.Equal(1, articleCount);
+            Assert.Equal("Call to arms",testArticle.Title);
 
             this.TearDownBase();
         }

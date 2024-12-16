@@ -198,6 +198,22 @@
         }
 
         [Fact]
+        public async Task StoresGetByIdShouldReturnCorrectStoreWithName()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+
+            using var repository = new EfDeletableEntityRepository<Store>(data);
+            var fileService = new FileService();
+            var service = new StoreService(repository, fileService);
+            var store = await service.GetById<StoreInListViewModel>(1);
+
+            Assert.Equal("Bright", store.Name);
+
+            this.TearDownBase();
+        }
+
+        [Fact]
         public async Task ApproveStoreShouldChangeNewStoreApprovalStatusToApproved()
         {
             this.OneTimeSetup();

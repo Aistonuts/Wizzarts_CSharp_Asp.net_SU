@@ -1,5 +1,7 @@
 ﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
+    using System.Drawing.Imaging;
+    using System.Drawing;
     using System.IO;
     using System.Linq;
     using System.Text;
@@ -53,8 +55,25 @@
         [InlineData("Event Title", "Create Event EventEventEventEventEventEventEvent")]
         public void CreatePostShouldSaveArticleSetTempDataMessageAndRedirectWhenValidModel(string title, string content)
         {
-            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            Bitmap bitmapImage = new Bitmap(50, 50);
+            Graphics imageData = Graphics.FromImage(bitmapImage);
+            imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
+
+            MemoryStream memoryStream = new MemoryStream();
+            byte[] byteArray;
+
+            using (memoryStream)
+            {
+                bitmapImage.Save(memoryStream, ImageFormat.Jpeg);
+                byteArray = memoryStream.ToArray();
+            }
+
+            var imageStream = new MemoryStream(byteArray);
+            var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "image/jpeg"
+            };
 
             this.OneTimeSetup();
             var data = this.dbContext;

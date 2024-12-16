@@ -41,7 +41,5 @@
         Task<bool> CardTypeExistsAsync(int id);
 
         Task<bool> CardFrameExistsAsync(int id);
-
-        Task<bool> ExpansionExistsAsync(int id);
     }
 }

@@ -210,6 +210,53 @@
         }
 
         [Fact]
+        public async Task Event_Get_All_Events_By_Users_Where_Event_Is_Not_For_Main_Page_Should_Return_Correct_Event_Count_And_First_Event_Correct_Title()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
+            using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
+            using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
+            var fileService = new FileService();
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository, fileService);
+            var events = await service.GetAllEventsByUsers<EventInListViewModel>();
+            int eventsCount = events.Count();
+            var firstEvent = data.Events.FirstOrDefault(x => x.Id == 1);
+            Assert.Equal(1, eventsCount);
+            Assert.Equal("Flavorless cards", firstEvent.Title);
+            this.TearDownBase();
+        }
+
+        [Fact]
+        public async Task Promote_Should_Change_For_Main_Page_To_True()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var eventRepository = new EfDeletableEntityRepository<Event>(data);
+            using var eventComponentsRepository = new EfDeletableEntityRepository<EventComponent>(data);
+            using var eventTagHelpControllerRepository = new EfDeletableEntityRepository<TagHelpController>(data);
+            using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
+            using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
+            var fileService = new FileService();
+            var service = new EventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository, fileService);
+
+            var firstEvent = data.Events.FirstOrDefault(x => x.Id == 4);
+            var statusBefore = firstEvent.ForMainPage;
+
+            var events = await service.PromoteEvent(4);
+            var statusAfter = firstEvent.ForMainPage;
+            Assert.False(statusBefore);
+            Assert.True(statusAfter);
+            this.TearDownBase();
+        }
+
+        [Fact]
         public async Task EventGetEventByIdShouldReturnTheCorrectEventTitle()
         {
             this.OneTimeSetup();

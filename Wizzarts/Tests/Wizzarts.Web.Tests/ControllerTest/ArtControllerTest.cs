@@ -1,5 +1,7 @@
 ﻿namespace Wizzarts.Web.Tests.ControllerTest
 {
+    using System.Drawing.Imaging;
+    using System.Drawing;
     using System.IO;
     using System.Linq;
     using System.Text;
@@ -24,21 +26,33 @@
         [Fact]
         public void Add_Should_Return_View_With_Correct_Model()
         {
+            this.OneTimeSetup();
+            var data = this.dbContext;
             MyController<ArtController>
+                .Instance(instance => instance
+                    .WithData(data.Events))
             .Calling(c => c.Add(With.Default<AddArtViewModel>())) // Provides a global service.
             .ShouldReturn()
-            .View(With.Default<AddArtViewModel>());
+                .View(view => view
+                    .WithModelOfType<AddArtViewModel>());
         }
 
         [Fact]
         public void Add_Art_Should_Return_View_With_Same_Model_When_Invalid_Model_State()
-            => MyController<ArtController>
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            MyController<ArtController>
+                .Instance(instance => instance
+                    .WithData(data.Events))
                 .Calling(c => c.Add(With.Default<AddArtViewModel>()))
                 .ShouldHave()
                 .InvalidModelState()
                 .AndAlso()
                 .ShouldReturn()
-                .View(With.Default<AddArtViewModel>());
+                .View(view => view
+                    .WithModelOfType<AddArtViewModel>());
+        }
 
         [Theory]
         [InlineData("Art Title", "Art Content")]
@@ -46,8 +60,25 @@
         {
             this.OneTimeSetup();
             var data = this.dbContext;
-            var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            Bitmap bitmapImage = new Bitmap(50, 50);
+            Graphics imageData = Graphics.FromImage(bitmapImage);
+            imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
+
+            MemoryStream memoryStream = new MemoryStream();
+            byte[] byteArray;
+
+            using (memoryStream)
+            {
+                bitmapImage.Save(memoryStream, ImageFormat.Jpeg);
+                byteArray = memoryStream.ToArray();
+            }
+
+            var imageStream = new MemoryStream(byteArray);
+            var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "image/jpeg"
+            };
 
             MyController<ArtController>
                 .Instance(instance => instance

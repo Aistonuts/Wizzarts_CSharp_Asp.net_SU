@@ -74,11 +74,6 @@
             return this.colorlessManaRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
         }
 
-        public Task<bool> ExpansionExistsAsync(int id)
-        {
-            return this.cardGameExpansionRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
-        }
-
         public async Task<IEnumerable<BlackManaCostViewModel>> GetAllBlackMana()
         {
             return await this.blackManaRepository.AllAsNoTracking()
