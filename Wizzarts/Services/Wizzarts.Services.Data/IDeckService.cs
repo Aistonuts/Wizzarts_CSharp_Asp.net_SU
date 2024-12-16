@@ -34,5 +34,9 @@
         Task<bool> HasOpenDecks(string id);
 
         Task OrderAsync(int deckId, string userId);
+
+        Task DeleteAsync(int id);
+
+        Task<bool> HasUserWithIdAsync(int deckId, string userId);
     }
 }

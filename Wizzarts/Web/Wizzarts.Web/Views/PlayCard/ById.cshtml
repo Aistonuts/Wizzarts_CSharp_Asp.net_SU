@@ -1,5 +1,6 @@
 ﻿@using Wizzarts.Common
 @using Wizzarts.Web.Infrastructure.Extensions
+@using static Wizzarts.Common.HardCodedConstants
 @model Wizzarts.Web.ViewModels.PlayCard.SingleCardViewModel
 @{
     this.ViewData["Title"] = Model.Name;
@@ -34,11 +35,19 @@
                                                 </form>
                                             </li>
                                         }
-                                        @if (@Model.CardExpansion =="Beta")
+                                        @if (@Model.CardExpansion ==Beta)
                                         {
                                             <li class="single-meta">
                                                 <form asp-controller="PlayCard" method="post" asp-action="Promote" asp-route-id="@Model.Id">
-                                                    <button class="btn btn-light font-weight-bold">Promote</button>
+                                                    <button class="btn btn-light font-weight-bold">Promote to Second</button>
+                                                </form>
+                                            </li>
+                                        }
+                                        @if (@Model.CardExpansion == Second)
+                                        {
+                                            <li class="single-meta">
+                                                <form asp-controller="PlayCard" method="post" asp-action="Demote" asp-route-id="@Model.Id">
+                                                    <button class="btn btn-light font-weight-bold">Demote to Beta</button>
                                                 </form>
                                             </li>
                                         }
@@ -88,10 +97,11 @@
                         {
                             <div class="card-body">
                                 <small class="yellow-line">
-                                    <a href=""><i class="far fa-star"></i>@comment.Title</a>
+                                    <a asp-controller="User" asp-action="ById" asp-route-id="@comment.PostedByUser" asp-route-information="@comment.GetWizzartsMemberName()"><b>@comment.Nickname</b></a>
                                 </small>
                                 <div class="ff-display font-size-18">
-                                    <b><a href="">@comment.Review</a></b>
+                                    <b>@comment.Title</b>
+                                    <b>@comment.Review</b>
                                 </div>
                                 <div class="card-text d-none d-md-flex m-1">@comment.Suggestions</div>
 
@@ -111,7 +121,7 @@
                     @foreach (var comment in this.Model.Comments.Where(x => x.IsAdminComment == false))
                     {
                         <div class="card-header pt-0 pb-0 pr-0">
-                            <a asp-controller="User" asp-action="ById" asp-route-id="@comment.PostedByUser" asp-route-information="@comment.GetWizzartsMemberName()"><b>@comment.Nickname</b></a> <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time>
+                            <a asp-controller="User" asp-action="ById" asp-route-id="@comment.PostedByUser" asp-route-information="@comment.GetWizzartsMemberName()"><b>@comment.Nickname</b></a>@*  <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time> *@
                         </div>
                         <div class="card-body">
                             @comment.Review

@@ -3,8 +3,9 @@
     using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels.WizzartsMember;
 
-    public class DeckInListViewModel : IMapFrom<CardDeck>, IHaveCustomMappings, ISingleDeckViewModel
+    public class DeckInListViewModel : IMapFrom<CardDeck>, IHaveCustomMappings, ISingleDeckViewModel, ISingleMemberViewModel
     {
         public int Id { get; set; }
 
@@ -19,6 +20,10 @@
         public string ImageUrl { get; set; } = string.Empty;
 
         public string IsLocked { get; set; } = string.Empty;
+
+        public string Nickname { get; set; } = string.Empty;
+
+        public string Username { get; set; } = string.Empty;
 
         //public string CreatedByMemberId { get; set; } = string.Empty;
 
@@ -39,6 +44,9 @@
                     opt.MapFrom(x =>
                        x.CreatedByMember.Nickname))
                 .ForMember(x => x.CreatedByUser, opt =>
+                    opt.MapFrom(x =>
+                        x.CreatedByMember.UserName))
+                .ForMember(x => x.Username, opt =>
                     opt.MapFrom(x =>
                         x.CreatedByMember.UserName));
         }

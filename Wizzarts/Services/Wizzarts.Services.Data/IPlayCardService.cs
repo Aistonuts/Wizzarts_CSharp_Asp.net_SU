@@ -47,6 +47,8 @@
 
         Task Promote(string id);
 
+        Task Demote(string id);
+
         Task<bool> CardTitleExist(string title);
     }
 }

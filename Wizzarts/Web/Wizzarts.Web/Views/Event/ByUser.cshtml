@@ -8,8 +8,10 @@
 <div class="col-md-12 col-lg-12 col-xl-12 pl-0 pr-0 pr-xl-3">
     <div class="row">
         <div class="col-sm-12 col-md-12 pl-0 pr-0">
-            <h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">Events</h4>
-            <div class="mb-2 firstfeed-flexbox ff-display">
+            @if(this.Model.Events.Any(x=> x.ApprovedByAdmin == true))
+            {
+                
+                <div class="mb-2 firstfeed-flexbox ff-display">
                     @foreach (var eventNow in this.Model.Events)
                     {
                         <div class="article-card card">
@@ -19,7 +21,7 @@
                             </a>
                             <div class="card-body pt-0">
                                 <small class="yellow-line">
-                                    <a asp-area="" asp-controller="Wizzarts" asp-action="ById" asp-route-id="@eventNow.Creator">@eventNow.Creator<i class="far fa-star"></i></a>
+                                    <a asp-area="" asp-controller="User" asp-action="ById" asp-route-id="@eventNow.Creator" asp-route-information="@eventNow.GetWizzartsMemberName()">@eventNow.Creator<i class="far fa-star"></i></a>
                                     <span>@eventNow.CreatedOn</span>
                                 </small>
                                 <div class="ff-display font-size-18">
@@ -29,7 +31,16 @@
                             </div>
                         </div>
                     }
-            </div>
+                </div>
+            }
+            else
+            {
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="font-weight-bold mt-5" style="max-width: 500px;">
+                        <a asp-controller="Event" asp-action="Create" class="image-wrapper"> <h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">No new events. Create new event.</h4></a>
+                    </div>
+                </div>
+            }         
         </div>
     </div>
 </div>

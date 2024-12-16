@@ -15,6 +15,7 @@
     using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.Event;
+    using Wizzarts.Web.ViewModels.Order;
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.Store;
 
@@ -265,6 +266,24 @@
             deck.Cards = await this.deckService.GetAllCardsInDeckId<CardInListViewModel>(id);
             deck.Decks = await this.deckService.GetAll<DeckInListViewModel>();
             return this.View(deck);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (await this.deckService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
+            var deck = await this.deckService.GetById<DeckInListViewModel>(id);
+            if (deck != null)
+            {
+                await this.deckService.DeleteAsync(id);
+            }
+
+            return this.RedirectToAction("Create", "Deck");
         }
     }
 }

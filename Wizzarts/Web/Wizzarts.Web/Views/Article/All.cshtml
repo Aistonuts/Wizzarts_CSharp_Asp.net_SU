@@ -23,7 +23,7 @@
             }
             else
             {
-                @foreach (var article in this.Model.UserArticles)
+                @foreach (var article in this.Model.UserArticles.Where(x=> x.ApprovedByAdmin == true))
                 {
                     <div class="article-card card border-0">
                         <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()" aria-label="article" class="image-wrapper">

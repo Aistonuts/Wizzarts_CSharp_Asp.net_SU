@@ -35,6 +35,7 @@
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
+            var article = await articleService.GetById<SingleArticleViewModel>(id);
             if (await this.articleService.ArticleExist(id) == false)
             {
                 return this.BadRequest();
@@ -45,8 +46,11 @@
             {
                 return this.Unauthorized();
             }
-
-            return this.View();
+            var viewModel = new EditArticleViewModel();
+            viewModel.Title = article.Title;
+            viewModel.Description = article.Description;
+            viewModel.ShortDescription = article.ShortDescription;
+            return this.View(viewModel);
         }
 
         [HttpPost]
@@ -54,7 +58,7 @@
         {
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
-
+            this.ModelState.Remove("ImageUrl");
             if (await this.articleService.ArticleTitleExist(input.Title))
             {
                 this.ModelState.AddModelError(nameof(input.Title), "Article title exist.");
@@ -163,8 +167,8 @@
                 return this.BadRequest();
             }
 
-            if (await this.articleService.HasUserWithIdAsync(id, this.User.GetId()) == false
-                || this.User.IsAdmin() == false)
+            if (!await this.articleService.HasUserWithIdAsync(id, this.User.GetId())
+                || !this.User.IsAdmin())
             {
                 return this.Unauthorized();
             }

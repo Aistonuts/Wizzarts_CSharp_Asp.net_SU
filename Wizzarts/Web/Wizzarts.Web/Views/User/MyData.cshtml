@@ -40,7 +40,6 @@
                                     @foreach (var store in this.Model.Stores)
                                     {
                                         <a asp-controller="Store" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i>@store.Name</a>
-
                                         <br>
                                     }
                                 </div>
@@ -52,8 +51,7 @@
                                 <div class="card-body p-2">
                                     @foreach (var gameEvent in this.Model.Events)
                                     {
-                                        <a asp-controller="Event" asp-action="All" class="text-decoration-none"><i class="ss ss-parl3"></i>@gameEvent.Title</a>
-
+                                        <a asp-controller="@gameEvent.ControllerName" asp-action="@gameEvent.ActionName" asp-route-id="@gameEvent.Id" asp-route-information="@gameEvent.GetEventTitle()" class="text-decoration-none"><i class="ss ss-parl3"></i>@gameEvent.Title</a>
                                         <br>
                                     }
                                 </div>
@@ -69,7 +67,6 @@
                                     <a asp-controller="Wizzarts" asp-action="Membership" class="text-decoration-none"><i class="ss ss-parl3"></i> Membership</a><br>
                                     <a asp-controller="Event" asp-action="All" class="text-decoration-none"><i class="ss ss-pmtg1"></i>Events</a><br>
                                     <a asp-controller="Order" asp-action="My" class="text-decoration-none"><i class="ss ss-pmtg1"></i> My orders</a><br>
-                                    <a asp-controller="User" asp-action="MyData" class="text-decoration-none"><i class="ss ss-pmtg1"></i> My data</a><br>
                                 </div>
                             </div>
                             <div class="card">

@@ -357,11 +357,11 @@
             if (card != null)
             {
                 card.Mana = await this.cardService.GetAllCardManaByCardId<ManaListViewModel>(id);
+                card.Comments = await this.commentService.GetCommentsByCardId<CardCommentInListViewModel>(id);
+                card.Events = await this.eventService.GetAll<EventInListViewModel>();
+                card.Articles = this.articleService.GetRandom<ArticleInListViewModel>(4);
             }
 
-            card.Comments = await this.commentService.GetCommentsByCardId<CardCommentInListViewModel>(id);
-            card.Events = await this.eventService.GetAll<EventInListViewModel>();
-            card.Articles = this.articleService.GetRandom<ArticleInListViewModel>(4);
             return this.View(card);
         }
 
@@ -384,6 +384,9 @@
 
             if (!this.ModelState.IsValid)
             {
+                model.Comments = await this.commentService.GetCommentsByCardId<CardCommentInListViewModel>(id);
+                model.Events = await this.eventService.GetAll<EventInListViewModel>();
+                model.Articles = this.articleService.GetRandom<ArticleInListViewModel>(4);
                 return this.View(model);
             }
 
@@ -394,7 +397,9 @@
             catch (Exception ex)
             {
                 this.ModelState.AddModelError(string.Empty, ex.Message);
-
+                model.Comments = await this.commentService.GetCommentsByCardId<CardCommentInListViewModel>(id);
+                model.Events = await this.eventService.GetAll<EventInListViewModel>();
+                model.Articles = this.articleService.GetRandom<ArticleInListViewModel>(4);
                 return this.View(model);
             }
 
@@ -450,6 +455,21 @@
             await this.cardService.DeleteAsync(id);
 
             return this.RedirectToAction("MyData", "User");
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> Demote(string id)
+        {
+            if (await this.cardService.CardExist(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            var card = await this.cardService.GetById<SingleCardViewModel>(id);
+            await this.cardService.Demote(id);
+
+            return this.RedirectToAction("ById", "PlayCard", new { id = $"{id}", information = card.GetCardName(), Area = string.Empty });
         }
     }
 }

@@ -5,8 +5,9 @@
     using AutoMapper;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels.WizzartsMember;
 
-    public class EventInListViewModel : IMapFrom<Event>, IHaveCustomMappings, ISingleEventViewModel
+    public class EventInListViewModel : IMapFrom<Event>, IHaveCustomMappings, ISingleEventViewModel, ISingleMemberViewModel
     {
         public int Id { get; set; }
 
@@ -34,6 +35,10 @@
 
         public string ControllerName { get; set; } = string.Empty;
 
+        public string Nickname { get; set; } = string.Empty;
+
+        public string Username { get; set; } = string.Empty;
+
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Event, EventInListViewModel>()
@@ -48,10 +53,10 @@
                      x.ControllerName.Name.ToString()))
             .ForMember(x => x.Creator, opt =>
                   opt.MapFrom(x =>
-                     x.EventCreator.UserName.ToString()));
-            //.ForMember(x => x.CreatorId, opt =>
-            //      opt.MapFrom(x =>
-            //         x.EventCreator.Id));
+                     x.EventCreator.UserName.ToString()))
+            .ForMember(x => x.Username, opt =>
+                  opt.MapFrom(x =>
+                     x.EventCreator.UserName));
         }
     }
 }

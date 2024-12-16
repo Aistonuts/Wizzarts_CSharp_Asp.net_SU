@@ -49,7 +49,7 @@
                                 </form>
                             </li>
                         }
-                        @if (this.User.Identity.Name == Model.AddedByMember)
+                        @if (this.User.Identity.Name == Model.AddedByMember || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
                         {
                             <li class="single-meta">
                                 <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">

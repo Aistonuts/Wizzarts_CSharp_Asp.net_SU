@@ -3,7 +3,7 @@
 @model Wizzarts.Web.ViewModels.Event.SingleEventViewModel
 
 @{
-    this.ViewData["Title"] = "Event by id";
+    this.ViewData["Title"] = "Event";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row pt-2 ae-break-word">
@@ -155,7 +155,7 @@
                             {
                                 <li class="single-meta">
                                     <form asp-area="" asp-controller="Event" method="post" asp-action="Promote" asp-route-id="@Model.EventId">
-                                        <button class="btn btn-danger">Approve</button>
+                                        <button class="btn btn-danger">Promote</button>
                                     </form>
                                 </li>
                             }

@@ -266,5 +266,29 @@
             var deck = await this.deckRepository.All().FirstOrDefaultAsync(x => x.Id == id);
             return deck.IsLocked;
         }
+
+        public async Task DeleteAsync(int id)
+        {
+            var deckOfCards = this.deckOfCardsRepository.All().Where(x => x.DeckId == id);
+            var deck = await this.deckRepository.All().FirstOrDefaultAsync(x => x.Id == id);
+
+            foreach (var card in deckOfCards)
+            {
+                this.deckOfCardsRepository.Delete(card);
+            }
+
+            if (deck != null)
+            {
+             this.deckRepository.Delete(deck);
+             await this.deckOfCardsRepository.SaveChangesAsync();
+             await this.deckRepository.SaveChangesAsync();
+            }
+        }
+
+        public async Task<bool> HasUserWithIdAsync(int deckId, string userId)
+        {
+            return await this.deckRepository.AllAsNoTracking()
+               .AnyAsync(a => a.Id == deckId && a.CreatedByMemberId == userId);
+        }
     }
 }

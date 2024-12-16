@@ -598,5 +598,15 @@ namespace Wizzarts.Services.Data
 
             return cards;
         }
+
+        public async Task Demote(string id)
+        {
+            var card = await this.cardRepository.All().FirstOrDefaultAsync(x => x.Id == id);
+            if (card != null)
+            {
+                card.CardGameExpansionId = BetaExpansion;
+                await this.cardRepository.SaveChangesAsync();
+            }
+        }
     }
 }
