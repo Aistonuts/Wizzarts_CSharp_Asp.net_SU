@@ -189,155 +189,176 @@
             </div>
         </div>
     </div>
-    <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
+<div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
         <div class="card mb-2">
-            <div class="text-header-gold w-100 text-center"><h4>Content awaiting approval</h4></div>
+            <div class="ae-border-bottom-light pt-1 pb-1 text-center">
+                <b>
+                    @Model.Nickname
+                </b>
+            </div>
+            <div class="card-body pt-1 pb-1">
+                <div class="d-flex justify-content-center">
+                    <div>
+                        <div class="ae-profile-image-container">
+                            <img src="@Model.AvatarUrl" width="80" height="80" class="rounded-circle" alt="@Model.Nickname">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-2">
+                    <a asp-controller="User" asp-action="SelectAvatar" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Update your profile</b></a>
+                </div>
+         @*        <p>@Model.Bio</p> *@
+                <p><em>"Target bird is no longer available. Please leave a message after the last bounce."</em></p>
+            </div>
         </div>
+    <div class="card mb-2">
+        <div class="text-header-gold w-100 text-center"><h4>Content awaiting approval</h4></div>
+    </div>
+    <div class="card mb-2">
+        <div class="w-100 text-center ae-border-bottom-light"><h4>Art</h4></div>
+        <div class="card-body pl-1 pr-1 pt-2 pb-0">
+            @foreach (var art in this.Model.Arts.ToList().Where(x => x.ApprovedByAdmin == false))
+            {
+                <div class="metagroup-container">
+                    <div class="mr-2 d-none d-lg-block">
+                        <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" asp-route-information="@art.GetInformation()">
+                            <div class="meta-cardimg" style="background-image: url('@art.ImageUrl')"></div>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="metagroup-link">
+                            <b class="text-primary">@art.Title</b>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+        <hr/>
         <div class="card mb-2">
-            <div class="w-100 text-center ae-border-bottom-light"><h4>Art</h4></div>
+            <div class="w-100 text-center ae-border-bottom-light"><h4>Articles</h4></div>
             <div class="card-body pl-1 pr-1 pt-2 pb-0">
-                @foreach (var art in this.Model.Arts.ToList().Where(x => x.ApprovedByAdmin == false))
+                @foreach (var article in this.Model.Articles.ToList().Where(x => x.ApprovedByAdmin == false))
                 {
                     <div class="metagroup-container">
                         <div class="mr-2 d-none d-lg-block">
-                            <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" asp-route-information="@art.GetInformation()">
-                                <div class="meta-cardimg" style="background-image: url('@art.ImageUrl')"></div>
+                            <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()">
+                                <div class="meta-cardimg" style="background-image: url('@article.ImageUrl')"></div>
                             </a>
                         </div>
                         <div>
                             <a class="metagroup-link">
-                                <b class="text-primary">@art.Title</b>
+                                <b class="text-primary">@article.Title</b>
                             </a>
                         </div>
                     </div>
                 }
             </div>
-            <hr />
+            <hr/>
             <div class="card mb-2">
-                <div class="w-100 text-center ae-border-bottom-light"><h4>Articles</h4></div>
+                <div class="w-100 text-center ae-border-bottom-light"><h4>Events</h4></div>
                 <div class="card-body pl-1 pr-1 pt-2 pb-0">
-                    @foreach (var article in this.Model.Articles.ToList().Where(x => x.ApprovedByAdmin == false))
+                    @foreach (var events in this.Model.Events.ToList().Where(x => x.ApprovedByAdmin == false))
                     {
                         <div class="metagroup-container">
                             <div class="mr-2 d-none d-lg-block">
-                                <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()">
-                                    <div class="meta-cardimg" style="background-image: url('@article.ImageUrl')"></div>
+                                <a asp-controller="Event" asp-action="My" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()">
+                                    <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
                                 </a>
                             </div>
                             <div>
                                 <a class="metagroup-link">
-                                    <b class="text-primary">@article.Title</b>
+                                    <b class="text-primary">@events.Title</b>
+                                </a>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <hr/>
+            <div class="card mb-2">
+                <div class="w-100 text-center ae-border-bottom-light"><h4>Play cards</h4></div>
+                <div class="card-body pl-1 pr-1 pt-2 pb-0">
+                    @foreach (var card in this.Model.Cards.ToList().Where(x => x.ApprovedByAdmin == false))
+                    {
+                        <div class="metagroup-container">
+                            <div class="mr-2 d-none d-lg-block">
+                                <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id" asp-route-information="@card.GetCardName()">
+                                    <div class="meta-cardimg" style="background-image: url('@card.CardRemoteUrl')"></div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="metagroup-link">
+                                    <b class="text-primary">@card.Name</b>
                                 </a>
                             </div>
                         </div>
                     }
                 </div>
-                <hr />
-                <div class="card mb-2">
-                    <div class="w-100 text-center ae-border-bottom-light"><h4>Events</h4></div>
-                    <div class="card-body pl-1 pr-1 pt-2 pb-0">
-                        @foreach (var events in this.Model.Events.ToList().Where(x => x.ApprovedByAdmin == false))
-                        {
-                            <div class="metagroup-container">
-                                <div class="mr-2 d-none d-lg-block">
-                                    <a asp-controller="Event" asp-action="My" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()">
-                                        <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="metagroup-link">
-                                        <b class="text-primary">@events.Title</b>
-                                    </a>
-                                </div>
+            </div>
+            <hr/>
+            <div class="card mb-2">
+                <div class="w-100 text-center ae-border-bottom-light"><h4>Stores</h4></div>
+                <div class="card-body pl-1 pr-1 pt-2 pb-0">
+                    @foreach (var store in this.Model.Stores.ToList().Where(x => x.ApprovedByAdmin == false))
+                    {
+                        <div class="metagroup-container">
+                            <div class="mr-2 d-none d-lg-block">
+                                <div class="meta-cardimg" style="background-image: url('@store.Image')"></div>
                             </div>
-                        }
-
-                    </div>
+                            <div>
+                                <a class="metagroup-link">
+                                    <b class="text-primary">@store.Name</b>
+                                </a>
+                            </div>
+                        </div>
+                    }
                 </div>
-                <hr />
-                <div class="card mb-2">
-                    <div class="w-100 text-center ae-border-bottom-light"><h4>Play cards</h4></div>
-                    <div class="card-body pl-1 pr-1 pt-2 pb-0">
-                        @foreach (var card in this.Model.Cards.ToList().Where(x => x.ApprovedByAdmin == false))
-                        {
-                            <div class="metagroup-container">
-                                <div class="mr-2 d-none d-lg-block">
-                                    <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@card.Id" asp-route-information="@card.GetCardName()">
-                                        <div class="meta-cardimg" style="background-image: url('@card.CardRemoteUrl')"></div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="metagroup-link">
-                                        <b class="text-primary">@card.Name</b>
-                                    </a>
-                                </div>
+            </div>
+            <hr/>
+            <div class="card mb-2">
+                <div class="w-100 text-center ae-border-bottom-light"><h4>Orders</h4></div>
+                <div class="card-body pl-1 pr-1 pt-2 pb-0">
+                    @foreach (var order in this.Model.Orders)
+                    {
+                        <div class="metagroup-container">
+                            <div class="mr-2 d-none d-lg-block">
+                                <a asp-controller="Order" asp-action="ById" asp-route-id="@order.Id">
+                                    <div class="meta-cardimg" style="background-image: url('@order.DeckImageUrl')"></div>
+                                </a>
                             </div>
-                        }
-                    </div>
+                            <div>
+                                <a class="metagroup-link">
+                                    <b class="text-primary">@order.Title</b>
+                                </a>
+                            </div>
+                        </div>
+                    }
                 </div>
-                <hr />
-                <div class="card mb-2">
-                    <div class="w-100 text-center ae-border-bottom-light"><h4>Stores</h4></div>
-                    <div class="card-body pl-1 pr-1 pt-2 pb-0">
-                        @foreach (var store in this.Model.Stores.ToList().Where(x => x.ApprovedByAdmin == false))
-                        {
-                            <div class="metagroup-container">
-                                <div class="mr-2 d-none d-lg-block">
-                                    <div class="meta-cardimg" style="background-image: url('@store.Image')"></div>
-                                </div>
-                                <div>
-                                    <a class="metagroup-link">
-                                        <b class="text-primary">@store.Name</b>
-                                    </a>
-                                </div>
+            </div>
+            <hr/>
+            <div class="card mb-2">
+                <div class="w-100 text-center ae-border-bottom-light"><h4>My latest card decks</h4></div>
+                <div class="card-body pl-1 pr-1 pt-2 pb-0">
+                    @foreach (var deck in this.Model.Decks)
+                    {
+                        <div class="metagroup-container">
+                            <div class="mr-2 d-none d-lg-block">
+                                <a asp-controller="Deck" asp-action="ById" asp-route-id="@deck.Id" asp-route-information="@deck.GetDeckName()">
+                                    <div class="meta-cardimg" style="background-image: url('@deck.ImageUrl')"></div>
+                                </a>
                             </div>
-                        }
-                    </div>
-                </div>
-                <hr />
-                <div class="card mb-2">
-                    <div class="w-100 text-center ae-border-bottom-light"><h4>Orders</h4></div>
-                    <div class="card-body pl-1 pr-1 pt-2 pb-0">
-                        @foreach (var order in this.Model.Orders)
-                        {
-                            <div class="metagroup-container">
-                                <div class="mr-2 d-none d-lg-block">
-                                    <a asp-controller="Order" asp-action="ById" asp-route-id="@order.Id">
-                                        <div class="meta-cardimg" style="background-image: url('@order.DeckImageUrl')"></div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="metagroup-link">
-                                        <b class="text-primary">@order.Title</b>
-                                    </a>
-                                </div>
+                            <div>
+                                <a class="metagroup-link">
+                                    <b class="text-primary">@deck.Name</b>
+                                </a>
                             </div>
-                        }
-                    </div>
-                </div>
-                <hr />
-                <div class="card mb-2">
-                    <div class="w-100 text-center ae-border-bottom-light"><h4>My latest card decks</h4></div>
-                    <div class="card-body pl-1 pr-1 pt-2 pb-0">
-                        @foreach (var deck in this.Model.Decks)
-                        {
-                            <div class="metagroup-container">
-                                <div class="mr-2 d-none d-lg-block">
-                                    <a asp-controller="Deck" asp-action="ById" asp-route-id="@deck.Id" asp-route-information="@deck.GetDeckName()">
-                                        <div class="meta-cardimg" style="background-image: url('@deck.ImageUrl')"></div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="metagroup-link">
-                                        <b class="text-primary">@deck.Name</b>
-                                    </a>
-                                </div>
-                            </div>
-                        }
-                    </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 

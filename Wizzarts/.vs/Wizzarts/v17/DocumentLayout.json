@@ -3,44 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\playcard\\byid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\playcard\\byid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\areas\\identity\\pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\areas\\identity\\pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\controllers\\playcardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\controllers\\playcardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\areas\\identity\\pages\\account\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\areas\\identity\\pages\\account\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\services\\wizzarts.services.data\\playcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|solutionrelative:services\\wizzarts.services.data\\playcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\event\\byid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\event\\byid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\shared\\_layoutidentity.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\shared\\_layoutidentity.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\services\\wizzarts.services.data\\iplaycardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|solutionrelative:services\\wizzarts.services.data\\iplaycardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\art\\byid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\art\\byid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\art\\byuserid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\art\\byuserid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\art\\all.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\art\\all.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\views\\art\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\views\\art\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2288C46-0FBF-43B6-80B6-3072FD65BC32}|Wizzarts.Common\\Wizzarts.Common.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\wizzarts.common\\globalconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2288C46-0FBF-43B6-80B6-3072FD65BC32}|Wizzarts.Common\\Wizzarts.Common.csproj|solutionrelative:wizzarts.common\\globalconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\scaffoldingreadme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\scaffoldingreadme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,136 +34,89 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{290d74ba-151f-5f8b-b7df-7de2c7b571a7}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ById.cshtml",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\PlayCard\\ById.cshtml",
-              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\PlayCard\\ById.cshtml",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\PlayCard\\ById.cshtml",
-              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\PlayCard\\ById.cshtml",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACkAAAB0AAAA",
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-16T20:35:47.986Z",
+              "WhenOpened": "2024-12-17T11:12:06.988Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PlayCardController.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\PlayCardController.cs",
-              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Controllers\\PlayCardController.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\PlayCardController.cs",
-              "RelativeToolTip": "Web\\Wizzarts.Web\\Controllers\\PlayCardController.cs",
-              "ViewState": "AQIAAGsBAAAAAAAAAAAIwHcBAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T20:30:50.456Z",
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-17T10:27:09.284Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "PlayCardService.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\PlayCardService.cs",
-              "RelativeDocumentMoniker": "Services\\Wizzarts.Services.Data\\PlayCardService.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\PlayCardService.cs",
-              "RelativeToolTip": "Services\\Wizzarts.Services.Data\\PlayCardService.cs",
-              "ViewState": "AQIAAEsCAAAAAAAAAAAAAGACAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T20:29:45.118Z",
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-17T10:16:49.067Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "IPlayCardService.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\IPlayCardService.cs",
-              "RelativeDocumentMoniker": "Services\\Wizzarts.Services.Data\\IPlayCardService.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\IPlayCardService.cs",
-              "RelativeToolTip": "Services\\Wizzarts.Services.Data\\IPlayCardService.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAAC8AAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T20:29:09.374Z",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAABUBAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-17T10:15:59.295Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ById.cshtml",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Event\\ById.cshtml",
-              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Event\\ById.cshtml",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Event\\ById.cshtml",
-              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Event\\ById.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJ8AAAAlAAAA",
+              "Title": "_LayoutIdentity.cshtml",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Shared\\_LayoutIdentity.cshtml",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Shared\\_LayoutIdentity.cshtml",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Shared\\_LayoutIdentity.cshtml",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Shared\\_LayoutIdentity.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-16T20:20:00.671Z",
+              "WhenOpened": "2024-12-17T10:16:34.965Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ById.cshtml",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Art\\ById.cshtml",
-              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Art\\ById.cshtml",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Art\\ById.cshtml",
-              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Art\\ById.cshtml",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAADMAAACIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-16T20:18:27.931Z",
+              "Title": "ScaffoldingReadMe.txt",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\ScaffoldingReadMe.txt",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\ScaffoldingReadMe.txt",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\ScaffoldingReadMe.txt",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\ScaffoldingReadMe.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-12-17T10:30:57.484Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ByUserId.cshtml",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Art\\ByUserId.cshtml",
-              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Art\\ByUserId.cshtml",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Art\\ByUserId.cshtml",
-              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Art\\ByUserId.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-16T20:12:44.572Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "All.cshtml",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Art\\All.cshtml",
-              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Art\\All.cshtml",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Art\\All.cshtml",
-              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Art\\All.cshtml",
-              "ViewState": "AQIAABAAAAAAAAAAAAAAACUAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-16T19:18:57.633Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Add.cshtml",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Art\\Add.cshtml",
-              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Art\\Add.cshtml",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Art\\Add.cshtml",
-              "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Art\\Add.cshtml",
-              "ViewState": "AQIAADkAAAAAAAAAAAAAAAUAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-16T19:18:30.78Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "GlobalConstants.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Wizzarts.Common\\GlobalConstants.cs",
-              "RelativeDocumentMoniker": "Wizzarts.Common\\GlobalConstants.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Wizzarts.Common\\GlobalConstants.cs",
-              "RelativeToolTip": "Wizzarts.Common\\GlobalConstants.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T19:17:00.395Z"
             }
           ]
         }

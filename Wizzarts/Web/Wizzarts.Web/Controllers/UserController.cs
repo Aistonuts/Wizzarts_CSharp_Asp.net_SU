@@ -97,8 +97,6 @@
                 return this.View(input);
             }
 
-            var user = await this.userManager.GetUserAsync(this.User);
-
             try
             {
                 await this.userService.UpdateAsync(this.User.GetId(), input);

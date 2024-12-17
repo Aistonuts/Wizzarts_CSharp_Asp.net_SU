@@ -290,5 +290,6 @@
             return await this.deckRepository.AllAsNoTracking()
                .AnyAsync(a => a.Id == deckId && a.CreatedByMemberId == userId);
         }
+
     }
 }

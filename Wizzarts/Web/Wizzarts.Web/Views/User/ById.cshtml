@@ -12,7 +12,14 @@
             <div id="metaHubTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 pl-0 pr-0">
-                        <h1 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Welcome to @Model.Nickname profile</h1>
+                        @if (Model.Nickname.Length > 0)
+                        {
+                            <h1 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Welcome to @Model.Nickname profile</h1>
+                        }
+                        else
+                        {
+                            <h1 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Welcome to @Model.Username profile</h1>
+                        }
                         <div class="mb-2 firstfeed-flexbox ff-display">
                             <div class="card">
                                 <div class="ae-border-bottom-light text-gold pl-2">
@@ -34,9 +41,9 @@
                                 <div class="card-body p-2">
                                     @foreach (var gameEvent in this.Model.Events)
                                     {
-                                        <a asp-controller="Event" asp-action="ById" asp-route-id="@gameEvent.Id" class="text-decoration-none" asp-route-information="@gameEvent.GetEventTitle()" ><i class="ss ss-parl3"></i>
+                                        <a asp-controller="Event" asp-action="ById" asp-route-id="@gameEvent.Id" class="text-decoration-none" asp-route-information="@gameEvent.GetEventTitle()"><i class="ss ss-parl3"></i>
 
-                                        @gameEvent.Title
+                                            @gameEvent.Title
 
                                         </a>
 
@@ -74,7 +81,7 @@
                             @foreach (var article in this.Model.Articles.ToList().Take(4).Where(x => x.ApprovedByAdmin == true))
                             {
                                 <div class="article-card card border-0">
-                                    <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()"  aria-label="article" class="image-wrapper">
+                                    <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()" aria-label="article" class="image-wrapper">
                                         <img src="@article.ImageUrl" class="article-uimgheader lazy" alt="@article.Title">
                                     </a>
                                     <div class="card-body pt-0">
@@ -83,14 +90,14 @@
                                             <span>@article.CreatedOn</span>
                                         </small>
                                         <div class="ff-display font-size-18">
-                                            <b><a href="">@article.Title</a></b>
+                                            <b><a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()">@article.Title</a></b>
                                         </div>
                                         <div class="card-text d-none d-md-flex m-1">@article.ShortDescription</div>
                                     </div>
                                 </div>
                             }
                         </div>
-                        <hr />
+                        <hr/>
                         <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Art</h4>
                         <div class="firstfeed-flexbox">
                             @foreach (var art in this.Model.Arts.ToList().Where(x => x.ApprovedByAdmin == true))
@@ -100,14 +107,11 @@
                                         <img width="600" height="300" class="article-uimgheader lazy" src="@art.ImageUrl" alt="@art.Title" style="">
 
                                     </a>
-
-                                    <div class="item-footer">
-                                    </div>
                                 </div>
 
                             }
                         </div>
-                        <hr />
+                        <hr/>
                         <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Cards</h4>
                         <div class="firstfeed-flexbox">
                             @foreach (var card in this.Model.Cards.ToList().Where(x => x.ApprovedByAdmin == true))
@@ -117,27 +121,26 @@
                                         <img width="200" height="300" src="@card.CardRemoteUrl" alt="@card.Name" style="">
                                         <div class="item-hidden-text">@card.Name</div>
                                     </a>
-                                    <div class="item-footer">
-                                    </div>
                                 </div>
                             }
                         </div>
-                        <hr />
+                        <hr/>
                         <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Events</h4>
                         <div class="firstfeed-flexbox">
                             @foreach (var events in this.Model.Events.ToList().Where(x => x.ApprovedByAdmin == true))
                             {
                                 <div class="inner-container">
-                                    <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="item ae-card-link cardLink ">
+                                    <a asp-controller="@events.ControllerName" asp-action="@events.ActionName" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="item ae-card-link cardLink ">
                                         <img width="200" height="300" src="@events.ImageUrl" alt="@events.Title" style="">
                                         <div class="item-hidden-text">@events.Title</div>
                                     </a>
                                     <div class="item-footer">
+                                        <div class="text-header-gold">@events.Title</div>
                                     </div>
                                 </div>
                             }
                         </div>
-                        <hr />
+                        <hr/>
                     </div>
                 </div>
             </div>

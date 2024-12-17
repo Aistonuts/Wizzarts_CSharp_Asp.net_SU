@@ -254,7 +254,7 @@ namespace Wizzarts.Services.Data
 
         public Task<int> GetCount()
         {
-            return this.eventRepository.All().CountAsync();
+            return this.eventRepository.All().Where(x=> x.ApprovedByAdmin == true).CountAsync();
         }
 
         public async Task<IEnumerable<T>> GetAllEventsByUsers<T>()

@@ -1120,5 +1120,54 @@
             Assert.Equal("Ancestral Recall", specificEventCard.Name);
             this.TearDownBase();
         }
+
+        [Fact]
+        public async Task DemoteAdCardShouldChangeTheExpansion()
+        {
+            this.OneTimeSetup();
+            var data = this.dbContext;
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
+            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
+            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
+            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
+            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
+            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
+            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
+            using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
+            using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
+            using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+
+            var fileService = new FileService();
+
+            var service = new PlayCardService(
+                playCardRepository,
+                cardManaRepository,
+                blackManaRepository,
+                blueManaRepository,
+                redManaRepository,
+                whiteManaRepository,
+                greenManaRepository,
+                colorlessManaRepository,
+                cardFrameColorRepository,
+                cardTypeRepository,
+                cache,
+                fileService);
+
+            var testPlayCard = data.PlayCards.FirstOrDefault(x => x.Id == "cd83a0cb-c6d8-40cf-ad85-0aeede8ffd4a");
+
+            await service.Promote(testPlayCard.Id);
+            var currentExpansion = testPlayCard.CardGameExpansion.Title;
+
+            await service.Demote(testPlayCard.Id);
+            var newExpansion = testPlayCard.CardGameExpansion.Title;
+
+            Assert.Equal("Second", currentExpansion);
+            Assert.Equal("Beta", newExpansion);
+
+            this.TearDownBase();
+        }
     }
 }

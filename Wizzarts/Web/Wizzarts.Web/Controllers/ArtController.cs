@@ -125,7 +125,7 @@
 
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
-
+            this.ModelState.Remove("Image");
             if (await this.artService.ArtTitleExist(inputModel.Title))
             {
                 this.ModelState.AddModelError(nameof(inputModel.Title), "Art title exist.");
