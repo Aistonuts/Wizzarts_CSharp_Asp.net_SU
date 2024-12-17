@@ -64,7 +64,7 @@
                 UserName = "MrJack",
                 AvatarUrl = "/images/avatar/Portrait_MrJack.png",
                 NormalizedUserName = "MRJACK",
-                Email = "mrjack@aol.com",
+                Email = "admin@mail.com",
                 NormalizedEmail = "MRJACK@AOL.COM",
                 PasswordHash = hasher.HashPassword(null, "Pa$$w0rd4"),
             });

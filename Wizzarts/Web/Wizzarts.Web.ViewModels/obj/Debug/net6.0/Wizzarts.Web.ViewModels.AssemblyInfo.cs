@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wizzarts.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f315e6c181d50a5a73d3ad4405ebec0b0b409762")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5671939e62c7fb7a78b7e1e85d34d7b6da922713")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wizzarts.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wizzarts.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -198,7 +198,14 @@ span.archetype-tag {
   justify-content: start;
   padding-bottom: .5rem;
 }
-.meta-cardimg {
+.meta-cardimg-alt {
+    width: 59px;
+    height: 50px;
+    background-position: top -41px left -125px;
+    background-size: 62px 146px;
+    border-radius: 17px;
+}
+    .meta-cardimg {
   width: 80px;
   height: 50px;
   background-position: top -40px left -50px;
