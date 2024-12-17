@@ -110,7 +110,6 @@
 
             this.TempData["Message"] = "User profile has been updated successfully.";
 
-            // TODO: Redirect to article info page
             return this.RedirectToAction("Index", "Home");
         }
 
