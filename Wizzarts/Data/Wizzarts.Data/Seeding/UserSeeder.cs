@@ -41,6 +41,7 @@
                 PasswordHash = hasher.HashPassword(null, "Pa$$w0rd2"),
             });
 
+            // ADMIN
             await dbContext.Users.AddAsync(new ApplicationUser
             {
                 Id = "2b346dc6-5bd7-4e64-8396-15a064aa27a7",

@@ -80,6 +80,7 @@
                     Email = x.Email,
                     Nickname = x.Nickname,
                     AvatarUrl = x.AvatarUrl,
+                    Name = x.UserName,
                 }),
 
                 Premium = premiumUser.Select(x => new UserInListViewModelAdminArea
@@ -88,6 +89,7 @@
                     Email = x.Email,
                     Nickname = x.Nickname,
                     AvatarUrl = x.AvatarUrl,
+                    Name = x.UserName,
                 }),
 
                 Artists = artists.Select(x => new UserInListViewModelAdminArea
@@ -96,6 +98,7 @@
                     Email = x.Email,
                     Nickname = x.Nickname,
                     AvatarUrl = x.AvatarUrl,
+                    Name = x.UserName,
                 }),
 
                 Wizzarts = wizzarts.Select(x => new UserInListViewModelAdminArea
@@ -104,6 +107,7 @@
                     Email = x.Email,
                     Nickname = x.Nickname,
                     AvatarUrl = x.AvatarUrl,
+                    Name = x.UserName,
                 }),
 
                 Admins = admins.Select(x => new UserInListViewModelAdminArea
@@ -112,6 +116,8 @@
                     Email = x.Email,
                     Nickname = x.Nickname,
                     AvatarUrl = x.AvatarUrl,
+                    Name = x.UserName,
+                    Phone = x.PhoneNumber,
                 }),
             };
 
@@ -131,6 +137,7 @@
                 AvatarUrl = users.AvatarUrl,
 
             };
+
             user.Arts = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(user.Id);
             user.Articles = await this.articleService.GetAllArticlesByUserIdPageless<ArticleInListViewModel>(user.Id);
             user.Events = await this.eventService.GetAllEventsByUserIdPageless<EventInListViewModel>(user.Id);

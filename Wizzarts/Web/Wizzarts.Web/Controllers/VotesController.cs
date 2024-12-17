@@ -18,6 +18,7 @@
             this.votesService = votesService;
         }
 
+        // not used
         [HttpPost]
         public async Task<ActionResult<PostVoteResponseModel>> Post(PostVoteInputModel input)
         {

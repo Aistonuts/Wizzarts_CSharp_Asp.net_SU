@@ -22,6 +22,7 @@
             this.playCardService = playCardService;
         }
 
+        // searching for cards with autocomplete
         [Produces("application/json")]
         [HttpGet]
         public async Task<IActionResult> Search()
@@ -41,6 +42,7 @@
             }
         }
 
+        // this will redirect to the actual card
         [HttpGet]
         public async Task<IActionResult> Advanced(string cardName)
         {

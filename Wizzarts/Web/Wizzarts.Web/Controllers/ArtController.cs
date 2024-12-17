@@ -56,6 +56,7 @@
             return this.View(viewModel);
         }
 
+        // this will add art. When using add Card (for premium)  and not Create card (mostly events) customer will be redirected to add new ard if he has none
         [HttpPost]
         public async Task<IActionResult> Add(AddArtViewModel input)
         {
@@ -109,6 +110,7 @@
             return this.View(inputModel);
         }
 
+        // avoiding image swap, only title and description can be edited or customer can completely delete it
         [HttpPost]
         public async Task<IActionResult> Edit(EditArtViewModel inputModel, string id)
         {
@@ -189,6 +191,7 @@
             return this.View(art);
         }
 
+        // this has to be approved before it can be used
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> ApproveArt(string id)

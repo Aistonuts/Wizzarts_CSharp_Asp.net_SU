@@ -85,6 +85,7 @@
             return this.View(input);
         }
 
+        // Not used
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Dispatch(SingleDeckViewModel input)
@@ -94,7 +95,7 @@
             return this.RedirectToAction(nameof(this.ById), new { id = input.Id, information = input.GetDeckName() });
         }
 
-        //this will change the shipping location
+        // this will change the shipping location
         [HttpPost]
         public async Task<IActionResult> Shipping(SingleDeckViewModel input)
         {
@@ -200,6 +201,7 @@
             return this.RedirectToAction("Create", "Deck");
         }
 
+        // this will show all decks with cards
         [AllowAnonymous]
         public async Task<IActionResult> All()
         {
@@ -212,6 +214,7 @@
             return this.View(viewModel);
         }
 
+        // this will send the order for approval
         public async Task<IActionResult> Order(int id)
         {
             var user = await this.userManager.GetUserAsync(this.User);
@@ -236,6 +239,7 @@
             return this.RedirectToAction("My", "Order");
         }
 
+        // this will lock the deck// unlocked deck will send notification to main page, unlocked decks are not visible to others and cannot be ordered. Unlocked desk allow customer to add new cards
         public async Task<IActionResult> Change(int id)
         {
             var user = await this.userManager.GetUserAsync(this.User);
@@ -253,6 +257,7 @@
             return this.RedirectToAction(nameof(this.Add), new { id = deckId });
         }
 
+        // this will show a deck of cards
         [AllowAnonymous]
         public async Task<IActionResult> ById(int id, string information)
         {

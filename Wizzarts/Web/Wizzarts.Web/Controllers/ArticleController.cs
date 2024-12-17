@@ -159,6 +159,7 @@
             }
         }
 
+        // this has to be approved before it can be used
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {

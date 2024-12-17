@@ -53,6 +53,7 @@
             this.environment = environment;
         }
 
+        // this is for premium users. User need at least one art that has not been used for pariticpating in the events
         [HttpGet]
         [MustBeAnArtist]
         public async Task<IActionResult> Add(int id = 0)
@@ -170,6 +171,7 @@
             return this.RedirectToAction("Add", "PlayCard");
         }
 
+        // this is used only by the two events for creating cards
         [HttpGet]
         public async Task<IActionResult> Create(int id)
         {
@@ -365,6 +367,7 @@
             return this.View(card);
         }
 
+        // this is used for leaving comments on cards
         [HttpPost]
         public async Task<IActionResult> Comment(SingleCardViewModel model, string id)
         {
@@ -423,6 +426,7 @@
             }
         }
 
+        // this will add the card to Expansion "Second" and will remove it from the "Beta"
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Promote(string id)
@@ -456,6 +460,8 @@
 
             return this.RedirectToAction("MyData", "User");
         }
+
+        // this will add the card to Expansion "beta" and will remove it from the "Second"
 
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]

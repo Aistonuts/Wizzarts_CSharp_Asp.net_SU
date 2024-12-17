@@ -51,6 +51,60 @@
                 AvatarUrl = "/images/avatar/Marvel_Six.png",
             });
 
+            await dbContext.Avatars.AddAsync(new Avatar
+            {
+                Name = "Drawgoon",
+                AvatarUrl = "/images/avatar/Portrait_Drawgoon.png",
+            });
+
+            await dbContext.Avatars.AddAsync(new Avatar
+            {
+                Name = "Glowei",
+                AvatarUrl = "/images/avatar/Portrait_Glowei.png",
+            });
+
+            await dbContext.Avatars.AddAsync(new Avatar
+            {
+                Name = "Metzen",
+                AvatarUrl = "/images/avatar/Portrait_Metzen.png",
+            });
+
+            await dbContext.Avatars.AddAsync(new Avatar
+            {
+                Name = "MrJack",
+                AvatarUrl = "/images/avatar/Portrait_MrJack.png",
+            });
+
+            await dbContext.Avatars.AddAsync(new Avatar
+            {
+                Name = "Raneman",
+                AvatarUrl = "/images/avatar/Portrait_Raneman.png",
+            });
+
+            await dbContext.Avatars.AddAsync(new Avatar
+            {
+                Name = "RedKnuckle",
+                AvatarUrl = "/images/avatar/Portrait_RedKnuckle.png",
+            });
+
+            await dbContext.Avatars.AddAsync(new Avatar
+            {
+                Name = "Samwise",
+                AvatarUrl = "/images/avatar/Portrait_Samwise.png",
+            });
+
+            await dbContext.Avatars.AddAsync(new Avatar
+            {
+                Name = "Thammer",
+                AvatarUrl = "/images/avatar/Portrait_Thammer.png",
+            });
+
+            await dbContext.Avatars.AddAsync(new Avatar
+            {
+                Name = "Twincruiser",
+                AvatarUrl = "/images/avatar/Portrait_Twincruiser.png",
+            });
+
             await dbContext.SaveChangesAsync();
         }
     }

@@ -53,6 +53,7 @@
             return this.View(viewModel);
         }
 
+        // location of user only events, those are not visible on the main page
         public async Task<IActionResult> ByUser()
         {
             var viewModel = new EventListViewModel
@@ -128,6 +129,7 @@
             return this.RedirectToAction("Create", "Event");
         }
 
+        // this will allow customer to edit the event and add additional content
         public async Task<IActionResult> My(int id)
         {
             var user = await this.userManager.GetUserAsync(this.User);
@@ -271,6 +273,7 @@
             return this.RedirectToAction("MyData", "User");
         }
 
+        // delete is used for removing the event, remove is used fo removing event content
         public async Task<IActionResult> Remove(int id)
         {
             if (await this.eventService.EventComponentExist(id) == false)
@@ -291,6 +294,7 @@
             return this.RedirectToAction(nameof(this.Edit), new { id = eventId });
         }
 
+        // this will turn the event visible on the event page
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Promote(int id)

@@ -80,6 +80,7 @@
             return this.View(avatar);
         }
 
+        // this is used for adding additional informatoin about the user. It can be used to add admin without having any admin roles, without having any admin password stored.
         [HttpPost]
         public async Task<IActionResult> Update(CreateMemberProfileViewModel input)
         {
@@ -127,6 +128,7 @@
                 Nickname = user.Nickname,
                 Email = user.Email,
                 AvatarUrl = user.AvatarUrl,
+                Bio = user.Bio,
             };
             view.Arts = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
             view.Articles = await this.articleService.GetAllArticlesByUserIdPageless<ArticleInListViewModel>(this.User.GetId());
@@ -162,13 +164,8 @@
                 filteredMembers.Add(item);
             }
 
-            const int ItemsPerPage = 12;
-
             var viewModel = new MembersListViewModel
             {
-                ItemsPerPage = ItemsPerPage,
-                PageNumber = id,
-
                 Artists = artists.Select(x => new MembersInListViewModel
                 {
                     Nickname = x.Nickname,

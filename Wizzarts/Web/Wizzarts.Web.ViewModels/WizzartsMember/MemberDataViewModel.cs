@@ -15,6 +15,8 @@
 
         public string AvatarUrl { get; set; } = string.Empty;
 
+        public string Bio { get; set; } = string.Empty;
+
         public IEnumerable<OrderInListViewModel> Orders { get; set; }
     }
 }
