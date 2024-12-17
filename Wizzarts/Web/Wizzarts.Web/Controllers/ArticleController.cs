@@ -35,7 +35,7 @@
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            var article = await articleService.GetById<SingleArticleViewModel>(id);
+            var article = await this.articleService.GetById<SingleArticleViewModel>(id);
             if (await this.articleService.ArticleExist(id) == false)
             {
                 return this.BadRequest();

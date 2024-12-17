@@ -364,7 +364,7 @@
         [Fact]
         public void ByIdShouldReturnViewWithCorrectModel()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             var card = data.PlayCards.FirstOrDefault(x => x.Id == "c330fecf-61a9-4e03-8052-cd2b9583a251");
             MyController<PlayCardController>
@@ -376,13 +376,13 @@
                 .View(view => view
                     .WithModelOfType<SingleCardViewModel>());
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void AddCommentShouldSaveCommentAndSaveMessageAboutSuccessInTempAndShouldRedirectToAction()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<PlayCardController>
@@ -397,8 +397,8 @@
                         CommentDescription = "testTestTest",
                         CommentReview = "testestTestTestestTestTestestTestTest",
                         CommentSuggestions = "testTestTestestTestTestestTestTes",
-                    }
-                , "c330fecf-61a9-4e03-8052-cd2b9583a251"))
+                    },
+                "c330fecf-61a9-4e03-8052-cd2b9583a251"))
                 .ShouldHave()
                .ValidModelState()
                .AndAlso()
@@ -409,13 +409,13 @@
                .ShouldReturn()
                .RedirectToAction("ById", "PlayCard", new { id = "c330fecf-61a9-4e03-8052-cd2b9583a251", information = "Ancestral-Recall", Area = string.Empty });
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void AddCommentShouldReturnUnauthorizedIfUserIsNotInRole()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<PlayCardController>
@@ -430,18 +430,18 @@
                         CommentDescription = "testTestTest",
                         CommentReview = "testestTestTestestTestTestestTestTest",
                         CommentSuggestions = "testTestTestestTestTestestTestTes",
-                    }
-                , "c330fecf-61a9-4e03-8052-cd2b9583a251"))
+                    },
+                "c330fecf-61a9-4e03-8052-cd2b9583a251"))
                .ShouldReturn()
                .Unauthorized();
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void AddCommentWithInvalidModelShouldHaveInvalidModelStateAndShouldReturnView()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<PlayCardController>
@@ -450,21 +450,21 @@
                     .WithData(data.Users))
                 .Calling(c => c.Comment(
                     new SingleCardViewModel
-                    { }
-                , "c330fecf-61a9-4e03-8052-cd2b9583a251"))
+                    { },
+                "c330fecf-61a9-4e03-8052-cd2b9583a251"))
               .ShouldHave()
                .InvalidModelState()
                 .AndAlso()
                .ShouldReturn()
                 .View(view => view
                     .WithModelOfType<SingleCardViewModel>());
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void ApproveAlreadyApprovedCardShouldReturnBadRequest()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<PlayCardController>
@@ -474,13 +474,13 @@
                 .Calling(c => c.ApproveCard("c330fecf-61a9-4e03-8052-cd2b9583a251"))
                .ShouldReturn()
               .BadRequest();
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void ApproveCardShouldRedirectToCorrectLocation()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<PlayCardController>
@@ -490,13 +490,13 @@
                 .Calling(c => c.ApproveCard("5f3f96a8-836a-479c-93c8-6921feb79366"))
                .ShouldReturn()
                .RedirectToAction("ById", "Member", new { id = "2738e787-5d57-4bc7-b0d2-287242f04695", Area = "Administration" });
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void PromoteCardShouldReturnRedirectToAction()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<PlayCardController>
@@ -507,13 +507,13 @@
                .ShouldReturn()
                .RedirectToAction("ById", "PlayCard", new { id = "19b87a65-3352-4ee6-9c6a-5b7dfb82bfd1", information = "Swamp", Area = string.Empty });
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void PromoteNonExistentCardShouldReturnBadRequest()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<PlayCardController>
@@ -524,13 +524,13 @@
                .ShouldReturn()
                .BadRequest();
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void DeleteCardShouldRedirectToActionIfRequestIsMadeByAdmin()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<PlayCardController>
@@ -541,13 +541,13 @@
                .ShouldReturn()
                .RedirectToAction("MyData", "User");
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void DeleteCardShouldRedirectToActionIfRequestIsMadeByOwwwner()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<PlayCardController>
@@ -558,13 +558,13 @@
                .ShouldReturn()
                .RedirectToAction("MyData", "User");
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void DeleteCardShouldReturnUnAuthorizedIfRequestIsNotMadeByTheOwner()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<PlayCardController>
@@ -575,13 +575,13 @@
                .ShouldReturn()
                .Unauthorized();
 
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void DeleteNonExistentCardShouldReturnBadRequest()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<PlayCardController>
@@ -592,7 +592,7 @@
                .ShouldReturn()
                .BadRequest();
 
-            TearDownBase();
+            this.TearDownBase();
         }
     }
 }

@@ -55,7 +55,7 @@
             int articleCount = articles.Count();
             var testArticle = data.Articles.FirstOrDefault();
             Assert.Equal(1, articleCount);
-            Assert.Equal("Call to arms",testArticle.Title);
+            Assert.Equal("Call to arms", testArticle.Title);
 
             this.TearDownBase();
         }

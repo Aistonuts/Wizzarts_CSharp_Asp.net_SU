@@ -68,7 +68,7 @@
 
             await this.eventService.DeleteAsync(id);
 
-            return this.RedirectToAction("All", "Event", new { area = "Administration" } );
+            return this.RedirectToAction("All", "Event", new { area = "Administration" });
         }
 
         [Route("[controller]/[action]")]
@@ -244,7 +244,7 @@
 
             this.TempData["Message"] = "Event added successfully.";
 
-            return this.RedirectToAction(nameof(this.Mine), new { id = input.EventId, area= "Administration"});
+            return this.RedirectToAction(nameof(this.Mine), new { id = input.EventId, area = "Administration" });
         }
 
         [HttpGet]

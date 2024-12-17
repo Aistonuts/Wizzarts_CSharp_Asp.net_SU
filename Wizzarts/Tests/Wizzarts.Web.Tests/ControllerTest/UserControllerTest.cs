@@ -125,7 +125,7 @@
         [Fact]
         public void My_Data_Should_Return_Correct_Model_And_Data()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<UserController>
@@ -141,13 +141,13 @@
                       Assert.Equal("drawgoon@aol.com", model.Email);
                       Assert.Equal(8, model.Arts.Count());
                   }));
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void All_Should_Return_Correct_Model_And_Data()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<UserController>
@@ -157,13 +157,13 @@
                  .ShouldReturn()
                   .View(view => view
                 .WithModelOfType<MembersListViewModel>());
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void By_Id_Should_Return_Correct_Model_And_Data()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<UserController>
@@ -173,13 +173,13 @@
                  .ShouldReturn()
                   .View(view => view
                 .WithModelOfType<SingleMemberViewModel>());
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void ById_Should_Return_Bad_Request_When_Bad_In_formation()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<UserController>
@@ -188,13 +188,13 @@
                  .Calling(c => c.ById("2738e787-5d57-4bc7-b0d2-287242f04695", "Dra"))
                  .ShouldReturn()
                  .BadRequest();
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]
         public void ById_Should_Return_Bad_Request_When_Non_Existing_User()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
 
             MyController<UserController>
@@ -203,7 +203,7 @@
                  .Calling(c => c.ById("2738e787-5d57-4bc7-b0d2-287242f04694", "Drawgoon"))
                  .ShouldReturn()
                  .BadRequest();
-            TearDownBase();
+            this.TearDownBase();
         }
     }
 }

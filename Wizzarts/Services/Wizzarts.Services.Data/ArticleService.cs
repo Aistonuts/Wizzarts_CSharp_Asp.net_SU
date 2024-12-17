@@ -89,7 +89,7 @@
             }
 
             Directory.CreateDirectory($"{imagePath}/navigation/articles");
-            var extension = Path.GetExtension(input.ImageUrl.FileName)!.TrimStart('.');
+            var extension = Path.GetExtension(input.ImageUrl.FileName) !.TrimStart('.');
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
             {
                 throw new Exception($"Invalid image extension {extension}");

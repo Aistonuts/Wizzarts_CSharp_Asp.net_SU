@@ -761,7 +761,7 @@
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
             var service = new AdminEventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
-            var events = await service.GetAll<EventInListViewModel>(1,4);
+            var events = await service.GetAll<EventInListViewModel>(1, 4);
             int eventCount = events.Count();
             Assert.Equal(4, eventCount);
 
@@ -1459,7 +1459,7 @@
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
             var service = new AdminEventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
 
-            Assert.Equal(4,await service.GetCount());
+            Assert.Equal(4, await service.GetCount());
             this.TearDownBase();
         }
 
@@ -1478,8 +1478,8 @@
             var service = new AdminEventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
             var tagHelpActions = await service.GetAllTagHelpActions<SingleTagHelperActionViewModel>();
             var firstTagHelpTitle = tagHelpActions.FirstOrDefault(x => x.Id == "a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70");
-            Assert.Equal(2,tagHelpActions.Count());
-            Assert.Equal("Create",firstTagHelpTitle.Name);
+            Assert.Equal(2, tagHelpActions.Count());
+            Assert.Equal("Create", firstTagHelpTitle.Name);
             this.TearDownBase();
         }
 
@@ -1540,7 +1540,7 @@
             var events = await service.GetAllPaginationless<EventInListViewModel>();
             var fistEvent = events.FirstOrDefault(x => x.Id == 1);
             Assert.Equal("Flavorless cards", fistEvent.Title);
-            Assert.Equal(4,events.Count());
+            Assert.Equal(4, events.Count());
             this.TearDownBase();
         }
 

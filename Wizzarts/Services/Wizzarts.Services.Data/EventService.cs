@@ -104,11 +104,11 @@
 
         public async Task<IEnumerable<T>> GetAll<T>()
         {
-           var events = await this.eventRepository.AllAsNoTracking()
-          .OrderByDescending(x => x.Id)
-          .To<T>().ToListAsync();
+            var events = await this.eventRepository.AllAsNoTracking()
+           .OrderByDescending(x => x.Id)
+           .To<T>().ToListAsync();
 
-           return events;
+            return events;
         }
 
         public async Task<IEnumerable<T>> GetAllEventComponents<T>(int id)
@@ -253,7 +253,7 @@
 
         public Task<int> GetCount()
         {
-            return this.eventRepository.All().Where(x=> x.ApprovedByAdmin == true).CountAsync();
+            return this.eventRepository.All().Where(x => x.ApprovedByAdmin == true).CountAsync();
         }
 
         public async Task<IEnumerable<T>> GetAllEventsByUsers<T>()

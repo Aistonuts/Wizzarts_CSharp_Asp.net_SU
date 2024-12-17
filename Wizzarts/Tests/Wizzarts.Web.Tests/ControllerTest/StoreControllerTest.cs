@@ -77,7 +77,7 @@
         [Fact]
         public void CreatePostShouldSaveArticleSetTempDataMessageAndRedirectWhenValidModel()
         {
-            OneTimeSetup();
+            this.OneTimeSetup();
             var data = this.dbContext;
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
@@ -122,7 +122,7 @@
                   .ShouldReturn()
                   .Redirect(redirect => redirect
                       .To<StoreController>(c => c.All(With.No<int>())));
-            TearDownBase();
+            this.TearDownBase();
         }
 
         [Fact]

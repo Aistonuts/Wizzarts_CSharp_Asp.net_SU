@@ -48,7 +48,7 @@
             var secondRoom = rooms.FirstOrDefault(x => x.Id == 2);
             int roomsCount = rooms.Count();
             Assert.Equal(8, roomsCount);
-            Assert.Equal( "French",secondRoom.Name);
+            Assert.Equal("French", secondRoom.Name);
             this.TearDownBase();
         }
 

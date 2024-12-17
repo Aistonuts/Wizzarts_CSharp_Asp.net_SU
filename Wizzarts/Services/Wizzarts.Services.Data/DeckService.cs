@@ -279,9 +279,9 @@
 
             if (deck != null)
             {
-             this.deckRepository.Delete(deck);
-             await this.deckOfCardsRepository.SaveChangesAsync();
-             await this.deckRepository.SaveChangesAsync();
+                this.deckRepository.Delete(deck);
+                await this.deckOfCardsRepository.SaveChangesAsync();
+                await this.deckRepository.SaveChangesAsync();
             }
         }
 
