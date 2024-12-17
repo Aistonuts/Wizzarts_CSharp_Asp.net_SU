@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+
     using Ganss.Xss;
     using Microsoft.AspNetCore.Http;
 
@@ -40,17 +41,17 @@
 
                 return false;
 
-                //try
-                //{
+                // try
+                // {
                 //    using (var image = Image.FromStream(stream))
                 //    {
                 //        return true;
                 //    }
-                //}
-                //catch
-                //{
+                // }
+                // catch
+                // {
                 //    return false;
-                //}
+                // }
             }
         }
 

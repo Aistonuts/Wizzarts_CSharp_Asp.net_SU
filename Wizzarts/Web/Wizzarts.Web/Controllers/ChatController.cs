@@ -1,10 +1,9 @@
-﻿using Ganss.Xss;
-
-namespace Wizzarts.Web.Controllers
+﻿namespace Wizzarts.Web.Controllers
 {
     using System;
     using System.Threading.Tasks;
 
+    using Ganss.Xss;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Wizzarts.Data;

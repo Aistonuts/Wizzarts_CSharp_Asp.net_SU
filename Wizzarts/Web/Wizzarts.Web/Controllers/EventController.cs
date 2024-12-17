@@ -16,7 +16,6 @@
     using Wizzarts.Web.ViewModels.TagHelper;
 
     using static Wizzarts.Common.GlobalConstants;
-
     using static Wizzarts.Common.HardCodedConstants;
 
     public class EventController : BaseController

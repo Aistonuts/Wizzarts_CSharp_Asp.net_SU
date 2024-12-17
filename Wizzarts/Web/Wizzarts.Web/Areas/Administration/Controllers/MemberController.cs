@@ -19,8 +19,6 @@
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.Store;
 
-
-
     public class MemberController : AdministrationController
     {
         private readonly IArtService artService;

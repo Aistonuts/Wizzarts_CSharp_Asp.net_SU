@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wizzarts.Services.Messaging")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5671939e62c7fb7a78b7e1e85d34d7b6da922713")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+089004eb7bacb881b6a9eef6020876b4f942585c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wizzarts.Services.Messaging")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wizzarts.Services.Messaging")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

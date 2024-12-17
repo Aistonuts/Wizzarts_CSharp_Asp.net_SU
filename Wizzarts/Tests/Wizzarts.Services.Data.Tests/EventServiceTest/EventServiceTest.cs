@@ -1,8 +1,8 @@
 ﻿namespace Wizzarts.Services.Data.Tests.EventServiceTest
 {
     using System;
-    using System.Drawing.Imaging;
     using System.Drawing;
+    using System.Drawing.Imaging;
     using System.IO;
     using System.Linq;
     using System.Reflection;
@@ -11,14 +11,10 @@
 
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Caching.Memory;
     using Microsoft.Extensions.Caching.Memory;
     using Moq;
     using Wizzarts.Data.Models;
-    using Wizzarts.Data.Models;
-    using Wizzarts.Data.Repositories;
     using Wizzarts.Data.Repositories;
     using Wizzarts.Services.Data;
     using Wizzarts.Services.Mapping;
@@ -51,8 +47,8 @@
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
             imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
@@ -108,8 +104,8 @@
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.nft");
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.nft");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
@@ -315,8 +311,8 @@
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
@@ -353,7 +349,7 @@
             Assert.Equal(8, count);
             Assert.Equal(testEvent.ComponentTitle, newComponent.Title);
 
-            //Assert.True(newComponent.RequireArtInput);
+            // Assert.True(newComponent.RequireArtInput);
             this.TearDownBase();
         }
 
@@ -375,8 +371,8 @@
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.nft");
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.nft");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
@@ -444,7 +440,7 @@
             Assert.Equal(8, count);
             Assert.Equal(testEvent.ComponentTitle, newComponent.Title);
 
-            //Assert.False(newComponent.RequireArtInput);
+            // Assert.False(newComponent.RequireArtInput);
             this.TearDownBase();
         }
 
@@ -466,8 +462,8 @@
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
@@ -528,8 +524,8 @@
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
@@ -676,8 +672,8 @@
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
@@ -739,8 +735,8 @@
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
@@ -797,8 +793,8 @@
             string userId = "66030199-349f-4e35-846d-97685187a565";
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" + "/images";
 
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);

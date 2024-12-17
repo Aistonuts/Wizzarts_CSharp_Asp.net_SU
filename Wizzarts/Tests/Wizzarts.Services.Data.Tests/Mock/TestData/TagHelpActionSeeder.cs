@@ -4,8 +4,8 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    using Wizzarts.Data.Models;
     using Wizzarts.Data;
+    using Wizzarts.Data.Models;
 
     public class TagHelpActionSeeder : ITestDbSeeder
     {

@@ -20,7 +20,7 @@
 
         public string ImageUrl { get; set; } = string.Empty;
 
-        //public string ArticleCreatorId { get; set; } = string.Empty;
+        // public string ArticleCreatorId { get; set; } = string.Empty;
 
         public string ArticleCreator { get; set; } = string.Empty;
 

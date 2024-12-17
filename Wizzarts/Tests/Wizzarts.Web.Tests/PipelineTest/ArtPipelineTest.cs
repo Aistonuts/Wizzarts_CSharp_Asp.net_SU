@@ -100,9 +100,9 @@
         }
 
         // cannot test this
-        //[Fact]
-        //public void GetByIdShouldReturnViewWithCorrectModel()
-        //{
+        // [Fact]
+        // public void GetByIdShouldReturnViewWithCorrectModel()
+        // {
         //    this.OneTimeSetup();
         //    var data = this.dbContext;
         //    MyMvc
@@ -117,6 +117,6 @@
         //       .View(view => view
         //           .WithModelOfType<SingleArtViewModel>());
         //    this.TearDownBase();
-        //}
+        // }
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace Wizzarts.Services.Data.Tests.ArticleServiceTest
 {
     using System;
-    using System.Drawing.Imaging;
     using System.Drawing;
+    using System.Drawing.Imaging;
     using System.IO;
     using System.Linq;
     using System.Reflection;
@@ -105,8 +105,9 @@
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
@@ -248,8 +249,9 @@
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
             imageData.DrawLine(new Pen(Color.Blue), 0, 0, 50, 50);
@@ -305,8 +307,9 @@
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
@@ -368,8 +371,8 @@
             bool isPremium = false;
 
             // not working with new  image verification
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
@@ -435,8 +438,9 @@
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);
@@ -486,8 +490,9 @@
             string path = $"c:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot" +
                           "/images";
             bool isPremium = false;
-            //var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
-            //IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
+
+            // var bytes = Encoding.UTF8.GetBytes("This is a dummy file");
+            // IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "dummy.jpg");
 
             Bitmap bitmapImage = new Bitmap(50, 50);
             Graphics imageData = Graphics.FromImage(bitmapImage);

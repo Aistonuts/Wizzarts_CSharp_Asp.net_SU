@@ -1,10 +1,10 @@
 ﻿namespace Wizzarts.Services.Data
 {
-    using Microsoft.AspNetCore.Http;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Http;
     using Wizzarts.Web.ViewModels.Store;
 
     public interface IStoreService
