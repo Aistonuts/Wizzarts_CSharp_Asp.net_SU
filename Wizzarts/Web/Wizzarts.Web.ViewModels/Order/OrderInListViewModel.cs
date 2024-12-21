@@ -6,8 +6,9 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Home;
+    using Wizzarts.Web.ViewModels.PlayCard;
 
-    public class OrderInListViewModel : IndexAuthenticationViewModel, IMapFrom<Order>, IHaveCustomMappings
+    public class OrderInListViewModel : IndexAuthenticationViewModel, IMapFrom<Order>, IHaveCustomMappings, ISingleCardViewModel
     {
         public int Id { get; set; }
 
@@ -26,6 +27,8 @@
         public DateTime? EstimatedDeliveryDate { get; set; }
 
         public string OrderStatus { get; set; } = string.Empty;
+
+        public string Name { get; set; } = string.Empty;
 
         public void CreateMappings(IProfileExpression configuration)
         {

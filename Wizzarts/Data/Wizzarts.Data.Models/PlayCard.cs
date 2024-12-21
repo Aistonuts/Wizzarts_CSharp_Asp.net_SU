@@ -19,7 +19,7 @@
             this.Comments = new HashSet<CommentCard>();
             this.Votes = new HashSet<Vote>();
             this.DeckOfCards = new HashSet<CardDeck>();
-            this.CardsInOrder = new HashSet<Order>();
+            this.CardsInOrder = new List<Order>();
         }
 
         [Required]
@@ -123,6 +123,6 @@
 
         public virtual ICollection<CardDeck> DeckOfCards { get; set; }
 
-        public virtual ICollection<Order> CardsInOrder { get; set; }
+        public virtual List<Order> CardsInOrder { get; set; }
     }
 }

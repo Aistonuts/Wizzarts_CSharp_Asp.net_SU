@@ -3,60 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3EE06C6E-C8F3-418A-A309-8AC81976A074}|Tests\\Wizzarts.Web.Tests\\Wizzarts.Web.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.web.tests\\teststartup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EE06C6E-C8F3-418A-A309-8AC81976A074}|Tests\\Wizzarts.Web.Tests\\Wizzarts.Web.Tests.csproj|solutionrelative:tests\\wizzarts.web.tests\\teststartup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\services\\wizzarts.services.data\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|solutionrelative:services\\wizzarts.services.data\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\articleservicetest\\articleservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\articleservicetest\\articleservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E9FDB52F-52DC-48B2-86E1-0176377BB53F}|Data\\Wizzarts.Data.Models\\Wizzarts.Data.Models.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\data\\wizzarts.data.models\\deckofcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9FDB52F-52DC-48B2-86E1-0176377BB53F}|Data\\Wizzarts.Data.Models\\Wizzarts.Data.Models.csproj|solutionrelative:data\\wizzarts.data.models\\deckofcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\eventservicetest\\eventservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\eventservicetest\\eventservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\controllers\\deckcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\controllers\\deckcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\controllers\\expansioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\controllers\\expansioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\controllers\\playcardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\controllers\\playcardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\deckservicetest\\deckservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\deckservicetest\\deckservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\web\\wizzarts.web\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B90D1067-FE4C-400E-BA78-5413E30AB9ED}|Web\\Wizzarts.Web\\Wizzarts.Web.csproj|solutionrelative:web\\wizzarts.web\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\chatservicetest\\chatservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\chatservicetest\\chatservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\services\\wizzarts.services.data\\admineventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|solutionrelative:services\\wizzarts.services.data\\admineventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\playcardservicetest\\playcardservicestest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\playcardservicetest\\playcardservicestest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\services\\wizzarts.services.data\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|solutionrelative:services\\wizzarts.services.data\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\services\\wizzarts.services.data\\artservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|solutionrelative:services\\wizzarts.services.data\\artservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\services\\wizzarts.services.data\\playcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|solutionrelative:services\\wizzarts.services.data\\playcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3EE06C6E-C8F3-418A-A309-8AC81976A074}|Tests\\Wizzarts.Web.Tests\\Wizzarts.Web.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.web.tests\\controllertest\\playcardcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EE06C6E-C8F3-418A-A309-8AC81976A074}|Tests\\Wizzarts.Web.Tests\\Wizzarts.Web.Tests.csproj|solutionrelative:tests\\wizzarts.web.tests\\controllertest\\playcardcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\services\\wizzarts.services.data\\eventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|solutionrelative:services\\wizzarts.services.data\\eventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\admineventservice\\admineventservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\admineventservice\\admineventservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3EE06C6E-C8F3-418A-A309-8AC81976A074}|Tests\\Wizzarts.Web.Tests\\Wizzarts.Web.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.web.tests\\controllertest\\storecontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EE06C6E-C8F3-418A-A309-8AC81976A074}|Tests\\Wizzarts.Web.Tests\\Wizzarts.Web.Tests.csproj|solutionrelative:tests\\wizzarts.web.tests\\controllertest\\storecontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\tests\\wizzarts.services.data.tests\\artservicetest\\artservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{901AB2DA-6E52-4FB2-91F0-58EB0115F2F7}|Tests\\Wizzarts.Services.Data.Tests\\Wizzarts.Services.Data.Tests.csproj|solutionrelative:tests\\wizzarts.services.data.tests\\artservicetest\\artservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|c:\\users\\cmpt\\downloads\\aspnetcore\\asp.net_try\\wizzarts\\services\\wizzarts.services.data\\deckservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}|Services\\Wizzarts.Services.Data\\Wizzarts.Services.Data.csproj|solutionrelative:services\\wizzarts.services.data\\deckservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,193 +50,142 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{290d74ba-151f-5f8b-b7df-7de2c7b571a7}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EventServiceTest.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\EventServiceTest\\EventServiceTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\EventServiceTest\\EventServiceTest.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\EventServiceTest\\EventServiceTest.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\EventServiceTest\\EventServiceTest.cs",
-              "ViewState": "AQIAAFYAAAAAAAAAAAD4v20AAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:14:27.087Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DeckServiceTest.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\DeckServiceTest\\DeckServiceTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\DeckServiceTest\\DeckServiceTest.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\DeckServiceTest\\DeckServiceTest.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\DeckServiceTest\\DeckServiceTest.cs",
-              "ViewState": "AQIAAN8DAAAAAAAAAAD4v/YDAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:14:23.448Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ExpansionController.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\ExpansionController.cs",
-              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Controllers\\ExpansionController.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\ExpansionController.cs",
-              "RelativeToolTip": "Web\\Wizzarts.Web\\Controllers\\ExpansionController.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAD4v1AAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:14:17.933Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "PlayCardServicesTest.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\PlayCardServiceTest\\PlayCardServicesTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\PlayCardServiceTest\\PlayCardServicesTest.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\PlayCardServiceTest\\PlayCardServicesTest.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\PlayCardServiceTest\\PlayCardServicesTest.cs",
-              "ViewState": "AQIAACMEAAAAAAAAAAD4vzoEAAAaAAAA",
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\UserService.cs",
+              "RelativeDocumentMoniker": "Services\\Wizzarts.Services.Data\\UserService.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\UserService.cs",
+              "RelativeToolTip": "Services\\Wizzarts.Services.Data\\UserService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:14:14.141Z",
+              "WhenOpened": "2024-12-21T08:21:52.124Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TestStartup.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Web.Tests\\TestStartup.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Web.Tests\\TestStartup.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Web.Tests\\TestStartup.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Web.Tests\\TestStartup.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA5AAAA",
+              "Title": "CommentService.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\CommentService.cs",
+              "RelativeDocumentMoniker": "Services\\Wizzarts.Services.Data\\CommentService.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\CommentService.cs",
+              "RelativeToolTip": "Services\\Wizzarts.Services.Data\\CommentService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:14:04.924Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ArtService.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\ArtService.cs",
-              "RelativeDocumentMoniker": "Services\\Wizzarts.Services.Data\\ArtService.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\ArtService.cs",
-              "RelativeToolTip": "Services\\Wizzarts.Services.Data\\ArtService.cs",
-              "ViewState": "AQIAAFUAAAAAAAAAAAD4v2wAAABCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:13:50.232Z",
+              "WhenOpened": "2024-12-21T10:11:14.612Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ArticleServiceTest.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\ArticleServiceTest\\ArticleServiceTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\ArticleServiceTest\\ArticleServiceTest.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\ArticleServiceTest\\ArticleServiceTest.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\ArticleServiceTest\\ArticleServiceTest.cs",
-              "ViewState": "AQIAAL8BAAAAAAAAAAD4v9MBAAAkAAAA",
+              "Title": "DeckOfCards.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data.Models\\DeckOfCards.cs",
+              "RelativeDocumentMoniker": "Data\\Wizzarts.Data.Models\\DeckOfCards.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data.Models\\DeckOfCards.cs",
+              "RelativeToolTip": "Data\\Wizzarts.Data.Models\\DeckOfCards.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:13:37.12Z",
+              "WhenOpened": "2024-12-21T09:35:26.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DeckController.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\DeckController.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Controllers\\DeckController.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\DeckController.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Controllers\\DeckController.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T09:22:38.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayCardController.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\PlayCardController.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Controllers\\PlayCardController.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\PlayCardController.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Controllers\\PlayCardController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T09:22:32.948Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Login.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
-              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
-              "RelativeToolTip": "Web\\Wizzarts.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAD4v1QAAAAaAAAA",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAALoAAAAAAAAAAAAAANQAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:11:56.855Z",
+              "WhenOpened": "2024-12-21T09:20:05.425Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "EventService.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\EventService.cs",
-              "RelativeDocumentMoniker": "Services\\Wizzarts.Services.Data\\EventService.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\EventService.cs",
-              "RelativeToolTip": "Services\\Wizzarts.Services.Data\\EventService.cs",
-              "ViewState": "AQIAAOgAAAAAAAAAAAD4v/8AAAA3AAAA",
+              "DocumentIndex": 5,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Web\\Wizzarts.Web\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Web\\Wizzarts.Web\\Controllers\\OrderController.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:13:29.734Z",
+              "WhenOpened": "2024-12-21T09:13:28.445Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "ChatServiceTest.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\ChatServiceTest\\ChatServiceTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\ChatServiceTest\\ChatServiceTest.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\ChatServiceTest\\ChatServiceTest.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\ChatServiceTest\\ChatServiceTest.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAD4v1MAAAAQAAAA",
+              "Title": "AdminEventService.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\AdminEventService.cs",
+              "RelativeDocumentMoniker": "Services\\Wizzarts.Services.Data\\AdminEventService.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\AdminEventService.cs",
+              "RelativeToolTip": "Services\\Wizzarts.Services.Data\\AdminEventService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:13:26.134Z",
+              "WhenOpened": "2024-12-21T09:12:59.39Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ArtServiceTest.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\ArtServiceTest\\ArtServiceTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\ArtServiceTest\\ArtServiceTest.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\ArtServiceTest\\ArtServiceTest.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\ArtServiceTest\\ArtServiceTest.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAD4vx4AAAAaAAAA",
+              "DocumentIndex": 8,
+              "Title": "PlayCardService.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\PlayCardService.cs",
+              "RelativeDocumentMoniker": "Services\\Wizzarts.Services.Data\\PlayCardService.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\PlayCardService.cs",
+              "RelativeToolTip": "Services\\Wizzarts.Services.Data\\PlayCardService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:12:32.556Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AdminEventServiceTest.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\AdminEventService\\AdminEventServiceTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Services.Data.Tests\\AdminEventService\\AdminEventServiceTest.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Services.Data.Tests\\AdminEventService\\AdminEventServiceTest.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Services.Data.Tests\\AdminEventService\\AdminEventServiceTest.cs",
-              "ViewState": "AQIAAOQCAAAAAAAAAAD4v/sCAABFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:12:25.173Z",
+              "WhenOpened": "2024-12-21T09:12:40.204Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "PlayCardControllerTest.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Web.Tests\\ControllerTest\\PlayCardControllerTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Web.Tests\\ControllerTest\\PlayCardControllerTest.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Web.Tests\\ControllerTest\\PlayCardControllerTest.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Web.Tests\\ControllerTest\\PlayCardControllerTest.cs",
-              "ViewState": "AQIAAHkBAAAAAAAAAAD4v5ABAAAQAAAA",
+              "Title": "DeckService.cs",
+              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\DeckService.cs",
+              "RelativeDocumentMoniker": "Services\\Wizzarts.Services.Data\\DeckService.cs",
+              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Data\\DeckService.cs",
+              "RelativeToolTip": "Services\\Wizzarts.Services.Data\\DeckService.cs",
+              "ViewState": "AQIAAH4AAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:12:08.689Z",
+              "WhenOpened": "2024-12-21T09:12:06.1Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "StoreControllerTest.cs",
-              "DocumentMoniker": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Web.Tests\\ControllerTest\\StoreControllerTest.cs",
-              "RelativeDocumentMoniker": "Tests\\Wizzarts.Web.Tests\\ControllerTest\\StoreControllerTest.cs",
-              "ToolTip": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Tests\\Wizzarts.Web.Tests\\ControllerTest\\StoreControllerTest.cs",
-              "RelativeToolTip": "Tests\\Wizzarts.Web.Tests\\ControllerTest\\StoreControllerTest.cs",
-              "ViewState": "AQIAAGUAAAAAAAAAAAD4v3wAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:12:02.228Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{290d74ba-151f-5f8b-b7df-7de2c7b571a7}"
             }
           ]
         }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wizzarts.Data.Common")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+930b24e6c9617d6b46f13d2c211b9a17f7835c22")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4784cd3f8d8514d2dde9240f14455170af0e07d0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wizzarts.Data.Common")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wizzarts.Data.Common")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

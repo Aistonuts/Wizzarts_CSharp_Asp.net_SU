@@ -73,19 +73,34 @@
                                 <ul class="entry-meta">
                                     @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
                                     {
-                                        <li class="single-meta">
+                                       @*  <li class="single-meta">
                                             <a asp-controller="Store" asp-action="Edit" asp-route-id="@store.Id" class="btn btn-secondary">Edit</a>
-                                        </li>
+                                        </li> *@
                                         <li class="single-meta">
-                                            <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@@store.Id">
+                                            <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@store.Id">
+                                                <button class="btn btn-danger" data-toggle="modal" data-target="#@store.Id">Delete</button>
                                             </form>
-                                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                                           
                                         </li>
                                         <li class="single-meta">
                                             <form asp-controller="Store" method="post" asp-action="ApproveStore" asp-route-id="@store.Id">
+                                                <button class="btn btn-danger">Approve</button>
                                             </form>
-                                            <button class="btn btn-danger">Approve</button>
+                                        
                                         </li>
+                                        <div class="modal" tabindex="-1" role="dialog" id="@store.Id">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <p>Do you want to delete "@store.Name"?</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     }
                                 </ul>
                             </div>

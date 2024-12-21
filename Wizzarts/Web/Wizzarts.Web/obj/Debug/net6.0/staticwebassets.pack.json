@@ -473,6 +473,14 @@
       "PackagePath": "staticwebassets\\images\\event\\Game_tester.jpg"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\Components\\ThenewestComponent.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\Components\\ThenewestComponent.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\UserEvent\\ThenewestEvent.jpg",
+      "PackagePath": "staticwebassets\\images\\event\\UserEvent\\ThenewestEvent.jpg"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\event\\milestones\\EventOneMilestones\\Abandoned_Mire.png",
       "PackagePath": "staticwebassets\\images\\event\\milestones\\EventOneMilestones\\Abandoned_Mire.png"
     },
@@ -691,22 +699,6 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\ah_logo.svg",
       "PackagePath": "staticwebassets\\images\\navigation\\ah_logo.svg"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\articles\\New.jpg",
-      "PackagePath": "staticwebassets\\images\\navigation\\articles\\New.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\articles\\Newarticle.jpg",
-      "PackagePath": "staticwebassets\\images\\navigation\\articles\\Newarticle.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\articles\\latesarticle.jpg",
-      "PackagePath": "staticwebassets\\images\\navigation\\articles\\latesarticle.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\articles\\newnewnew.jpg",
-      "PackagePath": "staticwebassets\\images\\navigation\\articles\\newnewnew.jpg"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\clouds.png",

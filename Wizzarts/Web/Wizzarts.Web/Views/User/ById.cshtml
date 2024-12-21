@@ -161,8 +161,14 @@
                         </div>
                     </div>
                 </div>
-                <p>@Model.Bio</p>
-                <p><em>"Target bird is no longer available. Please leave a message after the last bounce."</em></p>
+                @if (Model.Bio.Length > 0)
+                {
+                    <p><em>"@Model.Bio."</em></p>
+                }
+                else
+                {
+                    <p><em>"Target bird is no longer available. Please leave a message after the last bounce."</em></p>
+                }
             </div>
         </div>
     </div>

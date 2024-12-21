@@ -150,6 +150,7 @@
                .Where(x => x.Id == deckId)
                .To<SingleDeckViewModel>().FirstOrDefaultAsync();
             var deckOfCards = this.deckOfCardsRepository.AllAsNoTracking().Where(x => x.DeckId == deckId);
+            var cards = await this.playCardRepository.All().ToListAsync();
             var order = new Order()
             {
                 Title = deck.Name,
@@ -162,14 +163,19 @@
                 ShippingAddress = deck.DeliveryLocation,
             };
 
-            foreach (var item in deckOfCards)
-            {
-                var card = await this.playCardRepository.All().FirstOrDefaultAsync(x => x.Id == item.PlayCardId);
-                order.CardsInOrder.Add(card);
-            }
-
             await this.deckOrderRepository.AddAsync(order);
             await this.deckOrderRepository.SaveChangesAsync();
+
+            foreach (var item in deckOfCards)
+            {
+                var card = cards.Find(x => x.Id == item.PlayCardId);
+                var cardOrder = new CardOrder();
+                cardOrder.PlayCardId = card.Id;
+                cardOrder.OrderId = order.Id;
+                await this.cardOrderRepository.AddAsync(cardOrder);
+            }
+
+            await this.cardOrderRepository.SaveChangesAsync();
         }
 
         public async Task<int> RemoveAsync(int deckId, string cardId)

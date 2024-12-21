@@ -168,8 +168,8 @@
                 return this.BadRequest();
             }
 
-            if (!await this.articleService.HasUserWithIdAsync(id, this.User.GetId())
-                || !this.User.IsAdmin())
+            if (await this.articleService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
             {
                 return this.Unauthorized();
             }

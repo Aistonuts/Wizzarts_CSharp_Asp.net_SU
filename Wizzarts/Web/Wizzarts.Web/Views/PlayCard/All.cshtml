@@ -28,7 +28,13 @@
 
                                                     </a>
                                                 </div>
-
+                                                <div class="article-card card border-0">
+                                                    <div class="card-body pt-0">
+                                                        <div class="ff-display font-size-18">
+                                                            <b>@this.Model.Cards.ToList()[i].Name</b>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -43,6 +49,13 @@
                                                     <a asp-controller="PlayCard" asp-action="ById" asp-route-id="@this.Model.Cards.ToList()[i].Id" asp-route-information="@this.Model.Cards.ToList()[i].GetCardName()">
                                                         <img src="@this.Model.Cards.ToList()[i].CardRemoteUrl" alt="@this.Model.Cards.ToList()[i].Name" class="lazy" alt="video" style="">
                                                     </a>
+                                                </div>
+                                                <div class="article-card card border-0">
+                                                    <div class="card-body pt-0">
+                                                        <div class="ff-display font-size-18">
+                                                            <b>@this.Model.Cards.ToList()[i].Name</b>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

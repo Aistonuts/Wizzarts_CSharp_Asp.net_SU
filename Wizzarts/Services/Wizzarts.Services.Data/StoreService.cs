@@ -70,6 +70,17 @@
             await this.storeRepository.SaveChangesAsync();
         }
 
+        public async Task DeleteAsync(int id)
+        {
+            var store = await this.storeRepository.All().FirstOrDefaultAsync(x => x.Id == id);
+
+            if (store != null)
+            {
+                this.storeRepository.Delete(store);
+                await this.storeRepository.SaveChangesAsync();
+            }
+        }
+
         public async Task<bool> ExistsAsync(int id)
         {
             return await this.storeRepository.AllAsNoTracking()
@@ -133,9 +144,15 @@
             return store;
         }
 
-        public Task<int> GetCount()
+        public async Task<int> GetCount()
         {
-            return this.storeRepository.All().CountAsync();
+            return await this.storeRepository.All().CountAsync(x => x.ApprovedByAdmin == true);
+        }
+
+        public async Task<bool> HasUserWithIdAsync(int id, string userId)
+        {
+            return await this.storeRepository.AllAsNoTracking()
+                  .AnyAsync(a => a.Id == id && a.StoreOwnerId == userId);
         }
     }
 }

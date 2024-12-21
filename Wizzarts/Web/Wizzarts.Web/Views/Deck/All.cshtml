@@ -36,10 +36,30 @@
 
                                                         </a>
                                                     </div>
-                                                    <div class="card-body p-0">
-                                                        <small class="text-center mb-1 text-muted">
-                                                            <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Decks.ToList()[i].CreatedByUser" asp-route-information="@this.Model.Decks.ToList()[i].GetWizzartsMemberName()"><i class="far fa-star"></i>@this.Model.Decks.ToList()[i].CreatedByMember</a>
-                                                        </small>
+                                                   
+                                                    @if (this.Model.Decks.ToList()[i].CreatedByMember.Length > 0)
+                                                    {
+                                                        <div class="card-body p-0">
+                                                            <small class="text-center mb-1 text-muted">
+                                                                <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Decks.ToList()[i].CreatedByUser" asp-route-information="@this.Model.Decks.ToList()[i].GetWizzartsMemberName()"><i class="far fa-star"></i>@this.Model.Decks.ToList()[i].CreatedByMember</a>
+                                                            </small>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="card-body p-0">
+                                                            <small class="text-center mb-1 text-muted">
+                                                                <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Decks.ToList()[i].CreatedByUser" asp-route-information="@this.Model.Decks.ToList()[i].GetWizzartsMemberName()"><i class="far fa-star"></i>@this.Model.Decks.ToList()[i].CreatedByUser</a>
+                                                            </small>
+                                                        </div>
+                                                    }
+                                                    <div class="article-card card border-0">
+                                                        <div class="card-body pt-0">
+                                                            <div class="ff-display font-size-18">
+                                                                <b>@this.Model.Decks.ToList()[i].Name</b>
+                                                            </div>
+                                                            <div class="card-text d-none d-md-flex m-1">@this.Model.Decks.ToList()[i].Description</div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -56,10 +76,30 @@
                                                             <img src="@this.Model.Decks.ToList()[i].ImageUrl" alt="@this.Model.Decks.ToList()[i].Name" class="lazy" alt="video" style="">
                                                         </a>
                                                     </div>
-                                                    <div class="card-body p-0">
-                                                        <small class="text-center mb-1 text-muted">
-                                                            <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Decks.ToList()[i].CreatedByUser" asp-route-information="@this.Model.Decks.ToList()[i].GetWizzartsMemberName()"><i class="far fa-star"></i>@this.Model.Decks.ToList()[i].CreatedByMember</a>
-                                                        </small>
+                                                    
+                                                    @if (this.Model.Decks.ToList()[i].CreatedByMember.Length > 0)
+                                                    {
+                                                        <div class="card-body p-0">
+                                                            <small class="text-center mb-1 text-muted">
+                                                                <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Decks.ToList()[i].CreatedByUser" asp-route-information="@this.Model.Decks.ToList()[i].GetWizzartsMemberName()"><i class="far fa-star"></i>@this.Model.Decks.ToList()[i].CreatedByMember</a>
+                                                            </small>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="card-body p-0">
+                                                            <small class="text-center mb-1 text-muted">
+                                                                <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Decks.ToList()[i].CreatedByUser" asp-route-information="@this.Model.Decks.ToList()[i].GetWizzartsMemberName()"><i class="far fa-star"></i>@this.Model.Decks.ToList()[i].CreatedByUser</a>
+                                                            </small>
+                                                        </div>
+                                                    }
+                                                    <div class="article-card card border-0">
+                                                        <div class="card-body pt-0">
+                                                            <div class="ff-display font-size-18">
+                                                                <b>@this.Model.Decks.ToList()[i].Name</b>
+                                                            </div>
+                                                            <div class="card-text d-none d-md-flex m-1">@this.Model.Decks.ToList()[i].Description</div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -78,7 +118,7 @@
                             </a>
                         </div>
                     }
-                   
+
                 </div>
 
             </div>
@@ -89,16 +129,16 @@
         <div class="card mb-2">
             <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Events</a></h4></div>
             <div class="card-body pl-1 pr-1 pt-2 pb-0">
-                @foreach (var events in this.Model.Events.Where(x=> x.ApprovedByAdmin == true).Take(7))
+                @foreach (var events in this.Model.Events.Where(x => x.ApprovedByAdmin == true).Take(7))
                 {
                     <div class="metagroup-container">
                         <div class="mr-2 d-none d-lg-block">
-                            <a asp-controller="@events.ControllerName" asp-action="@events.ActionName" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()"  class="image-wrapper">
+                            <a asp-controller="@events.ControllerName" asp-action="@events.ActionName" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="image-wrapper">
                                 <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
                             </a>
                         </div>
                         <div>
-                            <a asp-controller="@events.ControllerName" asp-action="@events.ActionName" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()"  class="image-wrapper">
+                            <a asp-controller="@events.ControllerName" asp-action="@events.ActionName" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="image-wrapper">
                                 <b class="text-primary">@events.Title</b>
                             </a>
                         </div>

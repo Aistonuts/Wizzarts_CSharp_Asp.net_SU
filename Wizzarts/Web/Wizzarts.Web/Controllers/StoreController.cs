@@ -102,5 +102,24 @@
 
             return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (await this.storeService.ExistsAsync(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            if (await this.storeService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
+            await this.storeService.DeleteAsync(id);
+
+            return this.RedirectToAction("MyData", "User");
+        }
     }
 }

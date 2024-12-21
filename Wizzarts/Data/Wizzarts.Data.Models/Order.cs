@@ -13,7 +13,7 @@
     {
         public Order()
         {
-            this.CardsInOrder = new HashSet<PlayCard>();
+            this.CardsInOrder = new List<PlayCard>();
         }
 
         [Required]
@@ -45,6 +45,6 @@
         [ForeignKey(nameof(RecipientId))]
         public ApplicationUser Recipient { get; set; }
 
-        public virtual ICollection<PlayCard> CardsInOrder { get; set; }
+        public virtual List<PlayCard> CardsInOrder { get; set; }
     }
 }

@@ -74,9 +74,9 @@
             return orders;
         }
 
-        public Task<T> GetById<T>(int id)
+        public async Task<T> GetById<T>(int id)
         {
-            var order = this.deckOrderRepository.AllAsNoTracking()
+            var order = await this.deckOrderRepository.AllAsNoTracking()
                .Where(x => x.Id == id)
                .To<T>().FirstOrDefaultAsync();
 

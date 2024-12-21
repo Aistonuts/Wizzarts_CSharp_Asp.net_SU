@@ -28,5 +28,9 @@
         Task<T> GetById<T>(int id);
 
         Task<bool> ExistsAsync(int id);
+
+        Task<bool> HasUserWithIdAsync(int id, string userId);
+
+        Task DeleteAsync(int id);
     }
 }

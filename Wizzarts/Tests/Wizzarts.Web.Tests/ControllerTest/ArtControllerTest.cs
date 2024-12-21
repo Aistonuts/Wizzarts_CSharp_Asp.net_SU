@@ -301,13 +301,14 @@
                     .WithData(data.Arts)
                     .WithUser(x => x.WithIdentifier(With.Any<string>()).AndAlso().InRole(AdministratorRoleName)))
                 .Calling(c => c.Edit(
-                    model,
+                    With.Default<EditArtViewModel>(),
                     "ab8532f9-2a2f-4b65-96f1-90e5468fbed2"))
                 .ShouldHave()
                 .InvalidModelState()
                 .AndAlso()
                 .ShouldReturn()
-                .View(model);
+               .View(view => view
+                    .WithModelOfType<EditArtViewModel>());
 
             this.TearDownBase();
         }

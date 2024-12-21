@@ -253,7 +253,7 @@
 
         public Task<int> GetCount()
         {
-            return this.eventRepository.All().Where(x => x.ApprovedByAdmin == true).CountAsync();
+            return this.eventRepository.All().Where(x => x.ApprovedByAdmin == true && x.ForMainPage == true).CountAsync();
         }
 
         public async Task<IEnumerable<T>> GetAllEventsByUsers<T>()

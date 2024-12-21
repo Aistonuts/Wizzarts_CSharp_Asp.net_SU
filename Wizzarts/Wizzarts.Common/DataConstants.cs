@@ -106,11 +106,11 @@
         public const int EventMilestoneDescriptionMinLength = 10;
 
         // Store Constants
-        public const int StoreNameMaxLength = 30;
+        public const int StoreNameMaxLength = 60;
 
         public const int StoreNameMinLength = 5;
 
-        public const int StoreLocationMaxLength = 50;
+        public const int StoreLocationMaxLength = 500;
 
         public const int StoreLocationMinLength = 5;
 

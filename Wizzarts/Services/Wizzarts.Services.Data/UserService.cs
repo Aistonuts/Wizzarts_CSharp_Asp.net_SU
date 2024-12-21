@@ -171,11 +171,11 @@
                         $" {eventsNeededMember} event(s) created, {articlesNeededMember} article(s) and {cardsNeededMember} event card(s).";
                 }
             }
-            else if (currentRole.Contains(PremiumRoleName) && !currentRole.Contains(ArtistRoleName))
+            else if (currentRole.Contains(PremiumRoleName) && !currentRole.Contains(ArtistRoleName) && !currentRole.Contains(AdministratorRoleName))
             {
                 message = $"You have a premium account.";
             }
-            else if (currentRole.Contains(ArtistRoleName))
+            else if (currentRole.Contains(ArtistRoleName) && !currentRole.Contains(AdministratorRoleName))
             {
                 message = $"You are an artist.If you are interested in working with us, contact us by mail at team@wizzarts.com or check for available wizzarts team members in chat and we will check your portfolio.";
             }

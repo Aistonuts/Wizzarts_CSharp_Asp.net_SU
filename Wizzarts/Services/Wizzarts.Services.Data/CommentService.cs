@@ -21,7 +21,6 @@
         {
             this.commentRepository = commentRepository;
             this.fileService = fileService;
-
         }
 
         public async Task CommentAsync(SingleCardViewModel input, string userId, string cardId, bool byAdmin)

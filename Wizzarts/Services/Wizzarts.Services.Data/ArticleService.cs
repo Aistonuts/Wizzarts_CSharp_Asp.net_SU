@@ -186,7 +186,7 @@
         public async Task<IEnumerable<T>> GetAllUserArticles<T>()
         {
             var articles = await this.articleRepository.AllAsNoTracking()
-                .Where(x => x.ForMainPage == false)
+                .Where(x => x.ForMainPage == false && x.ApprovedByAdmin == true)
                 .To<T>().ToListAsync();
             return articles;
         }

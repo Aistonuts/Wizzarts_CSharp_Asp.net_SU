@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-5 col-md-6">
-                        <img class="article-uimgheader-preview" src="@Model.AvatarUrl" alt="@Model.Email">
+                        <img class="article-uimgheader-preview" src="@Model.AvatarUrl" onerror="this.onerror=null;this.src='/images/avatar/Marvel_One.png';">
                     </div>
                 </div>
 
@@ -49,11 +49,11 @@
                                             </a>
                                             <div class="card-body pt-0">
                                                 <small class="yellow-line">
-                                                    <a href=""><i class="far fa-star"></i>@article.ArticleCreatorName</a>
+                                                   <i class="far fa-star">>@article.ArticleCreatorName</i>
                                                     <span>@article.CreatedOn</span>
                                                 </small>
                                                 <div class="ff-display font-size-18">
-                                                    <b><a href="">@article.Title</a></b>
+                                                    <b><a asp-area="" asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()">@article.Title</a></b>
                                                 </div>
                                                 <div class="card-text d-none d-md-flex m-1">@article.ShortDescription</div>
                                             </div>

@@ -2,7 +2,7 @@
 {
     public static class GlobalConstants
     {
-        public const string SystemName = "Wizzarts cardsmith";
+        public const string SystemName = "Wizzarts magic cardsmith";
 
         public const string AdministratorRoleName = "Administrator";
 

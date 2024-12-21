@@ -33,6 +33,13 @@
                                                         <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].ArtistName" asp-route-information="@this.Model.Arts.ToList()[i].GetWizzartsMemberName()"><i class="far fa-star"></i>@this.Model.Arts.ToList()[i].ArtistName</a>
                                                     </small>
                                                 </div>
+                                                <div class="article-card card border-0">
+                                                    <div class="card-body pt-0">
+                                                        <div class="ff-display font-size-18">
+                                                            <b>@this.Model.Arts.ToList()[i].Title</b>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -52,6 +59,13 @@
                                                     <small class="text-center mb-1 text-muted">
                                                         <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].ArtistName" asp-route-information="@this.Model.Arts.ToList()[i].GetInformation()"><i class="far fa-star"></i>@this.Model.Arts.ToList()[i].ArtistName</a>
                                                     </small>
+                                                </div>
+                                                <div class="article-card card border-0">
+                                                    <div class="card-body pt-0">
+                                                        <div class="ff-display font-size-18">
+                                                            <b>@this.Model.Arts.ToList()[i].Title</b>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

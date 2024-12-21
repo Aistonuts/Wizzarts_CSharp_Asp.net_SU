@@ -95,6 +95,7 @@
                 HasOpenDeck = await this.deckService.HasOpenDecks(this.User.GetId()),
             };
             var user = await this.userManager.GetUserAsync(this.User);
+
             if (user != null)
             {
                 if (user.Nickname == string.Empty || user.AvatarUrl == string.Empty)
@@ -114,7 +115,7 @@
             var user = await this.userManager.GetUserAsync(this.User);
 
             string updateMessage = " ";
-
+            await this._signInManager.SignInAsync(user, false, null);
             if (user != null)
             {
                 var currentRole = await this.userManager.GetRolesAsync(user);
@@ -200,7 +201,7 @@
             return this.View();
         }
 
-        [HttpGet]
+        [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error(int statusCode)
         {
