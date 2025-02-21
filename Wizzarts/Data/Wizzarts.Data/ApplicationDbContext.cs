@@ -37,18 +37,6 @@
 
         public DbSet<CommentCard> CardComments { get; set; }
 
-        public DbSet<BlueMana> BlueMana { get; set; }
-
-        public DbSet<BlackMana> BlackMana { get; set; }
-
-        public DbSet<RedMana> RedMana { get; set; }
-
-        public DbSet<GreenMana> GreenMana { get; set; }
-
-        public DbSet<WhiteMana> WhiteMana { get; set; }
-
-        public DbSet<ColorlessMana> ColorlessMana { get; set; }
-
         public DbSet<PlayCardFrameColor> PlayCardFrameColors { get; set; }
 
         public DbSet<PlayCardType> PlayCardTypes { get; set; }
@@ -94,6 +82,8 @@
         public DbSet<TagHelpAction> TagHelpActions { get; set; }
 
         public DbSet<TagHelpController> TagHelpControllers { get; set; }
+
+        public DbSet<ManaCost> ManaCosts { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -221,31 +211,6 @@
             .HasMany(a => a.Members)
             .WithOne(a => a.Avatar)
             .HasForeignKey(a => a.AvatarId);
-
-            builder.Entity<BlackMana>()
-            .HasMany(a => a.Cards)
-            .WithOne(a => a.BlackMana)
-            .HasForeignKey(a => a.BlackManaId);
-
-            builder.Entity<BlueMana>()
-            .HasMany(a => a.Cards)
-            .WithOne(a => a.BlueMana)
-            .HasForeignKey(a => a.BlueManaId);
-
-            builder.Entity<GreenMana>()
-            .HasMany(a => a.Cards)
-            .WithOne(a => a.GreenMana)
-            .HasForeignKey(a => a.GreenManaId);
-
-            builder.Entity<WhiteMana>()
-            .HasMany(a => a.Cards)
-            .WithOne(a => a.WhiteMana)
-            .HasForeignKey(a => a.WhiteManaId);
-
-            builder.Entity<ColorlessMana>()
-            .HasMany(a => a.Cards)
-            .WithOne(a => a.ColorlessMana)
-            .HasForeignKey(a => a.ColorlessManaId);
 
             builder.Entity<PlayCardFrameColor>()
             .HasMany(a => a.Cards)

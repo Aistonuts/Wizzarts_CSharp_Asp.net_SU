@@ -23,13 +23,8 @@
     {
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<PlayCard> cardRepository;
+        private readonly IDeletableEntityRepository<ManaCost> manaCostRepository;
         private readonly IDeletableEntityRepository<ManaInCard> cardManaRepository;
-        private readonly IDeletableEntityRepository<BlackMana> blackManaRepository;
-        private readonly IDeletableEntityRepository<BlueMana> blueManaRepository;
-        private readonly IDeletableEntityRepository<RedMana> redManaRepository;
-        private readonly IDeletableEntityRepository<WhiteMana> whiteManaRepository;
-        private readonly IDeletableEntityRepository<GreenMana> greenManaRepository;
-        private readonly IDeletableEntityRepository<ColorlessMana> colorlessManaRepository;
         private readonly IDeletableEntityRepository<PlayCardFrameColor> cardFrameColorRepository;
         private readonly IDeletableEntityRepository<PlayCardType> cardTypeRepository;
         private readonly IMemoryCache cache;
@@ -37,31 +32,20 @@
 
         public PlayCardService(
             IDeletableEntityRepository<PlayCard> cardRepository,
+            IDeletableEntityRepository<ManaCost> manaCostRepository,
             IDeletableEntityRepository<ManaInCard> cardManaRepository,
-            IDeletableEntityRepository<BlackMana> blackManaRepository,
-            IDeletableEntityRepository<BlueMana> blueManaRepository,
-            IDeletableEntityRepository<RedMana> redManaRepository,
-            IDeletableEntityRepository<WhiteMana> whiteManaRepository,
-            IDeletableEntityRepository<GreenMana> greenManaRepository,
-            IDeletableEntityRepository<ColorlessMana> colorlessManaRepository,
             IDeletableEntityRepository<PlayCardFrameColor> cardFrameColorRepository,
             IDeletableEntityRepository<PlayCardType> cardTypeRepository,
             IMemoryCache cache,
             IFileService fileService)
         {
             this.cardRepository = cardRepository;
+            this.manaCostRepository = manaCostRepository;
             this.cardManaRepository = cardManaRepository;
-            this.blackManaRepository = blackManaRepository;
-            this.blueManaRepository = blueManaRepository;
-            this.redManaRepository = redManaRepository;
-            this.whiteManaRepository = whiteManaRepository;
-            this.greenManaRepository = greenManaRepository;
-            this.colorlessManaRepository = colorlessManaRepository;
             this.cardFrameColorRepository = cardFrameColorRepository;
             this.cardTypeRepository = cardTypeRepository;
             this.cache = cache;
             this.fileService = fileService;
-
         }
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12)
@@ -105,12 +89,6 @@
             var card = new PlayCard
             {
                 Name = await this.fileService.Sanitize(input.Name),
-                BlackManaId = input.BlackManaId,
-                BlueManaId = input.BlueManaId,
-                RedManaId = input.RedManaId,
-                WhiteManaId = input.WhiteManaId,
-                GreenManaId = input.GreenManaId,
-                ColorlessManaId = input.ColorlessManaId,
                 CardFrameColorId = input.CardFrameColorId,
                 CardTypeId = input.CardTypeId,
                 AbilitiesAndFlavor = await this.fileService.Sanitize(input.AbilitiesAndFlavor),
@@ -122,7 +100,7 @@
                 ForMainPage = false,
             };
 
-            var manaBlack = await this.blackManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.BlackManaId);
+            var manaBlack = await this.manaCostRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.BlackManaCost);
 
             if (manaBlack != null)
             {
@@ -130,13 +108,14 @@
                 {
                     card.CardMana.Add(new ManaInCard()
                     {
-                        Color = manaBlack.ColorName,
-                        RemoteImageUrl = manaBlack.ImageUrl,
+                        Color = manaBlack.Color,
+                        RemoteImageUrl = manaBlack.RemoteImageUrl,
+                        ManaCostId = manaBlack.Id,
                     });
                 }
             }
 
-            var manaBlue = await this.blueManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.BlueManaId);
+            var manaBlue = await this.manaCostRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.BlueManaCost);
 
             if (manaBlue != null)
             {
@@ -144,13 +123,14 @@
                 {
                     card.CardMana.Add(new ManaInCard()
                     {
-                        Color = manaBlue.ColorName,
-                        RemoteImageUrl = manaBlue.ImageUrl,
+                        Color = manaBlue.Color,
+                        RemoteImageUrl = manaBlue.RemoteImageUrl,
+                        ManaCostId = manaBlue.Id,
                     });
                 }
             }
 
-            var manaGreen = await this.greenManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.GreenManaId);
+            var manaGreen = await this.manaCostRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.GreenManaCost);
 
             if (manaGreen != null)
             {
@@ -158,13 +138,14 @@
                 {
                     card.CardMana.Add(new ManaInCard()
                     {
-                        Color = manaGreen.ColorName,
-                        RemoteImageUrl = manaGreen.ImageUrl,
+                        Color = manaGreen.Color,
+                        RemoteImageUrl = manaGreen.RemoteImageUrl,
+                        ManaCostId= manaGreen.Id,
                     });
                 }
             }
 
-            var manaRed = await this.redManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.RedManaId);
+            var manaRed = await this.manaCostRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.RedManaCost);
 
             if (manaRed != null)
             {
@@ -172,13 +153,14 @@
                 {
                     card.CardMana.Add(new ManaInCard()
                     {
-                        Color = manaRed.ColorName,
-                        RemoteImageUrl = manaRed.ImageUrl,
+                        Color = manaRed.Color,
+                        RemoteImageUrl = manaRed.RemoteImageUrl,
+                        ManaCostId = manaRed.Id,
                     });
                 }
             }
 
-            var colorlessMana = await this.colorlessManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.ColorlessManaId);
+            var colorlessMana = await this.manaCostRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.ColorlessManaCost);
 
             if (colorlessMana != null)
             {
@@ -186,13 +168,14 @@
                 {
                     card.CardMana.Add(new ManaInCard()
                     {
-                        Color = colorlessMana.ColorName,
-                        RemoteImageUrl = colorlessMana.ImageUrl,
+                        Color = colorlessMana.Color,
+                        RemoteImageUrl = colorlessMana.RemoteImageUrl,
+                        ManaCostId = colorlessMana.Id,
                     });
                 }
             }
 
-            var manaWhite = await this.whiteManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.WhiteManaId);
+            var manaWhite = await this.manaCostRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.WhiteManaCost);
 
             if (manaWhite != null)
             {
@@ -200,8 +183,9 @@
                 {
                     card.CardMana.Add(new ManaInCard()
                     {
-                        Color = manaWhite.ColorName,
-                        RemoteImageUrl = manaWhite.ImageUrl,
+                        Color = manaWhite.Color,
+                        RemoteImageUrl = manaWhite.RemoteImageUrl,
+                        ManaCostId = manaWhite.Id,
                     });
                 }
             }
@@ -423,12 +407,6 @@
             var card = new PlayCard
             {
                 Name = await this.fileService.Sanitize(input.Name),
-                BlackManaId = input.BlackManaId,
-                BlueManaId = input.BlueManaId,
-                RedManaId = input.RedManaId,
-                WhiteManaId = input.WhiteManaId,
-                GreenManaId = input.GreenManaId,
-                ColorlessManaId = input.ColorlessManaId,
                 CardFrameColorId = input.CardFrameColorId,
                 CardTypeId = input.CardTypeId,
                 AbilitiesAndFlavor = await this.fileService.Sanitize(input.AbilitiesAndFlavor),
@@ -440,7 +418,7 @@
                 ArtId = input.ArtId,
             };
 
-            var manaBlack = await this.blackManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.BlackManaId);
+            var manaBlack = await this.manaCostRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.BlackManaCost);
 
             if (manaBlack != null)
             {
@@ -448,13 +426,13 @@
                 {
                     card.CardMana.Add(new ManaInCard()
                     {
-                        Color = manaBlack.ColorName,
-                        RemoteImageUrl = manaBlack.ImageUrl,
+                        Color = manaBlack.Color,
+                        RemoteImageUrl = manaBlack.RemoteImageUrl,
                     });
                 }
             }
 
-            var manaBlue = await this.blueManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.BlueManaId);
+            var manaBlue = await this.manaCostRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.BlueManaCost);
 
             if (manaBlue != null)
             {
@@ -462,13 +440,13 @@
                 {
                     card.CardMana.Add(new ManaInCard()
                     {
-                        Color = manaBlue.ColorName,
-                        RemoteImageUrl = manaBlue.ImageUrl,
+                        Color = manaBlue.Color,
+                        RemoteImageUrl = manaBlue.RemoteImageUrl,
                     });
                 }
             }
 
-            var manaGreen = await this.greenManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.GreenManaId);
+            var manaGreen = await this.manaCostRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.GreenManaCost);
 
             if (manaGreen != null)
             {
@@ -476,13 +454,13 @@
                 {
                     card.CardMana.Add(new ManaInCard()
                     {
-                        Color = manaGreen.ColorName,
-                        RemoteImageUrl = manaGreen.ImageUrl,
+                        Color = manaGreen.Color,
+                        RemoteImageUrl = manaGreen.RemoteImageUrl,
                     });
                 }
             }
 
-            var manaRed = await this.redManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.RedManaId);
+            var manaRed = await this.manaCostRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.RedManaCost);
 
             if (manaRed != null)
             {
@@ -490,13 +468,13 @@
                 {
                     card.CardMana.Add(new ManaInCard()
                     {
-                        Color = manaRed.ColorName,
-                        RemoteImageUrl = manaRed.ImageUrl,
+                        Color = manaRed.Color,
+                        RemoteImageUrl = manaRed.RemoteImageUrl,
                     });
                 }
             }
 
-            var colorlessMana = await this.colorlessManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.ColorlessManaId);
+            var colorlessMana = await this.manaCostRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.ColorlessManaCost);
 
             if (colorlessMana != null)
             {
@@ -504,13 +482,13 @@
                 {
                     card.CardMana.Add(new ManaInCard()
                     {
-                        Color = colorlessMana.ColorName,
-                        RemoteImageUrl = colorlessMana.ImageUrl,
+                        Color = colorlessMana.Color,
+                        RemoteImageUrl = colorlessMana.RemoteImageUrl,
                     });
                 }
             }
 
-            var manaWhite = await this.whiteManaRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.WhiteManaId);
+            var manaWhite = await this.manaCostRepository.AllAsNoTracking().FirstOrDefaultAsync(x => x.Id == input.WhiteManaCost);
 
             if (manaWhite != null)
             {
@@ -518,8 +496,8 @@
                 {
                     card.CardMana.Add(new ManaInCard()
                     {
-                        Color = manaWhite.ColorName,
-                        RemoteImageUrl = manaWhite.ImageUrl,
+                        Color = manaWhite.Color,
+                        RemoteImageUrl = manaWhite.RemoteImageUrl,
                     });
                 }
             }
@@ -606,6 +584,42 @@
                 card.CardGameExpansionId = BetaExpansion;
                 await this.cardRepository.SaveChangesAsync();
             }
+        }
+
+        public async Task<IEnumerable<T>> GetAllBlackMana<T>()
+        {
+            var mana = await this.manaCostRepository.AllAsNoTracking().Where(x => x.Color == BlackMana).OrderBy(x => x.Cost).To<T>().ToListAsync();
+            return mana;
+        }
+
+        public async Task<IEnumerable<T>> GetAllBlueMana<T>()
+        {
+            var mana = await this.manaCostRepository.AllAsNoTracking().Where(x => x.Color == BlueMana).OrderBy(x => x.Cost).To<T>().ToListAsync();
+            return mana;
+        }
+
+        public async Task<IEnumerable<T>> GetAllGreenMana<T>()
+        {
+            var mana = await this.manaCostRepository.AllAsNoTracking().Where(x => x.Color == GreenMana).OrderBy(x => x.Cost).To<T>().ToListAsync();
+            return mana;
+        }
+
+        public async Task<IEnumerable<T>> GetAllWhiteMana<T>()
+        {
+            var mana = await this.manaCostRepository.AllAsNoTracking().Where(x => x.Color == WhiteMana).OrderBy(x => x.Cost).To<T>().ToListAsync();
+            return mana;
+        }
+
+        public async Task<IEnumerable<T>> GetAllRedMana<T>()
+        {
+            var mana = await this.manaCostRepository.AllAsNoTracking().Where(x => x.Color == RedMana).OrderBy(x => x.Cost).To<T>().ToListAsync();
+            return mana;
+        }
+
+        public async Task<IEnumerable<T>> GetAllColorlessMana<T>()
+        {
+            var mana = await this.manaCostRepository.AllAsNoTracking().Where(x => x.Color == ColorlessMana).OrderBy(x => x.Cost).To<T>().ToListAsync();
+            return mana;
         }
     }
 }

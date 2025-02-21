@@ -13,35 +13,20 @@
     public class PlayCardComponentsService : IPlayCardComponentsService
     {
         private readonly IDeletableEntityRepository<ManaInCard> cardManaRepository;
-        private readonly IDeletableEntityRepository<BlackMana> blackManaRepository;
-        private readonly IDeletableEntityRepository<BlueMana> blueManaRepository;
-        private readonly IDeletableEntityRepository<RedMana> redManaRepository;
-        private readonly IDeletableEntityRepository<WhiteMana> whiteManaRepository;
-        private readonly IDeletableEntityRepository<GreenMana> greenManaRepository;
-        private readonly IDeletableEntityRepository<ColorlessMana> colorlessManaRepository;
+        private readonly IDeletableEntityRepository<ManaCost> manaCostRepository;
         private readonly IDeletableEntityRepository<PlayCardFrameColor> cardFrameColorRepository;
         private readonly IDeletableEntityRepository<PlayCardType> cardTypeRepository;
         private readonly IDeletableEntityRepository<CardGameExpansion> cardGameExpansionRepository;
 
         public PlayCardComponentsService(
              IDeletableEntityRepository<ManaInCard> cardManaRepository,
-             IDeletableEntityRepository<BlackMana> blackManaRepository,
-             IDeletableEntityRepository<BlueMana> blueManaRepository,
-             IDeletableEntityRepository<RedMana> redManaRepository,
-             IDeletableEntityRepository<WhiteMana> whiteManaRepository,
-             IDeletableEntityRepository<GreenMana> greenManaRepository,
-             IDeletableEntityRepository<ColorlessMana> colorlessManaRepository,
+             IDeletableEntityRepository<ManaCost> manaCostRepository,
              IDeletableEntityRepository<PlayCardFrameColor> cardFrameColorRepository,
              IDeletableEntityRepository<PlayCardType> cardTypeRepository,
              IDeletableEntityRepository<CardGameExpansion> cardGameExpansionRepository)
         {
             this.cardManaRepository = cardManaRepository;
-            this.blackManaRepository = blackManaRepository;
-            this.blueManaRepository = blueManaRepository;
-            this.redManaRepository = redManaRepository;
-            this.whiteManaRepository = whiteManaRepository;
-            this.greenManaRepository = greenManaRepository;
-            this.colorlessManaRepository = colorlessManaRepository;
+            this.manaCostRepository = manaCostRepository;
             this.cardFrameColorRepository = cardFrameColorRepository;
             this.cardTypeRepository = cardTypeRepository;
             this.cardGameExpansionRepository = cardGameExpansionRepository;
@@ -49,13 +34,13 @@
 
         public Task<bool> BlackManaExistsAsync(int id)
         {
-            return this.blackManaRepository.AllAsNoTracking()
+            return this.manaCostRepository.AllAsNoTracking()
                 .AnyAsync(x => x.Id == id);
         }
 
         public Task<bool> BlueManaExistsAsync(int id)
         {
-            return this.blueManaRepository.AllAsNoTracking()
+            return this.manaCostRepository.AllAsNoTracking()
                 .AnyAsync(x => x.Id == id);
         }
 
@@ -71,12 +56,12 @@
 
         public Task<bool> ColorlessManaExistsAsync(int id)
         {
-            return this.colorlessManaRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
+            return this.manaCostRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<BlackManaCostViewModel>> GetAllBlackMana()
         {
-            return await this.blackManaRepository.AllAsNoTracking()
+            return await this.manaCostRepository.AllAsNoTracking()
                 .Select(x => new BlackManaCostViewModel()
                 {
                     Id = x.Id,
@@ -86,10 +71,10 @@
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<BlueManCostViewModel>> GetAllBlueMana()
+        public async Task<IEnumerable<BlueManaCostViewModel>> GetAllBlueMana()
         {
-            return await this.blueManaRepository.AllAsNoTracking()
-               .Select(x => new BlueManCostViewModel()
+            return await this.manaCostRepository.AllAsNoTracking()
+               .Select(x => new BlueManaCostViewModel()
                {
                    Id = x.Id,
                    Cost = x.Cost,
@@ -124,7 +109,7 @@
 
         public async Task<IEnumerable<ColorlessManaCostViewModel>> GetAllColorlessMana()
         {
-            return await this.colorlessManaRepository.AllAsNoTracking()
+            return await this.manaCostRepository.AllAsNoTracking()
                .Select(x => new ColorlessManaCostViewModel()
                {
                    Id = x.Id,
@@ -148,7 +133,7 @@
 
         public async Task<IEnumerable<GreenManaCostViewModel>> GetAllGreenMana()
         {
-            return await this.greenManaRepository.AllAsNoTracking()
+            return await this.manaCostRepository.AllAsNoTracking()
                .Select(x => new GreenManaCostViewModel()
                {
                    Id = x.Id,
@@ -160,7 +145,7 @@
 
         public async Task<IEnumerable<RedManaCostViewModel>> GetAllRedMana()
         {
-            return await this.redManaRepository.AllAsNoTracking()
+            return await this.manaCostRepository.AllAsNoTracking()
                .Select(x => new RedManaCostViewModel()
                {
                    Id = x.Id,
@@ -172,7 +157,7 @@
 
         public async Task<IEnumerable<WhiteManaCostViewModel>> GetAllWhiteMana()
         {
-            return await this.whiteManaRepository.AllAsNoTracking()
+            return await this.manaCostRepository.AllAsNoTracking()
               .Select(x => new WhiteManaCostViewModel()
               {
                   Id = x.Id,
@@ -184,17 +169,17 @@
 
         public Task<bool> GreenManaExistsAsync(int id)
         {
-            return this.greenManaRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
+            return this.manaCostRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
         }
 
         public Task<bool> RedManaExistsAsync(int id)
         {
-            return this.redManaRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
+            return this.manaCostRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
         }
 
         public Task<bool> WhiteManaExistsAsync(int id)
         {
-            return this.whiteManaRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
+            return this.manaCostRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
         }
     }
 }

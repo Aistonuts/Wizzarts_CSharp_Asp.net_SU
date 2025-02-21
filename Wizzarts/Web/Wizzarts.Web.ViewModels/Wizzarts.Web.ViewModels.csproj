@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
@@ -17,7 +17,7 @@
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="all">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.IO.Pipelines" Version="6.0.2" />
+    <PackageReference Include="System.IO.Pipelines" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>

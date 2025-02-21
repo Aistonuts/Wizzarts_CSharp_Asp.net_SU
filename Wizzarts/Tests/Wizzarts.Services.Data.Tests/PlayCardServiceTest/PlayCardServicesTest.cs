@@ -34,27 +34,18 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
+
             var fileService = new FileService();
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -70,12 +61,6 @@
                 new CreateCardViewModel
                 {
                     Name = "TestTestTest",
-                    BlackManaId = 1,
-                    BlueManaId = 1,
-                    RedManaId = 1,
-                    WhiteManaId = 1,
-                    GreenManaId = 2,
-                    ColorlessManaId = 1,
                     CardFrameColorId = 1,
                     CardTypeId = 1,
                     AbilitiesAndFlavor = "Test Test Test Test Test Test  TestTestTestTestTestTestTest",
@@ -101,13 +86,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -116,13 +96,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -138,12 +113,6 @@
                 new CreateCardViewModel
                 {
                     Name = "TestTestTest",
-                    BlackManaId = 1,
-                    BlueManaId = 1,
-                    RedManaId = 1,
-                    WhiteManaId = 1,
-                    GreenManaId = 2,
-                    ColorlessManaId = 1,
                     CardFrameColorId = 1,
                     CardTypeId = 1,
                     AbilitiesAndFlavor = "Test Test Test Test Test Test  TestTestTestTestTestTestTest",
@@ -169,13 +138,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -184,13 +148,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -211,13 +170,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -226,13 +180,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -248,12 +197,6 @@
                 new CreateCardViewModel
                 {
                     Name = "TestTestTest",
-                    BlackManaId = 1,
-                    BlueManaId = 1,
-                    RedManaId = 1,
-                    WhiteManaId = 1,
-                    GreenManaId = 2,
-                    ColorlessManaId = 1,
                     CardFrameColorId = 1,
                     CardTypeId = 1,
                     AbilitiesAndFlavor = "Test Test Test Test Test Test  TestTestTestTestTestTestTest",
@@ -283,13 +226,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -298,13 +236,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -325,13 +258,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -340,13 +268,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -366,13 +289,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -381,13 +299,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -407,13 +320,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -422,13 +330,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -449,13 +352,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -464,13 +362,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -493,13 +386,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -508,13 +396,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -696,13 +579,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -711,13 +589,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -743,13 +616,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -758,13 +626,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -784,13 +647,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -799,13 +657,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -833,13 +686,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -848,13 +696,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -875,13 +718,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -890,13 +728,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -919,13 +752,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -934,13 +762,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -961,13 +784,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -976,13 +794,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -1003,13 +816,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -1018,13 +826,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -1045,13 +848,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -1060,13 +858,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -1087,13 +880,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -1102,13 +890,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,
@@ -1129,13 +912,8 @@
             var cache = new MemoryCache(new MemoryCacheOptions());
 
             using var playCardRepository = new EfDeletableEntityRepository<PlayCard>(data);
+            using var repositoryManaCost = new EfDeletableEntityRepository<ManaCost>(data);
             using var cardManaRepository = new EfDeletableEntityRepository<ManaInCard>(data);
-            using var blackManaRepository = new EfDeletableEntityRepository<BlackMana>(data);
-            using var blueManaRepository = new EfDeletableEntityRepository<BlueMana>(data);
-            using var redManaRepository = new EfDeletableEntityRepository<RedMana>(data);
-            using var whiteManaRepository = new EfDeletableEntityRepository<WhiteMana>(data);
-            using var greenManaRepository = new EfDeletableEntityRepository<GreenMana>(data);
-            using var colorlessManaRepository = new EfDeletableEntityRepository<ColorlessMana>(data);
             using var cardFrameColorRepository = new EfDeletableEntityRepository<PlayCardFrameColor>(data);
             using var cardTypeRepository = new EfDeletableEntityRepository<PlayCardType>(data);
             using var cardGameExpansionRepository = new EfDeletableEntityRepository<CardGameExpansion>(data);
@@ -1144,13 +922,8 @@
 
             var service = new PlayCardService(
                 playCardRepository,
+                repositoryManaCost,
                 cardManaRepository,
-                blackManaRepository,
-                blueManaRepository,
-                redManaRepository,
-                whiteManaRepository,
-                greenManaRepository,
-                colorlessManaRepository,
                 cardFrameColorRepository,
                 cardTypeRepository,
                 cache,

@@ -256,7 +256,7 @@
             var currentSelection = e.target.id;
 
             let currentColor = currentSelection.substring(currentSelection.indexOf('_') + 1);
-            let selectedValue = $("#" + currentSelection + " option:selected").val();
+            let selectedValue = $("#" + currentSelection + " option:selected").text();
             console.log(selectedValue)
             if (selectedValue == "1") {
 
@@ -265,18 +265,18 @@
             }
             if (currentColor == "colorless") {
                 document.querySelectorAll("#colorless").forEach(e => e.remove());
-                if (selectedValue != 1) {
-                    $('#imgHeader').append("<img src= /Images/mana/" + (selectedValue - 1) + ".png class=mana-icon  id=colorless /> ")
+                if (selectedValue != 0) {
+                    $('#imgHeader').append("<img src= /Images/mana/" + parseInt(selectedValue) + ".png class=mana-icon  id=colorless /> ")
                 } else {
                     return false;
                 }
 
             }
             else {
-                var count = parseInt(selectedValue - 1, 10);
+                document.querySelectorAll("#mana-icon-" + currentColor).forEach(e => e.remove());
+                var count = parseInt(selectedValue, 10);
                 for (let i = 0; i < count; i++) {
                     $('#imgHeader').append("<img src= /Images/mana/" + currentColor + ".png class=mana-icon  id= mana-icon-" + currentColor + " /> ")
-
                 }
             }
 

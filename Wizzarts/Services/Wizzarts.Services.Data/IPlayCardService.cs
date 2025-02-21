@@ -27,6 +27,18 @@
 
         Task AddAsync(CreateCardViewModel input, string userId, string path, bool isEventCard, string canvasCapture);
 
+        Task<IEnumerable<T>> GetAllBlackMana<T>();
+
+        Task<IEnumerable<T>> GetAllBlueMana<T>();
+
+        Task<IEnumerable<T>> GetAllGreenMana<T>();
+
+        Task<IEnumerable<T>> GetAllWhiteMana<T>();
+
+        Task<IEnumerable<T>> GetAllRedMana<T>();
+
+        Task<IEnumerable<T>> GetAllColorlessMana<T>();
+
         Task<IEnumerable<T>> GetAllCardManaByCardId<T>(string id);
 
         Task<IEnumerable<T>> GetAllCardsByExpansion<T>(int id);

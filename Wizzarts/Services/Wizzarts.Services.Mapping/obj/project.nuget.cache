@@ -1,16 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "10RVh8IaAdecAYKUV+x+1HJc5EsxuZdgRoYLHfLLFHDV+UNLIDd+nlTrCnq68IlHGCWAtgZ7maxGRZW7zu6JGA==",
+  "dgSpecHash": "aPjJqhxPdLV47oVPHpfy0TF520v/2C3OIAL+JwWmylFrS4EnzbHzUMFZxj4nm0zSd2IqDdZIpxUfxHdrNUgrhA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Services\\Wizzarts.Services.Mapping\\Wizzarts.Services.Mapping.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Cmpt\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.435\\stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.435\\stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512",
-    "C:\\Users\\Cmpt\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\Cmpt\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\Cmpt\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
   ],
   "logs": []
 }

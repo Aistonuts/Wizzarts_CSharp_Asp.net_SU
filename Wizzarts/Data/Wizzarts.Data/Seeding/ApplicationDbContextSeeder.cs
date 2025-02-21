@@ -31,12 +31,6 @@
                               new WizzartsTeamRoleSeeder(),
                               new CardGameExpansionSeeder(),
                               new WizzartsTeamSeeder(),
-                              new CardBlueManaSeeder(),
-                              new CardBlackManaSeeder(),
-                              new CardRedManaSeeder(),
-                              new CardWhiteManaSeeder(),
-                              new CardGreenManaSeeder(),
-                              new CardColorlessManaSeeder(),
                               new PlayCardFrameColorSeeder(),
                               new PlayCardTypeSeeder(),
                               new PlayCardArtSeeder(),
@@ -60,6 +54,7 @@
                               new DeckSeeder(),
                               new DeckOfCardsSeeder(),
                               new OrderStatusSeeder(),
+                              new ManaCostSeeder(),
                           };
 
             foreach (var seeder in seeders)

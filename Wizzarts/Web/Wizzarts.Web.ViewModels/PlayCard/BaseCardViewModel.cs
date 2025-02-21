@@ -30,17 +30,17 @@ namespace Wizzarts.Web.ViewModels.PlayCard
 
         public string CardDefaultImage { get; set; } = DefaultCardImage;
 
-        public int BlackManaId { get; set; } = DefaultManaValue;
+        public int BlackManaCost { get; set; } = DefaultManaValue;
 
-        public int BlueManaId { get; set; } = DefaultManaValue;
+        public int BlueManaCost { get; set; } = DefaultManaValue;
 
-        public int RedManaId { get; set; } = DefaultManaValue;
+        public int RedManaCost { get; set; } = DefaultManaValue;
 
-        public int WhiteManaId { get; set; } = DefaultManaValue;
+        public int WhiteManaCost { get; set; } = DefaultManaValue;
 
-        public int GreenManaId { get; set; } = DefaultManaValue;
+        public int GreenManaCost { get; set; } = DefaultManaValue;
 
-        public int ColorlessManaId { get; set; } = DefaultManaValue;
+        public int ColorlessManaCost { get; set; } = DefaultManaValue;
 
         [Range(2, 8, ErrorMessage = "Card type should be defined!")]
         public int CardTypeId { get; set; } = DefaultCardTypeValue;

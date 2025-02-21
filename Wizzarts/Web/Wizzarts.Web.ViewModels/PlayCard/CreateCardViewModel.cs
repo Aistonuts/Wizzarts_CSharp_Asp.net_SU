@@ -27,7 +27,7 @@
 
         public IEnumerable<BlackManaCostViewModel> BlackMana { get; set; } = new List<BlackManaCostViewModel>();
 
-        public IEnumerable<BlueManCostViewModel> BlueMana { get; set; } = new List<BlueManCostViewModel>();
+        public IEnumerable<BlueManaCostViewModel> BlueMana { get; set; } = new List<BlueManaCostViewModel>();
 
         public IEnumerable<GreenManaCostViewModel> GreenMana { get; set; } = new List<GreenManaCostViewModel>();
 

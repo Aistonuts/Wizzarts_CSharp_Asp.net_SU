@@ -24,38 +24,8 @@
 
         [Required]
         [MaxLength(CardNameMaxLength)]
-        [Comment("Playcard name")]
+        [Comment("PlayCard name")]
         public string Name { get; set; } = string.Empty;
-
-        [Comment("Mana cost Id")]
-        public int? BlackManaId { get; set; }
-
-        public BlackMana BlackMana { get; set; }
-
-        [Comment("Mana cost Id")]
-        public int? BlueManaId { get; set; }
-
-        public BlueMana BlueMana { get; set; }
-
-        [Comment("Mana cost Id")]
-        public int? RedManaId { get; set; }
-
-        public RedMana RedMana { get; set; }
-
-        [Comment("Mana cost Id")]
-        public int? WhiteManaId { get; set; }
-
-        public WhiteMana WhiteMana { get; set; }
-
-        [Comment("Mana cost Id")]
-        public int? GreenManaId { get; set; }
-
-        public GreenMana GreenMana { get; set; }
-
-        [Comment("Mana cost Id")]
-        public int? ColorlessManaId { get; set; }
-
-        public ColorlessMana ColorlessMana { get; set; }
 
         [Comment("Frame color Id. There is a default value.")]
         public int? CardFrameColorId { get; set; }

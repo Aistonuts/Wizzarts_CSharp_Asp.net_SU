@@ -65,7 +65,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <select asp-for="RedManaId" id="mana_r" onchange="colorSelectFunc(event)">
+                                    <select asp-for="RedManaCost" id="mana_r" onchange="colorSelectFunc(event)">
                                         @foreach (var type in Model.RedMana)
                                         {
                                             <option value="@type.Id">@type.Cost </option>
@@ -73,43 +73,43 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select asp-for="BlueManaId" id="mana_u" onchange="colorSelectFunc(event)">
+                                    <select asp-for="BlueManaCost" id="mana_u" onchange="colorSelectFunc(event)">
                                         @foreach (var type in Model.BlueMana)
                                         {
-                                            <option value="@type.Id">@type.Cost</option>
+                                            <option value="@type.Id">@type.Cost </option>
                                         }
                                     </select>
                                 </td>
                                 <td>
-                                    <select asp-for="GreenManaId" id="mana_g" onchange="colorSelectFunc(event)">
+                                    <select asp-for="GreenManaCost" id="mana_g" onchange="colorSelectFunc(event)">
                                         @foreach (var type in Model.GreenMana)
                                         {
-                                            <option value="@type.Id">@type.Cost</option>
+                                            <option value="@type.Id">@type.Cost </option>
                                         }
                                     </select>
                                 </td>
                                 <td>
-                                    <select asp-for="BlackManaId" id="mana_b" onchange="colorSelectFunc(event)">
+                                    <select asp-for="BlackManaCost" id="mana_b" onchange="colorSelectFunc(event)">
                                         @foreach (var type in Model.BlackMana)
                                         {
-                                            <option value="@type.Id">@type.Cost</option>
+                                            <option value="@type.Id">@type.Cost </option>
                                         }
                                     </select>
                                 </td>
                                 <td>
-                                    <select asp-for="WhiteManaId" id="mana_w" onchange="colorSelectFunc(event)">
+                                    <select asp-for="WhiteManaCost" id="mana_w" onchange="colorSelectFunc(event)">
 
                                         @foreach (var type in Model.WhiteMana)
                                         {
-                                            <option value="@type.Id">@type.Cost</option>
+                                            <option value="@type.Id">@type.Cost </option>
                                         }
                                     </select>
                                 </td>
                                 <td>
-                                    <select asp-for="ColorlessManaId" id="mana_colorless" onchange="colorSelectFunc(event)">
+                                    <select asp-for="ColorlessManaCost" id="mana_colorless" onchange="colorSelectFunc(event)">
                                         @foreach (var type in Model.ColorlessMana)
                                         {
-                                            <option value="@type.Id">@type.Cost</option>
+                                            <option value="@type.Id">@type.Cost </option>
                                         }
                                     </select>
                                 </td>

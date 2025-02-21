@@ -17,5 +17,10 @@
 
         [ForeignKey(nameof(CardId))]
         public PlayCard Card { get; set; }
+
+        public int? ManaCostId { get; set; }
+
+        [ForeignKey(nameof(ManaCostId))]
+        public ManaCost ManaCost { get; set; }
     }
 }

@@ -10,7 +10,7 @@
     {
         Task<IEnumerable<BlackManaCostViewModel>> GetAllBlackMana();
 
-        Task<IEnumerable<BlueManCostViewModel>> GetAllBlueMana();
+        Task<IEnumerable<BlueManaCostViewModel>> GetAllBlueMana();
 
         Task<IEnumerable<GreenManaCostViewModel>> GetAllGreenMana();
 

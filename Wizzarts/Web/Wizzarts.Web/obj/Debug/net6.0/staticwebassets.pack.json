@@ -149,6 +149,10 @@
       "PackagePath": "staticwebassets\\images\\Stores\\Yokohama.jpg"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\test.jpg",
+      "PackagePath": "staticwebassets\\images\\Stores\\test.jpg"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\Alpha\\Ancestral_Recall.png",
       "PackagePath": "staticwebassets\\images\\art\\Alpha\\Ancestral_Recall.png"
     },
@@ -273,6 +277,14 @@
       "PackagePath": "staticwebassets\\images\\art\\Unlimited\\Wheel_of_Fortune.jpg"
     },
     {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\userArt\\ThenewestArtPiece.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\userArt\\ThenewestArtPiece.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\userArt\\newart.jpg",
+      "PackagePath": "staticwebassets\\images\\art\\userArt\\newart.jpg"
+    },
+    {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\avatar\\Marvel_Five.png",
       "PackagePath": "staticwebassets\\images\\avatar\\Marvel_Five.png"
     },
@@ -383,6 +395,14 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Alpha\\swamp.jpg",
       "PackagePath": "staticwebassets\\images\\cardsByExpansion\\Alpha\\swamp.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\EventCards\\Flavorless\\TestTestTest.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\EventCards\\Flavorless\\TestTestTest.png"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\PremiumUserCards\\TestTestTest.png",
+      "PackagePath": "staticwebassets\\images\\cardsByExpansion\\PremiumUserCards\\TestTestTest.png"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\cardsByExpansion\\Unlimited\\Bayou.png",
@@ -699,6 +719,10 @@
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\ah_logo.svg",
       "PackagePath": "staticwebassets\\images\\navigation\\ah_logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\articles\\New.jpg",
+      "PackagePath": "staticwebassets\\images\\navigation\\articles\\New.jpg"
     },
     {
       "Id": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\clouds.png",

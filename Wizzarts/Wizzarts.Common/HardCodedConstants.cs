@@ -71,5 +71,19 @@
         public const string AddActionId = "22011e99-c794-4fc3-b277-fb446b253d4c";
 
         public const string ByIdActionId = "cf3494ef-93cc-42d2-bf8d-fc733adc3973";
+
+
+        // Mana Colors
+        public const string RedMana = "Red";
+
+        public const string BlueMana = "Blue";
+
+        public const string GreenMana = "Green";
+
+        public const string WhiteMana = "White";
+
+        public const string BlackMana = "Black";
+
+        public const string ColorlessMana = "Colorless";
     }
 }

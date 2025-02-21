@@ -18,15 +18,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -42,14 +42,14 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.2.0-beta.435, )"
+              "version": "[1.1.118, )"
             },
             "System.ComponentModel.Annotations": {
               "target": "Package",
@@ -72,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -90,15 +90,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
               "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data.Common\\Wizzarts.Data.Common.csproj": {
                 "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data.Common\\Wizzarts.Data.Common.csproj"
@@ -121,18 +121,18 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.26, )"
+              "version": "[8.0.13, )"
             },
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.2.0-beta.435, )"
+              "version": "[1.1.118, )"
             }
           },
           "imports": [
@@ -151,7 +151,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -169,15 +169,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -193,18 +193,18 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
-              "version": "[13.0.1, )"
+              "version": "[14.0.0, )"
             },
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.2.0-beta.435, )"
+              "version": "[1.1.118, )"
             }
           },
           "imports": [
@@ -223,7 +223,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -241,15 +241,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
               "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj": {
                 "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web.ViewModels\\Wizzarts.Web.ViewModels.csproj"
@@ -272,20 +272,20 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.Mvc": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "[2.3.0, )"
             },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
-              "version": "[8.0.1, )"
+              "version": "[8.0.2, )"
             },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
-              "version": "[6.0.26, )"
+              "version": "[8.0.13, )"
             },
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
@@ -310,7 +310,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -328,15 +328,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
               "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data.Models\\Wizzarts.Data.Models.csproj": {
                 "projectPath": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Data\\Wizzarts.Data.Models\\Wizzarts.Data.Models.csproj"
@@ -359,8 +359,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
@@ -374,7 +374,7 @@
             },
             "System.IO.Pipelines": {
               "target": "Package",
-              "version": "[6.0.2, )"
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -393,7 +393,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -411,15 +411,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -435,8 +435,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
@@ -461,7 +461,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

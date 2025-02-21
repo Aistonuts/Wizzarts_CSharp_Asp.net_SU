@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2O6uVyTBLeUfXGb/rkZLkw0iaNZSAv7gUSf5B3wPvcs=",
+  "Hash": "vel2oB6Ae5SPd2vm+kXwtUUcL0mGkF7RAzhzVylOsrA=",
   "Source": "Wizzarts.Web.Tests",
   "BasePath": "_content/Wizzarts.Web.Tests",
   "Mode": "Default",
@@ -1224,6 +1224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\art\\Unlimited\\Wheel_of_Fortune.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\userArt\\newart.jpg",
+      "SourceId": "Wizzarts.Web",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\",
+      "BasePath": "_content/Wizzarts.Web",
+      "RelativePath": "images/art/userArt/newart.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\art\\userArt\\newart.jpg"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\art\\userArt\\ThenewestArtPiece.jpg",
@@ -3202,25 +3221,6 @@
       "OriginalItemSpec": "wwwroot\\images\\navigation\\Arena.jpg"
     },
     {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\articles\\CreateAngel.jpg",
-      "SourceId": "Wizzarts.Web",
-      "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\",
-      "BasePath": "_content/Wizzarts.Web",
-      "RelativePath": "images/navigation/articles/CreateAngel.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\navigation\\articles\\CreateAngel.jpg"
-    },
-    {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\navigation\\articles\\New.jpg",
       "SourceId": "Wizzarts.Web",
       "SourceType": "Project",
@@ -3808,25 +3808,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Stores\\Daytona_Magic.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\Newstore.jpg",
-      "SourceId": "Wizzarts.Web",
-      "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\",
-      "BasePath": "_content/Wizzarts.Web",
-      "RelativePath": "images/Stores/Newstore.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Stores\\Newstore.jpg"
     },
     {
       "Identity": "C:\\Users\\Cmpt\\Downloads\\ASPNetCore\\ASP.NET_try\\Wizzarts\\Web\\Wizzarts.Web\\wwwroot\\images\\Stores\\test.jpg",

@@ -396,3 +396,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Custom ignores
+**/wwwroot/lib/
+*.min.css
+*.min.js
