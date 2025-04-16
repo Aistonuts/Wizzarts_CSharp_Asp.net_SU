@@ -39,8 +39,9 @@
 
             MyController<UserController>
                 .Instance(instance => instance
-                 .WithUser()
-                 .WithData(data.Avatars))
+                  .WithUser(X => X.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
+                 .WithData(data.Avatars)
+                  .WithData(data.Users))
              .Calling(c => c.Update(With.Any<int>()))
              .ShouldHave()
              .ActionAttributes(attrs => attrs

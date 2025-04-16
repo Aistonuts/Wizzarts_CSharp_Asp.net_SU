@@ -567,7 +567,7 @@
               .AllAsNoTracking().AnyAsync(a => a.Name == title);
         }
 
-        public async Task<IEnumerable<T>> GetAllCardsByUserIdPageless<T>(string id)
+        public async Task<IEnumerable<T>> GetAllCardsByUserIdNoPagination<T>(string id)
         {
             var cards = await this.cardRepository.AllAsNoTracking()
             .Where(x => x.AddedByMemberId == id)

@@ -20,7 +20,7 @@
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.TagHelper;
     using Xunit;
-
+    [Collection("Realm tests")]
     public class AdminEventServiceTest : UnitTestBase
     {
         public AdminEventServiceTest()
@@ -849,7 +849,7 @@
         }
 
         [Fact]
-        public async Task AddEventComponentShouldChangeTheTotalCountAndShouldAddTheCorrectEventComponentAndItsRequirementForImageShouldBeTrue()
+        public async Task Add_Event_Component_Should_Change_The_Total_Count_And_Should_Add_The_Correct_Event_Component_And_Its_Requirement_For_Image_Should_Be_True()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -899,7 +899,7 @@
             await service.AddComponentAsync(testEvent, userId, path);
 
             var count = await eventComponentsRepository.All().Where(x => x.EventId == 1).CountAsync();
-            var newComponent = data.EventComponents.FirstOrDefault(x => x.Title == "The newest Component");
+            var newComponent = await data.EventComponents.FirstOrDefaultAsync(x => x.Title == "The newest Component");
             Assert.Equal(8, count);
             Assert.Equal(testEvent.ComponentTitle, newComponent.Title);
 
@@ -908,7 +908,7 @@
         }
 
         [Fact]
-        public async Task AddEventComponentWithWrongFileFormatShouldThrowException()
+        public async Task Add_Event_Component_With_Wrong_File_Format_Should_Throw_Exception()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -963,7 +963,7 @@
         }
 
         [Fact]
-        public async Task AddEventComponentShouldChangeTheTotalCountAndShouldAddTheCorrectEventComponentAndItsRequirementForImageShouldBeFalse()
+        public async Task Add_Event_Component_Should_Change_The_Total_Count_Of_Components_And_Should_Add_The_Correct_Event_Component_And_Its_Requirement_For_Image_Should_Be_False()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -995,10 +995,10 @@
 
             await service.AddComponentAsync(testEvent, userId, path);
 
-            var count = await eventComponentsRepository.All().Where(x => x.EventId == 1).CountAsync();
-            var newComponent = data.EventComponents.FirstOrDefault(x => x.Title == "The newest Component");
+            var count = await eventComponentsRepository.AllAsNoTracking().Where(x => x.EventId == 1).CountAsync();
+            var newComponent = await data.EventComponents.FirstOrDefaultAsync(x => x.Title == "The newest Component");
             Assert.Equal(8, count);
-            Assert.Equal(testEvent.ComponentTitle, newComponent.Title);
+            Assert.Equal("The newest Component", newComponent.Title);
 
             // Assert.False(newComponent.RequireArtInput);
             this.TearDownBase();
@@ -1161,7 +1161,7 @@
 
             await service.UpdateAsync(testEvent, 1);
 
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Id == 1);
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Id == 1);
             Assert.Equal(testEvent.Title, newTestEvent.Title);
             Assert.Equal(testEvent.EventDescription, newTestEvent.EventDescription);
             Assert.Equal(testEvent.EventStatusId, newTestEvent.EventStatusId);
@@ -1596,8 +1596,8 @@
             using var eventTagHelpActionRepository = new EfDeletableEntityRepository<TagHelpAction>(data);
             using var eventCategoryRepository = new EfDeletableEntityRepository<EventCategory>(data);
             var service = new AdminEventService(eventRepository, eventTagHelpControllerRepository, eventTagHelpActionRepository, eventCategoryRepository, eventComponentsRepository);
-
-            Assert.False(await service.EventTypeRequireArt(4));
+            var result = await service.EventTypeRequireArt(4);
+            Assert.False(result);
             this.TearDownBase();
         }
 

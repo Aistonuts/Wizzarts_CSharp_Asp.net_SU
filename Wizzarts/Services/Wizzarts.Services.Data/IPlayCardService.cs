@@ -45,7 +45,7 @@
 
         Task<IEnumerable<T>> GetAllCardsByUserId<T>(string id, int page, int itemsPerPage = 12);
 
-        Task<IEnumerable<T>> GetAllCardsByUserIdPageless<T>(string id);
+        Task<IEnumerable<T>> GetAllCardsByUserIdNoPagination<T>(string id);
 
         Task<string> ApproveCard(string id);
 

@@ -15,13 +15,13 @@
         public IPlayCardExpansionService cardExpansionService;
         public IChatService chatService;
 
-        public void OneTimeSetup()
+        public async void OneTimeSetup()
         {
             this.dbContext = DatabaseMock.MockDatabase();
 
-            this.SeedAsync(this.dbContext);
+            await this.SeedAsync(this.dbContext);
 
-            var cache = new MemoryCache(new MemoryCacheOptions());
+            //var cache = new MemoryCache(new MemoryCacheOptions());
 
             // using var repositoryArt = new EfDeletableEntityRepository<Art>(dbContext);
             // using var repositoryArticle = new EfDeletableEntityRepository<Article>(dbContext);
@@ -40,6 +40,6 @@
             // var chatService = new ChatService(repositoryChat);
         }
 
-        public void TearDownBase() => this.dbContext.Dispose();
+        public async void TearDownBase() => await this.dbContext.DisposeAsync();
     }
 }

@@ -81,13 +81,20 @@
             MyController<PlayCardController>
                 .Instance(instance => instance
                     .WithUser(c => c.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
-                 .WithData(data.PlayCards))
+                 .WithData(data.PlayCards)
+                .WithData(data.ManaCosts))
                .Calling(c => c.Add(
                    new CreateCardViewModel
                    {
                        Name = "TestTestTest",
                        CardRemoteUrl = "aaaaa",
                        CardDefaultDescription = "aaaa",
+                       RedManaCost = 1,
+                       BlackManaCost = 2,
+                       BlueManaCost = 3,
+                       ColorlessManaCost = 4,
+                       WhiteManaCost = 5,
+                       GreenManaCost = 6,
                        CardFrameColorId = 1,
                        CardTypeId = 2,
                        AbilitiesAndFlavor = "Test Test Test Test Test Test  TestTestTestTestTestTestTest",
@@ -230,7 +237,8 @@
             MyController<PlayCardController>
                 .Instance(instance => instance
                     .WithUser(c => c.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
-                 .WithData(data.PlayCards))
+                 .WithData(data.PlayCards)
+                 .WithData(data.ManaCosts))
                .Calling(c => c.Create(
                    new CreateCardViewModel
                    {
@@ -238,6 +246,12 @@
                        CardRemoteUrl = "aaaaa",
                        CardDefaultDescription = "aaaa",
                        CardFrameColorId = 1,
+                       RedManaCost = 1,
+                       BlackManaCost = 2,
+                       BlueManaCost = 3,
+                       ColorlessManaCost = 4,
+                       WhiteManaCost = 5,
+                       GreenManaCost = 6,
                        CardTypeId = 2,
                        AbilitiesAndFlavor = "Test Test Test Test Test Test  TestTestTestTestTestTestTest",
                        Power = "1",

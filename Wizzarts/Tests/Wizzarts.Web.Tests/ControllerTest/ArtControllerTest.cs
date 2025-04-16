@@ -35,6 +35,7 @@
             .ShouldReturn()
                 .View(view => view
                     .WithModelOfType<AddArtViewModel>());
+            this.TearDownBase();
         }
 
         [Fact]
@@ -52,6 +53,7 @@
                 .ShouldReturn()
                 .View(view => view
                     .WithModelOfType<AddArtViewModel>());
+            this.TearDownBase();
         }
 
         [Theory]

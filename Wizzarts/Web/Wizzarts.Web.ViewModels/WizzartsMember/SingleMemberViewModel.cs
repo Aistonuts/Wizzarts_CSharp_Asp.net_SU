@@ -17,6 +17,8 @@
 
         public string Bio { get; set; } = string.Empty;
 
+        public string PhoneNumber { get; set; } = string.Empty;
+
         public string Title { get; set; } = string.Empty;
 
         public void CreateMappings(IProfileExpression configuration)

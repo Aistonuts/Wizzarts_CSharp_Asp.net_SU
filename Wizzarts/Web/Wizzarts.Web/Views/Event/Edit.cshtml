@@ -49,16 +49,17 @@
                                     {
                                         <div class="metagroup-container">
                                             <div class="mr-2 d-none d-lg-block">
-                                                <a asp-area="" asp-controller="Event" asp-action="Remove" asp-route-id="@events.Id" class="image-wrapper">
+                                                <div  class="image-wrapper">
                                                     <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
-                                                </a>
+                                                </div>
                                             </div>
                                             <div>
+                                                <b class="text-primary">@events.Title</b>
                                                 <a asp-controller="Event" asp-action="Remove" asp-route-id="@events.Id" class="image-wrapper">
-                                                    <b class="text-primary">@events.Title</b>
-                                                    <button type="submit" class="btn btn-light">
-                                                        <span class="fas fa-plus"></span> <b>Delete</b>
-                                                    </button>
+
+                                                    <b type="submit" class="btn btn-light">
+                                                        <span class="fas fa-minus"></span> <b>Delete</b>
+                                                    </b>
                                                 </a>
                                             </div>
                                         </div>

@@ -74,9 +74,14 @@
                 id = DefaultUserAvatarId;
             }
 
+            var user = await this.userService.GetById<SingleMemberViewModel>(this.User.GetId());
             var avatar = await this.userService.GetAvatarById<CreateMemberProfileViewModel>(id);
+
             avatar.Avatars = await this.userService.GetAllAvatars<AvatarInListViewModel>();
             avatar.AvatarId = id;
+            avatar.Nickname = user.Nickname;
+            avatar.Bio = user.Bio;
+            avatar.PhoneNumber = user.PhoneNumber;
             return this.View(avatar);
         }
 
@@ -133,7 +138,7 @@
             view.Arts = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(this.User.GetId());
             view.Articles = await this.articleService.GetAllArticlesByUserIdPageless<ArticleInListViewModel>(this.User.GetId());
             view.Events = await this.eventService.GetAllEventsByUserIdPageless<EventInListViewModel>(this.User.GetId());
-            view.Cards = await this.cardService.GetAllCardsByUserIdPageless<CardInListViewModel>(this.User.GetId());
+            view.Cards = await this.cardService.GetAllCardsByUserIdNoPagination<CardInListViewModel>(this.User.GetId());
             view.Stores = await this.storeService.GetAllStoresByUserIdPageless<StoreInListViewModel>(this.User.GetId());
             view.Decks = await this.deckService.GetAllDecksByUserId<DeckInListViewModel>(this.User.GetId());
             view.Orders = await this.orderService.GetAllOrdersByUserId<OrderInListViewModel>(this.User.GetId());
@@ -222,7 +227,7 @@
             }
 
             var memberId = await this.userService.GetMemberIdByUserName(member.UserName);
-            member.Cards = await this.cardService.GetAllCardsByUserIdPageless<CardInListViewModel>(memberId);
+            member.Cards = await this.cardService.GetAllCardsByUserIdNoPagination<CardInListViewModel>(memberId);
             member.Arts = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(memberId);
             member.Articles = await this.articleService.GetAllArticlesByUserIdPageless<ArticleInListViewModel>(memberId);
             member.Events = await this.eventService.GetAllEventsByUserIdPageless<EventInListViewModel>(memberId);

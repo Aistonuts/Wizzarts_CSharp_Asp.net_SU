@@ -47,6 +47,7 @@
                               new ChatMessageSeeder(),
                               new DeckStatusSeeder(),
                               new DeckSeederTest(),
+                              new ManaCostSeeder(),
                           };
 
             foreach (var seeder in seeders)

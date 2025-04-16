@@ -32,55 +32,19 @@
             this.cardGameExpansionRepository = cardGameExpansionRepository;
         }
 
-        public Task<bool> BlackManaExistsAsync(int id)
+        public async Task<bool> CardFrameExistsAsync(int id)
         {
-            return this.manaCostRepository.AllAsNoTracking()
-                .AnyAsync(x => x.Id == id);
+            return await this.cardFrameColorRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
         }
 
-        public Task<bool> BlueManaExistsAsync(int id)
+        public async Task<bool> CardTypeExistsAsync(int id)
         {
-            return this.manaCostRepository.AllAsNoTracking()
-                .AnyAsync(x => x.Id == id);
+            return await this.cardTypeRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
         }
 
-        public Task<bool> CardFrameExistsAsync(int id)
+        public async Task<bool> ManaColorExistsAsync(int id)
         {
-            return this.cardFrameColorRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
-        }
-
-        public Task<bool> CardTypeExistsAsync(int id)
-        {
-            return this.cardTypeRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
-        }
-
-        public Task<bool> ColorlessManaExistsAsync(int id)
-        {
-            return this.manaCostRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
-        }
-
-        public async Task<IEnumerable<BlackManaCostViewModel>> GetAllBlackMana()
-        {
-            return await this.manaCostRepository.AllAsNoTracking()
-                .Select(x => new BlackManaCostViewModel()
-                {
-                    Id = x.Id,
-                    Cost = x.Cost,
-                })
-                .OrderBy(x => x.Id)
-                .ToListAsync();
-        }
-
-        public async Task<IEnumerable<BlueManaCostViewModel>> GetAllBlueMana()
-        {
-            return await this.manaCostRepository.AllAsNoTracking()
-               .Select(x => new BlueManaCostViewModel()
-               {
-                   Id = x.Id,
-                   Cost = x.Cost,
-               })
-               .OrderBy(x => x.Id)
-               .ToListAsync();
+            return await this.manaCostRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<FrameColorViewModel>> GetAllCardFrames()
@@ -107,18 +71,6 @@
                  .ToListAsync();
         }
 
-        public async Task<IEnumerable<ColorlessManaCostViewModel>> GetAllColorlessMana()
-        {
-            return await this.manaCostRepository.AllAsNoTracking()
-               .Select(x => new ColorlessManaCostViewModel()
-               {
-                   Id = x.Id,
-                   Cost = x.Cost,
-               })
-               .OrderBy(x => x.Id)
-               .ToListAsync();
-        }
-
         public async Task<IEnumerable<ExpansionInListViewModel>> GetAllExpansionInListView()
         {
             return await this.cardGameExpansionRepository.AllAsNoTracking()
@@ -129,57 +81,6 @@
                })
                .OrderBy(x => x.Title)
                .ToListAsync();
-        }
-
-        public async Task<IEnumerable<GreenManaCostViewModel>> GetAllGreenMana()
-        {
-            return await this.manaCostRepository.AllAsNoTracking()
-               .Select(x => new GreenManaCostViewModel()
-               {
-                   Id = x.Id,
-                   Cost = x.Cost,
-               })
-               .OrderBy(x => x.Id)
-               .ToListAsync();
-        }
-
-        public async Task<IEnumerable<RedManaCostViewModel>> GetAllRedMana()
-        {
-            return await this.manaCostRepository.AllAsNoTracking()
-               .Select(x => new RedManaCostViewModel()
-               {
-                   Id = x.Id,
-                   Cost = x.Cost,
-               })
-               .OrderBy(x => x.Id)
-               .ToListAsync();
-        }
-
-        public async Task<IEnumerable<WhiteManaCostViewModel>> GetAllWhiteMana()
-        {
-            return await this.manaCostRepository.AllAsNoTracking()
-              .Select(x => new WhiteManaCostViewModel()
-              {
-                  Id = x.Id,
-                  Cost = x.Cost,
-              })
-              .OrderBy(x => x.Id)
-              .ToListAsync();
-        }
-
-        public Task<bool> GreenManaExistsAsync(int id)
-        {
-            return this.manaCostRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
-        }
-
-        public Task<bool> RedManaExistsAsync(int id)
-        {
-            return this.manaCostRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
-        }
-
-        public Task<bool> WhiteManaExistsAsync(int id)
-        {
-            return this.manaCostRepository.AllAsNoTracking().AnyAsync(x => x.Id == id);
         }
     }
 }

@@ -110,14 +110,16 @@
                             </div>
                             <div class="card-body p-2">
                                 <a asp-controller="Art" asp-action="Add" class="text-decoration-none"><i class="fas fa-briefcase"></i> Add art</a><br>
+                                @if (Model.IsProfileUpToDate)
+                                {
+                                    <a asp-controller="User" asp-action="SelectAvatar" class="text-decoration-none"><i class="fas fa-briefcase"></i> Edit profile</a><br>
+                                }                               
                                 <a asp-controller="Event" asp-action="Create" class="text-decoration-none"><i class="ss ss-parl3"></i> Create event</a><br>
                                 <a asp-controller="Article" asp-action="Create" class="text-decoration-none"><i class="fas fa-trophy"></i> Create article</a><br>
                                 <a asp-controller="Deck" asp-action="Create" class="text-decoration-none"><i class="ss ss-pmtg1"></i> Create deck</a><br>
                                 @if (this.User.IsInRole(GlobalConstants.ArtistRoleName) || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
                                 {
-                                    <a asp-controller="PlayCard" asp-action="Add" class="text-decoration-none"><i class="fas fa-tools"></i> Create Card</a>
-
-                                    <br>
+                                    <a asp-controller="PlayCard" asp-action="Add" class="text-decoration-none"><i class="fas fa-tools"></i> Create Card</a><br>
                                 }
                             </div>
                         </div>

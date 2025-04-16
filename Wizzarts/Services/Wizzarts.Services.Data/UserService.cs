@@ -183,6 +183,10 @@
             {
                 message = $"You are Admin.";
             }
+            else if (currentRole.Contains(WizzartsTeamRoleName))
+            {
+                message = $"You are from Team Wizzarts.";
+            }
             else
             {
                 message = $"You have no role.";
