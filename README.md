@@ -1,9 +1,14 @@
 # Wizzarts: Magic Cardsmith ![alt text][logo]
+## Meet the team 
 ## Upload your art, craft your play cards and build your deck
 ### TABLE OF CONTENTS
 ### SUMMARY
 ### Home page
 ### Chat
+### Membership
+#### Perks
+### Stores
+### Events
 ### Tools
 #### 1. Art upload
 #### 2. Create card
