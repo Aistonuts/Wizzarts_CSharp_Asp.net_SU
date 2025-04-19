@@ -22,21 +22,21 @@
 
 ## SUMMARY
 ### Upload your art, craft your play cards and build your deck
-#### Member's art is uploaded and visible for other members to see. Member's art is used for participating in events, forging play cards and creating articles.
-#### Wizzarts events participants are rewarded with special member title such as content creator
-#### Forged play cards are assembled in decks and used for in battles with other members.
+##### Member's art is uploaded and visible for other members to see. Member's art is used for participating in events, forging play cards and creating articles.
+##### Wizzarts events participants are rewarded with special member title such as content creator
+##### Forged play cards are assembled in decks and used for in battles with other members.
 
 
 ## Home page
 ![alt text][homeOne]
-### From the home page our clients can access member's digital art, play cards, events and articles.
+#### From the home page our clients can access member's digital art, play cards, events and articles.
 ![alt text][homeTwo]
-### Logged in users have access to all the Wizzarts data.
+#### Logged in users have access to all the Wizzarts data.
 ![alt text][homeThree]
-### Events are accessible to member's only
+#### Events are accessible to member's only
 ![alt text][homeFour]
 
-### Chat
+## Chat
 
 
 
