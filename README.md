@@ -20,7 +20,7 @@
 ### Admin
 #### Admin tools
 ### Web page special features
-
+### Web page additional inforrmation
 ## SUMMARY
 ### Upload your art, craft your play cards and build your deck
 ##### Member's art is uploaded and visible for other members to see. Member's art is used for participating in events, forging play cards and creating articles.
