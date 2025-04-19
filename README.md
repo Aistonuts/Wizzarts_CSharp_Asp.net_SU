@@ -22,10 +22,17 @@
 
 ## SUMMARY
 ### Upload your art, craft your play cards and build your deck
-#### 
+#### Member's art is uploaded and visible for other members to see. Member's art is used for participating in events, forging play cards and creating articles.
+#### Wizzarts events participants are rewarded with special member title such as content creator
+#### Forged play cards are assembled in decks and used for in battles with other members.
 
 
-
+## Home page
+![alt text][homeOne]
+### From the home page our clients can access member's digital art, play cards, events and articles.
+![alt text][homeTwo]
+![alt text][homeThree]
+![alt text][homeFour]
 
 
 
@@ -34,3 +41,7 @@
 
 [team]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/The%20team.jpg
 [logo]: https://github.com/Aistonuts/CSharp_Asp.net_SoftUniProject/blob/main/Wizzarts/Web/Wizzarts.Web/wwwroot/images/navigation/MagicCardsmith.gif
+[homeOne]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeHomeControls.jpg
+[homeTwo]: [https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeHomeControls.jpg](https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeArtControls.jpg)
+[homeThree]: [https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeHomeControls.jpg](https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeCardsControls.jpg)
+[homeFour]: [https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeHomeControls.jpg](https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeHomeControls.jpg)
