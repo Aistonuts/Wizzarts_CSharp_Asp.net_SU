@@ -1,8 +1,8 @@
-# Wizzarts: Magic Cardsmith
+# Wizzarts: Magic Cardsmith ![alt text][logo]
 ## Upload your art, craft your play cards and build your deck
 ### TABLE OF CONTENTS
 ### SUMMARY
-![alt text][logo]
+
 ### 
 
 
