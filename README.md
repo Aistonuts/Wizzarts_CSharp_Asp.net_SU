@@ -31,9 +31,12 @@
 ![alt text][homeOne]
 ### From the home page our clients can access member's digital art, play cards, events and articles.
 ![alt text][homeTwo]
+### Logged in users have access to all the Wizzarts data.
 ![alt text][homeThree]
+### Events are accessible to member's only
 ![alt text][homeFour]
 
+### Chat
 
 
 
@@ -42,6 +45,6 @@
 [team]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/The%20team.jpg
 [logo]: https://github.com/Aistonuts/CSharp_Asp.net_SoftUniProject/blob/main/Wizzarts/Web/Wizzarts.Web/wwwroot/images/navigation/MagicCardsmith.gif
 [homeOne]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeHomeControls.jpg
-[homeTwo]: [https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeHomeControls.jpg](https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeArtControls.jpg)
-[homeThree]: [https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeHomeControls.jpg](https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeCardsControls.jpg)
-[homeFour]: [https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeHomeControls.jpg](https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeHomeControls.jpg)
+[homeTwo]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeArtControls.jpg
+[homeThree]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeCardsControls.jpg
+[homeFour]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeHomeControls.jpg
