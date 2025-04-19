@@ -44,7 +44,18 @@
 #### Member's may address issues related to orders, game mechanics and get in touch with Wizzarts team.
 ![alt text][chatView]
 
+## Membership
+![alt text][member]
+### Perks
+#### Members participating in events will be awarded with premium membership. Premium membership can be acquired by uploading art, creating articles and events, forging play cards and participating in events.
+#### Content creator is a premim role which provide access to all of Wizzarts data base and their published content is visible to everyone and ivisble on our home page.
+#### Artist is a premium role which has the same benefits as the content creator. Artist will be invited to join Team wizzarts contents and become part of the team.
+#### Store owners is a premium role. All store owners will acquire the premium membership as soon as they register their store location on our website.
+![alt text][memberOne]
+#### Each member has a portfolio wich is accessible to all team wizzarts's  members.
+![alt text][memberTwo]
 
+### Stores
 
 [team]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/The%20team.jpg
 [logo]: https://github.com/Aistonuts/CSharp_Asp.net_SoftUniProject/blob/main/Wizzarts/Web/Wizzarts.Web/wwwroot/images/navigation/MagicCardsmith.gif
@@ -55,3 +66,6 @@
 [home]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomePage.jpg
 [chat]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeSignalRPage.jpg
 [chatView]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/SignalRChatPage.jpg
+[member]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/SignalRChatPage.jpg
+[memberOne]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/MembersPortfolio.jpg
+[memberTwo]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/MemberPortfolioContent.jpg
