@@ -66,6 +66,6 @@
 [home]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomePage.jpg
 [chat]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeSignalRPage.jpg
 [chatView]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/SignalRChatPage.jpg
-[member]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/SignalRChatPage.jpg
+[member]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/MembershipPage.jpg
 [memberOne]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/MembersPortfolio.jpg
 [memberTwo]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/MemberPortfolioContent.jpg
