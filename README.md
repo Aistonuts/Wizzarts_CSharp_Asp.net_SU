@@ -15,4 +15,4 @@
 
 
 
-[logo]: https://github.com/Aistonuts/CSharp_Asp.net_SoftUniProject/tree/main/Wizzarts/Web/Wizzarts.Web/wwwroot/images/navigation
+[logo]: https://github.com/Aistonuts/CSharp_Asp.net_SoftUniProject/blob/main/Wizzarts/Web/Wizzarts.Web/wwwroot/images/navigation/MagicCardsmith.gif
