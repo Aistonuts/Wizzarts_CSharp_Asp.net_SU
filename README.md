@@ -1,5 +1,6 @@
 # Wizzarts: Magic Cardsmith ![alt text][logo]
 ## Meet the team 
+![alt text][team]
 ## Upload your art, craft your play cards and build your deck
 ### TABLE OF CONTENTS
 ### SUMMARY
@@ -29,5 +30,5 @@
 
 
 
-
+[team]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/The%20team.jpg
 [logo]: https://github.com/Aistonuts/CSharp_Asp.net_SoftUniProject/blob/main/Wizzarts/Web/Wizzarts.Web/wwwroot/images/navigation/MagicCardsmith.gif
