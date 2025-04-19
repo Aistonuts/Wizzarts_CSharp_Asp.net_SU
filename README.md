@@ -19,6 +19,7 @@
 #### 6. Order deck
 ### Admin
 #### Admin tools
+### Web page special features
 
 ## SUMMARY
 ### Upload your art, craft your play cards and build your deck
@@ -55,7 +56,26 @@
 #### Each member has a portfolio wich is accessible to all team wizzarts's  members.
 ![alt text][memberTwo]
 
-### Stores
+## Stores
+#### Wizzarts's partner stores.
+![alt text][store]
+#### Wizzarts members who are store owners are invited to introduce their store with the help of the ongoing event "Arena masters".
+![alt text][storeAdd]
+
+## Events
+![alt text][event]
+### Wizzarts team invite you to join our events. We have spared some place for all interested in contributing to growing our database, wheather it is digital art, hosted events, new game mechanics.
+### Special events are available to all members. Events for everyone, artists, content creators, store owners.
+
+#### Introducing the Flavourless Event where the playcard text is missing and should be filled to fulfill the requirements for a playable playcard
+![alt text][eventTwo]
+
+
+#### Only members are allowed to submit an event. Each event has the possibility to store numerous sub-event information tabs.
+![alt text][eventOne]
+
+
+
 
 [team]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/The%20team.jpg
 [logo]: https://github.com/Aistonuts/CSharp_Asp.net_SoftUniProject/blob/main/Wizzarts/Web/Wizzarts.Web/wwwroot/images/navigation/MagicCardsmith.gif
@@ -69,3 +89,11 @@
 [member]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/MembershipPage.jpg
 [memberOne]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/MembersPortfolio.jpg
 [memberTwo]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/MemberPortfolioContent.jpg
+[store]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/StoresPage.jpg
+[storeAdd]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/EventAddStore.jpg
+[event]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/EventsPage.jpg
+[eventOne]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/CreateEvent.jpg
+[eventTwo] : https://github.com/Aistonuts/ReadMe-Utilities/blob/main/InputEvent.jpg
+[eventThree]
+[eventFour]
+[eventOne]
