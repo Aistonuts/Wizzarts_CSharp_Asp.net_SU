@@ -2,8 +2,18 @@
 ## Upload your art, craft your play cards and build your deck
 ### TABLE OF CONTENTS
 ### SUMMARY
+### Home page
+### Chat
+### Tools
+#### 1. Art upload
+#### 2. Create card
+#### 3. Create event
+#### 4. Create article
+#### 5. Create deck of cards
+#### 6. Order deck
+### Admin
+#### Admin tools
 
-### 
 
 
 
