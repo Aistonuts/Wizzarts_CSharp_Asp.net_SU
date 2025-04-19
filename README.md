@@ -93,4 +93,4 @@
 [storeAdd]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/EventAddStore.jpg
 [event]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/EventsPage.jpg
 [eventOne]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/CreateEvent.jpg
-[eventTwo] : https://github.com/Aistonuts/ReadMe-Utilities/blob/main/InputEvent.jpg
+[eventTwo]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/InputEvent.jpg
