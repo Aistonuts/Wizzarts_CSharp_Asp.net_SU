@@ -75,6 +75,36 @@
 ![alt text][eventOne]
 
 
+## Tools
+
+### 1. Art upload
+#### Members can submit their digital art and show it to all members.
+![alt text][art]
+
+### 2. Create card
+#### Play cards created by members during the events are visible to other members
+![alt text][card]
+
+#### Cards will be added to our new game expansion
+![alt text][deck]
+
+![alt text][deckAlt]
+
+### 3. Create event
+#### Each member can create various type of events
+![alt text][eventThree]
+
+### 4. Create article
+#### Articles are the best way to inform others about the art piece, the event, the card you have created.
+![alt text][article] 
+
+### 5. Create deck of cards
+#### Card decks are important part of the Wizzarts game. Personalized card decks are used during our battle events.
+![alt text][newCardDeck] 
+
+### 6. Order deck
+#### Card decks can be ordered and delivered to your closest Wizzarts game store or our partners stores.
+![alt text][orderDeck] 
 
 
 [team]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/The%20team.jpg
@@ -94,3 +124,11 @@
 [event]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/EventsPage.jpg
 [eventOne]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/CreateEvent.jpg
 [eventTwo]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/InputEvent.jpg
+[art]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/ArtPage.jpg
+[card]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/CardsPage.jpg
+[deck]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/CardGameExpansion.jpg
+[deckAlt]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/ExpansionsPage.jpg
+[eventThree]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/CreateCardWithInputOnlyEvent.jpg
+[article]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/CreateArticle.jpg
+[newCardDeck]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/LockDeckAllowOrder.jpg
+[orderDeck]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/MemberDeckOrderView.jpg
