@@ -106,7 +106,98 @@
 #### Card decks can be ordered and delivered to your closest Wizzarts game store or our partners stores.
 ![alt text][orderDeck] 
 
+## Admin
+### Admin tools
+#### User with admin role already seeded :  Metzen
+#### His password is :  Pa$$w0rd3  
+![alt text][adminseed] 
 
+#### Admin role can be assigned without touching the code.
+#### By using the combination below and updating the new user profile, admin role will be assigned after submit.
+#### user.Email == "admin@mail.com" input.Nickname == "AdminAndy"   input.PhoneNumber == "012285695439"  input.Bio == "faef3ddf-05e3-4bd3-9753-5401e2053c75"
+![alt text][adminassign]
+
+### Admin tools
+#### Admin controls
+![alt text][admincontrolsone] 
+
+#### The Admin has control over events. He can update them and delete them.
+![alt text][admincontrolstwo]
+
+#### The Admin is able to re-create the default events, created during the writing of the code. By picking "flavorless" or "imageless" event type from the list of events, the "AdminEventService" will select the appropriate controller and action, then will modify the Tag helper.
+![alt text][admineventcreateevent]
+
+#### The event it self is saved along with the actionId and controllerId depending on what type of event has been picked.
+![alt text][admineventcreateone]
+![alt text][admineventcreatetwo]
+![alt text][admineventcreatethree]
+
+#### To avoid errors, non-admin users are allowed to create simple events therefore, they are limited to less choices. 
+#### The controller will read the data and will add the tag helper (controller and action) which will allow the view to function as normal.
+
+### Admin tools
+#### The Admin has control over user's portfolio and content.
+![alt text][adminuserinteractionone]
+
+#### The admin is in charge of approving user's content and review user's portfolio following demands for collaboration.
+![alt text][adminuserinteractiontwo]
+![alt text][adminuserinteractionthree]
+
+#### (Users with the appropraite role are provided with the option to join the game development after sending their applciation via mail or chat)
+![alt text][adminuserinteractionfour]
+
+
+### Admin tools
+#### The admin is in charge of updating the user's orders
+![alt text][adminapproveorder]
+
+### Web page special features
+#### It is possible to notify users about their order status by mail
+![alt text][adminasengridone]
+![alt text][adminasengridtwo]
+![alt text][adminasengridthree]
+
+#### All chat messages are being sanitized. All input will be sanitizied.
+![alt text][sanitizeone]
+![alt text][sanitizetwo]
+
+### Web page additional inforrmation
+#### Help page for those having problems with their content and for those interested in joining the team.
+![alt text][help]
+
+#### Contacts page has information about the fictional team behind the project, the source of the html template used for creating the page, the play cards.
+![alt text][contact]
+
+#### Wizzarts card game rules are listed on the "Rules" page.
+![alt text][rules]
+
+#### Wizzarts webpage terms
+![alt text][terms]
+
+## END
+
+[terms]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/terms.jpg
+[rules]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/rules.jpg
+[contact]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/ContactPage.jpg
+[help]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HelpPage.jpg
+[sanitizeone]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/ChatSanitizer.jpg
+[sanitizetwo]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/Sanitizer.jpg
+[adminasengridone]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/SenGridAdmin.jpg
+[adminasengridtwo]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/SenGridAdmin.jpg
+[adminasengridthree]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/messaging.jpg
+[adminapproveorder]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AdminOrdersControls.jpg
+[adminuserinteractionfour]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AdminMemberPortfolio.jpg
+[adminuserinteractionthree]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AdminUserContentApproval.jpg
+[adminuserinteractiontwo]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AdminMembersContentForApproval.jpg
+[adminuserinteractionone]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AdminUsersView.jpg
+[admineventcreateevent]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AdminCreateEvent.jpg
+[admineventcreateone]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/Event.jpg
+[admineventcreatetwo]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/tagHelpActionSeed.jpg
+[admineventcreatethree]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/taghelpseed.jpg
+[admincontrolstwo]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AdminEvent.jpg
+[admincontrolsone]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AdminControl.jpg
+[adminassign]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AdminAssign.jpg
+[adminseed]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AdminSeeded.jpg
 [team]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/The%20team.jpg
 [logo]: https://github.com/Aistonuts/CSharp_Asp.net_SoftUniProject/blob/main/Wizzarts/Web/Wizzarts.Web/wwwroot/images/navigation/MagicCardsmith.gif
 [homeOne]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/HomeHomeControls.jpg
