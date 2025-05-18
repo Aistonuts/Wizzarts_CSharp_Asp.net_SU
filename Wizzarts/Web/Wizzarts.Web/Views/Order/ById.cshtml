@@ -9,15 +9,6 @@
         <div class="card h-oneKpx">
             <div class="card-header bg-light pt-0">
                 <ul class="nav nav-tabs card-header-tabs">
-                   @*  @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName) || this.User.Identity.Name == Model.CreatedByMember)
-                    {
-                        <li class="nav-item">
-
-                            <a asp-controller="Deck" asp-action="Add" asp-route-id="@this.Model.Id" asp-route-information="@this.Model.GetDeckName()" class="metagroup-link ff-display">
-                                <span class="btn btn-light font-weight-bold">Edit</span>
-                            </a>
-                        </li>
-                    } *@
                     <li class="nav-item">
                         <div class="metagroup-link ff-display">
                             <span class="btn btn-light font-weight-bold">Shipping status : @Model.OrderStatus</span>
@@ -56,43 +47,10 @@
                                     </div>
                                 }
                             }
-
                         </div>
                     </div>
                 </div>
             </div>
-           @*  <div class="col-xl-9 col-12">
-                <ul class="entry-meta">
-                    @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
-                    {
-                        <form asp-controller="Deck" asp-action="Dispatch" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
-                            <div class="form-group row mb-1">
-                                <label class="col-sm-2 col-lg-2 col-form-label" asp-for="DeckStatusId">Deck Status</label>
-                                <div class="col-sm-8 col-lg-6">
-                                    <select asp-for="DeckStatusId" class="form-control" placeholder="Deck status is">
-                                        <option value="@Model.DeckStatusId" selected="true">
-                                            @Model.DeckStatus
-                                        </option>
-                                        @foreach (var status in Model.DeckStatuses)
-                                        {
-                                            <option value="@status.Id">@status.Name</option>
-                                        }
-                                    </select>
-                                </div>
-                                <span asp-validation-for="DeckStatusId" class="small text-danger"></span>
-                            </div>
-                            <div class="form-group row mb-1">
-                                <label class="col-sm-2 col-form-label"></label>
-                                <div class="col-sm-8">
-                                    <button type="submit" class="btn btn-light">
-                                        <span class="fas fa-plus"></span> <b>Dispatch</b>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    }
-                </ul>
-            </div> *@
         </div>
     </div>
     <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
@@ -115,17 +73,6 @@
                     </div>
                 }
             </div>
-            @* <div class="card mb-2 pb-1 text-center ff-display">
-                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Lock your deck and join the event. Once your deck is at "@Model.DeliveryLocation" store the status of your deck will change to "Delivered"</h4>
-                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Your deck status is : @Model.DeckStatus</h4>
-            </div>
-            <div class="w-100 text-center ae-border-bottom-light">
-                <h4>
-                    <a asp-controller="Deck" asp-action="Order" asp-route-id="@this.Model.Id" asp-route-information="@this.Model.GetDeckName()" class="metagroup-link ff-display">
-                        <span class="btn btn-light font-weight-bold">Order</span>
-                    </a>
-                </h4>
-            </div> *@
         </div>
     </div>
 </div>

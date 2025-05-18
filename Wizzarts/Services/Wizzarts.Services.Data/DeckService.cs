@@ -254,10 +254,8 @@
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         public async Task UpdateShippingAsync(SingleDeckViewModel input)
@@ -296,6 +294,5 @@
             return await this.deckRepository.AllAsNoTracking()
                .AnyAsync(a => a.Id == deckId && a.CreatedByMemberId == userId);
         }
-
     }
 }

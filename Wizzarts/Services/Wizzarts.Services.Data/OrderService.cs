@@ -89,31 +89,6 @@
                .AnyAsync(a => a.Id == orderId && a.RecipientId == userId);
         }
 
-        // public async Task OrderAsync(SingleExpansionViewModel input, string userId)
-        // {
-
-        // var deckOfCards = this.cardService.GetAllCardsByExpansion<CardInListViewModel>(input.Id);
-        //    var expansion = this.expansionService.GetById<ExpansionInListViewModel>(input.Id);
-        //    var order = new Order()
-        //    {
-        //        Title = expansion.Title,
-        //        OrderStatusId = 1,
-        //        IsCustomOrder = false,
-        //        DeckImageUrl = expansion.ExpansionSymbolUrl,
-        //        RecipientId = userId,
-        //        Description = expansion.Description,
-        //        EstimatedDeliveryDate = DateTime.Now.AddDays(new Random().Next(20, 40)),
-        //    };
-
-        // foreach (var item in deckOfCards)
-        //    {
-        //        var card = this.playCardRepository.All().FirstOrDefault(x => x.Id == item.Id);
-        //        order.CardsInOrder.Add(card);
-        //    }
-
-        // await this.deckOrderRepository.AddAsync(order);
-        //    await this.deckOrderRepository.SaveChangesAsync();
-        // }
         public async Task PauseOrder(int id)
         {
             var order = await this.deckOrderRepository.All().FirstOrDefaultAsync(x => x.Id == id);

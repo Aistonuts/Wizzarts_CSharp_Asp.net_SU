@@ -52,7 +52,7 @@
                                             </li>
                                         }
                                     }
-                                    @if (this.User.Identity.Name == Model.AddedByMember || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                                    @if (this.User.Identity?.Name == Model.AddedByMember || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
                                     {
                                         <li class="single-meta">
                                             <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
@@ -244,7 +244,6 @@
         </div>
     </div>
 </div>
-
 <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

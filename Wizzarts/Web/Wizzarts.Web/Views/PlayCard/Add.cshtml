@@ -163,22 +163,6 @@
                                                         </td>
                                                         <span asp-validation-for="@Model.CardTypeId" class="small text-danger"></span>
                                                     </tr>
-                                                    @* <tr class="row2" hidden>
-                                                    <td>
-                                                    <label asp-for="GameExpansionId">Expansion Symbol:</label>
-                                                    </td>
-                                                    <td>
-                                                    <select asp-for="GameExpansionId" id="expansion" onchange="expansionSymbolFunc(event)">
-                                                    <option value="2" selected="true">
-                                                    </option>
-                                                    @foreach (var type in Model.SelectExpansion)
-                                                    {
-                                                    <option value="@type.Id">@type.Title</option>
-                                                    }
-                                                    </select>
-                                                    </td>
-                                                    <span asp-validation-for="@Model.GameExpansionId" class="small text-danger"></span>
-                                                    </tr> *@
                                                     <tr class="row1">
                                                         <td>
                                                             <label asp-for="AbilitiesAndFlavor">Abilities &amp; Flavor:</label>
@@ -348,59 +332,6 @@
             });
         };
     </script>
-
-
-
-
-    @*
-    document.getElementById("screenshot").addEventListener("click", function () {
-    html2canvas(document.getElementById("background")).then(function (canvas) {
-    var anchorTag = document.createElement("a");
-    var dataURL = canvas.toDataURL("image/png", 1.0);
-    dataURL = dataURL.replace('data:image/png;base64,', '');
-    $("#imageDataEventOne").val(dataURL);
-    document.getElementById("submitButton").hidden = false;
-    document.getElementById("submitCardImage").hidden = false;
-    document.getElementById("cardData").hidden = true;
-    document.getElementById("startOver").hidden = false;
-    document.getElementById("cardTools").hidden = true;
-
-    });
-    }); *@
-
-    @*  <script>
-
-    document.getElementById("screenshot").addEventListener("click", function () {
-    html2canvas(document.getElementById("background")).then(function (canvas) {
-    var anchorTag = document.createElement("a");
-    document.body.appendChild(anchorTag);
-    document.getElementById("second").innerHTML = '';
-    document.getElementById("second").appendChild(canvas);
-    var name = document.getElementById("name").value;
-
-
-    var dataURL = canvas.toDataURL("image/jpg", 1.0);
-
-    downloadImage(dataURL, name + '.jpg');
-    });
-    });
-
-    function downloadImage(data, filename = 'untitled.jpg') {
-    var a = document.createElement('a');
-    a.href = data;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-
-    document.getElementById("submitButton").hidden = false;
-    document.getElementById("submitCardImage").hidden = false;
-    document.getElementById("cardData").hidden = true;
-    document.getElementById("startOver").hidden = false;
-    document.getElementById("cardTools").hidden = true;
-    }   </script>*@
-
-
-
 
     <script type="text/javascript">
 

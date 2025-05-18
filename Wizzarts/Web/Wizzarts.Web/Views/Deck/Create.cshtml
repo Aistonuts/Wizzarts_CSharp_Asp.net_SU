@@ -10,19 +10,6 @@
             <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Event starts on the 1st of July 2024.</a></h4></div>
         </div>
         <div class="card">
-            @*             <div class="card-body pt-1 pb-1">
-            <div class="d-flex justify-content-right">
-            <div>
-            <div class="ae-profile-image-container">
-            <img src="@Model.AvatarUrl" width="100" height="100" class="rounded-circle">
-            </div>
-            </div>
-
-            </div>
-            </div>
-            <br />
-            <br />
-            <br /> *@
             <div class="card-header bg-light pt-0">
                 <form method="post" enctype="multipart/form-data">
                     <div class="form-group row mb-1">
@@ -70,53 +57,7 @@
                     </div>
                 </form>
             </div>
-
         </div>
-@*         <div class="firstfeed-flexbox">
-            <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Event locations</a></h4></div>
-            @foreach (var eComponent in this.Model.EventComponents)
-            {
-                <div class="article-card card border-0">
-
-                    <img src="@eComponent.ImageUrl" class="article-uimgheader lazy" alt="@eComponent.Title">
-
-                    <div class="card-body pt-0">
-                        <small class="yellow-line">
-                        </small>
-                        <div class="ff-display font-size-18">
-                            <b><a href="">@eComponent.Title</a></b>
-                        </div>
-                        <div class="card-text d-none d-md-flex m-1">@eComponent.Description</div>
-                        <p class="card-text">
-                            @eComponent.Instructions
-                        </p>
-                    </div>
-                </div>
-                  <div class="card mt-2 mb-2 ">
-            <div class="w-100 d-flex justify-content-start">
-            <div class="mr-1">
-            <a asp-controller="Event" asp-action="Join" asp-route-id="@eComponent.EventId">
-            <div class="article-imgheader-xs lazy uimg" style="background-image: url('@eComponent.ImageUrl')">
-            </div>
-            </a>
-            </div>
-            <div>
-            <div class="ff-display font-size-18">
-            <b><a>@eComponent.Title</a></b>
-            </div>
-            <p>
-            <span class="text-muted">
-            @eComponent.Description
-            </span>
-            <span class="text-muted">
-            @eComponent.Instructions
-            </span>
-            </p>
-            </div>
-            </div>
-            </div>
-            }
-        </div> *@
     </div>
     <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
         <div class="card mb-2">
@@ -129,14 +70,12 @@
                         <div class="metagroup-container">
                             <div class="mr-2 d-none d-lg-block">
                                 <a asp-controller="Deck" asp-action="Add" asp-route-id="@deck.Id">
-                                    <div class="meta-cardimg" style="background-image: url('@deck.ImageUrl')"></div>
+                                    <img class="meta-cardimg" style="background-image: url('@deck.ImageUrl')" alt="">
                                 </a>
                             </div>
-                          
                             <div>
                                 <a asp-controller="Deck" asp-action="Add" asp-route-id="@deck.Id" class="metagroup-link">
                                     <b class="text-primary">@deck.Name</b>
-
                                 </a>
                                 <div class="ff-display font-size-18">
                                     <b class="text">@deck.IsLocked</b>
@@ -150,77 +89,6 @@
             {
                 <div class="w-100 text-center ae-border-bottom-light"><h4>You do not own any decks yet</h4></div>
             }
-           
         </div>
-        @*      <div class="card mb-2">
-        <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Event locations</a></h4></div>
-        @foreach (var eComponent in this.Model.EventComponents)
-        {
-        <div class="article-card card border-0">
-        <a asp-controller="Event" asp-action="Join" asp-route-id="@eComponent.EventId" aria-label="article" class="image-wrapper">
-        <img src="@eComponent.ImageUrl" class="article-uimgheader lazy fbi-center" alt="@eComponent.Title">
-        </a>
-        <div class="card-body pt-0">
-        <small class="yellow-line">
-        </small>
-        <div class="ff-display font-size-18">
-        <b><a href="">@eComponent.Title</a></b>
-        </div>
-        <div class="card-text d-none d-md-flex m-1">@eComponent.Description</div>
-        <p class="card-text">
-        @eComponent.Instructions
-        </p>
-        </div>
-        </div>
-        <div class="card mt-2 mb-2 ">
-        <div class="w-100 d-flex justify-content-start">
-        <div class="mr-1">
-        <a asp-controller="Event" asp-action="Join" asp-route-id="@eComponent.EventId">
-        <div class="article-imgheader-xs lazy uimg" style="background-image: url('@eComponent.ImageUrl')">
-        </div>
-        </a>
-        </div>
-        <div>
-        <div class="ff-display font-size-18">
-        <b><a>@eComponent.Title</a></b>
-        </div>
-        <p>
-        <span class="text-muted">
-        @eComponent.Description
-        </span>
-        <span class="text-muted">
-        @eComponent.Instructions
-        </span>
-        </p>
-        </div>
-        </div>
-        </div>
-        }
-        </div> *@
     </div>
-    @* <div class="col-md-12 col-lg-3 pr-0 pl-0">
-    <div class="card mb-2">
-
-    <div class="card-body pt-1 pb-1">
-    <div class="d-flex justify-content-center">
-    <div>
-    @foreach (var avatar in Model.DeckLogos)
-    {
-    <div class="card-body pt-1 pb-1">
-    <div class="d-flex justify-content-center">
-    <div>
-    <a asp-controller="Deck" asp-action="Update" asp-route-id="@avatar.Id" class="ae-profile-image-container">
-    <img src="@avatar.ImageUrl" width="80" height="80" class="rounded-circle" alt="ChrisCee">
-    </a>
-    </div>
-    </div>
-
-    </div>
-
-    }
-    </div>
-    </div>
-    </div>
-    </div>
-    </div> *@
 </div>

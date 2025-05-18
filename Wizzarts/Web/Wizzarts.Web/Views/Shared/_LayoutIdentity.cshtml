@@ -10,7 +10,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
-    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" /> *@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/styles.min.css" asp-append-version="true" />
@@ -26,16 +25,16 @@
     <div class="wrapper" id="wrapper">
         <nav id="sidebar" class="mCustomScrollbar _mCS_1 mCS-autoHide active mCS_no_scrollbar" style="overflow: visible;">
             <div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: 1534px;" tabindex="0">
-            <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; top: 0px; left: 0px;" dir="ltr">
-                <div class="w-100 text-center mb-1 mt-1">
-                    <a href="/">
-                        <img src="/images/navigation/Premium.png" loading="lazy" width="150" height="64" alt="AetherHub.com" class="mCS_img_loaded">
-                    </a>
-                    <button id="dismiss" class="btn btn-sm text-dark" aria-label="Close menu">
-                        <i class="fas fa-times"></i>
-                    </button>
+                <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; top: 0px; left: 0px;" dir="ltr">
+                    <div class="w-100 text-center mb-1 mt-1">
+                        <a href="/">
+                            <img src="/images/navigation/Premium.png" loading="lazy" width="150" height="64" alt="AetherHub.com" class="mCS_img_loaded">
+                        </a>
+                        <button id="dismiss" class="btn btn-sm text-dark" aria-label="Close menu">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
             </div>
         </nav>
         <div class="w-100 ae-header sticky-menu-mobile-navbar d-print-none">
@@ -117,7 +116,10 @@
                                             <i class="far fa-star"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" asp-area="" asp-controller="Wizzarts" asp-action="Membership"><b>Membership</b></a>
+                                            @if ( !this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                                            {
+                                                <a class="dropdown-item" asp-area="" asp-controller="Wizzarts" asp-action="Membership"><b>Membership</b></a>
+                                            }
                                             @*                                             <a class="dropdown-item" href="/Artist"><b>Content Creators</b></a>
                                             <a class="dropdown-item" href="/Team"><b>Team</b></a> *@
                                             @if (this.SignInManager.IsSignedIn(this.User))
@@ -198,28 +200,6 @@
                 </div>
                 <div class="modal-body ui-front d-flex flex-row justify-content-center">
                     <div>
-                        @*                    <form asp-controller="Search" asp-action="AdvancedSearch" method="get">
-
-
-                        @foreach (var types in Model.CardTypes)
-                        {
-                        <div class="form-check form-check-inline">
-                        <div class="col-1 text-center">
-                        <input class="form-check-input" name="TypeOfCards" type="checkbox" id="types_@types.Id" value="@types.Id" />
-                        <label asp-for="@types.Id" class="form-check-input">@types.Name</label>
-
-                        </div>
-                        </div>
-                        }
-
-
-                        <div class="input-group-append">
-                        <button class="btn btn-light" type="submit" aria-label="Search">
-                        <i class="fas fa-search"></i>
-                        </button>
-                        </div>
-                        </form>*@
-
                         <form asp-area="" asp-controller="Search" asp-action="Advanced" method="get">
                             <div class="input-group ae-card-search">
                                 <input type="text" id="searchM" name="CardName"
@@ -266,13 +246,7 @@
     <script src="~/js/global.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/popper.min.js" asp-append-version="true"></script>
-
-    @*     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script> *@
     <script src="https://kit.fontawesome.com/e0f25cd0cd.js" crossorigin="anonymous"></script>
-
     <script>search();</script>
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>

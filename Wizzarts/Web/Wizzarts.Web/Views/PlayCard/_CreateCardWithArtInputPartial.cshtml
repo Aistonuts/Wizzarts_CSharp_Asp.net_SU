@@ -1,7 +1,6 @@
 ﻿@model Wizzarts.Web.ViewModels.PlayCard.CreateCardViewModel
-@using static Wizzarts.Common.HardCodedConstants;
 
-@if (Model.ArtByUserId.Where(x => x.ApprovedByAdmin == true).Any())
+@if (Model.ArtByUserId.Any(x => x.ApprovedByAdmin == true))
 {
     <form method="post" id="cardinfo" enctype="multipart/form-data">
         <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
@@ -66,7 +65,6 @@
 
     </form>
 
-
     <table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
         <tbody>
 
@@ -104,5 +102,4 @@ else
             </div>
         </div>
     }
-
 }

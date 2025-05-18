@@ -1,23 +1,16 @@
-﻿@using Microsoft.AspNetCore.Hosting
-@using Wizzarts.Common
+﻿@using Wizzarts.Common
 @using Wizzarts.Data.Models
 @using Microsoft.AspNetCore.Identity
 @using Wizzarts.Services.Data
 @using Wizzarts.Web.Infrastructure.Extensions
-@using static Wizzarts.Common.MembershipConstants
 @using static Wizzarts.Common.GlobalConstants
 @model Wizzarts.Web.ViewModels.Home.IndexAuthenticationViewModel
 @inject SignInManager<ApplicationUser> SignInManager;
-@inject UserManager<ApplicationUser> userManager;
-@inject IWebHostEnvironment environment;
 @inject IUserService userService;
 @{
     this.ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@* <h1>@Environment.OSVersion</h1>
-<h1>@environment.EnvironmentName</h1> *@
 
 <div class="row ae-break-word">
     <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-3">
@@ -34,12 +27,11 @@
                             @if (this.User.IsInRole(ArtistRoleName) || this.User.IsInRole(AdministratorRoleName) || this.User.IsInRole(PremiumRoleName))
                             {
                                 <div class="card-body p-2">
-                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Articles :@Model.CountOfArticles</b><br>
-                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Events : @Model.CountOfEvents</b><br>
-                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Cards  : @Model.CountOfCards</b><br>
-                                     <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Art pieces: @Model.CountOfArts</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Articles: @Model.CountOfArticles</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Events: @Model.CountOfEvents</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Cards: @Model.CountOfCards</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Art pieces: @Model.CountOfArts</b><br>
                                 </div>
-                               
                             }
                             else
                             {
@@ -47,19 +39,17 @@
                                     <b>Artist : </b>
                                 </div>
                                 <div class="card-body p-2">
-                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Arts needed : @Model.CountOfArts/@MembershipConstants.MemberToArtistRequiredArts</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Arts needed: @Model.CountOfArts/@MembershipConstants.MemberToArtistRequiredArts</b><br>
                                 </div>
                                 <div class="ae-border-bottom-light  pl-2">
                                     <b>Content creator :  </b>
                                 </div>
                                 <div class="card-body p-2">
-                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Articles needed :@Model.CountOfArticles/@MembershipConstants.RequiredNumberArticles</b><br>
-                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Events needed : @Model.CountOfEvents/@MembershipConstants.RequiredNumberEvents</b><br>
-                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Event cards needed : @Model.CountOfCards/@MembershipConstants.RequiredNumberEventCards</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-pmtg1"></i>Articles needed: @Model.CountOfArticles/@MembershipConstants.RequiredNumberArticles</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Events needed: @Model.CountOfEvents/@MembershipConstants.RequiredNumberEvents</b><br>
+                                    <b class="text-decoration-none"><i class="ss ss-parl3"></i>Event cards needed: @Model.CountOfCards/@MembershipConstants.RequiredNumberEventCards</b><br>
                                 </div>
                             }
-
-
                         </div>
                         <div class="card">
                             <div class="ae-border-bottom-light text-gold pl-2">
@@ -71,10 +61,12 @@
                                     <div class="card-text d-none d-md-flex m-1">@Model.MembershipStatus</div><br>
 
                                 }
-                                
-                                <div class="card-body p-2">
-                                    <a asp-controller="Home" asp-action="Status" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Update role</b></a>
-                                </div>
+                                @if ( !this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                                {
+                                    <div class="card-body p-2">
+                                        <a asp-controller="Home" asp-action="Status" class="btn btn-sm btn-light btn-outline-primary format-btn format-select-button mt-1 mt-xl-0 pl-1 pr-1"><b>Update role</b></a>
+                                    </div>
+                                }
                                 @if (Model.HasOpenDeck)
                                 {
                                     <div class="card-body p-2">
@@ -148,7 +140,7 @@
                     }
                 </div>
                 <hr />
-                <h4 class=" text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Art</h4>
+                <h4 class="text-center mt-2 mb-4 ae-border-bottom-light text-header-gold">Art</h4>
                 <div class="firstfeed-flexbox">
                     @foreach (var art in this.Model.Arts)
                     {
@@ -156,11 +148,7 @@
                             <a asp-controller="Art" asp-action="ById" asp-route-id="@art.Id" asp-route-information="@art.GetInformation()" class="image-wrapper">
                                 <img width="600" height="300" class="article-uimgheader lazy" src="@art.ImageUrl" alt="@art.Title" style="">
                             </a>
-
-                            <div class="item-footer">
-                            </div>
                         </div>
-
                     }
                 </div>
                 <hr />
@@ -173,15 +161,13 @@
                                 <img width="200" height="300" src="@card.CardRemoteUrl" alt="@card.Name" style="">
                                 <div class="item-hidden-text">@card.Name</div>
                             </a>
-                            <div class="item-footer">
-                            </div>
                         </div>
                     }
                 </div>
+                <hr />
             </div>
         </div>
     </div>
-
     <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
         <div class="card mb-2 ">
             <div class="ae-border-bottom-light p-0 text-center ff-display">
@@ -209,7 +195,6 @@
                         <a asp-controller="Store" asp-action="All">The @store.Name</a> is a @store.Country based store.It is located in the city of @store.City .
                     </p>
                 }
-
             </div>
         </div>
         <div class="card mb-2 ">
@@ -232,7 +217,7 @@
                 <div class="card mb-2 ">
 
                     <div class="ae-border-bottom-light  p-0 text-center">
-                        <b><i class="fas fa-users"></i> Chat</b>
+                        <b><i class="fas fa-users"></i>Chat</b>
                     </div>
                     <div class="chat-box-main">
                         <div class="chat" style="height:627px">
@@ -258,7 +243,6 @@
                                 </div>
                             </div>
                             <hr />
-
                             <form method="post" onsubmit="sendMessage(event)" id="chatMessage" class="ae-border-bottom-light  p-0 text-center">
                                 <div class="input-group ae-card-search">
                                     <input type="text" name="message" id="messageInput"
@@ -271,15 +255,8 @@
                                     </div>
                                 </div>
                             </form>
-
-                            @*                 <form class="chat-input" onsubmit="sendMessage(event)" asp-controller="Home" asp-action="CreateMessage" asp-route-id="@Model.ChatId">
-                    <input type="hidden" name="chatId" value="@Model.ChatId">
-                    <input type="text" name="message" id="message-input">
-                    <button type="submit">Send</button>
-                    </form> *@
                         </div>
                     </div>
-
                 </div>
             }
             else
@@ -292,20 +269,12 @@
                 </div>
             }
         }
-        @*  <div id="zone18-300x600-card" class="mb-2 pt-1">
-        <div>
-        <div id="zone18-300x600" class="mx-auto"></div>
-        </div>
-        </div> *@
     </div>
 </div>
-
 <form method="post" id="antiForgeryForm"></form>
 @section Scripts {
-
     <script src="~/lib/microsoft/signalr/dist/browser/signalr.js" asp-append-version="true"></script>
     <script src="~/js/chat.js" asp-append-version="true"></script>
-
     <script>
         var sendMessage = function (event) {
             event.preventDefault();

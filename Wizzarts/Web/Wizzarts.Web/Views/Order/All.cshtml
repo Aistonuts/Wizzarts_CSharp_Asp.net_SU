@@ -15,9 +15,7 @@
                 {
                     <div class="article-card card border-0">
                         <div aria-label="article" class="image-wrapper">
-
                             <div class="article-uimgheader"><img id="previewCardModal" class="article-uimgheader" style="width : 366px" src="@order.DeckImageUrl" alt="Card" onerror="this.onerror=null;this.src='@order.DeckImageUrl';"></div>
-
                         </div>
                         <div class="card-body pt-0">
                             <small class="yellow-line font-size-18">
@@ -58,15 +56,13 @@
             </div>
         </div>
     </div>
-
-
     <partial name="_PagingPartial" model="@Model" />
-}else
+}
+else
 {
     <div class="row text-center no-gutters">
         <div class="col-md-12">
             <h2 class="text-header-gold">Currently, there are no new orders.</h2>
         </div>
     </div>
-
 }

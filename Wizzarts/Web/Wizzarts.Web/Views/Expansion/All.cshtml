@@ -14,7 +14,6 @@
                     <h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">Wizzarts game expansion</h4>
                     <div id="creatorCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
                         <div class="carousel-inner">
-
                             @for (var i = 0; i < this.Model.CardGameExpansions.Count(); i++)
                             {
                                 if (i == 0)
@@ -44,19 +43,11 @@
                                                         <img src="@this.Model.CardGameExpansions.ToList()[i].ExpansionSymbolUrl" alt="@this.Model.CardGameExpansions.ToList()[i].Title" class="lazy" alt="video" style="">
                                                     </a>
                                                 </div>
-                                               @*  <div class="card-body p-0">
-                                                    <small class="text-center mb-1 text-muted">
-                                                        01 Jul by <a href="/User/ReikoBoy"><i class="far fa-star"></i>ReikoBoy</a>
-                                                    </small>
-                                                </div> *@
                                             </div>
                                         </div>
                                     </div>
                                 }
-
                             }
-
-
                         </div>
                         <a class="carousel-control-prev" href="#creatorCarousel" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -71,7 +62,6 @@
 
             </div>
         </div>
-
     </div>
     <div class="col-md-12 col-lg-12 col-xl-3 pl-0 pr-0">
         <div class="card mb-2">
@@ -82,7 +72,7 @@
                     <div class="metagroup-container">
                         <div class="mr-2 d-none d-lg-block">
                             <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="image-wrapper">
-                                <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
+                                <img class="meta-cardimg" style="background-image: url('@events.ImageUrl')" alt="">
                             </a>
                         </div>
                         <div>
@@ -98,7 +88,6 @@
     </div>
 </div>
 <hr />
-
 
 @section Scripts {
     <script>

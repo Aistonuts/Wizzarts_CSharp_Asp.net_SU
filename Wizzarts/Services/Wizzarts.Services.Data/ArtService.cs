@@ -178,10 +178,8 @@
 
                 return art.AddedByMemberId;
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
 
         public async Task<bool> ArtExist(string id)

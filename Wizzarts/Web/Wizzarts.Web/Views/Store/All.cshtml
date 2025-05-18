@@ -48,7 +48,7 @@
                                 
                             </div>
                             <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
-                                <h2>@store.Name</h2> @* <span class="pull-right"><i class="ms ms-4 ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i></span> *@
+                                <h2>@store.Name</h2>
                                 <p>@store.Address</p>
                                 <hr>
                                 <p>@store.PhoneNumber</p>
@@ -73,9 +73,6 @@
                                 <ul class="entry-meta">
                                     @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
                                     {
-                                       @*  <li class="single-meta">
-                                            <a asp-controller="Store" asp-action="Edit" asp-route-id="@store.Id" class="btn btn-secondary">Edit</a>
-                                        </li> *@
                                         <li class="single-meta">
                                             <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@store.Id">
                                                 <button class="btn btn-danger" data-toggle="modal" data-target="#@store.Id">Delete</button>

@@ -11,7 +11,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
-    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" /> *@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/styles.min.css" asp-append-version="true" />
@@ -172,11 +171,6 @@
                                                     <div class="ae-list-header">
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                                         <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="All">Events</a>
-                                                        @if (this.SignInManager.IsSignedIn(this.User))
-                                                        {
-                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="All">Articles</a>
-                                                            <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="ByUser">User Events</a>
-                                                        }
                                                         <hr>
                                                     </div>
                                             </div>
@@ -196,6 +190,11 @@
                                                             <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="All">Members Portfolio</a>
                                                             <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="MyData">My portfolio</a>
                                                             <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="My">Orders</a>
+                                                            @if (this.SignInManager.IsSignedIn(this.User))
+                                                            {
+                                                                <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="All">Articles</a>
+                                                                <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="ByUser">User Events</a>
+                                                            }
                                                             <hr>
                                                         </div>
                                                     </div>

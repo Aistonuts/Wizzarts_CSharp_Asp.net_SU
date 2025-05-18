@@ -228,7 +228,6 @@
                 card.ArtId = input.ArtId;
             }
 
-            // string fileNameWitPath = path + DateTime.Now.ToString().Replace("/", "-").Replace(" ", "- ").Replace(":", "") + ".png";
             await using (FileStream fs = new FileStream(physicalPath, FileMode.Create))
             {
                 using (BinaryWriter bw = new BinaryWriter(fs))
@@ -241,17 +240,6 @@
                 }
             }
 
-            // var extension = Path.GetExtension(input.Images.FileName).TrimStart('.');
-
-            // if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
-            // {
-            //    throw new Exception($"Invalid image extension {extension}");
-            // }
-
-            // var physicalPath = $"{path}/cardsByExpansion/EventCards/{input.Name}.{extension}";
-
-            // using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-            // await input.Images.CopyToAsync(fileStream);
             await this.cardRepository.AddAsync(card);
             await this.cardRepository.SaveChangesAsync();
             this.cache.Remove(CardsCacheKey);
@@ -535,17 +523,6 @@
                 }
             }
 
-            // var extension = Path.GetExtension(input.Images.FileName).TrimStart('.');
-
-            // if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
-            // {
-            //    throw new Exception($"Invalid image extension {extension}");
-            // }
-
-            // var physicalPath = $"{path}/cardsByExpansion/EventCards/{input.Name}.{extension}";
-
-            // using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-            // await input.Images.CopyToAsync(fileStream);
             await this.cardRepository.AddAsync(card);
             await this.cardRepository.SaveChangesAsync();
             this.cache.Remove(CardsCacheKey);

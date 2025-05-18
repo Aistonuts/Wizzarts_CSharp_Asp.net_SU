@@ -112,6 +112,7 @@
             if (articles != null)
             {
                 articles.Title = input.Title;
+                articles.ShortDescription = input.ShortDescription;
                 articles.Description = input.Description;
 
                 await this.articleRepository.SaveChangesAsync();

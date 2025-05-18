@@ -24,8 +24,7 @@
                                             <div class="video-card card border-0">
                                                 <div class="yt-img">
                                                     <a asp-controller="Art" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].Id" asp-route-information="@this.Model.Arts.ToList()[i].GetInformation()">
-                                                        <img src="@this.Model.Arts.ToList()[i].ImageUrl" alt="@this.Model.Arts.ToList()[i].Title" class="lazy" alt="video" style="">
-
+                                                        <img src="@this.Model.Arts.ToList()[i].ImageUrl" alt="@this.Model.Arts.ToList()[i].Title" class="lazy" alt="" style="">
                                                     </a>
                                                 </div>
                                                 <div class="card-body p-0">
@@ -52,12 +51,12 @@
                                             <div class="video-card card border-0">
                                                 <div class="yt-img">
                                                     <a asp-controller="Art" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].Id" asp-route-information="@this.Model.Arts.ToList()[i].GetInformation()">
-                                                        <img src="@this.Model.Arts.ToList()[i].ImageUrl" alt="@this.Model.Arts.ToList()[i].Title" class="lazy" alt="video" style="">
+                                                        <img src="@this.Model.Arts.ToList()[i].ImageUrl" alt="@this.Model.Arts.ToList()[i].Title" class="lazy" alt="" style="">
                                                     </a>
                                                 </div>
                                                 <div class="card-body p-0">
                                                     <small class="text-center mb-1 text-muted">
-                                                        <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].ArtistName" asp-route-information="@this.Model.Arts.ToList()[i].GetInformation()"><i class="far fa-star"></i>@this.Model.Arts.ToList()[i].ArtistName</a>
+                                                        <a asp-controller="User" asp-action="ById" asp-route-id="@this.Model.Arts.ToList()[i].ArtistName" asp-route-information="@this.Model.Arts.ToList()[i].GetWizzartsMemberName()"><i class="far fa-star"></i>@this.Model.Arts.ToList()[i].ArtistName</a>
                                                     </small>
                                                 </div>
                                                 <div class="article-card card border-0">
@@ -71,7 +70,6 @@
                                         </div>
                                     </div>
                                 }
-
                             }
                         </div>
                         <a class="carousel-control-prev" href="#creatorCarousel" role="button" data-slide="prev">
@@ -96,7 +94,7 @@
                     <div class="metagroup-container">
                         <div class="mr-2 d-none d-lg-block">
                             <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="image-wrapper">
-                                <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
+                                <img class="meta-cardimg" style="background-image: url('@events.ImageUrl')" alt=""/>
                             </a>
                         </div>
                         <div>
@@ -117,7 +115,7 @@
                     <div class="metagroup-container">
                         <div class="mr-2 d-none d-lg-block">
                             <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()" class="image-wrapper">
-                                <div class="meta-cardimg" style="background-image: url('@article.ImageUrl')"></div>
+                                <img class="meta-cardimg" style="background-image: url('@article.ImageUrl')" alt=""/>
                             </a>
                         </div>
                         <div>
@@ -127,7 +125,6 @@
                         </div>
                     </div>
                 }
-
             </div>
         </div>
     </div>

@@ -11,20 +11,6 @@
 <div class="row pt-2">
     <div class="col-md-12 col-lg-12 col-xl-9 pl-0 pr-0 pr-xl-1">
         <div class="card h-oneKpx">
-            @*  <div class="card-header bg-light pt-0">
-            <ul class="nav nav-tabs card-header-tabs">
-            <li class="nav-item">
-            <a class="nav-link active">
-            <span class="fas fa-search" title="Advanced Search"></span> <b>Advanced Search</b>
-            </a>
-            </li>
-            <li class="nav-item">
-            <a href="/Card/Set" class="nav-link ">
-            <span class="ss ss-xmods" title="Browse by Set"></span> <b>MTG Set List</b>
-            </a>
-            </li>
-            </ul>
-            </div> *@
             <div class="card-body pt-1">
                 <form asp-controller="Deck" asp-action="Add" asp-route-id="@this.Model.Id" id="searchform" method="get">
                     <div class="row">
@@ -96,12 +82,6 @@
                         <div>
                             <div class="input-group">
                                 <button type="submit" class="btn btn-light mr-2" @* onclick="cardSearch()" *@><span class="fas fa-search"></span> <b>Search</b></button>
-                                @* <div class="btn-group-toggle mr-2" data-toggle="buttons" title="Hides cards with same name and only shows the latest">
-                                    <input type="hidden" id="adv-unique" value="false" name="uniq">
-                                    <label id="adv-unique-btn" class="btn btn-light">
-                                        <b><i class="fas fa-low-vision"></i></b>
-                                    </label>
-                                </div> *@
                                 <button type="button" id="resetFilter" class="btn btn-sm btn-light btn-outline-danger margin-right">
                                     <span class="fas fa-filter"></span> <b>Reset filters</b>
                                 </button>
@@ -109,16 +89,6 @@
                         </div>
                     </div>
                 </form>
-                @* <div id="cardSearchToggles" class="row pr-2 pl-2 d-none">
-                <div class="col-xs-6 col-md-6">
-                </div>
-                <div class="col-xs-6 col-md-6 text-right">
-                <button type="button" data-sort="descending" id="searchSortName" class="btn btn-light btn-outline-dark"><b><i class="fas fa-sort-amount-up"></i> Name</b></button>
-                <button type="button" data-sort="ascending" id="searchSortNumber" class="btn btn-light btn-outline-dark"><b>Number</b></button>
-                <button type="button" id="ae-price-sort" class="btn btn-light btn-outline-dark" data-sort="descending"><b>Price</b></button>
-                <button type="button" id="ae-price-toggle" class="btn btn-light btn-outline-dark" data-url="search" data-toggle="usd-eur" data-nexttoggle="eur"><b>$ / €</b></button>
-                </div>
-                </div> *@
                 <div class="row mt-2">
                     <div class="col-md-12">
                         <div id="cards" class="outer-container">
@@ -143,7 +113,6 @@
                                         </div>
                                     </div>
                                 }
-
                             }
                         </div>
                     </div>
@@ -191,7 +160,6 @@
                     </a>
                 </h4>
             </div>
-
             <div class="card-body pl-1 pr-1 pt-2 pb-0">
                 @foreach (var deck in this.Model.CardsInDeck)
                 {
@@ -199,19 +167,13 @@
                         <div class="w-100 d-flex justify-content-start">
                             <div class="mr-1">
                                 <a asp-controller="Deck" asp-action="Remove" asp-route-data="@deck.Id" asp-route-id="@this.Model.Id" class="image-wrapper">
-                                    <div class="article-imgheader-xs lazy uimg" style="background-image: url('@deck.CardRemoteUrl')">
-                                    </div>
+                                    <img class="article-imgheader-xs lazy uimg" style="background-image: url('@deck.CardRemoteUrl')" alt="">
                                 </a>
                             </div>
                             <div>
                                 <div class="ff-display font-size-18">
                                     <b> <a asp-controller="Deck" asp-action="Remove" asp-route-data="@deck.Id" asp-route-id="@this.Model.Id" class="image-wrapper">@deck.Name</a></b>
                                 </div>
-                                @*    <p>
-                            <span class="text-muted">
-                            29.Jun
-                            </span>
-                            </p> *@
                             </div>
                         </div>
                     </div>

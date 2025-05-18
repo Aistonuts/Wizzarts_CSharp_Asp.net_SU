@@ -50,45 +50,43 @@
                 EventCategoryId = input.CategoryId,
             };
 
-            if (input.CategoryId == FlavorlessType || input.CategoryId == ImagelessType || input.CategoryId == ImageType || input.CategoryId == TextType)
+            switch (input.CategoryId)
             {
-                newEvent.ControllerId = EventControllerId;
-                newEvent.ActionId = ByIdActionId;
-            }
-            else if (input.CategoryId == CreateArticleType)
-            {
-                newEvent.ControllerId = ArticleControllerId;
-                newEvent.ActionId = CreateActionId;
-            }
-            else if (input.CategoryId == AddArtType)
-            {
-                newEvent.ControllerId = ArtControllerId;
-                newEvent.ActionId = AddActionId;
-            }
-            else if (input.CategoryId == AddPlayCardType)
-            {
-                newEvent.ControllerId = PlayCardControllerId;
-                newEvent.ActionId = AddActionId;
-            }
-            else if (input.CategoryId == CreateDeckType)
-            {
-                newEvent.ControllerId = DeckControllerId;
-                newEvent.ActionId = CreateActionId;
-            }
-            else if (input.CategoryId == CreateEventType)
-            {
-                newEvent.ControllerId = EventControllerId;
-                newEvent.ActionId = CreateActionId;
-            }
-            else if (input.CategoryId == AddStoreType)
-            {
-                newEvent.ControllerId = StoreControllerId;
-                newEvent.ActionId = CreateActionId;
-            }
-            else
-            {
-                newEvent.ControllerId = EventControllerId;
-                newEvent.ActionId = ByIdActionId;
+                case FlavorlessType:
+                case ImagelessType:
+                case ImageType:
+                case TextType:
+                    newEvent.ControllerId = EventControllerId;
+                    newEvent.ActionId = ByIdActionId;
+                    break;
+                case CreateArticleType:
+                    newEvent.ControllerId = ArticleControllerId;
+                    newEvent.ActionId = CreateActionId;
+                    break;
+                case AddArtType:
+                    newEvent.ControllerId = ArtControllerId;
+                    newEvent.ActionId = AddActionId;
+                    break;
+                case AddPlayCardType:
+                    newEvent.ControllerId = PlayCardControllerId;
+                    newEvent.ActionId = AddActionId;
+                    break;
+                case CreateDeckType:
+                    newEvent.ControllerId = DeckControllerId;
+                    newEvent.ActionId = CreateActionId;
+                    break;
+                case CreateEventType:
+                    newEvent.ControllerId = EventControllerId;
+                    newEvent.ActionId = CreateActionId;
+                    break;
+                case AddStoreType:
+                    newEvent.ControllerId = StoreControllerId;
+                    newEvent.ActionId = CreateActionId;
+                    break;
+                default:
+                    newEvent.ControllerId = EventControllerId;
+                    newEvent.ActionId = ByIdActionId;
+                    break;
             }
 
             Directory.CreateDirectory($"{imagePath}/event/UserEvent/");
@@ -224,13 +222,13 @@
             if (currentEvent.EventCategoryId == FlavorlessType || currentEvent.EventCategoryId == ImagelessType)
             {
                 component.ControllerId = PlayCardControllerId;
-                component.ActionId = CreateActionId;
             }
             else
             {
                 component.ControllerId = EventControllerId;
-                component.ActionId = CreateActionId;
             }
+
+            component.ActionId = CreateActionId;
 
             if (currentEvent.EventCategoryId == FlavorlessType || currentEvent.EventCategoryId == ImagelessType || currentEvent.EventCategoryId == ImageType)
             {
@@ -301,14 +299,7 @@
         public async Task<bool> EventTypeRequireArt(int id)
         {
             var thisEvent = await this.eventRepository.All().FirstOrDefaultAsync(x => x.Id == id);
-            if (thisEvent.EventCategoryId == FlavorlessType || thisEvent.EventCategoryId == ImagelessType || thisEvent.EventCategoryId == ImageType)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return thisEvent.EventCategoryId == FlavorlessType || thisEvent.EventCategoryId == ImagelessType || thisEvent.EventCategoryId == ImageType;
         }
 
         public async Task<string> PromoteEvent(int id)

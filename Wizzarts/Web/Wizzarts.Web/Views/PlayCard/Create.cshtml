@@ -12,17 +12,17 @@
             <div class="col-sm-12 col-md-12 pl-0 pr-0">
                 <div class="container-create">
                     <div class="first">
-
                         <table id="html-content-holder" border="0" cellspacing="0" cellpadding="0" style="clear: both;">
                             <tbody>
                                 <tr style="width:100%">
                                     <td style="padding:0px;text-align:left;vertical-align:top;">
-                                        @if (Model.EventCategoryId == FlavorlessType)
+                                        @switch (Model.EventCategoryId)
                                         {
-                                            <partial name="_CreateCardWithFlavourInputPartial" model="@Model" />
+                                            case FlavorlessType:
+                                                <partial name="_CreateCardWithFlavourInputPartial" model="@Model" />
 
-                                            <table border="0" cellspacing="0" cellpadding="2" style="width:100%;" id="cardTools">
-                                                <tbody>
+                                                <table border="0" cellspacing="0" cellpadding="2" style="width:100%;" id="cardTools">
+                                                    <tbody>
                                                     <tr class="row1">
                                                         <td>
                                                             <input name="generate" class="btn btn-warning" id="generate" type="button" value="Preview" style="font-size:16px;min-width:0px">
@@ -35,15 +35,14 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                                break;
+                                            case ImagelessType:
+                                                <partial name="_CreateCardWithArtInputPartial" model="@Model" />
+                                                break;
                                         }
-                                        else if (Model.EventCategoryId == ImagelessType)
-                                        {
-                                           
-                                            <partial name="_CreateCardWithArtInputPartial" model="@Model" />
-                                        }
-                                       @*  else
+                                        @*  else
                                         {
                                             <partial name="_CreateCardWithFlavourInputPartial" model="@Model" />
                                         } *@
@@ -65,8 +64,6 @@
     </div>  
     <partial name="_OutputFromCreateCardPartialsPartial" model="@Model" />
 </div>
-
-
 
 @section Scripts {
     <script>
@@ -106,59 +103,6 @@
             });
         };
     </script>
-
-
-
-
-    @*
-    document.getElementById("screenshot").addEventListener("click", function () {
-    html2canvas(document.getElementById("background")).then(function (canvas) {
-    var anchorTag = document.createElement("a");
-    var dataURL = canvas.toDataURL("image/png", 1.0);
-    dataURL = dataURL.replace('data:image/png;base64,', '');
-    $("#imageDataEventOne").val(dataURL);
-    document.getElementById("submitButton").hidden = false;
-    document.getElementById("submitCardImage").hidden = false;
-    document.getElementById("cardData").hidden = true;
-    document.getElementById("startOver").hidden = false;
-    document.getElementById("cardTools").hidden = true;
-
-    });
-    }); *@
-
-    @*  <script>
-
-    document.getElementById("screenshot").addEventListener("click", function () {
-    html2canvas(document.getElementById("background")).then(function (canvas) {
-    var anchorTag = document.createElement("a");
-    document.body.appendChild(anchorTag);
-    document.getElementById("second").innerHTML = '';
-    document.getElementById("second").appendChild(canvas);
-    var name = document.getElementById("name").value;
-
-
-    var dataURL = canvas.toDataURL("image/jpg", 1.0);
-
-    downloadImage(dataURL, name + '.jpg');
-    });
-    });
-
-    function downloadImage(data, filename = 'untitled.jpg') {
-    var a = document.createElement('a');
-    a.href = data;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-
-    document.getElementById("submitButton").hidden = false;
-    document.getElementById("submitCardImage").hidden = false;
-    document.getElementById("cardData").hidden = true;
-    document.getElementById("startOver").hidden = false;
-    document.getElementById("cardTools").hidden = true;
-    }   </script> *@
-
-
-
 
     <script type="text/javascript">
 
@@ -247,9 +191,8 @@
 
 
         });
-
-
     </script>
+
     <script>
 
         function colorSelectFunc(e) {
@@ -282,8 +225,6 @@
 
 
         }
-
-
         function artByArtistFunc(e) {
 
             document.getElementById('imageInput').innerHTML = '';
@@ -315,19 +256,6 @@
             }
         }
 
-        //function raritySymbolFunc(e) {
-        //    document.getElementById('symbolHeader').textContent = '';
-
-        //    var currentSelection = e.target.id;
-        //    let selectedValue = $("#" + currentSelection + " option:selected").val();
-
-        //    let currentExpansion = $("#expansion" + " option:selected").val();
-        //    if (currentExpansion) {
-        //        $('#symbolHeader').append("<img src= /symbols/various/" + currentExpansion + '_' + selectedValue + ".png id=set - icon alt=OGW - icon />")
-        //    } else {
-        //        return false;
-        //    }
-        //}
         function frameSelectFunc(e) {
             var currentSelection = e.target.id;
             let selectedValue = $("#" + currentSelection + " option:selected").html();
@@ -336,7 +264,5 @@
 
             document.getElementById("power-frame").src = "/Images/frames/" + selectedValue + "Value" + ".png";
         }
-
-
     </script>
 }

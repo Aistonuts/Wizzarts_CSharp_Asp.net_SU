@@ -144,12 +144,7 @@
 
             var user = await this.userManager.GetUserAsync(this.User);
             var currentRole = await this.userManager.GetRolesAsync(user);
-            bool isContentCreator = false;
-
-            if (currentRole.Contains(PremiumRoleName) || currentRole.Contains(ArtistRoleName) || currentRole.Contains(AdministratorRoleName))
-            {
-                isContentCreator = true;
-            }
+            bool isContentCreator = currentRole.Contains(PremiumRoleName) || currentRole.Contains(ArtistRoleName) || currentRole.Contains(AdministratorRoleName);
 
             try
             {

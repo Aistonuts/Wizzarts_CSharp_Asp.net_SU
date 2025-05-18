@@ -13,7 +13,6 @@
         <div class="card">
             <div class="card-body">
                 <div class="w-100 span-all mb-5 mt-5">
-@*                     <h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">@Model.Title</h4> *@
                     <div id="cardInfo" class="row mb-4">
                         <div class="col-sm-12 col-md-6 cardModal">
                             <a class="" data-toggle="modal" data-target="#imageModal">
@@ -21,11 +20,8 @@
                             </a>
                         </div>
                         <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
-                            <h2>@Model.Title</h2> @* <span class="pull-right"><i class="ms ms-4 ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i></span> *@
+                            <h2>@Model.Title</h2>
                             <p>@Model.Description</p>
-                            <hr>
-                            <p></p>
-                            <p><i></i></p>
                             <hr>
                             <p>
                                 <i>Illustrated by: @Model.AddedByMember</i><br>
@@ -49,7 +45,7 @@
                                 </form>
                             </li>
                         }
-                        @if (this.User.Identity.Name == Model.AddedByMember || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        @if (this.User.Identity?.Name == Model.AddedByMember || this.User.IsInRole(GlobalConstants.AdministratorRoleName))
                         {
                             <li class="single-meta">
                                 <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
@@ -77,7 +73,7 @@
                     <div class="metagroup-container">
                         <div class="mr-2 d-none d-lg-block">
                             <a asp-controller="Event" asp-action="ById" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()" class="image-wrapper">
-                                <div class="meta-cardimg" style="background-image: url('@events.ImageUrl')"></div>
+                                <img class="meta-cardimg" style="background-image: url('@events.ImageUrl')" alt="">
                             </a>
                         </div>
                         <div>
@@ -97,8 +93,7 @@
                     <div class="w-100 d-flex justify-content-start">
                         <div class="mr-1">
                             <a asp-controller="Article" asp-action="ById" asp-route-id="@article.Id" asp-route-information="@article.GetArticleTitle()" class="image-wrapper">
-                                <div class="article-imgheader-xs lazy uimg" style="background-image: url('@article.ImageUrl')">
-                                </div>
+                                <img class="meta-cardimg" style="background-image: url('@article.ImageUrl')" alt="">
                             </a>
                         </div>
                         <div>

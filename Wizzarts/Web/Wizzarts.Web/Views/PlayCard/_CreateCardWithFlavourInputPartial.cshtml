@@ -133,22 +133,6 @@
                 </td>
                 <span asp-validation-for="@Model.CardTypeId" class="small text-danger"></span>
             </tr>
-            @*  <tr class="row2" hidden>
-            <td>
-            <label asp-for="GameExpansionId">Expansion Symbol:</label>
-            </td>
-            <td>
-            <select asp-for="GameExpansionId" id="expansion" onchange="expansionSymbolFunc(event)">
-            <option value="3" selected="true">
-            </option>
-            @foreach (var type in Model.SelectExpansion)
-            {
-            <option value="@type.Id">@type.Title</option>
-            }
-            </select>
-            </td>
-            <span asp-validation-for="@Model.GameExpansionId" class="small text-danger"></span>
-            </tr> *@
             <tr class="row1">
                 <td>
                     <label asp-for="AbilitiesAndFlavor">Abilities &amp; Flavor:</label>
@@ -194,7 +178,6 @@
                     <input asp-for="Toughness" id="toughness" size="2" maxlength="2">
                 </td>
             </tr>
-
         </tbody>
     </table>
 </form>
