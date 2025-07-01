@@ -20,6 +20,7 @@
     using Wizzarts.Web.ViewModels.Event;
     using Wizzarts.Web.ViewModels.TagHelper;
     using Xunit;
+
     [Collection("Realm tests")]
     public class AdminEventServiceTest : UnitTestBase
     {
@@ -64,7 +65,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -87,7 +88,6 @@
             Assert.Equal("cf3494ef-93cc-42d2-bf8d-fc733adc3973", newTestEvent.ActionId);
             this.TearDownBase();
         }
-
 
         [Fact]
         public async Task Create_Event_Should_Change_The_Total_Count_Of_Events_And_Should_Add_The_Correct_Event_With_Controllers_And_Actions_Category_Two()
@@ -125,7 +125,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -148,7 +148,6 @@
             Assert.Equal("cf3494ef-93cc-42d2-bf8d-fc733adc3973", newTestEvent.ActionId);
             this.TearDownBase();
         }
-
 
         [Fact]
         public async Task Create_Event_Should_Change_The_Total_Count_Of_Events_And_Should_Add_The_Correct_Event_With_Controllers_And_Actions_Category_Three()
@@ -186,7 +185,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -209,7 +208,6 @@
             Assert.Equal("a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70", newTestEvent.ActionId);
             this.TearDownBase();
         }
-
 
         [Fact]
         public async Task Create_Event_Should_Change_The_Total_Count_Of_Events_And_Should_Add_The_Correct_Event_With_Controllers_And_Actions_Category_Four()
@@ -247,7 +245,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -270,7 +268,6 @@
             Assert.Equal("22011e99-c794-4fc3-b277-fb446b253d4c", newTestEvent.ActionId);
             this.TearDownBase();
         }
-
 
         [Fact]
         public async Task Create_Event_Should_Change_The_Total_Count_Of_Events_And_Should_Add_The_Correct_Event_With_Controllers_And_Actions_Category_Five()
@@ -308,7 +305,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -331,7 +328,6 @@
             Assert.Equal("22011e99-c794-4fc3-b277-fb446b253d4c", newTestEvent.ActionId);
             this.TearDownBase();
         }
-
 
         [Fact]
         public async Task Create_Event_Should_Change_The_Total_Count_Of_Events_And_Should_Add_The_Correct_Event_With_Controllers_And_Actions_Category_Six()
@@ -369,7 +365,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -392,7 +388,6 @@
             Assert.Equal("a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70", newTestEvent.ActionId);
             this.TearDownBase();
         }
-
 
         [Fact]
         public async Task Create_Event_Should_Change_The_Total_Count_Of_Events_And_Should_Add_The_Correct_Event_With_Controllers_And_Actions_Category_Seven()
@@ -430,7 +425,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -490,7 +485,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -513,7 +508,6 @@
             Assert.Equal("a1e33d52-660d-4cc9-b6b9-c04ba4b9ec70", newTestEvent.ActionId);
             this.TearDownBase();
         }
-
 
         [Fact]
         public async Task Create_Event_Should_Change_The_Total_Count_Of_Events_And_Should_Add_The_Correct_Event_With_Controllers_And_Actions_Category_Niine()
@@ -551,7 +545,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -574,7 +568,6 @@
             Assert.Equal("cf3494ef-93cc-42d2-bf8d-fc733adc3973", newTestEvent.ActionId);
             this.TearDownBase();
         }
-
 
         [Fact]
         public async Task Create_Event_Should_Change_The_Total_Count_Of_Events_And_Should_Add_The_Correct_Event_With_Controllers_And_Actions_Category_Ten()
@@ -612,7 +605,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -673,7 +666,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.nft")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             bool isContentCreator = false;
@@ -726,7 +719,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             bool isContentCreator = false;
@@ -885,7 +878,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             var testEvent = new MyEventSettingsViewModel()
@@ -944,7 +937,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.nft")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             var testEvent = new MyEventSettingsViewModel()
@@ -1041,7 +1034,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -1101,7 +1094,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -1249,7 +1242,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -1311,7 +1304,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -1368,7 +1361,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()

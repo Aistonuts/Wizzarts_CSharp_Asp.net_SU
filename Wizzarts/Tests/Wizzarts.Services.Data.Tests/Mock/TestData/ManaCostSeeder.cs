@@ -227,7 +227,6 @@
                 RemoteImageUrl = "/images/mana/b.png",
             });
 
-
             await dbContext.ManaCosts.AddAsync(new ManaCost
             {
                 Cost = 0,

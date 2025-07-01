@@ -85,14 +85,18 @@
             return this.View(avatar);
         }
 
-        // this is used for adding additional informatoin about the user. It can be used to add admin without having any admin roles, without having any admin password stored.
+        // this is used for adding additional information about the user. It can be used to add admin without having any admin roles, without having any admin password stored.
         [HttpPost]
         public async Task<IActionResult> Update(CreateMemberProfileViewModel input)
         {
             input.Avatars = await this.userService.GetAllAvatars<AvatarInListViewModel>();
             if (await this.userService.NickNameExist(input.Nickname))
             {
-                this.ModelState.AddModelError(nameof(input.Nickname), "Nickname already exist!");
+                var user = await this.userManager.GetUserAsync(this.User);
+                if (user.Nickname != input.Nickname)
+                {
+                    this.ModelState.AddModelError(nameof(input.Nickname), "Nickname already exist!");
+                }
             }
 
             this.ModelState.Remove("UserName");
