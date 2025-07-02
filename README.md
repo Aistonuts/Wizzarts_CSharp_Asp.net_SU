@@ -21,6 +21,7 @@
 #### Admin tools
 ### Web page special features
 ### Web page additional inforrmation
+### Class diagram
 ## SUMMARY
 ### Upload your art, craft your play cards and build your deck
 ##### Member's art is uploaded and visible for other members to see. Member's art is used for participating in events, forging play cards and creating articles.
@@ -151,7 +152,7 @@
 #### The admin is in charge of updating the user's orders
 ![alt text][adminapproveorder]
 
-### Web page special features
+## Web page special features
 #### It is possible to notify users about their order status by mail
 ![alt text][adminasengridone]
 ![alt text][adminasengridtwo]
@@ -161,7 +162,7 @@
 ![alt text][sanitizeone]
 ![alt text][sanitizetwo]
 
-### Web page additional inforrmation
+## Web page additional inforrmation
 #### Help page for those having problems with their content and for those interested in joining the team.
 ![alt text][help]
 
@@ -171,11 +172,38 @@
 #### Wizzarts card game rules are listed on the "Rules" page.
 ![alt text][rules]
 
-#### Wizzarts webpage terms
+#### Wizzarts webpage terms.
 ![alt text][terms]
+
+## Class diagram
+### Visualization of the project's  classes and their relationships.
+
+#### AspNetUser
+![alt text][aspuser]
+
+#### The product. Wizzart card game and its rule set.
+![alt text][wizzartsgame]
+
+#### User created Articles.
+![alt text][artticles]
+
+#### Wizzarts game play cards and decks.
+![alt text][playcards]
+
+#### Wizzarts team created events and user events.
+![alt text][events]
+
+#### Wizzarts game card deck orders
+![alt text][orders]
 
 ## END
 
+[aspuser]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AspNetUsersFirstLevel.jpg
+[wizzartsgame]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/WizzartsGame.jpg
+[artticles]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/UserArticles.jpg
+[playcards]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/PlayCards.jpg
+[events]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/Events.jpg
+[orders]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/CardOrders.jpg
 [terms]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/terms.jpg
 [rules]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/rules.jpg
 [contact]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/ContactPage.jpg
