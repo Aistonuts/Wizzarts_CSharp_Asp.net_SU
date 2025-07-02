@@ -22,6 +22,7 @@
 ### Web page special features
 ### Web page additional inforrmation
 ### Class diagram
+### Flow Chart
 ## SUMMARY
 ### Upload your art, craft your play cards and build your deck
 ##### Member's art is uploaded and visible for other members to see. Member's art is used for participating in events, forging play cards and creating articles.
@@ -196,8 +197,12 @@
 #### Wizzarts game card deck orders
 ![alt text][orders]
 
+## Flow Chart
+![alt text][flowchart]
+
 ## END
 
+[flowchart]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/FlowChart.jpg
 [aspuser]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AspNetUsersFirstLevel.jpg
 [wizzartsgame]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/WizzartsGame.jpg
 [artticles]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/UserArticles.jpg
