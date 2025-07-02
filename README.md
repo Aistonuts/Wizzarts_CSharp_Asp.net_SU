@@ -1,3 +1,7 @@
+## User story.
+### Wizzarts team request : 
+![alt text][story]
+
 # Wizzarts: Magic Cardsmith ![alt text][logo]
 ## Meet the team 
 ![alt text][team]
@@ -202,6 +206,7 @@
 
 ## END
 
+[story]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/UserStory.jpg
 [flowchart]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/FlowChart.jpg
 [aspuser]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/AspNetUsersFirstLevel.jpg
 [wizzartsgame]: https://github.com/Aistonuts/ReadMe-Utilities/blob/main/WizzartsGame.jpg
