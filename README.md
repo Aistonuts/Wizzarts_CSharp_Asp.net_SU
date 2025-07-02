@@ -1,5 +1,4 @@
-## User story.
-### Wizzarts team request : 
+# Wizzarts team request : 
 ![alt text][story]
 
 # Wizzarts: Magic Cardsmith ![alt text][logo]
