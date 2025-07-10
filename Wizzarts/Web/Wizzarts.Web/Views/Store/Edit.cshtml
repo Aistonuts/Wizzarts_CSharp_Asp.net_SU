@@ -1,7 +1,8 @@
-﻿@model Wizzarts.Web.ViewModels.Store.CreateStoreViewModel
-
+﻿@using Wizzarts.Common
+@using Wizzarts.Web.Infrastructure.Extensions
+@model Wizzarts.Web.ViewModels.Store.EditStoreViewModel
 @{
-    this.ViewData["Title"] = "Create store";
+    this.ViewData["Title"] = "Edit store";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,9 +12,15 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-7">
-                        <h3 class="ff-display">Add your store here : </h3>
+                        <h4 class="text-center mb-2 ae-border-bottom-light text-header-gold">Update store information</h4>
+
+                        <div class="col-sm-12 col-md-6 cardModal">
+                            <a class="" data-toggle="modal" data-target="#imageModal">
+                                <div class="card-image-front text-center"><img id="previewCardModal" class="card-image" src="@Model.Image" alt="Card" onerror="this.onerror=null;this.src='@Model.Image';"></div>
+                            </a>
+                        </div>
                         <div class="card-body pt-2 pb-1">
-                            <form method="post" enctype="multipart/form-data">
+                            <form method="post">
                                 <div class="form-group row mb-1">
                                     <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreName">Name</label>
                                     <div class="col-sm-8 col-lg-6">
@@ -49,27 +56,35 @@
                                     </div>
                                     <span asp-validation-for="StoreAddress" class="small text-danger"></span>
                                 </div>
-                                <div class="form-group row mb-1">
-                                    <label class="col-sm-2 col-lg-2 col-form-label" asp-for="StoreImage">Image</label>
-                                    <div class="col-sm-8 col-lg-6">
-                                        <input asp-for="StoreImage" class="form-control" placeholder="Your Store Image">
-                                    </div>
-                                    <span asp-validation-for="StoreImage" class="small text-danger"></span>
-                                </div>
+                                
                                 <div class="form-group row mb-1">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-8">
                                         <button type="submit" class="btn btn-light">
-                                            <span class="fas fa-plus"></span> <b>Create</b>
+                                            <span class="fas fa-plus"></span> <b>Update</b>
                                         </button>
                                     </div>
                                 </div>
                             </form>
+                           
+                        </div>
+                        <div class="col-xl-9 col-12">
+                            <ul class="entry-meta">
+
+                                @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName) || this.User.Identity.Name == Model.StoreOwner)
+                                {
+                                    <li class="single-meta">
+                                        <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
+                                        </form>
+                                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                                    </li>
+                                }
+                            </ul>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="w-100 text-center ae-border-bottom-light"><h4><a class="metagroup-link ff-display">Wizzarts stores</a></h4></div>
-                        @foreach (var store in this.Model.Stores.Where(x=> x.ApprovedByAdmin == true))
+                        @foreach (var store in this.Model.Stores.Where(x => x.ApprovedByAdmin == true).Take(4).OrderByDescending(x=>x.Id))
                         {
                             <div class="card mt-2 mb-2 ">
                                 <div class="w-100 d-flex justify-content-start">
@@ -89,6 +104,20 @@
                         }
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Do you want to delete "@Model.StoreName"?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
             </div>
         </div>
     </div>

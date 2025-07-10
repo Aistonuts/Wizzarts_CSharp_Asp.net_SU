@@ -11,6 +11,7 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
+    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Store;
 
     using static Wizzarts.Common.GlobalConstants;
@@ -49,6 +50,11 @@
             {
                 input.Stores = await this.storeService.GetAll<StoreInListViewModel>();
                 return this.View(input);
+            }
+
+            if (await this.storeService.StoreNameExist(input.StoreName))
+            {
+                this.ModelState.AddModelError(nameof(input.StoreName), "Store name exist.");
             }
 
             var user = await this.userManager.GetUserAsync(this.User);
@@ -120,6 +126,73 @@
             await this.storeService.DeleteAsync(id);
 
             return this.RedirectToAction("MyData", "User");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var store = await this.storeService.GetById<StoreInListViewModel>(id);
+            var viewModel = new EditStoreViewModel();
+            if (await this.storeService.ExistsAsync(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            if (await this.storeService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
+            viewModel.StoreName = store.Name;
+            viewModel.StoreCountry = store.Country;
+            viewModel.StoreCity = store.City;
+            viewModel.StorePhoneNumber = store.PhoneNumber;
+            viewModel.StoreAddress = store.Address;
+            viewModel.Image = store.Image;
+            viewModel.StoreOwner = store.StoreOwner;
+            viewModel.Id = store.Id;
+            viewModel.Stores = await this.storeService.GetAll<StoreInListViewModel>();
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, EditStoreViewModel input)
+        {
+            this.ModelState.Remove("UserName");
+            this.ModelState.Remove("Password");
+            this.ModelState.Remove("Image");
+            if (!this.ModelState.IsValid)
+            {
+                input.Stores = await this.storeService.GetAll<StoreInListViewModel>();
+                return this.View(input);
+            }
+
+            var store = await this.storeService.GetById<StoreInListViewModel>(id);
+            if (await this.storeService.StoreNameExist(input.StoreName) && store.Id != id)
+            {
+                this.ModelState.AddModelError(nameof(input.StoreName), "Article title exist.");
+            }
+
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            if (await this.storeService.ExistsAsync(id) == false)
+            {
+                return this.BadRequest();
+            }
+
+            if (await this.storeService.HasUserWithIdAsync(id, this.User.GetId()) == false
+                && this.User.IsAdmin() == false)
+            {
+                return this.Unauthorized();
+            }
+
+            await this.storeService.UpdateAsync(id, input);
+
+            this.TempData["Message"] = "Store updated successfully.";
+
+            // TODO: Redirect to article info page
+            return this.RedirectToAction(nameof(this.Edit), new { id });
         }
     }
 }

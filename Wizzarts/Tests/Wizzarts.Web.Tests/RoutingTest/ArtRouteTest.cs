@@ -71,5 +71,12 @@
                .Configuration()
                .ShouldMap("/Art/ByUserId/1")
                .To<ArtController>(c => c.ByUserId(1));
+
+        [Fact]
+        public void ApproveArt()
+         => MyRouting
+             .Configuration()
+             .ShouldMap("/Art/Member/2738e787-5d57-4bc7-b0d2-287242f04695/Administrator")
+             .To<ArtController>(c => c.ApproveArt("ab8532f9-2a2f-4b65-96f1-90e5468fbed2"));
     }
 }

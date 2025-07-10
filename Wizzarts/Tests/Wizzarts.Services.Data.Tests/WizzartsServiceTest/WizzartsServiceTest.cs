@@ -20,7 +20,7 @@
         }
 
         [Fact]
-        public async Task GetAllGameRulesDataShouldReturnTheCorrectCountAndTheFirsRuleNameShouldBeCorrect()
+        public async Task GetAllGameRulesData_Method_Should_Return_The_Correct_Count_Of_Rules_Components_And_The_First_Rule_Name_Should_Be_Correct()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -38,7 +38,7 @@
         }
 
         [Fact]
-        public async Task GetAllWizzartsTeamMembersShouldReturnCorrectCountAndTheFirstMemberNameShouldBeCorrect()
+        public async Task GetAllWizzartsTeamMembers_Method_Should_Return_Correct_Count_And_The_First_Member_Name_Should_Be_Correct()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -57,7 +57,7 @@
         }
 
         [Fact]
-        public async Task GetAllGameRulesShouldReturnNameAndShouldBeCorrect()
+        public async Task GetGameRules_Method_Should_Return_The_Correct_Rule()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -74,7 +74,7 @@
         }
 
         [Fact]
-        public async Task GetUserIdByArtistIdShouldReturnTheCorrectUserId()
+        public async Task GetUserIdByArtistId_Should_Return_The_Correct_UserId_We_Called_By_His_ArtistId()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -90,7 +90,8 @@
         }
 
         [Fact]
-        public async Task GetNonExistingUserIdByArtistIdShouldReturnNull()
+        public async Task Get_Non_Existing_UserId_ByArtistId_Should_Return_Null()
+
         {
             this.OneTimeSetup();
             var data = this.dbContext;

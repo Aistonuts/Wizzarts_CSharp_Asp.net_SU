@@ -98,25 +98,5 @@
                     }));
             this.TearDownBase();
         }
-
-        // cannot test this
-        // [Fact]
-        // public void GetByIdShouldReturnViewWithCorrectModel()
-        // {
-        //    this.OneTimeSetup();
-        //    var data = this.dbContext;
-        //    MyMvc
-        //       .Pipeline()
-        //       .ShouldMap(request => request
-        //           .WithLocation("/Art/ById/ab8532f9-2a2f-4b65-96f1-90e5468fbed2")
-        //           .WithUser())
-        //       .To<ArtController>(c => c.ById("ab8532f9-2a2f-4b65-96f1-90e5468fbed2", With.No<string>()))
-        //       .Which(controller => controller
-        //           .WithData(this.dbContext.Arts.ToList()))
-        //       .ShouldReturn()
-        //       .View(view => view
-        //           .WithModelOfType<SingleArtViewModel>());
-        //    this.TearDownBase();
-        // }
     }
 }

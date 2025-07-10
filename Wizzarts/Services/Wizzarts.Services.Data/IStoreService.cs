@@ -5,6 +5,7 @@
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Http;
+    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Store;
 
     public interface IStoreService
@@ -32,5 +33,9 @@
         Task<bool> HasUserWithIdAsync(int id, string userId);
 
         Task DeleteAsync(int id);
+
+        Task UpdateAsync(int id, EditStoreViewModel input);
+
+        Task<bool> StoreNameExist(string name);
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Wizzarts.Services.Data
+﻿using System.Threading.Tasks;
+
+namespace Wizzarts.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -12,6 +14,7 @@
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
+    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Store;
 
     public class StoreService : IStoreService
@@ -153,6 +156,27 @@
         {
             return await this.storeRepository.AllAsNoTracking()
                   .AnyAsync(a => a.Id == id && a.StoreOwnerId == userId);
+        }
+
+        public async Task<bool> StoreNameExist(string name)
+        {
+            return await this.storeRepository
+            .AllAsNoTracking().AnyAsync(a => a.Name == name);
+        }
+
+        public async Task UpdateAsync(int id, EditStoreViewModel input)
+        {
+            var store = await this.storeRepository.All().FirstOrDefaultAsync(x => x.Id == id);
+            if (store != null)
+            {
+                store.Name = input.StoreName;
+                store.Country = input.StoreCountry;
+                store.City = input.StoreCity;
+                store.PhoneNumber = input.StorePhoneNumber;
+                store.Address = input.StoreAddress;
+
+                await this.storeRepository.SaveChangesAsync();
+            }
         }
     }
 }

@@ -59,7 +59,10 @@
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
             this.ModelState.Remove("ImageUrl");
-            if (await this.articleService.ArticleTitleExist(input.Title))
+
+            var article = await this.articleService.GetById<SingleArticleViewModel>(id);
+
+            if (await this.articleService.ArticleTitleExist(input.Title) && article.Id != id)
             {
                 this.ModelState.AddModelError(nameof(input.Title), "Article title exist.");
             }

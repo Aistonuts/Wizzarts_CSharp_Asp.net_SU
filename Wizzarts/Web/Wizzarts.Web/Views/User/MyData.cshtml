@@ -156,7 +156,7 @@
                                             <span>@events.CreatedOn</span>
                                         </small>
                                         <div class="ff-display font-size-18">
-                                            <a asp-controller="@events.ControllerName" asp-action="@events.ActionName" asp-route-id="@events.Id" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()"><b>@events.Title</b></a>
+                                            <a asp-controller="@events.ControllerName" asp-action="@events.ActionName" asp-route-id="@events.Id" asp-route-information="@events.GetEventTitle()"><b>@events.Title</b></a>
                                         </div>
                                         <div class="card-text d-none d-md-flex m-1">@events.EventDescription</div>
                                     </div>
@@ -310,9 +310,9 @@
                     @foreach (var store in this.Model.Stores.ToList().Where(x => x.ApprovedByAdmin == false))
                     {
                         <div class="metagroup-container">
-                            <div class="mr-2 d-none d-lg-block">
+                                <a asp-controller="Store" asp-action="Edit" asp-route-id="@store.Id"  class="mr-2 d-none d-lg-block">
                                 <div class="meta-cardimg" style="background-image: url('@store.Image')"></div>
-                            </div>
+                            </a>
                             <div>
                                 <a class="metagroup-link">
                                     <b class="text-primary">@store.Name</b>
