@@ -2,6 +2,7 @@
 {
     using System;
     using System.Diagnostics;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
@@ -95,7 +96,7 @@
                 HasOpenDeck = await this.deckService.HasOpenDecks(this.User.GetId()),
             };
             var user = await this.userManager.GetUserAsync(this.User);
-
+            var currentRole = await this.userManager.GetRolesAsync(user);
             if (user != null)
             {
                 if (user.Nickname == string.Empty || user.AvatarUrl == string.Empty)
@@ -103,7 +104,7 @@
                     viewModel.IsProfileUpToDate = false;
                 }
 
-                viewModel.MembershipStatus = await this.userService.UpdateRoleAsync(user, user.Id);
+                viewModel.MembershipStatus = await this.userService.UpdateRoleAsync(user, user.Id, [.. currentRole]);
             }
 
             return this.View(viewModel);
@@ -121,7 +122,7 @@
                 var currentRole = await this.userManager.GetRolesAsync(user);
                 if (!currentRole.Contains(AdministratorRoleName))
                 {
-                    updateMessage = await this.userService.UpdateRoleAsync(user, user.Id);
+                    updateMessage = await this.userService.UpdateRoleAsync(user, user.Id, [.. currentRole]);
                 }
                 else
                 {

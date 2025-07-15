@@ -71,14 +71,6 @@
                 .To<HomeController>(c => c.Index(With.No<string>())));
         }
 
-        // [Fact]
-
-        // public void ErrorShouldReturnView()
-        //    => MyController<HomeController>
-        //        .Instance()
-        //        .Calling(c => c.Error())
-        //        .ShouldReturn()
-        //        .View();
         [Fact]
         public void PrivacyShouldReturnDefaultView()
             => MyController<HomeController>

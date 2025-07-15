@@ -106,9 +106,6 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            //builder.Entity<CardOrder>()
-            //.HasKey(c => new { c.OrderId, c.PlayCardId });
-
             builder.Entity<Order>()
                 .HasMany(x => x.CardsInOrder)
                 .WithMany(x => x.CardsInOrder)

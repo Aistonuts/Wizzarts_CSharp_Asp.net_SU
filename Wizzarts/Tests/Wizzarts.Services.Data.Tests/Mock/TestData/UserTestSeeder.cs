@@ -140,6 +140,18 @@
                 NormalizedEmail = "TEST",
                 PasswordHash = hasher.HashPassword(null, "Pa$$w0rd9"),
             });
+
+            await dbContext.Users.AddAsync(new ApplicationUser
+            {
+                Id = "2893eb26-f4de-4cb5-8acf-17e1888efe1e",
+                CreatedOn = DateTime.UtcNow,
+                UserName = "TestOne",
+                AvatarUrl = "/images/avatar/Portrait_Twincruiser.png",
+                NormalizedUserName = "testone",
+                Email = "admin@mail.com",
+                NormalizedEmail = "TESTONE",
+                PasswordHash = hasher.HashPassword(null, "Pa$$w0rd10"),
+            });
             await dbContext.SaveChangesAsync();
         }
     }

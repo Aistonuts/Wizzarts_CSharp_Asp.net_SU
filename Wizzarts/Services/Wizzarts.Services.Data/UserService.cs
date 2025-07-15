@@ -134,10 +134,8 @@
             await this.userRepository.SaveChangesAsync();
         }
 
-        public async Task<string> UpdateRoleAsync(ApplicationUser user, string id)
+        public async Task<string> UpdateRoleAsync(ApplicationUser user, string id, List<string> currentRole)
         {
-            var currentRole = await this.userManager.GetRolesAsync(user);
-
             var countOfArts = this.GetCountOfArt(id);
 
             var countOfArticles = this.GetCountOfArticles(id);
@@ -145,6 +143,7 @@
             var countOfEvents = this.GetCountOfEvents(id);
 
             var countOfCards = this.GetCountOfCards(id);
+
             var message = string.Empty;
 
             if (currentRole.Contains(MemberRoleName) && !currentRole.Contains(ArtistRoleName) && !currentRole.Contains(PremiumRoleName) && !currentRole.Contains(AdministratorRoleName))
@@ -152,10 +151,12 @@
                 if (countOfArts >= MemberToArtistRequiredArts)
                 {
                     await this.userManager.AddToRoleAsync(user, ArtistRoleName);
+                    message = "You have acquired the artist role.";
                 }
                 else if (countOfArticles >= RequiredNumberArticles && countOfEvents >= RequiredNumberEvents && countOfCards >= RequiredNumberEventCards)
                 {
                     await this.userManager.AddToRoleAsync(user, PremiumRoleName);
+                    message = "You have acquired premium role.";
                 }
                 else
                 {
@@ -216,7 +217,7 @@
         {
             var user = await this.userRepository.All().FirstOrDefaultAsync(x => x.Id == userId);
 
-            return user.Nickname == null || user.Nickname.Length == 0 ? false : true;
+            return user.Nickname != null && user.Nickname.Length != 0;
         }
 
         public async Task<bool> NickNameExist(string nickname)

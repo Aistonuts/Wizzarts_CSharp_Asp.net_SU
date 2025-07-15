@@ -28,7 +28,7 @@
 
         Task UpdateAsync(string id, CreateMemberProfileViewModel input);
 
-        Task<string> UpdateRoleAsync(ApplicationUser user, string id);
+        Task<string> UpdateRoleAsync(ApplicationUser user, string id, List<string> currentRole);
 
         Task<bool> IsPremium(string userId);
 
