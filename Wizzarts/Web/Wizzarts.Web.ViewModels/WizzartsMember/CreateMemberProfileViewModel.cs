@@ -26,6 +26,7 @@
 
         [Required]
         [StringLength(AgentPhoneMaxLength, MinimumLength = AgentPhoneMinLength, ErrorMessage = "The field {0} must be between {2} and {1} characters long")]
+        [Phone]
         public string PhoneNumber { get; set; } = null!;
 
         public IEnumerable<AvatarInListViewModel> Avatars { get; set; }

@@ -4,7 +4,7 @@
   "parameters": {
     "resourceGroupName": {
       "type": "string",
-      "defaultValue": "NetworkWatcherRG",
+      "defaultValue": "WizzartsWeb20250802135016ResourceGroup",
       "metadata": {
         "_parameterType": "resourceGroup",
         "description": "Name of the resource group for the resource. It is recommended to put resources under same resource group for better tracking."
@@ -12,7 +12,7 @@
     },
     "resourceGroupLocation": {
       "type": "string",
-      "defaultValue": "germanywestcentral",
+      "defaultValue": "canadacentral",
       "metadata": {
         "_parameterType": "location",
         "description": "Location of the resource group. Resource groups could have different location than resources."
@@ -36,7 +36,7 @@
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "name": "[concat(parameters('resourceGroupName'), 'Deployment', uniqueString(concat('WizzartsWeb', subscription().subscriptionId)))]",
+      "name": "[concat(parameters('resourceGroupName'), 'Deployment', uniqueString(concat('Wizzarts.Web_db', subscription().subscriptionId)))]",
       "resourceGroup": "[parameters('resourceGroupName')]",
       "apiVersion": "2019-10-01",
       "dependsOn": [
@@ -49,16 +49,26 @@
           "contentVersion": "1.0.0.0",
           "resources": [
             {
-              "sku": {
-                "name": "Free_F1",
-                "tier": "Free",
-                "size": "F1",
-                "capacity": 1
-              },
+              "kind": "v12.0",
               "location": "[parameters('resourceLocation')]",
-              "name": "WizzartsWeb",
-              "type": "Microsoft.SignalRService/SignalR",
-              "apiVersion": "2018-10-01"
+              "name": "wizzartsdb",
+              "type": "Microsoft.Sql/servers",
+              "apiVersion": "2017-10-01-preview"
+            },
+            {
+              "sku": {
+                "name": "Standard",
+                "tier": "Standard",
+                "capacity": 10
+              },
+              "kind": "v12.0,user",
+              "location": "[parameters('resourceLocation')]",
+              "name": "wizzartsdb/Wizzarts.Web_db",
+              "type": "Microsoft.Sql/servers/databases",
+              "apiVersion": "2017-10-01-preview",
+              "dependsOn": [
+                "wizzartsdb"
+              ]
             }
           ]
         }
@@ -66,6 +76,6 @@
     }
   ],
   "metadata": {
-    "_dependencyType": "signalr.azure"
+    "_dependencyType": "mssql.azure"
   }
 }

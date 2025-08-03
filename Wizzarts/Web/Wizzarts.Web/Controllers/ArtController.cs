@@ -119,6 +119,7 @@
                 return this.BadRequest();
             }
 
+            var art = await this.artService.GetById<SingleArtViewModel>(id);
             if (await this.artService.HasUserWithIdAsync(id, this.User.GetId()) == false
                 && this.User.IsAdmin() == false)
             {
@@ -128,7 +129,7 @@
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
             this.ModelState.Remove("Image");
-            if (await this.artService.ArtTitleExist(inputModel.Title))
+            if (await this.artService.ArtTitleExist(inputModel.Title) && art.Id != id)
             {
                 this.ModelState.AddModelError(nameof(inputModel.Title), "Art title exist.");
             }

@@ -128,7 +128,7 @@
                 user.AvatarUrl = input.AvatarUrl;
                 user.Bio = await this.fileService.Sanitize(input.Bio);
                 user.AvatarId = input.AvatarId;
-                user.PhoneNumber = input.PhoneNumber;
+                user.PhoneNumber = await this.fileService.Sanitize(input.PhoneNumber);
             }
 
             await this.userRepository.SaveChangesAsync();

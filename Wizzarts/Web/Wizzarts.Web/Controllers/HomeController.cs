@@ -96,9 +96,10 @@
                 HasOpenDeck = await this.deckService.HasOpenDecks(this.User.GetId()),
             };
             var user = await this.userManager.GetUserAsync(this.User);
-            var currentRole = await this.userManager.GetRolesAsync(user);
+
             if (user != null)
             {
+                var currentRole = await this.userManager.GetRolesAsync(user);
                 if (user.Nickname == string.Empty || user.AvatarUrl == string.Empty)
                 {
                     viewModel.IsProfileUpToDate = false;
