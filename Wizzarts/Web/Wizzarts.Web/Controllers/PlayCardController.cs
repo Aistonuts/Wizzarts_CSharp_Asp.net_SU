@@ -223,7 +223,6 @@
                 this.ModelState.AddModelError(nameof(input.Name), "Card name exist.");
             }
 
-
             var redManaExist = await this.playCardComponentsService.ManaColorExistsAsync(input.RedManaCost);
             var blueManaExist = await this.playCardComponentsService.ManaColorExistsAsync(input.BlueManaCost);
             var greenManaExist = await this.playCardComponentsService.ManaColorExistsAsync(input.GreenManaCost);
@@ -235,7 +234,6 @@
             {
                 this.ModelState.AddModelError(nameof(input.CardTypeId), "Category does not exist");
             }
-
 
             if (await this.playCardComponentsService.CardFrameExistsAsync(input.CardFrameId) == false ||
                 await this.playCardComponentsService.CardTypeExistsAsync(input.CardTypeId) == false)

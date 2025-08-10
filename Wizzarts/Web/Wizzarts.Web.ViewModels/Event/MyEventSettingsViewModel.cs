@@ -69,7 +69,13 @@
                     x.Title))
              .ForMember(x => x.EventDescription, opt =>
                  opt.MapFrom(x =>
-                    x.EventDescription));
+                    x.EventDescription))
+            .ForMember(x => x.CreatorAvatar, opt =>
+                   opt.MapFrom(x =>
+                       x.EventCreator.AvatarUrl))
+             .ForMember(x => x.EventCreator, opt =>
+                   opt.MapFrom(x =>
+                       x.EventCreator.UserName));
         }
     }
 }

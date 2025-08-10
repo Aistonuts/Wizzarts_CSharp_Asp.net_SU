@@ -84,7 +84,7 @@
 
             MyController<ArtController>
                 .Instance(instance => instance
-                .WithUser(X => X.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
+                .WithUser(x => x.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7"))
                     .WithData(data.Users))
                .Calling(c => c.Add(new AddArtViewModel
                {

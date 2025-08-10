@@ -19,7 +19,7 @@
                             </a>
                         </div>
                         <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
-                            <h2>@Model.CardType</h2> @* <span class="pull-right"><i class="ms ms-4 ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i></span> *@
+                            <h2>@Model.CardType</h2>
                             <p>@Model.AbilitiesAndFlavor</p>
                             <p>Expansion : @Model.CardExpansion</p>
                             <hr>
@@ -121,7 +121,7 @@
                     @foreach (var comment in this.Model.Comments.Where(x => x.IsAdminComment == false))
                     {
                         <div class="card-header pt-0 pb-0 pr-0">
-                            <a asp-controller="User" asp-action="ById" asp-route-id="@comment.PostedByUser" asp-route-information="@comment.GetWizzartsMemberName()"><b>@comment.Nickname</b></a>@*  <time class="timeago text-muted" datetime="2024-07-02 01:47:43Z" title="02 Jul 2024 01:47">a day ago</time> *@
+                            <a asp-controller="User" asp-action="ById" asp-route-id="@comment.PostedByUser" asp-route-information="@comment.GetWizzartsMemberName()"><b>@comment.Nickname</b></a>
                         </div>
                         <div class="card-body">
                             @comment.Review

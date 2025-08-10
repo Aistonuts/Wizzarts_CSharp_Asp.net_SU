@@ -1374,7 +1374,7 @@
 
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             var eventHasUserWithId = await service.HasUserWithIdAsync(newTestEvent.Id, userId);
             Assert.True(eventHasUserWithId);
 
@@ -1414,7 +1414,7 @@
 
             await service.AddComponentAsync(testEvent, userId, path);
 
-            var newTestEvent = data.EventComponents.FirstOrDefault(x => x.Title == "The newest Component");
+            var newTestEvent = await data.EventComponents.FirstOrDefaultAsync(x => x.Title == "The newest Component");
             Assert.True(await service.EventComponentExist(newTestEvent.Id));
             this.TearDownBase();
         }

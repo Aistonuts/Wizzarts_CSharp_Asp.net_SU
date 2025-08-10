@@ -49,7 +49,6 @@
                 if (user.Nickname.Length > 0)
                 {
                     message.Name = user.Nickname;
-
                 }
                 else
                 {

@@ -126,7 +126,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             var testArtPiece = new AddArtViewModel()
@@ -176,7 +176,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.nft")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isPremium = false;
 
@@ -224,7 +224,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             var testArtPiece = new AddArtViewModel()
@@ -342,7 +342,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             var testArtPiece = new AddArtViewModel()
@@ -394,7 +394,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             var testArtPiece = new AddArtViewModel()
@@ -449,7 +449,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             var testArtPiece = new AddArtViewModel()
@@ -516,7 +516,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             var testArtPiece = new AddArtViewModel()

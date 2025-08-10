@@ -126,7 +126,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             await service.CreateAsync(
                 new CreateArticleViewModel
@@ -269,7 +269,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             await service.CreateAsync(
                 new CreateArticleViewModel
@@ -328,7 +328,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             await service.CreateAsync(
@@ -391,7 +391,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             await service.CreateAsync(
@@ -459,7 +459,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             await service.CreateAsync(
                 new CreateArticleViewModel
@@ -511,7 +511,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             await service.CreateAsync(
                 new CreateArticleViewModel

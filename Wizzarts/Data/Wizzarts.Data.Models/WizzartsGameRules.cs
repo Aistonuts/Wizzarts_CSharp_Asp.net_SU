@@ -80,7 +80,7 @@
 
         public string PublishedById { get; set; } = string.Empty;
 
-        public string WizzartsCardGameId { get; set; }
+        public string WizzartsCardGameId { get; set; } = string.Empty;
 
         [ForeignKey(nameof(WizzartsCardGameId))]
         public WizzartsCardGame WizzartsCardGame { get; set; }

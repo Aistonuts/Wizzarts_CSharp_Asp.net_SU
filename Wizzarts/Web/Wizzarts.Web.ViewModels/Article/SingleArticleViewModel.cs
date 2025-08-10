@@ -48,10 +48,10 @@
                .ForMember(x => x.ArticleCreator, opt =>
                    opt.MapFrom(x =>
                        x.ArticleCreator.UserName))
-            .ForMember(x => x.ArticleCreatorAvatar, opt =>
+               .ForMember(x => x.ArticleCreatorAvatar, opt =>
                    opt.MapFrom(x =>
                        x.ArticleCreator.AvatarUrl))
-            .ForMember(x => x.ArticleCreatorBio, opt =>
+               .ForMember(x => x.ArticleCreatorBio, opt =>
                    opt.MapFrom(x =>
                        x.ArticleCreator.Bio));
         }

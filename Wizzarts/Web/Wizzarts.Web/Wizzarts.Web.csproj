@@ -68,15 +68,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Administration\Views\Dashboard\" />
-    <Folder Include="wwwroot\images\art\Beta\" />
-    <Folder Include="wwwroot\images\art\userArt\" />
-    <Folder Include="wwwroot\images\cardsByExpansion\Second\" />
+    <Folder Include="wwwroot\images\art\Alpha\DoNotDeleteFiles\" />
+    <Folder Include="wwwroot\images\art\Beta\DoNotDeleteFiles\" />
+    <Folder Include="wwwroot\images\art\Unlimited\DoNotDeleteFiles\" />
+    <Folder Include="wwwroot\images\art\userArt\OnlyUsersContent\" />
+    <Folder Include="wwwroot\images\avatar\DoNotDeleteFiles\" />
+    <Folder Include="wwwroot\images\cardsByExpansion\Alpha\DoNotDeleteFiles\" />
+    <Folder Include="wwwroot\images\cardsByExpansion\EventCards\OnlyUserContent\" />
+    <Folder Include="wwwroot\images\cardsByExpansion\PremiumUserCards\OnlyUserContent\" />
     <Folder Include="wwwroot\images\cardsByExpansion\EventCards\Flavorless\" />
     <Folder Include="wwwroot\images\cardsByExpansion\EventCards\Flavor\" />
-    <Folder Include="wwwroot\images\cardsByExpansion\PremiumUserCards\" />
+    <Folder Include="wwwroot\images\cardsByExpansion\Second\PromotedCards\" />
+    <Folder Include="wwwroot\images\cardsByExpansion\Unlimited\DoNotDeleteFiles\" />
+    <Folder Include="wwwroot\images\event\milestones\DoNotDeleteFiles\" />
+    <Folder Include="wwwroot\images\event\DoNotDeleteFiles\" />
     <Folder Include="wwwroot\images\event\UserEvent\Components\" />
+    <Folder Include="wwwroot\images\event\UserEvent\OnlyUserContent\" />
     <Folder Include="wwwroot\images\navigation\articles\" />
+    <Folder Include="wwwroot\images\Stores\DoNotDeleteFiles\" />
   </ItemGroup>
 
   <ItemGroup>

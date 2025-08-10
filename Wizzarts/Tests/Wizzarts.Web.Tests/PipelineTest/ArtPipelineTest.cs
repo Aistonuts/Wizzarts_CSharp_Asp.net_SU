@@ -68,7 +68,7 @@
                .Pipeline()
                .ShouldMap(request => request
                    .WithLocation("/Art/Edit/ab8532f9-2a2f-4b65-96f1-90e5468fbed2")
-                   .WithUser(X => X.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695")))
+                   .WithUser(x => x.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695")))
                .To<ArtController>(c => c.Edit("ab8532f9-2a2f-4b65-96f1-90e5468fbed2"))
                .Which(c => c.WithData(this.dbContext.Arts.ToList()))
                .ShouldReturn()

@@ -66,7 +66,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -124,7 +124,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.nft")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             bool isContentCreator = false;
@@ -331,7 +331,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             var testEvent = new MyEventSettingsViewModel()
@@ -391,7 +391,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.nft")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
 
             var testEvent = new MyEventSettingsViewModel()
@@ -482,7 +482,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -544,7 +544,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -692,7 +692,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -755,7 +755,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()
@@ -813,7 +813,7 @@
             var file = new FormFile(imageStream, 0, imageStream.Length, "UnitTest", "UnitTest.jpg")
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "image/jpeg"
+                ContentType = "image/jpeg",
             };
             bool isContentCreator = false;
             var testEvent = new CreateEventViewModel()

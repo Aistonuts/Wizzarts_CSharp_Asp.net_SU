@@ -16,7 +16,6 @@
         {
             await using (var stream = file.OpenReadStream())
             {
-
                 stream.Seek(0, SeekOrigin.Begin);
 
                 var jpg = new List<string> { "FF", "D8" };

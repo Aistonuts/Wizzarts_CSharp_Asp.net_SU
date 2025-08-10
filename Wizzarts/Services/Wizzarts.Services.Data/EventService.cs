@@ -39,7 +39,6 @@
             this.eventCategories = eventCategories;
             this.eventComponentsRepository = eventComponentsRepository;
             this.fileService = fileService;
-
         }
 
         public async Task CreateAsync(CreateEventViewModel input, string userId, string imagePath, bool isContentCreator)

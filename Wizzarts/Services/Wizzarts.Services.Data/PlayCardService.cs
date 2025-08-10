@@ -140,7 +140,7 @@
                     {
                         Color = manaGreen.Color,
                         RemoteImageUrl = manaGreen.RemoteImageUrl,
-                        ManaCostId= manaGreen.Id,
+                        ManaCostId = manaGreen.Id,
                     });
                 }
             }

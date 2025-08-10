@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Wizzarts.Services.Data
+﻿namespace Wizzarts.Services.Data
 {
     using System;
     using System.Collections.Generic;

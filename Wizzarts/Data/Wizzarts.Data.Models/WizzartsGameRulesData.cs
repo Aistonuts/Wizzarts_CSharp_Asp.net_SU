@@ -16,7 +16,7 @@
         [Comment("Game rule component image url. Seeded")]
         public string ImageUrl { get; set; } = string.Empty;
 
-        public string WizzartsCardGameId { get; set; }
+        public string WizzartsCardGameId { get; set; } = string.Empty;
 
         [ForeignKey(nameof(WizzartsCardGameId))]
         public WizzartsCardGame WizzartsCardGame { get; set; }

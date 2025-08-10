@@ -23,6 +23,8 @@
 
         public string ActionName { get; set; } = string.Empty;
 
+        public string CreatorAvatar { get; set; } = string.Empty;
+
         public string ControllerName { get; set; } = string.Empty;
 
         public IEnumerable<CardInListViewModel> CardsFromEvent { get; set; }
@@ -33,12 +35,18 @@
              .ForMember(x => x.ImageUrl, opt =>
                  opt.MapFrom(x =>
                     x.RemoteImageUrl))
-              .ForMember(x => x.ActionName, opt =>
+             .ForMember(x => x.ActionName, opt =>
                   opt.MapFrom(x =>
                      x.ActionName.Name.ToString()))
-                .ForMember(x => x.ControllerName, opt =>
+             .ForMember(x => x.ControllerName, opt =>
                   opt.MapFrom(x =>
-                     x.ControllerName.Name.ToString()));
+                     x.ControllerName.Name.ToString()))
+             .ForMember(x => x.CreatorAvatar, opt =>
+                   opt.MapFrom(x =>
+                       x.EventCreator.AvatarUrl))
+             .ForMember(x => x.EventCreator, opt =>
+                   opt.MapFrom(x =>
+                       x.EventCreator.UserName));
         }
     }
 }

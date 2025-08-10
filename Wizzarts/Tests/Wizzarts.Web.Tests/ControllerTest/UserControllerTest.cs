@@ -39,7 +39,7 @@
 
             MyController<UserController>
                 .Instance(instance => instance
-                  .WithUser(X => X.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
+                  .WithUser(x => x.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
                  .WithData(data.Avatars)
                   .WithData(data.Users))
              .Calling(c => c.Update(With.Any<int>()))
@@ -61,7 +61,7 @@
 
             MyController<UserController>
                 .Instance(instance => instance
-                 .WithUser(X => X.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
+                 .WithUser(x => x.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
                  .WithData(data.Avatars)
                  .WithData(data.Users))
                .Calling(c => c.Update(
@@ -94,7 +94,7 @@
 
             MyController<UserController>
                 .Instance(instance => instance
-                 .WithUser(X => X.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
+                 .WithUser(x => x.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
                  .WithData(data.Avatars)
                  .WithData(data.Users))
                .Calling(c => c.Update(
@@ -114,7 +114,6 @@
             this.TearDownBase();
         }
 
-
         [Fact]
         public void Update_Post_Should_Have_Restrictions_Fo_rHttp_Post_Only_And_Authorized_Users()
           => MyController<UserController>
@@ -131,7 +130,7 @@
 
             MyController<UserController>
                    .Instance(instance => instance
-                 .WithUser(X => X.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
+                 .WithUser(x => x.WithIdentifier("2738e787-5d57-4bc7-b0d2-287242f04695"))
                  .WithData(data.Users))
                  .Calling(c => c.MyData(1))
                  .ShouldReturn()

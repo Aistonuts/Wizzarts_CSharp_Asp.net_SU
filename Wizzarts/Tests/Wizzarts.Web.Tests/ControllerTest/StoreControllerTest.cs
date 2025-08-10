@@ -56,7 +56,7 @@
             MyController<StoreController>
                 .Instance(instance => instance
                     .WithData(data.Roles)
-                    .WithUser(X => X.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").WithRoleType(PremiumRoleName)))
+                    .WithUser(x => x.WithIdentifier("2b346dc6-5bd7-4e64-8396-15a064aa27a7").WithRoleType(PremiumRoleName)))
                 .Calling(c => c.Create(new CreateStoreViewModel
                 {
                     StoreName = "test",

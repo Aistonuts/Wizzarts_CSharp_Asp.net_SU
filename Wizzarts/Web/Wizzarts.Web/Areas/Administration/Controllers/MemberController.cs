@@ -133,7 +133,6 @@
                 Id = users.Id,
                 Email = users.Email,
                 AvatarUrl = users.AvatarUrl,
-
             };
 
             user.Arts = await this.artService.GetAllArtByUserIdPaginationless<ArtInListViewModel>(user.Id);

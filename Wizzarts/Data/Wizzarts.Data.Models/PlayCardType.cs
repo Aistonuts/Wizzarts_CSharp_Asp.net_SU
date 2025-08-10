@@ -15,7 +15,7 @@
         [Comment("Card type is.")]
         public string Name { get; set; } = string.Empty;
 
-        [Comment("Collect of cards by type.")]
+        [Comment("Collection of cards by type.")]
         public virtual ICollection<PlayCard> Cards { get; set; }
     }
 }

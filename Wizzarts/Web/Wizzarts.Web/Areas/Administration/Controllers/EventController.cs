@@ -171,7 +171,7 @@
             newEvent.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(id);
             newEvent.Events = await this.eventService.GetAllEventsByUserIdPageless<EventInListViewModel>(this.User.GetId());
             newEvent.EventId = id;
-            newEvent.CreatorAvatar = user.AvatarUrl;
+            //newEvent.CreatorAvatar = user.AvatarUrl;
             newEvent.OwnerBrowsing = false;
             newEvent.EventCategories = await this.eventService.GetAllEventCategories<EventCategoryInListViewModel>();
             bool isOwner = await this.eventService.HasUserWithIdAsync(newEvent.EventId, this.User.GetId());
@@ -201,7 +201,7 @@
                 newEvent.EventComponents = await this.eventService.GetAllEventComponents<EventComponentsInListViewModel>(input.EventId);
                 newEvent.Events = await this.eventService.GetAllEventsByUserId<EventInListViewModel>(this.User.GetId(), 1, 3);
                 newEvent.EventId = input.EventId;
-                newEvent.CreatorAvatar = user.AvatarUrl;
+                //newEvent.CreatorAvatar = user.AvatarUrl;
                 newEvent.OwnerBrowsing = false;
                 newEvent.EventCategoryId = input.EventCategoryId;
                 newEvent.EventCategories = await this.eventService.GetAllEventCategories<EventCategoryInListViewModel>();

@@ -20,8 +20,8 @@
         private readonly IDeletableEntityRepository<CardOrder> cardOrderRepository;
         private readonly IDeletableEntityRepository<Event> eventRepository;
         private readonly IDeletableEntityRepository<PlayCard> playCardRepository;
-        private readonly IDeletableEntityRepository<DeckStatus> deckStatusRepository;
         private readonly IDeletableEntityRepository<DeckOfCards> deckOfCardsRepository;
+        private readonly IDeletableEntityRepository<DeckStatus> deckStatusRepository;
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
         private readonly IPlayCardService cardService;
         private readonly IArtService artService;
@@ -51,7 +51,6 @@
             this.cardService = cardService;
             this.artService = artService;
             this.fileService = fileService;
-
         }
 
         public async Task CreateAsync(CreateDeckViewModel input, string userId, string imagePath)
