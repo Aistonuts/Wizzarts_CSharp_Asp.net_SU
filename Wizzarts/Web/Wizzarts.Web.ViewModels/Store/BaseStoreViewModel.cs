@@ -23,6 +23,7 @@
 
         [Required(ErrorMessage = RequiredMessage)]
         [StringLength(StorePhoneMaxLength, MinimumLength = StorePhoneMinLength, ErrorMessage = LengthMessage)]
+        [Phone]
         public string StorePhoneNumber { get; set; } = null!;
 
         [Required(ErrorMessage = RequiredMessage)]

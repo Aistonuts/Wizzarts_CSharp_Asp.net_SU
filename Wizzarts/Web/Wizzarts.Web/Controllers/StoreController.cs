@@ -46,12 +46,6 @@
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
 
-            if (!this.ModelState.IsValid)
-            {
-                input.Stores = await this.storeService.GetAll<StoreInListViewModel>();
-                return this.View(input);
-            }
-
             if (await this.storeService.StoreNameExist(input.StoreName))
             {
                 this.ModelState.AddModelError(nameof(input.StoreName), "Store name exist.");
@@ -59,13 +53,20 @@
 
             var user = await this.userManager.GetUserAsync(this.User);
 
+            if (!this.ModelState.IsValid)
+            {
+                input.Stores = await this.storeService.GetAll<StoreInListViewModel>();
+                return this.View(input);
+            }
+
             try
             {
                 await this.storeService.CreateAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images");
-                if (this.User.IsPremiumUser() == false)
-                {
-                    await this.userManager.AddToRoleAsync(user, PremiumRoleName);
-                }
+
+                //if (this.User.IsPremiumUser() == false)
+                //{
+                //    await this.userManager.AddToRoleAsync(user, PremiumRoleName);
+                //}
             }
             catch (Exception ex)
             {
@@ -105,6 +106,17 @@
         public async Task<IActionResult> ApproveStore(int id)
         {
             var userId = await this.storeService.ApproveStore(id);
+            if (userId == null)
+            {
+                return this.BadRequest();
+            }
+
+            var user = await this.userManager.FindByIdAsync(userId);
+            var isInRole = await this.userManager.IsInRoleAsync(user, PremiumRoleName);
+            if (isInRole == false)
+            {
+                await this.userManager.AddToRoleAsync(user, PremiumRoleName);
+            }
 
             return this.RedirectToAction("ById", "Member", new { id = $"{userId}", Area = "Administration" });
         }
@@ -162,16 +174,11 @@
             this.ModelState.Remove("UserName");
             this.ModelState.Remove("Password");
             this.ModelState.Remove("Image");
-            if (!this.ModelState.IsValid)
-            {
-                input.Stores = await this.storeService.GetAll<StoreInListViewModel>();
-                return this.View(input);
-            }
 
             var store = await this.storeService.GetById<StoreInListViewModel>(id);
             if (await this.storeService.StoreNameExist(input.StoreName) && store.Id != id)
             {
-                this.ModelState.AddModelError(nameof(input.StoreName), "Article title exist.");
+                this.ModelState.AddModelError(nameof(input.StoreName), "Store title exist.");
             }
 
             var user = await this.userManager.GetUserAsync(this.User);
@@ -185,6 +192,13 @@
                 && this.User.IsAdmin() == false)
             {
                 return this.Unauthorized();
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                input.Image = store.Image;
+                input.Stores = await this.storeService.GetAll<StoreInListViewModel>();
+                return this.View(input);
             }
 
             await this.storeService.UpdateAsync(id, input);

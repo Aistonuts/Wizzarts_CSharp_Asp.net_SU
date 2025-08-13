@@ -71,7 +71,7 @@
                             </div>
                             <div class="col-xl-9 col-12">
                                 <ul class="entry-meta">
-                                    @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                                    @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName) || this.User.Identity.Name == store.StoreOwner)
                                     {
                                         <li class="single-meta">
                                             <form method="post" asp-action="Delete" id="deleteForm" asp-route-id="@store.Id">
@@ -80,26 +80,35 @@
                                            
                                         </li>
                                         <li class="single-meta">
+                                            <a asp-controller="Store" asp-action="Edit" asp-route-id="@store.Id">
+                                                <div class="btn btn-danger">Edit</div>
+                                            </a>
+                                        </li>
+
+                                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                                        {
+                                        <li class="single-meta">
                                             <form asp-controller="Store" method="post" asp-action="ApproveStore" asp-route-id="@store.Id">
                                                 <button class="btn btn-danger">Approve</button>
                                             </form>
                                         
                                         </li>
-                                        <div class="modal" tabindex="-1" role="dialog" id="@store.Id">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-body">
-                                                        <p>Do you want to delete "@store.Name"?</p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        }                                     
                                     }
                                 </ul>
+                                <div class="modal" tabindex="-1" role="dialog" id="@store.Id">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <p>Do you want to delete "@store.Name"?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
