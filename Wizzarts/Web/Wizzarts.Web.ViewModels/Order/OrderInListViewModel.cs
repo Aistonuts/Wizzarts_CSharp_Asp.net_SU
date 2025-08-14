@@ -7,6 +7,7 @@
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.PlayCard;
+    using Wizzarts.Web.ViewModels.WizzartsMember;
 
     public class OrderInListViewModel : IndexAuthenticationViewModel, IMapFrom<Order>, IHaveCustomMappings, ISingleCardViewModel
     {
@@ -19,6 +20,10 @@
         public string DeckImageUrl { get; set; } = string.Empty;
 
         public string RecipientId { get; set; } = string.Empty;
+
+        public string RecipientName { get; set; } = string.Empty;
+
+        public string PhoneNumber { get; set; } = string.Empty;
 
         public int DeckId { get; set; }
 
@@ -35,7 +40,13 @@
             configuration.CreateMap<Order, OrderInListViewModel>()
                .ForMember(x => x.OrderStatus, opt =>
                    opt.MapFrom(x =>
-                      x.OrderStatus.Name));
+                      x.OrderStatus.Name))
+                .ForMember(x => x.RecipientName, opt =>
+                   opt.MapFrom(x =>
+                      x.Recipient.UserName))
+                 .ForMember(x => x.PhoneNumber, opt =>
+                   opt.MapFrom(x =>
+                      x.Recipient.PhoneNumber));
         }
     }
 }

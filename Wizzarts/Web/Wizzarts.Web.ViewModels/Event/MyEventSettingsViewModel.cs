@@ -9,7 +9,6 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
     using Wizzarts.Web.ViewModels.Home;
-    using Wizzarts.Web.ViewModels.TagHelper;
 
     using static Wizzarts.Common.DataConstants;
     using static Wizzarts.Common.MessageConstants;

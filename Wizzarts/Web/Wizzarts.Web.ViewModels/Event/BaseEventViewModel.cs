@@ -4,7 +4,6 @@
     using System.ComponentModel.DataAnnotations;
 
     using Microsoft.EntityFrameworkCore;
-    using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.Home;
     using Wizzarts.Web.ViewModels.TagHelper;
 

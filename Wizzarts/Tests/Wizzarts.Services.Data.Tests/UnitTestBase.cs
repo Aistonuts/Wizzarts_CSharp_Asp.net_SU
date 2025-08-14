@@ -1,6 +1,5 @@
 ﻿namespace Wizzarts.Services.Data.Tests
 {
-    using Microsoft.Extensions.Caching.Memory;
     using Wizzarts.Data;
     using Wizzarts.Services.Data.Tests.Mock;
 

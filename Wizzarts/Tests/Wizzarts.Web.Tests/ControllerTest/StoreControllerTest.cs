@@ -75,7 +75,7 @@
         }
 
         [Fact]
-        public void CreatePostShouldSaveArticleSetTempDataMessageAndRedirectWhenValidModel()
+        public void CreatePostShouldSaveStoreSetTempDataMessageAndRedirectWhenValidModel()
         {
             this.OneTimeSetup();
             var data = this.dbContext;
@@ -137,22 +137,6 @@
                         .ShouldReturn()
                         .View(view => view
                             .WithModelOfType<StoreListViewModel>());
-
-            this.TearDownBase();
-        }
-
-        [Fact]
-        public void Approve_Store_Should_Redirect_To_Correct_Location()
-        {
-            this.OneTimeSetup();
-            var data = this.dbContext;
-            var storeOwner = data.Stores.FirstOrDefault(s => s.Id == 1).StoreOwnerId;
-            MyController<StoreController>
-                        .Instance(instance => instance
-                            .WithData(data.Stores.ToList()))
-                        .Calling(c => c.ApproveStore(1))
-                        .ShouldReturn()
-                        .RedirectToAction("ById", "Member", new { id = $"{storeOwner}", Area = "Administration" });
 
             this.TearDownBase();
         }

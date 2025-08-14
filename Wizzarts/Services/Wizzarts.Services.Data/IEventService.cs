@@ -1,7 +1,6 @@
 ﻿namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
-    using System.IO;
     using System.Threading.Tasks;
 
     using Wizzarts.Web.ViewModels.Event;

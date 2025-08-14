@@ -1,6 +1,5 @@
 ﻿namespace Wizzarts.Services.Data.Tests.Mock
 {
-    using System;
     using System.Linq;
     using System.Threading.Tasks;
 

@@ -1,17 +1,15 @@
-﻿ using Microsoft.AspNetCore.Identity;
- using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 
- using System;
- using System.Collections.Generic;
- using System.Linq;
- using System.Text;
- using System.Threading.Tasks;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
- using Wizzarts.Common;
- using Wizzarts.Data;
- using Wizzarts.Data.Models;
+using Wizzarts.Common;
+using Wizzarts.Data;
+using Wizzarts.Data.Models;
 
- namespace Wizzarts.Services.Data.Tests.Mock.TestData
+namespace Wizzarts.Services.Data.Tests.Mock.TestData
  {
     public class RoleSeederTest : ITestDbSeeder
     {

@@ -85,5 +85,10 @@
         public const string BlackMana = "Black";
 
         public const string ColorlessMana = "Colorless";
+
+        // Order Status
+
+        public const string Pending = "Pending";
+
     }
 }

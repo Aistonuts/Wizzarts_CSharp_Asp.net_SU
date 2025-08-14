@@ -2,17 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Drawing;
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-
-    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using Wizzarts.Data.Common.Repositories;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Mapping;
-    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Store;
 
     public class StoreService : IStoreService

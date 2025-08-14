@@ -9,7 +9,6 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Caching.Memory;
     using MyTested.AspNetCore.Mvc;
-    using NuGet.Protocol.Core.Types;
     using Shouldly;
     using Wizzarts.Data.Models;
     using Wizzarts.Data.Repositories;

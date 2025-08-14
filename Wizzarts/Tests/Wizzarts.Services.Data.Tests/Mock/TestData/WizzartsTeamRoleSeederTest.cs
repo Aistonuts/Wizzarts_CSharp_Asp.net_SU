@@ -1,14 +1,10 @@
-﻿ using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using System.Linq;
+using System.Threading.Tasks;
 
- using System;
- using System.Collections.Generic;
- using System.Linq;
- using System.Text;
- using System.Threading.Tasks;
+using Wizzarts.Data;
 
- using Wizzarts.Data;
-
- namespace Wizzarts.Services.Data.Tests.Mock.TestData
+namespace Wizzarts.Services.Data.Tests.Mock.TestData
  {
     public class WizzartsTeamRoleSeederTest : ITestDbSeeder
     {

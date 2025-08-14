@@ -389,7 +389,7 @@
             }
 
             var user = await this.userManager.GetUserAsync(this.User);
-            if (user.Nickname.Length == 0 || user.Nickname == null)
+            if (user.Nickname.Length == 0 || user.Nickname == null || this.User.IsAdmin() == false)
             {
                 return this.RedirectToAction("SelectAvatar", "User");
             }

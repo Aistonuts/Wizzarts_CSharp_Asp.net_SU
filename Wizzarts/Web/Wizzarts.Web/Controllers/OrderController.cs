@@ -17,7 +17,9 @@
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.WizzartsMember;
 
-    public class OrderController : Controller
+    using static Wizzarts.Common.HardCodedConstants;
+
+    public class OrderController : BaseController
     {
         private readonly IEventService eventService;
         private readonly IDeckService deckService;
@@ -120,12 +122,24 @@
             }
 
             var order = await this.orderService.GetById<OrderInListViewModel>(id);
-            if (order != null)
+            if (order != null && order.OrderStatus == Pending)
             {
                 await this.orderService.CancelOrder(id);
             }
 
-            return this.RedirectToAction("All", "Deck");
+            if (order != null && order.OrderStatus != Pending)
+            {
+                await this.orderService.PauseOrder(id);
+            }
+
+            if (this.User.IsAdmin())
+            {
+                return this.RedirectToAction("All", "Order");
+            }
+            else
+            {
+                return this.RedirectToAction("All", "Deck");
+            }
         }
 
         public async Task<IActionResult> SendToEmail(int id)

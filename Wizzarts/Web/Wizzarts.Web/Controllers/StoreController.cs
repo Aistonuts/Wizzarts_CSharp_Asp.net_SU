@@ -11,7 +11,6 @@
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
-    using Wizzarts.Web.ViewModels.Article;
     using Wizzarts.Web.ViewModels.Store;
 
     using static Wizzarts.Common.GlobalConstants;
@@ -62,11 +61,6 @@
             try
             {
                 await this.storeService.CreateAsync(input, this.User.GetId(), $"{this.environment.WebRootPath}/images");
-
-                //if (this.User.IsPremiumUser() == false)
-                //{
-                //    await this.userManager.AddToRoleAsync(user, PremiumRoleName);
-                //}
             }
             catch (Exception ex)
             {
@@ -106,12 +100,13 @@
         public async Task<IActionResult> ApproveStore(int id)
         {
             var userId = await this.storeService.ApproveStore(id);
-            if (userId == null)
+
+            var user = await this.userManager.FindByIdAsync(userId);
+            if (user == null)
             {
                 return this.BadRequest();
             }
 
-            var user = await this.userManager.FindByIdAsync(userId);
             var isInRole = await this.userManager.IsInRoleAsync(user, PremiumRoleName);
             if (isInRole == false)
             {

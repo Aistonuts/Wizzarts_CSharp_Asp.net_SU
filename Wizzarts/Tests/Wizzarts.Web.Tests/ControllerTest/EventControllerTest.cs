@@ -4,7 +4,6 @@
     using System.Drawing.Imaging;
     using System.IO;
     using System.Linq;
-    using System.Text;
 
     using Microsoft.AspNetCore.Http;
     using MyTested.AspNetCore.Mvc;

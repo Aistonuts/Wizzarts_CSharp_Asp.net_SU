@@ -1,7 +1,6 @@
 ﻿namespace Wizzarts.Services.Data.Tests.AdminEventServiceTest
 {
     using System;
-    using System.Collections.Generic;
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;
@@ -80,7 +79,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             Assert.Equal(5, count);
             Assert.Equal(testEvent.Title, newTestEvent.Title);
             Assert.Equal(1, newTestEvent.EventCategoryId);
@@ -140,7 +139,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             Assert.Equal(5, count);
             Assert.Equal(testEvent.Title, newTestEvent.Title);
             Assert.Equal(2, newTestEvent.EventCategoryId);
@@ -200,7 +199,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             Assert.Equal(5, count);
             Assert.Equal(testEvent.Title, newTestEvent.Title);
             Assert.Equal(3, newTestEvent.EventCategoryId);
@@ -260,7 +259,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             Assert.Equal(5, count);
             Assert.Equal(testEvent.Title, newTestEvent.Title);
             Assert.Equal(4, newTestEvent.EventCategoryId);
@@ -320,7 +319,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             Assert.Equal(5, count);
             Assert.Equal(testEvent.Title, newTestEvent.Title);
             Assert.Equal(5, newTestEvent.EventCategoryId);
@@ -380,7 +379,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             Assert.Equal(5, count);
             Assert.Equal(testEvent.Title, newTestEvent.Title);
             Assert.Equal(6, newTestEvent.EventCategoryId);
@@ -440,7 +439,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             Assert.Equal(5, count);
             Assert.Equal(testEvent.Title, newTestEvent.Title);
             Assert.Equal(7, newTestEvent.EventCategoryId);
@@ -500,7 +499,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             Assert.Equal(5, count);
             Assert.Equal(testEvent.Title, newTestEvent.Title);
             Assert.Equal(8, newTestEvent.EventCategoryId);
@@ -560,7 +559,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             Assert.Equal(5, count);
             Assert.Equal(testEvent.Title, newTestEvent.Title);
             Assert.Equal(9, newTestEvent.EventCategoryId);
@@ -620,7 +619,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             Assert.Equal(5, count);
             Assert.Equal(testEvent.Title, newTestEvent.Title);
             Assert.Equal(10, newTestEvent.EventCategoryId);
@@ -733,7 +732,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             Assert.Equal(5, count);
             Assert.Equal(testEvent.Title, newTestEvent.Title);
             Assert.Equal("4c78da1b-5bfb-4f7a-92de-77d80295863e", newTestEvent.ControllerId);
@@ -1049,7 +1048,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             bool currentEventStatus = newTestEvent.ApprovedByAdmin;
             await service.ApproveEvent(newTestEvent.Id);
             Assert.Equal(5, count);
@@ -1108,7 +1107,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             newTestEvent.ApprovedByAdmin = true;
             Assert.Null(await service.ApproveEvent(newTestEvent.Id));
             this.TearDownBase();
@@ -1256,7 +1255,7 @@
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
             var count = await eventRepository.All().CountAsync();
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             await service.DeleteAsync(newTestEvent.Id);
             var eventNotFound = data.Events.Any(x => x.Title == "The newest Event");
             var newCount = await eventRepository.All().CountAsync();
@@ -1317,7 +1316,7 @@
 
             await service.CreateAsync(testEvent, userId, path, isContentCreator);
 
-            var newTestEvent = data.Events.FirstOrDefault(x => x.Title == "The newest Event");
+            var newTestEvent = await data.Events.FirstOrDefaultAsync(x => x.Title == "The newest Event");
             var newEventExist = await service.EventExist(newTestEvent.Id);
             Assert.True(newEventExist);
 

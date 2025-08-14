@@ -1,10 +1,7 @@
 ﻿namespace Wizzarts.Services.Data
 {
     using System.Collections.Generic;
-    using System.IO;
     using System.Threading.Tasks;
-
-    using Microsoft.AspNetCore.Http;
     using Wizzarts.Web.ViewModels.Article;
 
     public interface IArticleService

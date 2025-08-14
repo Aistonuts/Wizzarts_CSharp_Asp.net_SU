@@ -8,14 +8,12 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
     using Wizzarts.Common;
     using Wizzarts.Data.Models;
     using Wizzarts.Services.Data;
     using Wizzarts.Web.Infrastructure.Extensions;
     using Wizzarts.Web.ViewModels.Deck;
     using Wizzarts.Web.ViewModels.Event;
-    using Wizzarts.Web.ViewModels.Order;
     using Wizzarts.Web.ViewModels.PlayCard;
     using Wizzarts.Web.ViewModels.Store;
 
