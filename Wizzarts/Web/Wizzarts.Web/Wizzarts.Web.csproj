@@ -80,7 +80,7 @@
     <Folder Include="wwwroot\images\cardsByExpansion\EventCards\Flavor\" />
     <Folder Include="wwwroot\images\cardsByExpansion\Second\PromotedCards\" />
     <Folder Include="wwwroot\images\cardsByExpansion\Unlimited\DoNotDeleteFiles\" />
-    <Folder Include="wwwroot\images\event\milestones\DoNotDeleteFiles\" />
+    <Folder Include="wwwroot\images\event\milestones\DoNotDeleteFolders\" />
     <Folder Include="wwwroot\images\event\DoNotDeleteFiles\" />
     <Folder Include="wwwroot\images\event\UserEvent\Components\" />
     <Folder Include="wwwroot\images\event\UserEvent\OnlyUserContent\" />
